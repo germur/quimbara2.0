@@ -1,0 +1,59 @@
+---
+// src/components/ArticleCard.astro
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  article: CollectionEntry<'blog'>;
+  large?: boolean; // For the featured article in Bento Grid
+}
+
+const { article, large = false } = Astro.props;
+const { titulo, categoria, fechaPublicacion, imagenPortada } = article.data;
+
+// Format date
+const dtf = new Intl.DateTimeFormat('es-ES', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric'
+});
+const formattedDate = dtf.format(fechaPublicacion);
+
+// Mock read time since we don't have remark plugin setup yet
+const readTime = "5 min"; 
+
+// Category badge colors directly using Tailwind v4 theme variables defined in CSS
+const badgeColors = {
+  analisis: 'text-[var(--color-cat-analisis)] border-[var(--color-cat-analisis)]',
+  historias: 'text-[var(--color-cat-historias)] border-[var(--color-cat-historias)]',
+  opinion: 'text-[var(--color-cat-opinion)] border-[var(--color-cat-opinion)]',
+};
+
+const badgeClass = badgeColors[categoria as keyof typeof badgeColors] || 'text-[var(--theme-text-dim)] border-[var(--theme-text-dim)]';
+---
+
+<a href={`/blog/${article.id}/`} class="article-card block group rounded-md overflow-hidden bg-[var(--theme-card)] border border-[var(--theme-border)]">
+  {imagenPortada && (
+    <div class={`relative w-full overflow-hidden ${large ? 'h-64 md:h-96' : 'h-48'}`}>
+      <!-- Using standard img for now to easily support absolute URLs or local public images without static imports. -->
+      <img 
+        src={imagenPortada} 
+        alt={`Portada de ${titulo}`} 
+        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+        loading={large ? "eager" : "lazy"} 
+      />
+    </div>
+  )}
+  <div class={`p-4 md:p-6 ${large ? 'md:p-8' : ''}`}>
+    <span class={`inline-block px-2 py-0.5 mb-3 text-[0.7rem] font-bold uppercase tracking-wider border rounded-sm ${badgeClass}`}>
+      {categoria}
+    </span>
+    <h2 class={`font-display font-bold leading-tight mb-3 line-clamp-2 text-[var(--theme-text-main)] group-hover:text-[var(--theme-accent)] transition-colors ${large ? 'text-2xl md:text-4xl' : 'text-base md:text-xl'}`}>
+      {titulo}
+    </h2>
+    <div class="text-[0.75rem] font-medium text-[var(--theme-text-dim)] flex items-center gap-2 tracking-wide font-body">
+      <time datetime={fechaPublicacion.toISOString()}>{formattedDate}</time>
+      <span>&middot;</span>
+      <span>{readTime}</span>
+    </div>
+  </div>
+</a>

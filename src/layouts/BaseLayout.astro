@@ -1,0 +1,81 @@
+---
+// src/layouts/BaseLayout.astro
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  publishDate?: Date;
+  updateDate?: Date;
+  noIndex?: boolean;
+  schema?: string;
+}
+
+const {
+  title = "Quimbara",
+  description = "Blog personal sobre UFC y deportes de combate.",
+  canonicalUrl = Astro.url.href,
+  ogType = 'website',
+  ogImage = '/default-og.jpg',
+  publishDate,
+  updateDate,
+  noIndex = false,
+  schema,
+} = Astro.props;
+
+const siteTitle = title === "Quimbara" ? title : `${title} — Quimbara`;
+---
+
+<!doctype html>
+<html lang="es" class="antialiased font-body">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{siteTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noIndex && <meta name="robots" content="noindex, follow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content={ogType} />
+
+    {publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
+    {updateDate && <meta property="article:modified_time" content={updateDate.toISOString()} />}
+
+    <!-- Google Fonts Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+
+    <!-- Dark Mode Init Script (Prevents FOUC) -->
+    <script is:inline>
+      const t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    {schema && <script type="application/ld+json" set:html={schema} />}
+  </head>
+  <body class="bg-base text-main min-h-screen flex flex-col transition-colors duration-200">
+    <Header />
+    <main class="flex-grow w-full max-w-[1280px] mx-auto px-4 md:px-8 py-8">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

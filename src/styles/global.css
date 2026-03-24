@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-base: var(--theme-base);
+  --color-surface: var(--theme-surface);
+  --color-card: var(--theme-card);
+  --color-text-main: var(--theme-text-main);
+  --color-text-dim: var(--theme-text-dim);
+  --color-accent: var(--theme-accent);
+  --color-danger: var(--theme-danger);
+  --color-border-subtle: var(--theme-border);
+
+  --color-cat-analisis: #d4af37;
+  --color-cat-historias: #4a90a4;
+  --color-cat-opinion: #c0392b;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --theme-base: #ffffff;
+    --theme-surface: #f9f9f9;
+    --theme-card: #f2f2f2;
+    --theme-text-main: #0f0f0f;
+    --theme-text-dim: #666666;
+    --theme-accent: #b8960c;
+    --theme-danger: #a93226;
+    --theme-border: #e5e5e5;
+  }
+
+  .dark {
+    --theme-base: #0a0a0a;
+    --theme-surface: #111111;
+    --theme-card: #1a1a1a;
+    --theme-text-main: #f0f0f0;
+    --theme-text-dim: #888888;
+    --theme-accent: #d4af37;
+    --theme-danger: #c0392b;
+    --theme-border: #2a2a2a;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--theme-base);
+    color: var(--theme-text-main);
+    font-family: var(--font-body);
+    @apply transition-colors duration-200;
+  }
+  
+  h1, h2, .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Typography Scale */
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  
+  h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  
+  h3 {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 700;
+    font-family: var(--font-body);
+  }
+  
+  .text-body {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    font-weight: 400;
+    line-height: 1.75;
+  }
+  
+  .text-meta {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  /* Links in article body */
+  .article-content a {
+    color: var(--theme-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 150ms ease;
+  }
+  
+  .article-content a:hover {
+    opacity: 0.75;
+  }
+
+  /* Reading column */
+  .reading-col {
+    max-width: 68ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Microinteractions */
+  .article-card {
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+  
+  .article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+}

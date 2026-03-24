@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleCard from '../components/ArticleCard.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Get all published or updated posts
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.estado !== 'draft';
+});
+
+// Sort by date descending
+allPosts.sort((a, b) => b.data.fechaPublicacion.valueOf() - a.data.fechaPublicacion.valueOf());
+
+const featuredPost = allPosts[0];
+const restPosts = allPosts.slice(1);
+---
+
+<BaseLayout>
+  <div class="space-y-12">
+    <!-- Featured Post -->
+    {featuredPost && (
+      <section>
+        <ArticleCard article={featuredPost} large={true} />
+      </section>
+    )}
+
+    <!-- Recent Posts Grid -->
+    {restPosts.length > 0 && (
+      <section>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {restPosts.map(post => (
+            <ArticleCard article={post} />
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>

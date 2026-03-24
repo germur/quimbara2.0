@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog', ({ data }) => {
+    return data.estado !== 'draft';
+  });
+
+  const uniqueTags = [...new Set(allPosts.map((post) => post.data.etiquetas).flat())];
+
+  return uniqueTags.map((etiqueta) => {
+    const filteredPosts = allPosts.filter((post) => post.data.etiquetas.includes(etiqueta));
+    return {
+      params: { etiqueta },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { etiqueta } = Astro.params;
+const { posts } = Astro.props;
+
+// Sort by date descending
+posts.sort((a, b) => b.data.fechaPublicacion.valueOf() - a.data.fechaPublicacion.valueOf());
+
+const title = `Etiqueta: ${etiqueta}`;
+---
+
+<BaseLayout title={title} description={`Artículos con la etiqueta ${etiqueta}`}>
+  <div class="space-y-8">
+    <header class="mb-12 border-b border-[var(--theme-border)] pb-8">
+      <div class="text-[var(--theme-text-dim)] text-sm font-medium uppercase tracking-wider mb-2">Etiqueta</div>
+      <h1 class="font-display text-4xl font-bold text-[var(--theme-text-main)]">#{etiqueta}</h1>
+    </header>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.map(post => (
+        <ArticleCard article={post} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

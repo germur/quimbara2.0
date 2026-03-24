@@ -1,0 +1,12 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="mt-16 py-8 border-t border-[var(--theme-border)] text-center text-[var(--theme-text-dim)]">
+  <div class="max-w-[1280px] mx-auto px-4 md:px-8">
+    <p class="text-sm font-body">
+      &copy; {currentYear} Quimbara. Todos los derechos reservados.
+    </p>
+  </div>
+</footer>
