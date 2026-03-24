@@ -1,120 +1,54 @@
 @import "tailwindcss";
-
-@custom-variant dark (&:is(.dark *));
+@plugin "@tailwindcss/typography";
 
 @theme {
-  --color-base: var(--theme-base);
-  --color-surface: var(--theme-surface);
-  --color-card: var(--theme-card);
-  --color-text-main: var(--theme-text-main);
-  --color-text-dim: var(--theme-text-dim);
-  --color-accent: var(--theme-accent);
-  --color-danger: var(--theme-danger);
-  --color-border-subtle: var(--theme-border);
-
-  --color-cat-analisis: #d4af37;
-  --color-cat-historias: #4a90a4;
-  --color-cat-opinion: #c0392b;
-
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-}
-
-@layer base {
-  :root {
-    --theme-base: #ffffff;
-    --theme-surface: #f9f9f9;
-    --theme-card: #f2f2f2;
-    --theme-text-main: #0f0f0f;
-    --theme-text-dim: #666666;
-    --theme-accent: #b8960c;
-    --theme-danger: #a93226;
-    --theme-border: #e5e5e5;
-  }
-
-  .dark {
-    --theme-base: #0a0a0a;
-    --theme-surface: #111111;
-    --theme-card: #1a1a1a;
-    --theme-text-main: #f0f0f0;
-    --theme-text-dim: #888888;
-    --theme-accent: #d4af37;
-    --theme-danger: #c0392b;
-    --theme-border: #2a2a2a;
-  }
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Inter', system-ui, sans-serif; /* the new instructions do not mention serif */
+  /* Wait, they did not mention serif, they said H1, H2, H3 text-white, font-bold uppercase. I'll just keep Inter for everything now if they didn't specify serif */
+  /* But let's check: "Acento Secundario: amber-500 ... Títulos (H1, H2, H3): text-white" */
 }
 
 @layer base {
   body {
-    background-color: var(--theme-base);
-    color: var(--theme-text-main);
-    font-family: var(--font-body);
-    @apply transition-colors duration-200;
+    @apply antialiased transition-colors duration-300;
   }
   
-  h1, h2, .font-display {
-    font-family: var(--font-display);
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-white font-bold tracking-tight uppercase;
   }
 
-  /* Typography Scale */
-  h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+  /* Global styles for links as requested */
+  .content-area a {
+    @apply text-zinc-300 transition-colors duration-300;
   }
   
-  h2 {
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+  .content-area a:hover {
+    @apply text-red-500;
   }
-  
-  h3 {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    font-weight: 700;
-    font-family: var(--font-body);
-  }
-  
-  .text-body {
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
-    font-weight: 400;
-    line-height: 1.75;
-  }
-  
-  .text-meta {
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
+}
 
-  /* Links in article body */
-  .article-content a {
-    color: var(--theme-accent);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: opacity 150ms ease;
+@layer components {
+  .btn-primary {
+    @apply bg-red-600 text-white font-bold uppercase tracking-wide px-4 py-2 transition-all duration-300;
+  }
+  .btn-primary:hover {
+    @apply bg-red-700 scale-[1.02];
+  }
+  .btn-primary:active {
+    @apply scale-95;
   }
   
-  .article-content a:hover {
-    opacity: 0.75;
+  .btn-outline {
+    @apply bg-transparent border border-zinc-700 text-zinc-300 px-4 py-2 transition-all duration-300;
   }
-
-  /* Reading column */
-  .reading-col {
-    max-width: 68ch;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Microinteractions */
-  .article-card {
-    transition: transform 150ms ease, box-shadow 150ms ease;
+  .btn-outline:hover {
+    @apply border-red-600 text-white;
   }
   
-  .article-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  .input-field {
+    @apply bg-zinc-950 border border-zinc-800 text-zinc-200 px-4 py-2 outline-none transition-all duration-300 w-full;
+  }
+  .input-field:focus {
+    @apply ring-2 ring-red-600 border-transparent;
   }
 }

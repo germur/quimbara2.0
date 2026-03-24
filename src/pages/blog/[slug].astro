@@ -1,12 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ArticleCard from '../../components/ArticleCard.astro';
+import Tag from '../../components/Tag.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => {
-    return data.estado !== 'draft';
-  });
+  const posts = await getCollection('blog');
 
   return posts.map((post) => ({
     params: { slug: post.id },
@@ -18,23 +16,14 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 
 const {
-  titulo,
-  descripcion,
-  autor,
-  fechaPublicacion,
-  fechaActualizacion,
-  imagenPortada,
-  categoria,
-  etiquetas,
-  noIndex,
-  relacionados
+  title,
+  description,
+  author,
+  pubDate,
+  image,
+  category,
+  tags,
 } = post.data;
-
-// Find related posts if they exist
-const allPosts = await getCollection('blog', ({ data }) => data.estado !== 'draft');
-const relatedPosts = relacionados 
-  ? allPosts.filter(p => relacionados.includes(p.id)).slice(0, 3) 
-  : [];
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site || Astro.url.origin).href;
 
@@ -44,21 +33,31 @@ const dtf = new Intl.DateTimeFormat('es-ES', {
   month: 'short',
   year: 'numeric'
 });
-const publishDateStr = dtf.format(fechaPublicacion);
-const updateDateStr = fechaActualizacion ? dtf.format(fechaActualizacion) : null;
+const publishDateStr = dtf.format(pubDate);
 
-const readTime = "8 min lectura"; // Placeholder until remark plugin
+const readTime = "8 min lectura"; // Placeholder
 
 // Schema JSON-LD
 const articleSchema = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": titulo,
-  "description": descripcion,
-  "author": { "@type": "Person", "name": autor },
-  "datePublished": fechaPublicacion.toISOString(),
-  "dateModified": fechaActualizacion ? fechaActualizacion.toISOString() : fechaPublicacion.toISOString(),
-  "image": imagenPortada ? new URL(imagenPortada, Astro.url.origin).href : undefined
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "author": { 
+    "@type": "Person", 
+    "name": author,
+    "url": new URL("/", Astro.url.origin).href
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Quimbara",
+    "logo": {
+      "@type": "ImageObject",
+      "url": new URL("/favicon.svg", Astro.url.origin).href
+    }
+  },
+  "datePublished": pubDate.toISOString(),
+  "image": image ? new URL(image, Astro.url.origin).href : undefined
 };
 
 const breadcrumbSchema = {
@@ -74,140 +73,99 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       "position": 2,
-      "name": categoria,
-      "item": new URL(`/categoria/${categoria}/`, Astro.url.origin).href
+      "name": category,
+      "item": new URL(`/categoria/${category}/`, Astro.url.origin).href
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": titulo,
+      "name": title,
       "item": canonicalUrl
     }
   ]
 };
 
 const combinedSchema = `[${JSON.stringify(articleSchema)}, ${JSON.stringify(breadcrumbSchema)}]`;
-
-const badgeColors = {
-  analisis: 'text-[var(--color-cat-analisis)] border-[var(--color-cat-analisis)]',
-  historias: 'text-[var(--color-cat-historias)] border-[var(--color-cat-historias)]',
-  opinion: 'text-[var(--color-cat-opinion)] border-[var(--color-cat-opinion)]',
-};
-const badgeClass = badgeColors[categoria as keyof typeof badgeColors] || 'text-[var(--theme-text-dim)] border-[var(--theme-text-dim)]';
 ---
 
 <BaseLayout 
-  title={titulo} 
-  description={descripcion} 
+  title={title} 
+  description={description} 
   canonicalUrl={canonicalUrl}
   ogType="article"
-  ogImage={imagenPortada}
-  publishDate={fechaPublicacion}
-  updateDate={fechaActualizacion}
-  noIndex={noIndex}
+  ogImage={image}
+  publishDate={pubDate}
   schema={combinedSchema}
 >
-  <article class="max-w-[900px] mx-auto">
-    <!-- Breadcrumb -->
-    <nav aria-label="Breadcrumb" class="mb-6 text-sm text-[var(--theme-text-dim)] font-body">
-      <ol class="flex items-center space-x-2">
-        <li><a href="/" class="hover:text-[var(--theme-text-main)] transition-colors">Inicio</a></li>
-        <li><span aria-hidden="true">&gt;</span></li>
-        <li><a href={`/categoria/${categoria}/`} class="hover:text-[var(--theme-text-main)] transition-colors capitalize">{categoria}</a></li>
-      </ol>
+  <!-- Progress Bar Ficticia -->
+  <div slot="progress-bar" class="fixed top-0 left-0 h-1 bg-red-600 z-[60] w-1/3"></div>
+
+  <!-- Contenedor Principal de Lectura -->
+  <div class="max-w-3xl mx-auto px-4 pt-12 pb-24 w-full">
+    
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="text-sm text-zinc-500 mb-8 font-medium">
+      <a href="/" class="hover:text-zinc-300 transition-colors">Inicio</a> 
+      <span class="mx-2">/</span> 
+      <a href={`/categoria/${category.toLowerCase()}/`} class="hover:text-zinc-300 transition-colors">{category}</a> 
+      <span class="mx-2">/</span> 
+      <span class="text-zinc-400">{title}</span>
     </nav>
 
-    <!-- Header -->
-    <header class="mb-10 text-center md:text-left">
-      <h1 class="font-display text-[clamp(2rem,5vw,3.5rem)] font-black leading-tight tracking-tight text-[var(--theme-text-main)] mb-6">
-        {titulo}
+    <!-- Cabecera del Artículo -->
+    <header class="mb-10">
+      <h1 class="text-4xl md:text-5xl font-black text-white uppercase leading-tight tracking-tight mb-6">
+        {title}
       </h1>
       
       <!-- Meta Info -->
-      <div class="flex flex-wrap items-center justify-center md:justify-start gap-y-2 gap-x-3 text-[0.85rem] font-medium text-[var(--theme-text-dim)] uppercase tracking-wider font-body">
-        <a href={`/categoria/${categoria}/`} class={`border inline-block px-2 py-0.5 rounded-sm ${badgeClass}`}>
-          {categoria}
-        </a>
-        <span>&middot;</span>
-        <span class="text-[var(--theme-text-main)]">{autor}</span>
-        
-        {etiquetas.length > 0 && (
-          <>
-            <span>&middot;</span>
-            <div class="flex gap-2">
-              {etiquetas.map(eq => (
-                <a href={`/etiqueta/${eq}/`} class="hover:text-[var(--theme-text-main)] transition-colors">{eq}</a>
-              ))}
-            </div>
-          </>
-        )}
-        
-        <span>&middot;</span>
-        <time datetime={fechaPublicacion.toISOString()}>{publishDateStr}</time>
-        {updateDateStr && (
-          <span class="text-[0.75rem] lowercase" title="Actualizado"> (act. {updateDateStr})</span>
-        )}
+      <div class="flex flex-wrap items-center gap-4 text-sm text-zinc-400 mb-8 pb-8 border-b border-zinc-800 uppercase tracking-wide">
+        <time datetime={pubDate.toISOString()}>{publishDateStr}</time>
         <span>&middot;</span>
         <span>{readTime}</span>
+        <span>&middot;</span>
+        <span class="text-zinc-300 font-bold">{author}</span>
       </div>
+
+      <!-- Tags -->
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-3 mb-12">
+          {tags.map(eq => (
+            <Tag name={eq} />
+          ))}
+        </div>
+      )}
     </header>
 
     <!-- Cover Image -->
-    {imagenPortada && (
-      <div class="mb-12 w-full max-w-[900px] mx-auto overflow-hidden rounded-md">
+    {image && (
+      <div class="mb-12 w-full overflow-hidden rounded-xl border border-zinc-800">
         <img 
-          src={imagenPortada} 
-          alt={`Portada de ${titulo}`} 
+          src={image} 
+          alt={`Portada de ${title}`} 
           class="w-full h-auto object-cover max-h-[500px]" 
         />
       </div>
     )}
 
-    <!-- Content Layout (Grid with optional ToC space on left in Desktop) -->
-    <div class="grid grid-cols-1 xl:grid-cols-[200px_minmax(0,1fr)_xl] gap-8">
-      <!-- Sticky ToC (Desktop only) -->
-      <aside class="hidden xl:block">
-        <div class="sticky top-[100px]">
-          <!-- ToC logic will be implemented here -->
-          <div class="text-xs uppercase tracking-wider font-bold text-[var(--theme-text-dim)] mb-4">Tabla de Contenidos</div>
-          <div class="text-sm text-[var(--theme-text-dim)] truncate italic">Disponible pronto...</div>
-        </div>
-      </aside>
+    <!-- Cuerpo del contenido (Prose) -->
+    <article class="prose prose-invert prose-zinc max-w-none mt-10 prose-headings:font-bold prose-headings:uppercase prose-headings:tracking-tight prose-a:text-red-500 prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl">
+      <Content />
+    </article>
 
-      <!-- Main Content -->
-      <div class="reading-col prose prose-lg dark:prose-invert prose-headings:font-display prose-headings:font-bold prose-h2:text-[clamp(1.4rem,3vw,2rem)] prose-h3:font-body prose-h3:text-[clamp(1.1rem,2vw,1.4rem)] prose-a:text-[var(--theme-accent)] prose-a:underline prose-a:underline-offset-3 hover:prose-a:opacity-75 prose-img:rounded-md w-full max-w-[68ch]">
-        <!-- We use standard Tailwind prose typography class but override with custom font variables via Tailwind v4 syntax or custom CSS -->
-        <div class="article-content text-body space-y-6">
-          <Content />
-        </div>
-      </div>
-    </div>
-
-    <!-- Author Bio (Simple) -->
-    <div class="reading-col border-t border-[var(--theme-border)] mt-16 pt-8 flex items-center gap-4">
-      <div class="w-16 h-16 rounded-full bg-[var(--theme-surface)] flex items-center justify-center text-xl font-bold text-[var(--theme-text-dim)]">
-        {autor.charAt(0)}
+    <!-- Bloque de Autor (E-E-A-T SEO) -->
+    <div class="mt-24 p-8 bg-zinc-900 border border-zinc-800 rounded-xl flex flex-col md:flex-row items-center md:items-start gap-6">
+      <div class="w-20 h-20 bg-zinc-800 rounded-full flex-shrink-0 flex items-center justify-center text-3xl font-black text-zinc-600">
+        <!-- Initials as placeholder for avatar -->
+        {author.split(' ').map(n=>n[0]).join('')}
       </div>
       <div>
-        <h3 class="font-bold text-lg text-[var(--theme-text-main)] mb-1">Escrito por {autor}</h3>
-        <p class="text-[var(--theme-text-dim)] text-sm">Analista y redactor de artes marciales mixtas. Apasionado por la técnica y la narrativa en la jaula.</p>
+        <h3 class="text-xl font-bold text-white mb-2">Escrito por {author}</h3>
+        <p class="text-zinc-400 leading-relaxed text-sm">
+          Especialista en SEO, practicante de Jiu-Jitsu Brasileño y analista técnico de Artes Marciales Mixtas. Con un enfoque meticuloso en la biomecánica y estrategia de combate, desglosa el juego de los campeones mundiales para entender qué sucede realmente dentro del octágono.
+        </p>
       </div>
     </div>
-  </article>
 
-  <!-- Related Articles -->
-  {relatedPosts.length > 0 && (
-    <section class="max-w-[1280px] mx-auto mt-24 border-t border-[var(--theme-border)] pt-16">
-      <h2 class="font-body font-medium text-2xl text-[var(--theme-text-main)] mb-8">Sigue leyendo</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {relatedPosts.map(post => (
-          <ArticleCard article={post} />
-        ))}
-      </div>
-    </section>
-  )}
+  </div>
 </BaseLayout>
-
-<style>
-  /* Extra article-specific styles if needed that aren't covered by global.css */
-</style>

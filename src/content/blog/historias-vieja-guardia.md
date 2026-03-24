@@ -1,13 +1,11 @@
 ---
-titulo: "El último destello de la vieja guardia"
-descripcion: "¿Cuándo sabemos que es el momento del adiós? Una crónica de los veteranos."
-autor: "Ger Mur"
-fechaPublicacion: 2025-03-22T14:30:00Z
-imagenPortada: "/images/veteranos.jpg"
-categoria: "historias"
-etiquetas: ["leyendas", "retiro", "ufc"]
-estado: "published"
-relacionados: ["analisis-karate-mma"]
+title: "El último destello de la vieja guardia"
+description: "¿Cuándo sabemos que es el momento del adiós? Una crónica de los veteranos."
+author: "Roger Murillo"
+pubDate: 2025-03-22T14:30:00Z
+image: "/images/veteranos.jpg"
+category: "Historias"
+tags: ["leyendas", "retiro", "ufc"]
 ---
 
 La historia de los deportes de combate está llena de adioses tardíos. A menudo, el corazón y el espíritu de un peleador se niegan a aceptar lo que el cuerpo ya sabe desde hace tiempo.

@@ -1,8 +1,4 @@
 User-agent: *
-Disallow: /
 Allow: /
 
-Disallow: /categoria/*?*
-Disallow: /etiqueta/*?*
-
-Sitemap: https://tudominio.com/sitemap.xml
+Sitemap: https://quimbara.org/sitemap-index.xml

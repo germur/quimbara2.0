@@ -1,12 +1,52 @@
 ---
 // src/components/Footer.astro
 const currentYear = new Date().getFullYear();
+// Using current year correctly or hardcoding 2026 as per prompt if preferred, but dynamic is better.
 ---
 
-<footer class="mt-16 py-8 border-t border-[var(--theme-border)] text-center text-[var(--theme-text-dim)]">
-  <div class="max-w-[1280px] mx-auto px-4 md:px-8">
-    <p class="text-sm font-body">
-      &copy; {currentYear} Quimbara. Todos los derechos reservados.
-    </p>
+<footer class="bg-zinc-950 border-t border-zinc-800 pt-16 pb-8 mt-auto">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto px-4 md:px-8">
+    
+    <!-- Columna 1 (Marca) -->
+    <div>
+      <span class="block text-white font-black text-2xl tracking-tight uppercase mb-4">QUIMBARA.ORG</span>
+      <p class="text-zinc-500 text-sm leading-relaxed">
+        La verdad del octágono. Análisis técnico, historias y opinión sin clickbait.
+      </p>
+    </div>
+    
+    <!-- Columna 2 (Navegación / Silos) -->
+    <nav class="flex flex-col gap-3 text-sm font-medium">
+      <a href="/" class="text-zinc-400 hover:text-red-500 transition-colors duration-300">Inicio</a>
+      <a href="/categoria/analisis" class="text-zinc-400 hover:text-red-500 transition-colors duration-300">Análisis</a>
+      <a href="/categoria/historias" class="text-zinc-400 hover:text-red-500 transition-colors duration-300">Historias</a>
+      <a href="/categoria/opinion" class="text-zinc-400 hover:text-red-500 transition-colors duration-300">Opinión</a>
+    </nav>
+    
+    <!-- Columna 3 (Newsletter) -->
+    <div>
+      <h3 class="text-zinc-100 font-bold tracking-tight mb-4">Únete a la esquina</h3>
+      <form class="flex flex-col gap-3" action="#" method="POST">
+        <input 
+          type="email" 
+          placeholder="Tu correo electrónico" 
+          class="input-field" 
+          required 
+          aria-label="Correo electrónico para newsletter"
+        />
+        <button type="submit" class="btn-primary w-fit">Suscribirse</button>
+      </form>
+    </div>
+    
+  </div>
+  
+  <!-- Bottom Bar (Legal) -->
+  <div class="mt-16 pt-8 border-t border-zinc-800/50 flex flex-col md:flex-row justify-between text-xs text-zinc-600 max-w-7xl mx-auto px-4 md:px-8 gap-4">
+    <div>Copyright &copy; 2026 Quimbara.</div>
+    <div class="flex gap-4">
+      <a href="/aviso-legal" class="hover:text-zinc-400 transition-colors duration-300">Aviso Legal</a>
+      <span>|</span>
+      <a href="/privacidad" class="hover:text-zinc-400 transition-colors duration-300">Privacidad</a>
+    </div>
   </div>
 </footer>

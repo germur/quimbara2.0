@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { article, large = false } = Astro.props;
-const { titulo, categoria, fechaPublicacion, imagenPortada } = article.data;
+const { title, category, pubDate, image } = article.data;
 
 // Format date
 const dtf = new Intl.DateTimeFormat('es-ES', {
@@ -16,44 +16,46 @@ const dtf = new Intl.DateTimeFormat('es-ES', {
   month: 'short',
   year: 'numeric'
 });
-const formattedDate = dtf.format(fechaPublicacion);
+const formattedDate = dtf.format(pubDate);
 
 // Mock read time since we don't have remark plugin setup yet
 const readTime = "5 min"; 
 
 // Category badge colors directly using Tailwind v4 theme variables defined in CSS
 const badgeColors = {
-  analisis: 'text-[var(--color-cat-analisis)] border-[var(--color-cat-analisis)]',
-  historias: 'text-[var(--color-cat-historias)] border-[var(--color-cat-historias)]',
-  opinion: 'text-[var(--color-cat-opinion)] border-[var(--color-cat-opinion)]',
+  'Análisis': 'text-zinc-400 border-zinc-700 hover:text-red-500',
+  'Historias': 'text-zinc-400 border-zinc-700 hover:text-red-500',
+  'Opinión': 'text-amber-500 border-amber-500/50 hover:text-amber-400',
 };
 
-const badgeClass = badgeColors[categoria as keyof typeof badgeColors] || 'text-[var(--theme-text-dim)] border-[var(--theme-text-dim)]';
+const badgeClass = badgeColors[category as keyof typeof badgeColors] || 'text-zinc-500 border-zinc-700';
 ---
 
-<a href={`/blog/${article.id}/`} class="article-card block group rounded-md overflow-hidden bg-[var(--theme-card)] border border-[var(--theme-border)]">
-  {imagenPortada && (
-    <div class={`relative w-full overflow-hidden ${large ? 'h-64 md:h-96' : 'h-48'}`}>
-      <!-- Using standard img for now to easily support absolute URLs or local public images without static imports. -->
-      <img 
-        src={imagenPortada} 
-        alt={`Portada de ${titulo}`} 
-        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-        loading={large ? "eager" : "lazy"} 
-      />
+<a href={`/blog/${article.id}/`} class="block group">
+  <article class="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden group hover:-translate-y-1 hover:border-red-600/50 transition-all duration-300 flex flex-col h-full">
+    {image && (
+      <div class={`relative w-full overflow-hidden ${large ? 'h-64 md:h-96' : 'h-48'}`}>
+        <!-- Using standard img for now to easily support absolute URLs or local public images without static imports. -->
+        <img 
+          src={image} 
+          alt={`Portada de ${title}`} 
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+          loading={large ? "eager" : "lazy"} 
+        />
+      </div>
+    )}
+    <div class={`p-4 md:p-6 flex flex-col flex-grow ${large ? 'md:p-8' : ''}`}>
+      <span class={`w-fit px-3 py-1 mb-4 text-xs font-bold uppercase tracking-wider border rounded-full backdrop-blur-sm transition-colors duration-300 ${badgeClass}`}>
+        {category}
+      </span>
+      <h2 class={`font-bold tracking-tight uppercase line-clamp-2 text-white group-hover:text-red-500 transition-colors duration-300 mb-auto ${large ? 'text-2xl md:text-4xl' : 'text-lg md:text-xl'}`}>
+        {title}
+      </h2>
+      <div class="mt-4 text-xs font-medium text-zinc-500 flex items-center gap-2 uppercase tracking-wide">
+        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+        <span>&middot;</span>
+        <span>{readTime}</span>
+      </div>
     </div>
-  )}
-  <div class={`p-4 md:p-6 ${large ? 'md:p-8' : ''}`}>
-    <span class={`inline-block px-2 py-0.5 mb-3 text-[0.7rem] font-bold uppercase tracking-wider border rounded-sm ${badgeClass}`}>
-      {categoria}
-    </span>
-    <h2 class={`font-display font-bold leading-tight mb-3 line-clamp-2 text-[var(--theme-text-main)] group-hover:text-[var(--theme-accent)] transition-colors ${large ? 'text-2xl md:text-4xl' : 'text-base md:text-xl'}`}>
-      {titulo}
-    </h2>
-    <div class="text-[0.75rem] font-medium text-[var(--theme-text-dim)] flex items-center gap-2 tracking-wide font-body">
-      <time datetime={fechaPublicacion.toISOString()}>{formattedDate}</time>
-      <span>&middot;</span>
-      <span>{readTime}</span>
-    </div>
-  </div>
+  </article>
 </a>

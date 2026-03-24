@@ -1,12 +1,11 @@
 ---
-titulo: "Por qué el sistema de rankings de UFC está roto"
-descripcion: "Una crítica al sistema actual de clasificación y emparejamientos en la promoción."
-autor: "Ger Mur"
-fechaPublicacion: 2025-03-24T09:15:00Z
-imagenPortada: "/images/rankings.jpg"
-categoria: "opinion"
-etiquetas: ["rankings", "matchmaking", "polemica"]
-estado: "published"
+title: "Por qué el sistema de rankings de UFC está roto"
+description: "Una crítica al sistema actual de clasificación en la promoción de UFC."
+author: "Roger Murillo"
+pubDate: 2025-03-24T09:15:00Z
+image: "/images/rankings.jpg"
+category: "Opinión"
+tags: ["rankings", "matchmaking", "polemica"]
 ---
 
 Los rankings de la UFC han dejado de ser un reflejo del talento deportivo puro para convertirse en una herramienta de marketing. La meritocracia en la jaula es un ideal que rara vez se cumple hoy en día.

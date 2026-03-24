@@ -3,16 +3,16 @@
 const activePath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 bg-[var(--theme-base)] border-b border-[var(--theme-border)]">
-  <div class="max-w-[1280px] mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
+<header class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="font-display font-black text-2xl tracking-tighter text-[var(--theme-text-main)] hover:opacity-80 transition-opacity">
-      Quimbara
+    <a href="/" class="text-white font-black text-2xl tracking-tight transition-all duration-300 hover:opacity-80 flex items-baseline">
+      QUIMBARA<span class="text-red-600">.</span>
     </a>
 
     <!-- Mobile Menu Toggle (Checkbox Hack) -->
     <input type="checkbox" id="mobile-menu-toggle" class="hidden peer" />
-    <label for="mobile-menu-toggle" class="md:hidden cursor-pointer p-2 text-[var(--theme-text-main)] z-50">
+    <label for="mobile-menu-toggle" class="md:hidden cursor-pointer p-2 text-zinc-300 hover:text-white transition-all duration-300 z-50">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block peer-checked:hidden">
         <line x1="3" y1="12" x2="21" y2="12"></line>
         <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -25,57 +25,10 @@ const activePath = Astro.url.pathname;
     </label>
 
     <!-- Navigation -->
-    <nav class="absolute top-[64px] left-0 w-full bg-[var(--theme-base)] border-b border-[var(--theme-border)] p-4 shadow-lg flex flex-col gap-4 transform -translate-y-[150%] opacity-0 transition-all peer-checked:translate-y-0 peer-checked:opacity-100 md:static md:w-auto md:bg-transparent md:border-none md:p-0 md:shadow-none md:flex-row md:items-center md:gap-8 md:transform-none md:opacity-100 uppercase text-[0.85rem] font-medium tracking-wide">
-      <a href="/" class={`hover:text-[var(--theme-accent)] transition-colors ${activePath === '/' ? 'text-[var(--theme-accent)]' : 'text-[var(--theme-text-main)]'}`}>Home</a>
-      <a href="/categoria/analisis" class={`hover:text-[var(--color-cat-analisis)] transition-colors ${activePath.includes('/analisis') ? 'text-[var(--color-cat-analisis)]' : 'text-[var(--theme-text-main)]'}`}>Análisis</a>
-      <a href="/categoria/historias" class={`hover:text-[var(--color-cat-historias)] transition-colors ${activePath.includes('/historias') ? 'text-[var(--color-cat-historias)]' : 'text-[var(--theme-text-main)]'}`}>Historias</a>
-      <a href="/categoria/opinion" class={`hover:text-[var(--color-cat-opinion)] transition-colors ${activePath.includes('/opinion') ? 'text-[var(--color-cat-opinion)]' : 'text-[var(--theme-text-main)]'}`}>Opinión</a>
-      
-      <!-- Theme Toggle inside Nav for Mobile and Desktop -->
-      <button id="theme-toggle" aria-label="Cambiar modo oscuro" class="ml-0 md:ml-4 p-2 rounded-full hover:bg-[var(--theme-surface)] transition-colors flex items-center text-[var(--theme-text-dim)] hover:text-[var(--theme-text-main)]">
-        <!-- Sun Icon (shown in dark mode context typically, but handled via JS) -->
-        <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-        </svg>
-        <!-- Moon Icon (shown in light mode typically) -->
-        <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-        </svg>
-      </button>
+    <nav class="absolute top-[64px] left-0 w-full bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 p-6 flex flex-col gap-6 transform -translate-y-[150%] opacity-0 transition-all duration-300 peer-checked:translate-y-0 peer-checked:opacity-100 md:static md:w-auto md:bg-transparent md:border-none md:p-0 md:flex-row md:items-center md:gap-8 md:transform-none md:opacity-100 uppercase text-sm font-bold tracking-wider">
+      <a href="/categoria/analisis" class={`transition-all duration-300 hover:text-red-500 ${activePath.includes('/analisis') ? 'text-white' : 'text-zinc-300'}`}>Análisis</a>
+      <a href="/categoria/historias" class={`transition-all duration-300 hover:text-red-500 ${activePath.includes('/historias') ? 'text-white' : 'text-zinc-300'}`}>Historias</a>
+      <a href="/categoria/opinion" class={`transition-all duration-300 hover:text-red-500 ${activePath.includes('/opinion') ? 'text-amber-500' : 'text-zinc-300'}`}>Opinión</a>
     </nav>
   </div>
 </header>
-
-<script>
-  // Theme Toggle Logic
-  const toggleBtn = document.getElementById('theme-toggle');
-  const lightIcon = document.getElementById('theme-toggle-light-icon');
-  const darkIcon = document.getElementById('theme-toggle-dark-icon');
-  
-  // Initialize icons based on current theme
-  const isDark = document.documentElement.classList.contains('dark');
-  if (isDark) {
-    lightIcon?.classList.remove('hidden');
-  } else {
-    darkIcon?.classList.remove('hidden');
-  }
-
-  toggleBtn?.addEventListener('click', () => {
-    const isDarkNow = document.documentElement.classList.contains('dark');
-    if (isDarkNow) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      lightIcon?.classList.add('hidden');
-      darkIcon?.classList.remove('hidden');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-      darkIcon?.classList.add('hidden');
-      lightIcon?.classList.remove('hidden');
-    }
-  });
-</script>
-
-<style>
-  /* Optional: fade in/out slightly for toggle icons if both are present in DOM */
-</style>

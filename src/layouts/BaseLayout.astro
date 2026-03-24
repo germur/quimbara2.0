@@ -18,7 +18,7 @@ interface Props {
 
 const {
   title = "Quimbara",
-  description = "Blog personal sobre UFC y deportes de combate.",
+  description = "La verdad del octágono. Sin clickbait.",
   canonicalUrl = Astro.url.href,
   ogType = 'website',
   ogImage = '/default-og.jpg',
@@ -32,18 +32,33 @@ const siteTitle = title === "Quimbara" ? title : `${title} — Quimbara`;
 ---
 
 <!doctype html>
-<html lang="es" class="antialiased font-body">
+<html lang="es" class="antialiased font-sans">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#09090b" />
 
     <!-- SEO -->
     <title>{siteTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     {noIndex && <meta name="robots" content="noindex, follow" />}
+
+    <!-- Google Search Console Verification Placeholder -->
+    <!-- <meta name="google-site-verification" content="YOUR_GSC_CODE_HERE" /> -->
+
+    <!-- Google Analytics (GA4) / GTM Placeholder -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -55,26 +70,23 @@ const siteTitle = title === "Quimbara" ? title : `${title} — Quimbara`;
     {publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
     {updateDate && <meta property="article:modified_time" content={updateDate.toISOString()} />}
 
-    <!-- Google Fonts Preload -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
-
-    <!-- Dark Mode Init Script (Prevents FOUC) -->
-    <script is:inline>
-      const t = localStorage.getItem('theme');
-      if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
 
     <!-- Schema.org JSON-LD -->
     {schema && <script type="application/ld+json" set:html={schema} />}
   </head>
-  <body class="bg-base text-main min-h-screen flex flex-col transition-colors duration-200">
+  <body class="bg-zinc-950 text-zinc-300 min-h-screen flex flex-col selection:bg-red-600/30 selection:text-white">
+    <!-- Fictional reading progress bar placeholder for articles -->
+    <slot name="progress-bar" />
+    
     <Header />
-    <main class="flex-grow w-full max-w-[1280px] mx-auto px-4 md:px-8 py-8">
-      <slot />
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-20">
+      <div class="content-area">
+        <slot />
+      </div>
     </main>
     <Footer />
   </body>

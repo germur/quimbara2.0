@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 - Página no encontrada" description="Parece que te han hecho un derribo. Esta página no existe.">
+  <div class="max-w-3xl mx-auto px-4 py-32 text-center flex flex-col items-center justify-center min-h-[60vh]">
+    <h1 class="text-7xl md:text-9xl font-black text-red-600 mb-6 uppercase tracking-tight">404</h1>
+    <h2 class="text-3xl md:text-4xl font-bold text-white uppercase tracking-tight mb-6">
+      Parece que te han hecho un derribo
+    </h2>
+    <p class="text-zinc-400 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
+      Has caído en la página equivocada. El árbitro detuvo el combate porque esta URL no existe, fue movida a otra división o escribiste mal el enlace.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="/categoria/analisis" class="btn-primary">Ver Análisis</a>
+      <a href="/" class="btn-outline">Volver al Inicio</a>
+    </div>
+  </div>
+</BaseLayout>
