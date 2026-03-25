@@ -9,40 +9,54 @@ const allPosts = await getCollection('blog');
 // Sort by date descending
 allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// We can just use all of them or slice.
-const postsToShow = allPosts.slice(0, 6);
+const featuredPost = allPosts[0];
+// Skip the first post so it doesn't repeat in the grid
+const postsToShow = allPosts.slice(1, 7);
 ---
 
 <BaseLayout>
   <div class="space-y-24 md:space-y-32">
     
-    <!-- Hero Section (Asimétrico y deconstructivo) -->
-    <section class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <!-- Lado izquierdo (Texto) -->
-      <div class="flex flex-col gap-6">
-        <h1 class="text-5xl md:text-[5rem] font-black text-white tracking-tighter leading-[1.05] uppercase">
-          La verdad del octágono. <br class="hidden md:block"/> Sin clickbait.
-        </h1>
-        <p class="text-xl text-zinc-400 leading-relaxed max-w-xl">
-          Soy Roger Murillo. SEO, practicante de BJJ y analista técnico de MMA. Aquí desgloso la técnica, la mente y el camino del guerrero.
-        </p>
-        <div class="mt-4">
-          <a href="/categoria/analisis" class="btn-primary inline-block">Leer Análisis</a>
+    <!-- Hero Section (Dinámico: Artículo Destacado) -->
+    {featuredPost && (
+      <section class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Lado izquierdo (Texto) -->
+        <div class="flex flex-col gap-6">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-red-600 font-bold tracking-wider uppercase text-sm flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+              Destacado
+            </span>
+            <span class="text-zinc-600">|</span>
+            <span class="text-zinc-400 font-medium text-sm tracking-wide uppercase">{featuredPost.data.category}</span>
+          </div>
+          
+          <h1 class="text-4xl md:text-6xl lg:text-[4.5rem] font-black text-white tracking-tighter leading-[1.05] uppercase">
+            {featuredPost.data.title}
+          </h1>
+          
+          <p class="text-xl text-zinc-400 leading-relaxed max-w-xl line-clamp-3">
+            {featuredPost.data.description}
+          </p>
+          
+          <div class="mt-4">
+            <a href={`/blog/${featuredPost.id}/`} class="btn-primary inline-block">Leer Análisis</a>
+          </div>
         </div>
-      </div>
-      
-      <!-- Lado derecho (Visual) -->
-      <div class="relative w-full aspect-square bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden grayscale group">
-        <!-- Placeholder for actual image or dynamic img -->
-        <div class="absolute inset-0 flex items-center justify-center text-zinc-700 font-bold uppercase tracking-widest group-hover:scale-105 transition-transform duration-700">
-          [ Espacio para Foto de Entrenamiento ]
-        </div>
-        <!-- Si hubiera imagen real:
-        <img src="/foto-entrenamiento.jpg" alt="Roger Murillo entrenando BJJ" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-        -->
-        <div class="absolute inset-0 bg-gradient-to-tr from-zinc-950/80 to-transparent pointer-events-none"></div>
-      </div>
-    </section>
+        
+        <!-- Lado derecho (Visual) -->
+        <a href={`/blog/${featuredPost.id}/`} class="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 group block">
+          {featuredPost.data.image ? (
+            <img src={featuredPost.data.image} alt={`Portada de ${featuredPost.data.title}`} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          ) : (
+            <div class="absolute inset-0 flex items-center justify-center text-zinc-700 font-bold uppercase tracking-widest group-hover:scale-105 transition-transform duration-700">
+              [ Sin Imagen ]
+            </div>
+          )}
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent pointer-events-none"></div>
+        </a>
+      </section>
+    )}
 
     <!-- Sección "Últimos Artículos" -->
     <section class="max-w-7xl mx-auto border-t border-zinc-800/50 pt-16">

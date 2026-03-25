@@ -4,6 +4,8 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://quimbara.org',
@@ -17,5 +19,5 @@ export default defineConfig({
       // Better to use custom function or just let it map.
       return true;
     }
-  })]
+  }), mdx()]
 });

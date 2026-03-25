@@ -1,0 +1,75 @@
+---
+// TacticalSlider.astro
+// Expects 14 pages from the tactical blueprint
+const images = Array.from({ length: 14 }, (_, i) => `/images/tactical-blueprint/page-${String(i + 1).padStart(2, '0')}.png`);
+---
+<div class="my-12 relative w-full rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-2xl tactical-slider group">
+  <div class="absolute top-4 left-4 z-10 bg-red-600 text-white text-xs font-black tracking-wider uppercase px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+    <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+    UFC 328 TACTICAL BLUEPRINT
+  </div>
+  
+  <!-- Controles de navegación Desktop -->
+  <button aria-label="Anterior" class="slider-prev absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-zinc-950/80 hover:bg-red-600 text-white p-3 rounded-full border border-zinc-800 transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:block backdrop-blur">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+  </button>
+  
+  <button aria-label="Siguiente" class="slider-next absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-zinc-950/80 hover:bg-red-600 text-white p-3 rounded-full border border-zinc-800 transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:block backdrop-blur">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+
+  <div class="slider-track flex overflow-x-auto snap-x snap-mandatory hide-scrollbar relative z-0">
+    {images.map((src, i) => (
+      <div class="w-full flex-shrink-0 snap-center relative">
+        <img 
+          src={src} 
+          alt={`Pestaña ${i+1} del Reporte Táctico`} 
+          class="w-full h-auto object-contain bg-zinc-950" 
+          loading={i === 0 ? "eager" : "lazy"} 
+        />
+        <div class="absolute bottom-4 left-4 bg-zinc-900/90 backdrop-blur text-zinc-400 text-xs px-3 py-1 rounded-full border border-zinc-800">
+          Pág {i+1} de 14
+        </div>
+      </div>
+    ))}
+  </div>
+  
+  <div class="absolute bottom-4 right-4 z-10 bg-zinc-900/90 backdrop-blur text-zinc-300 text-sm font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-zinc-800 flex items-center gap-2 pointer-events-none md:hidden">
+    Desliza
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  </div>
+</div>
+
+<script>
+  // Script para habilitar los botones en Desktop
+  document.addEventListener('DOMContentLoaded', () => {
+    const sliders = document.querySelectorAll('.tactical-slider');
+    
+    sliders.forEach((slider) => {
+      const track = slider.querySelector('.slider-track');
+      const btnPrev = slider.querySelector('.slider-prev');
+      const btnNext = slider.querySelector('.slider-next');
+
+      if (track && btnPrev && btnNext) {
+        btnPrev.addEventListener('click', () => {
+          track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+        });
+        
+        btnNext.addEventListener('click', () => {
+          track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Ocultar barra de scroll para un look inmersivo tipo Instagram Story */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
