@@ -4,7 +4,7 @@ description: "Una crítica al sistema actual de clasificación en la promoción 
 author: "Roger Murillo"
 pubDate: 2025-03-24T09:15:00Z
 image: "/images/rankings.jpg"
-category: "Opinión"
+category: "Punto de Vista"
 tags: ["rankings", "matchmaking", "polemica"]
 ---
 

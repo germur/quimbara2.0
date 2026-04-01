@@ -3,6 +3,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import NextEventWidget from '../components/NextEventWidget.astro';
 
 interface Props {
   title?: string;
@@ -88,6 +89,8 @@ const siteTitle = title === "Quimbara" ? title : `${title} — Quimbara`;
         <slot />
       </div>
     </main>
+    
+    <NextEventWidget />
     <Footer />
   </body>
 </html>

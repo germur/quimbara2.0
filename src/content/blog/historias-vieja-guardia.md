@@ -4,7 +4,7 @@ description: "¿Cuándo sabemos que es el momento del adiós? Una crónica de lo
 author: "Roger Murillo"
 pubDate: 2025-03-22T14:30:00Z
 image: "/images/veteranos.jpg"
-category: "Historias"
+category: "Guía del Insider"
 tags: ["leyendas", "retiro", "ufc"]
 ---
 

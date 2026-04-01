@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Tag from '../../components/Tag.astro';
+import TacticalSlider from '../../components/TacticalSlider.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -149,8 +150,8 @@ const combinedSchema = `[${JSON.stringify(articleSchema)}, ${JSON.stringify(brea
     )}
 
     <!-- Cuerpo del contenido (Prose) -->
-    <article class="prose prose-invert prose-zinc max-w-none mt-10 prose-headings:font-bold prose-headings:uppercase prose-headings:tracking-tight prose-a:text-red-500 prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl">
-      <Content />
+    <article class="prose prose-invert prose-zinc prose-headings:text-white prose-a:text-red-500 hover:prose-a:text-red-400 max-w-3xl mx-auto mt-10 prose-headings:uppercase prose-headings:tracking-tight prose-a:no-underline prose-img:rounded-xl">
+      <Content components={{ TacticalSlider }} />
     </article>
 
     <!-- Bloque de Autor (E-E-A-T SEO) -->

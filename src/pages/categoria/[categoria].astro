@@ -9,9 +9,10 @@ export async function getStaticPaths() {
   const uniqueCategories = [...new Set(allPosts.map((post) => post.data.category).flat())];
 
   return uniqueCategories.map((category) => {
+    const slug = category.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
     const filteredPosts = allPosts.filter((post) => post.data.category === category);
     return {
-      params: { categoria: category.toLowerCase() },
+      params: { categoria: slug },
       props: { posts: filteredPosts, currentCategory: category },
     };
   });

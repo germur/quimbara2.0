@@ -1,0 +1,130 @@
+---
+// src/components/NextEventWidget.astro
+
+// Arreglo maestro de eventos cronológicos. 
+// dateIso es crucial: es la que Javascript usará para comparar si el evento ya pasó.
+const ufcEvents = [
+  {
+    id: "ufc-fn-270",
+    name: "UFC Fight Night 270",
+    date: "21 de Marzo, 2026",
+    dateIso: "2026-03-21T23:59:59Z",
+    location: "Londres, Inglaterra",
+    mainEvent: "Evloev vs. Murphy",
+    coMain: "Page vs. TBA"
+  },
+  {
+    id: "ufc-327",
+    name: "UFC 327",
+    date: "11 de Abril, 2026",
+    dateIso: "2026-04-11T23:59:59Z",
+    location: "TBA",
+    mainEvent: "Por anunciar",
+    coMain: "Por anunciar"
+  },
+  {
+    id: "ufc-328",
+    name: "UFC 328",
+    date: "9 de Mayo, 2026",
+    dateIso: "2026-05-09T23:59:59Z",
+    location: "Prudential Center, Newark, NJ",
+    mainEvent: "Chimaev vs. Strickland",
+    coMain: "Volkov vs. Cortes-Acosta"
+  },
+  {
+    id: "ufc-fn-winnipeg",
+    name: "UFC Fight Night",
+    date: "6 de Junio, 2026", 
+    dateIso: "2026-06-06T23:59:59Z",
+    location: "Winnipeg, Canadá",
+    mainEvent: "Por anunciar",
+    coMain: "Horth vs. TBA"
+  }
+];
+---
+
+<div id="ufc-widget" class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 group opacity-0 pointer-events-none transition-opacity duration-1000 delay-500" data-events={JSON.stringify(ufcEvents)}>
+  <div class="bg-zinc-950/70 backdrop-blur-lg border border-zinc-800 shadow-2xl rounded-2xl w-[260px] md:w-[280px] overflow-hidden transition-all duration-300">
+    
+    <!-- Contenido Compacto (Visible Siempre) -->
+    <div class="p-4 flex items-center justify-between cursor-default">
+      <div class="flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shrink-0"></span>
+        <div>
+          <p id="wg-name" class="text-white font-bold tracking-wide uppercase text-sm leading-tight"></p>
+          <p id="wg-date" class="text-zinc-400 text-xs"></p>
+        </div>
+      </div>
+      <!-- Flechita decorativa -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-500 group-hover:-rotate-180 transition-transform duration-500">
+        <path d="m18 15-6-6-6 6"/>
+      </svg>
+    </div>
+
+    <!-- Contenido Expandido (Aparece al hacer Hover) -->
+    <div class="max-h-0 opacity-0 group-hover:max-h-48 group-hover:opacity-100 overflow-hidden transition-all duration-500 ease-in-out">
+      <div class="px-4 pb-4 pt-1 border-t border-zinc-800/50 flex flex-col gap-2.5">
+        
+        <p class="text-xs text-zinc-500 font-medium uppercase tracking-wider flex items-center gap-1.5 pt-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span id="wg-location"></span>
+        </p>
+        
+        <div class="mt-1">
+          <p class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold mb-0.5">Main Event</p>
+          <p id="wg-main" class="text-sm font-black text-amber-500 leading-tight"></p>
+        </div>
+        
+        <div>
+          <p class="text-[10px] text-zinc-500 uppercase tracking-widest font-bold mb-0.5">Co-Main</p>
+          <p id="wg-comain" class="text-[13px] font-bold text-white leading-tight"></p>
+        </div>
+        
+        <a href="/" class="mt-2 text-xs font-bold text-zinc-400 hover:text-red-500 transition-colors flex items-center gap-1 w-max group/link">
+          Ver pronósticos 
+          <span class="group-hover/link:translate-x-1 transition-transform">-&gt;</span>
+        </a>
+        
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+  // Este script se ejecuta en el navegador del usuario al momento de cargar la página.
+  document.addEventListener('DOMContentLoaded', () => {
+    const widget = document.getElementById('ufc-widget');
+    if (!widget) return;
+    
+    // 1. Extraemos toda la base de datos de eventos inyectada en el HTML
+    const eventsStr = widget.getAttribute('data-events');
+    if (!eventsStr) return;
+    
+    const events = JSON.parse(eventsStr);
+    
+    // 2. ¿Qué día y hora es HOY en la vida del usuario?
+    const nowLocal = new Date();
+    
+    // 3. Buscar el primer evento cuya fecha (dateIso) sea MAYOR a la fecha actual
+    // y que TENGA un Main Event confirmado (que no sea "Por anunciar" o "TBA").
+    const nextEvent = events.find(ev => {
+      const isFuture = new Date(ev.dateIso) > nowLocal;
+      const isConfirmed = ev.mainEvent.toLowerCase() !== "por anunciar" && ev.mainEvent.toLowerCase() !== "tba";
+      return isFuture && isConfirmed;
+    });
+    
+    // 4. Si encontramos un evento en el futuro, inyectamos sus datos y lo hacemos visible
+    if (nextEvent) {
+      document.getElementById('wg-name').textContent = nextEvent.name;
+      document.getElementById('wg-date').textContent = nextEvent.date;
+      document.getElementById('wg-location').textContent = nextEvent.location;
+      document.getElementById('wg-main').textContent = nextEvent.mainEvent;
+      document.getElementById('wg-comain').textContent = nextEvent.coMain;
+      
+      // Animación de aparición estelar al cargar
+      widget.classList.remove('opacity-0', 'pointer-events-none');
+    }
+    // Si no hay eventos futuros en el array (ya estamos en Julio), el widget nunca le quitará las clases ocultas y no aparecerá.
+  });
+</script>

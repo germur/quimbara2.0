@@ -4,7 +4,7 @@ description: "Un análisis profundo de cómo las distancias largas están domina
 author: "Roger Murillo"
 pubDate: 2025-03-20T10:00:00Z
 image: "/images/karate.jpg"
-category: "Análisis"
+category: "Laboratorio Técnico"
 tags: ["estilos", "striking", "metadata"]
 ---
 
