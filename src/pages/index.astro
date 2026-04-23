@@ -161,7 +161,7 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
   <section style={`max-width:1400px; margin:0 auto; padding: 10px ${PX} 50px;`}>
     <h2 class="text-2xl md:text-4xl mb-6" style="font-family:var(--font-display);">Fighter Rankings</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-      {FIGHTERS.map(f => (
+      {FIGHTERS.filter(f => f.rank === 'C').map(f => (
         <a href={`/peleador/${f.slug}`} class="bg-gray-50 rounded-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg relative block"
              style="padding: clamp(18px,2.5vw,24px);">
           <!-- Rango fantasma -->
