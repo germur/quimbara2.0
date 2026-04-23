@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EVENTS from '../../data/events-all.json';
+
+export function getStaticPaths() {
+  return EVENTS.map((e) => ({ params: { slug: e.slug }, props: { event: e } }));
+}
+
+const { event } = Astro.props;
+const PX = 'clamp(16px,4vw,60px)';
+
+// Número decorativo: extraer la parte numérica del nombre
+const eventNum = event.name.replace('UFC ', '').replace('Fight Night', 'FN');
+
+// Separar los dos peleadores del main event
+const [fighter1, fighter2] = event.main !== 'TBD'
+  ? event.main.split(' vs. ').map(s => s.trim())
+  : ['TBD', 'TBD'];
+---
+
+<BaseLayout
+  title={`${event.name}: ${event.main} · ${event.dateLabel} | Quimbara`}
+  description={`Información sobre ${event.name} — ${event.main}. ${event.dateLabel} en ${event.loc}.`}
+>
+
+  <!-- ── Hero negro con el nombre del evento ── -->
+  <div style={`background:#111; padding: 60px ${PX} 50px; position:relative; overflow:hidden;`}>
+    <!-- Número fantasma de fondo -->
+    <div class="absolute select-none pointer-events-none"
+         style="bottom:-40px;right:-20px;font-family:var(--font-display);font-size:clamp(120px,20vw,220px);opacity:0.06;color:#fff;line-height:1;">
+      {eventNum}
+    </div>
+
+    <div style="max-width:1400px; margin:0 auto; position:relative;">
+      <!-- Breadcrumb -->
+      <div class="flex items-center gap-2 mb-6" style="font-family:var(--font-sans);">
+        <a href="/eventos" class="text-gray-500 hover:text-[#FFD600] text-xs uppercase tracking-widest font-bold transition-colors">
+          ← Calendario
+        </a>
+      </div>
+
+      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111] mb-5"
+            style="font-family:var(--font-sans);">
+        {event.dateLabel}
+      </span>
+
+      <h1 class="text-white" style="font-family:var(--font-display);font-size:clamp(2rem,6vw,4rem);line-height:1.05;">
+        {event.name}
+      </h1>
+
+      <!-- Ubicación -->
+      <div class="flex items-center gap-2 mt-3 text-gray-400" style="font-family:var(--font-sans);">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span class="text-sm">{event.loc}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main Event ── -->
+  <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 30px;`}>
+    <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-6"
+        style="font-family:var(--font-sans);">
+      Pelea Principal
+    </h2>
+
+    {event.main !== 'TBD' ? (
+      <div class="rounded-md bg-[#111] overflow-hidden">
+        <div class="grid grid-cols-3 items-center"
+             style="min-height:160px;">
+          <!-- Fighter 1 -->
+          <div class="flex flex-col items-center justify-center p-6 text-center">
+            <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-3 border-2 border-[#FFD600]">
+              <span class="text-white font-black text-xl" style="font-family:var(--font-display);">
+                {fighter1.split(' ').map((n: string) => n[0]).slice(0,2).join('')}
+              </span>
+            </div>
+            <div class="text-white text-lg leading-tight text-center"
+                 style="font-family:var(--font-display);">
+              {fighter1}
+            </div>
+          </div>
+
+          <!-- VS -->
+          <div class="flex flex-col items-center justify-center text-center py-6">
+            <div class="text-[#FFD600] text-4xl font-black" style="font-family:var(--font-display);">VS</div>
+            <div class="text-gray-600 text-xs uppercase tracking-widest mt-2 font-bold"
+                 style="font-family:var(--font-sans);">
+              Main Event
+            </div>
+          </div>
+
+          <!-- Fighter 2 -->
+          <div class="flex flex-col items-center justify-center p-6 text-center">
+            <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center mb-3 border-2 border-gray-600">
+              <span class="text-white font-black text-xl" style="font-family:var(--font-display);">
+                {fighter2.split(' ').map((n: string) => n[0]).slice(0,2).join('')}
+              </span>
+            </div>
+            <div class="text-white/60 text-lg leading-tight text-center"
+                 style="font-family:var(--font-display);">
+              {fighter2}
+            </div>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div class="rounded-md bg-gray-50 p-8 text-center">
+        <div class="text-gray-400 text-lg" style="font-family:var(--font-display);">
+          Pelea principal por confirmar
+        </div>
+        <p class="text-gray-400 text-sm mt-2" style="font-family:var(--font-sans);">
+          La UFC anunciará el cartel completo próximamente.
+        </p>
+      </div>
+    )}
+  </section>
+
+  <!-- ── Detalles del evento ── -->
+  <section style={`max-width:1400px; margin:0 auto; padding: 10px ${PX} 60px;`}>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-gray-50 rounded-md p-5">
+        <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2"
+             style="font-family:var(--font-sans);">Fecha</div>
+        <div class="text-[#111] text-lg" style="font-family:var(--font-display);">{event.dateLabel}</div>
+      </div>
+      <div class="bg-gray-50 rounded-md p-5">
+        <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2"
+             style="font-family:var(--font-sans);">Ubicación</div>
+        <div class="text-[#111] text-lg leading-tight" style="font-family:var(--font-display);">{event.loc}</div>
+      </div>
+      <div class="bg-gray-50 rounded-md p-5">
+        <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2"
+             style="font-family:var(--font-sans);">Evento</div>
+        <div class="text-[#111] text-lg" style="font-family:var(--font-display);">{event.name}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA volver ── -->
+  <div class="bg-[#111]" style={`padding: 40px ${PX};`}>
+    <div style="max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:gap(16px);">
+      <div class="text-white text-lg" style="font-family:var(--font-display);">
+        ¿Buscas otros eventos?
+      </div>
+      <a href="/eventos"
+         class="px-5 py-3 text-sm font-semibold uppercase tracking-widest rounded-sm transition-colors duration-200 bg-[#FFD600] text-[#111] hover:bg-yellow-400"
+         style="font-family:var(--font-sans);">
+        Ver calendario completo →
+      </a>
+    </div>
+  </div>
+
+</BaseLayout>

@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EVENTS from '../../data/events-all.json';
+
+const PX = 'clamp(16px,4vw,60px)';
+
+// Separar próximos con main event conocido de los que son TBD
+const confirmed = EVENTS.filter(e => e.main !== 'TBD');
+const tbd       = EVENTS.filter(e => e.main === 'TBD');
+---
+
+<BaseLayout title="Calendario de Eventos UFC 2026 | Quimbara" description="Todos los próximos eventos UFC: fechas, ciudades y peleas principales confirmadas.">
+
+  <!-- ── Header ── -->
+  <div style={`background:#111; padding: 60px ${PX} 50px;`}>
+    <div style="max-width:1400px; margin:0 auto;">
+      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111] mb-5"
+            style="font-family:var(--font-sans);">
+        Calendario
+      </span>
+      <h1 class="text-white" style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,5rem);line-height:1.0;">
+        Próximos<br/>Eventos UFC
+      </h1>
+      <p class="text-gray-400 mt-4 text-base max-w-xl" style="font-family:var(--font-sans);">
+        {EVENTS.length} eventos programados · Actualización automática cada lunes
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Eventos confirmados ── -->
+  <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 20px;`}>
+    <h2 class="text-xl font-bold uppercase tracking-widest text-[#111] mb-6"
+        style="font-family:var(--font-sans);">
+      Peleas principales confirmadas
+    </h2>
+    <div class="flex flex-col gap-3">
+      {confirmed.map((e) => (
+        <a href={`/eventos/${e.slug}`}
+           class="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-5 rounded-md bg-gray-50 hover:bg-[#111] transition-colors duration-200">
+
+          <!-- Fecha -->
+          <div class="flex-shrink-0 w-20 text-center">
+            <div class="text-[11px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-gray-500"
+                 style="font-family:var(--font-sans);">
+              {e.dateLabel.split(' ')[1]?.toUpperCase()}
+            </div>
+            <div class="text-3xl font-black text-[#111] group-hover:text-white leading-none"
+                 style="font-family:var(--font-display);">
+              {e.dateLabel.split(' ')[0]}
+            </div>
+            <div class="text-[11px] text-gray-400 group-hover:text-gray-500"
+                 style="font-family:var(--font-sans);">
+              {e.dateLabel.split(' ')[2]}
+            </div>
+          </div>
+
+          <!-- Separador vertical -->
+          <div class="hidden sm:block w-px h-12 bg-gray-200 group-hover:bg-gray-700 flex-shrink-0"></div>
+
+          <!-- Info evento -->
+          <div class="flex-1 min-w-0">
+            <div class="text-[11px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-gray-500 mb-1"
+                 style="font-family:var(--font-sans);">
+              {e.name}
+            </div>
+            <div class="text-[#111] group-hover:text-white text-xl leading-tight"
+                 style="font-family:var(--font-display);">
+              {e.main}
+            </div>
+          </div>
+
+          <!-- Ubicación -->
+          <div class="flex items-center gap-2 text-sm text-gray-400 group-hover:text-gray-400 flex-shrink-0"
+               style="font-family:var(--font-sans);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            {e.loc}
+          </div>
+
+          <!-- Flecha -->
+          <div class="text-gray-300 group-hover:text-[#FFD600] transition-colors text-lg flex-shrink-0">→</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Eventos por confirmar ── -->
+  {tbd.length > 0 && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 30px ${PX} 60px;`}>
+      <h2 class="text-xl font-bold uppercase tracking-widest text-[#111] mb-6"
+          style="font-family:var(--font-sans);">
+        Por confirmar
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {tbd.map((e) => (
+          <div class="flex items-center gap-4 p-4 rounded-md bg-gray-50 opacity-70">
+            <div class="flex-shrink-0 text-center w-14">
+              <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400"
+                   style="font-family:var(--font-sans);">
+                {e.dateLabel.split(' ')[1]?.toUpperCase()}
+              </div>
+              <div class="text-2xl font-black text-[#111] leading-none"
+                   style="font-family:var(--font-display);">
+                {e.dateLabel.split(' ')[0]}
+              </div>
+            </div>
+            <div class="min-w-0">
+              <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400"
+                   style="font-family:var(--font-sans);">{e.name}</div>
+              <div class="text-sm text-gray-400 truncate" style="font-family:var(--font-sans);">{e.loc}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+</BaseLayout>

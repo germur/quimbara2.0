@@ -1,56 +1,92 @@
 [
   {
+    "slug": "tom-aspinall",
     "name": "Tom Aspinall",
     "nick": "",
     "div": "Heavyweight",
     "rec": "15-3-0",
     "from": "",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/701.png"
+    "img": "https://media.api-sports.io/mma/fighters/701.png",
+    "height": "6' 5'",
+    "weight": "251 lbs",
+    "reach": "78'",
+    "stance": "Orthodox",
+    "team": "Kaobon"
   },
   {
+    "slug": "carlos-ulberg",
     "name": "Carlos Ulberg",
     "nick": "Black Jag",
     "div": "Light Heavyweight",
     "rec": "13-1-0",
     "from": "",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/862.png"
+    "img": "https://media.api-sports.io/mma/fighters/862.png",
+    "height": "6' 4'",
+    "weight": "205 lbs",
+    "reach": "77'",
+    "stance": "Orthodox",
+    "team": "City Kickboxing"
   },
   {
+    "slug": "khamzat-chimaev",
     "name": "Khamzat Chimaev",
     "nick": "Borz",
     "div": "Middleweight",
     "rec": "14-0-0",
     "from": "",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/743.png"
+    "img": "https://media.api-sports.io/mma/fighters/743.png",
+    "height": "6' 2'",
+    "weight": "186 lbs",
+    "reach": "75'",
+    "stance": "Orthodox",
+    "team": "Allstars Training Center"
   },
   {
+    "slug": "islam-makhachev",
     "name": "Islam Makhachev",
     "nick": "",
     "div": "Welterweight",
     "rec": "28-1-0",
     "from": "",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/333.png"
+    "img": "https://media.api-sports.io/mma/fighters/333.png",
+    "height": "5' 10'",
+    "weight": "170 lbs",
+    "reach": "70.5'",
+    "stance": "Southpaw",
+    "team": "Eagles MMA"
   },
   {
+    "slug": "ilia-topuria",
     "name": "Ilia Topuria",
     "nick": "El Matador",
     "div": "Lightweight",
     "rec": "16-0-0",
     "from": "",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/855.png"
+    "img": "https://media.api-sports.io/mma/fighters/855.png",
+    "height": "5' 7'",
+    "weight": "145 lbs",
+    "reach": "69'",
+    "stance": "Orthodox",
+    "team": "Climent Club"
   },
   {
+    "slug": "alexander-volkanovski",
     "name": "Alexander Volkanovski",
     "nick": "The Great",
     "div": "Featherweight",
     "rec": "28-4-0",
     "from": "",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/361.png"
+    "img": "https://media.api-sports.io/mma/fighters/361.png",
+    "height": "5' 6'",
+    "weight": "145 lbs",
+    "reach": "71.5'",
+    "stance": "Orthodox",
+    "team": "City Kickboxing"
   }
 ]

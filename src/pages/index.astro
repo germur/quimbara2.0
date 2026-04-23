@@ -46,11 +46,11 @@ const PX = "clamp(16px,4vw,60px)";
   <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX};`}>
     <div class="flex items-baseline justify-between mb-6">
       <h2 class="text-2xl md:text-4xl" style="font-family: var(--font-display);">Próximos Eventos</h2>
-      <span class="text-sm text-gray-500 font-medium" style="font-family: var(--font-sans);">Calendario →</span>
+      <a href="/eventos" class="text-sm text-gray-500 font-medium hover:text-[#111] transition-colors" style="font-family: var(--font-sans);">Calendario →</a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
       {EVENTS.map(e => (
-        <div class="relative rounded-md overflow-hidden cursor-pointer transition-transform duration-200 hover:-translate-y-1"
+        <a href={`/eventos/${e.slug}`} class="relative rounded-md overflow-hidden transition-transform duration-200 hover:-translate-y-1 block"
              style={`background: ${e.bg}; color: ${e.color}; padding: clamp(20px,3vw,32px); min-height: 200px; display:flex; flex-direction:column; justify-content:space-between;`}>
           <!-- Número fantasma decorativo -->
           <div class="absolute select-none pointer-events-none"
@@ -65,7 +65,7 @@ const PX = "clamp(16px,4vw,60px)";
             <div class="text-lg md:text-xl font-bold italic" style={`font-family:var(--font-serif);color:${e.color};`}>{e.main}</div>
             <div class="text-xs mt-1" style={`opacity:0.6;font-family:var(--font-sans);color:${e.color};`}>{e.loc}</div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   </section>
@@ -108,7 +108,7 @@ const PX = "clamp(16px,4vw,60px)";
     <h2 class="text-2xl md:text-4xl mb-6" style="font-family:var(--font-display);">Fighter Rankings</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
       {FIGHTERS.map(f => (
-        <div class="bg-gray-50 rounded-md overflow-hidden cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-lg relative"
+        <a href={`/peleador/${f.slug}`} class="bg-gray-50 rounded-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg relative block"
              style="padding: clamp(18px,2.5vw,24px);">
           <!-- Rango fantasma -->
           <div class="absolute select-none pointer-events-none top-[-10px] right-2 opacity-5 text-[#111]"
@@ -147,7 +147,7 @@ const PX = "clamp(16px,4vw,60px)";
               <div class="font-semibold text-xs mt-1 text-[#111] leading-tight">{f.from}</div>
             </div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   </section>

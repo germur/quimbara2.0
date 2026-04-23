@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "ufc-fight-night-2026-04-25",
+    "name": "UFC Fight Night",
+    "main": "Sterling vs. Zalal",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-04-25",
+    "dateLabel": "25 abr 2026"
+  },
+  {
+    "slug": "ufc-fight-night-2026-05-02",
+    "name": "UFC Fight Night",
+    "main": "Della Maddalena vs. Prates",
+    "loc": "Perth, Australia",
+    "date": "2026-05-02",
+    "dateLabel": "2 may 2026"
+  },
+  {
+    "slug": "ufc-328-2026-05-09",
+    "name": "UFC 328",
+    "main": "Chimaev vs. Strickland",
+    "loc": "Newark, New Jersey, U.S.",
+    "date": "2026-05-09",
+    "dateLabel": "9 may 2026"
+  },
+  {
+    "slug": "ufc-fight-night-2026-05-16",
+    "name": "UFC Fight Night",
+    "main": "Allen vs. Costa",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-05-16",
+    "dateLabel": "16 may 2026"
+  },
+  {
+    "slug": "ufc-fight-night-2026-05-30",
+    "name": "UFC Fight Night",
+    "main": "Song vs. Figueiredo",
+    "loc": "Macau SAR, China",
+    "date": "2026-05-30",
+    "dateLabel": "30 may 2026"
+  },
+  {
+    "slug": "ufc-fight-night-2026-06-06",
+    "name": "UFC Fight Night",
+    "main": "Muhammad vs. Bonfim",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-06-06",
+    "dateLabel": "6 jun 2026"
+  },
+  {
+    "slug": "ufc-freedom-250-2026-06-14",
+    "name": "UFC Freedom 250",
+    "main": "TBD",
+    "loc": "Washington, D.C., U.S.",
+    "date": "2026-06-14",
+    "dateLabel": "14 jun 2026"
+  },
+  {
+    "slug": "ufc-fight-night-279-2026-06-20",
+    "name": "UFC Fight Night 279",
+    "main": "TBD",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-06-20",
+    "dateLabel": "20 jun 2026"
+  },
+  {
+    "slug": "ufc-fight-night-280-2026-06-27",
+    "name": "UFC Fight Night 280",
+    "main": "TBD",
+    "loc": "Baku, Azerbaijan",
+    "date": "2026-06-27",
+    "dateLabel": "27 jun 2026"
+  },
+  {
+    "slug": "ufc-329-2026-07-11",
+    "name": "UFC 329",
+    "main": "TBD",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-07-11",
+    "dateLabel": "11 jul 2026"
+  },
+  {
+    "slug": "ufc-fight-night-281-2026-07-18",
+    "name": "UFC Fight Night 281",
+    "main": "TBD",
+    "loc": "Oklahoma City, Oklahoma, U.S.",
+    "date": "2026-07-18",
+    "dateLabel": "18 jul 2026"
+  },
+  {
+    "slug": "ufc-330-2026-08-15",
+    "name": "UFC 330",
+    "main": "TBD",
+    "loc": "Philadelphia, Pennsylvania, U.S.",
+    "date": "2026-08-15",
+    "dateLabel": "15 ago 2026"
+  },
+  {
+    "slug": "ufc-fight-night-2026-08-29",
+    "name": "UFC Fight Night",
+    "main": "TBD",
+    "loc": "Shanghai, China",
+    "date": "2026-08-29",
+    "dateLabel": "29 ago 2026"
+  }
+]
