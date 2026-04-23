@@ -1,154 +1,137 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import EVENTS from '../../data/events-all.json';
+import ArticleCard from '../../components/ArticleCard.astro';
+import EVENTS_RAW from '../../data/events-all.json';
+import { getCollection } from 'astro:content';
+
+// Cast para tener los campos f1/f2/f1img/f2img
+const EVENTS = EVENTS_RAW as (typeof EVENTS_RAW[0] & { f1: string; f2: string; f1img: string; f2img: string })[];
 
 export function getStaticPaths() {
-  return EVENTS.map((e) => ({ params: { slug: e.slug }, props: { event: e } }));
+  const evs = EVENTS_RAW as (typeof EVENTS_RAW[0] & { f1: string; f2: string; f1img: string; f2img: string })[];
+  return evs.map((e) => ({ params: { slug: e.slug }, props: { event: e } }));
 }
 
-const { event } = Astro.props;
+const { event } = Astro.props as { event: typeof EVENTS[0] };
 const PX = 'clamp(16px,4vw,60px)';
 
 const isPPV = /UFC \d/.test(event.name);
 const eventNum = event.name.replace('UFC ', '').replace('Fight Night', 'FN');
 
-const [fighter1, fighter2] = event.main !== 'TBD'
-  ? event.main.split(' vs. ').map((s: string) => s.trim())
-  : ['TBD', 'TBD'];
+const f1 = event.f1 ?? (event.main !== 'TBD' ? event.main.split(' vs. ')[0]?.trim() : 'TBD');
+const f2 = event.f2 ?? (event.main !== 'TBD' ? event.main.split(' vs. ')[1]?.trim() : 'TBD');
+const hasFight = event.main !== 'TBD';
 
-// Apellido para los avatares
-const lastName = (full: string) => full.split(' ').slice(-1)[0] ?? full;
-const initials = (full: string) => full.split(' ').slice(0, 2).map((n: string) => n[0]).join('');
+const initials = (name: string) => name.split(' ').slice(0, 2).map(n => n[0]).join('');
+const lastName  = (name: string) => name.split(' ').slice(-1)[0] ?? name;
+
+// Otros eventos próximos (excluir el actual)
+const otherEvents = EVENTS.filter(e => e.slug !== event.slug && e.main !== 'TBD').slice(0, 3);
+
+// Artículos relacionados: buscar por nombre de los fighters
+const allPosts = await getCollection('blog');
+allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const keywords = [f1, f2, event.name].map(s => s.toLowerCase().split(' ').slice(-1)[0]);
+const related = allPosts.filter(p => {
+  const hay = `${p.data.title} ${p.data.description ?? ''}`.toLowerCase();
+  return keywords.some(k => k.length > 3 && hay.includes(k));
+});
+const articles = related.length > 0 ? related.slice(0, 3) : allPosts.slice(0, 3);
+const articlesLabel = related.length > 0 ? `Análisis sobre este evento` : 'También te puede interesar';
 ---
 
 <BaseLayout
   title={`${event.name}: ${event.main} · ${event.dateLabel} | Quimbara`}
-  description={`${event.name} — ${event.main}. ${event.dateLabel} en ${event.loc}.`}
+  description={`${event.name} — ${hasFight ? `${f1} vs ${f2}` : 'Cartel por confirmar'}. ${event.dateLabel} en ${event.loc}. Análisis, predicciones y cobertura completa en Quimbara.`}
 >
 
   <!-- ── Hero oscuro ── -->
-  <div class="relative overflow-hidden" style="background:#111;">
-
-    <!-- Número fantasma gigante -->
-    <div class="absolute inset-0 flex items-center justify-end pointer-events-none select-none overflow-hidden"
-         style="padding-right:clamp(10px,5vw,80px);">
-      <span style="font-family:var(--font-display);font-size:clamp(140px,28vw,320px);opacity:0.05;color:#fff;line-height:1;">
+  <div class="relative overflow-hidden" style="background:#111; min-height:320px;">
+    <div class="absolute inset-0 flex items-center justify-end pointer-events-none select-none overflow-hidden">
+      <span style="font-family:var(--font-display);font-size:clamp(160px,30vw,360px);opacity:0.04;color:#fff;line-height:1;padding-right:clamp(10px,3vw,60px);">
         {eventNum}
       </span>
     </div>
-
-    <div style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 60px; position:relative;`}>
-
-      <!-- Nav -->
-      <div class="flex items-center gap-3 mb-8">
-        <a href="/eventos"
-           class="text-gray-500 hover:text-[#FFD600] text-[11px] font-bold uppercase tracking-widest transition-colors"
-           style="font-family:var(--font-sans);">← Calendario</a>
-        <span class="text-gray-700 text-xs">/</span>
-        <span class="text-gray-600 text-[11px] font-bold uppercase tracking-widest"
-              style="font-family:var(--font-sans);">{event.name}</span>
+    <div style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 40px; position:relative;`}>
+      <div class="flex items-center gap-3 mb-6">
+        <a href="/eventos" class="text-gray-500 hover:text-[#FFD600] text-[11px] font-bold uppercase tracking-widest transition-colors" style="font-family:var(--font-sans);">← Calendario</a>
+        <span class="text-gray-700">/</span>
+        <span class="text-gray-600 text-[11px] font-bold uppercase tracking-widest" style="font-family:var(--font-sans);">{event.name}</span>
       </div>
-
-      <!-- Badge tipo evento -->
       <span class={`inline-block px-3 py-1 text-[11px] font-black uppercase tracking-widest rounded-sm mb-4 ${isPPV ? 'bg-[#FFD600] text-[#111]' : 'border border-gray-600 text-gray-400'}`}
-            style="font-family:var(--font-sans);">
-        {isPPV ? '★ PPV' : 'Fight Night'}
-      </span>
-
-      <!-- Título -->
-      <h1 class="text-white" style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,6rem);line-height:0.95;margin-bottom:20px;">
-        {event.name}
-      </h1>
-
-      <!-- Meta -->
-      <div class="flex flex-wrap items-center gap-4" style="font-family:var(--font-sans);">
-        <div class="flex items-center gap-2 text-[#FFD600]">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-          <span class="text-sm font-bold">{event.dateLabel}</span>
+            style="font-family:var(--font-sans);">{isPPV ? '★ PPV' : 'Fight Night'}</span>
+      <h1 class="text-white" style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,6rem);line-height:0.95;margin-bottom:16px;">{event.name}</h1>
+      <div class="flex flex-wrap items-center gap-5" style="font-family:var(--font-sans);">
+        <div class="flex items-center gap-2 text-[#FFD600] text-sm font-bold">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          {event.dateLabel}
         </div>
-        <div class="flex items-center gap-2 text-gray-400">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-          </svg>
-          <span class="text-sm">{event.loc}</span>
+        <div class="flex items-center gap-2 text-gray-400 text-sm">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          {event.loc}
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ── Cartel de la pelea ── -->
+  <!-- ── Cartel principal ── -->
   <div style={`padding: 0 ${PX};`}>
     <div style="max-width:1400px; margin:0 auto;">
+      {hasFight ? (
+        <div class="relative overflow-hidden rounded-2xl shadow-2xl -mt-8 border border-[#222]"
+             style="background:linear-gradient(160deg,#1c1c1c 0%,#0d0d0d 100%);">
+          <div class="h-1" style="background:#FFD600;"></div>
 
-      {event.main !== 'TBD' ? (
-        <!-- Fight poster -->
-        <div class="relative overflow-hidden rounded-xl -mt-6 shadow-2xl"
-             style="background:linear-gradient(135deg,#1a1a1a 0%,#0a0a0a 100%); border:1px solid #222;">
+          <!-- Fighters -->
+          <div class="grid items-stretch" style="grid-template-columns:1fr 120px 1fr; min-height:280px;">
 
-          <!-- Banda amarilla superior -->
-          <div class="h-1 w-full" style="background:#FFD600;"></div>
-
-          <div class="grid items-center" style="grid-template-columns:1fr auto 1fr; min-height:220px; padding: clamp(30px,5vw,60px) clamp(20px,4vw,50px);">
-
-            <!-- Fighter 1 (winner side) -->
-            <div class="flex flex-col items-center text-center gap-3">
-              <div class="rounded-full border-4 border-[#FFD600] flex items-center justify-center overflow-hidden bg-gray-800"
-                   style="width:clamp(64px,10vw,100px);height:clamp(64px,10vw,100px);">
-                <span class="text-white font-black select-none"
-                      style="font-family:var(--font-display);font-size:clamp(20px,4vw,36px);">
-                  {initials(fighter1)}
-                </span>
-              </div>
-              <div>
-                <div class="text-[#FFD600] text-[10px] font-bold uppercase tracking-widest mb-1"
-                     style="font-family:var(--font-sans);">Main Event</div>
-                <div class="text-white font-black leading-tight"
-                     style="font-family:var(--font-display);font-size:clamp(1.2rem,3vw,2rem);">
-                  {lastName(fighter1)}
+            <!-- F1 -->
+            <div class="flex flex-col items-center justify-end text-center relative overflow-hidden pb-8 pt-6 px-4"
+                 style="background:linear-gradient(to bottom, transparent 0%, rgba(255,214,0,0.04) 100%);">
+              {event.f1img ? (
+                <img src={event.f1img} alt={f1}
+                     class="absolute bottom-0 left-1/2 -translate-x-1/2 object-cover object-top opacity-80"
+                     style="height:240px;width:auto;max-width:220px;" />
+              ) : (
+                <div class="w-20 h-20 rounded-full border-4 border-[#FFD600] bg-gray-800 flex items-center justify-center mb-4">
+                  <span class="text-white font-black text-2xl" style="font-family:var(--font-display);">{initials(f1)}</span>
                 </div>
-                <div class="text-gray-400 text-xs mt-0.5" style="font-family:var(--font-sans);">{fighter1}</div>
+              )}
+              <div class="relative z-10 mt-auto">
+                <div class="text-[#FFD600] text-[10px] font-black uppercase tracking-widest mb-1" style="font-family:var(--font-sans);">Main Event</div>
+                <div class="text-white font-black leading-none" style="font-family:var(--font-display);font-size:clamp(1.4rem,3.5vw,2.2rem);">{lastName(f1)}</div>
+                <div class="text-gray-500 text-xs mt-1" style="font-family:var(--font-sans);">{f1}</div>
               </div>
             </div>
 
-            <!-- VS central -->
-            <div class="flex flex-col items-center gap-1 px-4 md:px-8">
-              <div class="text-[#FFD600] font-black leading-none"
-                   style="font-family:var(--font-display);font-size:clamp(2rem,6vw,4rem);">VS</div>
-              <div class="text-gray-600 text-[10px] uppercase tracking-widest font-bold"
-                   style="font-family:var(--font-sans);">{event.name}</div>
+            <!-- VS -->
+            <div class="flex flex-col items-center justify-center gap-2 border-x border-gray-800">
+              <div class="text-[#FFD600] font-black" style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);">VS</div>
+              <div class="text-gray-700 text-[10px] uppercase tracking-widest font-bold text-center" style="font-family:var(--font-sans);">{event.name}</div>
             </div>
 
-            <!-- Fighter 2 -->
-            <div class="flex flex-col items-center text-center gap-3">
-              <div class="rounded-full border-4 border-gray-700 flex items-center justify-center overflow-hidden bg-gray-800"
-                   style="width:clamp(64px,10vw,100px);height:clamp(64px,10vw,100px);">
-                <span class="text-gray-400 font-black select-none"
-                      style="font-family:var(--font-display);font-size:clamp(20px,4vw,36px);">
-                  {initials(fighter2)}
-                </span>
-              </div>
-              <div>
-                <div class="text-gray-600 text-[10px] font-bold uppercase tracking-widest mb-1"
-                     style="font-family:var(--font-sans);">Challenger</div>
-                <div class="text-gray-300 font-black leading-tight"
-                     style="font-family:var(--font-display);font-size:clamp(1.2rem,3vw,2rem);">
-                  {lastName(fighter2)}
+            <!-- F2 -->
+            <div class="flex flex-col items-center justify-end text-center relative overflow-hidden pb-8 pt-6 px-4">
+              {event.f2img ? (
+                <img src={event.f2img} alt={f2}
+                     class="absolute bottom-0 left-1/2 -translate-x-1/2 object-cover object-top opacity-60"
+                     style="height:240px;width:auto;max-width:220px; filter: grayscale(30%);" />
+              ) : (
+                <div class="w-20 h-20 rounded-full border-4 border-gray-700 bg-gray-800 flex items-center justify-center mb-4">
+                  <span class="text-gray-400 font-black text-2xl" style="font-family:var(--font-display);">{initials(f2)}</span>
                 </div>
-                <div class="text-gray-500 text-xs mt-0.5" style="font-family:var(--font-sans);">{fighter2}</div>
+              )}
+              <div class="relative z-10 mt-auto">
+                <div class="text-gray-600 text-[10px] font-black uppercase tracking-widest mb-1" style="font-family:var(--font-sans);">Challenger</div>
+                <div class="text-gray-300 font-black leading-none" style="font-family:var(--font-display);font-size:clamp(1.4rem,3.5vw,2.2rem);">{lastName(f2)}</div>
+                <div class="text-gray-600 text-xs mt-1" style="font-family:var(--font-sans);">{f2}</div>
               </div>
             </div>
           </div>
 
-          <!-- Banda inferior con datos -->
-          <div class="border-t border-gray-800 grid grid-cols-3 divide-x divide-gray-800"
-               style="font-family:var(--font-sans);">
-            {[
-              { label: 'Evento', val: event.name },
-              { label: 'Fecha',  val: event.dateLabel },
-              { label: 'Ciudad', val: event.loc.split(',')[0] },
-            ].map(({ label, val }) => (
+          <!-- Meta bar -->
+          <div class="grid grid-cols-3 border-t border-gray-800 divide-x divide-gray-800" style="font-family:var(--font-sans);">
+            {[{ label:'Evento', val: event.name }, { label:'Fecha', val: event.dateLabel }, { label:'Ciudad', val: event.loc.split(',')[0] }].map(({ label, val }) => (
               <div class="px-5 py-4 text-center">
                 <div class="text-[10px] font-bold uppercase tracking-widest text-gray-600 mb-1">{label}</div>
                 <div class="text-white text-sm font-semibold truncate">{val}</div>
@@ -157,25 +140,88 @@ const initials = (full: string) => full.split(' ').slice(0, 2).map((n: string) =
           </div>
         </div>
       ) : (
-        <!-- TBD -->
-        <div class="rounded-xl border-2 border-dashed border-gray-200 p-10 text-center -mt-6">
-          <div class="text-4xl mb-3" style="font-family:var(--font-display);">?</div>
-          <div class="text-gray-400 text-lg font-bold" style="font-family:var(--font-display);">Cartel por confirmar</div>
-          <p class="text-gray-400 text-sm mt-2" style="font-family:var(--font-sans);">
-            La UFC anunciará las peleas próximamente. Vuelve cada semana.
-          </p>
+        <div class="rounded-2xl border-2 border-dashed border-gray-200 p-12 text-center -mt-8">
+          <div class="text-5xl mb-4" style="font-family:var(--font-display);">?</div>
+          <div class="text-gray-400 text-xl font-bold" style="font-family:var(--font-display);">Cartel por confirmar</div>
+          <p class="text-gray-400 text-sm mt-2" style="font-family:var(--font-sans);">La UFC anunciará las peleas próximamente.</p>
         </div>
       )}
     </div>
   </div>
 
-  <!-- ── CTA ── -->
-  <div style={`max-width:1400px; margin:40px auto 0; padding: 0 ${PX} 60px;`}>
-    <a href="/eventos"
-       class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-[#111] transition-colors"
-       style="font-family:var(--font-sans);">
-      ← Ver todos los eventos
-    </a>
-  </div>
+  <!-- ── Cómo ver ── -->
+  <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
+    <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">Cómo ver</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      {[
+        { plat: 'UFC Fight Pass', detail: 'Prelims completas + archivo', color: '#E53935' },
+        { plat: 'ESPN / ESPN+',   detail: 'Prelims + Cartelera estelar', color: '#E53935' },
+        { plat: isPPV ? 'PPV (ESPN+ / Movistar)' : 'TV abierta / streaming', detail: isPPV ? 'Cartelera estelar PPV' : 'Cartelera estelar incluida', color: '#FFD600' },
+      ].map(({ plat, detail, color }) => (
+        <div class="rounded-xl border border-gray-100 p-5 flex items-start gap-4">
+          <div class="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style={`background:${color};`}></div>
+          <div>
+            <div class="font-bold text-[#111] text-sm" style="font-family:var(--font-display);">{plat}</div>
+            <div class="text-gray-400 text-xs mt-0.5" style="font-family:var(--font-sans);">{detail}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Sobre el evento (SEO text) ── -->
+  <section style={`max-width:1400px; margin:0 auto; padding: 40px ${PX} 0;`}>
+    <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">Sobre el evento</h2>
+    <div class="rounded-xl bg-gray-50 p-6 md:p-8 prose prose-sm max-w-none" style="font-family:var(--font-sans); color:#444; line-height:1.7;">
+      {hasFight ? (
+        <p>
+          <strong style="font-family:var(--font-display);color:#111;">{event.name}</strong> se celebrará el <strong>{event.dateLabel}</strong> en <strong>{event.loc}</strong>.
+          La pelea principal del evento enfrenta a <strong>{f1}</strong> contra <strong>{f2}</strong> en lo que promete ser
+          {isPPV ? ' una noche de PPV de primer nivel.' : ' un emocionante Fight Night.'}
+          {' '}Sigue la cobertura completa en Quimbara: análisis tácticos, predicciones y crónica del evento.
+        </p>
+      ) : (
+        <p>
+          <strong style="font-family:var(--font-display);color:#111;">{event.name}</strong> está programado para el <strong>{event.dateLabel}</strong>
+          en <strong>{event.loc}</strong>. El cartel completo será anunciado por la UFC próximamente.
+          Esta página se actualiza automáticamente cada lunes con la información más reciente.
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- ── Artículos relacionados ── -->
+  <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
+    <div class="flex items-baseline justify-between mb-6 flex-wrap gap-3">
+      <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2.2rem);color:#111;">{articlesLabel}</h2>
+      <a href="/blog" class="text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-[#111] transition-colors" style="font-family:var(--font-sans);">Ver todos →</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {articles.map(a => <ArticleCard article={a} variant="default" />)}
+    </div>
+  </section>
+
+  <!-- ── Otros eventos próximos ── -->
+  {otherEvents.length > 0 && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 60px;`}>
+      <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">Otros eventos próximos</h2>
+      <div class="flex flex-col gap-2">
+        {otherEvents.map(e => (
+          <a href={`/eventos/${e.slug}`}
+             class="group flex items-center gap-5 p-4 rounded-xl hover:bg-[#111] transition-colors duration-200">
+            <div class="flex-shrink-0 text-center w-12">
+              <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-gray-500" style="font-family:var(--font-sans);">{e.dateLabel.split(' ')[1]?.toUpperCase()}</div>
+              <div class="text-2xl font-black text-[#111] group-hover:text-white leading-none" style="font-family:var(--font-display);">{e.dateLabel.split(' ')[0]}</div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-gray-500 mb-0.5" style="font-family:var(--font-sans);">{e.name}</div>
+              <div class="text-[#111] group-hover:text-white font-bold text-sm truncate" style="font-family:var(--font-display);">{e.main}</div>
+            </div>
+            <div class="text-gray-200 group-hover:text-[#FFD600] text-lg">→</div>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 
 </BaseLayout>

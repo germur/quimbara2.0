@@ -98,7 +98,10 @@ type EventRow = {
   slug: string; name: string; date: string; dateLabel: string;
   loc: string; main: string; bg: string; color: string;
 };
-type EventRowFull = Omit<EventRow, 'bg' | 'color'>;
+type EventRowFull = Omit<EventRow, 'bg' | 'color'> & {
+  f1: string; f1img: string;
+  f2: string; f2img: string;
+};
 
 function parseDate(raw: string) {
   const d = new Date(clean(raw));
@@ -131,14 +134,50 @@ async function fetchEvents() {
     const { date, dateLabel } = parseDate(dateRaw);
     const name = namePart.trim();
     const main = rest.join(':').trim() || 'TBD';
-    parsed.push({ slug: makeSlug(name, date), name, main, loc: locCell, date, dateLabel });
+    const [f1, f2] = main !== 'TBD' ? main.split(' vs. ').map(s => s.trim()) : ['TBD', 'TBD'];
+    parsed.push({ slug: makeSlug(name, date), name, main, loc: locCell, date, dateLabel, f1: f1 ?? '', f2: f2 ?? '', f1img: '', f2img: '' });
   });
 
   parsed.sort((a, b) => a.date.localeCompare(b.date));
 
-  // events-all.json: todos los eventos próximos con slug (para /eventos)
+  // Enriquecer con fotos de fighters vía API (solo eventos con main event confirmado)
+  const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+
+  async function fetchFighterPhoto(name: string): Promise<string> {
+    if (!name || name === 'TBD' || !API_KEY) return '';
+    try {
+      const results = await apiGet<ApiSportsFighter>(
+        `/fighters?search=${encodeURIComponent(name.split(' ').slice(0, 2).join(' '))}`
+      );
+      const lastName = name.split(' ').slice(-1)[0]?.toLowerCase() ?? '';
+      const match = results.find(f => f.name.toLowerCase().includes(lastName)) ?? results[0];
+      return match?.photo ?? '';
+    } catch { return ''; }
+  }
+
+  // Cargar fotos existentes para no re-fetchear innecesariamente
+  const existing: EventRowFull[] = readJson<EventRowFull>('events-all.json');
+  const existingMap = Object.fromEntries(existing.map(e => [e.slug, e]));
+
+  for (const e of parsed) {
+    if (e.main === 'TBD') continue;
+    const prev = existingMap[e.slug];
+    // Solo re-fetchear si no tenemos foto ya guardada
+    if (prev?.f1img && prev?.f2img) {
+      e.f1img = prev.f1img;
+      e.f2img = prev.f2img;
+      continue;
+    }
+    console.log(`   → Buscando fotos: ${e.f1} vs ${e.f2}`);
+    e.f1img = await fetchFighterPhoto(e.f1);
+    await sleep(7000);
+    e.f2img = await fetchFighterPhoto(e.f2);
+    await sleep(7000);
+  }
+
+  // events-all.json: todos los eventos próximos con slug y fotos (para /eventos)
   writeJson('events-all.json', parsed);
-  console.log(`✓ events-all.json (${parsed.length} eventos)`);
+  console.log(`✓ events-all.json (${parsed.length} eventos con fotos)`);
 
   // events.json: top 3 con paleta de color (para el home)
   const events: EventRow[] = parsed.slice(0, 3).map((e, i) => ({ ...e, ...PALETTES[i % PALETTES.length] }));

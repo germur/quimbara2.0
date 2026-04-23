@@ -5,7 +5,11 @@
     "main": "Sterling vs. Zalal",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-04-25",
-    "dateLabel": "25 abr 2026"
+    "dateLabel": "25 abr 2026",
+    "f1": "Sterling",
+    "f2": "Zalal",
+    "f1img": "https://media.api-sports.io/mma/fighters/84.png",
+    "f2img": "https://media.api-sports.io/mma/fighters/702.png"
   },
   {
     "slug": "ufc-fight-night-2026-05-02",
@@ -13,7 +17,11 @@
     "main": "Della Maddalena vs. Prates",
     "loc": "Perth, Australia",
     "date": "2026-05-02",
-    "dateLabel": "2 may 2026"
+    "dateLabel": "2 may 2026",
+    "f1": "Della Maddalena",
+    "f2": "Prates",
+    "f1img": "https://media.api-sports.io/mma/fighters/2411.png",
+    "f2img": "https://media.api-sports.io/mma/fighters/2654.png"
   },
   {
     "slug": "ufc-328-2026-05-09",
@@ -21,7 +29,11 @@
     "main": "Chimaev vs. Strickland",
     "loc": "Newark, New Jersey, U.S.",
     "date": "2026-05-09",
-    "dateLabel": "9 may 2026"
+    "dateLabel": "9 may 2026",
+    "f1": "Chimaev",
+    "f2": "Strickland",
+    "f1img": "https://media.api-sports.io/mma/fighters/743.png",
+    "f2img": "https://media.api-sports.io/mma/fighters/874.png"
   },
   {
     "slug": "ufc-fight-night-2026-05-16",
@@ -29,7 +41,11 @@
     "main": "Allen vs. Costa",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-05-16",
-    "dateLabel": "16 may 2026"
+    "dateLabel": "16 may 2026",
+    "f1": "Allen",
+    "f2": "Costa",
+    "f1img": "https://media.api-sports.io/mma/fighters/1611.png",
+    "f2img": "https://media.api-sports.io/mma/fighters/2462.png"
   },
   {
     "slug": "ufc-fight-night-2026-05-30",
@@ -37,7 +53,11 @@
     "main": "Song vs. Figueiredo",
     "loc": "Macau SAR, China",
     "date": "2026-05-30",
-    "dateLabel": "30 may 2026"
+    "dateLabel": "30 may 2026",
+    "f1": "Song",
+    "f2": "Figueiredo",
+    "f1img": "https://media.api-sports.io/mma/fighters/588.png",
+    "f2img": "https://media.api-sports.io/mma/fighters/180.png"
   },
   {
     "slug": "ufc-fight-night-2026-06-06",
@@ -45,7 +65,11 @@
     "main": "Muhammad vs. Bonfim",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-06-06",
-    "dateLabel": "6 jun 2026"
+    "dateLabel": "6 jun 2026",
+    "f1": "Muhammad",
+    "f2": "Bonfim",
+    "f1img": "https://media.api-sports.io/mma/fighters/15.png",
+    "f2img": "https://media.api-sports.io/mma/fighters/2551.png"
   },
   {
     "slug": "ufc-freedom-250-2026-06-14",
@@ -53,7 +77,11 @@
     "main": "TBD",
     "loc": "Washington, D.C., U.S.",
     "date": "2026-06-14",
-    "dateLabel": "14 jun 2026"
+    "dateLabel": "14 jun 2026",
+    "f1": "TBD",
+    "f2": "TBD",
+    "f1img": "",
+    "f2img": ""
   },
   {
     "slug": "ufc-fight-night-279-2026-06-20",
@@ -61,7 +89,11 @@
     "main": "TBD",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-06-20",
-    "dateLabel": "20 jun 2026"
+    "dateLabel": "20 jun 2026",
+    "f1": "TBD",
+    "f2": "TBD",
+    "f1img": "",
+    "f2img": ""
   },
   {
     "slug": "ufc-fight-night-280-2026-06-27",
@@ -69,7 +101,11 @@
     "main": "TBD",
     "loc": "Baku, Azerbaijan",
     "date": "2026-06-27",
-    "dateLabel": "27 jun 2026"
+    "dateLabel": "27 jun 2026",
+    "f1": "TBD",
+    "f2": "TBD",
+    "f1img": "",
+    "f2img": ""
   },
   {
     "slug": "ufc-329-2026-07-11",
@@ -77,7 +113,11 @@
     "main": "TBD",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-07-11",
-    "dateLabel": "11 jul 2026"
+    "dateLabel": "11 jul 2026",
+    "f1": "TBD",
+    "f2": "TBD",
+    "f1img": "",
+    "f2img": ""
   },
   {
     "slug": "ufc-fight-night-281-2026-07-18",
@@ -85,7 +125,11 @@
     "main": "TBD",
     "loc": "Oklahoma City, Oklahoma, U.S.",
     "date": "2026-07-18",
-    "dateLabel": "18 jul 2026"
+    "dateLabel": "18 jul 2026",
+    "f1": "TBD",
+    "f2": "TBD",
+    "f1img": "",
+    "f2img": ""
   },
   {
     "slug": "ufc-330-2026-08-15",
@@ -93,7 +137,11 @@
     "main": "TBD",
     "loc": "Philadelphia, Pennsylvania, U.S.",
     "date": "2026-08-15",
-    "dateLabel": "15 ago 2026"
+    "dateLabel": "15 ago 2026",
+    "f1": "TBD",
+    "f2": "TBD",
+    "f1img": "",
+    "f2img": ""
   },
   {
     "slug": "ufc-fight-night-2026-08-29",
@@ -101,6 +149,10 @@
     "main": "TBD",
     "loc": "Shanghai, China",
     "date": "2026-08-29",
-    "dateLabel": "29 ago 2026"
+    "dateLabel": "29 ago 2026",
+    "f1": "TBD",
+    "f2": "TBD",
+    "f1img": "",
+    "f2img": ""
   }
 ]
