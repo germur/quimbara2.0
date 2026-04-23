@@ -288,6 +288,138 @@ type MMAAPITeamResponse = {
   };
 };
 
+// ─── Top 5 contendientes por división (seeds — MMAAPI actualiza stats/fotos) ──
+const CONTENDER_SEEDS: { name: string; div: string; rank: number }[] = [
+  // Heavyweight
+  { name: 'Jon Jones',           div: 'Heavyweight',       rank: 1 },
+  { name: 'Curtis Blaydes',      div: 'Heavyweight',       rank: 2 },
+  { name: 'Sergei Pavlovich',    div: 'Heavyweight',       rank: 3 },
+  { name: 'Ciryl Gane',          div: 'Heavyweight',       rank: 4 },
+  { name: 'Alexander Volkov',    div: 'Heavyweight',       rank: 5 },
+  // Light Heavyweight
+  { name: 'Alex Pereira',        div: 'Light Heavyweight', rank: 1 },
+  { name: 'Jiri Prochazka',      div: 'Light Heavyweight', rank: 2 },
+  { name: 'Jamahal Hill',        div: 'Light Heavyweight', rank: 3 },
+  { name: 'Magomed Ankalaev',    div: 'Light Heavyweight', rank: 4 },
+  { name: 'Jan Blachowicz',      div: 'Light Heavyweight', rank: 5 },
+  // Middleweight
+  { name: 'Sean Strickland',     div: 'Middleweight',      rank: 1 },
+  { name: 'Dricus Du Plessis',   div: 'Middleweight',      rank: 2 },
+  { name: 'Robert Whittaker',    div: 'Middleweight',      rank: 3 },
+  { name: 'Paulo Costa',         div: 'Middleweight',      rank: 4 },
+  { name: 'Marvin Vettori',      div: 'Middleweight',      rank: 5 },
+  // Welterweight
+  { name: 'Shavkat Rakhmonov',   div: 'Welterweight',      rank: 1 },
+  { name: 'Belal Muhammad',      div: 'Welterweight',      rank: 2 },
+  { name: 'Leon Edwards',        div: 'Welterweight',      rank: 3 },
+  { name: 'Colby Covington',     div: 'Welterweight',      rank: 4 },
+  { name: 'Gilbert Burns',       div: 'Welterweight',      rank: 5 },
+  // Lightweight
+  { name: 'Arman Tsarukyan',     div: 'Lightweight',       rank: 1 },
+  { name: 'Justin Gaethje',      div: 'Lightweight',       rank: 2 },
+  { name: 'Charles Oliveira',    div: 'Lightweight',       rank: 3 },
+  { name: 'Beneil Dariush',      div: 'Lightweight',       rank: 4 },
+  { name: 'Mateusz Gamrot',      div: 'Lightweight',       rank: 5 },
+  // Featherweight
+  { name: 'Max Holloway',        div: 'Featherweight',     rank: 1 },
+  { name: 'Brian Ortega',        div: 'Featherweight',     rank: 2 },
+  { name: 'Yair Rodriguez',      div: 'Featherweight',     rank: 3 },
+  { name: 'Arnold Allen',        div: 'Featherweight',     rank: 4 },
+  { name: 'Josh Emmett',         div: 'Featherweight',     rank: 5 },
+  // Bantamweight
+  { name: 'Sean O\'Malley',      div: 'Bantamweight',      rank: 1 },
+  { name: 'Merab Dvalishvili',   div: 'Bantamweight',      rank: 2 },
+  { name: 'Marlon Vera',         div: 'Bantamweight',      rank: 3 },
+  { name: 'Aljamain Sterling',   div: 'Bantamweight',      rank: 4 },
+  { name: 'Dominick Cruz',       div: 'Bantamweight',      rank: 5 },
+  // Flyweight
+  { name: 'Brandon Moreno',      div: 'Flyweight',         rank: 1 },
+  { name: 'Alexandre Pantoja',   div: 'Flyweight',         rank: 2 },
+  { name: 'Matheus Nicolau',     div: 'Flyweight',         rank: 3 },
+  { name: 'Brandon Royval',      div: 'Flyweight',         rank: 4 },
+  { name: 'Amir Albazi',         div: 'Flyweight',         rank: 5 },
+];
+
+async function enrichFighter(
+  name: string,
+  div: string,
+  rank: string,
+  byName: Record<string, Fighter>
+): Promise<Fighter> {
+  const slug = fighterSlug(name);
+  const prev = byName[name.toLowerCase()];
+
+  try {
+    const searchData = await mmaapiGet<MMAAPISearchResponse>(
+      `/api/mma/search/${encodeURIComponent(name)}`
+    );
+    await sleep(1000);
+
+    const teamResults = (searchData.results ?? []).filter(r => r.type === 'team');
+    const lastName = name.split(' ').slice(-1)[0]?.toLowerCase() ?? '';
+    const matchResult = teamResults.find(r => r.entity.name.toLowerCase().includes(lastName)) ?? teamResults[0];
+    if (!matchResult) throw new Error(`No encontrado: ${name}`);
+
+    const teamId = matchResult.entity.id;
+    const teamData = await mmaapiGet<MMAAPITeamResponse>(`/api/mma/team/${teamId}`);
+    await sleep(1000);
+
+    const t  = teamData.team;
+    const pi = t.playerTeamInfo ?? {};
+    const wr = t.wdlRecord ?? { wins: 0, draws: 0, losses: 0 };
+    const pf = teamData.pregameForm ?? { form: [], winTypeForm: [] };
+    const rec = `${wr.wins}-${wr.losses}-${wr.draws}`;
+
+    let finalDiv = div;
+    if (t.teamRankings?.length) {
+      const rn = t.teamRankings[0];
+      finalDiv = rn.rankingTypeName
+        ? rn.rankingTypeName.replace('UFC ', '').replace(' Champion', '')
+        : WEIGHT_CLASS_TO_DIV[rn.weightClass] ?? div;
+    }
+
+    const height = pi.height ? mToFeet(pi.height) : prev?.height ?? '';
+    const reach  = pi.reach  ? mToInches(pi.reach) : prev?.reach  ?? '';
+    const weight = pi.weight ? kgToLbs(pi.weight)  : prev?.weight ?? '';
+
+    // Foto — solo descarga si no existe localmente
+    if (!existsSync(IMG_DIR)) mkdirSync(IMG_DIR, { recursive: true });
+    const localImgPath  = join(IMG_DIR, `${slug}.png`);
+    const publicImgPath = `/fighters/${slug}.png`;
+    let img = prev?.img ?? '';
+
+    if (!existsSync(localImgPath)) {
+      const imgRes = await fetch(`${MMAAPI_BASE}/api/mma/team/${teamId}/image`, { headers: MMAAPI_HEADERS });
+      await sleep(500);
+      if (imgRes.ok) {
+        writeFileSync(localImgPath, Buffer.from(await imgRes.arrayBuffer()));
+        img = publicImgPath;
+        console.log(`      ✓ Foto: ${slug}.png`);
+      }
+    } else {
+      img = publicImgPath;
+    }
+
+    return {
+      slug, name, nick: pi.nickname ?? prev?.nick ?? '',
+      div: finalDiv, rec, from: t.country?.name ?? prev?.from ?? '',
+      rank, img, height, weight, reach,
+      stance: prev?.stance ?? '', team: prev?.team ?? '',
+      form: pf.form?.slice(0, 5) ?? [],
+      formTypes: pf.winTypeForm?.slice(0, 5) ?? [],
+    };
+  } catch (e) {
+    console.warn(`   ⚠ No se pudo enriquecer ${name}: ${(e as Error).message}`);
+    return {
+      slug, name, nick: prev?.nick ?? '', div, rec: prev?.rec ?? '—',
+      from: prev?.from ?? '', rank, img: prev?.img ?? '',
+      height: prev?.height ?? '', weight: prev?.weight ?? '',
+      reach: prev?.reach ?? '', stance: prev?.stance ?? '', team: prev?.team ?? '',
+      form: prev?.form ?? [], formTypes: prev?.formTypes ?? [],
+    };
+  }
+}
+
 async function fetchFighters() {
   const existing: Fighter[] = readJson<Fighter>('fighters.json');
   const byName = Object.fromEntries(existing.map(f => [f.name.toLowerCase(), f]));
@@ -314,131 +446,41 @@ async function fetchFighters() {
 
   if (!championNames.length) throw new Error('Fighters: 0 campeones en Wikipedia');
 
-  // 2. Para cada campeón: buscar en MMAAPI y enriquecer
+  // 2. Campeones — enriquecer con MMAAPI
   const champions: Fighter[] = [];
-
   for (const { name, div } of championNames) {
-    console.log(`   → Procesando: ${name}`);
-    try {
-      // Buscar ID
-      const searchData = await mmaapiGet<MMAAPISearchResponse>(
-        `/api/mma/search/${encodeURIComponent(name)}`
-      );
-      await sleep(1000);
-
-      const teamResults = (searchData.results ?? []).filter(r => r.type === 'team');
-      const lastName = name.split(' ').slice(-1)[0]?.toLowerCase() ?? '';
-      const matchResult = teamResults.find(r => r.entity.name.toLowerCase().includes(lastName)) ?? teamResults[0];
-
-      if (!matchResult) throw new Error(`No encontrado en MMAAPI: ${name}`);
-
-      const teamId = matchResult.entity.id;
-
-      // Obtener perfil completo
-      const teamData = await mmaapiGet<MMAAPITeamResponse>(`/api/mma/team/${teamId}`);
-      await sleep(1000);
-
-      const t  = teamData.team;
-      const pi = t.playerTeamInfo ?? {};
-      const wr = t.wdlRecord ?? { wins: 0, draws: 0, losses: 0 };
-      const pf = teamData.pregameForm ?? { form: [], winTypeForm: [] };
-
-      const rec = `${wr.wins}-${wr.losses}-${wr.draws}`;
-
-      // División: preferir ranking de MMAAPI, fallback Wikipedia
-      let finalDiv = div;
-      if (t.teamRankings?.length) {
-        const rn = t.teamRankings[0];
-        finalDiv = rn.rankingTypeName
-          ? rn.rankingTypeName.replace('UFC ', '').replace(' Champion', '')
-          : WEIGHT_CLASS_TO_DIV[rn.weightClass] ?? div;
-      }
-
-      // Físicos (convertir unidades)
-      const height = pi.height ? mToFeet(pi.height) : byName[name.toLowerCase()]?.height ?? '';
-      const reach  = pi.reach  ? mToInches(pi.reach) : byName[name.toLowerCase()]?.reach  ?? '';
-      const weight = pi.weight ? kgToLbs(pi.weight)  : byName[name.toLowerCase()]?.weight ?? '';
-      const stance = byName[name.toLowerCase()]?.stance ?? ''; // MMAAPI no da stance
-
-      // Descargar foto
-      if (!existsSync(IMG_DIR)) mkdirSync(IMG_DIR, { recursive: true });
-      const slug = fighterSlug(name);
-      let img = byName[name.toLowerCase()]?.img ?? '';
-      const localImgPath = join(IMG_DIR, `${slug}.png`);
-      const publicImgPath = `/fighters/${slug}.png`;
-
-      if (!existsSync(localImgPath)) {
-        const imgRes = await fetch(`${MMAAPI_BASE}/api/mma/team/${teamId}/image`, {
-          headers: MMAAPI_HEADERS,
-        });
-        await sleep(500);
-        if (imgRes.ok) {
-          const buffer = await imgRes.arrayBuffer();
-          writeFileSync(localImgPath, Buffer.from(buffer));
-          img = publicImgPath;
-          console.log(`      ✓ Foto: ${slug}.png`);
-        }
-      } else {
-        img = publicImgPath;
-      }
-
-      const fighter: Fighter = {
-        slug,
-        name,
-        nick:      pi.nickname ?? byName[name.toLowerCase()]?.nick ?? '',
-        div:       finalDiv,
-        rec,
-        from:      t.country?.name ?? byName[name.toLowerCase()]?.from ?? '',
-        rank:      'C',
-        img,
-        height,
-        weight,
-        reach,
-        stance,
-        team:      byName[name.toLowerCase()]?.team ?? '',
-        form:      pf.form?.slice(0, 5) ?? [],
-        formTypes: pf.winTypeForm?.slice(0, 5) ?? [],
-      };
-
-      champions.push(fighter);
-      console.log(`   · [${finalDiv}] ${name} ${rec} form=[${pf.form?.join(',')}]`);
-      await sleep(1000);
-
-    } catch (e) {
-      console.warn(`   ⚠ No se pudo enriquecer ${name}: ${(e as Error).message}`);
-      const prev = byName[name.toLowerCase()];
-      champions.push({
-        slug: fighterSlug(name), name,
-        nick:  prev?.nick  ?? '', div, rec: prev?.rec ?? '—',
-        from:  prev?.from  ?? '', rank: 'C', img: prev?.img ?? '',
-        height: prev?.height ?? '', weight: prev?.weight ?? '',
-        reach: prev?.reach ?? '', stance: prev?.stance ?? '', team: prev?.team ?? '',
-        form: prev?.form ?? [], formTypes: prev?.formTypes ?? [],
-      });
-      await sleep(1000);
-    }
+    console.log(`   [C] ${name}`);
+    champions.push(await enrichFighter(name, div, 'C', byName));
   }
-
   if (!champions.length) throw new Error('Fighters: 0 campeones procesados');
 
-  // Aplicar overrides manuales
+  // 3. Contenders — enriquecer con MMAAPI (solo si no están ya actualizados)
+  const contenders: Fighter[] = [];
+  for (const { name, div, rank } of CONTENDER_SEEDS) {
+    console.log(`   [#${rank}] ${name} (${div})`);
+    contenders.push(await enrichFighter(name, div, String(rank), byName));
+  }
+
+  const allFighters = [...champions, ...contenders];
+
+  // 4. Aplicar overrides manuales
   const overridesPath = join(DATA_DIR, 'fighters-overrides.json');
   if (existsSync(overridesPath)) {
     const overrides = JSON.parse(readFileSync(overridesPath, 'utf8')) as Record<string, Partial<Fighter>>;
     let applied = 0;
-    champions.forEach((c, i) => {
-      const ov = overrides[c.name];
+    allFighters.forEach((f, i) => {
+      const ov = overrides[f.name];
       if (ov && typeof ov === 'object') {
-        champions[i] = { ...c, ...ov };
+        allFighters[i] = { ...f, ...ov };
         applied++;
-        console.log(`   ★ override: ${c.name} → ${Object.keys(ov).join(', ')}`);
+        console.log(`   ★ override: ${f.name} → ${Object.keys(ov).join(', ')}`);
       }
     });
     if (applied) console.log(`   → ${applied} override(s) aplicados`);
   }
 
-  writeJson('fighters.json', champions);
-  console.log(`✓ fighters.json (${champions.length} campeones con forma reciente)`);
+  writeJson('fighters.json', allFighters);
+  console.log(`✓ fighters.json (${champions.length} campeones + ${contenders.length} contenders = ${allFighters.length} total)`);
 }
 
 // ─── RESULTS (Sherdog) ──────────────────────────────────────────────────────
