@@ -89,22 +89,22 @@ const isPPV = (name: string) => /UFC \d/.test(name);
             const ppv  = isPPV(e.name);
             return (
               <a href={`/eventos/${e.slug}`}
-                 class="group grid items-center gap-4 rounded-lg transition-all duration-200 hover:bg-[#111] hover:shadow-xl"
-                 style="grid-template-columns: 64px 1px 1fr auto; padding: 20px 24px;">
+                 class="group flex items-center gap-3 rounded-lg transition-all duration-200 hover:bg-[#111] hover:shadow-xl"
+                 style="padding: 16px 20px;">
 
                 <!-- Día -->
-                <div class="text-center">
+                <div class="text-center flex-shrink-0 w-12">
                   <div class="text-[10px] font-bold tracking-widest text-gray-400 group-hover:text-gray-500"
                        style="font-family:var(--font-sans);">{mon}</div>
-                  <div class="text-4xl font-black leading-none text-[#111] group-hover:text-white"
+                  <div class="text-3xl font-black leading-none text-[#111] group-hover:text-white"
                        style="font-family:var(--font-display);">{day}</div>
                 </div>
 
                 <!-- Línea separadora -->
-                <div class="h-10 w-px bg-gray-200 group-hover:bg-gray-700"></div>
+                <div class="h-8 w-px bg-gray-200 group-hover:bg-gray-700 flex-shrink-0"></div>
 
                 <!-- Info -->
-                <div class="min-w-0">
+                <div class="min-w-0 flex-1">
                   <div class="flex items-center gap-2 mb-1 flex-wrap">
                     {ppv ? (
                       <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm bg-[#FFD600] text-[#111] group-hover:bg-[#FFD600]"

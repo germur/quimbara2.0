@@ -127,49 +127,49 @@ const metaDescription = `${event.name}${hasFight ? ` — ${f1} vs. ${f2}` : ''}.
              style="background:linear-gradient(160deg,#1c1c1c 0%,#0d0d0d 100%);">
           <div class="h-1" style="background:#FFD600;"></div>
 
-          <!-- Fighters -->
-          <div class="grid items-stretch" style="grid-template-columns:1fr 120px 1fr; min-height:280px;">
+          <!-- Fighters — stack en móvil, grid en desktop -->
+          <div class="flex flex-col md:grid md:items-stretch" style="min-height:260px; grid-template-columns:1fr 100px 1fr;">
 
             <!-- F1 -->
-            <div class="flex flex-col items-center justify-end text-center relative overflow-hidden pb-8 pt-6 px-4"
+            <div class="flex items-center gap-4 md:flex-col md:items-center md:justify-end md:text-center relative overflow-hidden pb-6 pt-6 px-5 md:px-4"
                  style="background:linear-gradient(to bottom, transparent 0%, rgba(255,214,0,0.04) 100%);">
               {event.f1img ? (
                 <img src={event.f1img} alt={f1}
-                     class="absolute bottom-0 left-1/2 -translate-x-1/2 object-cover object-top opacity-80"
-                     style="height:240px;width:auto;max-width:220px;" />
+                     class="w-16 h-16 md:w-auto md:h-auto rounded-full md:rounded-none object-cover object-top md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 md:opacity-80 flex-shrink-0"
+                     style="max-height:200px;" />
               ) : (
-                <div class="w-20 h-20 rounded-full border-4 border-[#FFD600] bg-gray-800 flex items-center justify-center mb-4">
-                  <span class="text-white font-black text-2xl" style="font-family:var(--font-display);">{initials(f1)}</span>
+                <div class="w-16 h-16 rounded-full border-4 border-[#FFD600] bg-gray-800 flex items-center justify-center flex-shrink-0">
+                  <span class="text-white font-black text-xl" style="font-family:var(--font-display);">{initials(f1)}</span>
                 </div>
               )}
-              <div class="relative z-10 mt-auto">
-                <div class="text-[#FFD600] text-[10px] font-black uppercase tracking-widest mb-1" style="font-family:var(--font-sans);">Main Event</div>
-                <div class="text-white font-black leading-none" style="font-family:var(--font-display);font-size:clamp(1.4rem,3.5vw,2.2rem);">{lastName(f1)}</div>
-                <div class="text-gray-500 text-xs mt-1" style="font-family:var(--font-sans);">{f1}</div>
+              <div class="relative z-10 md:mt-auto text-left md:text-center">
+                <div class="text-[#FFD600] text-[10px] font-black uppercase tracking-widest mb-0.5" style="font-family:var(--font-sans);">Main Event</div>
+                <div class="text-white font-black leading-none" style="font-family:var(--font-display);font-size:clamp(1.2rem,3vw,2rem);">{lastName(f1)}</div>
+                <div class="text-gray-500 text-xs mt-0.5" style="font-family:var(--font-sans);">{f1}</div>
               </div>
             </div>
 
-            <!-- VS -->
-            <div class="flex flex-col items-center justify-center gap-2 border-x border-gray-800">
-              <div class="text-[#FFD600] font-black" style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);">VS</div>
-              <div class="text-gray-700 text-[10px] uppercase tracking-widest font-bold text-center" style="font-family:var(--font-sans);">{event.name}</div>
+            <!-- VS — horizontal en móvil, vertical en desktop -->
+            <div class="flex items-center justify-center gap-3 md:flex-col md:gap-2 border-t border-b md:border-t-0 md:border-b-0 md:border-x border-gray-800 py-3 md:py-0">
+              <div class="text-[#FFD600] font-black" style="font-family:var(--font-display);font-size:clamp(1.5rem,4vw,3rem);">VS</div>
+              <div class="text-gray-700 text-[10px] uppercase tracking-widest font-bold" style="font-family:var(--font-sans);">{event.name}</div>
             </div>
 
             <!-- F2 -->
-            <div class="flex flex-col items-center justify-end text-center relative overflow-hidden pb-8 pt-6 px-4">
+            <div class="flex items-center gap-4 md:flex-col md:items-center md:justify-end md:text-center relative overflow-hidden pb-6 pt-6 px-5 md:px-4">
               {event.f2img ? (
                 <img src={event.f2img} alt={f2}
-                     class="absolute bottom-0 left-1/2 -translate-x-1/2 object-cover object-top opacity-60"
-                     style="height:240px;width:auto;max-width:220px; filter: grayscale(30%);" />
+                     class="w-16 h-16 md:w-auto md:h-auto rounded-full md:rounded-none object-cover object-top md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 md:opacity-60 flex-shrink-0"
+                     style="max-height:200px; filter: grayscale(30%);" />
               ) : (
-                <div class="w-20 h-20 rounded-full border-4 border-gray-700 bg-gray-800 flex items-center justify-center mb-4">
-                  <span class="text-gray-400 font-black text-2xl" style="font-family:var(--font-display);">{initials(f2)}</span>
+                <div class="w-16 h-16 rounded-full border-4 border-gray-700 bg-gray-800 flex items-center justify-center flex-shrink-0">
+                  <span class="text-gray-400 font-black text-xl" style="font-family:var(--font-display);">{initials(f2)}</span>
                 </div>
               )}
-              <div class="relative z-10 mt-auto">
-                <div class="text-gray-600 text-[10px] font-black uppercase tracking-widest mb-1" style="font-family:var(--font-sans);">Challenger</div>
-                <div class="text-gray-300 font-black leading-none" style="font-family:var(--font-display);font-size:clamp(1.4rem,3.5vw,2.2rem);">{lastName(f2)}</div>
-                <div class="text-gray-600 text-xs mt-1" style="font-family:var(--font-sans);">{f2}</div>
+              <div class="relative z-10 md:mt-auto text-left md:text-center">
+                <div class="text-gray-600 text-[10px] font-black uppercase tracking-widest mb-0.5" style="font-family:var(--font-sans);">Challenger</div>
+                <div class="text-gray-300 font-black leading-none" style="font-family:var(--font-display);font-size:clamp(1.2rem,3vw,2rem);">{lastName(f2)}</div>
+                <div class="text-gray-600 text-xs mt-0.5" style="font-family:var(--font-sans);">{f2}</div>
               </div>
             </div>
           </div>
@@ -177,9 +177,9 @@ const metaDescription = `${event.name}${hasFight ? ` — ${f1} vs. ${f2}` : ''}.
           <!-- Meta bar -->
           <div class="grid grid-cols-3 border-t border-gray-800 divide-x divide-gray-800" style="font-family:var(--font-sans);">
             {[{ label:'Evento', val: event.name }, { label:'Fecha', val: event.dateLabel }, { label:'Ciudad', val: event.loc.split(',')[0] }].map(({ label, val }) => (
-              <div class="px-5 py-4 text-center">
+              <div class="px-3 py-3 text-center">
                 <div class="text-[10px] font-bold uppercase tracking-widest text-gray-600 mb-1">{label}</div>
-                <div class="text-white text-sm font-semibold truncate">{val}</div>
+                <div class="text-white text-xs md:text-sm font-semibold truncate">{val}</div>
               </div>
             ))}
           </div>
