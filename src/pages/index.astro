@@ -85,32 +85,30 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
     <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
       {EVENTS.map(e => (
         <a href={`/eventos/${e.slug}`} class="relative rounded-md overflow-hidden transition-transform duration-200 hover:-translate-y-1 block"
-             style={`background: ${e.bg}; color: ${e.color}; min-height: 220px; display:flex; flex-direction:column; justify-content:space-between;`}>
+             style={`background: ${e.bg}; color: ${e.color}; min-height: 180px; display:flex; flex-direction:column; justify-content:space-between; -webkit-tap-highlight-color: transparent;`}>
 
-          {/* Fighter photos — absolute bottom, flanking */}
+          {/* Fighter photos — decorativas, sin interferir con el toque */}
           {e.f1img && (
-            <div class="absolute bottom-0 left-0 w-1/2 h-full pointer-events-none select-none overflow-hidden">
-              <img src={e.f1img} alt={e.f1}
-                   class="absolute bottom-0 left-0 h-[90%] w-auto object-contain object-bottom"
-                   style="filter: drop-shadow(2px 0 8px rgba(0,0,0,0.25));"
-                   loading="eager" />
-            </div>
+            <img src={e.f1img} alt=""
+                 aria-hidden="true"
+                 class="absolute bottom-0 left-0 h-[75%] w-auto object-contain object-bottom pointer-events-none select-none"
+                 style="filter: drop-shadow(2px 0 6px rgba(0,0,0,0.2)); z-index:1;"
+                 loading="eager" />
           )}
           {e.f2img && (
-            <div class="absolute bottom-0 right-0 w-1/2 h-full pointer-events-none select-none overflow-hidden">
-              <img src={e.f2img} alt={e.f2}
-                   class="absolute bottom-0 right-0 h-[90%] w-auto object-contain object-bottom"
-                   style="filter: drop-shadow(-2px 0 8px rgba(0,0,0,0.25)); transform:scaleX(-1);"
-                   loading="eager" />
-            </div>
+            <img src={e.f2img} alt=""
+                 aria-hidden="true"
+                 class="absolute bottom-0 right-0 h-[75%] w-auto object-contain object-bottom pointer-events-none select-none"
+                 style="filter: drop-shadow(-2px 0 6px rgba(0,0,0,0.2)); transform:scaleX(-1); z-index:1;"
+                 loading="eager" />
           )}
 
-          {/* Content overlay */}
-          <div style="position:relative;z-index:2;padding:clamp(20px,3vw,32px);padding-bottom:0;">
+          {/* Content — siempre encima de las fotos */}
+          <div style="position:relative;z-index:3;padding:clamp(20px,3vw,32px);padding-bottom:0;">
             <div class="text-xs font-bold tracking-widest uppercase mb-1" style={`opacity:0.7;font-family:var(--font-sans);color:${e.color};`}>{e.dateLabel}</div>
             <h3 class="text-3xl md:text-4xl" style={`font-family:var(--font-display);color:${e.color};`}>{e.name}</h3>
           </div>
-          <div style="position:relative;z-index:2;padding:clamp(20px,3vw,32px);padding-top:0;background:linear-gradient(to top, rgba(0,0,0,0.25) 0%, transparent 100%);">
+          <div style="position:relative;z-index:3;padding:clamp(20px,3vw,32px);padding-top:0;">
             <div class="text-lg md:text-xl font-bold italic" style={`font-family:var(--font-serif);color:${e.color};`}>{e.main}</div>
             <div class="text-xs mt-1" style={`opacity:0.6;font-family:var(--font-sans);color:${e.color};`}>{e.loc}</div>
           </div>
