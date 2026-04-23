@@ -9,63 +9,71 @@ export function getStaticPaths() {
 const { fighter: f } = Astro.props;
 const PX = 'clamp(16px,4vw,60px)';
 
-// Iniciales del peleador para el avatar de fallback
 const initials = f.name.split(' ').slice(0, 2).map((n: string) => n[0]).join('');
-
-// Record: separar wins-losses-draws
 const [wins, losses, draws] = f.rec !== '—' ? f.rec.split('-').map(Number) : [0, 0, 0];
 const totalFights = wins + losses + (draws || 0);
 const winPct = totalFights > 0 ? Math.round((wins / totalFights) * 100) : 0;
+
+const physicals = [
+  { label: 'Altura',  value: f.height,  icon: '↕' },
+  { label: 'Peso',    value: f.weight,  icon: '⚖' },
+  { label: 'Alcance', value: f.reach,   icon: '↔' },
+  { label: 'Guardia', value: f.stance,  icon: '🥊' },
+  { label: 'Gym',     value: f.team,    icon: '🏛' },
+  { label: 'País',    value: f.from,    icon: '🌍' },
+].filter(p => p.value);
 ---
 
 <BaseLayout
-  title={`${f.name}${f.nick ? ` "${f.nick}"` : ''} · Campeón ${f.div} | Quimbara`}
-  description={`Perfil de ${f.name}, campeón UFC ${f.div}. Récord: ${f.rec}. Guardia: ${f.stance}. Equipo: ${f.team}.`}
+  title={`${f.name}${f.nick ? ` "${f.nick}"` : ''} · UFC ${f.div} | Quimbara`}
+  description={`Perfil de ${f.name}, campeón UFC ${f.div}. Récord ${f.rec}. ${f.stance ? `Guardia ${f.stance}.` : ''} ${f.team ? `Equipo: ${f.team}.` : ''}`}
 >
 
   <!-- ── Hero ── -->
-  <div style={`background:#111; padding: 60px ${PX} 50px; position:relative; overflow:hidden;`}>
-    <!-- Letra de fondo decorativa -->
-    <div class="absolute select-none pointer-events-none"
-         style="bottom:-60px;right:-30px;font-family:var(--font-display);font-size:clamp(200px,30vw,360px);opacity:0.04;color:#fff;line-height:1;">
-      C
+  <div class="relative overflow-hidden" style="background:#111; min-height: 380px;">
+
+    <!-- Inicial gigante de fondo -->
+    <div class="absolute inset-0 flex items-end justify-end pointer-events-none select-none overflow-hidden">
+      <span style="font-family:var(--font-display);font-size:clamp(200px,35vw,400px);opacity:0.04;color:#fff;line-height:0.85;margin-right:-20px;">
+        {f.name.split(' ').slice(-1)[0]?.[0]}
+      </span>
     </div>
 
-    <div style="max-width:1400px; margin:0 auto; position:relative;">
-      <!-- Breadcrumb -->
-      <a href="/" class="text-gray-500 hover:text-[#FFD600] text-xs uppercase tracking-widest font-bold transition-colors mb-8 inline-block"
-         style="font-family:var(--font-sans);">
-        ← Inicio
-      </a>
+    <div style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 50px; position:relative;`}>
 
-      <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
-        <!-- Avatar -->
-        <div class="rounded-full overflow-hidden border-4 border-[#FFD600] flex-shrink-0 flex items-center justify-center bg-gray-800"
-             style="width:100px;height:100px;">
-          {f.img ? (
-            <img src={f.img} alt={f.name} class="w-full h-full object-cover" />
-          ) : (
-            <span class="text-white font-black text-2xl select-none" style="font-family:var(--font-display);">{initials}</span>
-          )}
+      <!-- Nav -->
+      <a href="/"
+         class="text-gray-500 hover:text-[#FFD600] text-[11px] font-bold uppercase tracking-widest transition-colors mb-10 inline-block"
+         style="font-family:var(--font-sans);">← Inicio</a>
+
+      <div class="flex flex-col md:flex-row md:items-end gap-6 md:gap-10">
+
+        <!-- Foto -->
+        <div class="relative flex-shrink-0">
+          <div class="rounded-2xl overflow-hidden border-4 border-[#FFD600] flex items-center justify-center bg-gray-800"
+               style="width:clamp(90px,15vw,140px);height:clamp(90px,15vw,140px);">
+            {f.img ? (
+              <img src={f.img} alt={f.name} class="w-full h-full object-cover" />
+            ) : (
+              <span class="text-white font-black select-none"
+                    style="font-family:var(--font-display);font-size:clamp(28px,5vw,48px);">{initials}</span>
+            )}
+          </div>
+          <!-- Badge campeón -->
+          <div class="absolute -bottom-2 -right-2 bg-[#FFD600] text-[#111] text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-md"
+               style="font-family:var(--font-sans);">Campeón</div>
         </div>
 
-        <!-- Nombre y división -->
-        <div>
-          <div class="flex items-center gap-3 mb-2 flex-wrap">
-            <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111]"
-                  style="font-family:var(--font-sans);">
-              Campeón
-            </span>
-            <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm border border-gray-600 text-gray-400"
-                  style="font-family:var(--font-sans);">
-              {f.div}
-            </span>
-          </div>
-          <h1 class="text-white leading-none" style="font-family:var(--font-display);font-size:clamp(2rem,6vw,4.5rem);">
+        <!-- Nombre -->
+        <div class="pb-1">
+          <div class="inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest rounded-sm border border-gray-600 text-gray-400 mb-3"
+               style="font-family:var(--font-sans);">{f.div}</div>
+          <h1 class="text-white leading-none"
+              style="font-family:var(--font-display);font-size:clamp(2.2rem,7vw,5rem);">
             {f.name}
           </h1>
           {f.nick && (
-            <div class="text-[#FFD600] text-xl italic mt-1" style="font-family:var(--font-serif);">
+            <div class="text-[#FFD600] text-xl italic mt-2" style="font-family:var(--font-serif);">
               "{f.nick}"
             </div>
           )}
@@ -74,93 +82,75 @@ const winPct = totalFights > 0 ? Math.round((wins / totalFights) * 100) : 0;
     </div>
   </div>
 
-  <!-- ── Récord visual ── -->
-  <div class="bg-[#FFD600]" style={`padding: 30px ${PX};`}>
-    <div style="max-width:1400px; margin:0 auto;">
-      <div class="grid grid-cols-3 gap-4 text-center">
-        <div>
-          <div class="text-4xl md:text-6xl font-black text-[#111] leading-none"
-               style="font-family:var(--font-display);">{wins}</div>
-          <div class="text-[11px] font-bold uppercase tracking-widest text-[#111]/60 mt-1"
+  <!-- ── Récord ── -->
+  <div style="background:#FFD600;">
+    <div style={`max-width:1400px; margin:0 auto; padding: 28px ${PX};`}>
+      <div class="grid grid-cols-4 gap-4 items-center">
+        <!-- Wins -->
+        <div class="text-center">
+          <div class="font-black text-[#111] leading-none"
+               style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,5rem);">{wins}</div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-[#111]/50 mt-1"
                style="font-family:var(--font-sans);">Victorias</div>
         </div>
-        <div>
-          <div class="text-4xl md:text-6xl font-black text-[#111] leading-none"
-               style="font-family:var(--font-display);">{losses}</div>
-          <div class="text-[11px] font-bold uppercase tracking-widest text-[#111]/60 mt-1"
+        <!-- Losses -->
+        <div class="text-center">
+          <div class="font-black text-[#111] leading-none"
+               style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,5rem);">{losses}</div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-[#111]/50 mt-1"
                style="font-family:var(--font-sans);">Derrotas</div>
         </div>
-        <div>
-          <div class="text-4xl md:text-6xl font-black text-[#111] leading-none"
-               style="font-family:var(--font-display);">{draws || 0}</div>
-          <div class="text-[11px] font-bold uppercase tracking-widest text-[#111]/60 mt-1"
+        <!-- Draws -->
+        <div class="text-center">
+          <div class="font-black text-[#111] leading-none"
+               style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,5rem);">{draws || 0}</div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-[#111]/50 mt-1"
                style="font-family:var(--font-sans);">Empates</div>
         </div>
-      </div>
-      {totalFights > 0 && (
-        <div class="mt-4">
-          <div class="text-[11px] font-bold uppercase tracking-widest text-[#111]/60 mb-1"
-               style="font-family:var(--font-sans);">
-            {winPct}% tasa de victoria ({totalFights} peleas)
-          </div>
-          <div class="w-full bg-[#111]/10 rounded-full h-2">
-            <div class="bg-[#111] h-2 rounded-full transition-all"
-                 style={`width:${winPct}%`}></div>
-          </div>
+        <!-- Win % -->
+        <div class="text-center border-l-2 border-[#111]/10 pl-4">
+          <div class="font-black text-[#111] leading-none"
+               style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,5rem);">{winPct}<span style="font-size:0.4em;">%</span></div>
+          <div class="text-[10px] font-bold uppercase tracking-widest text-[#111]/50 mt-1"
+               style="font-family:var(--font-sans);">Tasa victoria</div>
         </div>
-      )}
+      </div>
     </div>
   </div>
 
   <!-- ── Datos físicos ── -->
-  <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 60px;`}>
-    <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-6"
-        style="font-family:var(--font-sans);">
-      Datos físicos
-    </h2>
+  {physicals.length > 0 && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 60px;`}>
+      <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-8"
+          style="font-family:var(--font-sans);">Perfil atlético</h2>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-      {[
-        { label: 'Altura',  value: f.height  || '—' },
-        { label: 'Peso',    value: f.weight  || '—' },
-        { label: 'Alcance', value: f.reach   || '—' },
-        { label: 'Guardia', value: f.stance  || '—' },
-        { label: 'Equipo',  value: f.team    || '—' },
-      ].map(({ label, value }) => (
-        <div class="bg-gray-50 rounded-md p-5">
-          <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2"
-               style="font-family:var(--font-sans);">
-            {label}
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-px bg-gray-100 rounded-xl overflow-hidden border border-gray-100">
+        {physicals.map(({ label, value, icon }) => (
+          <div class="bg-white px-6 py-5 group hover:bg-[#111] transition-colors duration-200">
+            <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-gray-600 mb-2"
+                 style="font-family:var(--font-sans);">{label}</div>
+            <div class="text-[#111] font-black text-xl group-hover:text-white leading-tight"
+                 style="font-family:var(--font-display);">{value}</div>
           </div>
-          <div class="text-[#111] font-bold text-base leading-tight"
-               style="font-family:var(--font-display);">
-            {value}
-          </div>
-        </div>
-      ))}
-    </div>
-
-    {f.from && (
-      <div class="mt-3 bg-gray-50 rounded-md p-5 inline-block">
-        <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2"
-             style="font-family:var(--font-sans);">País</div>
-        <div class="text-[#111] font-bold text-base" style="font-family:var(--font-display);">{f.from}</div>
+        ))}
       </div>
-    )}
-  </section>
+    </section>
+  )}
 
-  <!-- ── CTA artículos relacionados ── -->
-  <div class="bg-[#111]" style={`padding: 50px ${PX};`}>
-    <div style="max-width:1400px; margin:0 auto; text-align:center;">
-      <div class="text-gray-500 text-xs uppercase tracking-widest font-bold mb-3"
-           style="font-family:var(--font-sans);">Quimbara</div>
-      <div class="text-white text-2xl md:text-3xl mb-6" style="font-family:var(--font-display);">
-        Análisis, noticias y opinión sobre {f.name.split(' ')[0]}
+  <!-- ── CTA artículos ── -->
+  <div style={`background:#111; padding: 50px ${PX};`}>
+    <div style="max-width:1400px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px;">
+      <div>
+        <div class="text-gray-500 text-[11px] uppercase tracking-widest font-bold mb-2"
+             style="font-family:var(--font-sans);">Quimbara</div>
+        <div class="text-white text-2xl md:text-3xl" style="font-family:var(--font-display);">
+          Análisis sobre {f.name.split(' ')[0]}
+        </div>
       </div>
       <a href="/blog"
-         class="inline-block px-6 py-3 text-sm font-semibold uppercase tracking-widest rounded-sm transition-colors duration-200 bg-[#FFD600] text-[#111] hover:bg-yellow-400"
+         class="inline-block px-6 py-3 text-sm font-bold uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111] hover:bg-yellow-400 transition-colors"
          style="font-family:var(--font-sans);">
-        Ver todos los artículos
+        Ver artículos →
       </a>
     </div>
   </div>

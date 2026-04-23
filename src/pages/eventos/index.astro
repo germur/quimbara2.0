@@ -4,117 +4,105 @@ import EVENTS from '../../data/events-all.json';
 
 const PX = 'clamp(16px,4vw,60px)';
 
-// Separar próximos con main event conocido de los que son TBD
-const confirmed = EVENTS.filter(e => e.main !== 'TBD');
-const tbd       = EVENTS.filter(e => e.main === 'TBD');
+// Agrupar por mes
+const byMonth: Record<string, typeof EVENTS> = {};
+for (const e of EVENTS) {
+  const key = e.date.slice(0, 7); // "2026-05"
+  if (!byMonth[key]) byMonth[key] = [];
+  byMonth[key].push(e);
+}
+
+const monthLabel = (key: string) => {
+  const [y, m] = key.split('-');
+  return new Date(Number(y), Number(m) - 1, 1)
+    .toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
+};
+
+const isPPV = (name: string) => /UFC \d/.test(name);
 ---
 
 <BaseLayout title="Calendario de Eventos UFC 2026 | Quimbara" description="Todos los próximos eventos UFC: fechas, ciudades y peleas principales confirmadas.">
 
-  <!-- ── Header ── -->
-  <div style={`background:#111; padding: 60px ${PX} 50px;`}>
+  <!-- ── Hero ── -->
+  <div style={`background:#111; padding: 70px ${PX} 60px;`}>
     <div style="max-width:1400px; margin:0 auto;">
-      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111] mb-5"
-            style="font-family:var(--font-sans);">
-        Calendario
-      </span>
-      <h1 class="text-white" style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,5rem);line-height:1.0;">
-        Próximos<br/>Eventos UFC
+      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111] mb-6"
+            style="font-family:var(--font-sans);">Calendario 2026</span>
+      <h1 style="font-family:var(--font-display);font-size:clamp(3rem,10vw,7rem);line-height:0.95;color:#fff;">
+        Próximos<br/><span style="color:#FFD600;">Eventos</span>
       </h1>
-      <p class="text-gray-400 mt-4 text-base max-w-xl" style="font-family:var(--font-sans);">
-        {EVENTS.length} eventos programados · Actualización automática cada lunes
+      <p class="text-gray-400 mt-5 text-sm" style="font-family:var(--font-sans);">
+        {EVENTS.length} eventos · Actualizado cada lunes automáticamente
       </p>
     </div>
   </div>
 
-  <!-- ── Eventos confirmados ── -->
-  <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 20px;`}>
-    <h2 class="text-xl font-bold uppercase tracking-widest text-[#111] mb-6"
-        style="font-family:var(--font-sans);">
-      Peleas principales confirmadas
-    </h2>
-    <div class="flex flex-col gap-3">
-      {confirmed.map((e) => (
-        <a href={`/eventos/${e.slug}`}
-           class="group flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-5 rounded-md bg-gray-50 hover:bg-[#111] transition-colors duration-200">
+  <!-- ── Lista agrupada por mes ── -->
+  <div style={`max-width:1400px; margin:0 auto; padding: 60px ${PX};`}>
+    {Object.entries(byMonth).map(([key, events]) => (
+      <div class="mb-12">
+        <!-- Cabecera de mes -->
+        <div class="flex items-center gap-4 mb-5">
+          <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 capitalize"
+              style="font-family:var(--font-sans);">{monthLabel(key)}</h2>
+          <div class="flex-1 h-px bg-gray-100"></div>
+        </div>
 
-          <!-- Fecha -->
-          <div class="flex-shrink-0 w-20 text-center">
-            <div class="text-[11px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-gray-500"
-                 style="font-family:var(--font-sans);">
-              {e.dateLabel.split(' ')[1]?.toUpperCase()}
-            </div>
-            <div class="text-3xl font-black text-[#111] group-hover:text-white leading-none"
-                 style="font-family:var(--font-display);">
-              {e.dateLabel.split(' ')[0]}
-            </div>
-            <div class="text-[11px] text-gray-400 group-hover:text-gray-500"
-                 style="font-family:var(--font-sans);">
-              {e.dateLabel.split(' ')[2]}
-            </div>
-          </div>
+        <!-- Eventos del mes -->
+        <div class="flex flex-col gap-2">
+          {events.map((e, i) => {
+            const day  = e.dateLabel.split(' ')[0];
+            const mon  = e.dateLabel.split(' ')[1]?.toUpperCase();
+            const ppv  = isPPV(e.name);
+            return (
+              <a href={`/eventos/${e.slug}`}
+                 class="group grid items-center gap-4 rounded-lg transition-all duration-200 hover:bg-[#111] hover:shadow-xl"
+                 style="grid-template-columns: 64px 1px 1fr auto; padding: 20px 24px;">
 
-          <!-- Separador vertical -->
-          <div class="hidden sm:block w-px h-12 bg-gray-200 group-hover:bg-gray-700 flex-shrink-0"></div>
+                <!-- Día -->
+                <div class="text-center">
+                  <div class="text-[10px] font-bold tracking-widest text-gray-400 group-hover:text-gray-500"
+                       style="font-family:var(--font-sans);">{mon}</div>
+                  <div class="text-4xl font-black leading-none text-[#111] group-hover:text-white"
+                       style="font-family:var(--font-display);">{day}</div>
+                </div>
 
-          <!-- Info evento -->
-          <div class="flex-1 min-w-0">
-            <div class="text-[11px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-gray-500 mb-1"
-                 style="font-family:var(--font-sans);">
-              {e.name}
-            </div>
-            <div class="text-[#111] group-hover:text-white text-xl leading-tight"
-                 style="font-family:var(--font-display);">
-              {e.main}
-            </div>
-          </div>
+                <!-- Línea separadora -->
+                <div class="h-10 w-px bg-gray-200 group-hover:bg-gray-700"></div>
 
-          <!-- Ubicación -->
-          <div class="flex items-center gap-2 text-sm text-gray-400 group-hover:text-gray-400 flex-shrink-0"
-               style="font-family:var(--font-sans);">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-            {e.loc}
-          </div>
+                <!-- Info -->
+                <div class="min-w-0">
+                  <div class="flex items-center gap-2 mb-1 flex-wrap">
+                    {ppv ? (
+                      <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm bg-[#FFD600] text-[#111] group-hover:bg-[#FFD600]"
+                            style="font-family:var(--font-sans);">PPV</span>
+                    ) : (
+                      <span class="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-sm border border-gray-200 text-gray-400 group-hover:border-gray-600"
+                            style="font-family:var(--font-sans);">Fight Night</span>
+                    )}
+                    <span class="text-[10px] text-gray-400 font-medium group-hover:text-gray-500"
+                          style="font-family:var(--font-sans);">{e.name}</span>
+                  </div>
+                  <div class="leading-tight group-hover:text-white text-[#111]"
+                       style={`font-family:var(--font-display);font-size:${e.main !== 'TBD' ? 'clamp(1.1rem,2vw,1.4rem)' : '1rem'};${e.main === 'TBD' ? 'color:#9ca3af' : ''}`}>
+                    {e.main !== 'TBD' ? e.main : 'Por confirmar'}
+                  </div>
+                  <div class="flex items-center gap-1 mt-1 text-gray-400 group-hover:text-gray-500">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span class="text-[11px]" style="font-family:var(--font-sans);">{e.loc}</span>
+                  </div>
+                </div>
 
-          <!-- Flecha -->
-          <div class="text-gray-300 group-hover:text-[#FFD600] transition-colors text-lg flex-shrink-0">→</div>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <!-- ── Eventos por confirmar ── -->
-  {tbd.length > 0 && (
-    <section style={`max-width:1400px; margin:0 auto; padding: 30px ${PX} 60px;`}>
-      <h2 class="text-xl font-bold uppercase tracking-widest text-[#111] mb-6"
-          style="font-family:var(--font-sans);">
-        Por confirmar
-      </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {tbd.map((e) => (
-          <div class="flex items-center gap-4 p-4 rounded-md bg-gray-50 opacity-70">
-            <div class="flex-shrink-0 text-center w-14">
-              <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400"
-                   style="font-family:var(--font-sans);">
-                {e.dateLabel.split(' ')[1]?.toUpperCase()}
-              </div>
-              <div class="text-2xl font-black text-[#111] leading-none"
-                   style="font-family:var(--font-display);">
-                {e.dateLabel.split(' ')[0]}
-              </div>
-            </div>
-            <div class="min-w-0">
-              <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400"
-                   style="font-family:var(--font-sans);">{e.name}</div>
-              <div class="text-sm text-gray-400 truncate" style="font-family:var(--font-sans);">{e.loc}</div>
-            </div>
-          </div>
-        ))}
+                <!-- Flecha -->
+                <div class="text-gray-200 group-hover:text-[#FFD600] transition-all duration-200 text-xl font-bold">→</div>
+              </a>
+            );
+          })}
+        </div>
       </div>
-    </section>
-  )}
+    ))}
+  </div>
 
 </BaseLayout>
