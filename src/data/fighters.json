@@ -1,55 +1,55 @@
 [
   {
     "name": "Tom Aspinall",
-    "nick": "",
+    "nick": "The Gorilla",
     "div": "Heavyweight",
-    "rec": "Jun 21, 2025",
-    "from": "",
+    "rec": "15-3-0",
+    "from": "Inglaterra",
     "rank": "C",
     "img": ""
   },
   {
     "name": "Carlos Ulberg",
-    "nick": "",
+    "nick": "Black Jag",
     "div": "Light Heavyweight",
-    "rec": "Apr 11, 2026",
-    "from": "",
+    "rec": "14-1-0",
+    "from": "Nueva Zelanda",
     "rank": "C",
     "img": ""
   },
   {
     "name": "Khamzat Chimaev",
-    "nick": "",
+    "nick": "Borz",
     "div": "Middleweight",
-    "rec": "Aug 16, 2025",
-    "from": "",
+    "rec": "14-0-0",
+    "from": "Suecia",
     "rank": "C",
     "img": ""
   },
   {
     "name": "Islam Makhachev",
-    "nick": "The Machine",
+    "nick": "",
     "div": "Welterweight",
-    "rec": "Nov 15, 2025",
+    "rec": "26-1-0",
     "from": "Rusia",
     "rank": "C",
-    "img": "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=200&q=80&fit=crop&crop=face"
+    "img": ""
   },
   {
     "name": "Ilia Topuria",
     "nick": "El Matador",
     "div": "Lightweight",
-    "rec": "Jun 28, 2025",
-    "from": "España",
+    "rec": "16-0-0",
+    "from": "Georgia",
     "rank": "C",
-    "img": "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=200&q=80&fit=crop&crop=face"
+    "img": ""
   },
   {
     "name": "Alexander Volkanovski",
-    "nick": "",
+    "nick": "The Great",
     "div": "Featherweight",
-    "rec": "—",
-    "from": "",
+    "rec": "26-3-0",
+    "from": "Australia",
     "rank": "C",
     "img": ""
   }

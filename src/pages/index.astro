@@ -116,26 +116,35 @@ const PX = "clamp(16px,4vw,60px)";
             {f.rank === 'C' ? 'C' : `#${f.rank}`}
           </div>
           <div class="flex items-center gap-3">
-            <div class="rounded-full overflow-hidden flex-shrink-0 border-2 border-gray-200" style="width:52px;height:52px;">
-              <img src={f.img} alt={f.name} class="w-full h-full object-cover" loading="lazy" />
+            <!-- Avatar: imagen si existe, iniciales si no -->
+            <div class="rounded-full overflow-hidden flex-shrink-0 border-2 border-gray-200 flex items-center justify-center bg-gray-200" style="width:52px;height:52px;">
+              {f.img ? (
+                <img src={f.img} alt={f.name} class="w-full h-full object-cover" loading="lazy" />
+              ) : (
+                <span class="text-gray-500 font-black text-sm select-none" style="font-family:var(--font-display);">
+                  {f.name.split(' ').slice(0,2).map((n: string) => n[0]).join('')}
+                </span>
+              )}
             </div>
             <div>
               <div class="text-[#111] text-base leading-tight" style="font-family:var(--font-display);">{f.name}</div>
-              <div class="text-gray-500 text-sm italic" style="font-family:var(--font-sans);">"{f.nick}"</div>
+              {f.nick && (
+                <div class="text-gray-500 text-sm italic" style="font-family:var(--font-sans);">"{f.nick}"</div>
+              )}
             </div>
           </div>
-          <div class="flex justify-between mt-4 pt-3 border-t border-gray-200" style="font-family:var(--font-sans);">
-            <div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4 pt-3 border-t border-gray-200" style="font-family:var(--font-sans);">
+            <div class="min-w-0">
               <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">División</div>
-              <div class="font-semibold text-sm mt-1 text-[#111]">{f.div}</div>
+              <div class="font-semibold text-xs mt-1 text-[#111] leading-tight">{f.div}</div>
             </div>
-            <div>
+            <div class="min-w-0">
               <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Récord</div>
-              <div class="text-sm mt-1 font-bold text-[#111]" style="font-family:var(--font-display);letter-spacing:0.05em;">{f.rec}</div>
+              <div class="text-sm mt-1 font-bold text-[#111]" style="font-family:var(--font-display);">{f.rec}</div>
             </div>
-            <div>
+            <div class="min-w-0 hidden md:block">
               <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">País</div>
-              <div class="font-semibold text-sm mt-1 text-[#111]">{f.from}</div>
+              <div class="font-semibold text-xs mt-1 text-[#111] leading-tight">{f.from}</div>
             </div>
           </div>
         </div>
