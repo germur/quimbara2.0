@@ -8,14 +8,14 @@ const tickerItems = [...events, ...events, ...events];
 <div class="bg-[#111] text-white overflow-hidden whitespace-nowrap" style="padding: 10px 0;">
   <div class="inline-flex" style="animation: marquee 30s linear infinite;">
     {tickerItems.map((e) => (
-      <span class="inline-flex items-center gap-2 mr-14 text-xs" style="font-family: var(--font-sans); letter-spacing: 0.05em;">
+      <a href={`/eventos/${e.slug}`} class="inline-flex items-center gap-2 mr-14 text-xs hover:opacity-80 transition-opacity" style="font-family: var(--font-sans); letter-spacing: 0.05em; text-decoration:none; color:inherit;">
         <span class="px-2 py-[2px] text-white text-[11px] font-bold rounded-sm" style="background: #E53935;">
           {e.name}
         </span>
         <span class="opacity-60">{e.dateLabel}</span>
         <span class="font-semibold">{e.main}</span>
         <span class="opacity-40">{e.loc}</span>
-      </span>
+      </a>
     ))}
   </div>
 </div>
