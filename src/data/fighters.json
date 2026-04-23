@@ -340,5 +340,1678 @@
         "winType": "UD"
       }
     ]
+  },
+  {
+    "slug": "jon-jones",
+    "name": "Jon Jones",
+    "nick": "Bones",
+    "div": "Heavyweight",
+    "rec": "28-1-0",
+    "from": "USA",
+    "rank": "1",
+    "img": "/fighters/jon-jones.png",
+    "height": "6' 4\"",
+    "weight": "265 lbs",
+    "reach": "85\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      }
+    ]
+  },
+  {
+    "slug": "curtis-blaydes",
+    "name": "Curtis Blaydes",
+    "nick": "Razor",
+    "div": "Heavyweight",
+    "rec": "19-5-0",
+    "from": "USA",
+    "rank": "2",
+    "img": "/fighters/curtis-blaydes.png",
+    "height": "6' 4\"",
+    "weight": "265 lbs",
+    "reach": "80\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "L",
+      "W",
+      "L",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      }
+    ]
+  },
+  {
+    "slug": "sergei-pavlovich",
+    "name": "Sergei Pavlovich",
+    "nick": "",
+    "div": "Heavyweight",
+    "rec": "19-3-0",
+    "from": "Russia",
+    "rank": "3",
+    "img": "/fighters/sergei-pavlovich.png",
+    "height": "6' 3\"",
+    "weight": "265 lbs",
+    "reach": "84\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "L",
+      "L",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "ciryl-gane",
+    "name": "Ciryl Gane",
+    "nick": "Bon Gamin",
+    "div": "Heavyweight",
+    "rec": "13-2-0",
+    "from": "France",
+    "rank": "4",
+    "img": "/fighters/ciryl-gane.png",
+    "height": "6' 4\"",
+    "weight": "265 lbs",
+    "reach": "81\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "L",
+      "W",
+      "L",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      }
+    ]
+  },
+  {
+    "slug": "alexander-volkov",
+    "name": "Alexander Volkov",
+    "nick": "DRAGO",
+    "div": "Heavyweight",
+    "rec": "38-11-0",
+    "from": "Russia",
+    "rank": "5",
+    "img": "/fighters/alexander-volkov.png",
+    "height": "6' 7\"",
+    "weight": "265 lbs",
+    "reach": "80\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "SD"
+      }
+    ]
+  },
+  {
+    "slug": "alex-pereira",
+    "name": "Alex Pereira",
+    "nick": "POATAN",
+    "div": "Light Heavyweight",
+    "rec": "12-3-0",
+    "from": "Brazil",
+    "rank": "1",
+    "img": "/fighters/alex-pereira.png",
+    "height": "6' 4\"",
+    "weight": "205 lbs",
+    "reach": "80\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "jiri-prochazka",
+    "name": "Jiri Prochazka",
+    "nick": "BJP",
+    "div": "Light Heavyweight",
+    "rec": "32-5-1",
+    "from": "Czechia",
+    "rank": "2",
+    "img": "/fighters/jiri-prochazka.png",
+    "height": "6' 3\"",
+    "weight": "205 lbs",
+    "reach": "80\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "L",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      }
+    ]
+  },
+  {
+    "slug": "jamahal-hill",
+    "name": "Jamahal Hill",
+    "nick": " Sweet Dreams",
+    "div": "Light Heavyweight",
+    "rec": "12-3-0",
+    "from": "USA",
+    "rank": "3",
+    "img": "/fighters/jamahal-hill.png",
+    "height": "6' 4\"",
+    "weight": "205 lbs",
+    "reach": "79\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "L",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "KO"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      }
+    ]
+  },
+  {
+    "slug": "magomed-ankalaev",
+    "name": "Magomed Ankalaev",
+    "nick": "Russian Terror",
+    "div": "Light Heavyweight",
+    "rec": "21-1-1",
+    "from": "Russia",
+    "rank": "4",
+    "img": "/fighters/magomed-ankalaev.png",
+    "height": "6' 3\"",
+    "weight": "205 lbs",
+    "reach": "75\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "D",
+      "N",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "D",
+        "winType": null
+      },
+      {
+        "outcome": "NC",
+        "winType": null
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "jan-blachowicz",
+    "name": "Jan Blachowicz",
+    "nick": " N/A",
+    "div": "Light Heavyweight",
+    "rec": "29-11-1",
+    "from": "Poland",
+    "rank": "5",
+    "img": "/fighters/jan-blachowicz.png",
+    "height": "6' 2\"",
+    "weight": "205 lbs",
+    "reach": "78\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "D",
+      "W",
+      "D",
+      "L",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "D",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "D",
+        "winType": null
+      },
+      {
+        "outcome": "L",
+        "winType": "SD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "sean-strickland",
+    "name": "Sean Strickland",
+    "nick": "Tarzan",
+    "div": "Middleweight",
+    "rec": "29-7-0",
+    "from": "USA",
+    "rank": "1",
+    "img": "/fighters/sean-strickland.png",
+    "height": "6' 1\"",
+    "weight": "183 lbs",
+    "reach": "76\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "L",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "dricus-du-plessis",
+    "name": "Dricus Du Plessis",
+    "nick": " Stillknocks",
+    "div": "Middleweight",
+    "rec": "23-3-0",
+    "from": "South Africa",
+    "rank": "2",
+    "img": "/fighters/dricus-du-plessis.png",
+    "height": "6' 1\"",
+    "weight": "183 lbs",
+    "reach": "76\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "robert-whittaker",
+    "name": "Robert Whittaker",
+    "nick": "The Reaper",
+    "div": "Middleweight",
+    "rec": "26-9-0",
+    "from": "Australia",
+    "rank": "3",
+    "img": "/fighters/robert-whittaker.png",
+    "height": "5' 12\"",
+    "weight": "183 lbs",
+    "reach": "74\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "L",
+      "W",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      },
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      }
+    ]
+  },
+  {
+    "slug": "paulo-costa",
+    "name": "Paulo Costa",
+    "nick": "The eraser",
+    "div": "Light Heavyweight",
+    "rec": "15-4-0",
+    "from": "Brazil",
+    "rank": "4",
+    "img": "/fighters/paulo-costa.png",
+    "height": "6' 1\"",
+    "weight": "205 lbs",
+    "reach": "73\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "L",
+      "L",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "marvin-vettori",
+    "name": "Marvin Vettori",
+    "nick": "  The Italian Dream",
+    "div": "Middleweight",
+    "rec": "19-8-1",
+    "from": "Italy",
+    "rank": "5",
+    "img": "/fighters/marvin-vettori.png",
+    "height": "6' 0\"",
+    "weight": "183 lbs",
+    "reach": "74\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "L",
+      "W",
+      "L",
+      "L",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "shavkat-rakhmonov",
+    "name": "Shavkat Rakhmonov",
+    "nick": "Nomad",
+    "div": "Welterweight",
+    "rec": "19-0-0",
+    "from": "Kazakhstan",
+    "rank": "1",
+    "img": "/fighters/shavkat-rakhmonov.png",
+    "height": "6' 1\"",
+    "weight": "170 lbs",
+    "reach": "77\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      }
+    ]
+  },
+  {
+    "slug": "belal-muhammad",
+    "name": "Belal Muhammad",
+    "nick": "    Remember the Name",
+    "div": "Welterweight",
+    "rec": "24-4-0",
+    "from": "USA",
+    "rank": "2",
+    "img": "/fighters/belal-muhammad.png",
+    "height": "5' 11\"",
+    "weight": "170 lbs",
+    "reach": "72\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "leon-edwards",
+    "name": "Leon Edwards",
+    "nick": "Rocky",
+    "div": "Welterweight",
+    "rec": "22-5-0",
+    "from": "England",
+    "rank": "3",
+    "img": "/fighters/leon-edwards.png",
+    "height": "6' 2\"",
+    "weight": "170 lbs",
+    "reach": "74\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "L",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      }
+    ]
+  },
+  {
+    "slug": "colby-covington",
+    "name": "Colby Covington",
+    "nick": "Chaos",
+    "div": "Welterweight",
+    "rec": "17-5-0",
+    "from": "USA",
+    "rank": "4",
+    "img": "/fighters/colby-covington.png",
+    "height": "5' 11\"",
+    "weight": "170 lbs",
+    "reach": "72\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "gilbert-burns",
+    "name": "Gilbert Burns",
+    "nick": "Durinho",
+    "div": "Welterweight",
+    "rec": "22-9-0",
+    "from": "Brazil",
+    "rank": "5",
+    "img": "/fighters/gilbert-burns.png",
+    "height": "5' 10\"",
+    "weight": "170 lbs",
+    "reach": "71\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "L",
+      "L",
+      "L",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      }
+    ]
+  },
+  {
+    "slug": "arman-tsarukyan",
+    "name": "Arman Tsarukyan",
+    "nick": "Ahalkalakets",
+    "div": "Lightweight",
+    "rec": "22-3-0",
+    "from": "Armenia",
+    "rank": "1",
+    "img": "/fighters/arman-tsarukyan.png",
+    "height": "5' 7\"",
+    "weight": "154 lbs",
+    "reach": "72\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      }
+    ]
+  },
+  {
+    "slug": "justin-gaethje",
+    "name": "Justin Gaethje",
+    "nick": "The Highlight",
+    "div": "Lightweight",
+    "rec": "26-5-0",
+    "from": "USA",
+    "rank": "2",
+    "img": "/fighters/justin-gaethje.png",
+    "height": "5' 11\"",
+    "weight": "154 lbs",
+    "reach": "70\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "L",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "MD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "KO"
+      }
+    ]
+  },
+  {
+    "slug": "charles-oliveira",
+    "name": "Charles Oliveira",
+    "nick": "do Bronx",
+    "div": "Lightweight",
+    "rec": "37-11-0",
+    "from": "Brazil",
+    "rank": "3",
+    "img": "/fighters/charles-oliveira.png",
+    "height": "5' 10\"",
+    "weight": "154 lbs",
+    "reach": "74\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "L",
+      "W",
+      "L",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      }
+    ]
+  },
+  {
+    "slug": "beneil-dariush",
+    "name": "Beneil Dariush",
+    "nick": "Benny",
+    "div": "Lightweight",
+    "rec": "23-6-1",
+    "from": "USA",
+    "rank": "4",
+    "img": "/fighters/beneil-dariush.png",
+    "height": "5' 10\"",
+    "weight": "154 lbs",
+    "reach": "72\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "L",
+      "L",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "mateusz-gamrot",
+    "name": "Mateusz Gamrot",
+    "nick": "Gamer",
+    "div": "Lightweight",
+    "rec": "25-4-0",
+    "from": "Poland",
+    "rank": "5",
+    "img": "/fighters/mateusz-gamrot.png",
+    "height": "5' 10\"",
+    "weight": "154 lbs",
+    "reach": "70\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "L",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      }
+    ]
+  },
+  {
+    "slug": "max-holloway",
+    "name": "Max Holloway",
+    "nick": "Blessed",
+    "div": "Lightweight",
+    "rec": "27-8-0",
+    "from": "USA",
+    "rank": "1",
+    "img": "/fighters/max-holloway.png",
+    "height": "5' 11\"",
+    "weight": "154 lbs",
+    "reach": "69\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "L",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      },
+      {
+        "outcome": "L",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "brian-ortega",
+    "name": "Brian Ortega",
+    "nick": "T-City",
+    "div": "Featherweight",
+    "rec": "16-4-0",
+    "from": "USA",
+    "rank": "2",
+    "img": "/fighters/brian-ortega.png",
+    "height": "5' 8\"",
+    "weight": "143 lbs",
+    "reach": "69\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "L",
+      "L",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "yair-rodriguez",
+    "name": "Yair Rodriguez",
+    "nick": "   El Pantera",
+    "div": "Featherweight",
+    "rec": "19-4-0",
+    "from": "Mexico",
+    "rank": "3",
+    "img": "/fighters/yair-rodriguez.png",
+    "height": "5' 11\"",
+    "weight": "143 lbs",
+    "reach": "71\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "N",
+      "W",
+      "W",
+      "L",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "NC",
+        "winType": null
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      }
+    ]
+  },
+  {
+    "slug": "arnold-allen",
+    "name": "Arnold Allen",
+    "nick": "Almighty",
+    "div": "Featherweight",
+    "rec": "20-3-0",
+    "from": "England",
+    "rank": "4",
+    "img": "/fighters/arnold-allen.png",
+    "height": "5' 8\"",
+    "weight": "143 lbs",
+    "reach": "70\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "L",
+      "L",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "josh-emmett",
+    "name": "Josh Emmett",
+    "nick": " CC0",
+    "div": "Featherweight",
+    "rec": "19-7-0",
+    "from": "USA",
+    "rank": "5",
+    "img": "/fighters/josh-emmett.png",
+    "height": "5' 6\"",
+    "weight": "143 lbs",
+    "reach": "70\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "L",
+      "L",
+      "W",
+      "L",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      }
+    ]
+  },
+  {
+    "slug": "sean-o-malley",
+    "name": "Sean O'Malley",
+    "nick": "",
+    "div": "Bantamweight",
+    "rec": "—",
+    "from": "",
+    "rank": "1",
+    "img": "",
+    "height": "",
+    "weight": "",
+    "reach": "",
+    "stance": "",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "merab-dvalishvili",
+    "name": "Merab Dvalishvili",
+    "nick": " The Machine",
+    "div": "Bantamweight",
+    "rec": "21-4-0",
+    "from": "Georgia",
+    "rank": "2",
+    "img": "/fighters/merab-dvalishvili.png",
+    "height": "5' 6\"",
+    "weight": "134 lbs",
+    "reach": "68\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "marlon-vera",
+    "name": "Marlon Vera",
+    "nick": "Chito",
+    "div": "Bantamweight",
+    "rec": "23-12-1",
+    "from": "Ecuador",
+    "rank": "3",
+    "img": "/fighters/marlon-vera.png",
+    "height": "5' 8\"",
+    "weight": "134 lbs",
+    "reach": "70\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "L",
+      "W",
+      "L",
+      "L",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "SD"
+      }
+    ]
+  },
+  {
+    "slug": "aljamain-sterling",
+    "name": "Aljamain Sterling",
+    "nick": "Funk Master",
+    "div": "Featherweight",
+    "rec": "25-5-0",
+    "from": "USA",
+    "rank": "4",
+    "img": "/fighters/aljamain-sterling.png",
+    "height": "5' 7\"",
+    "weight": "143 lbs",
+    "reach": "71\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "L",
+      "W",
+      "L",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "dominick-cruz",
+    "name": "Dominick Cruz",
+    "nick": "The Dominator",
+    "div": "Bantamweight",
+    "rec": "24-4-0",
+    "from": "USA",
+    "rank": "5",
+    "img": "/fighters/dominick-cruz.png",
+    "height": "5' 8\"",
+    "weight": "134 lbs",
+    "reach": "68\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "L",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "brandon-moreno",
+    "name": "Brandon Moreno",
+    "nick": "The Assassin Baby",
+    "div": "Flyweight",
+    "rec": "23-10-2",
+    "from": "Mexico",
+    "rank": "1",
+    "img": "/fighters/brandon-moreno.png",
+    "height": "5' 7\"",
+    "weight": "123 lbs",
+    "reach": "70\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "L",
+      "L",
+      "W",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "SD"
+      },
+      {
+        "outcome": "L",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      }
+    ]
+  },
+  {
+    "slug": "alexandre-pantoja",
+    "name": "Alexandre Pantoja",
+    "nick": " THE CANNIBAL",
+    "div": "Flyweight",
+    "rec": "30-5-0",
+    "from": "Brazil",
+    "rank": "2",
+    "img": "/fighters/alexandre-pantoja.png",
+    "height": "5' 5\"",
+    "weight": "123 lbs",
+    "reach": "68\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      }
+    ]
+  },
+  {
+    "slug": "matheus-nicolau",
+    "name": "Matheus Nicolau",
+    "nick": "      ",
+    "div": "Flyweight",
+    "rec": "19-5-1",
+    "from": "Brazil",
+    "rank": "3",
+    "img": "/fighters/matheus-nicolau.png",
+    "height": "5' 6\"",
+    "weight": "123 lbs",
+    "reach": "66\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "L",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "KO"
+      }
+    ]
+  },
+  {
+    "slug": "brandon-royval",
+    "name": "Brandon Royval",
+    "nick": "Raw Dawg",
+    "div": "Flyweight",
+    "rec": "17-8-0",
+    "from": "USA",
+    "rank": "4",
+    "img": "/fighters/brandon-royval.png",
+    "height": "5' 9\"",
+    "weight": "123 lbs",
+    "reach": "69\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "L",
+      "W",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "amir-albazi",
+    "name": "Amir Albazi",
+    "nick": " The Prince",
+    "div": "Flyweight",
+    "rec": "17-3-0",
+    "from": "Iraq",
+    "rank": "5",
+    "img": "/fighters/amir-albazi.png",
+    "height": "5' 5\"",
+    "weight": "123 lbs",
+    "reach": "68\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "L",
+      "W",
+      "W",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": null
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      }
+    ]
   }
 ]
