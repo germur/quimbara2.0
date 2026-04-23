@@ -4,90 +4,142 @@ import FIGHTERS from '../../data/fighters.json';
 
 const PX = 'clamp(16px,4vw,60px)';
 const siteUrl = 'https://quimbara.org';
+
+// Orden de divisiones de mayor a menor peso
+const divOrder = [
+  'Heavyweight', 'Light Heavyweight', 'Middleweight',
+  'Welterweight', 'Lightweight', 'Featherweight',
+  'Bantamweight', 'Flyweight'
+];
+
+const divLabels: Record<string, string> = {
+  'Heavyweight': 'Peso Pesado',
+  'Light Heavyweight': 'Semipesado',
+  'Middleweight': 'Peso Medio',
+  'Welterweight': 'Wélter',
+  'Lightweight': 'Ligero',
+  'Featherweight': 'Pluma',
+  'Bantamweight': 'Gallo',
+  'Flyweight': 'Mosca',
+};
+
+const sorted = [...FIGHTERS].sort(
+  (a, b) => divOrder.indexOf(a.div) - divOrder.indexOf(b.div)
+);
+
+const WIN_COLOR: Record<string, string> = {
+  KO: '#E53935', TKO: '#E53935', SUB: '#7B1FA2',
+  UD: '#fff', SD: '#fff', MD: '#fff', DQ: '#555', NC: '#555',
+};
 ---
 
 <BaseLayout
   title="Campeones UFC 2026 · Perfiles y Récords"
-  description="Perfiles completos de los campeones actuales de UFC: récord, datos físicos, forma reciente y análisis. Toda la info en Quimbara."
+  description="Perfiles completos de los campeones actuales de UFC por división: récord, datos físicos, forma reciente y análisis. Quimbara."
   canonicalUrl={`${siteUrl}/peleador/`}
 >
-  <!-- Hero -->
+
+  <!-- ── Hero ── -->
   <div style={`background:#111; padding: 70px ${PX} 60px;`}>
     <div style="max-width:1400px; margin:0 auto;">
       <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111] mb-6"
-            style="font-family:var(--font-sans);">Campeones UFC</span>
+            style="font-family:var(--font-sans);">UFC 2026</span>
       <h1 style="font-family:var(--font-display);font-size:clamp(3rem,10vw,7rem);line-height:0.95;color:#fff;">
-        Pele<span style="color:#FFD600;">adores</span>
+        Campe<span style="color:#FFD600;">ones</span>
       </h1>
       <p class="text-gray-400 mt-5 text-sm" style="font-family:var(--font-sans);">
-        {FIGHTERS.length} campeones · Perfiles, récords y forma reciente
+        {FIGHTERS.length} campeones actuales · Haz clic para ver el perfil completo
       </p>
     </div>
   </div>
 
-  <!-- Grid -->
-  <div style={`max-width:1400px; margin:0 auto; padding: 60px ${PX};`}>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {FIGHTERS.map(f => {
-        const initials = f.name.split(' ').slice(0, 2).map((n: string) => n[0]).join('');
-        const [wins, losses, draws] = f.rec !== '—' ? f.rec.split('-').map(Number) : [0, 0, 0];
-        return (
-          <a href={`/peleador/${f.slug}`}
-             class="group block bg-gray-50 rounded-lg overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-xl relative"
-             style="padding: clamp(20px,3vw,28px);">
-            <!-- Rango fantasma -->
-            <div class="absolute select-none pointer-events-none top-[-10px] right-2 opacity-5 text-[#111]"
-                 style="font-family:var(--font-display);font-size:80px;line-height:1;">
-              {f.rank === 'C' ? 'C' : `#${f.rank}`}
-            </div>
+  <!-- ── Grid de campeones ── -->
+  <div style={`background:#111; padding: 0 ${PX} 80px;`}>
+    <div style="max-width:1400px; margin:0 auto;">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        {sorted.map(f => {
+          const formTypes = f.formTypes ?? [];
+          return (
+            <a href={`/peleador/${f.slug}`}
+               class="group relative flex flex-col overflow-hidden rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+               style="background:#1a1a1a; min-height:320px;">
 
-            <div class="flex items-center gap-4 mb-4">
-              <!-- Avatar -->
-              <div class="rounded-full overflow-hidden flex-shrink-0 border-2 border-[#FFD600] flex items-center justify-center bg-gray-200"
-                   style="width:60px;height:60px;">
+              <!-- Foto del peleador -->
+              <div class="relative flex-1 overflow-hidden" style="min-height:220px;">
                 {f.img ? (
-                  <img src={f.img} alt={f.name} class="w-full h-full object-cover" loading="lazy" />
+                  <img
+                    src={f.img}
+                    alt={f.name}
+                    class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 ) : (
-                  <span class="text-gray-500 font-black text-base select-none"
-                        style="font-family:var(--font-display);">{initials}</span>
+                  <div class="w-full h-full flex items-center justify-center bg-gray-800">
+                    <span class="text-gray-600 font-black text-5xl select-none"
+                          style="font-family:var(--font-display);">
+                      {f.name.split(' ').map((n: string) => n[0]).join('').slice(0,2)}
+                    </span>
+                  </div>
                 )}
+                <!-- Gradiente inferior -->
+                <div class="absolute inset-0"
+                     style="background:linear-gradient(to top, #1a1a1a 0%, transparent 50%);"></div>
+
+                <!-- Badge división -->
+                <div class="absolute top-3 left-3">
+                  <span class="inline-block px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111]"
+                        style="font-family:var(--font-sans);">{divLabels[f.div] ?? f.div}</span>
+                </div>
               </div>
-              <div>
-                <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1"
-                     style="font-family:var(--font-sans);">{f.div}</div>
-                <div class="text-[#111] text-lg leading-tight group-hover:text-[#111]"
-                     style="font-family:var(--font-display);">{f.name}</div>
-                {f.nick && (
-                  <div class="text-gray-500 text-sm italic" style="font-family:var(--font-sans);">"{f.nick}"</div>
+
+              <!-- Info -->
+              <div style="padding:14px 16px 16px;">
+                <div class="text-white leading-tight group-hover:text-[#FFD600] transition-colors duration-200"
+                     style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.2rem);">{f.name}</div>
+                {f.nick?.trim() && (
+                  <div class="text-gray-500 text-xs italic mt-0.5" style="font-family:var(--font-sans);">"{f.nick.trim()}"</div>
                 )}
-              </div>
-            </div>
 
-            <div class="grid grid-cols-3 gap-2 pt-3 border-t border-gray-200">
-              <div>
-                <div class="text-[9px] font-bold uppercase tracking-widest text-gray-400"
-                     style="font-family:var(--font-sans);">Récord</div>
-                <div class="text-base font-black text-[#111] mt-0.5"
-                     style="font-family:var(--font-display);">{f.rec}</div>
-              </div>
-              <div>
-                <div class="text-[9px] font-bold uppercase tracking-widest text-gray-400"
-                     style="font-family:var(--font-sans);">País</div>
-                <div class="text-sm font-semibold text-[#111] mt-0.5 leading-tight"
-                     style="font-family:var(--font-sans);">{f.from || '—'}</div>
-              </div>
-              <div class="text-right">
-                <div class="text-[9px] font-bold uppercase tracking-widest text-gray-400"
-                     style="font-family:var(--font-sans);">Victorias</div>
-                <div class="text-base font-black text-[#111] mt-0.5"
-                     style="font-family:var(--font-display);">{wins}</div>
-              </div>
-            </div>
+                <!-- Récord + forma -->
+                <div class="flex items-center justify-between mt-3">
+                  <div>
+                    <div class="text-[9px] font-bold uppercase tracking-widest text-gray-600 mb-0.5"
+                         style="font-family:var(--font-sans);">Récord</div>
+                    <div class="text-white font-black text-base"
+                         style="font-family:var(--font-display);">{f.rec}</div>
+                  </div>
 
-            <div class="mt-3 text-[#111] group-hover:text-[#FFD600] text-right text-sm font-bold transition-colors duration-200">→</div>
-          </a>
-        );
-      })}
+                  <!-- Últimas 5 peleas -->
+                  {formTypes.length > 0 && (
+                    <div class="flex gap-1">
+                      {formTypes.slice(0, 5).map((ft) => {
+                        const isWin = ft.outcome === 'W';
+                        const isLoss = ft.outcome === 'L';
+                        const bg = isWin
+                          ? (WIN_COLOR[ft.winType ?? ''] ?? '#fff')
+                          : isLoss ? '#E53935' : '#555';
+                        const textColor = isWin && (ft.winType === 'UD' || ft.winType === 'SD' || ft.winType === 'MD') ? '#111' : '#fff';
+                        return (
+                          <div class="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-black"
+                               style={`background:${isLoss ? '#333' : bg}; color:${isLoss ? '#E53935' : textColor}; border: 1px solid ${isLoss ? '#E53935' : 'transparent'};`}>
+                            {ft.outcome}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- Nota al pie -->
+      <p class="text-gray-600 text-xs mt-8 text-center" style="font-family:var(--font-sans);">
+        Solo campeones activos UFC · Actualizado automáticamente cada semana
+      </p>
     </div>
   </div>
+
 </BaseLayout>
