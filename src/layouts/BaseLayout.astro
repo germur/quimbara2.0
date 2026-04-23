@@ -43,6 +43,14 @@ const siteTitle = title === "Quimbara" ? title : `${title} — Quimbara`;
     <!-- SEO core -->
     <title>{siteTitle}</title>
     <meta name="google-site-verification" content="PFQme-j2XJuDOdwfPhspuPJjeY1R7tkOg4T9kG4buIs" />
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7860CSDRW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R7860CSDRW');
+    </script>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <meta name="robots" content={noIndex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
