@@ -1612,21 +1612,27 @@
     ]
   },
   {
-    "slug": "sean-o-malley",
+    "slug": "sean-omalley",
     "name": "Sean O'Malley",
-    "nick": "",
+    "nick": "Sugar",
     "div": "Bantamweight",
-    "rec": "—",
-    "from": "",
+    "rec": "18-3-0",
+    "from": "USA",
     "rank": "1",
-    "img": "",
+    "img": "/fighters/sean-omalley.png",
     "height": "",
     "weight": "",
     "reach": "",
     "stance": "",
     "team": "",
-    "form": [],
-    "formTypes": []
+    "form": ["W", "W", "W", "L", "L"],
+    "formTypes": [
+      { "outcome": "W", "winType": "TKO" },
+      { "outcome": "W", "winType": "UD" },
+      { "outcome": "W", "winType": "UD" },
+      { "outcome": "L", "winType": "UD" },
+      { "outcome": "L", "winType": "UD" }
+    ]
   },
   {
     "slug": "merab-dvalishvili",

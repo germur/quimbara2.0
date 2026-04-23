@@ -350,13 +350,15 @@ async function enrichFighter(
   const prev = byName[name.toLowerCase()];
 
   try {
+    // Intentar búsqueda por nombre completo, luego por apellido si falla
+    const searchName = name.replace(/'/g, '');  // quitar apóstrofes para la URL
     const searchData = await mmaapiGet<MMAAPISearchResponse>(
-      `/api/mma/search/${encodeURIComponent(name)}`
+      `/api/mma/search/${encodeURIComponent(searchName)}`
     );
     await sleep(1000);
 
     const teamResults = (searchData.results ?? []).filter(r => r.type === 'team');
-    const lastName = name.split(' ').slice(-1)[0]?.toLowerCase() ?? '';
+    const lastName = name.split(' ').slice(-1)[0]?.toLowerCase().replace(/'/g, '') ?? '';
     const matchResult = teamResults.find(r => r.entity.name.toLowerCase().includes(lastName)) ?? teamResults[0];
     if (!matchResult) throw new Error(`No encontrado: ${name}`);
 
