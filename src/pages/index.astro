@@ -131,23 +131,28 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
 
   <!-- ── Video Highlights ── -->
   <section style={`max-width:1400px; margin:0 auto; padding: 10px ${PX} 50px;`}>
-    <h2 class="text-2xl md:text-4xl mb-6" style="font-family:var(--font-display);">Video Highlights</h2>
+    <h2 class="text-2xl md:text-4xl mb-6" style="font-family:var(--font-display);">Videos Recomendados por Quimbara</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       {VIDEOS.map(v => (
-        <div class="group cursor-pointer transition-transform duration-200 hover:-translate-y-1">
-          <div class="relative rounded-md overflow-hidden" style="height:200px;">
-            <img src={v.img} alt={v.title} class="w-full h-full object-cover" loading="lazy" />
-            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-              <div class="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#111"><polygon points="5,3 19,12 5,21"/></svg>
+        <a href={v.url} target="_blank" rel="noopener noreferrer"
+           class="group block transition-transform duration-200 hover:-translate-y-1">
+          <div class="relative rounded-md overflow-hidden bg-gray-900" style="aspect-ratio:16/9;">
+            <img
+              src={`https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`}
+              alt={v.title}
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+              onerror={`this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'`}
+            />
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-[#E53935] flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-110">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg>
               </div>
             </div>
-            <div class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded"
-                 style="font-family:var(--font-sans);">{v.dur}</div>
           </div>
-          <h3 class="text-[#111] text-base leading-tight mt-3" style="font-family:var(--font-display);">{v.title}</h3>
-          <div class="text-xs text-gray-400 mt-1 font-medium" style="font-family:var(--font-sans);">{v.views} vistas</div>
-        </div>
+          <h3 class="text-[#111] text-base leading-tight mt-3 group-hover:text-[#E53935] transition-colors duration-200"
+              style="font-family:var(--font-display);">{v.title}</h3>
+        </a>
       ))}
     </div>
   </section>
