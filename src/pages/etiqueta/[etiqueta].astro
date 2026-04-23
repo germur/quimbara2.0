@@ -5,38 +5,59 @@ import ArticleCard from '../../components/ArticleCard.astro';
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog');
+  const uniqueTags = [...new Set(allPosts.flatMap(p => p.data.tags ?? []))];
 
-  const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-
-  return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) => post.data.tags?.includes(tag));
-    return {
-      params: { etiqueta: tag },
-      props: { posts: filteredPosts },
-    };
-  });
+  return uniqueTags.map(tag => ({
+    params: { etiqueta: tag },
+    props: { posts: allPosts.filter(p => p.data.tags?.includes(tag)), tag },
+  }));
 }
 
-const { etiqueta } = Astro.params;
-const { posts } = Astro.props;
-
-// Sort by date descending
+const { posts, tag } = Astro.props;
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const title = `Etiqueta: #${etiqueta}`;
+const PX = 'clamp(16px,4vw,60px)';
 ---
 
-<BaseLayout title={title} description={`Artículos etiquetados con ${etiqueta}`}>
-  <div class="space-y-8">
-    <header class="mb-12 border-b border-zinc-800 pb-8">
-      <div class="text-zinc-500 text-sm font-medium uppercase tracking-wider mb-2">Etiqueta</div>
-      <h1 class="text-4xl md:text-5xl font-black text-white uppercase">#{etiqueta}</h1>
-    </header>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {posts.map(post => (
-        <ArticleCard article={post} />
-      ))}
+<BaseLayout
+  title={`#${tag} — Quimbara`}
+  description={`Artículos etiquetados con #${tag} en Quimbara.`}
+>
+  <!-- Header -->
+  <div class="bg-[#111]" style={`padding: 50px ${PX} 36px;`}>
+    <div style="max-width:1400px; margin:0 auto;">
+      <a href="/blog"
+         class="inline-flex items-center gap-1 text-white/40 text-xs uppercase tracking-widest mb-6 hover:text-white/70 transition-colors duration-200"
+         style="font-family:var(--font-sans);">
+        ← Todos los artículos
+      </a>
+      <div class="mb-4">
+        <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#E53935] text-white"
+              style="font-family:var(--font-sans);">
+          Etiqueta
+        </span>
+      </div>
+      <h1 class="text-white" style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,4.5rem);">
+        #{tag}
+      </h1>
+      <p class="text-white/50 mt-3 text-sm" style="font-family:var(--font-sans);">
+        {posts.length} {posts.length === 1 ? 'artículo' : 'artículos'}
+      </p>
     </div>
+  </div>
+
+  <!-- Grid -->
+  <div style={`max-width:1400px; margin:0 auto; padding: 36px ${PX} 80px;`}>
+    {posts.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {posts.map(post => <ArticleCard article={post} variant="default" />)}
+      </div>
+    ) : (
+      <div class="text-center py-20">
+        <p class="text-gray-400 text-lg" style="font-family:var(--font-sans);">
+          No hay artículos con esta etiqueta todavía.
+        </p>
+      </div>
+    )}
   </div>
 </BaseLayout>
