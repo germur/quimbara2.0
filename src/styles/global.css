@@ -28,6 +28,11 @@
     font-family: var(--font-display);
   }
 
+  /* Prose headings inside articles should NOT be uppercase */
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    text-transform: none;
+  }
+
   .content-area a {
     @apply transition-colors duration-200;
   }
