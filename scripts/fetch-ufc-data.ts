@@ -193,14 +193,19 @@ async function fetchEvents() {
   const existing: EventRowFull[] = readJson<EventRowFull>('events-all.json');
   const existingMap = Object.fromEntries(existing.map(e => [e.slug, e]));
 
+  const isLocalImg = (url: string) => url.startsWith('/fighters/');
+
   for (const e of parsed) {
     if (e.main === 'TBD') continue;
     const prev = existingMap[e.slug];
-    if (prev?.f1img && prev?.f2img) {
+
+    // Reutilizar solo si ya son rutas locales (no URLs externas de apis viejas)
+    if (prev?.f1img && prev?.f2img && isLocalImg(prev.f1img) && isLocalImg(prev.f2img)) {
       e.f1img = prev.f1img;
       e.f2img = prev.f2img;
       continue;
     }
+
     console.log(`   → Buscando fotos: ${e.f1} vs ${e.f2}`);
     e.f1img = await fetchFighterPhotoMMAAPI(e.f1, `${e.slug}-f1`);
     await sleep(1500);

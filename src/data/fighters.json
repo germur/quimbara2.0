@@ -1612,7 +1612,7 @@
     ]
   },
   {
-    "slug": "sean-omalley",
+    "slug": "sean-o-malley",
     "name": "Sean O'Malley",
     "nick": "Sugar",
     "div": "Bantamweight",
@@ -1625,13 +1625,34 @@
     "reach": "",
     "stance": "",
     "team": "",
-    "form": ["W", "W", "W", "L", "L"],
+    "form": [
+      "W",
+      "W",
+      "W",
+      "L",
+      "L"
+    ],
     "formTypes": [
-      { "outcome": "W", "winType": "TKO" },
-      { "outcome": "W", "winType": "UD" },
-      { "outcome": "W", "winType": "UD" },
-      { "outcome": "L", "winType": "UD" },
-      { "outcome": "L", "winType": "UD" }
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      }
     ]
   },
   {
