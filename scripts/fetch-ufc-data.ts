@@ -17,6 +17,25 @@ const DATA_DIR = join(__dirname, '..', 'src', 'data');
 
 const HEADERS = { 'User-Agent': 'QuimbaraBot/1.0 (github.com/quimbara)' };
 
+// ─── API-Sports MMA ─────────────────────────────────────────────────────────
+// Free plan: fighters/records disponibles sin límite de fecha.
+// Peleas históricas requieren plan de pago — usamos Wikipedia/Sherdog para eso.
+const API_KEY = process.env.API_SPORTS_KEY ?? '';
+const API_BASE = 'https://v1.mma.api-sports.io';
+
+async function apiGet<T>(path: string): Promise<T[]> {
+  if (!API_KEY) throw new Error('API_SPORTS_KEY no definida');
+  const res = await fetch(API_BASE + path, {
+    headers: { 'x-apisports-key': API_KEY },
+  });
+  if (!res.ok) throw new Error(`API-Sports ${path} → HTTP ${res.status}`);
+  const json = await res.json() as { response: T[]; errors: unknown };
+  if (json.errors && Object.keys(json.errors).length) {
+    throw new Error(`API-Sports error: ${JSON.stringify(json.errors)}`);
+  }
+  return json.response ?? [];
+}
+
 // ─── Paleta Quimbara ────────────────────────────────────────────────────────
 
 const PALETTES = [
@@ -96,7 +115,7 @@ async function fetchEvents() {
   events.forEach(e => console.log(`   · ${e.name} — ${e.main} (${e.dateLabel})`));
 }
 
-// ─── FIGHTERS / CHAMPIONS (Wikipedia) ───────────────────────────────────────
+// ─── FIGHTERS / CHAMPIONS (Wikipedia lista + API-Sports datos) ──────────────
 
 type Fighter = { name: string; nick: string; div: string; rec: string; from: string; rank: string; img: string };
 
@@ -116,14 +135,33 @@ const DIV_ES: Record<string, string> = {
   "Women's Featherweight": "Featherweight (F)",
 };
 
+// Mapeo de nacionalidad en inglés → español
+const NAT_ES: Record<string, string> = {
+  'American': 'EE.UU.', 'Brazilian': 'Brasil', 'Russian': 'Rusia',
+  'British': 'Reino Unido', 'Australian': 'Australia', 'Georgian': 'Georgia',
+  'Swedish': 'Suecia', 'Spanish': 'España', 'New Zealander': 'Nueva Zelanda',
+  'Irish': 'Irlanda', 'Dutch': 'Países Bajos', 'Canadian': 'Canadá',
+  'South African': 'Sudáfrica', 'Nigerian': 'Nigeria', 'Chinese': 'China',
+};
+
+type ApiSportsFighter = {
+  id: number; name: string; nickname: string; photo: string;
+  nationality: string; category: string;
+};
+type ApiSportsRecord = {
+  fighter: { id: number; name: string; photo: string };
+  total: { win: number; loss: number; draw: number };
+};
+
 async function fetchFighters() {
+  // Cargar JSON existente para preservar campos que la API no devuelve (from, etc.)
   const existing: Fighter[] = readJson<Fighter>('fighters.json');
   const byName = Object.fromEntries(existing.map(f => [f.name.toLowerCase(), f]));
 
+  // 1. Obtener lista de campeones actuales de Wikipedia
   const $ = await fetchHtml('https://en.wikipedia.org/wiki/UFC_champions');
+  const championNames: { name: string; div: string }[] = [];
 
-  // Tabla tiene columnas: Division | Champion | Since | Defenses (sin récord W-L)
-  const champions: Fighter[] = [];
   $('table.wikitable').each((_, table) => {
     const col = colIndexMap($, $(table));
     const iDiv = Math.max(col('division'), col('weight'), 0);
@@ -131,34 +169,62 @@ async function fetchFighters() {
 
     $(table).find('tr').slice(1).each((_, tr) => {
       const cells = $(tr).find('td, th');
-      // Filas con <4 celdas son interinos bajo un rowspan de División — se omiten
-      if (cells.length < 4 || champions.length >= 6) return;
-
+      if (cells.length < 4 || championNames.length >= 6) return;
       const divRaw = clean($(cells[iDiv]).text());
-      const div = DIV_ES[divRaw] ?? divRaw;
-      // Nombre puede estar en <a> o directo en la celda
       const nameCell = $(cells[iName]);
       const nameRaw = clean(nameCell.find('a').first().text() || nameCell.text());
-
       if (!nameRaw || /vacant/i.test(nameRaw)) return;
-
-      const prev = byName[nameRaw.toLowerCase()];
-      champions.push({
-        name: nameRaw,
-        nick:  prev?.nick  ?? '',
-        div,
-        rec:   prev?.rec   ?? '—',    // Wikipedia no tiene W-L; preservamos el existente
-        from:  prev?.from  ?? '',
-        rank: 'C',
-        img:   prev?.img   ?? '',
-      });
+      championNames.push({ name: nameRaw, div: DIV_ES[divRaw] ?? divRaw });
     });
   });
 
-  if (!champions.length) throw new Error('Fighters: 0 champions parsed');
+  if (!championNames.length) throw new Error('Fighters: 0 campeones en Wikipedia');
+
+  const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+
+  // 2. Para cada campeón: buscar en API-Sports (perfil + récord)
+  // Rate limit del plan free: 10 req/min → 7s entre llamadas (2 req/fighter)
+  const champions: Fighter[] = [];
+  for (const { name, div } of championNames) {
+    try {
+      const results = await apiGet<ApiSportsFighter>(
+        `/fighters?search=${encodeURIComponent(name.split(' ').slice(0, 2).join(' '))}`
+      );
+
+      // Buscar la mejor coincidencia por apellido
+      const lastName = name.split(' ').slice(-1)[0]?.toLowerCase() ?? '';
+      const match = results.find(f => f.name.toLowerCase().includes(lastName)) ?? results[0];
+
+      let rec = '—';
+      let nat = '';
+      let nick = '';
+      let img = '';
+
+      if (match) {
+        await sleep(7000); // respetar rate limit 10 req/min
+        const recData = await apiGet<ApiSportsRecord>(`/fighters/records?id=${match.id}`);
+        if (recData[0]) {
+          const r = recData[0].total;
+          rec = `${r.win}-${r.loss}-${r.draw}`;
+        }
+        nick = match.nickname || byName[name.toLowerCase()]?.nick || '';
+        nat = NAT_ES[match.nationality] ?? match.nationality ?? byName[name.toLowerCase()]?.from ?? '';
+        img = match.photo || byName[name.toLowerCase()]?.img || '';
+      }
+
+      champions.push({ name, nick, div, rec, from: nat, rank: 'C', img });
+      console.log(`   · [${div}] ${name} ${rec} nat="${nat}" nick="${nick}"`);
+      await sleep(7000); // pausa antes del siguiente fighter
+    } catch (e) {
+      console.warn(`   ⚠ No se pudo enriquecer ${name}: ${(e as Error).message}`);
+      champions.push({ name, nick: '', div, rec: '—', from: '', rank: 'C', img: '' });
+      await sleep(7000);
+    }
+  }
+
+  if (!champions.length) throw new Error('Fighters: 0 campeones procesados');
   writeJson('fighters.json', champions);
-  console.log(`✓ fighters.json (${champions.length} campeones)`);
-  champions.forEach(f => console.log(`   · [${f.div}] ${f.name}`));
+  console.log(`✓ fighters.json (${champions.length} campeones con foto + récord via API)`);
 }
 
 // ─── RESULTS (ufcstats.com) ──────────────────────────────────────────────────
