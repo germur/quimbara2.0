@@ -40,26 +40,29 @@ const siteTitle = title === "Quimbara" ? title : `${title} — Quimbara`;
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#ffffff" />
 
-    <!-- SEO -->
+    <!-- SEO core -->
     <title>{siteTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    {noIndex && <meta name="robots" content="noindex, follow" />}
+    <meta name="robots" content={noIndex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
 
     <!-- Open Graph -->
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site ?? Astro.url.origin).href} />
     <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Quimbara" />
+    <meta property="og:locale" content="es_ES" />
     {publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
     {updateDate && <meta property="article:modified_time" content={updateDate.toISOString()} />}
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:site" content="@quimbara_mma" />
+    <meta name="twitter:title" content={siteTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site ?? Astro.url.origin).href} />
 
     <!-- Google Fonts: Anton (display) + Space Grotesk (body) + Playfair Display (accent) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

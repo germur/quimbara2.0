@@ -18,10 +18,43 @@ const monthLabel = (key: string) => {
     .toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
 };
 
+const siteUrl = 'https://quimbara.org';
+
+const eventListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Próximos eventos UFC 2026",
+  "description": "Calendario completo de próximos eventos UFC con fechas, horarios y carteleras.",
+  "url": `${siteUrl}/eventos/`,
+  "numberOfItems": EVENTS.length,
+  "itemListElement": EVENTS.slice(0, 10).map((e, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": `${e.name}${e.main !== 'TBD' ? ': ' + e.main : ''}`,
+    "url": `${siteUrl}/eventos/${e.slug}/`
+  }))
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": "Eventos UFC", "item": `${siteUrl}/eventos/` }
+  ]
+};
+
+const eventsSchema = `[${JSON.stringify(eventListSchema)}, ${JSON.stringify(breadcrumbSchema)}]`;
+
 const isPPV = (name: string) => /UFC \d/.test(name);
 ---
 
-<BaseLayout title="Calendario de Eventos UFC 2026 | Quimbara" description="Todos los próximos eventos UFC: fechas, ciudades y peleas principales confirmadas.">
+<BaseLayout
+  title="Próximos Eventos UFC 2026 · Fechas y Horarios"
+  description="Calendario completo de eventos UFC 2026: fechas, horarios, ciudades y peleas principales confirmadas. ¿A qué hora es la pelea? Toda la info en Quimbara."
+  canonicalUrl={`${siteUrl}/eventos/`}
+  schema={eventsSchema}
+>
 
   <!-- ── Hero ── -->
   <div style={`background:#111; padding: 70px ${PX} 60px;`}>

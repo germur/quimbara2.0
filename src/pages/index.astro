@@ -15,9 +15,43 @@ const heroArticles = allPosts.slice(0, 3);
 const latestArticles = allPosts.slice(3);
 
 const PX = "clamp(16px,4vw,60px)";
+
+const siteUrl = 'https://quimbara.org';
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Quimbara",
+  "url": siteUrl,
+  "description": "Blog de MMA y UFC en español. Noticias, análisis de peleas, perfiles de peleadores y eventos UFC.",
+  "inLanguage": "es",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": { "@type": "EntryPoint", "urlTemplate": `${siteUrl}/blog?q={search_term_string}` },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Quimbara",
+  "url": siteUrl,
+  "logo": { "@type": "ImageObject", "url": `${siteUrl}/favicon.svg` },
+  "sameAs": [],
+  "description": "Blog editorial de MMA y UFC en español. Análisis técnico, resultados y perfiles de peleadores.",
+  "foundingDate": "2024",
+  "knowsAbout": ["MMA", "UFC", "Artes Marciales Mixtas", "Jiu-Jitsu", "Muay Thai", "Wrestling", "Boxeo"]
+};
+
+const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organizationSchema)}]`;
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Quimbara · MMA y UFC en Español"
+  description="La verdad del octágono. Noticias, análisis, perfiles de peleadores y próximos eventos UFC en español. Sin clickbait."
+  schema={homeSchema}
+>
   <!-- ── Ticker ── -->
   <Ticker />
 

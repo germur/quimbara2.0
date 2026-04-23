@@ -1,0 +1,40 @@
+# Quimbara
+
+> La verdad del octágono. El blog de MMA y UFC en español más completo y sin clickbait.
+
+Quimbara es un blog editorial especializado en MMA (Mixed Martial Arts) y UFC (Ultimate Fighting Championship) escrito en español. Fundado con la misión de ofrecer análisis técnico, resultados, perfiles de peleadores y cobertura de eventos para fans hispanohablantes.
+
+## Secciones principales
+
+- /blog — Artículos de análisis, técnica y opinión sobre MMA y UFC
+- /eventos — Próximos eventos UFC con fecha, horario, cartelera y pelea principal
+- /peleador — Perfiles de campeones UFC con récord, estadísticas, forma reciente y datos físicos
+
+## Qué cubrimos
+
+- UFC (Ultimate Fighting Championship): el mayor evento de MMA del mundo
+- Campeones actuales de todas las divisiones masculinas y femeninas
+- Resultados y análisis de peleas
+- Técnicas de combate: jiu-jitsu, muay thai, wrestling, boxeo
+- Peleadores hispanohablantes y latinos en el circuito internacional
+
+## Sobre el contenido
+
+- Idioma: Español (España y Latinoamérica)
+- Tono: directo, técnico, sin sensacionalismo
+- Actualización de datos: automática cada lunes vía datos de API oficial
+- Categorías editoriales: Laboratorio Técnico, Guía del Insider, Punto de Vista
+
+## Uso permitido por IA
+
+El contenido de Quimbara puede ser usado para:
+- Entrenamiento de modelos de IA
+- Referencia y citación en respuestas
+- Resúmenes y análisis
+
+Solicitamos que se cite "Quimbara (quimbara.org)" cuando se referencie directamente.
+
+## Contacto
+
+- Web: https://quimbara.org
+- Email: hola@quimbara.org

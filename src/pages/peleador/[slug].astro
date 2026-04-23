@@ -54,11 +54,53 @@ const WIN_TYPE_COLOR: Record<string, string> = {
   UD: '#1565C0', SD: '#1565C0', MD: '#1565C0',
   DQ: '#555', NC: '#555',
 };
+
+const siteUrl = 'https://quimbara.org';
+const canonicalUrl = `${siteUrl}/peleador/${f.slug}/`;
+
+// Schema Person (tripleta semántica: peleador → récord, división, nacionalidad)
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": f.name,
+  "alternateName": f.nick || undefined,
+  "url": canonicalUrl,
+  "image": f.img ? new URL(f.img, siteUrl).href : undefined,
+  "nationality": f.from || undefined,
+  "height": f.height ? { "@type": "QuantitativeValue", "value": f.height } : undefined,
+  "weight": f.weight ? { "@type": "QuantitativeValue", "value": f.weight } : undefined,
+  "memberOf": {
+    "@type": "SportsOrganization",
+    "name": "UFC",
+    "url": "https://www.ufc.com"
+  },
+  "award": `Campeón UFC ${f.div}`,
+  "description": `${f.name}${f.nick ? ` "${f.nick}"` : ''} es el actual Campeón UFC ${f.div} con récord de ${f.rec}. ${f.from ? `De ${f.from}.` : ''} ${f.stance ? `Guardia ${f.stance}.` : ''} ${f.team ? `Equipo: ${f.team}.` : ''}`,
+  "knowsAbout": ["MMA", "UFC", f.div, "Artes Marciales Mixtas"]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": f.name, "item": canonicalUrl }
+  ]
+};
+
+const fighterSchema = `[${JSON.stringify(personSchema)}, ${JSON.stringify(breadcrumbSchema)}]`;
+
+// Meta título y descripción optimizados con keywords del audit
+const metaTitle = `${f.name}${f.nick ? ` "${f.nick}"` : ''} · Récord ${f.rec} · UFC ${f.div}`;
+const metaDescription = `Perfil de ${f.name}, Campeón UFC ${f.div}. Récord ${f.rec}${f.height ? `, altura ${f.height}` : ''}${f.reach ? `, alcance ${f.reach}` : ''}. Forma reciente: ${form.slice(0,5).join('-') || 'n/d'}. Última pelea y datos completos en Quimbara.`;
 ---
 
 <BaseLayout
-  title={`${f.name}${f.nick ? ` "${f.nick}"` : ''} · UFC ${f.div} | Quimbara`}
-  description={`Perfil de ${f.name}, campeón UFC ${f.div}. Récord ${f.rec}. ${f.stance ? `Guardia ${f.stance}.` : ''} ${f.team ? `Equipo: ${f.team}.` : ''}`}
+  title={metaTitle}
+  description={metaDescription}
+  canonicalUrl={canonicalUrl}
+  ogImage={f.img || '/default-og.jpg'}
+  schema={fighterSchema}
 >
 
   <!-- ── Hero ── -->

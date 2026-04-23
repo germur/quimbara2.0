@@ -38,11 +38,56 @@ const related = allPosts.filter(p => {
 });
 const articles = related.length > 0 ? related.slice(0, 3) : allPosts.slice(0, 3);
 const articlesLabel = related.length > 0 ? `Análisis sobre este evento` : 'También te puede interesar';
+
+const siteUrl = 'https://quimbara.org';
+const canonicalUrl = `${siteUrl}/eventos/${event.slug}/`;
+
+// Schema SportsEvent (tripletas: evento → fecha, lugar, peleadores)
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": event.name + (hasFight ? `: ${f1} vs. ${f2}` : ''),
+  "url": canonicalUrl,
+  "startDate": event.date,
+  "location": {
+    "@type": "Place",
+    "name": event.loc || "Por confirmar",
+    "address": { "@type": "PostalAddress", "addressLocality": event.loc || "Por confirmar" }
+  },
+  "sport": "Mixed Martial Arts",
+  "organizer": { "@type": "Organization", "name": "UFC", "url": "https://www.ufc.com" },
+  "performer": hasFight ? [
+    { "@type": "Person", "name": f1 },
+    { "@type": "Person", "name": f2 }
+  ] : undefined,
+  "description": `${event.name} — ${hasFight ? `Pelea principal: ${f1} vs. ${f2}.` : 'Cartel por confirmar.'} ${event.dateLabel} en ${event.loc}.`,
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": "Eventos", "item": `${siteUrl}/eventos/` },
+    { "@type": "ListItem", "position": 3, "name": event.name, "item": canonicalUrl }
+  ]
+};
+
+const eventSchemaStr = `[${JSON.stringify(eventSchema)}, ${JSON.stringify(breadcrumbSchema)}]`;
+
+// Meta optimizado con keywords: "a que hora es la pelea" + nombre del evento
+const metaTitle = `${event.name}${hasFight ? `: ${f1} vs. ${f2}` : ''} · ${event.dateLabel}`;
+const metaDescription = `${event.name}${hasFight ? ` — ${f1} vs. ${f2}` : ''}. ¿A qué hora es la pelea? ${event.dateLabel} en ${event.loc}. Análisis, predicciones y cobertura completa en Quimbara.`;
 ---
 
 <BaseLayout
-  title={`${event.name}: ${event.main} · ${event.dateLabel} | Quimbara`}
-  description={`${event.name} — ${hasFight ? `${f1} vs ${f2}` : 'Cartel por confirmar'}. ${event.dateLabel} en ${event.loc}. Análisis, predicciones y cobertura completa en Quimbara.`}
+  title={metaTitle}
+  description={metaDescription}
+  canonicalUrl={canonicalUrl}
+  ogImage={event.f1img || '/default-og.jpg'}
+  schema={eventSchemaStr}
 >
 
   <!-- ── Hero oscuro ── -->

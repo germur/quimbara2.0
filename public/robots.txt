@@ -1,4 +1,19 @@
 User-agent: *
 Allow: /
+Disallow: /_astro/
+Disallow: /api/
+
+# AI crawlers — welcome, cite us
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
 
 Sitemap: https://quimbara.org/sitemap-index.xml
