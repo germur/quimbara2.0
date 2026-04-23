@@ -314,6 +314,23 @@ async function fetchFighters() {
   }
 
   if (!champions.length) throw new Error('Fighters: 0 campeones procesados');
+
+  // Aplicar overrides manuales (fighters-overrides.json)
+  const overridesPath = join(DATA_DIR, 'fighters-overrides.json');
+  if (existsSync(overridesPath)) {
+    const overrides = JSON.parse(readFileSync(overridesPath, 'utf8')) as Record<string, Partial<Fighter>>;
+    let applied = 0;
+    champions.forEach((c, i) => {
+      const ov = overrides[c.name];
+      if (ov && typeof ov === 'object') {
+        champions[i] = { ...c, ...ov };
+        applied++;
+        console.log(`   ★ override aplicado: ${c.name} → ${Object.keys(ov).join(', ')}`);
+      }
+    });
+    if (applied > 0) console.log(`   → ${applied} override(s) aplicados desde fighters-overrides.json`);
+  }
+
   writeJson('fighters.json', champions);
   console.log(`✓ fighters.json (${champions.length} campeones con datos físicos via API)`);
 }

@@ -1,0 +1,6 @@
+{
+  "_readme": "Overrides manuales para fighters.json. Las claves son el nombre exacto del peleador. Cualquier campo aquí sobreescribe lo que devuelve la API. Se aplica en cada ejecución del cron.",
+  "Ilia Topuria": {
+    "rec": "17-0-0"
+  }
+}
