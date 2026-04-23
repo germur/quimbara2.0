@@ -7,8 +7,8 @@
     "date": "2026-04-25",
     "dateLabel": "25 abr 2026",
     "f1": "Sterling",
-    "f2": "Zalal",
     "f1img": "https://media.api-sports.io/mma/fighters/84.png",
+    "f2": "Zalal",
     "f2img": "https://media.api-sports.io/mma/fighters/702.png",
     "bg": "#FFD600",
     "color": "#111"
@@ -21,8 +21,8 @@
     "date": "2026-05-02",
     "dateLabel": "2 may 2026",
     "f1": "Della Maddalena",
-    "f2": "Prates",
     "f1img": "https://media.api-sports.io/mma/fighters/2411.png",
+    "f2": "Prates",
     "f2img": "https://media.api-sports.io/mma/fighters/2654.png",
     "bg": "#E53935",
     "color": "#fff"
@@ -35,8 +35,8 @@
     "date": "2026-05-09",
     "dateLabel": "9 may 2026",
     "f1": "Chimaev",
-    "f2": "Strickland",
     "f1img": "https://media.api-sports.io/mma/fighters/743.png",
+    "f2": "Strickland",
     "f2img": "https://media.api-sports.io/mma/fighters/874.png",
     "bg": "#7B1FA2",
     "color": "#fff"

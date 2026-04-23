@@ -2,17 +2,41 @@
   {
     "slug": "tom-aspinall",
     "name": "Tom Aspinall",
-    "nick": "",
+    "nick": "Lion",
     "div": "Heavyweight",
-    "rec": "15-3-0",
-    "from": "",
+    "rec": "15-3-1",
+    "from": "England",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/701.png",
-    "height": "6' 5'",
-    "weight": "251 lbs",
-    "reach": "78'",
+    "img": "/fighters/tom-aspinall.png",
+    "height": "6' 5\"",
+    "weight": "265 lbs",
+    "reach": "78\"",
     "stance": "Orthodox",
-    "team": "Kaobon"
+    "team": "Kaobon",
+    "form": [
+      "L",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      }
+    ]
   },
   {
     "slug": "carlos-ulberg",
@@ -20,44 +44,126 @@
     "nick": "Black Jag",
     "div": "Light Heavyweight",
     "rec": "13-1-0",
-    "from": "",
+    "from": "New Zealand",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/862.png",
-    "height": "6' 4'",
+    "img": "/fighters/carlos-ulberg.png",
+    "height": "6' 4\"",
     "weight": "205 lbs",
-    "reach": "77'",
+    "reach": "77\"",
     "stance": "Orthodox",
-    "team": "City Kickboxing"
+    "team": "City Kickboxing",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      }
+    ]
   },
   {
     "slug": "khamzat-chimaev",
     "name": "Khamzat Chimaev",
-    "nick": "Borz",
+    "nick": "  Borz",
     "div": "Middleweight",
     "rec": "14-0-0",
-    "from": "",
+    "from": "United Arab Emirates",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/743.png",
-    "height": "6' 2'",
-    "weight": "186 lbs",
-    "reach": "75'",
+    "img": "/fighters/khamzat-chimaev.png",
+    "height": "6' 2\"",
+    "weight": "183 lbs",
+    "reach": "75\"",
     "stance": "Orthodox",
-    "team": "Allstars Training Center"
+    "team": "Allstars Training Center",
+    "form": [
+      "D",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "D",
+        "winType": null
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      }
+    ]
   },
   {
     "slug": "islam-makhachev",
     "name": "Islam Makhachev",
-    "nick": "",
+    "nick": "  ",
     "div": "Welterweight",
     "rec": "28-1-0",
-    "from": "",
+    "from": "Russia",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/333.png",
-    "height": "5' 10'",
+    "img": "/fighters/islam-makhachev.png",
+    "height": "5' 10\"",
     "weight": "170 lbs",
-    "reach": "70.5'",
+    "reach": "70\"",
     "stance": "Southpaw",
-    "team": "Eagles MMA"
+    "team": "Eagles MMA",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      }
+    ]
   },
   {
     "slug": "ilia-topuria",
@@ -65,14 +171,43 @@
     "nick": "El Matador",
     "div": "Lightweight",
     "rec": "17-0-0",
-    "from": "",
+    "from": "Georgia",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/855.png",
-    "height": "5' 7'",
-    "weight": "145 lbs",
-    "reach": "69'",
+    "img": "/fighters/ilia-topuria.png",
+    "height": "5' 7\"",
+    "weight": "154 lbs",
+    "reach": "69\"",
     "stance": "Orthodox",
-    "team": "Climent Club"
+    "team": "Climent Club",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "KO"
+      }
+    ]
   },
   {
     "slug": "alexander-volkanovski",
@@ -80,13 +215,130 @@
     "nick": "The Great",
     "div": "Featherweight",
     "rec": "28-4-0",
-    "from": "",
+    "from": "Australia",
     "rank": "C",
-    "img": "https://media.api-sports.io/mma/fighters/361.png",
-    "height": "5' 6'",
-    "weight": "145 lbs",
-    "reach": "71.5'",
+    "img": "/fighters/alexander-volkanovski.png",
+    "height": "5' 6\"",
+    "weight": "143 lbs",
+    "reach": "72\"",
     "stance": "Orthodox",
-    "team": "City Kickboxing"
+    "team": "City Kickboxing",
+    "form": [
+      "L",
+      "W",
+      "L",
+      "L",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "KO"
+      },
+      {
+        "outcome": "L",
+        "winType": "KO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "petr-yan",
+    "name": "Petr Yan",
+    "nick": "No Mercy",
+    "div": "Bantamweight",
+    "rec": "19-5-0",
+    "from": "Russia",
+    "rank": "C",
+    "img": "/fighters/petr-yan.png",
+    "height": "5' 7\"",
+    "weight": "134 lbs",
+    "reach": "67\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "L",
+      "L",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "SD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
+  },
+  {
+    "slug": "joshua-van",
+    "name": "Joshua Van",
+    "nick": "The Fearless",
+    "div": "Flyweight",
+    "rec": "16-2-0",
+    "from": "Myanmar",
+    "rank": "C",
+    "img": "/fighters/joshua-van.png",
+    "height": "5' 5\"",
+    "weight": "123 lbs",
+    "reach": "65\"",
+    "stance": "",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      }
+    ]
   }
 ]

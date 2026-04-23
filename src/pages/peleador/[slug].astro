@@ -41,6 +41,19 @@ const physicals = [
   { label: 'Gym',     value: f.team,    icon: '🏛' },
   { label: 'País',    value: f.from,    icon: '🌍' },
 ].filter(p => p.value);
+
+const form: string[] = f.form ?? [];
+const formTypes: { outcome: string; winType: string }[] = f.formTypes ?? [];
+
+const WIN_TYPE_LABEL: Record<string, string> = {
+  KO: 'KO', TKO: 'TKO', SUB: 'Sub', UD: 'Dec', SD: 'Dec', MD: 'Dec',
+  DQ: 'DQ', NC: 'NC',
+};
+const WIN_TYPE_COLOR: Record<string, string> = {
+  KO: '#E53935', TKO: '#E53935', SUB: '#7B1FA2',
+  UD: '#1565C0', SD: '#1565C0', MD: '#1565C0',
+  DQ: '#555', NC: '#555',
+};
 ---
 
 <BaseLayout
@@ -153,6 +166,36 @@ const physicals = [
           </div>
         ))}
       </div>
+    </section>
+  )}
+
+  <!-- ── Forma reciente ── -->
+  {form.length > 0 && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 60px;`}>
+      <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-8"
+          style="font-family:var(--font-sans);">Forma reciente</h2>
+
+      <div class="flex gap-3 flex-wrap">
+        {formTypes.slice(0, 5).map((ft, i) => {
+          const isWin = ft.outcome === 'W';
+          const label = WIN_TYPE_LABEL[ft.winType] ?? ft.winType;
+          const color = isWin ? (WIN_TYPE_COLOR[ft.winType] ?? '#111') : '#9e9e9e';
+          return (
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center font-black text-white text-sm"
+                   style={`background:${color}; font-family:var(--font-display);`}>
+                {ft.outcome}
+              </div>
+              <span class="text-[9px] font-bold uppercase tracking-widest text-gray-400"
+                    style="font-family:var(--font-sans);">{label}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      <p class="text-[10px] text-gray-400 mt-4" style="font-family:var(--font-sans);">
+        Últimas {form.length} peleas · de más reciente a más antigua
+      </p>
     </section>
   )}
 

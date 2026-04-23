@@ -25,15 +25,15 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      - name: Fetch UFC data (Wikipedia + Sherdog + API-Sports)
+      - name: Fetch UFC data (Wikipedia + Sherdog + MMAAPI)
         run: npx tsx scripts/fetch-ufc-data.ts
         env:
-          API_SPORTS_KEY: ${{ secrets.API_SPORTS_KEY }}
+          MMAAPI_KEY: ${{ secrets.MMAAPI_KEY }}
 
       - name: Commit changes (si los hay)
         uses: stefanzweifel/git-auto-commit-action@v5.1
         with:
           commit_message: 'chore(data): actualización automática de eventos UFC'
-          file_pattern: 'src/data/events.json'
+          file_pattern: 'src/data/*.json public/fighters/*.png'
           commit_user_name: 'Quimbara Bot'
           commit_user_email: 'bot@quimbara.local'
