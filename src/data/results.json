@@ -1,0 +1,34 @@
+[
+  {
+    "w": "Charles Jourdain",
+    "l": "Kyler Phillips",
+    "method": "Decision (Unanimous)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC Fight Night 273 - Burns vs. Malott"
+  },
+  {
+    "w": "Jai Herbert",
+    "l": "Mandel Nallo",
+    "method": "TKO (Punches)",
+    "round": 1,
+    "time": "2:05",
+    "event": "UFC Fight Night 273 - Burns vs. Malott"
+  },
+  {
+    "w": "Jasmine Jasudavicius",
+    "l": "Karine Silva",
+    "method": "Decision (Unanimous)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC Fight Night 273 - Burns vs. Malott"
+  },
+  {
+    "w": "Gauge Young",
+    "l": "Thiago Moises",
+    "method": "Decision (Split)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC Fight Night 273 - Burns vs. Malott"
+  }
+]

@@ -1,34 +1,102 @@
 ---
-// src/components/Header.astro
 const activePath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/blog', label: 'Noticias' },
+  { href: '/categoria/laboratorio-tecnico', label: 'Análisis', match: 'laboratorio' },
+  { href: '/categoria/guia-del-insider', label: 'Guías', match: 'insider' },
+  { href: '/categoria/punto-de-vista', label: 'Opinión', match: 'vista' },
+];
 ---
 
-<header class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="/" class="text-white font-black text-2xl tracking-tight transition-all duration-300 hover:opacity-80 flex items-baseline">
-      QUIMBARA<span class="text-red-600">.</span>
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  style="background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); border-bottom: 1px solid transparent;">
+  <div style="max-width:1400px; margin:0 auto; padding: 0 clamp(16px,4vw,60px);"
+       class="h-16 flex items-center justify-between">
+
+    <!-- Logo — Anton font -->
+    <a href="/" class="text-[#111] text-2xl md:text-3xl tracking-widest transition-opacity duration-200 hover:opacity-70"
+       style="font-family: var(--font-display);">
+      QUIMBARA
     </a>
 
-    <!-- Mobile Menu Toggle (Checkbox Hack) -->
-    <input type="checkbox" id="mobile-menu-toggle" class="hidden peer" />
-    <label for="mobile-menu-toggle" class="md:hidden cursor-pointer p-2 text-zinc-300 hover:text-white transition-all duration-300 z-50">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block peer-checked:hidden">
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
+    <!-- Desktop nav — Space Grotesk -->
+    <nav class="hidden md:flex items-center gap-7" style="font-family: var(--font-sans);">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            "text-xs font-semibold uppercase tracking-widest transition-opacity duration-200",
+            (link.match ? activePath.includes(link.match) : activePath === link.href)
+              ? "opacity-100 text-[#E53935]"
+              : "opacity-70 text-[#111] hover:opacity-100"
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-toggle"
+      class="md:hidden p-2 text-[#111] transition-opacity duration-200 hover:opacity-70"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="7" x2="21" y2="7"></line>
+        <line x1="3" y1="17" x2="21" y2="17"></line>
       </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden peer-checked:block">
+      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
-    </label>
+    </button>
+  </div>
 
-    <!-- Navigation -->
-    <nav class="absolute top-[64px] left-0 w-full bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 p-6 flex flex-col gap-6 transform -translate-y-[150%] opacity-0 transition-all duration-300 peer-checked:translate-y-0 peer-checked:opacity-100 md:static md:w-auto md:bg-transparent md:border-none md:p-0 md:flex-row md:items-center md:gap-8 md:transform-none md:opacity-100 uppercase text-sm font-bold tracking-wider">
-      <a href="/categoria/laboratorio-tecnico" class={`transition-all duration-300 hover:text-red-500 ${activePath.includes('/laboratorio-tecnico') ? 'text-white' : 'text-zinc-300'}`}>Laboratorio</a>
-      <a href="/categoria/guia-del-insider" class={`transition-all duration-300 hover:text-red-500 ${activePath.includes('/guia-del-insider') ? 'text-white' : 'text-zinc-300'}`}>Guías</a>
-      <a href="/categoria/punto-de-vista" class={`transition-all duration-300 hover:text-red-500 ${activePath.includes('/punto-de-vista') ? 'text-amber-500' : 'text-zinc-300'}`}>Punto de Vista</a>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200"
+       style="font-family: var(--font-sans);">
+    <nav class="flex flex-col" style="padding: 0 clamp(16px,4vw,60px);">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class="py-4 text-sm font-semibold uppercase tracking-widest text-[#111] border-b border-gray-100 hover:text-[#E53935] transition-colors duration-200"
+        >
+          {link.label}
+        </a>
+      ))}
     </nav>
   </div>
 </header>
+
+<script>
+  const header = document.getElementById('site-header') as HTMLElement;
+  const toggle = document.getElementById('mobile-toggle') as HTMLButtonElement;
+  const menu = document.getElementById('mobile-menu') as HTMLElement;
+  const iconMenu = document.getElementById('icon-menu') as SVGElement;
+  const iconClose = document.getElementById('icon-close') as SVGElement;
+
+  // Frosted/solid on scroll
+  const updateHeader = () => {
+    if (window.scrollY > 60) {
+      header.style.background = 'rgba(255,255,255,0.97)';
+      header.style.borderBottomColor = '#e0e0e0';
+    } else {
+      header.style.background = 'rgba(255,255,255,0.6)';
+      header.style.borderBottomColor = 'transparent';
+    }
+  };
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+
+  // Mobile toggle
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    iconMenu.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

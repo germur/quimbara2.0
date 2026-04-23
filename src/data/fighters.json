@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Tom Aspinall",
+    "nick": "",
+    "div": "Heavyweight",
+    "rec": "Jun 21, 2025",
+    "from": "",
+    "rank": "C",
+    "img": ""
+  },
+  {
+    "name": "Carlos Ulberg",
+    "nick": "",
+    "div": "Light Heavyweight",
+    "rec": "Apr 11, 2026",
+    "from": "",
+    "rank": "C",
+    "img": ""
+  },
+  {
+    "name": "Khamzat Chimaev",
+    "nick": "",
+    "div": "Middleweight",
+    "rec": "Aug 16, 2025",
+    "from": "",
+    "rank": "C",
+    "img": ""
+  },
+  {
+    "name": "Islam Makhachev",
+    "nick": "The Machine",
+    "div": "Welterweight",
+    "rec": "Nov 15, 2025",
+    "from": "Rusia",
+    "rank": "C",
+    "img": "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=200&q=80&fit=crop&crop=face"
+  },
+  {
+    "name": "Ilia Topuria",
+    "nick": "El Matador",
+    "div": "Lightweight",
+    "rec": "Jun 28, 2025",
+    "from": "España",
+    "rank": "C",
+    "img": "https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=200&q=80&fit=crop&crop=face"
+  },
+  {
+    "name": "Alexander Volkanovski",
+    "nick": "",
+    "div": "Featherweight",
+    "rec": "—",
+    "from": "",
+    "rank": "C",
+    "img": ""
+  }
+]

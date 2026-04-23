@@ -1,61 +1,122 @@
 ---
-// src/components/ArticleCard.astro
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   article: CollectionEntry<'blog'>;
-  large?: boolean; // For the featured article in Bento Grid
+  variant?: 'default' | 'hero-main' | 'hero-side';
 }
 
-const { article, large = false } = Astro.props;
-const { title, category, pubDate, image } = article.data;
+const { article, variant = 'default' } = Astro.props;
+const { title, category, pubDate, image, description } = article.data;
 
-// Format date
-const dtf = new Intl.DateTimeFormat('es-ES', {
-  day: 'numeric',
-  month: 'short',
-  year: 'numeric'
-});
+const dtf = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'short', year: 'numeric' });
 const formattedDate = dtf.format(pubDate);
 
-// Mock read time since we don't have remark plugin setup yet
-const readTime = "5 min"; 
-
-// Category badge colors directly using Tailwind v4 theme variables defined in CSS
-const badgeColors = {
-  'Análisis': 'text-zinc-400 border-zinc-700 hover:text-red-500',
-  'Historias': 'text-zinc-400 border-zinc-700 hover:text-red-500',
-  'Opinión': 'text-amber-500 border-amber-500/50 hover:text-amber-400',
+const categoryColors: Record<string, string> = {
+  'Laboratorio Técnico': '#E53935',
+  'Guía del Insider': '#FF6D00',
+  'Punto de Vista': '#7B1FA2',
 };
+const catColor = categoryColors[category] || '#E53935';
+const tagTextColor = catColor === '#FFD600' ? '#111' : '#fff';
 
-const badgeClass = badgeColors[category as keyof typeof badgeColors] || 'text-zinc-500 border-zinc-700';
+// Gradientes para el hero
+const heroMainGradient = 'linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.2) 60%)';
+const heroSideGradient = `linear-gradient(to top, ${catColor}dd 0%, ${catColor}66 100%)`;
 ---
 
-<a href={`/blog/${article.id}/`} class="block group">
-  <article class="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden group hover:-translate-y-1 hover:border-red-600/50 transition-all duration-300 flex flex-col h-full">
-    {image && (
-      <div class={`relative w-full overflow-hidden ${large ? 'h-64 md:h-96' : 'h-48'}`}>
-        <!-- Using standard img for now to easily support absolute URLs or local public images without static imports. -->
-        <img 
-          src={image} 
-          alt={`Portada de ${title}`} 
-          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-          loading={large ? "eager" : "lazy"} 
+{variant === 'default' && (
+  <a href={`/blog/${article.id}/`} class="block group cursor-pointer" style="animation: fadeUp .5s ease both;">
+    <div class="relative rounded-md overflow-hidden" style="height: 180px;">
+      {image ? (
+        <img
+          src={image}
+          alt={title}
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
         />
-      </div>
-    )}
-    <div class={`p-4 md:p-6 flex flex-col flex-grow ${large ? 'md:p-8' : ''}`}>
-      <span class={`w-fit px-3 py-1 mb-4 text-xs font-bold uppercase tracking-wider border rounded-full backdrop-blur-sm transition-colors duration-300 ${badgeClass}`}>
-        {category}
-      </span>
-      <h2 class={`font-bold tracking-tight uppercase line-clamp-2 text-white group-hover:text-red-500 transition-colors duration-300 mb-auto ${large ? 'text-2xl md:text-4xl' : 'text-lg md:text-xl'}`}>
-        {title}
-      </h2>
-      <div class="mt-4 text-xs font-medium text-zinc-500 flex items-center gap-2 uppercase tracking-wide">
-        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
-        <span>&middot;</span>
-        <span>{readTime}</span>
+      ) : (
+        <div class="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400 text-sm" style="font-family: var(--font-sans);">
+          Sin imagen
+        </div>
+      )}
+      <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+      <!-- Tag en imagen -->
+      <div class="absolute bottom-3 left-3">
+        <span class="inline-block px-2 py-[3px] text-[10px] font-bold uppercase tracking-widest rounded-sm"
+              style={`background: ${catColor}; color: ${tagTextColor}; font-family: var(--font-sans);`}>
+          {category}
+        </span>
       </div>
     </div>
-  </article>
-</a>
+    <!-- Texto debajo de la imagen -->
+    <h3 class="text-[#111] text-lg leading-tight mt-3 transition-colors duration-200 group-hover:text-[#E53935]"
+        style="font-family: var(--font-display);">
+      {title}
+    </h3>
+    <p class="text-gray-600 text-sm mt-2 leading-relaxed line-clamp-2" style="font-family: var(--font-sans);">
+      {description}
+    </p>
+    <div class="text-xs text-gray-400 mt-2 font-medium" style="font-family: var(--font-sans);">
+      {formattedDate}
+    </div>
+  </a>
+)}
+
+{variant === 'hero-main' && (
+  <a href={`/blog/${article.id}/`} class="block group relative rounded-md overflow-hidden cursor-pointer h-full"
+     style="animation: fadeUp .5s ease both;">
+    {image ? (
+      <img src={image} alt={title}
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           loading="eager" />
+    ) : (
+      <div class="absolute inset-0 bg-gray-800"></div>
+    )}
+    <div class="absolute inset-0" style={`background: ${heroMainGradient};`}></div>
+    <div class="absolute inset-0 flex flex-col justify-end z-10" style="padding: clamp(20px,4vw,40px);">
+      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm mb-4 w-fit"
+            style={`background: ${catColor}; color: ${tagTextColor}; font-family: var(--font-sans);`}>
+        {category}
+      </span>
+      <h2 class="text-white leading-[1.05] transition-transform duration-300 group-hover:-translate-y-1"
+          style="font-size: clamp(1.8rem, 3.5vw, 3.2rem); font-family: var(--font-display);">
+        {title}
+      </h2>
+      <p class="text-white/70 text-sm md:text-base mt-3 leading-relaxed max-w-lg hidden md:block"
+         style="font-family: var(--font-sans);">
+        {description}
+      </p>
+      <div class="text-white/50 text-xs mt-3 font-medium" style="font-family: var(--font-sans);">
+        {formattedDate}
+      </div>
+    </div>
+  </a>
+)}
+
+{variant === 'hero-side' && (
+  <a href={`/blog/${article.id}/`} class="block group relative rounded-md overflow-hidden cursor-pointer h-full"
+     style="animation: fadeUp .5s ease both .1s;">
+    {image ? (
+      <img src={image} alt={title}
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+           loading="eager" />
+    ) : (
+      <div class="absolute inset-0 bg-gray-700"></div>
+    )}
+    <div class="absolute inset-0" style={`background: ${heroSideGradient};`}></div>
+    <div class="absolute inset-0 flex flex-col justify-end z-10" style="padding: clamp(16px,3vw,28px);">
+      <span class="inline-block px-2 py-[3px] text-[10px] font-bold uppercase tracking-widest rounded-sm mb-3 w-fit bg-black/30 text-white"
+            style="font-family: var(--font-sans);">
+        {category}
+      </span>
+      <h2 class="text-white text-xl md:text-2xl leading-tight transition-transform duration-300 group-hover:-translate-y-1"
+          style="font-family: var(--font-display);">
+        {title}
+      </h2>
+      <div class="text-white/60 text-xs mt-2 font-medium" style="font-family: var(--font-sans);">
+        {formattedDate}
+      </div>
+    </div>
+  </a>
+)}

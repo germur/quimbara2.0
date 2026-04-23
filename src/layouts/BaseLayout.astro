@@ -1,5 +1,4 @@
 ---
-// src/layouts/BaseLayout.astro
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -33,13 +32,13 @@ const siteTitle = title === "Quimbara" ? title : `${title} — Quimbara`;
 ---
 
 <!doctype html>
-<html lang="es" class="antialiased font-sans">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#09090b" />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- SEO -->
     <title>{siteTitle}</title>
@@ -47,49 +46,36 @@ const siteTitle = title === "Quimbara" ? title : `${title} — Quimbara`;
     <link rel="canonical" href={canonicalUrl} />
     {noIndex && <meta name="robots" content="noindex, follow" />}
 
-    <!-- Google Search Console Verification Placeholder -->
-    <!-- <meta name="google-site-verification" content="YOUR_GSC_CODE_HERE" /> -->
-
-    <!-- Google Analytics (GA4) / GTM Placeholder -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    -->
-
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:type" content={ogType} />
-
     {publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
     {updateDate && <meta property="article:modified_time" content={updateDate.toISOString()} />}
 
-    <!-- Google Fonts -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Google Fonts: Anton (display) + Space Grotesk (body) + Playfair Display (accent) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
 
     <!-- Schema.org JSON-LD -->
     {schema && <script type="application/ld+json" set:html={schema} />}
   </head>
-  <body class="bg-zinc-950 text-zinc-300 min-h-screen flex flex-col selection:bg-red-600/30 selection:text-white">
-    <!-- Fictional reading progress bar placeholder for articles -->
+  <body class="bg-white text-[#111] min-h-screen flex flex-col selection:bg-[#E53935]/20 selection:text-[#111]">
     <slot name="progress-bar" />
-    
     <Header />
-    <main class="flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-20">
-      <div class="content-area">
-        <slot />
-      </div>
+    <!-- pt-16 = altura del header fijo -->
+    <main class="flex-grow w-full pt-16 content-area">
+      <slot />
     </main>
-    
     <NextEventWidget />
     <Footer />
   </body>

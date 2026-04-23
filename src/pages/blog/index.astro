@@ -1,0 +1,107 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleCard from '../../components/ArticleCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allPosts = await getCollection('blog');
+allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const categories = [...new Set(allPosts.map(p => p.data.category))];
+
+const categorySlug: Record<string, string> = {
+  'Laboratorio Técnico': 'laboratorio-tecnico',
+  'Guía del Insider': 'guia-del-insider',
+  'Punto de Vista': 'punto-de-vista',
+};
+
+const PX = "clamp(16px,4vw,60px)";
+---
+
+<BaseLayout
+  title="Todos los Artículos"
+  description="Análisis técnico, guías del insider y opinión sobre MMA y UFC. Sin clickbait."
+>
+  <!-- Header oscuro estilo design file -->
+  <div class="bg-[#111]" style={`padding: 50px ${PX} 36px;`}>
+    <div style="max-width:1400px; margin:0 auto;">
+      <h1 class="text-white" style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,4.5rem);">
+        Todos los Artículos
+      </h1>
+
+      <!-- Filter pills -->
+      <div class="flex gap-2 mt-5 flex-wrap" id="filter-pills">
+        <button
+          data-cat="all"
+          class="filter-pill px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-200 active"
+          style="font-family:var(--font-sans);"
+        >
+          Todos
+        </button>
+        {categories.map(cat => (
+          <button
+            data-cat={cat}
+            class="filter-pill px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-200"
+            style="font-family:var(--font-sans);"
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid de artículos -->
+  <div style={`max-width:1400px; margin:0 auto; padding: 36px ${PX} 80px;`}>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="articles-grid">
+      {allPosts.map(post => (
+        <div class="article-item" data-category={post.data.category}>
+          <ArticleCard article={post} variant="default" />
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .filter-pill {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+    border: 1px solid transparent;
+  }
+  .filter-pill:hover {
+    color: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.15);
+  }
+  .filter-pill.active {
+    background: white;
+    color: #111;
+    border-color: white;
+  }
+  .article-item.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  const pills = document.querySelectorAll<HTMLButtonElement>('.filter-pill');
+  const items = document.querySelectorAll<HTMLElement>('.article-item');
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const cat = pill.dataset.cat;
+
+      // Update active pill
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      // Filter articles
+      items.forEach(item => {
+        if (cat === 'all' || item.dataset.category === cat) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

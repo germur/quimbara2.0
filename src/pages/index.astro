@@ -1,75 +1,187 @@
 ---
 import { getCollection } from 'astro:content';
-import ArticleCard from '../components/ArticleCard.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import Ticker from '../components/Ticker.astro';
+import EVENTS from '../data/events.json';
+import VIDEOS from '../data/videos.json';
+import FIGHTERS from '../data/fighters.json';
+import RESULTS from '../data/results.json';
 
-// Get all published or updated posts
 const allPosts = await getCollection('blog');
-
-// Sort by date descending
 allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const featuredPost = allPosts[0];
-// Skip the first post so it doesn't repeat in the grid
-const postsToShow = allPosts.slice(1, 7);
+const heroArticles = allPosts.slice(0, 3);
+const latestArticles = allPosts.slice(3);
+
+const PX = "clamp(16px,4vw,60px)";
 ---
 
 <BaseLayout>
-  <div class="space-y-24 md:space-y-32">
-    
-    <!-- Hero Section (Dinámico: Artículo Destacado) -->
-    {featuredPost && (
-      <section class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Lado izquierdo (Texto) -->
-        <div class="flex flex-col gap-6">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="text-red-600 font-bold tracking-wider uppercase text-sm flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-              Destacado
-            </span>
-            <span class="text-zinc-600">|</span>
-            <span class="text-zinc-400 font-medium text-sm tracking-wide uppercase">{featuredPost.data.category}</span>
+  <!-- ── Ticker ── -->
+  <Ticker />
+
+  <!-- ── Hero grid 3-up ── -->
+  <section style={`max-width:1400px; margin: 40px auto 0; padding: 0 ${PX};`}>
+    <div class="hero-grid">
+      {heroArticles[0] && (
+        <div class="hero-main-cell">
+          <ArticleCard article={heroArticles[0]} variant="hero-main" />
+        </div>
+      )}
+      {heroArticles[1] && (
+        <div class="h-full">
+          <ArticleCard article={heroArticles[1]} variant="hero-side" />
+        </div>
+      )}
+      {heroArticles[2] && (
+        <div class="h-full">
+          <ArticleCard article={heroArticles[2]} variant="hero-side" />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- ── Próximos Eventos ── -->
+  <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX};`}>
+    <div class="flex items-baseline justify-between mb-6">
+      <h2 class="text-2xl md:text-4xl" style="font-family: var(--font-display);">Próximos Eventos</h2>
+      <span class="text-sm text-gray-500 font-medium" style="font-family: var(--font-sans);">Calendario →</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      {EVENTS.map(e => (
+        <div class="relative rounded-md overflow-hidden cursor-pointer transition-transform duration-200 hover:-translate-y-1"
+             style={`background: ${e.bg}; color: ${e.color}; padding: clamp(20px,3vw,32px); min-height: 200px; display:flex; flex-direction:column; justify-content:space-between;`}>
+          <!-- Número fantasma decorativo -->
+          <div class="absolute select-none pointer-events-none"
+               style="bottom:-20px;right:-10px;font-family:var(--font-display);font-size:clamp(80px,12vw,120px);opacity:0.1;line-height:1;">
+            {e.name.replace('UFC ','').replace('Fight Night','FN')}
           </div>
-          
-          <h1 class="text-4xl md:text-6xl lg:text-[4.5rem] font-black text-white tracking-tighter leading-[1.05] uppercase">
-            {featuredPost.data.title}
-          </h1>
-          
-          <p class="text-xl text-zinc-400 leading-relaxed max-w-xl line-clamp-3">
-            {featuredPost.data.description}
-          </p>
-          
-          <div class="mt-4">
-            <a href={`/blog/${featuredPost.id}/`} class="btn-primary inline-block">Leer Análisis</a>
+          <div>
+            <div class="text-xs font-bold tracking-widest uppercase mb-1" style={`opacity:0.7;font-family:var(--font-sans);color:${e.color};`}>{e.dateLabel}</div>
+            <h3 class="text-3xl md:text-4xl" style={`font-family:var(--font-display);color:${e.color};`}>{e.name}</h3>
+          </div>
+          <div>
+            <div class="text-lg md:text-xl font-bold italic" style={`font-family:var(--font-serif);color:${e.color};`}>{e.main}</div>
+            <div class="text-xs mt-1" style={`opacity:0.6;font-family:var(--font-sans);color:${e.color};`}>{e.loc}</div>
           </div>
         </div>
-        
-        <!-- Lado derecho (Visual) -->
-        <a href={`/blog/${featuredPost.id}/`} class="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 group block">
-          {featuredPost.data.image ? (
-            <img src={featuredPost.data.image} alt={`Portada de ${featuredPost.data.title}`} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-          ) : (
-            <div class="absolute inset-0 flex items-center justify-center text-zinc-700 font-bold uppercase tracking-widest group-hover:scale-105 transition-transform duration-700">
-              [ Sin Imagen ]
-            </div>
-          )}
-          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent pointer-events-none"></div>
-        </a>
-      </section>
-    )}
+      ))}
+    </div>
+  </section>
 
-    <!-- Sección "Últimos Artículos" -->
-    <section class="max-w-7xl mx-auto border-t border-zinc-800/50 pt-16">
-      <header class="mb-10 border-l-4 border-red-600 pl-4">
-        <h2 class="text-3xl font-black text-white uppercase tracking-tight">Últimos Análisis</h2>
-      </header>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {postsToShow.map((post, index) => (
-          <ArticleCard article={post} large={index === 0 && postsToShow.length % 2 !== 0 ? false : false} />
-        ))}
+  <!-- ── Últimos Artículos ── -->
+  {latestArticles.length > 0 && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 50px;`}>
+      <h2 class="text-2xl md:text-4xl mb-6" style="font-family:var(--font-display);">Últimos Artículos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        {latestArticles.map(a => <ArticleCard article={a} variant="default" />)}
       </div>
     </section>
-    
-  </div>
+  )}
+
+  <!-- ── Video Highlights ── -->
+  <section style={`max-width:1400px; margin:0 auto; padding: 10px ${PX} 50px;`}>
+    <h2 class="text-2xl md:text-4xl mb-6" style="font-family:var(--font-display);">Video Highlights</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {VIDEOS.map(v => (
+        <div class="group cursor-pointer transition-transform duration-200 hover:-translate-y-1">
+          <div class="relative rounded-md overflow-hidden" style="height:200px;">
+            <img src={v.img} alt={v.title} class="w-full h-full object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+              <div class="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#111"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded"
+                 style="font-family:var(--font-sans);">{v.dur}</div>
+          </div>
+          <h3 class="text-[#111] text-base leading-tight mt-3" style="font-family:var(--font-display);">{v.title}</h3>
+          <div class="text-xs text-gray-400 mt-1 font-medium" style="font-family:var(--font-sans);">{v.views} vistas</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Fighter Rankings ── -->
+  <section style={`max-width:1400px; margin:0 auto; padding: 10px ${PX} 50px;`}>
+    <h2 class="text-2xl md:text-4xl mb-6" style="font-family:var(--font-display);">Fighter Rankings</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      {FIGHTERS.map(f => (
+        <div class="bg-gray-50 rounded-md overflow-hidden cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-lg relative"
+             style="padding: clamp(18px,2.5vw,24px);">
+          <!-- Rango fantasma -->
+          <div class="absolute select-none pointer-events-none top-[-10px] right-2 opacity-5 text-[#111]"
+               style="font-family:var(--font-display);font-size:70px;line-height:1;">
+            {f.rank === 'C' ? 'C' : `#${f.rank}`}
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="rounded-full overflow-hidden flex-shrink-0 border-2 border-gray-200" style="width:52px;height:52px;">
+              <img src={f.img} alt={f.name} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div>
+              <div class="text-[#111] text-base leading-tight" style="font-family:var(--font-display);">{f.name}</div>
+              <div class="text-gray-500 text-sm italic" style="font-family:var(--font-sans);">"{f.nick}"</div>
+            </div>
+          </div>
+          <div class="flex justify-between mt-4 pt-3 border-t border-gray-200" style="font-family:var(--font-sans);">
+            <div>
+              <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">División</div>
+              <div class="font-semibold text-sm mt-1 text-[#111]">{f.div}</div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Récord</div>
+              <div class="text-sm mt-1 font-bold text-[#111]" style="font-family:var(--font-display);letter-spacing:0.05em;">{f.rec}</div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">País</div>
+              <div class="font-semibold text-sm mt-1 text-[#111]">{f.from}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Resultados Recientes ── -->
+  <section class="bg-[#111]" style={`padding: 50px ${PX};`}>
+    <div style="max-width:1400px; margin:0 auto;">
+      <h2 class="text-white text-2xl md:text-4xl mb-7" style="font-family:var(--font-display);">Resultados Recientes</h2>
+      <div class="flex flex-col gap-[2px]">
+        {RESULTS.map(r => (
+          <div class="flex flex-wrap items-center gap-4 md:gap-5 px-4 md:px-5 py-3 md:py-4 rounded-sm cursor-pointer transition-colors duration-200"
+               style="background:rgba(255,255,255,0.04);"
+               onmouseenter="this.style.background='rgba(255,255,255,0.08)'"
+               onmouseleave="this.style.background='rgba(255,255,255,0.04)'">
+            <div class="flex-1 text-right" style="font-family:var(--font-display);font-size:clamp(14px,1.5vw,18px);">
+              <span style="color:#FFD600;">W</span>
+              <span class="text-white ml-1">{r.w}</span>
+            </div>
+            <div class="text-gray-500 text-xs font-bold" style="font-family:var(--font-sans);">DEF.</div>
+            <div class="flex-1 text-white/50" style="font-family:var(--font-display);font-size:clamp(14px,1.5vw,18px);">{r.l}</div>
+            <div class="text-gray-500 text-xs hidden md:block" style="font-family:var(--font-sans);">{r.method} · R{r.round} {r.time}</div>
+            <div class="text-[#E53935] text-xs font-bold hidden md:block" style="font-family:var(--font-sans);">{r.event}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .hero-grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 280px 200px 200px;
+  }
+  @media (min-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1.4fr 1fr;
+      grid-template-rows: 340px 340px;
+    }
+    .hero-main-cell {
+      grid-row: 1 / 3;
+    }
+  }
+</style>

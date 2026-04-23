@@ -2,53 +2,87 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Inter', system-ui, sans-serif; /* the new instructions do not mention serif */
-  /* Wait, they did not mention serif, they said H1, H2, H3 text-white, font-bold uppercase. I'll just keep Inter for everything now if they didn't specify serif */
-  /* But let's check: "Acento Secundario: amber-500 ... Títulos (H1, H2, H3): text-white" */
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Anton', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @layer base {
   body {
-    @apply antialiased transition-colors duration-300;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply text-white font-bold tracking-tight uppercase;
+    @apply antialiased bg-white text-[#111];
+    font-family: var(--font-sans);
   }
 
-  /* Global styles for links as requested */
-  .content-area a {
-    @apply text-zinc-300 transition-colors duration-300;
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-[#111] tracking-tight uppercase;
+    font-family: var(--font-display);
   }
-  
+
+  .content-area a {
+    @apply transition-colors duration-200;
+  }
   .content-area a:hover {
-    @apply text-red-500;
+    @apply text-[#E53935];
   }
 }
 
 @layer components {
+  /* Botón primario — fondo negro, hover rojo */
   .btn-primary {
-    @apply bg-red-600 text-white font-bold uppercase tracking-wide px-4 py-2 transition-all duration-300;
+    @apply bg-[#111] text-white font-bold uppercase tracking-widest text-xs px-6 py-3 transition-colors duration-200 inline-block rounded-sm;
+    font-family: var(--font-sans);
   }
   .btn-primary:hover {
-    @apply bg-red-700 scale-[1.02];
+    @apply bg-[#E53935];
   }
-  .btn-primary:active {
-    @apply scale-95;
+
+  /* Botón fantasma — borde inferior */
+  .btn-ghost {
+    @apply text-[#111] font-bold uppercase tracking-[0.15em] text-xs border-b border-[#111] pb-1 transition-colors duration-200 inline-flex items-center gap-2;
+    font-family: var(--font-sans);
   }
-  
-  .btn-outline {
-    @apply bg-transparent border border-zinc-700 text-zinc-300 px-4 py-2 transition-all duration-300;
+  .btn-ghost:hover {
+    @apply text-[#E53935] border-[#E53935];
   }
-  .btn-outline:hover {
-    @apply border-red-600 text-white;
-  }
-  
+
+  /* Input limpio — borde inferior */
   .input-field {
-    @apply bg-zinc-950 border border-zinc-800 text-zinc-200 px-4 py-2 outline-none transition-all duration-300 w-full;
+    @apply bg-transparent border-b border-gray-300 text-[#111] px-0 py-3 outline-none transition-colors duration-200 w-full text-sm;
+    font-family: var(--font-sans);
   }
   .input-field:focus {
-    @apply ring-2 ring-red-600 border-transparent;
+    @apply border-[#E53935];
+  }
+
+  /* Etiqueta de sección — texto rojo pequeño */
+  .section-label {
+    @apply text-[#E53935] text-xs font-bold uppercase tracking-[0.2em] block;
+    font-family: var(--font-sans);
+    letter-spacing: 0.2em;
+  }
+
+  /* Tag de categoría */
+  .cat-tag {
+    @apply inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm;
+    font-family: var(--font-sans);
+  }
+
+  /* Pull quote en artículos */
+  .prose blockquote {
+    @apply border-l-4 border-[#E53935] pl-6 my-10 not-italic;
+  }
+  .prose blockquote p {
+    font-family: var(--font-display);
+    @apply text-3xl md:text-4xl text-[#111] leading-tight not-italic;
   }
 }

@@ -6,7 +6,6 @@ import TacticalSlider from '../../components/TacticalSlider.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-
   return posts.map((post) => ({
     params: { slug: post.id },
     props: { post },
@@ -15,48 +14,35 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-
-const {
-  title,
-  description,
-  author,
-  pubDate,
-  image,
-  category,
-  tags,
-} = post.data;
+const { title, description, author, pubDate, image, category, tags } = post.data;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site || Astro.url.origin).href;
 
-// Date format
-const dtf = new Intl.DateTimeFormat('es-ES', {
-  day: 'numeric',
-  month: 'short',
-  year: 'numeric'
-});
+const dtf = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 const publishDateStr = dtf.format(pubDate);
 
-const readTime = "8 min lectura"; // Placeholder
+const categoryColors: Record<string, string> = {
+  'Laboratorio Técnico': '#E53935',
+  'Guía del Insider': '#FF6D00',
+  'Punto de Vista': '#7B1FA2',
+};
+const categorySlug: Record<string, string> = {
+  'Laboratorio Técnico': 'laboratorio-tecnico',
+  'Guía del Insider': 'guia-del-insider',
+  'Punto de Vista': 'punto-de-vista',
+};
 
-// Schema JSON-LD
+const catColor = categoryColors[category] || '#E53935';
+const catSlug = categorySlug[category] ?? category;
+const heroGradient = `linear-gradient(to top, rgba(0,0,0,.82) 0%, ${catColor}55 100%)`;
+
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": title,
   "description": description,
-  "author": { 
-    "@type": "Person", 
-    "name": author,
-    "url": new URL("/", Astro.url.origin).href
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Quimbara",
-    "logo": {
-      "@type": "ImageObject",
-      "url": new URL("/favicon.svg", Astro.url.origin).href
-    }
-  },
+  "author": { "@type": "Person", "name": author, "url": new URL("/", Astro.url.origin).href },
+  "publisher": { "@type": "Organization", "name": "Quimbara", "logo": { "@type": "ImageObject", "url": new URL("/favicon.svg", Astro.url.origin).href } },
   "datePublished": pubDate.toISOString(),
   "image": image ? new URL(image, Astro.url.origin).href : undefined
 };
@@ -65,108 +51,122 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Inicio",
-      "item": new URL("/", Astro.url.origin).href
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": category,
-      "item": new URL(`/categoria/${category}/`, Astro.url.origin).href
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": title,
-      "item": canonicalUrl
-    }
+    { "@type": "ListItem", "position": 1, "name": "Inicio",   "item": new URL("/", Astro.url.origin).href },
+    { "@type": "ListItem", "position": 2, "name": category,   "item": new URL(`/categoria/${catSlug}/`, Astro.url.origin).href },
+    { "@type": "ListItem", "position": 3, "name": title,      "item": canonicalUrl }
   ]
 };
 
 const combinedSchema = `[${JSON.stringify(articleSchema)}, ${JSON.stringify(breadcrumbSchema)}]`;
+
+const PX = "clamp(16px,4vw,60px)";
 ---
 
-<BaseLayout 
-  title={title} 
-  description={description} 
+<BaseLayout
+  title={title}
+  description={description}
   canonicalUrl={canonicalUrl}
   ogType="article"
   ogImage={image}
   publishDate={pubDate}
   schema={combinedSchema}
 >
-  <!-- Progress Bar Ficticia -->
-  <div slot="progress-bar" class="fixed top-0 left-0 h-1 bg-red-600 z-[60] w-1/3"></div>
+  <!-- Barra de progreso de lectura -->
+  <div slot="progress-bar" id="reading-progress"
+       class="fixed top-0 left-0 z-[70] w-0"
+       style="height:3px; background:#E53935; transition:none;"></div>
 
-  <!-- Contenedor Principal de Lectura -->
-  <div class="max-w-3xl mx-auto px-4 pt-12 pb-24 w-full">
-    
-    <!-- Breadcrumbs -->
-    <nav aria-label="Breadcrumb" class="text-sm text-zinc-500 mb-8 font-medium">
-      <a href="/" class="hover:text-zinc-300 transition-colors">Inicio</a> 
-      <span class="mx-2">/</span> 
-      <a href={`/categoria/${category.toLowerCase()}/`} class="hover:text-zinc-300 transition-colors">{category}</a> 
-      <span class="mx-2">/</span> 
-      <span class="text-zinc-400">{title}</span>
-    </nav>
+  <!-- Hero: imagen full-width con gradiente de color de categoría -->
+  <div class="relative w-full overflow-hidden" style="height: clamp(320px, 48vh, 420px);">
+    {image ? (
+      <img src={image} alt={`Portada de ${title}`}
+           class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+    ) : (
+      <div class="absolute inset-0 bg-gray-800"></div>
+    )}
+    <div class="absolute inset-0" style={`background: ${heroGradient};`}></div>
 
-    <!-- Cabecera del Artículo -->
-    <header class="mb-10">
-      <h1 class="text-4xl md:text-5xl font-black text-white uppercase leading-tight tracking-tight mb-6">
+    <!-- Breadcrumb flotando en la parte superior -->
+    <div class="absolute top-4 left-0 right-0" style={`padding: 0 ${PX};`}>
+      <nav class="flex items-center gap-2 text-white/60 text-xs uppercase tracking-widest"
+           style="font-family:var(--font-sans);">
+        <a href="/" class="hover:text-white transition-colors duration-200">Inicio</a>
+        <span class="text-white/30">/</span>
+        <a href={`/categoria/${catSlug}/`} class="hover:text-white transition-colors duration-200">{category}</a>
+      </nav>
+    </div>
+
+    <!-- Título y meta al pie del hero -->
+    <div class="absolute bottom-0 left-0 right-0" style={`padding: 32px ${PX};`}>
+      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm mb-4 w-fit"
+            style={`background:${catColor}; color:${catColor === '#FFD600' ? '#111' : '#fff'}; font-family:var(--font-sans);`}>
+        {category}
+      </span>
+      <h1 class="text-white leading-[1.05]"
+          style="font-family:var(--font-display); font-size:clamp(1.8rem,5vw,3.5rem); max-width:22ch;">
         {title}
       </h1>
-      
-      <!-- Meta Info -->
-      <div class="flex flex-wrap items-center gap-4 text-sm text-zinc-400 mb-8 pb-8 border-b border-zinc-800 uppercase tracking-wide">
+      <div class="flex flex-wrap items-center gap-3 mt-4 text-white/60 text-xs uppercase tracking-widest"
+           style="font-family:var(--font-sans);">
         <time datetime={pubDate.toISOString()}>{publishDateStr}</time>
-        <span>&middot;</span>
-        <span>{readTime}</span>
-        <span>&middot;</span>
-        <span class="text-zinc-300 font-bold">{author}</span>
+        <span class="text-white/30">·</span>
+        <span class="text-white/90 font-bold">{author}</span>
       </div>
+    </div>
+  </div>
 
-      <!-- Tags -->
-      {tags.length > 0 && (
-        <div class="flex flex-wrap gap-3 mb-12">
-          {tags.map(eq => (
-            <Tag name={eq} />
-          ))}
-        </div>
-      )}
-    </header>
+  <!-- Cuerpo del artículo — fondo blanco, ancho contenido -->
+  <div style={`max-width:720px; margin:0 auto; padding: 44px ${PX} 80px;`}>
 
-    <!-- Cover Image -->
-    {image && (
-      <div class="mb-12 w-full overflow-hidden rounded-xl border border-zinc-800">
-        <img 
-          src={image} 
-          alt={`Portada de ${title}`} 
-          class="w-full h-auto object-cover max-h-[500px]" 
-        />
+    <!-- Tags -->
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-10 pb-10 border-b border-gray-200">
+        {tags.map((tag: string) => <Tag name={tag} />)}
       </div>
     )}
 
-    <!-- Cuerpo del contenido (Prose) -->
-    <article class="prose prose-invert prose-zinc prose-headings:text-white prose-a:text-red-500 hover:prose-a:text-red-400 max-w-3xl mx-auto mt-10 prose-headings:uppercase prose-headings:tracking-tight prose-a:no-underline prose-img:rounded-xl">
+    <!-- Prose: texto oscuro sobre fondo blanco (sin prose-invert) -->
+    <article class="prose prose-lg max-w-none
+      prose-headings:text-[#111] prose-headings:tracking-tight
+      prose-a:text-[#E53935] hover:prose-a:text-[#c62828] prose-a:no-underline
+      prose-strong:text-[#111]
+      prose-img:rounded-md prose-img:w-full
+      prose-code:text-[#E53935] prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
+      prose-blockquote:border-[#E53935] prose-blockquote:not-italic">
       <Content components={{ TacticalSlider }} />
     </article>
 
-    <!-- Bloque de Autor (E-E-A-T SEO) -->
-    <div class="mt-24 p-8 bg-zinc-900 border border-zinc-800 rounded-xl flex flex-col md:flex-row items-center md:items-start gap-6">
-      <div class="w-20 h-20 bg-zinc-800 rounded-full flex-shrink-0 flex items-center justify-center text-3xl font-black text-zinc-600">
-        <!-- Initials as placeholder for avatar -->
-        {author.split(' ').map(n=>n[0]).join('')}
+    <!-- Autor -->
+    <div class="mt-16 pt-10 border-t-2 border-[#111]">
+      <div class="flex flex-col md:flex-row gap-5 items-start">
+        <div class="rounded-full overflow-hidden flex-shrink-0 bg-gray-200 flex items-center justify-center text-base font-black text-gray-500"
+             style="width:52px;height:52px;font-family:var(--font-sans);">
+          {author.split(' ').map((n: string) => n[0]).join('')}
+        </div>
+        <div>
+          <div class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1"
+               style="font-family:var(--font-sans);">Escrito por</div>
+          <h3 class="text-xl text-[#111] mb-2" style="font-family:var(--font-display);">{author}</h3>
+          <p class="text-gray-600 text-sm leading-relaxed max-w-md" style="font-family:var(--font-sans);">
+            Especialista en SEO, practicante de Jiu-Jitsu Brasileño y analista técnico de MMA.
+          </p>
+        </div>
       </div>
-      <div>
-        <h3 class="text-xl font-bold text-white mb-2">Escrito por {author}</h3>
-        <p class="text-zinc-400 leading-relaxed text-sm">
-          Especialista en SEO, practicante de Jiu-Jitsu Brasileño y analista técnico de Artes Marciales Mixtas. Con un enfoque meticuloso en la biomecánica y estrategia de combate, desglosa el juego de los campeones mundiales para entender qué sucede realmente dentro del octágono.
-        </p>
+      <!-- Volver al inicio -->
+      <div class="mt-8">
+        <a href="/" class="btn-primary">← Volver al inicio</a>
       </div>
     </div>
-
   </div>
 </BaseLayout>
+
+<script>
+  const bar = document.getElementById('reading-progress') as HTMLElement | null;
+  if (bar) {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = height > 0 ? `${(scrollTop / height) * 100}%` : '0%';
+    }, { passive: true });
+  }
+</script>

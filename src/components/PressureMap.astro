@@ -1,0 +1,44 @@
+---
+// Visualización del mapa de presión para La Ecuación del Octágono
+---
+<div class="my-8 p-6 bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden relative shadow-lg shadow-black/50">
+  <div class="text-xs uppercase tracking-widest text-red-500 mb-6 font-mono font-bold">Mapa de presión — El campo de fuerza psicológico</div>
+  
+  <div class="w-full aspect-video relative rounded border border-zinc-800/50 bg-black/30">
+    <svg class="w-full h-full" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet">
+      <!-- Grid background -->
+      <defs>
+        <radialGradient id="pressureGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" style="stop-color: rgba(37, 99, 235, 0.35)"/> <!-- blue-600 -->
+          <stop offset="60%" style="stop-color: rgba(37, 99, 235, 0.08)"/>
+          <stop offset="100%" style="stop-color: rgba(37, 99, 235, 0)"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Octagon outline -->
+      <polygon points="252,40 548,40 680,172 680,328 548,460 252,460 120,328 120,172" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/>
+
+      <!-- Pressure radius -->
+      <circle cx="350" cy="250" r="175" fill="url(#pressureGrad)" opacity="0.8"/>
+      <circle cx="350" cy="250" r="175" fill="none" stroke="rgba(37, 99, 235, 0.4)" stroke-width="1" stroke-dasharray="4,4"/>
+
+      <!-- Evloev position -->
+      <circle cx="350" cy="250" r="8" fill="#2563eb" /> <!-- blue-600 -->
+      <text x="350" y="280" fill="rgba(255,255,255,0.7)" font-family="monospace" font-size="12" text-anchor="middle" letter-spacing="0.1em">EVLOEV</text>
+
+      <!-- Opponent (Murphy) displaced -->
+      <circle cx="590" cy="210" r="6" fill="#dc2626" /> <!-- red-600 -->
+      <text x="590" y="195" fill="rgba(255,255,255,0.5)" font-family="monospace" font-size="10" text-anchor="middle" letter-spacing="0.1em">MURPHY</text>
+
+      <!-- Pressure vectors -->
+      <line x1="360" y1="245" x2="545" y2="215" stroke="rgba(37, 99, 235, 0.3)" stroke-width="1" stroke-dasharray="6,4"/>
+      <polygon points="545,215 535,210 537,220" fill="rgba(37, 99, 235, 0.5)"/>
+
+      <!-- Labels -->
+      <text x="720" y="165" fill="rgba(255,255,255,0.3)" font-family="monospace" font-size="10" text-anchor="end" letter-spacing="0.1em">ZONA REACTIVA</text>
+      <text x="350" y="440" fill="rgba(255,255,255,0.3)" font-family="monospace" font-size="10" text-anchor="middle" letter-spacing="0.15em">RADIO DE PRESIÓN DE GRAPPLING</text>
+
+      <text x="130" y="480" fill="rgba(220,38,38,0.7)" font-family="monospace" font-size="10" letter-spacing="0.05em">AMENAZA → ALERTA → TIMING ROTO → CENTRO PERDIDO → AMENAZA ↺</text>
+    </svg>
+  </div>
+</div>

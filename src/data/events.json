@@ -1,0 +1,29 @@
+[
+  {
+    "name": "UFC Fight Night",
+    "main": "Sterling vs. Zalal",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-04-25",
+    "dateLabel": "25 abr 2026",
+    "bg": "#FFD600",
+    "color": "#111"
+  },
+  {
+    "name": "UFC Fight Night",
+    "main": "Della Maddalena vs. Prates",
+    "loc": "Perth, Australia",
+    "date": "2026-05-02",
+    "dateLabel": "2 may 2026",
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "name": "UFC 328",
+    "main": "Chimaev vs. Strickland",
+    "loc": "Newark, New Jersey, U.S.",
+    "date": "2026-05-09",
+    "dateLabel": "9 may 2026",
+    "bg": "#7B1FA2",
+    "color": "#fff"
+  }
+]

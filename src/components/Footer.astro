@@ -1,52 +1,27 @@
 ---
-// src/components/Footer.astro
 const currentYear = new Date().getFullYear();
-// Using current year correctly or hardcoding 2026 as per prompt if preferred, but dynamic is better.
 ---
 
-<footer class="bg-zinc-950 border-t border-zinc-800 pt-16 pb-8 mt-auto">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto px-4 md:px-8">
-    
-    <!-- Columna 1 (Marca) -->
+<footer class="border-t border-gray-200 mt-10" style="padding: 36px clamp(16px,4vw,60px);">
+  <div style="max-width:1400px; margin:0 auto;" class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+
+    <!-- Marca -->
     <div>
-      <span class="block text-white font-black text-2xl tracking-tight uppercase mb-4">QUIMBARA.ORG</span>
-      <p class="text-zinc-500 text-sm leading-relaxed">
-        La verdad del octágono. Análisis técnico, historias y opinión sin clickbait.
-      </p>
+      <div class="text-[#111] text-2xl tracking-widest uppercase" style="font-family: var(--font-display);">Quimbara</div>
+      <div class="text-sm text-gray-500 mt-1" style="font-family: var(--font-sans);">UFC — Análisis, Noticias & Cobertura</div>
     </div>
-    
-    <!-- Columna 2 (Navegación / Silos) -->
-    <nav class="flex flex-col gap-3 text-sm font-medium">
-      <a href="/" class="text-zinc-400 hover:text-red-500 transition-colors duration-300">Inicio</a>
-      <a href="/categoria/laboratorio-tecnico" class="text-zinc-400 hover:text-red-500 transition-colors duration-300">Laboratorio Técnico</a>
-      <a href="/categoria/guia-del-insider" class="text-zinc-400 hover:text-red-500 transition-colors duration-300">Guía del Insider</a>
-      <a href="/categoria/punto-de-vista" class="text-zinc-400 hover:text-red-500 transition-colors duration-300">Punto de Vista</a>
-    </nav>
-    
-    <!-- Columna 3 (Newsletter) -->
-    <div>
-      <h3 class="text-zinc-100 font-bold tracking-tight mb-4">Únete a la esquina</h3>
-      <form class="flex flex-col gap-3" action="#" method="POST">
-        <input 
-          type="email" 
-          placeholder="Tu correo electrónico" 
-          class="input-field" 
-          required 
-          aria-label="Correo electrónico para newsletter"
-        />
-        <button type="submit" class="btn-primary w-fit">Suscribirse</button>
-      </form>
+
+    <!-- Links -->
+    <div class="flex flex-wrap gap-6 text-sm text-gray-600" style="font-family: var(--font-sans);">
+      <a href="/blog" class="hover:text-[#E53935] transition-colors duration-200">Artículos</a>
+      <a href="/aviso-legal" class="hover:text-[#E53935] transition-colors duration-200">Aviso Legal</a>
+      <a href="/privacidad" class="hover:text-[#E53935] transition-colors duration-200">Privacidad</a>
+      <a href="/rss.xml" class="hover:text-[#E53935] transition-colors duration-200">RSS</a>
     </div>
-    
-  </div>
-  
-  <!-- Bottom Bar (Legal) -->
-  <div class="mt-16 pt-8 border-t border-zinc-800/50 flex flex-col md:flex-row justify-between text-xs text-zinc-600 max-w-7xl mx-auto px-4 md:px-8 gap-4">
-    <div>Copyright &copy; 2026 Quimbara.</div>
-    <div class="flex gap-4">
-      <a href="/aviso-legal" class="hover:text-zinc-400 transition-colors duration-300">Aviso Legal</a>
-      <span>|</span>
-      <a href="/privacidad" class="hover:text-zinc-400 transition-colors duration-300">Privacidad</a>
+
+    <!-- Copyright -->
+    <div class="text-xs text-gray-400" style="font-family: var(--font-sans);">
+      © {currentYear} Quimbara
     </div>
   </div>
 </footer>
