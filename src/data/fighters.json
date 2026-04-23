@@ -1,56 +1,56 @@
 [
   {
     "name": "Tom Aspinall",
-    "nick": "The Gorilla",
+    "nick": "",
     "div": "Heavyweight",
     "rec": "15-3-0",
-    "from": "Inglaterra",
+    "from": "",
     "rank": "C",
-    "img": ""
+    "img": "https://media.api-sports.io/mma/fighters/701.png"
   },
   {
     "name": "Carlos Ulberg",
     "nick": "Black Jag",
     "div": "Light Heavyweight",
-    "rec": "14-1-0",
-    "from": "Nueva Zelanda",
+    "rec": "13-1-0",
+    "from": "",
     "rank": "C",
-    "img": ""
+    "img": "https://media.api-sports.io/mma/fighters/862.png"
   },
   {
     "name": "Khamzat Chimaev",
     "nick": "Borz",
     "div": "Middleweight",
     "rec": "14-0-0",
-    "from": "Suecia",
+    "from": "",
     "rank": "C",
-    "img": ""
+    "img": "https://media.api-sports.io/mma/fighters/743.png"
   },
   {
     "name": "Islam Makhachev",
     "nick": "",
     "div": "Welterweight",
-    "rec": "26-1-0",
-    "from": "Rusia",
+    "rec": "28-1-0",
+    "from": "",
     "rank": "C",
-    "img": ""
+    "img": "https://media.api-sports.io/mma/fighters/333.png"
   },
   {
     "name": "Ilia Topuria",
     "nick": "El Matador",
     "div": "Lightweight",
     "rec": "16-0-0",
-    "from": "Georgia",
+    "from": "",
     "rank": "C",
-    "img": ""
+    "img": "https://media.api-sports.io/mma/fighters/855.png"
   },
   {
     "name": "Alexander Volkanovski",
     "nick": "The Great",
     "div": "Featherweight",
-    "rec": "26-3-0",
-    "from": "Australia",
+    "rec": "28-4-0",
+    "from": "",
     "rank": "C",
-    "img": ""
+    "img": "https://media.api-sports.io/mma/fighters/361.png"
   }
 ]
