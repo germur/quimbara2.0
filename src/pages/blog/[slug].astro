@@ -3,6 +3,8 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Tag from '../../components/Tag.astro';
 import TacticalSlider from '../../components/TacticalSlider.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ShareAndComment from '../../components/ShareAndComment.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -88,12 +90,14 @@ const PX = "clamp(16px,4vw,60px)";
 
     <!-- Breadcrumb flotando en la parte superior -->
     <div class="absolute top-4 left-0 right-0" style={`padding: 0 ${PX};`}>
-      <nav class="flex items-center gap-2 text-white/60 text-xs uppercase tracking-widest"
-           style="font-family:var(--font-sans);">
-        <a href="/" class="hover:text-white transition-colors duration-200">Inicio</a>
-        <span class="text-white/30">/</span>
-        <a href={`/categoria/${catSlug}/`} class="hover:text-white transition-colors duration-200">{category}</a>
-      </nav>
+      <Breadcrumb
+        variant="dark"
+        items={[
+          { name: 'Inicio', href: '/' },
+          { name: category, href: `/categoria/${catSlug}/` },
+          { name: title }
+        ]}
+      />
     </div>
 
     <!-- Título y meta al pie del hero -->
@@ -135,6 +139,9 @@ const PX = "clamp(16px,4vw,60px)";
       prose-blockquote:border-[#E53935] prose-blockquote:not-italic">
       <Content components={{ TacticalSlider }} />
     </article>
+
+    <!-- Compartir + comentarios -->
+    <ShareAndComment title={title} url={canonicalUrl} description={description} />
 
     <!-- Autor -->
     <div class="mt-16 pt-10 border-t-2 border-[#111]">
