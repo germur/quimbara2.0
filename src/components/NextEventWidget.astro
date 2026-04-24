@@ -1,14 +1,16 @@
 ---
 import events from '../data/events.json';
-// Pasamos los eventos al cliente como JSON para la comparación de fechas
 const eventsJson = JSON.stringify(events);
 ---
 
-<div id="ufc-widget" class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 group opacity-0 pointer-events-none transition-opacity duration-1000 delay-500" data-events={eventsJson}>
+<a id="ufc-widget" href="/eventos"
+   class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 group opacity-0 pointer-events-none transition-opacity duration-1000 delay-500 block"
+   style="text-decoration:none;"
+   data-events={eventsJson}>
   <div class="bg-zinc-950/70 backdrop-blur-lg border border-zinc-800 shadow-2xl rounded-2xl w-[260px] md:w-[280px] overflow-hidden transition-all duration-300">
 
     <!-- Contenido Compacto (Visible Siempre) -->
-    <div class="p-4 flex items-center justify-between cursor-default">
+    <div class="p-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse shrink-0"></span>
         <div>
@@ -21,7 +23,7 @@ const eventsJson = JSON.stringify(events);
       </svg>
     </div>
 
-    <!-- Contenido Expandido (Hover) -->
+    <!-- Contenido Expandido (Hover en desktop) -->
     <div class="max-h-0 opacity-0 group-hover:max-h-48 group-hover:opacity-100 overflow-hidden transition-all duration-500 ease-in-out">
       <div class="px-4 pb-4 pt-1 border-t border-zinc-800/50 flex flex-col gap-2.5">
 
@@ -35,28 +37,27 @@ const eventsJson = JSON.stringify(events);
           <p id="wg-main" class="text-sm font-black text-amber-500 leading-tight"></p>
         </div>
 
-        <a href="/" class="mt-2 text-xs font-bold text-zinc-400 hover:text-red-500 transition-colors flex items-center gap-1 w-max group/link">
-          Ver pronósticos
-          <span class="group-hover/link:translate-x-1 transition-transform">-&gt;</span>
-        </a>
+        <span class="mt-2 text-xs font-bold text-zinc-400 group-hover:text-red-500 transition-colors flex items-center gap-1 w-max">
+          Ver evento
+          <span class="group-hover:translate-x-1 transition-transform">-&gt;</span>
+        </span>
 
       </div>
     </div>
 
   </div>
-</div>
+</a>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const widget = document.getElementById('ufc-widget');
+    const widget = document.getElementById('ufc-widget') as HTMLAnchorElement | null;
     if (!widget) return;
 
-    const events: Array<{ name: string; date: string; dateLabel: string; loc: string; main: string }> =
+    const events: Array<{ slug: string; name: string; date: string; dateLabel: string; loc: string; main: string }> =
       JSON.parse(widget.getAttribute('data-events') ?? '[]');
 
     const now = new Date();
 
-    // Primer evento cuya fecha aún no ha pasado y tiene main event confirmado
     const next = events.find(e => {
       const d = new Date(e.date);
       d.setHours(23, 59, 59);
@@ -68,6 +69,7 @@ const eventsJson = JSON.stringify(events);
       document.getElementById('wg-date')!.textContent = next.dateLabel;
       document.getElementById('wg-location')!.textContent = next.loc;
       document.getElementById('wg-main')!.textContent = next.main;
+      widget.href = `/eventos/${next.slug}`;
       widget.classList.remove('opacity-0', 'pointer-events-none');
     }
   });
