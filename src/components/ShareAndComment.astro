@@ -97,10 +97,17 @@ const telegramUrl = `https://t.me/share/url?url=${enc(url)}&text=${enc(title)}`;
       <h3 class="text-2xl text-[#111]" style="font-family:var(--font-display);">Conversación</h3>
     </div>
     <p class="text-gray-500 text-sm mb-6" style="font-family:var(--font-sans);">
-      ¿Qué piensas sobre este análisis? Únete al debate — se requiere una cuenta de GitHub.
+      ¿Qué piensas sobre este análisis? Únete al debate — sin registro, solo tu nombre.
     </p>
 
-    <div id="giscus-container"></div>
+    <div id="cusdis_thread"
+         data-host="https://cusdis.com"
+         data-app-id="4728860a-1a7d-4b78-b594-8ec1d372ca91"
+         data-page-id={url}
+         data-page-url={url}
+         data-page-title={title}
+         data-theme="light">
+    </div>
   </div>
 </section>
 
@@ -126,25 +133,13 @@ const telegramUrl = `https://t.me/share/url?url=${enc(url)}&text=${enc(title)}`;
     });
   }
 
-  // Load Giscus comments
-  const container = document.getElementById('giscus-container');
-  if (container) {
+  // Load Cusdis comments (sin login — solo nombre + comentario)
+  const cusdisContainer = document.getElementById('cusdis_thread');
+  if (cusdisContainer) {
     const s = document.createElement('script');
-    s.src = 'https://giscus.app/client.js';
-    s.setAttribute('data-repo', 'germur/quimbara-comments');
-    s.setAttribute('data-repo-id', 'R_kgDOSLhe0g');
-    s.setAttribute('data-category', 'Announcements');
-    s.setAttribute('data-category-id', 'DIC_kwDOSLhe0s4C7mkr');
-    s.setAttribute('data-mapping', 'pathname');
-    s.setAttribute('data-strict', '0');
-    s.setAttribute('data-reactions-enabled', '1');
-    s.setAttribute('data-emit-metadata', '0');
-    s.setAttribute('data-input-position', 'top');
-    s.setAttribute('data-theme', 'light');
-    s.setAttribute('data-lang', 'es');
-    s.setAttribute('data-loading', 'lazy');
-    s.crossOrigin = 'anonymous';
+    s.src = 'https://cusdis.com/js/cusdis.es.js';
     s.async = true;
-    container.appendChild(s);
+    s.defer = true;
+    document.body.appendChild(s);
   }
 </script>
