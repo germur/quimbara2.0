@@ -77,10 +77,10 @@ const PX = "clamp(16px,4vw,60px)";
        style="height:3px; background:#E53935; transition:none;"></div>
 
   <!-- Hero: imagen full-width con gradiente de color de categoría -->
-  <div class="relative w-full overflow-hidden" style="height: clamp(400px, 60vh, 560px);">
+  <div class="relative w-full overflow-hidden" style="aspect-ratio: 16/9; max-height: 80vh; min-height: 280px;">
     {image ? (
       <img src={image} alt={`Portada de ${title}`}
-           class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+           class="w-full h-full object-cover" loading="eager" />
     ) : (
       <div class="absolute inset-0 bg-gray-800"></div>
     )}
