@@ -88,25 +88,53 @@ const telegramUrl = `https://t.me/share/url?url=${enc(url)}&text=${enc(title)}`;
     </div>
   </div>
 
-  <!-- ── Comments (Giscus) ── -->
-  <div class="mt-12 pt-10 border-t-2 border-[#111]">
-    <div class="flex items-center gap-3 mb-6">
+  <!-- ── Comments (Cusdis custom UI) ── -->
+  <div class="mt-12 pt-10 border-t-2 border-[#111]" id="comments-section">
+    <div class="flex items-center gap-3 mb-2">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E53935" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
       </svg>
       <h3 class="text-2xl text-[#111]" style="font-family:var(--font-display);">Conversación</h3>
+      <span id="comments-count" class="text-xs font-bold text-gray-400 bg-gray-100 rounded-full px-2 py-0.5" style="font-family:var(--font-sans);"></span>
     </div>
-    <p class="text-gray-500 text-sm mb-6" style="font-family:var(--font-sans);">
-      ¿Qué piensas sobre este análisis? Únete al debate — sin registro, solo tu nombre.
-    </p>
+    <p class="text-gray-400 text-sm mb-8" style="font-family:var(--font-sans);">Sin registro — solo tu nombre y tu opinión.</p>
 
-    <div id="cusdis_thread"
-         data-host="https://cusdis.com"
-         data-app-id="4728860a-1a7d-4b78-b594-8ec1d372ca91"
-         data-page-id={url}
-         data-page-url={url}
-         data-page-title={title}
-         data-theme="light">
+    <!-- Lista de comentarios -->
+    <div id="comments-list" class="flex flex-col gap-6 mb-10"></div>
+
+    <!-- Formulario -->
+    <div style="background:#fafafa; border:1px solid #e5e7eb; border-radius:12px; padding:24px;">
+      <div style="font-family:var(--font-sans);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.18em;color:#9ca3af;margin-bottom:16px;">Deja tu comentario</div>
+      <form id="cusdis-form" class="flex flex-col gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="flex flex-col gap-1.5">
+            <label style="font-family:var(--font-sans);font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.1em;">Nombre *</label>
+            <input id="c-name" type="text" required placeholder="Tu nombre"
+                   class="px-3 py-2.5 rounded-lg border border-gray-200 bg-white text-[#111] text-sm focus:outline-none focus:border-[#E53935] transition-colors"
+                   style="font-family:var(--font-sans);" />
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label style="font-family:var(--font-sans);font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.1em;">Email <span class="text-gray-400 normal-case">(opcional, privado)</span></label>
+            <input id="c-email" type="email" placeholder="tu@email.com"
+                   class="px-3 py-2.5 rounded-lg border border-gray-200 bg-white text-[#111] text-sm focus:outline-none focus:border-[#E53935] transition-colors"
+                   style="font-family:var(--font-sans);" />
+          </div>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label style="font-family:var(--font-sans);font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.1em;">Comentario *</label>
+          <textarea id="c-content" required rows="4" placeholder="¿Qué piensas sobre este análisis?"
+                    class="px-3 py-2.5 rounded-lg border border-gray-200 bg-white text-[#111] text-sm focus:outline-none focus:border-[#E53935] transition-colors resize-none"
+                    style="font-family:var(--font-sans);"></textarea>
+        </div>
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <p id="c-msg" class="text-sm hidden" style="font-family:var(--font-sans);"></p>
+          <button type="submit" id="c-submit"
+                  class="ml-auto px-6 py-2.5 rounded-lg bg-[#111] hover:bg-[#E53935] text-white text-xs font-bold uppercase tracking-widest transition-colors duration-200"
+                  style="font-family:var(--font-sans);">
+            Enviar comentario →
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </section>
@@ -133,13 +161,105 @@ const telegramUrl = `https://t.me/share/url?url=${enc(url)}&text=${enc(title)}`;
     });
   }
 
-  // Load Cusdis comments (sin login — solo nombre + comentario)
-  const cusdisContainer = document.getElementById('cusdis_thread');
-  if (cusdisContainer) {
-    const s = document.createElement('script');
-    s.src = 'https://cusdis.com/js/cusdis.es.js';
-    s.async = true;
-    s.defer = true;
-    document.body.appendChild(s);
+  // ── Cusdis custom UI ──
+  const APP_ID  = '4728860a-1a7d-4b78-b594-8ec1d372ca91';
+  const PAGE_ID = window.location.pathname;
+  const PAGE_URL   = window.location.href;
+  const PAGE_TITLE = document.title;
+  const API    = 'https://cusdis.com/api/open/comments';
+
+  const list    = document.getElementById('comments-list');
+  const count   = document.getElementById('comments-count');
+  const form    = document.getElementById('cusdis-form') as HTMLFormElement | null;
+  const msgEl   = document.getElementById('c-msg');
+  const submitBtn = document.getElementById('c-submit') as HTMLButtonElement | null;
+
+  // Render one comment card
+  function renderComment(c: any, isReply = false) {
+    const initials = (c.by_nickname || '?').slice(0, 2).toUpperCase();
+    const date = new Date(c.createdAt).toLocaleDateString('es-ES', { day:'numeric', month:'long', year:'numeric' });
+    const div = document.createElement('div');
+    div.style.cssText = isReply
+      ? 'margin-left:48px; margin-top:12px;'
+      : '';
+    div.innerHTML = `
+      <div style="display:flex;align-items:flex-start;gap:12px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#111;display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);font-size:12px;font-weight:900;color:#fff;flex-shrink:0;">
+          ${initials}
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+            <span style="font-family:var(--font-sans);font-size:13px;font-weight:700;color:#111;">${c.by_nickname || 'Anónimo'}</span>
+            <span style="font-family:var(--font-sans);font-size:11px;color:#9ca3af;">${date}</span>
+          </div>
+          <p style="font-family:var(--font-sans);font-size:14px;color:#374151;line-height:1.65;margin:0;">${c.content}</p>
+        </div>
+      </div>
+    `;
+    return div;
   }
+
+  // Load comments
+  async function loadComments() {
+    try {
+      const res = await fetch(`${API}?appId=${APP_ID}&pageId=${encodeURIComponent(PAGE_ID)}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      const comments = data.data?.data ?? [];
+      if (!list) return;
+      list.innerHTML = '';
+      if (comments.length === 0) {
+        list.innerHTML = `<p style="font-family:var(--font-sans);font-size:14px;color:#9ca3af;">Sé el primero en comentar.</p>`;
+      } else {
+        comments.forEach((c: any) => {
+          list.appendChild(renderComment(c));
+          (c.replies ?? []).forEach((r: any) => list.appendChild(renderComment(r, true)));
+        });
+      }
+      if (count) count.textContent = comments.length > 0 ? `${comments.length}` : '';
+    } catch (e) {
+      console.error('Cusdis load error', e);
+    }
+  }
+
+  // Submit comment
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nickname = (document.getElementById('c-name') as HTMLInputElement)?.value.trim();
+      const email    = (document.getElementById('c-email') as HTMLInputElement)?.value.trim();
+      const content  = (document.getElementById('c-content') as HTMLTextAreaElement)?.value.trim();
+      if (!nickname || !content) return;
+
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Enviando…'; }
+
+      try {
+        const res = await fetch(API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ appId: APP_ID, pageId: PAGE_ID, pageUrl: PAGE_URL, pageTitle: PAGE_TITLE, nickname, email, content })
+        });
+        if (res.ok) {
+          if (msgEl) {
+            msgEl.textContent = '✓ Comentario enviado — aparecerá tras revisión.';
+            msgEl.style.color = '#16a34a';
+            msgEl.classList.remove('hidden');
+          }
+          form.reset();
+        } else {
+          throw new Error('Error ' + res.status);
+        }
+      } catch (err) {
+        if (msgEl) {
+          msgEl.textContent = 'Error al enviar. Inténtalo de nuevo.';
+          msgEl.style.color = '#E53935';
+          msgEl.classList.remove('hidden');
+        }
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Enviar comentario →'; }
+      }
+    });
+  }
+
+  loadComments();
 </script>
