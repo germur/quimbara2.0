@@ -5,6 +5,9 @@ import Tag from '../../components/Tag.astro';
 import TacticalSlider from '../../components/TacticalSlider.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ShareAndComment from '../../components/ShareAndComment.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import RelatedEntities from '../../components/RelatedEntities.astro';
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -16,7 +19,8 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, description, author, pubDate, image, category, tags } = post.data;
+const { title, description, author, pubDate, image, category, tags,
+        fighters = [], relatedEvents = [], takeaways = [] } = post.data;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site || Astro.url.origin).href;
 
@@ -119,50 +123,71 @@ const PX = "clamp(16px,4vw,60px)";
     </div>
   </div>
 
-  <!-- Cuerpo del artículo — fondo blanco, ancho contenido -->
-  <div style={`max-width:720px; margin:0 auto; padding: 44px ${PX} 80px;`}>
+  <!-- Layout con TOC lateral en desktop -->
+  <div style={`max-width:1200px; margin:0 auto; padding: 44px ${PX} 80px;`}>
+    <div class="lg:grid lg:gap-16" style="grid-template-columns: 1fr 220px;">
 
-    <!-- Tags -->
-    {tags.length > 0 && (
-      <div class="flex flex-wrap gap-2 mb-10 pb-10 border-b border-gray-200">
-        {tags.map((tag: string) => <Tag name={tag} />)}
-      </div>
-    )}
+      <!-- Columna principal -->
+      <div>
+        <!-- Tags -->
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mb-10 pb-10 border-b border-gray-200">
+            {tags.map((tag: string) => <Tag name={tag} />)}
+          </div>
+        )}
 
-    <!-- Prose: texto oscuro sobre fondo blanco (sin prose-invert) -->
-    <article class="prose prose-lg max-w-none
-      prose-headings:text-[#111] prose-headings:tracking-tight
-      prose-a:text-[#E53935] hover:prose-a:text-[#c62828] prose-a:no-underline
-      prose-strong:text-[#111]
-      prose-img:rounded-md prose-img:w-full
-      prose-code:text-[#E53935] prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
-      prose-blockquote:border-[#E53935] prose-blockquote:not-italic">
-      <Content components={{ TacticalSlider }} />
-    </article>
+        <!-- KeyTakeaways (si el frontmatter los define) -->
+        {takeaways.length > 0 && (
+          <KeyTakeaways points={takeaways} />
+        )}
 
-    <!-- Compartir + comentarios -->
-    <ShareAndComment title={title} url={canonicalUrl} description={description} />
+        <!-- Prose: texto oscuro sobre fondo blanco (sin prose-invert) -->
+        <article class="prose prose-lg max-w-none
+          prose-headings:text-[#111] prose-headings:tracking-tight
+          prose-a:text-[#E53935] hover:prose-a:text-[#c62828] prose-a:no-underline
+          prose-strong:text-[#111]
+          prose-img:rounded-md prose-img:w-full
+          prose-code:text-[#E53935] prose-code:bg-gray-100 prose-code:px-1 prose-code:rounded
+          prose-blockquote:border-[#E53935] prose-blockquote:not-italic">
+          <Content components={{ TacticalSlider, KeyTakeaways }} />
+        </article>
 
-    <!-- Autor -->
-    <div class="mt-16 pt-10 border-t-2 border-[#111]">
-      <div class="flex flex-col md:flex-row gap-5 items-start">
-        <div class="rounded-full overflow-hidden flex-shrink-0 bg-gray-200 flex items-center justify-center text-base font-black text-gray-500"
-             style="width:52px;height:52px;font-family:var(--font-sans);">
-          {author.split(' ').map((n: string) => n[0]).join('')}
+        <!-- Entidades relacionadas (peleadores + eventos del frontmatter) -->
+        {(fighters.length > 0 || relatedEvents.length > 0) && (
+          <RelatedEntities fighters={fighters} events={relatedEvents} />
+        )}
+
+        <!-- Compartir + comentarios -->
+        <ShareAndComment title={title} url={canonicalUrl} description={description} />
+
+        <!-- Autor -->
+        <div class="mt-16 pt-10 border-t-2 border-[#111]">
+          <div class="flex flex-col md:flex-row gap-5 items-start">
+            <div class="rounded-full overflow-hidden flex-shrink-0 bg-gray-200 flex items-center justify-center text-base font-black text-gray-500"
+                 style="width:52px;height:52px;font-family:var(--font-sans);">
+              {author.split(' ').map((n: string) => n[0]).join('')}
+            </div>
+            <div>
+              <div class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1"
+                   style="font-family:var(--font-sans);">Escrito por</div>
+              <h3 class="text-xl text-[#111] mb-2" style="font-family:var(--font-display);">{author}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed max-w-md" style="font-family:var(--font-sans);">
+                Especialista en SEO, practicante de Jiu-Jitsu Brasileño y analista técnico de MMA.
+              </p>
+            </div>
+          </div>
+          <!-- Volver al inicio -->
+          <div class="mt-8">
+            <a href="/" class="btn-primary">← Volver al inicio</a>
+          </div>
         </div>
-        <div>
-          <div class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1"
-               style="font-family:var(--font-sans);">Escrito por</div>
-          <h3 class="text-xl text-[#111] mb-2" style="font-family:var(--font-display);">{author}</h3>
-          <p class="text-gray-600 text-sm leading-relaxed max-w-md" style="font-family:var(--font-sans);">
-            Especialista en SEO, practicante de Jiu-Jitsu Brasileño y analista técnico de MMA.
-          </p>
-        </div>
       </div>
-      <!-- Volver al inicio -->
-      <div class="mt-8">
-        <a href="/" class="btn-primary">← Volver al inicio</a>
-      </div>
+
+      <!-- TOC lateral — sticky, solo desktop -->
+      <aside class="hidden lg:block">
+        <TableOfContents />
+      </aside>
+
     </div>
   </div>
 </BaseLayout>

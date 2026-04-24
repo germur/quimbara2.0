@@ -1,0 +1,95 @@
+---
+// Sticky Table of Contents — se auto-genera desde los h2/h3 del artículo
+// Solo visible en desktop (lg+). En móvil se colapsa.
+---
+
+<nav id="toc-nav"
+     class="not-prose hidden lg:block"
+     aria-label="Tabla de contenidos"
+     style="position:sticky;top:88px;max-height:calc(100vh - 120px);overflow-y:auto;">
+  <div style="font-family:var(--font-sans);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.18em;color:#9ca3af;margin-bottom:14px;">
+    En este artículo
+  </div>
+  <ol id="toc-list" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;">
+    <!-- Generado por JS -->
+  </ol>
+</nav>
+
+<script>
+  const nav  = document.getElementById('toc-nav');
+  const list = document.getElementById('toc-list');
+  if (!nav || !list) { (nav as HTMLElement | null)?.remove(); }
+  else {
+    // Recolectar todos los headings del artículo
+    const article = document.querySelector('article.prose');
+    const headings = article
+      ? Array.from(article.querySelectorAll('h2, h3'))
+      : [];
+
+    if (headings.length < 3) {
+      // Demasiado corto para necesitar TOC
+      nav.remove();
+    } else {
+      // Asegurarse de que cada heading tenga id
+      headings.forEach((h, i) => {
+        if (!h.id) {
+          h.id = `toc-${i}-${h.textContent?.slice(0, 30).toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') ?? i}`;
+        }
+      });
+
+      // Construir lista
+      headings.forEach(h => {
+        const isH3 = h.tagName === 'H3';
+        const li = document.createElement('li');
+        const a  = document.createElement('a');
+        a.href = `#${h.id}`;
+        a.textContent = h.textContent ?? '';
+        a.style.cssText = `
+          display:block;
+          font-family:var(--font-sans);
+          font-size:${isH3 ? '12px' : '13px'};
+          font-weight:${isH3 ? '400' : '600'};
+          color:#6b7280;
+          text-decoration:none;
+          padding:4px 0 4px ${isH3 ? '12px' : '0'};
+          border-left:2px solid transparent;
+          padding-left:${isH3 ? '16px' : '8px'};
+          transition:color 0.15s,border-color 0.15s;
+          line-height:1.4;
+        `;
+        a.setAttribute('data-toc-id', h.id);
+        a.addEventListener('mouseenter', () => { if (!a.classList.contains('toc-active')) a.style.color = '#111'; });
+        a.addEventListener('mouseleave', () => { if (!a.classList.contains('toc-active')) a.style.color = '#6b7280'; });
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+
+      // Intersection Observer — resaltar sección activa
+      const tocLinks = list.querySelectorAll<HTMLAnchorElement>('[data-toc-id]');
+      const activeStyles = (a: HTMLAnchorElement, on: boolean) => {
+        a.style.color = on ? '#E53935' : '#6b7280';
+        a.style.borderLeftColor = on ? '#E53935' : 'transparent';
+        a.style.fontWeight = on ? '700' : (a.getAttribute('data-h3') ? '400' : '600');
+        if (on) a.classList.add('toc-active');
+        else a.classList.remove('toc-active');
+      };
+
+      let current = '';
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) current = e.target.id;
+          }
+          tocLinks.forEach(a => activeStyles(a, a.getAttribute('data-toc-id') === current));
+        },
+        { rootMargin: '-80px 0px -60% 0px', threshold: 0 }
+      );
+
+      headings.forEach(h => observer.observe(h));
+    }
+  }
+</script>

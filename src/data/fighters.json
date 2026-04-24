@@ -2040,5 +2040,28 @@
         "winType": "UD"
       }
     ]
+  },
+  {
+    "slug": "movsar-evloev",
+    "name": "Movsar Evloev",
+    "nick": "Borz",
+    "div": "Featherweight",
+    "rec": "18-0-0",
+    "from": "Rusia",
+    "rank": "3",
+    "img": "",
+    "height": "5' 10\"",
+    "weight": "145 lbs",
+    "reach": "72\"",
+    "stance": "Orthodox",
+    "team": "AKA / Akhmat",
+    "form": ["W","W","W","W","W"],
+    "formTypes": [
+      {"outcome":"W","winType":"UD"},
+      {"outcome":"W","winType":"UD"},
+      {"outcome":"W","winType":"UD"},
+      {"outcome":"W","winType":"UD"},
+      {"outcome":"W","winType":"UD"}
+    ]
   }
 ]

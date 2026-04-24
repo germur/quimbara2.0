@@ -23,6 +23,13 @@ const blogCollection = defineCollection({
     
     // Para marcar contenido evergreen que debe rotar en la home
     featured: z.boolean().default(false),
+
+    // Vinculación cruzada con entidades de datos
+    fighters: z.array(z.string()).default([]),       // slugs de fighters.json
+    relatedEvents: z.array(z.string()).default([]),  // slugs de events-all.json
+
+    // GEO/AEO: puntos clave para motores generativos (Perplexity, SGE…)
+    takeaways: z.array(z.string()).default([]),
   })
 });
 
