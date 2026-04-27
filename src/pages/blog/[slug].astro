@@ -47,10 +47,13 @@ const articleSchema = {
   "@type": "BlogPosting",
   "headline": title,
   "description": description,
+  "abstract": takeaways.length > 0 ? takeaways.join(' ') : description,
   "author": { "@type": "Person", "name": author, "url": new URL("/", Astro.url.origin).href },
   "publisher": { "@type": "Organization", "name": "Quimbara", "logo": { "@type": "ImageObject", "url": new URL("/favicon.svg", Astro.url.origin).href } },
   "datePublished": pubDate.toISOString(),
-  "image": image ? new URL(image, Astro.url.origin).href : undefined
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+  "image": image ? new URL(image, Astro.url.origin).href : undefined,
+  ...(takeaways.length > 0 ? { "keywords": tags.join(', ') } : {})
 };
 
 const breadcrumbSchema = {

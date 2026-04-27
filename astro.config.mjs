@@ -6,6 +6,8 @@ import sitemap from '@astrojs/sitemap';
 
 import mdx from '@astrojs/mdx';
 
+import partytown from '@astrojs/partytown';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://quimbara.org',
@@ -19,5 +21,8 @@ export default defineConfig({
       const noIndexPaths = ['/aviso-legal', '/privacidad', '/404'];
       return !noIndexPaths.some(p => page.includes(p));
     }
-  }), mdx()]
+  }), mdx(), partytown({
+    // Reenviar dataLayer.push al main thread para que GA4 funcione desde el Web Worker
+    config: { forward: ['dataLayer.push'] }
+  })]
 });
