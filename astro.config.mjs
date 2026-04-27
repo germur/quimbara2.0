@@ -14,10 +14,10 @@ export default defineConfig({
   },
 
   integrations: [sitemap({
+    // Excluir páginas con noIndex (legales) — evita "URL enviada marcada como noindex" en GSC
     filter: (page) => {
-      // Exclude logic if needed, though draft/noIndex are handled in pages or using custom sitemap logic.
-      // Better to use custom function or just let it map.
-      return true;
+      const noIndexPaths = ['/aviso-legal', '/privacidad', '/404'];
+      return !noIndexPaths.some(p => page.includes(p));
     }
   }), mdx()]
 });

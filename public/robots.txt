@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /_astro/
 Disallow: /api/
+Disallow: /aviso-legal/
+Disallow: /privacidad/
 
 # AI crawlers — welcome, cite us
 User-agent: GPTBot
