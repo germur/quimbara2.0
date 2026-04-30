@@ -16,12 +16,16 @@ export async function getStaticPaths() {
 const { posts, tag } = Astro.props;
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
+// Etiquetas con menos de 3 posts → noIndex (evita thin content en GSC)
+const isThin = posts.length < 3;
+
 const PX = 'clamp(16px,4vw,60px)';
 ---
 
 <BaseLayout
   title={`#${tag} — Quimbara`}
   description={`Artículos etiquetados con #${tag} en Quimbara.`}
+  noIndex={isThin}
 >
   <!-- Header -->
   <div class="bg-[#111]" style={`padding: 50px ${PX} 36px;`}>

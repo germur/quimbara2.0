@@ -4,6 +4,11 @@ Disallow: /api/
 Disallow: /aviso-legal/
 Disallow: /privacidad/
 
+# Bloquear residuos del starter v1.0 (por si Google insiste)
+Disallow: /~partytown/
+Disallow: /docs/
+Disallow: /projects/
+
 # AI crawlers — welcome, cite us
 User-agent: GPTBot
 Allow: /
