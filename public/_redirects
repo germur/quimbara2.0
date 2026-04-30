@@ -1,0 +1,21 @@
+# 301 redirects — limpieza de URLs del Astro starter v1.0
+# Netlify procesa este archivo directamente
+
+/peleadores          /peleador/          301
+/peleadores/*        /peleador/:splat    301
+/tags                /etiqueta/          301
+/tags/*              /etiqueta/:splat    301
+/blog/perfiles-luchadores/*  /peleador/:splat  301
+/blog/analisis-peleas/*      /blog/:splat      301
+/blog/customize      /blog/              301
+/blog/markdown       /blog/              301
+/blog/markdown-zh    /blog/              301
+/docs                /                   301
+/docs/*              /                   301
+/projects            /                   301
+/projects/*          /                   301
+/sobre-nosotros      /                   301
+/estadisticas        /                   301
+/noticias            /blog/              301
+/analisis            /blog/              301
+/categoria           /blog/              301
