@@ -1,34 +1,34 @@
 [
   {
-    "w": "Charles Jourdain",
-    "l": "Kyler Phillips",
-    "method": "Decision (Unanimous)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC Fight Night 273 - Burns vs. Malott"
-  },
-  {
-    "w": "Jai Herbert",
-    "l": "Mandel Nallo",
+    "w": "Quillan Salkilld",
+    "l": "Beneil Dariush",
     "method": "TKO (Punches)",
     "round": 1,
-    "time": "2:05",
-    "event": "UFC Fight Night 273 - Burns vs. Malott"
+    "time": "3:29",
+    "event": "UFC Fight Night 275 - Della Maddalena vs. Prates"
   },
   {
-    "w": "Jasmine Jasudavicius",
-    "l": "Karine Silva",
+    "w": "Steve Erceg",
+    "l": "Tim Elliott",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 273 - Burns vs. Malott"
+    "event": "UFC Fight Night 275 - Della Maddalena vs. Prates"
   },
   {
-    "w": "Gauge Young",
-    "l": "Thiago Moises",
-    "method": "Decision (Split)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC Fight Night 273 - Burns vs. Malott"
+    "w": "Marwan Rahiki",
+    "l": "Oliver Schmid",
+    "method": "TKO (Punches)",
+    "round": 1,
+    "time": "2:47",
+    "event": "UFC Fight Night 275 - Della Maddalena vs. Prates"
+  },
+  {
+    "w": "Brando Pericic",
+    "l": "Shamil Gaziev",
+    "method": "KO (Punch)",
+    "round": 2,
+    "time": "3:44",
+    "event": "UFC Fight Night 275 - Della Maddalena vs. Prates"
   }
 ]

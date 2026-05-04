@@ -87,7 +87,7 @@
     "name": "Khamzat Chimaev",
     "nick": "  Borz",
     "div": "Middleweight",
-    "rec": "14-0-0",
+    "rec": "15-0-0",
     "from": "United Arab Emirates",
     "rank": "C",
     "img": "/fighters/khamzat-chimaev.png",
@@ -98,6 +98,7 @@
     "team": "Allstars Training Center",
     "form": [
       "D",
+      "W",
       "W",
       "W",
       "W"
@@ -118,6 +119,10 @@
       {
         "outcome": "W",
         "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
       }
     ]
   },
@@ -333,11 +338,11 @@
       },
       {
         "outcome": "W",
-        "winType": "TKO"
+        "winType": "UD"
       },
       {
         "outcome": "W",
-        "winType": "UD"
+        "winType": "TKO"
       }
     ]
   },
@@ -507,7 +512,7 @@
     "name": "Alexander Volkov",
     "nick": "DRAGO",
     "div": "Heavyweight",
-    "rec": "38-11-0",
+    "rec": "39-11-0",
     "from": "Russia",
     "rank": "5",
     "img": "/fighters/alexander-volkov.png",
@@ -520,7 +525,8 @@
       "W",
       "W",
       "W",
-      "L"
+      "L",
+      "W"
     ],
     "formTypes": [
       {
@@ -537,6 +543,10 @@
       },
       {
         "outcome": "L",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
         "winType": "SD"
       }
     ]
@@ -766,7 +776,7 @@
     "name": "Sean Strickland",
     "nick": "Tarzan",
     "div": "Middleweight",
-    "rec": "29-7-0",
+    "rec": "30-7-0",
     "from": "USA",
     "rank": "1",
     "img": "/fighters/sean-strickland.png",
@@ -777,31 +787,31 @@
     "team": "",
     "form": [
       "W",
-      "W",
       "L",
       "W",
-      "L"
+      "L",
+      "W"
     ],
     "formTypes": [
       {
         "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
         "winType": "TKO"
-      },
-      {
-        "outcome": "W",
-        "winType": "UD"
-      },
-      {
-        "outcome": "L",
-        "winType": "SD"
-      },
-      {
-        "outcome": "W",
-        "winType": "SD"
-      },
-      {
-        "outcome": "L",
-        "winType": "UD"
       }
     ]
   },
@@ -1313,7 +1323,7 @@
     "name": "Beneil Dariush",
     "nick": "Benny",
     "div": "Lightweight",
-    "rec": "23-6-1",
+    "rec": "23-9-1",
     "from": "USA",
     "rank": "4",
     "img": "/fighters/beneil-dariush.png",
@@ -1324,16 +1334,12 @@
     "team": "",
     "form": [
       "W",
+      "L",
+      "L",
       "W",
-      "L",
-      "L",
-      "W"
+      "L"
     ],
     "formTypes": [
-      {
-        "outcome": "W",
-        "winType": "UD"
-      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -1349,6 +1355,10 @@
       {
         "outcome": "W",
         "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "KO"
       }
     ]
   },
@@ -2039,29 +2049,6 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ]
-  },
-  {
-    "slug": "movsar-evloev",
-    "name": "Movsar Evloev",
-    "nick": "Borz",
-    "div": "Featherweight",
-    "rec": "18-0-0",
-    "from": "Rusia",
-    "rank": "3",
-    "img": "",
-    "height": "5' 10\"",
-    "weight": "145 lbs",
-    "reach": "72\"",
-    "stance": "Orthodox",
-    "team": "AKA / Akhmat",
-    "form": ["W","W","W","W","W"],
-    "formTypes": [
-      {"outcome":"W","winType":"UD"},
-      {"outcome":"W","winType":"UD"},
-      {"outcome":"W","winType":"UD"},
-      {"outcome":"W","winType":"UD"},
-      {"outcome":"W","winType":"UD"}
     ]
   }
 ]

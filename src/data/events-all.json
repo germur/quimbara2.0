@@ -1,29 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-04-25",
-    "name": "UFC Fight Night",
-    "main": "Sterling vs. Zalal",
-    "loc": "Las Vegas, Nevada, U.S.",
-    "date": "2026-04-25",
-    "dateLabel": "25 abr 2026",
-    "f1": "Sterling",
-    "f1img": "/fighters/ufc-fight-night-2026-04-25-f1.png",
-    "f2": "Zalal",
-    "f2img": "/fighters/ufc-fight-night-2026-04-25-f2.png"
-  },
-  {
-    "slug": "ufc-fight-night-2026-05-02",
-    "name": "UFC Fight Night",
-    "main": "Della Maddalena vs. Prates",
-    "loc": "Perth, Australia",
-    "date": "2026-05-02",
-    "dateLabel": "2 may 2026",
-    "f1": "Della Maddalena",
-    "f1img": "/fighters/ufc-fight-night-2026-05-02-f1.png",
-    "f2": "Prates",
-    "f2img": "/fighters/ufc-fight-night-2026-05-02-f2.png"
-  },
-  {
     "slug": "ufc-328-2026-05-09",
     "name": "UFC 328",
     "main": "Chimaev vs. Strickland",
@@ -126,6 +102,18 @@
     "loc": "Oklahoma City, Oklahoma, U.S.",
     "date": "2026-07-18",
     "dateLabel": "18 jul 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": ""
+  },
+  {
+    "slug": "ufc-fight-night-282-2026-08-01",
+    "name": "UFC Fight Night 282",
+    "main": "TBD",
+    "loc": "Belgrade, Serbia",
+    "date": "2026-08-01",
+    "dateLabel": "1 ago 2026",
     "f1": "TBD",
     "f1img": "",
     "f2": "TBD",
