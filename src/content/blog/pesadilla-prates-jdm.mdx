@@ -17,6 +17,169 @@ takeaways:
   - "Tres knockdowns en Round 3 completaron una secuencia que ya se habia cocinado durante dos rounds de dano acumulado."
 ---
 
-import PratesJDMViz from '../../components/PratesJDMViz.astro';
+import PratesViz from '../../components/PratesViz.astro';
 
-<PratesJDMViz />
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-10 not-prose">
+  <div style="border-top:3px solid #E53935; background:#f9f9f9; padding:24px; border-radius:4px; text-align:center;">
+    <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:900;color:#E53935;line-height:1;">104</div>
+    <div style="font-family:var(--font-sans);font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#9ca3af;margin-top:8px;">Golpes Prates</div>
+  </div>
+  <div style="border-top:3px solid #111; background:#f9f9f9; padding:24px; border-radius:4px; text-align:center;">
+    <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:900;color:#111;line-height:1;">41</div>
+    <div style="font-family:var(--font-sans);font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#9ca3af;margin-top:8px;">Golpes JDM</div>
+  </div>
+  <div style="border-top:3px solid #E53935; background:#f9f9f9; padding:24px; border-radius:4px; text-align:center;">
+    <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:900;color:#E53935;line-height:1;">3</div>
+    <div style="font-family:var(--font-sans);font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#9ca3af;margin-top:8px;">Knockdowns</div>
+  </div>
+  <div style="border-top:3px solid #FFD600; background:#f9f9f9; padding:24px; border-radius:4px; text-align:center;">
+    <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:900;color:#111;line-height:1;">3:17</div>
+    <div style="font-family:var(--font-sans);font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#9ca3af;margin-top:8px;">R3 · TKO</div>
+  </div>
+</div>
+
+<div class="not-prose my-10" style="background:#f9f9f9; border-left:3px solid #E53935; border-radius:0 4px 4px 0; padding:24px 28px;">
+  <div style="font-family:var(--font-sans);font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#E53935;margin-bottom:16px;">Lo esencial</div>
+  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;">
+    <li style="font-size:0.95rem;line-height:1.5;color:#111;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:#E53935;font-weight:700;">&rarr;</span>Prates no le gano a Della Maddalena con talento bruto: lo desarmo con un plan quirurgico construido sobre <strong>103 peleas previas de Muay Thai</strong> en Tailandia.</li>
+    <li style="font-size:0.95rem;line-height:1.5;color:#111;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:#E53935;font-weight:700;">&rarr;</span>El game plan fue identico al que uso Makhachev cinco meses antes — destruir la pierna delantera con calf kicks — pero ejecutado con la precision de un especialista, no de un grappler.</li>
+    <li style="font-size:0.95rem;line-height:1.5;color:#111;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:#E53935;font-weight:700;">&rarr;</span>Los <strong>13 cm de envergadura</strong> a favor de Prates no son detalle: son el cimiento sobre el que se construyo cada intercambio. JDM nunca alcanzo el rango donde es letal.</li>
+    <li style="font-size:0.95rem;line-height:1.5;color:#111;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:#E53935;font-weight:700;">&rarr;</span>Tres knockdowns en Round 3 — rodilla voladora, patada alta y low kick — completaron una secuencia que ya se habia cocinado durante <strong>dos rounds</strong> de dano acumulado.</li>
+    <li style="font-size:0.95rem;line-height:1.5;color:#111;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:#E53935;font-weight:700;">&rarr;</span>Con esta victoria, Prates entra al top 7 historico de KOs welterweight UFC en <strong>menos de 28 meses</strong>. Los demas del club tardaron entre 8 y 15 anos.</li>
+  </ul>
+</div>
+
+Imagina la escena: estas en la RAC Arena de Perth, Australia. Son las 11 de la noche. 15,000 personas rugen el nombre de su heroe local — el tipo que venia de 18 victorias consecutivas, que le quito el cinturon a Belal Muhammad en su propia casa, que noqueo a Gilbert Burns y Kevin Holland como quien firma autografos.
+
+Del otro lado del octagono, un brasileno zurdo de 32 anos con un record irregular de 23-7 que la mayoria de casuals ni podia pronunciar bien: **Carlos "The Nightmare" Prates**.
+
+Lo que paso en los siguientes 13 minutos y 17 segundos fue, segun Michael Bisping en la transmision, *dificil de ver*. No por aburrido. Por brutal. Pero el *que* paso es solo la mitad de la historia. La otra mitad — la que importa si queres entender peleas de verdad — es el *por que* y el *como*.
+
+## 01 · La asimetria en golpes
+
+Cada punto rojo es un golpe significativo conectado por Prates. Cada punto gris, uno de Della Maddalena. La asimetria visual es la asimetria real.
+
+<PratesViz section="strike-map" />
+
+## 02 · El kilometraje: 103 peleas antes de la primera campana
+
+El striking de Prates no es talento natural con un par de anos de gimnasio encima. Es software instalado a golpes durante mas de una decada.
+
+Esa es la cantidad aproximada de peleas de Muay Thai y kickboxing que Carlos Prates acumulo antes de pisar un octagono de UFC, segun la propia biografia oficial del peleador. No 10, no 20. **Mas de cien**.
+
+Despues de derrotas tempranas en MMA en Brasil, Prates se mudo a Tailandia y vivio alli seis anos, peleando regularmente para sostenerse. Fue campeon en Bangla Stadium, Glory of Heroes y SFT. Su lectura de distancia, su timing para soltar el golpe correcto en la fraccion de segundo correcta, su capacidad para pelear yendo hacia atras — todo eso se aprende peleando contra tailandeses que crecieron en un ring.
+
+Cuando lo comparas con Della Maddalena — un boxeador australiano de elite con poco mas de 20 peleas profesionales totales en MMA — la diferencia no es de talento. Es de **kilometraje**.
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-10 not-prose">
+  <div style="border-top:3px solid #E53935; background:#f9f9f9; padding:24px; border-radius:4px; text-align:center;">
+    <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:900;color:#E53935;line-height:1;">103</div>
+    <div style="font-family:var(--font-sans);font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#9ca3af;margin-top:8px;">Peleas previas Muay Thai / kickboxing</div>
+  </div>
+  <div style="border-top:3px solid #111; background:#f9f9f9; padding:24px; border-radius:4px; text-align:center;">
+    <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:900;color:#111;line-height:1;">6</div>
+    <div style="font-family:var(--font-sans);font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#9ca3af;margin-top:8px;">Anos viviendo en Tailandia</div>
+  </div>
+  <div style="border-top:3px solid #FFD600; background:#f9f9f9; padding:24px; border-radius:4px; text-align:center;">
+    <div style="font-family:var(--font-display);font-size:2.5rem;font-weight:900;color:#111;line-height:1;">3</div>
+    <div style="font-family:var(--font-sans);font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#9ca3af;margin-top:8px;">Cinturones internacionales pre-UFC</div>
+  </div>
+</div>
+
+## 03 · La geometria: 13 centimetros que decidieron la pelea
+
+En un deporte donde la diferencia entre conectar y no conectar se mide en centimetros, la ventaja de envergadura de Prates es el cimiento sobre el que se construye todo el resto.
+
+<PratesViz section="reach" />
+
+> El jab largo de Prates funciono como un muro. Cada vez que JDM intentaba entrar al rango donde es letal, se pagaba el peaje en moneda de codo, jab o rodilla.
+
+## 04 · La arquitectura: esconder los punos detras de las patadas
+
+Prates no opera con golpes sueltos. Opera con un sistema de tres niveles donde cada nivel prepara el siguiente.
+
+Pensalo asi: si yo te tiro una patada baja, tu cerebro registra *"amenaza abajo"* y tu guardia baja. Si inmediatamente despues te tiro un recto a la cara, tu guardia no tiene tiempo de subir. Y si mezclas eso con patadas al cuerpo y rodillas al centro, el oponente nunca sabe que nivel viene.
+
+La clave es que cada nivel **prepara** el siguiente. El calf kick obliga a JDM a bajar las manos, el recto de zurda pasa por arriba de la guardia. La rodilla al cuerpo hace que JDM doble, el codo al paso encuentra la ceja. Esto no es instinto. Es **arquitectura de Muay Thai**.
+
+<PratesViz section="attack-levels" />
+
+## 05 · La construccion: el plan tomo dos rounds en cocinarse
+
+Setup, dano, finish. Cada round agrego una capa de la receta. Para cuando llego el tercero, Della Maddalena ya estaba comprometido.
+
+<PratesViz section="stacked-bars" />
+
+> Prates puede noquearte yendo hacia atras, yendo hacia adelante, parado en el centro o con la espalda en la reja. Esa versatilidad es lo que lo hace diferente de casi cualquier welterweight activo.
+
+## 06 · La ejecucion: Round 3
+
+Reproduce el round o arrastra el cabezal sobre la linea de tiempo. Cada marcador es un evento real, en su segundo exacto.
+
+<PratesViz section="round3-scrubber" />
+
+## 07 · La trayectoria: 7 de 7 finish rate perfecto
+
+Toda victoria de Prates en UFC ha terminado por nocaut. Solo un nodo gris en el medio: la unica derrota de su carrera UFC.
+
+<PratesViz section="career-trajectory" />
+
+## 08 · Contexto historico: el club de los grandes noqueadores
+
+Top KOs en la historia de UFC welterweight. La columna de la derecha muestra los anos de carrera que cada uno necesito.
+
+<PratesViz section="ko-ranking" />
+
+## 09 · Por que fallo Della Maddalena?
+
+Seria injusto contar esto solo desde el ganador. JDM es un peleador de elite — record de 18-4, 12 KOs, cinturon negro de BJJ — y merece analisis serio.
+
+**1. La pierna que ya venia rota.** En noviembre de 2025, Makhachev le destruyo la pierna delantera con calf kicks repetidos y gano 50-45 en las tres tarjetas. JDM tuvo que cambiar de stance para sobrevivir. Volver a pelear cinco meses despues contra otro especialista en patadas bajas fue, como minimo, arriesgado.
+
+**2. El problema del check.** En deportes de combate, un *check* es levantar la rodilla para bloquear una patada baja con la tibia. Es la defensa estandar contra calf kicks. JDM historicamente no checkea bien — sus analisis tecnicos lo marcan como un punto debil recurrente. Contra un especialista de Muay Thai con mas de cien peleas de kickboxing, esa debilidad es una sentencia.
+
+**3. Guardia alta de boxeo, guantes de 4 onzas.** JDM pelea con guardia alta clasica de boxeo: manos arriba, codos cerrados, menton protegido. Eso funciona con guantes de 10-12 onzas. Pero en MMA se pelea con guantes de 4 onzas — mas chicos, mas finos — y los golpes se cuelan por espacios que en boxeo estarian cubiertos. El step-in elbow de Prates paso por una rendija que con guantes de boxeo no existiria.
+
+## 10 · El futuro: el rompecabezas del welterweight
+
+El cinturon lo tiene Makhachev. La primera defensa probable es contra Garry. Cualquier escenario lleva a una pelea irresistible para Prates.
+
+<div class="not-prose my-10" style="background:#f9f9f9; border:1px solid #e5e7eb; border-radius:8px; padding:28px;">
+  <div style="font-family:var(--font-sans);font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#E53935;margin-bottom:16px;">Arbol de decision · Welterweight 2026</div>
+  <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:900;color:#111;margin-bottom:8px;">Cualquier camino lleva a Prates</div>
+  <p style="font-size:0.9rem;color:#6b7280;margin-bottom:24px;">Despues de Perth, Prates se posiciona como el siguiente en la fila por el titulo.</p>
+  <div style="display:grid;grid-template-columns:1fr;gap:16px;max-width:600px;">
+    <div style="background:#fff;border:1px solid #e5e7eb;border-left:3px solid #E53935;border-radius:4px;padding:16px 20px;">
+      <div style="font-family:var(--font-sans);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#E53935;font-weight:700;margin-bottom:4px;">Evento pivote</div>
+      <div style="font-family:var(--font-display);font-weight:800;font-size:1rem;color:#111;">Makhachev vs Garry</div>
+      <div style="font-size:0.75rem;color:#6b7280;margin-top:4px;">Primera defensa del titulo</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="background:#fff;border:1px solid #e5e7eb;border-top:3px solid #E53935;border-radius:4px;padding:16px;">
+        <div style="font-family:var(--font-sans);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:#E53935;font-weight:700;">Si gana Garry &rarr;</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:0.9rem;color:#111;margin-top:6px;">Garry vs Prates 2</div>
+        <div style="font-size:0.75rem;color:#6b7280;margin-top:6px;line-height:1.4;">La revancha. Garry es el unico hombre que ha vencido a Prates en UFC (decision, abril 2025). Esta vez con cinturon en juego.</div>
+      </div>
+      <div style="background:#fff;border:1px solid #e5e7eb;border-top:3px solid #111;border-radius:4px;padding:16px;">
+        <div style="font-family:var(--font-sans);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:#111;font-weight:700;">Si retiene Makhachev &rarr;</div>
+        <div style="font-family:var(--font-display);font-weight:800;font-size:0.9rem;color:#111;margin-top:6px;">Makhachev vs Prates</div>
+        <div style="font-size:0.75rem;color:#6b7280;margin-top:6px;line-height:1.4;">El grappler mas dominante del planeta contra el striker mas peligroso de la division. Dos sistemas opuestos en colision directa.</div>
+      </div>
+    </div>
+  </div>
+  <div style="font-size:0.75rem;color:#9ca3af;margin-top:16px;">Cualquiera de las dos es una pelea de la que vas a querer hablar.</div>
+</div>
+
+---
+
+Si llegaste hasta aca y no entrenas artes marciales, lo que esta pelea demuestra es algo que aplica mucho mas alla del octagono: **la preparacion especifica le gana al talento general**.
+
+Della Maddalena es, por cualquier metrica convencional, un peleador "mejor" que Prates: mejor record, mas titulos, mejor defensa estadistica. Pero Prates tenia un plan quirurgico basado en las debilidades especificas de su oponente, la experiencia de mas de cien peleas para ejecutarlo bajo presion, y la versatilidad tecnica para adaptarse cuando algo no salia segun lo previsto.
+
+No gano por ser *mas fuerte* o *mas rapido*. Gano porque sabia exactamente que herramienta usar en cada momento. La patada baja para destruir la base. El codo al paso para abrir cortes. La rodilla de intercepcion para castigar la entrada. Y la paciencia de dejar que el plan se cocinara durante dos rounds antes de terminar el trabajo en el tercero.
+
+Eso es maestria tecnica. Y ahora sabes reconocerla cuando la veas.
+
+<div class="not-prose mt-10 pt-6" style="border-top:1px solid #e5e7eb;">
+  <p style="font-size:0.75rem;color:#9ca3af;line-height:1.6;"><strong style="color:#6b7280;">Fuentes y datos:</strong> recuento oficial UFC via theScore, CBS Sports y Yahoo Sports. Estadisticas historicas de KOs welterweight: UFC News, UFC.com y Wikipedia. Carrera de Prates verificada contra UFC.com (perfil oficial), Sherdog, ESPN y Tapology. Analisis biomecanico basado en breakdowns de expertos y literatura academica de NCBI sobre mecanica de golpeo en Muay Thai.</p>
+</div>

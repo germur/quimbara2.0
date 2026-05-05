@@ -1,0 +1,1155 @@
+---
+/**
+ * PratesViz.astro
+ * Interactive visualizations for Prates vs Della Maddalena article.
+ * Renders a specific section based on the `section` prop.
+ * Designed to live inside the blog prose layout (white bg, dark text, red accents).
+ */
+interface Props {
+  section: 'strike-map' | 'reach' | 'attack-levels' | 'stacked-bars' | 'round3-scrubber' | 'career-trajectory' | 'ko-ranking';
+}
+const { section } = Astro.props;
+---
+
+{section === 'strike-map' && (
+<div class="pv not-prose pv-reveal" id="pvStrikeMap">
+  <div class="pv-card pv-card-dark">
+    <div class="pv-eyebrow">Visualizacion · Golpe por golpe</div>
+    <div class="pv-title">La diferencia se mide en golpes</div>
+    <div class="pv-subtitle">Cada punto rojo es un golpe significativo de Prates. Cada gris, uno de JDM.</div>
+    <div class="pv-strike-map">
+      <div class="pv-strike-fighter">
+        <div class="pv-strike-info">
+          <div class="pv-strike-name pv-red">Carlos Prates</div>
+          <div class="pv-strike-nick">"The Nightmare"</div>
+          <div class="pv-big-num pv-red pv-count-up" data-target="104">0</div>
+          <div class="pv-big-lbl">Conectados</div>
+        </div>
+        <div class="pv-strike-dots" id="pvPratesDots"></div>
+      </div>
+      <div class="pv-strike-fighter">
+        <div class="pv-strike-info">
+          <div class="pv-strike-name">Della Maddalena</div>
+          <div class="pv-strike-nick">Ex-campeon welterweight</div>
+          <div class="pv-big-num pv-count-up" data-target="41">0</div>
+          <div class="pv-big-lbl">Conectados</div>
+        </div>
+        <div class="pv-strike-dots" id="pvJdmDots"></div>
+      </div>
+    </div>
+    <div class="pv-footnote">Prates conecto <strong>2.5 veces mas golpes</strong> que el ex-campeon de la division. Y los suyos pesaron mas: terminaron tres knockdowns y un TKO.</div>
+  </div>
+</div>
+)}
+
+{section === 'reach' && (
+<div class="pv not-prose pv-reveal" id="pvReach">
+  <div class="pv-card pv-card-dark">
+    <div class="pv-eyebrow">Anatomia del matchup</div>
+    <div class="pv-title">El rango era una sentencia</div>
+    <div class="pv-subtitle">Cada vez que JDM intentaba entrar al rango donde es letal, se comia un jab, un codo o una rodilla.</div>
+    <div class="pv-reach-canvas">
+      <svg id="pvReachSvg" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="pv-reach-stat">
+      <div class="pv-reach-side pv-red">
+        <div class="pv-reach-v">198</div>
+        <div class="pv-reach-l">cm reach · Prates</div>
+      </div>
+      <div class="pv-reach-gap">+13<div class="pv-reach-l">brecha</div></div>
+      <div class="pv-reach-side">
+        <div class="pv-reach-v">185</div>
+        <div class="pv-reach-l">cm reach · JDM</div>
+      </div>
+    </div>
+  </div>
+</div>
+)}
+
+{section === 'attack-levels' && (
+<div class="pv not-prose pv-reveal" id="pvLevels">
+  <div class="pv-card pv-card-dark">
+    <div class="pv-eyebrow">Sistema de ataque</div>
+    <div class="pv-title">Tres niveles, una sola respuesta posible: caer</div>
+    <div class="pv-subtitle">Hover sobre cada nivel para ver las herramientas.</div>
+    <div class="pv-levels">
+      <div class="pv-levels-body">
+        <svg id="pvLevelsSvg" viewBox="0 0 400 290"></svg>
+      </div>
+      <div class="pv-levels-list">
+        <div class="pv-level-card" data-lvl="high">
+          <div class="pv-level-head"><span class="pv-lvl-label">Nivel 1 · Alto</span></div>
+          <h4>Los finishers</h4>
+          <p>Los terminadores. Llegan despues de que el rival ya bajo la guardia respondiendo a niveles inferiores.</p>
+          <div class="pv-moves"><span>Recto zurda</span><span>Step-in elbow</span><span>High kick</span></div>
+        </div>
+        <div class="pv-level-card" data-lvl="mid">
+          <div class="pv-level-head"><span class="pv-lvl-label">Nivel 2 · Medio</span></div>
+          <h4>Vaciar el tanque</h4>
+          <p>Castigo al cuerpo y rodillas que interceptan al rival cada vez que intenta cerrar la distancia.</p>
+          <div class="pv-moves"><span>Patada al higado</span><span>Rodilla center-line</span></div>
+        </div>
+        <div class="pv-level-card" data-lvl="low">
+          <div class="pv-level-head"><span class="pv-lvl-label">Nivel 3 · Bajo</span></div>
+          <h4>Romper la base</h4>
+          <p>El cimiento del plan. Sin pierna no hay pressure boxing. La pantorrilla deja de responder a los 5 o 6 impactos.</p>
+          <div class="pv-moves"><span>Calf kick</span><span>Low kick MT</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="pv-footnote">Es el mismo plan que <strong>Makhachev</strong> uso en UFC 322. La diferencia: Makhachev es un grappler. Prates es un especialista con 100+ peleas ejecutandolos.</div>
+  </div>
+</div>
+)}
+
+{section === 'stacked-bars' && (
+<div class="pv not-prose pv-reveal" id="pvStackedViz">
+  <div class="pv-card pv-card-light">
+    <div class="pv-eyebrow">Composicion por round</div>
+    <div class="pv-title pv-title-dark">Tres rounds, una sola direccion</div>
+    <div class="pv-subtitle pv-subtitle-dark">Distribucion aproximada del intent tactico de Prates en cada round.</div>
+    <div class="pv-stacked-bars">
+      <div class="pv-stacked-row">
+        <div class="pv-rd">R1<small>SETUP</small></div>
+        <div class="pv-stacked-track">
+          <div class="pv-stacked-seg pv-s1" data-width="75">Marcando territorio</div>
+          <div class="pv-stacked-seg pv-s2" data-width="20">Dano</div>
+          <div class="pv-stacked-seg pv-s3" data-width="5"></div>
+        </div>
+      </div>
+      <div class="pv-stacked-row">
+        <div class="pv-rd">R2<small>DANO</small></div>
+        <div class="pv-stacked-track">
+          <div class="pv-stacked-seg pv-s1" data-width="25">Setup</div>
+          <div class="pv-stacked-seg pv-s2" data-width="55">Dano · pierna comprometida</div>
+          <div class="pv-stacked-seg pv-s3" data-width="20">Knockdown</div>
+        </div>
+      </div>
+      <div class="pv-stacked-row">
+        <div class="pv-rd">R3<small>FINISH</small></div>
+        <div class="pv-stacked-track">
+          <div class="pv-stacked-seg pv-s1" data-width="10"></div>
+          <div class="pv-stacked-seg pv-s2" data-width="15"></div>
+          <div class="pv-stacked-seg pv-s3" data-width="75">Finish · 3 knockdowns · TKO</div>
+        </div>
+      </div>
+    </div>
+    <div class="pv-stacked-legend">
+      <span class="pv-l1">Setup tecnico</span>
+      <span class="pv-l2">Dano acumulado</span>
+      <span class="pv-l3">Finish & knockdowns</span>
+    </div>
+    <div class="pv-footnote pv-footnote-dark">Round 2 fue el punto de inflexion: un calf kick literalmente tiro a JDM al suelo antes de la campana. <strong>Volvio a su esquina cojeando.</strong></div>
+  </div>
+</div>
+)}
+
+{section === 'round3-scrubber' && (
+<div class="pv not-prose pv-reveal" id="pvRound3">
+  <div class="pv-card pv-card-dark">
+    <div class="pv-eyebrow">Reproductor interactivo · Round 3</div>
+    <div class="pv-title">3 minutos y 17 segundos de demolicion</div>
+    <div class="pv-subtitle">Click sobre los marcadores rojos para saltar a cada momento. El cabezal blanco es arrastrable.</div>
+    <div class="pv-round-bar">
+      <div class="pv-round-track" id="pvRoundTrack">
+        <div class="pv-round-time">0:00</div>
+        <div class="pv-round-fill"></div>
+        <div class="pv-round-handle"></div>
+      </div>
+    </div>
+    <div class="pv-round-event-card" id="pvEventCard"></div>
+    <div class="pv-round-controls">
+      <button class="pv-round-btn" id="pvPlayBtn">&#9654; Reproducir Round 3</button>
+      <button class="pv-round-btn" id="pvResetBtn">&#10226; Reiniciar</button>
+    </div>
+  </div>
+</div>
+)}
+
+{section === 'career-trajectory' && (
+<div class="pv not-prose pv-reveal" id="pvCareerViz">
+  <div class="pv-card pv-card-dark">
+    <div class="pv-eyebrow">Trayectoria UFC · Feb 2024 — May 2026</div>
+    <div class="pv-title">Una sola palabra: KO</div>
+    <div class="pv-subtitle">Cada nodo es una pelea. Hover sobre cualquiera para ver detalles.</div>
+    <div class="pv-career-track">
+      <div class="pv-career-line" id="pvCareerLine"></div>
+    </div>
+    <div class="pv-career-stats">
+      <div class="pv-career-stat">
+        <div class="pv-career-stat-num">7-1</div>
+        <div class="pv-career-stat-lbl">Record UFC</div>
+      </div>
+      <div class="pv-career-stat">
+        <div class="pv-career-stat-num pv-red">7x$100K</div>
+        <div class="pv-career-stat-lbl">Bonos Performance</div>
+      </div>
+      <div class="pv-career-stat">
+        <div class="pv-career-stat-num">~9 min</div>
+        <div class="pv-career-stat-lbl">Tiempo promedio en octagono</div>
+      </div>
+    </div>
+    <div class="pv-footnote">Ultima victoria por decision: <strong>diciembre 2019</strong>. 12 victorias consecutivas por KO/TKO. <strong>Prates no necesita jueces.</strong></div>
+  </div>
+</div>
+)}
+
+{section === 'ko-ranking' && (
+<div class="pv not-prose pv-reveal" id="pvKoRank">
+  <div class="pv-card pv-card-dark">
+    <div class="pv-eyebrow">Ranking historico</div>
+    <div class="pv-title">Prates entro al club en una fraccion del tiempo</div>
+    <div class="pv-subtitle">Hughes, Lawler y A. Johnson tardaron entre 8 y 15 anos para llegar a 7 KOs welterweight UFC. Prates lo hizo en 28 meses.</div>
+    <div class="pv-ko-rank-list" id="pvKoRank"></div>
+    <div class="pv-footnote">Prates tiene ademas los <strong>knockdowns por cada 15 min mas altos</strong> de la historia welterweight UFC: 2.1.</div>
+  </div>
+</div>
+)}
+
+<style is:global>
+  /* ================================================
+     PV — Prates Viz · Blog-integrated design
+     White/light base with dark accent cards
+     ================================================ */
+  .pv {
+    margin: 2.5rem 0;
+    width: 100%;
+  }
+
+  /* --- Cards --- */
+  .pv-card-dark {
+    background: #111;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+  }
+  .pv-card-light {
+    background: #f9f9f9;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    color: #111;
+  }
+  @media (max-width: 700px) {
+    .pv-card-dark, .pv-card-light { padding: 1.25rem 1rem; }
+  }
+
+  /* --- Typography --- */
+  .pv-eyebrow {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E53935;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .pv-title {
+    font-family: var(--font-display, Inter, sans-serif);
+    font-weight: 900;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+  .pv-title-dark { color: #111; }
+  .pv-subtitle {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 1.5rem;
+    max-width: 50ch;
+  }
+  .pv-subtitle-dark { color: #6b7280; }
+  .pv-footnote {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    line-height: 1.5;
+  }
+  .pv-footnote strong { color: #E53935; font-weight: 600; }
+  .pv-footnote-dark { color: #6b7280; border-top-color: #e5e7eb; }
+  .pv-footnote-dark strong { color: #E53935; }
+
+  .pv-red { color: #E53935 !important; }
+
+  /* --- Reveal animation --- */
+  .pv-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pv-reveal.pv-visible { opacity: 1; transform: translateY(0); }
+
+  /* --- Strike Map --- */
+  .pv-strike-map { display: flex; flex-direction: column; gap: 2rem; }
+  .pv-strike-fighter {
+    display: grid;
+    grid-template-columns: minmax(160px, 200px) 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .pv-strike-fighter { grid-template-columns: 1fr; gap: 0.75rem; }
+  }
+  .pv-strike-name {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #fff;
+  }
+  .pv-strike-nick {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-style: italic;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.2rem;
+  }
+  .pv-big-num {
+    font-family: var(--font-display, Inter, sans-serif);
+    font-weight: 900;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: #fff;
+    margin-top: 0.75rem;
+  }
+  .pv-big-lbl {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .pv-strike-dots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-content: flex-start;
+    min-height: 60px;
+  }
+  .pv-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.3s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .pv-dot-red { background: #E53935; box-shadow: 0 0 4px rgba(229,57,53,0.5); }
+  .pv-dot-gray { background: #555; }
+  .pv-dot.pv-visible { opacity: 1; transform: scale(1); }
+
+  /* --- Reach --- */
+  .pv-reach-canvas {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .pv-reach-canvas svg { width: 100%; height: 100%; }
+  @media (max-width: 700px) { .pv-reach-canvas { height: 260px; } }
+  .pv-reach-stat {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.25rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    margin-top: 1.25rem;
+  }
+  .pv-reach-side { text-align: center; }
+  .pv-reach-v {
+    font-family: var(--font-display, Inter, sans-serif);
+    font-weight: 900;
+    font-size: 2.2rem;
+    line-height: 1;
+    color: #fff;
+  }
+  .pv-reach-side.pv-red .pv-reach-v { color: #E53935; }
+  .pv-reach-l {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.2rem;
+  }
+  .pv-reach-gap {
+    text-align: center;
+    font-family: var(--font-display, Inter, sans-serif);
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: #E53935;
+  }
+
+  /* --- Attack Levels --- */
+  .pv-levels {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  @media (max-width: 800px) {
+    .pv-levels { grid-template-columns: 1fr; }
+    .pv-levels-body { order: -1; max-width: 220px; margin: 0 auto; }
+  }
+  .pv-levels-body { position: relative; aspect-ratio: 2/3; }
+  .pv-levels-body svg { width: 100%; height: 100%; }
+  .pv-levels-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .pv-level-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .pv-level-card:hover, .pv-level-card.pv-active {
+    border-color: #E53935;
+    background: rgba(229,57,53,0.08);
+  }
+  .pv-lvl-label {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E53935;
+  }
+  .pv-level-card h4 {
+    font-family: var(--font-display, Inter, sans-serif);
+    font-weight: 800;
+    font-size: 1rem;
+    color: #fff;
+    margin: 0.3rem 0 0;
+    border: none;
+    padding: 0;
+  }
+  .pv-level-card p {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+  }
+  .pv-moves { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.6rem; }
+  .pv-moves span {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.6rem;
+    padding: 0.15rem 0.4rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* --- Stacked Bars --- */
+  .pv-stacked-bars { display: flex; flex-direction: column; gap: 1.5rem; }
+  .pv-stacked-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .pv-stacked-row { grid-template-columns: 55px 1fr; gap: 0.5rem; }
+  }
+  .pv-rd {
+    font-family: var(--font-display, Inter, sans-serif);
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: #111;
+    text-align: right;
+  }
+  .pv-rd small {
+    display: block;
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.55rem;
+    color: #9ca3af;
+    font-weight: 400;
+    margin-top: 0.2rem;
+    letter-spacing: 0.1em;
+  }
+  .pv-stacked-track {
+    display: flex;
+    height: 44px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #e5e7eb;
+  }
+  .pv-stacked-seg {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.65rem;
+    color: #fff;
+    font-weight: 700;
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .pv-s1 { background: #6b7280; }
+  .pv-s2 { background: #f59e0b; }
+  .pv-s3 { background: #E53935; }
+  .pv-stacked-legend {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.7rem;
+    color: #6b7280;
+  }
+  .pv-stacked-legend span::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 0.3rem;
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+  .pv-l1::before { background: #6b7280; }
+  .pv-l2::before { background: #f59e0b; }
+  .pv-l3::before { background: #E53935; }
+
+  /* --- Round 3 Scrubber --- */
+  .pv-round-bar { position: relative; margin: 1.5rem 0; padding-bottom: 3.5rem; }
+  .pv-round-track {
+    position: relative;
+    height: 52px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    overflow: visible;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .pv-round-fill {
+    position: absolute; top: 0; left: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(229,57,53,0.15) 0%, rgba(229,57,53,0.5) 60%, rgba(229,57,53,0.9) 100%);
+    width: 0%;
+    transition: width 0.1s linear;
+    border-radius: 8px 0 0 8px;
+  }
+  .pv-round-marker {
+    position: absolute; top: -4px; bottom: -4px; width: 2px;
+    background: #E53935; cursor: pointer; z-index: 2;
+  }
+  .pv-round-marker::before {
+    content: ''; position: absolute; top: -6px; left: -5px;
+    width: 12px; height: 12px; background: #E53935; border-radius: 50%;
+    box-shadow: 0 0 8px rgba(229,57,53,0.5);
+  }
+  .pv-round-marker .pv-tip {
+    position: absolute; top: -48px; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-sans, Inter, sans-serif); font-size: 0.55rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #E53935; white-space: nowrap;
+  }
+  .pv-round-marker .pv-marker-lbl {
+    position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-sans, Inter, sans-serif); font-size: 0.65rem; color: #fff;
+    white-space: nowrap; background: rgba(255,255,255,0.05);
+    padding: 0.2rem 0.5rem; border-radius: 3px; border: 1px solid rgba(255,255,255,0.1);
+    max-width: 120px; text-align: center; line-height: 1.3;
+  }
+  .pv-round-handle {
+    position: absolute; top: 0; bottom: 0; width: 4px;
+    background: #fff; cursor: ew-resize; z-index: 3;
+    box-shadow: 0 0 12px rgba(255,255,255,0.3);
+    transition: left 0.05s linear;
+  }
+  .pv-round-handle::after {
+    content: ''; position: absolute; top: 50%; left: -8px; transform: translateY(-50%);
+    width: 20px; height: 20px; background: #fff; border-radius: 50%;
+    border: 3px solid #E53935;
+  }
+  .pv-round-time {
+    position: absolute; top: -24px; right: 0;
+    font-family: var(--font-sans, Inter, sans-serif); font-size: 0.8rem;
+    color: #fff; font-weight: 700;
+  }
+  .pv-round-controls {
+    display: flex; align-items: center; gap: 0.75rem; margin-top: 4.5rem;
+  }
+  .pv-round-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    color: #fff;
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .pv-round-btn:hover { background: #E53935; border-color: #E53935; }
+  .pv-round-event-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(229,57,53,0.3);
+    border-radius: 8px;
+    padding: 1.25rem;
+    min-height: 100px;
+  }
+  .pv-round-event-card .pv-ev-time {
+    font-family: var(--font-sans, Inter, sans-serif); font-size: 0.65rem;
+    letter-spacing: 0.12em; color: #E53935; font-weight: 700;
+  }
+  .pv-round-event-card .pv-ev-title {
+    font-family: var(--font-display, Inter, sans-serif); font-weight: 800; font-size: 1.2rem;
+    color: #fff; margin: 0.4rem 0;
+  }
+  .pv-round-event-card .pv-ev-desc {
+    font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.5;
+  }
+
+  /* --- Career Trajectory --- */
+  .pv-career-track {
+    position: relative; width: 100%; overflow-x: auto; padding: 2.5rem 0.5rem 3.5rem;
+  }
+  .pv-career-line { position: relative; min-width: 700px; height: 180px; }
+  .pv-career-line svg { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+  .pv-career-node {
+    position: absolute; width: 56px; height: 56px; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: var(--font-sans, Inter, sans-serif); font-weight: 900; font-size: 0.8rem;
+    color: #fff; z-index: 2; cursor: pointer; transition: transform 0.3s;
+    background: radial-gradient(circle at 35% 35%, #ff5b50, #8b0a0a);
+    box-shadow: 0 0 0 2px #111, 0 0 16px rgba(229,57,53,0.3);
+  }
+  .pv-career-node.pv-loss {
+    background: transparent; border: 2px dashed #555; color: #888;
+    box-shadow: none;
+  }
+  .pv-career-node.pv-final {
+    width: 70px; height: 70px; font-size: 0.9rem;
+    box-shadow: 0 0 0 3px #111, 0 0 24px rgba(229,57,53,0.6);
+    animation: pvPulse 2s infinite;
+  }
+  @keyframes pvPulse {
+    0%, 100% { box-shadow: 0 0 0 3px #111, 0 0 24px rgba(229,57,53,0.6); }
+    50% { box-shadow: 0 0 0 3px #111, 0 0 40px rgba(229,57,53,0.9); }
+  }
+  .pv-career-node:hover { transform: scale(1.12); }
+  .pv-career-node-label {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    margin-top: 0.4rem; text-align: center; white-space: nowrap;
+  }
+  .pv-career-node-label .pv-cn-name {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.7rem; font-weight: 600; color: rgba(255,255,255,0.8);
+  }
+  .pv-career-node-label .pv-cn-date {
+    font-size: 0.6rem; color: rgba(255,255,255,0.4); margin-top: 0.1rem;
+  }
+  .pv-career-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .pv-career-stat { text-align: center; }
+  .pv-career-stat-num {
+    font-family: var(--font-display, Inter, sans-serif);
+    font-weight: 900; font-size: 1.8rem; color: #fff; line-height: 1;
+  }
+  .pv-career-stat-lbl {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-top: 0.3rem;
+  }
+
+  /* --- KO Ranking --- */
+  .pv-ko-rank-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .pv-ko-rank-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 50px;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .pv-ko-rank-row { grid-template-columns: 90px 1fr 36px; }
+  }
+  .pv-ko-rank-name {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    text-align: right;
+  }
+  .pv-ko-rank-name.pv-active { color: #E53935; font-weight: 700; }
+  .pv-ko-rank-bar {
+    height: 26px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .pv-ko-rank-fill {
+    height: 100%; width: 0;
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+  }
+  .pv-ko-rank-fill.pv-fill-gray { background: linear-gradient(90deg, #555, #333); }
+  .pv-ko-rank-fill.pv-fill-red {
+    background: linear-gradient(90deg, #E53935, #8b0a0a);
+    box-shadow: 0 0 12px rgba(229,57,53,0.4);
+  }
+  .pv-ko-rank-fill .pv-yrs {
+    position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%);
+    font-family: var(--font-sans, Inter, sans-serif); font-size: 0.6rem; color: rgba(255,255,255,0.5);
+  }
+  .pv-ko-rank-count {
+    font-family: var(--font-display, Inter, sans-serif);
+    font-weight: 900; font-size: 1.2rem; color: rgba(255,255,255,0.4);
+  }
+  .pv-ko-rank-count.pv-active { color: #E53935; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const $ = (s: string, p: Element | Document = document) => p.querySelector(s);
+    const $$ = (s: string, p: Element | Document = document) => [...p.querySelectorAll(s)];
+    const fmt = (s: number) => `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+
+    // ===== DATA =====
+    const FIGHTS = [
+      { name: 'Giles', date: 'Feb 2024', method: 'KO', round: 'R2', ko: true },
+      { name: 'Radtke', date: 'Jun 2024', method: 'TKO', round: 'R1', ko: true },
+      { name: 'Li Jingliang', date: 'Ago 2024', method: 'KO', round: 'R2', ko: true },
+      { name: 'Magny', date: 'Nov 2024', method: 'KO', round: 'R1', ko: true },
+      { name: 'Garry', date: 'Abr 2025', method: 'L', round: 'Dec.', ko: false },
+      { name: 'Neal', date: 'Ago 2025', method: 'KO', round: 'R1', ko: true },
+      { name: 'Edwards', date: 'Nov 2025', method: 'KO', round: 'R2', ko: true },
+      { name: 'JDM', date: 'May 2026', method: 'TKO', round: 'R3', ko: true, final: true }
+    ];
+
+    const KO_RANKING = [
+      { name: 'Matt Brown', kos: 13, years: '15 anos', active: false },
+      { name: 'Thiago Alves', kos: 8, years: '14 anos', active: false },
+      { name: 'Li Jingliang', kos: 8, years: '11 anos', active: false },
+      { name: 'Matt Hughes', kos: 7, years: '10 anos', active: false },
+      { name: 'Robbie Lawler', kos: 7, years: '13 anos', active: false },
+      { name: 'A. Johnson', kos: 7, years: '8 anos', active: false },
+      { name: 'Carlos Prates', kos: 7, years: '28 meses', active: true }
+    ];
+
+    const ROUND3_EVENTS = [
+      { t: 30, label: 'Takedown', title: 'Intento de derribo desesperado',
+        desc: 'JDM intenta llevar la pelea al suelo por primera vez con urgencia real. Prates lo defiende sin esfuerzo.' },
+      { t: 60, label: 'Codo abre corte', title: 'Step-in elbow',
+        desc: 'Codo al paso entrando con rotacion completa de cadera. Abre un corte sobre el ojo de JDM.' },
+      { t: 90, label: 'Knockdown #1', title: 'Rodilla voladora',
+        desc: 'Una rodilla voladora derriba a Della Maddalena. Primer knockdown oficial. Prates lo deja levantarse.' },
+      { t: 120, label: 'Knockdown #2', title: 'Patada alta',
+        desc: 'Una patada alta pasa por encima de la guardia de JDM. Segundo derribo. Prates espera de nuevo.' },
+      { t: 165, label: 'Knockdown #3', title: 'Patada baja final',
+        desc: 'Otra patada baja lo derriba. Esta vez Prates no espera: lo sigue al suelo, conecta codos y golpes desde mount.' },
+      { t: 197, label: 'TKO 3:17', title: 'Mike Beltran detiene la pelea',
+        desc: 'El arbitro detiene la pelea. Della Maddalena queda ensangrentado en el suelo del octagono. The Nightmare se materializo.' }
+    ];
+
+    // ===== COUNT UP =====
+    function countUp(el: HTMLElement, target: number, dur = 1500) {
+      if (el.dataset.counted) return;
+      el.dataset.counted = '1';
+      const start = performance.now();
+      const step = (now: number) => {
+        const p = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = String(Math.round(target * ease));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    // ===== INTERSECTION OBSERVER =====
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        (e.target as HTMLElement).classList.add('pv-visible');
+
+        $$('.pv-count-up:not([data-counted])', e.target).forEach(el => {
+          countUp(el as HTMLElement, parseInt((el as HTMLElement).dataset.target || '0'));
+        });
+
+        $$('[data-width]:not([data-filled])', e.target).forEach(b => {
+          const bEl = b as HTMLElement;
+          bEl.dataset.filled = '1';
+          setTimeout(() => bEl.style.width = bEl.dataset.width + '%', 200);
+        });
+
+        if ((e.target as HTMLElement).id === 'pvStrikeMap') animateStrikes();
+        if ((e.target as HTMLElement).id === 'pvCareerViz') animateCareer();
+        if ((e.target as HTMLElement).id === 'pvStackedViz') animateStacked();
+
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.15 });
+
+    $$('.pv-reveal').forEach(el => io.observe(el));
+
+    // ===== STRIKE MAP =====
+    function buildStrikes() {
+      const pratesEl = $('#pvPratesDots');
+      const jdmEl = $('#pvJdmDots');
+      if (!pratesEl || !jdmEl) return;
+      for (let i = 0; i < 104; i++) {
+        const d = document.createElement('div');
+        d.className = 'pv-dot pv-dot-red';
+        pratesEl.appendChild(d);
+      }
+      for (let i = 0; i < 41; i++) {
+        const d = document.createElement('div');
+        d.className = 'pv-dot pv-dot-gray';
+        jdmEl.appendChild(d);
+      }
+    }
+    function animateStrikes() {
+      $$('#pvStrikeMap .pv-dot').forEach((d, i) => {
+        setTimeout(() => (d as HTMLElement).classList.add('pv-visible'), i * 12);
+      });
+    }
+    buildStrikes();
+
+    // ===== REACH SVG =====
+    function buildReach() {
+      const svg = $('#pvReachSvg');
+      if (!svg) return;
+      svg.innerHTML = `
+        <defs>
+          <linearGradient id="pvRGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#E53935" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#8b0a0a" stop-opacity="0.7"/>
+          </linearGradient>
+          <linearGradient id="pvBGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#2a2a32" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#4a90e2" stop-opacity="0.7"/>
+          </linearGradient>
+        </defs>
+        <line x1="40" y1="320" x2="760" y2="320" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="2,4"/>
+        <g transform="translate(180, 180)">
+          <ellipse cx="0" cy="60" rx="22" ry="10" fill="url(#pvRGrad)"/>
+          <rect x="-18" y="-20" width="36" height="80" rx="14" fill="url(#pvRGrad)"/>
+          <circle cx="0" cy="-32" r="16" fill="url(#pvRGrad)"/>
+          <line x1="14" y1="-10" x2="170" y2="0" stroke="url(#pvRGrad)" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="170" cy="0" r="10" fill="#E53935"/>
+          <line x1="-14" y1="-10" x2="-30" y2="-25" stroke="url(#pvRGrad)" stroke-width="8" stroke-linecap="round"/>
+          <line x1="-8" y1="60" x2="-12" y2="140" stroke="url(#pvRGrad)" stroke-width="10" stroke-linecap="round"/>
+          <line x1="8" y1="60" x2="14" y2="140" stroke="url(#pvRGrad)" stroke-width="10" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(620, 180)">
+          <ellipse cx="0" cy="60" rx="22" ry="10" fill="url(#pvBGrad)"/>
+          <rect x="-18" y="-20" width="36" height="80" rx="14" fill="url(#pvBGrad)"/>
+          <circle cx="0" cy="-32" r="16" fill="url(#pvBGrad)"/>
+          <line x1="-14" y1="-10" x2="-130" y2="0" stroke="url(#pvBGrad)" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="-130" cy="0" r="10" fill="#4a90e2"/>
+          <line x1="14" y1="-10" x2="30" y2="-25" stroke="url(#pvBGrad)" stroke-width="8" stroke-linecap="round"/>
+          <line x1="-8" y1="60" x2="-12" y2="140" stroke="url(#pvBGrad)" stroke-width="10" stroke-linecap="round"/>
+          <line x1="8" y1="60" x2="14" y2="140" stroke="url(#pvBGrad)" stroke-width="10" stroke-linecap="round"/>
+        </g>
+        <g class="pv-gap-label" style="opacity:0;transition:opacity 1s 0.5s">
+          <rect x="380" y="155" width="80" height="36" rx="4" fill="#111" stroke="#E53935"/>
+          <text x="420" y="170" fill="#E53935" text-anchor="middle" font-family="monospace" font-size="10" font-weight="700">+13 CM</text>
+          <text x="420" y="184" fill="#888" text-anchor="middle" font-family="monospace" font-size="9">REACH</text>
+        </g>
+        <g class="pv-measure" style="opacity:0;transition:opacity 1s">
+          <line x1="180" y1="60" x2="350" y2="60" stroke="#E53935" stroke-width="1.5"/>
+          <line x1="180" y1="55" x2="180" y2="65" stroke="#E53935" stroke-width="1.5"/>
+          <line x1="350" y1="55" x2="350" y2="65" stroke="#E53935" stroke-width="1.5"/>
+          <text x="265" y="50" fill="#E53935" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700">198 CM</text>
+          <line x1="620" y1="60" x2="490" y2="60" stroke="#4a90e2" stroke-width="1.5"/>
+          <line x1="620" y1="55" x2="620" y2="65" stroke="#4a90e2" stroke-width="1.5"/>
+          <line x1="490" y1="55" x2="490" y2="65" stroke="#4a90e2" stroke-width="1.5"/>
+          <text x="555" y="50" fill="#4a90e2" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700">185 CM</text>
+        </g>
+        <text x="180" y="400" fill="#E53935" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="2">PRATES</text>
+        <text x="620" y="400" fill="#4a90e2" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" letter-spacing="2">DELLA MADDALENA</text>
+      `;
+      setTimeout(() => {
+        const m = svg.querySelector('.pv-measure') as SVGElement;
+        const g = svg.querySelector('.pv-gap-label') as SVGElement;
+        if (m) m.style.opacity = '1';
+        if (g) g.style.opacity = '1';
+      }, 1200);
+    }
+    buildReach();
+
+    // ===== ATTACK LEVELS =====
+    function buildLevels() {
+      const svg = $('#pvLevelsSvg');
+      if (!svg) return;
+      svg.innerHTML = `
+        <defs>
+          <linearGradient id="pvLBody" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#1a1a24"/><stop offset="100%" stop-color="#0b0b0d"/>
+          </linearGradient>
+          <marker id="pvArrR" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M 0 0 L 6 3 L 0 6 Z" fill="#E53935"/>
+          </marker>
+          <marker id="pvArrO" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M 0 0 L 6 3 L 0 6 Z" fill="#f59e0b"/>
+          </marker>
+        </defs>
+        <circle cx="100" cy="35" r="22" fill="url(#pvLBody)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <path d="M 75 60 Q 100 55 125 60 L 130 130 L 70 130 Z" fill="url(#pvLBody)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <path d="M 70 130 L 130 130 L 132 165 L 68 165 Z" fill="url(#pvLBody)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <rect x="73" y="165" width="22" height="105" fill="url(#pvLBody)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <rect x="105" y="165" width="22" height="105" fill="url(#pvLBody)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <g class="pv-zone pv-zone-high" data-level="high">
+          <rect x="10" y="10" width="180" height="55" fill="rgba(229,57,53,0.05)" stroke="#E53935" stroke-width="1" stroke-dasharray="3,3" opacity="0"/>
+          <text x="195" y="40" fill="#E53935" font-family="monospace" font-size="9" font-weight="700" letter-spacing="2" opacity="0">ALTO</text>
+          <g class="pv-arrows-high" opacity="0">
+            <path d="M 220 35 L 145 35" stroke="#E53935" stroke-width="2" fill="none" marker-end="url(#pvArrR)"/>
+            <text x="225" y="38" fill="#E53935" font-family="monospace" font-size="8">RECTO ZURDA</text>
+            <path d="M 220 55 L 130 55" stroke="#E53935" stroke-width="2" fill="none" marker-end="url(#pvArrR)"/>
+            <text x="225" y="58" fill="#E53935" font-family="monospace" font-size="8">CODO AL PASO</text>
+          </g>
+        </g>
+        <g class="pv-zone pv-zone-mid" data-level="mid">
+          <rect x="10" y="65" width="180" height="100" fill="rgba(245,158,11,0.04)" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,3" opacity="0"/>
+          <text x="195" y="115" fill="#f59e0b" font-family="monospace" font-size="9" font-weight="700" letter-spacing="2" opacity="0">MEDIO</text>
+          <g class="pv-arrows-mid" opacity="0">
+            <path d="M 220 100 L 135 100" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#pvArrO)"/>
+            <text x="225" y="103" fill="#f59e0b" font-family="monospace" font-size="8">PATADA HIGADO</text>
+            <path d="M 220 130 L 135 130" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#pvArrO)"/>
+            <text x="225" y="133" fill="#f59e0b" font-family="monospace" font-size="8">RODILLA CENTRO</text>
+          </g>
+        </g>
+        <g class="pv-zone pv-zone-low" data-level="low">
+          <rect x="10" y="165" width="180" height="105" fill="rgba(229,57,53,0.06)" stroke="#E53935" stroke-width="1" stroke-dasharray="3,3" opacity="0"/>
+          <text x="195" y="225" fill="#E53935" font-family="monospace" font-size="9" font-weight="700" letter-spacing="2" opacity="0">BAJO</text>
+          <g class="pv-arrows-low" opacity="0">
+            <path d="M 220 220 L 145 220" stroke="#E53935" stroke-width="2.5" fill="none" marker-end="url(#pvArrR)"/>
+            <text x="225" y="223" fill="#E53935" font-family="monospace" font-size="8" font-weight="700">CALF KICK</text>
+            <path d="M 220 250 L 145 250" stroke="#E53935" stroke-width="2" fill="none" marker-end="url(#pvArrR)"/>
+            <text x="225" y="253" fill="#E53935" font-family="monospace" font-size="8">LOW KICK MT</text>
+          </g>
+        </g>
+      `;
+
+      function highlightLevel(lvl: string) {
+        $$('.pv-level-card').forEach(c => (c as HTMLElement).classList.toggle('pv-active', (c as HTMLElement).dataset.lvl === lvl));
+        const showAll = lvl === 'all';
+        ['high', 'mid', 'low'].forEach(l => {
+          const z = svg!.querySelector(`.pv-zone-${l}`);
+          if (!z) return;
+          const active = showAll || lvl === l;
+          z.querySelectorAll('rect, text, path, g').forEach(el => {
+            (el as SVGElement).style.transition = 'opacity 0.4s';
+            (el as SVGElement).style.opacity = active ? '1' : '0.15';
+          });
+        });
+      }
+
+      $$('.pv-level-card').forEach(card => {
+        card.addEventListener('mouseenter', () => highlightLevel((card as HTMLElement).dataset.lvl || ''));
+        card.addEventListener('click', () => highlightLevel((card as HTMLElement).dataset.lvl || ''));
+      });
+      setTimeout(() => highlightLevel('low'), 800);
+      setTimeout(() => highlightLevel('mid'), 1800);
+      setTimeout(() => highlightLevel('high'), 2800);
+      setTimeout(() => highlightLevel('all'), 3800);
+    }
+    buildLevels();
+
+    // ===== STACKED BARS =====
+    function animateStacked() {
+      $$('.pv-stacked-seg').forEach((seg, i) => {
+        setTimeout(() => (seg as HTMLElement).style.width = (seg as HTMLElement).dataset.width + '%', 200 + i * 100);
+      });
+    }
+
+    // ===== ROUND 3 SCRUBBER =====
+    function buildScrubber() {
+      const totalSec = 197;
+      const track = $('#pvRoundTrack') as HTMLElement;
+      if (!track) return;
+      const fill = track.querySelector('.pv-round-fill') as HTMLElement;
+      const handle = track.querySelector('.pv-round-handle') as HTMLElement;
+      const time = track.querySelector('.pv-round-time') as HTMLElement;
+      const eventCard = $('#pvEventCard') as HTMLElement;
+
+      ROUND3_EVENTS.forEach((e, i) => {
+        const m = document.createElement('div');
+        m.className = 'pv-round-marker';
+        m.style.left = (e.t / totalSec * 100) + '%';
+        m.dataset.idx = String(i);
+        m.innerHTML = `<span class="pv-tip">${fmt(e.t)}</span><span class="pv-marker-lbl">${e.label}</span>`;
+        track.appendChild(m);
+        m.addEventListener('click', () => setTime(e.t));
+      });
+
+      let current = 0;
+      let playing = false;
+      let raf: number | null = null;
+      let lastT = 0;
+
+      function setTime(s: number) {
+        current = Math.max(0, Math.min(totalSec, s));
+        const pct = current / totalSec * 100;
+        fill.style.width = pct + '%';
+        handle.style.left = pct + '%';
+        time.textContent = fmt(Math.round(current));
+        let idx = -1;
+        ROUND3_EVENTS.forEach((e, i) => { if (current >= e.t - 2) idx = i; });
+        if (idx >= 0) {
+          const e = ROUND3_EVENTS[idx];
+          eventCard.innerHTML = `<div class="pv-ev-time">${fmt(e.t)} · ${e.label}</div><div class="pv-ev-title">${e.title}</div><div class="pv-ev-desc">${e.desc}</div>`;
+        } else {
+          eventCard.innerHTML = `<div class="pv-ev-time">0:00</div><div class="pv-ev-title">Comienza el Round 3</div><div class="pv-ev-desc">Della Maddalena ya esta comprometido. La pierna delantera no responde. Tiene sangre en la cara. Suena la campana del tercero.</div>`;
+        }
+      }
+
+      function play() {
+        if (playing) { stop(); return; }
+        if (current >= totalSec) current = 0;
+        playing = true;
+        const btn = $('#pvPlayBtn') as HTMLElement;
+        if (btn) btn.textContent = '⏸ Pausar';
+        lastT = performance.now();
+        const tick = (now: number) => {
+          if (!playing) return;
+          const dt = (now - lastT) / 1000;
+          lastT = now;
+          setTime(current + dt * 8);
+          if (current >= totalSec) { stop(); return; }
+          raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+      }
+      function stop() {
+        playing = false;
+        const btn = $('#pvPlayBtn') as HTMLElement;
+        if (btn) btn.textContent = '▶ Reproducir Round 3';
+        if (raf) cancelAnimationFrame(raf);
+      }
+
+      const playBtn = $('#pvPlayBtn');
+      const resetBtn = $('#pvResetBtn');
+      if (playBtn) playBtn.addEventListener('click', play);
+      if (resetBtn) resetBtn.addEventListener('click', () => { stop(); setTime(0); });
+
+      let dragging = false;
+      const startDrag = () => { dragging = true; stop(); };
+      const stopDrag = () => { dragging = false; };
+      const onDrag = (clientX: number) => {
+        if (!dragging) return;
+        const rect = track.getBoundingClientRect();
+        const pct = (clientX - rect.left) / rect.width;
+        setTime(pct * totalSec);
+      };
+      track.addEventListener('mousedown', (e) => { startDrag(); onDrag(e.clientX); });
+      document.addEventListener('mousemove', (e) => onDrag(e.clientX));
+      document.addEventListener('mouseup', stopDrag);
+      track.addEventListener('touchstart', (e) => { startDrag(); onDrag(e.touches[0].clientX); });
+      track.addEventListener('touchmove', (e) => onDrag(e.touches[0].clientX));
+      track.addEventListener('touchend', stopDrag);
+
+      setTime(0);
+    }
+    buildScrubber();
+
+    // ===== CAREER TRAJECTORY =====
+    function buildCareer() {
+      const wrap = $('#pvCareerLine') as HTMLElement;
+      if (!wrap) return;
+      const W = 700, H = 180;
+      const stepX = W / (FIGHTS.length + 1);
+
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+      let path = '';
+      FIGHTS.forEach((f, i) => {
+        const x = stepX * (i + 1);
+        const y = H / 2 + (Math.sin(i * 0.8) * 10);
+        if (i === 0) path += `M ${x} ${y} `;
+        else path += `L ${x} ${y} `;
+      });
+      svg.innerHTML = `
+        <defs>
+          <linearGradient id="pvCareerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.1)"/>
+            <stop offset="100%" stop-color="#E53935"/>
+          </linearGradient>
+        </defs>
+        <path d="${path}" stroke="url(#pvCareerGrad)" stroke-width="2" fill="none" stroke-dasharray="600" stroke-dashoffset="600" class="pv-career-path"/>
+      `;
+      wrap.appendChild(svg);
+
+      FIGHTS.forEach((f, i) => {
+        const node = document.createElement('div');
+        const classes = ['pv-career-node'];
+        if (!f.ko) classes.push('pv-loss');
+        if ((f as any).final) classes.push('pv-final');
+        node.className = classes.join(' ');
+        const x = stepX * (i + 1);
+        const y = H / 2 + (Math.sin(i * 0.8) * 10);
+        node.style.left = `calc(${(x/W)*100}% - 28px)`;
+        node.style.top = (y - 28) + 'px';
+        node.style.opacity = '0';
+        node.style.transform = 'scale(0)';
+        node.innerHTML = `<span>${f.method}</span>`;
+        const lbl = document.createElement('div');
+        lbl.className = 'pv-career-node-label';
+        lbl.innerHTML = `<div class="pv-cn-name">${f.name}</div><div class="pv-cn-date">${f.date} · ${f.round}</div>`;
+        node.appendChild(lbl);
+        wrap.appendChild(node);
+      });
+    }
+    function animateCareer() {
+      const path = $('.pv-career-path') as SVGElement;
+      if (path) {
+        path.style.transition = 'stroke-dashoffset 2s ease';
+        path.style.strokeDashoffset = '0';
+      }
+      $$('.pv-career-node').forEach((n, i) => {
+        setTimeout(() => {
+          (n as HTMLElement).style.transition = 'opacity 0.4s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          (n as HTMLElement).style.opacity = '1';
+          (n as HTMLElement).style.transform = 'scale(1)';
+        }, 200 + i * 200);
+      });
+    }
+    buildCareer();
+
+    // ===== KO RANKING =====
+    function buildKoRank() {
+      const wrap = $('#pvKoRank') as HTMLElement;
+      if (!wrap) return;
+      const max = 13;
+      KO_RANKING.forEach(r => {
+        const row = document.createElement('div');
+        row.className = 'pv-ko-rank-row';
+        const pct = (r.kos / max * 100).toFixed(0);
+        row.innerHTML = `
+          <div class="pv-ko-rank-name ${r.active ? 'pv-active' : ''}">${r.name}</div>
+          <div class="pv-ko-rank-bar">
+            <div class="pv-ko-rank-fill ${r.active ? 'pv-fill-red' : 'pv-fill-gray'}" data-width="${pct}">
+              <span class="pv-yrs">${r.years}</span>
+            </div>
+          </div>
+          <div class="pv-ko-rank-count ${r.active ? 'pv-active' : ''}">${r.kos}</div>
+        `;
+        wrap.appendChild(row);
+      });
+    }
+    buildKoRank();
+  });
+</script>
