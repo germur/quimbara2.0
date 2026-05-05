@@ -60,7 +60,7 @@ const eventSchema = {
   "performer": hasFight ? [
     { "@type": "Person", "name": f1 },
     { "@type": "Person", "name": f2 }
-  ] : undefined,
+  ] : [{ "@type": "Organization", "name": "UFC", "url": "https://www.ufc.com" }],
   "description": `${event.name} — ${hasFight ? `Pelea principal: ${f1} vs. ${f2}.` : 'Cartel por confirmar.'} ${event.dateLabel} en ${event.loc}.`,
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode"
