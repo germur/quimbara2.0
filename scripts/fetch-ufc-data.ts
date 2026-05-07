@@ -116,9 +116,19 @@ type EventRow = {
   slug: string; name: string; date: string; dateLabel: string;
   loc: string; main: string; bg: string; color: string;
 };
+type FightCardEntry = {
+  f1: string; f1Id: string;
+  f2: string; f2Id: string;
+  weightClass: string;
+  bout: string;
+  order: number;
+};
+
 type EventRowFull = Omit<EventRow, 'bg' | 'color'> & {
   f1: string; f1img: string;
   f2: string; f2img: string;
+  fightCard?: FightCardEntry[];
+  espnEventId?: string;
 };
 
 function parseDate(raw: string) {
@@ -220,6 +230,95 @@ async function fetchEvents() {
   writeJson('events.json', events);
   console.log(`✓ events.json (${events.length} para el home)`);
   events.forEach(e => console.log(`   · ${e.name} — ${e.main} (${e.dateLabel})`));
+}
+
+// ─── FIGHT CARDS (Wikipedia individual event pages) ─────────────────────────
+
+function wikiEventUrl(event: EventRowFull): string {
+  // PPV: "UFC 328" → https://en.wikipedia.org/wiki/UFC_328
+  if (/^UFC \d+$/.test(event.name)) {
+    return `https://en.wikipedia.org/wiki/${event.name.replace(/ /g, '_')}`;
+  }
+  // Fight Night: "UFC Fight Night" + main "Allen vs. Costa"
+  // → https://en.wikipedia.org/wiki/UFC_Fight_Night:_Allen_vs._Costa
+  const title = `${event.name}: ${event.main}`.replace(/ /g, '_');
+  return `https://en.wikipedia.org/wiki/${title}`;
+}
+
+async function scrapeFightCard(event: EventRowFull): Promise<FightCardEntry[]> {
+  if (event.main === 'TBD') return [];
+  const url = wikiEventUrl(event);
+  try {
+    const $ = await fetchHtml(url);
+    const fights: FightCardEntry[] = [];
+    let boutType = 'maincard';
+    let order = 0;
+
+    // La tabla de cartelera en Wikipedia usa class="toccolours" (no wikitable)
+    $('table.toccolours, table.wikitable').each((_, table) => {
+      $(table).find('tr').each((_, tr) => {
+        // Detectar cabeceras de sección (Fight card / Preliminary card / Early prelims)
+        const sectionTh = $(tr).find('th[colspan]');
+        if (sectionTh.length) {
+          const txt = sectionTh.text().toLowerCase();
+          if (txt.includes('early')) boutType = 'early_prelim';
+          else if (txt.includes('prelim')) boutType = 'prelim';
+          else if (txt.includes('fight card') || txt.includes('main card')) boutType = 'maincard';
+          return;
+        }
+
+        const cells = $(tr).find('td');
+        if (cells.length < 4) return;
+        // Col 2 debe ser "vs." para ser una fila de pelea
+        if (!$(cells[2]).text().includes('vs')) return;
+
+        const weightClass = clean($(cells[0]).text());
+        // Quitar "(c)" de campeones
+        const f1 = clean($(cells[1]).text()).replace(/\s*\([cC]\)\s*/g, '').trim();
+        const f2 = clean($(cells[3]).text()).replace(/\s*\([cC]\)\s*/g, '').trim();
+        if (!f1 || !f2) return;
+
+        const bout = order === 0 ? 'Main Event' : order === 1 ? 'Co-Main Event' : boutType;
+        fights.push({ f1, f1Id: '', f2, f2Id: '', weightClass, bout, order });
+        order++;
+      });
+    });
+
+    return fights;
+  } catch (err) {
+    console.warn(`   ⚠ Wiki ${event.name}: ${(err as Error).message}`);
+    return [];
+  }
+}
+
+async function fetchFightCards() {
+  const events: EventRowFull[] = readJson<EventRowFull>('events-all.json');
+  if (!events.length) { console.log('  Sin eventos en events-all.json'); return; }
+
+  let enriched = 0;
+  for (const event of events) {
+    if (event.main === 'TBD') continue;
+
+    // Reutilizar si ya tiene cartelera
+    if (event.fightCard?.length) {
+      console.log(`   · (cached) ${event.name}: ${event.fightCard.length} peleas`);
+      continue;
+    }
+
+    const card = await scrapeFightCard(event);
+    if (card.length) {
+      event.fightCard = card;
+      enriched++;
+      console.log(`   ✓ ${event.name}: ${card.length} peleas`);
+      card.slice(0, 3).forEach(f => console.log(`      · ${f.f1} vs. ${f.f2} (${f.weightClass})`));
+    } else {
+      console.log(`   · ${event.name}: sin cartelera en Wikipedia todavía`);
+    }
+    await sleep(800);
+  }
+
+  writeJson('events-all.json', events);
+  console.log(`✓ events-all.json enriquecido (${enriched} eventos con cartelera)`);
 }
 
 // ─── FIGHTERS / CHAMPIONS (Wikipedia + MMAAPI) ──────────────────────────────
@@ -539,9 +638,10 @@ async function fetchResults() {
 
 async function main() {
   const tasks = [
-    { name: 'Events',   fn: fetchEvents   },
-    { name: 'Fighters', fn: fetchFighters },
-    { name: 'Results',  fn: fetchResults  },
+    { name: 'Events',      fn: fetchEvents      },
+    { name: 'Fight Cards', fn: fetchFightCards  },
+    { name: 'Fighters',    fn: fetchFighters    },
+    { name: 'Results',     fn: fetchResults     },
   ];
 
   let failed = 0;

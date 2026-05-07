@@ -9,7 +9,126 @@
     "f1": "Chimaev",
     "f1img": "/fighters/ufc-328-2026-05-09-f1.png",
     "f2": "Strickland",
-    "f2img": "/fighters/ufc-328-2026-05-09-f2.png"
+    "f2img": "/fighters/ufc-328-2026-05-09-f2.png",
+    "fightCard": [
+      {
+        "f1": "Khamzat Chimaev",
+        "f1Id": "",
+        "f2": "Sean Strickland",
+        "f2Id": "",
+        "weightClass": "Middleweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Joshua Van",
+        "f1Id": "",
+        "f2": "Tatsuro Taira",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Alexander Volkov",
+        "f1Id": "",
+        "f2": "Waldo Cortes-Acosta",
+        "f2Id": "",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Sean Brady",
+        "f1Id": "",
+        "f2": "Joaquin Buckley",
+        "f2Id": "",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "King Green",
+        "f1Id": "",
+        "f2": "Jeremy Stephens",
+        "f2Id": "",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Ateba Gautier",
+        "f1Id": "",
+        "f2": "Osman Diaz",
+        "f2Id": "",
+        "weightClass": "Middleweight",
+        "bout": "prelim",
+        "order": 5
+      },
+      {
+        "f1": "Joel Álvarez",
+        "f1Id": "",
+        "f2": "Yaroslav Amosov",
+        "f2Id": "",
+        "weightClass": "Welterweight",
+        "bout": "prelim",
+        "order": 6
+      },
+      {
+        "f1": "Grant Dawson",
+        "f1Id": "",
+        "f2": "Mateusz Rębecki",
+        "f2Id": "",
+        "weightClass": "Lightweight",
+        "bout": "prelim",
+        "order": 7
+      },
+      {
+        "f1": "Jim Miller",
+        "f1Id": "",
+        "f2": "Jared Gordon",
+        "f2Id": "",
+        "weightClass": "Lightweight",
+        "bout": "prelim",
+        "order": 8
+      },
+      {
+        "f1": "Roman Kopylov",
+        "f1Id": "",
+        "f2": "Marco Tulio",
+        "f2Id": "",
+        "weightClass": "Middleweight",
+        "bout": "early_prelim",
+        "order": 9
+      },
+      {
+        "f1": "Pat Sabatini",
+        "f1Id": "",
+        "f2": "William Gomis",
+        "f2Id": "",
+        "weightClass": "Featherweight",
+        "bout": "early_prelim",
+        "order": 10
+      },
+      {
+        "f1": "Baisangur Susurkaev",
+        "f1Id": "",
+        "f2": "Djorden Santos",
+        "f2Id": "",
+        "weightClass": "Middleweight",
+        "bout": "early_prelim",
+        "order": 11
+      },
+      {
+        "f1": "Clayton Carpenter",
+        "f1Id": "",
+        "f2": "Jose Ochoa",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "early_prelim",
+        "order": 12
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-2026-05-16",
@@ -21,7 +140,126 @@
     "f1": "Allen",
     "f1img": "/fighters/ufc-fight-night-2026-05-16-f1.png",
     "f2": "Costa",
-    "f2img": "/fighters/ufc-fight-night-2026-05-16-f2.png"
+    "f2img": "/fighters/ufc-fight-night-2026-05-16-f2.png",
+    "fightCard": [
+      {
+        "f1": "Arnold Allen",
+        "f1Id": "",
+        "f2": "Melquizael Costa",
+        "f2Id": "",
+        "weightClass": "Featherweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Choi Doo-ho",
+        "f1Id": "",
+        "f2": "Daniel Santos",
+        "f2Id": "",
+        "weightClass": "Featherweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Malcolm Wellmaker",
+        "f1Id": "",
+        "f2": "Juan Díaz",
+        "f2Id": "",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Modestas Bukauskas",
+        "f1Id": "",
+        "f2": "Rodolfo Bellato",
+        "f2Id": "",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Timothy Cuamba",
+        "f1Id": "",
+        "f2": "Bernardo Sopaj",
+        "f2Id": "",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Jeremiah Wells",
+        "f1Id": "",
+        "f2": "Nicolas Dalby",
+        "f2Id": "",
+        "weightClass": "Welterweight",
+        "bout": "prelim",
+        "order": 5
+      },
+      {
+        "f1": "Tuco Tokkos",
+        "f1Id": "",
+        "f2": "Ivan Erslan",
+        "f2Id": "",
+        "weightClass": "Light Heavyweight",
+        "bout": "prelim",
+        "order": 6
+      },
+      {
+        "f1": "Trey Ogden",
+        "f1Id": "",
+        "f2": "Thomas Gantt",
+        "f2Id": "",
+        "weightClass": "Lightweight",
+        "bout": "prelim",
+        "order": 7
+      },
+      {
+        "f1": "Ketlen Vieira",
+        "f1Id": "",
+        "f2": "Jacqueline Cavalcanti",
+        "f2Id": "",
+        "weightClass": "Women's Bantamweight",
+        "bout": "prelim",
+        "order": 8
+      },
+      {
+        "f1": "Cody Brundage",
+        "f1Id": "",
+        "f2": "Andre Petroski",
+        "f2Id": "",
+        "weightClass": "Middleweight",
+        "bout": "prelim",
+        "order": 9
+      },
+      {
+        "f1": "Alice Ardelean",
+        "f1Id": "",
+        "f2": "Polyana Viana",
+        "f2Id": "",
+        "weightClass": "Women's Strawweight",
+        "bout": "prelim",
+        "order": 10
+      },
+      {
+        "f1": "Daniel Barez",
+        "f1Id": "",
+        "f2": "Luis Gurule",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "prelim",
+        "order": 11
+      },
+      {
+        "f1": "Shauna Bannon",
+        "f1Id": "",
+        "f2": "Nicolle Caliari",
+        "f2Id": "",
+        "weightClass": "Women's Strawweight",
+        "bout": "prelim",
+        "order": 12
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-2026-05-30",
@@ -33,7 +271,117 @@
     "f1": "Song",
     "f1img": "/fighters/ufc-fight-night-2026-05-30-f1.png",
     "f2": "Figueiredo",
-    "f2img": "/fighters/ufc-fight-night-2026-05-30-f2.png"
+    "f2img": "/fighters/ufc-fight-night-2026-05-30-f2.png",
+    "fightCard": [
+      {
+        "f1": "Song Yadong",
+        "f1Id": "",
+        "f2": "Deiveson Figueiredo",
+        "f2Id": "",
+        "weightClass": "Bantamweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Zhang Mingyang",
+        "f1Id": "",
+        "f2": "Alonzo Menifield",
+        "f2Id": "",
+        "weightClass": "Light Heavyweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Sergei Pavlovich",
+        "f1Id": "",
+        "f2": "Tallison Teixeira",
+        "f2Id": "",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Kai Asakura",
+        "f1Id": "",
+        "f2": "Cameron Smotherman",
+        "f2Id": "",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Zhu Kangjie",
+        "f1Id": "",
+        "f2": "Ramon Taveras",
+        "f2Id": "",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Alex Perez",
+        "f1Id": "",
+        "f2": "Su Mudaerji",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Muslim Salikhov",
+        "f1Id": "",
+        "f2": "Jake Matthews",
+        "f2Id": "",
+        "weightClass": "Welterweight",
+        "bout": "prelim",
+        "order": 6
+      },
+      {
+        "f1": "Lee Yi-sak",
+        "f1Id": "",
+        "f2": "Luis Felipe Dias",
+        "f2Id": "",
+        "weightClass": "Middleweight",
+        "bout": "prelim",
+        "order": 7
+      },
+      {
+        "f1": "Aori Qileng",
+        "f1Id": "",
+        "f2": "Cody Haddon",
+        "f2Id": "",
+        "weightClass": "Bantamweight",
+        "bout": "prelim",
+        "order": 8
+      },
+      {
+        "f1": "Rei Tsuruya",
+        "f1Id": "",
+        "f2": "Jesús Santos Aguilar",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "prelim",
+        "order": 9
+      },
+      {
+        "f1": "Angela Hill",
+        "f1Id": "",
+        "f2": "Xiong Jingnan",
+        "f2Id": "",
+        "weightClass": "Women's Strawweight",
+        "bout": "prelim",
+        "order": 10
+      },
+      {
+        "f1": "Loma Lookboonmee",
+        "f1Id": "",
+        "f2": "Jaqueline Amorim",
+        "f2Id": "",
+        "weightClass": "Women's Strawweight",
+        "bout": "prelim",
+        "order": 11
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-2026-06-06",
@@ -45,7 +393,108 @@
     "f1": "Muhammad",
     "f1img": "/fighters/ufc-fight-night-2026-06-06-f1.png",
     "f2": "Bonfim",
-    "f2img": "/fighters/ufc-fight-night-2026-06-06-f2.png"
+    "f2img": "/fighters/ufc-fight-night-2026-06-06-f2.png",
+    "fightCard": [
+      {
+        "f1": "Belal Muhammad",
+        "f1Id": "",
+        "f2": "Gabriel Bonfim",
+        "f2Id": "",
+        "weightClass": "Welterweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Brendan Allen",
+        "f1Id": "",
+        "f2": "Edmen Shahbazyan",
+        "f2Id": "",
+        "weightClass": "Middleweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Bryce Mitchell",
+        "f1Id": "",
+        "f2": "Victor Henry",
+        "f2Id": "",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Iwo Baraniewski",
+        "f1Id": "",
+        "f2": "Billy Elekana",
+        "f2Id": "",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Imanol Rodríguez",
+        "f1Id": "",
+        "f2": "Matt Schnell",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Bruno Gustavo da Silva",
+        "f1Id": "",
+        "f2": "Édgar Cháirez",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Jordan Leavitt",
+        "f1Id": "",
+        "f2": "Joanderson Brito",
+        "f2Id": "",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 6
+      },
+      {
+        "f1": "Farès Ziam",
+        "f1Id": "",
+        "f2": "Tom Nolan",
+        "f2Id": "",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 7
+      },
+      {
+        "f1": "Ketlen Souza",
+        "f1Id": "",
+        "f2": "Ariane Carnelossi",
+        "f2Id": "",
+        "weightClass": "Women's Strawweight",
+        "bout": "maincard",
+        "order": 8
+      },
+      {
+        "f1": "Priscila Cachoeira",
+        "f1Id": "",
+        "f2": "Chelsea Chandler",
+        "f2Id": "",
+        "weightClass": "Women's Bantamweight",
+        "bout": "maincard",
+        "order": 9
+      },
+      {
+        "f1": "Jeisla Chaves",
+        "f1Id": "",
+        "f2": "Yuneisy Duben",
+        "f2Id": "",
+        "weightClass": "Women's Flyweight",
+        "bout": "maincard",
+        "order": 10
+      }
+    ]
   },
   {
     "slug": "ufc-freedom-250-2026-06-14",
@@ -60,28 +509,104 @@
     "f2img": ""
   },
   {
-    "slug": "ufc-fight-night-279-2026-06-20",
-    "name": "UFC Fight Night 279",
-    "main": "TBD",
+    "slug": "ufc-fight-night-2026-06-20",
+    "name": "UFC Fight Night",
+    "main": "Kape vs. Horiguchi",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-06-20",
     "dateLabel": "20 jun 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": ""
+    "f1": "Kape",
+    "f1img": "/fighters/ufc-fight-night-2026-06-20-f1.png",
+    "f2": "Horiguchi",
+    "f2img": "/fighters/ufc-fight-night-2026-06-20-f2.png",
+    "fightCard": [
+      {
+        "f1": "Manel Kape",
+        "f1Id": "",
+        "f2": "Kyoji Horiguchi",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Ion Cuțelaba",
+        "f1Id": "",
+        "f2": "Navajo Stirling",
+        "f2Id": "",
+        "weightClass": "Light Heavyweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "André Lima",
+        "f1Id": "",
+        "f2": "Kevin Borjas",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Hyder Amil",
+        "f1Id": "",
+        "f2": "Christian Rodriguez",
+        "f2Id": "",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Beatriz Mesquita",
+        "f1Id": "",
+        "f2": "Melissa Mullins",
+        "f2Id": "",
+        "weightClass": "Women's Bantamweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Allan Nascimento",
+        "f1Id": "",
+        "f2": "Mitch Raposo",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 5
+      }
+    ]
   },
   {
-    "slug": "ufc-fight-night-280-2026-06-27",
-    "name": "UFC Fight Night 280",
-    "main": "TBD",
+    "slug": "ufc-fight-night-2026-06-27",
+    "name": "UFC Fight Night",
+    "main": "Fiziev vs. Torres",
     "loc": "Baku, Azerbaijan",
     "date": "2026-06-27",
     "dateLabel": "27 jun 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": ""
+    "f1": "Fiziev",
+    "f1img": "/fighters/ufc-fight-night-2026-06-27-f1.png",
+    "f2": "Torres",
+    "f2img": "/fighters/ufc-fight-night-2026-06-27-f2.png",
+    "fightCard": [
+      {
+        "f1": "Rafael Fiziev",
+        "f1Id": "",
+        "f2": "Manuel Torres",
+        "f2Id": "",
+        "weightClass": "Lightweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Sharabutdin Magomedov",
+        "f1Id": "",
+        "f2": "Michel Pereira",
+        "f2Id": "",
+        "weightClass": "Middleweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      }
+    ]
   },
   {
     "slug": "ufc-329-2026-07-11",

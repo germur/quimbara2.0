@@ -5,11 +5,12 @@ import EVENTS_RAW from '../../data/events-all.json';
 import { getCollection } from 'astro:content';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 
-// Cast para tener los campos f1/f2/f1img/f2img
-const EVENTS = EVENTS_RAW as (typeof EVENTS_RAW[0] & { f1: string; f2: string; f1img: string; f2img: string })[];
+type FightCardEntry = { f1: string; f1Id: string; f2: string; f2Id: string; weightClass: string; bout: string; order: number };
+// Cast para tener los campos f1/f2/f1img/f2img/fightCard
+const EVENTS = EVENTS_RAW as (typeof EVENTS_RAW[0] & { f1: string; f2: string; f1img: string; f2img: string; fightCard?: FightCardEntry[] })[];
 
 export function getStaticPaths() {
-  const evs = EVENTS_RAW as (typeof EVENTS_RAW[0] & { f1: string; f2: string; f1img: string; f2img: string })[];
+  const evs = EVENTS_RAW as (typeof EVENTS_RAW[0] & { f1: string; f2: string; f1img: string; f2img: string; fightCard?: FightCardEntry[] })[];
   return evs.map((e) => ({ params: { slug: e.slug }, props: { event: e } }));
 }
 
@@ -219,6 +220,47 @@ const metaDescription = `${event.name}${hasFight ? ` — ${f1} vs. ${f2}` : ''}.
       ))}
     </div>
   </section>
+
+  <!-- ── Cartelera completa ── -->
+  {event.fightCard && event.fightCard.length > 0 && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
+      <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">Cartelera completa</h2>
+      <div class="rounded-2xl border border-gray-100 overflow-hidden" style="font-family:var(--font-sans);">
+        {event.fightCard.map((fight, i) => {
+          const isMain = fight.bout === 'Main Event' || i === 0;
+          const isCoMain = fight.bout === 'Co-Main Event' || i === 1;
+          return (
+            <div class={`flex items-center gap-4 px-5 py-4 ${i > 0 ? 'border-t border-gray-100' : ''} ${isMain ? 'bg-[#111]' : 'bg-white hover:bg-gray-50'} transition-colors`}>
+              <!-- Bout label -->
+              <div class="w-24 flex-shrink-0 text-right hidden sm:block">
+                {isMain ? (
+                  <span class="text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded-sm bg-[#FFD600] text-[#111]">Main Event</span>
+                ) : isCoMain ? (
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Co-Main</span>
+                ) : (
+                  <span class="text-[10px] text-gray-300 tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+                )}
+              </div>
+              <!-- Fighters -->
+              <div class="flex-1 flex items-center justify-between gap-2 min-w-0">
+                <span class={`font-bold truncate ${isMain ? 'text-white text-base' : 'text-[#111] text-sm'}`}
+                      style="font-family:var(--font-display);">{fight.f1}</span>
+                <span class={`flex-shrink-0 text-xs font-black ${isMain ? 'text-[#FFD600]' : 'text-gray-300'}`}>VS</span>
+                <span class={`font-bold truncate text-right ${isMain ? 'text-white text-base' : 'text-[#111] text-sm'}`}
+                      style="font-family:var(--font-display);">{fight.f2}</span>
+              </div>
+              <!-- Weight class -->
+              {fight.weightClass && (
+                <div class="hidden md:block flex-shrink-0 text-right w-32">
+                  <span class={`text-[11px] ${isMain ? 'text-gray-400' : 'text-gray-400'}`}>{fight.weightClass}</span>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  )}
 
   <!-- ── Sobre el evento (SEO text) ── -->
   <section style={`max-width:1400px; margin:0 auto; padding: 40px ${PX} 0;`}>
