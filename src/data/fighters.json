@@ -83,46 +83,46 @@
     ]
   },
   {
-    "slug": "khamzat-chimaev",
-    "name": "Khamzat Chimaev",
-    "nick": "  Borz",
+    "slug": "sean-strickland",
+    "name": "Sean Strickland",
+    "nick": "Tarzan",
     "div": "Middleweight",
-    "rec": "15-0-0",
-    "from": "United Arab Emirates",
+    "rec": "31-7-0",
+    "from": "USA",
     "rank": "C",
-    "img": "/fighters/khamzat-chimaev.png",
-    "height": "6' 2\"",
+    "img": "/fighters/sean-strickland.png",
+    "height": "6' 1\"",
     "weight": "183 lbs",
-    "reach": "75\"",
-    "stance": "Orthodox",
-    "team": "Allstars Training Center",
+    "reach": "76\"",
+    "stance": "",
+    "team": "",
     "form": [
-      "D",
       "W",
+      "L",
       "W",
-      "W",
+      "L",
       "W"
     ],
     "formTypes": [
       {
-        "outcome": "D",
-        "winType": null
+        "outcome": "W",
+        "winType": "UD"
       },
       {
-        "outcome": "W",
-        "winType": "SUB"
+        "outcome": "L",
+        "winType": "SD"
       },
       {
         "outcome": "W",
         "winType": "SD"
       },
       {
-        "outcome": "W",
-        "winType": "SUB"
+        "outcome": "L",
+        "winType": "UD"
       },
       {
         "outcome": "W",
-        "winType": "UD"
+        "winType": "TKO"
       }
     ]
   },
@@ -307,7 +307,7 @@
     "name": "Joshua Van",
     "nick": "The Fearless",
     "div": "Flyweight",
-    "rec": "16-2-0",
+    "rec": "17-2-0",
     "from": "Myanmar",
     "rank": "C",
     "img": "/fighters/joshua-van.png",
@@ -512,7 +512,7 @@
     "name": "Alexander Volkov",
     "nick": "DRAGO",
     "div": "Heavyweight",
-    "rec": "39-11-0",
+    "rec": "40-11-0",
     "from": "Russia",
     "rank": "5",
     "img": "/fighters/alexander-volkov.png",
@@ -776,7 +776,7 @@
     "name": "Sean Strickland",
     "nick": "Tarzan",
     "div": "Middleweight",
-    "rec": "30-7-0",
+    "rec": "31-7-0",
     "from": "USA",
     "rank": "1",
     "img": "/fighters/sean-strickland.png",
@@ -1556,7 +1556,8 @@
       "W",
       "L",
       "L",
-      "W"
+      "W",
+      "L"
     ],
     "formTypes": [
       {
@@ -1573,6 +1574,10 @@
       },
       {
         "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
         "winType": "UD"
       }
     ]

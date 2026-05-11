@@ -1,136 +1,5 @@
 [
   {
-    "slug": "ufc-328-2026-05-09",
-    "name": "UFC 328",
-    "main": "Chimaev vs. Strickland",
-    "loc": "Newark, New Jersey, U.S.",
-    "date": "2026-05-09",
-    "dateLabel": "9 may 2026",
-    "f1": "Chimaev",
-    "f1img": "/fighters/ufc-328-2026-05-09-f1.png",
-    "f2": "Strickland",
-    "f2img": "/fighters/ufc-328-2026-05-09-f2.png",
-    "fightCard": [
-      {
-        "f1": "Khamzat Chimaev",
-        "f1Id": "",
-        "f2": "Sean Strickland",
-        "f2Id": "",
-        "weightClass": "Middleweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Joshua Van",
-        "f1Id": "",
-        "f2": "Tatsuro Taira",
-        "f2Id": "",
-        "weightClass": "Flyweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      },
-      {
-        "f1": "Alexander Volkov",
-        "f1Id": "",
-        "f2": "Waldo Cortes-Acosta",
-        "f2Id": "",
-        "weightClass": "Heavyweight",
-        "bout": "maincard",
-        "order": 2
-      },
-      {
-        "f1": "Sean Brady",
-        "f1Id": "",
-        "f2": "Joaquin Buckley",
-        "f2Id": "",
-        "weightClass": "Welterweight",
-        "bout": "maincard",
-        "order": 3
-      },
-      {
-        "f1": "King Green",
-        "f1Id": "",
-        "f2": "Jeremy Stephens",
-        "f2Id": "",
-        "weightClass": "Lightweight",
-        "bout": "maincard",
-        "order": 4
-      },
-      {
-        "f1": "Ateba Gautier",
-        "f1Id": "",
-        "f2": "Osman Diaz",
-        "f2Id": "",
-        "weightClass": "Middleweight",
-        "bout": "prelim",
-        "order": 5
-      },
-      {
-        "f1": "Joel Álvarez",
-        "f1Id": "",
-        "f2": "Yaroslav Amosov",
-        "f2Id": "",
-        "weightClass": "Welterweight",
-        "bout": "prelim",
-        "order": 6
-      },
-      {
-        "f1": "Grant Dawson",
-        "f1Id": "",
-        "f2": "Mateusz Rębecki",
-        "f2Id": "",
-        "weightClass": "Lightweight",
-        "bout": "prelim",
-        "order": 7
-      },
-      {
-        "f1": "Jim Miller",
-        "f1Id": "",
-        "f2": "Jared Gordon",
-        "f2Id": "",
-        "weightClass": "Lightweight",
-        "bout": "prelim",
-        "order": 8
-      },
-      {
-        "f1": "Roman Kopylov",
-        "f1Id": "",
-        "f2": "Marco Tulio",
-        "f2Id": "",
-        "weightClass": "Middleweight",
-        "bout": "early_prelim",
-        "order": 9
-      },
-      {
-        "f1": "Pat Sabatini",
-        "f1Id": "",
-        "f2": "William Gomis",
-        "f2Id": "",
-        "weightClass": "Featherweight",
-        "bout": "early_prelim",
-        "order": 10
-      },
-      {
-        "f1": "Baisangur Susurkaev",
-        "f1Id": "",
-        "f2": "Djorden Santos",
-        "f2Id": "",
-        "weightClass": "Middleweight",
-        "bout": "early_prelim",
-        "order": 11
-      },
-      {
-        "f1": "Clayton Carpenter",
-        "f1Id": "",
-        "f2": "Jose Ochoa",
-        "f2Id": "",
-        "weightClass": "Flyweight",
-        "bout": "early_prelim",
-        "order": 12
-      }
-    ]
-  },
-  {
     "slug": "ufc-fight-night-2026-05-16",
     "name": "UFC Fight Night",
     "main": "Allen vs. Costa",
@@ -188,22 +57,13 @@
         "order": 4
       },
       {
-        "f1": "Jeremiah Wells",
-        "f1Id": "",
-        "f2": "Nicolas Dalby",
-        "f2Id": "",
-        "weightClass": "Welterweight",
-        "bout": "prelim",
-        "order": 5
-      },
-      {
         "f1": "Tuco Tokkos",
         "f1Id": "",
         "f2": "Ivan Erslan",
         "f2Id": "",
         "weightClass": "Light Heavyweight",
         "bout": "prelim",
-        "order": 6
+        "order": 5
       },
       {
         "f1": "Trey Ogden",
@@ -212,7 +72,7 @@
         "f2Id": "",
         "weightClass": "Lightweight",
         "bout": "prelim",
-        "order": 7
+        "order": 6
       },
       {
         "f1": "Ketlen Vieira",
@@ -221,7 +81,7 @@
         "f2Id": "",
         "weightClass": "Women's Bantamweight",
         "bout": "prelim",
-        "order": 8
+        "order": 7
       },
       {
         "f1": "Cody Brundage",
@@ -230,7 +90,7 @@
         "f2Id": "",
         "weightClass": "Middleweight",
         "bout": "prelim",
-        "order": 9
+        "order": 8
       },
       {
         "f1": "Alice Ardelean",
@@ -239,7 +99,7 @@
         "f2Id": "",
         "weightClass": "Women's Strawweight",
         "bout": "prelim",
-        "order": 10
+        "order": 9
       },
       {
         "f1": "Daniel Barez",
@@ -248,7 +108,7 @@
         "f2Id": "",
         "weightClass": "Flyweight",
         "bout": "prelim",
-        "order": 11
+        "order": 10
       },
       {
         "f1": "Shauna Bannon",
@@ -256,6 +116,15 @@
         "f2": "Nicolle Caliari",
         "f2Id": "",
         "weightClass": "Women's Strawweight",
+        "bout": "prelim",
+        "order": 11
+      },
+      {
+        "f1": "Khaos Williams",
+        "f1Id": "",
+        "f2": "Nikolay Veretennikov",
+        "f2Id": "",
+        "weightClass": "Welterweight",
         "bout": "prelim",
         "order": 12
       }
@@ -310,22 +179,13 @@
         "order": 3
       },
       {
-        "f1": "Zhu Kangjie",
-        "f1Id": "",
-        "f2": "Ramon Taveras",
-        "f2Id": "",
-        "weightClass": "Featherweight",
-        "bout": "maincard",
-        "order": 4
-      },
-      {
         "f1": "Alex Perez",
         "f1Id": "",
         "f2": "Su Mudaerji",
         "f2Id": "",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 5
+        "order": 4
       },
       {
         "f1": "Muslim Salikhov",
@@ -334,7 +194,7 @@
         "f2Id": "",
         "weightClass": "Welterweight",
         "bout": "prelim",
-        "order": 6
+        "order": 5
       },
       {
         "f1": "Lee Yi-sak",
@@ -342,6 +202,15 @@
         "f2": "Luis Felipe Dias",
         "f2Id": "",
         "weightClass": "Middleweight",
+        "bout": "prelim",
+        "order": 6
+      },
+      {
+        "f1": "Ding Meng",
+        "f1Id": "",
+        "f2": "José Henrique Souza",
+        "f2Id": "",
+        "weightClass": "Welterweight",
         "bout": "prelim",
         "order": 7
       },

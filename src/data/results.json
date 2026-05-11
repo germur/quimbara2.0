@@ -1,34 +1,34 @@
 [
   {
-    "w": "Quillan Salkilld",
-    "l": "Beneil Dariush",
-    "method": "TKO (Punches)",
-    "round": 1,
-    "time": "3:29",
-    "event": "UFC Fight Night 275 - Della Maddalena vs. Prates"
+    "w": "Joshua Van",
+    "l": "Tatsuro Taira",
+    "method": "TKO (Front Kick to the Body and Punches)",
+    "round": 5,
+    "time": "1:32",
+    "event": "UFC 328 - Chimaev vs. Strickland"
   },
   {
-    "w": "Steve Erceg",
-    "l": "Tim Elliott",
+    "w": "Alexander Volkov",
+    "l": "Waldo Cortes-Acosta",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 275 - Della Maddalena vs. Prates"
+    "event": "UFC 328 - Chimaev vs. Strickland"
   },
   {
-    "w": "Marwan Rahiki",
-    "l": "Oliver Schmid",
-    "method": "TKO (Punches)",
+    "w": "Sean Brady",
+    "l": "Joaquin Buckley",
+    "method": "Decision (Unanimous)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC 328 - Chimaev vs. Strickland"
+  },
+  {
+    "w": "King Green",
+    "l": "Jeremy Stephens",
+    "method": "Submission (Rear-Naked Choke)",
     "round": 1,
-    "time": "2:47",
-    "event": "UFC Fight Night 275 - Della Maddalena vs. Prates"
-  },
-  {
-    "w": "Brando Pericic",
-    "l": "Shamil Gaziev",
-    "method": "KO (Punch)",
-    "round": 2,
-    "time": "3:44",
-    "event": "UFC Fight Night 275 - Della Maddalena vs. Prates"
+    "time": "4:20",
+    "event": "UFC 328 - Chimaev vs. Strickland"
   }
 ]
