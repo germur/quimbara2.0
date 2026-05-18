@@ -3,13 +3,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import EVENTS from '../../data/events-all.json';
 
 const PX = 'clamp(16px,4vw,60px)';
+const today = new Date().toISOString().slice(0, 10);
 
-// Agrupar por mes
+// Separar próximos y pasados
+type EventEntry = typeof EVENTS[0] & { status?: string };
+const allEvents = EVENTS as EventEntry[];
+const upcoming = allEvents.filter(e => e.date >= today || e.status === 'upcoming');
+const past = allEvents.filter(e => e.date < today && e.status !== 'upcoming').reverse(); // más reciente primero
+
+// Agrupar próximos por mes
 const byMonth: Record<string, typeof EVENTS> = {};
-for (const e of EVENTS) {
+for (const e of upcoming) {
   const key = e.date.slice(0, 7); // "2026-05"
   if (!byMonth[key]) byMonth[key] = [];
   byMonth[key].push(e);
+}
+
+// Agrupar pasados por mes
+const pastByMonth: Record<string, typeof EVENTS> = {};
+for (const e of past) {
+  const key = e.date.slice(0, 7);
+  if (!pastByMonth[key]) pastByMonth[key] = [];
+  pastByMonth[key].push(e);
 }
 
 const monthLabel = (key: string) => {
@@ -136,6 +151,55 @@ const isPPV = (name: string) => /UFC \d/.test(name);
         </div>
       </div>
     ))}
+
+    {/* ── Eventos pasados ── */}
+    {past.length > 0 && (
+      <div class="mt-16 pt-12 border-t border-gray-200">
+        <div class="flex items-center gap-4 mb-8">
+          <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-gray-400"
+              style="font-family:var(--font-sans);">Eventos pasados</h2>
+          <div class="flex-1 h-px bg-gray-100"></div>
+        </div>
+
+        {Object.entries(pastByMonth).map(([key, events]) => (
+          <div class="mb-8">
+            <div class="flex items-center gap-4 mb-4">
+              <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 capitalize"
+                  style="font-family:var(--font-sans);">{monthLabel(key)}</h3>
+              <div class="flex-1 h-px bg-gray-50"></div>
+            </div>
+            <div class="flex flex-col gap-1">
+              {events.map((e) => {
+                const day = e.dateLabel.split(' ')[0];
+                const mon = e.dateLabel.split(' ')[1]?.toUpperCase();
+                return (
+                  <a href={`/eventos/${e.slug}`}
+                     class="group flex items-center gap-3 rounded-lg transition-all duration-200 hover:bg-gray-50 opacity-70 hover:opacity-100"
+                     style="padding: 12px 20px;">
+                    <div class="text-center flex-shrink-0 w-10">
+                      <div class="text-[9px] font-bold tracking-widest text-gray-300" style="font-family:var(--font-sans);">{mon}</div>
+                      <div class="text-xl font-black leading-none text-gray-300" style="font-family:var(--font-display);">{day}</div>
+                    </div>
+                    <div class="h-6 w-px bg-gray-100 flex-shrink-0"></div>
+                    <div class="min-w-0 flex-1">
+                      <div class="flex items-center gap-2 mb-0.5">
+                        <span class="text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-sm bg-gray-100 text-gray-400"
+                              style="font-family:var(--font-sans);">Finalizado</span>
+                        <span class="text-[10px] text-gray-300" style="font-family:var(--font-sans);">{e.name}</span>
+                      </div>
+                      <div class="text-gray-500 text-sm font-bold truncate" style="font-family:var(--font-display);">
+                        {e.main !== 'TBD' ? e.main : 'Cartel finalizado'}
+                      </div>
+                    </div>
+                    <div class="text-gray-200 group-hover:text-gray-400 text-lg">→</div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
   </div>
 
 </BaseLayout>

@@ -6,18 +6,19 @@ import { getCollection } from 'astro:content';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 
 type FightCardEntry = { f1: string; f1Id: string; f2: string; f2Id: string; weightClass: string; bout: string; order: number };
-// Cast para tener los campos f1/f2/f1img/f2img/fightCard
-const EVENTS = EVENTS_RAW as (typeof EVENTS_RAW[0] & { f1: string; f2: string; f1img: string; f2img: string; fightCard?: FightCardEntry[] })[];
+type EventFull = typeof EVENTS_RAW[0] & { f1: string; f2: string; f1img: string; f2img: string; fightCard?: FightCardEntry[]; status?: 'upcoming' | 'completed' };
+const EVENTS = EVENTS_RAW as EventFull[];
 
 export function getStaticPaths() {
-  const evs = EVENTS_RAW as (typeof EVENTS_RAW[0] & { f1: string; f2: string; f1img: string; f2img: string; fightCard?: FightCardEntry[] })[];
+  const evs = EVENTS_RAW as EventFull[];
   return evs.map((e) => ({ params: { slug: e.slug }, props: { event: e } }));
 }
 
-const { event } = Astro.props as { event: typeof EVENTS[0] };
+const { event } = Astro.props as { event: EventFull };
 const PX = 'clamp(16px,4vw,60px)';
 
 const isPPV = /UFC \d/.test(event.name);
+const isCompleted = event.status === 'completed' || event.date < new Date().toISOString().slice(0, 10);
 const eventNum = event.name.replace('UFC ', '').replace('Fight Night', 'FN');
 
 const f1 = event.f1 ?? (event.main !== 'TBD' ? event.main.split(' vs. ')[0]?.trim() : 'TBD');
@@ -63,7 +64,7 @@ const eventSchema = {
     { "@type": "Person", "name": f2 }
   ] : [{ "@type": "Organization", "name": "UFC", "url": "https://www.ufc.com" }],
   "description": `${event.name} — ${hasFight ? `Pelea principal: ${f1} vs. ${f2}.` : 'Cartel por confirmar.'} ${event.dateLabel} en ${event.loc}.`,
-  "eventStatus": "https://schema.org/EventScheduled",
+  "eventStatus": isCompleted ? "https://schema.org/EventCompleted" : "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode"
 };
 
@@ -79,9 +80,11 @@ const breadcrumbSchema = {
 
 const eventSchemaStr = `[${JSON.stringify(eventSchema)}, ${JSON.stringify(breadcrumbSchema)}]`;
 
-// Meta optimizado con keywords: "a que hora es la pelea" + nombre del evento
-const metaTitle = `${event.name}${hasFight ? `: ${f1} vs. ${f2}` : ''} · ${event.dateLabel}`;
-const metaDescription = `${event.name}${hasFight ? ` — ${f1} vs. ${f2}` : ''}. ¿A qué hora es la pelea? ${event.dateLabel} en ${event.loc}. Análisis, predicciones y cobertura completa en Quimbara.`;
+// Meta optimizado — diferenciado para eventos pasados vs futuros
+const metaTitle = `${event.name}${hasFight ? `: ${f1} vs. ${f2}` : ''} · ${isCompleted ? 'Resultados' : event.dateLabel}`;
+const metaDescription = isCompleted
+  ? `${event.name}${hasFight ? ` — ${f1} vs. ${f2}` : ''}. Resultados, cartelera completa y resumen del evento celebrado el ${event.dateLabel} en ${event.loc}.`
+  : `${event.name}${hasFight ? ` — ${f1} vs. ${f2}` : ''}. ¿A qué hora es la pelea? ${event.dateLabel} en ${event.loc}. Análisis, predicciones y cobertura completa en Quimbara.`;
 ---
 
 <BaseLayout
@@ -110,8 +113,14 @@ const metaDescription = `${event.name}${hasFight ? ` — ${f1} vs. ${f2}` : ''}.
           ]}
         />
       </div>
-      <span class={`inline-block px-3 py-1 text-[11px] font-black uppercase tracking-widest rounded-sm mb-4 ${isPPV ? 'bg-[#FFD600] text-[#111]' : 'border border-gray-600 text-gray-400'}`}
-            style="font-family:var(--font-sans);">{isPPV ? '★ PPV' : 'Fight Night'}</span>
+      <div class="flex items-center gap-2 mb-4 flex-wrap">
+        <span class={`inline-block px-3 py-1 text-[11px] font-black uppercase tracking-widest rounded-sm ${isPPV ? 'bg-[#FFD600] text-[#111]' : 'border border-gray-600 text-gray-400'}`}
+              style="font-family:var(--font-sans);">{isPPV ? '★ PPV' : 'Fight Night'}</span>
+        {isCompleted && (
+          <span class="inline-block px-3 py-1 text-[11px] font-black uppercase tracking-widest rounded-sm bg-gray-700 text-gray-300"
+                style="font-family:var(--font-sans);">Evento finalizado</span>
+        )}
+      </div>
       <h1 class="text-white" style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,6rem);line-height:0.95;margin-bottom:16px;">{event.name}</h1>
       <div class="flex flex-wrap items-center gap-5" style="font-family:var(--font-sans);">
         <div class="flex items-center gap-2 text-[#FFD600] text-sm font-bold">
@@ -266,7 +275,14 @@ const metaDescription = `${event.name}${hasFight ? ` — ${f1} vs. ${f2}` : ''}.
   <section style={`max-width:1400px; margin:0 auto; padding: 40px ${PX} 0;`}>
     <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">Sobre el evento</h2>
     <div class="rounded-xl bg-gray-50 p-6 md:p-8 prose prose-sm max-w-none" style="font-family:var(--font-sans); color:#444; line-height:1.7;">
-      {hasFight ? (
+      {isCompleted && hasFight ? (
+        <p>
+          <strong style="font-family:var(--font-display);color:#111;">{event.name}</strong> se celebró el <strong>{event.dateLabel}</strong> en <strong>{event.loc}</strong>.
+          La pelea principal enfrentó a <strong>{f1}</strong> contra <strong>{f2}</strong>
+          {isPPV ? ' en una noche de PPV.' : ' en un Fight Night.'}
+          {' '}Consulta la cartelera completa y los artículos relacionados en Quimbara.
+        </p>
+      ) : hasFight ? (
         <p>
           <strong style="font-family:var(--font-display);color:#111;">{event.name}</strong> se celebrará el <strong>{event.dateLabel}</strong> en <strong>{event.loc}</strong>.
           La pelea principal del evento enfrenta a <strong>{f1}</strong> contra <strong>{f2}</strong> en lo que promete ser

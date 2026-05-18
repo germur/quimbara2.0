@@ -129,6 +129,7 @@ type EventRowFull = Omit<EventRow, 'bg' | 'color'> & {
   f2: string; f2img: string;
   fightCard?: FightCardEntry[];
   espnEventId?: string;
+  status?: 'upcoming' | 'completed';
 };
 
 function parseDate(raw: string) {
@@ -199,15 +200,26 @@ async function fetchEvents() {
 
   parsed.sort((a, b) => a.date.localeCompare(b.date));
 
-  // Cargar fotos existentes para no re-fetchear innecesariamente
+  // Cargar eventos existentes (incluye pasados que ya no están en Wikipedia)
   const existing: EventRowFull[] = readJson<EventRowFull>('events-all.json');
   const existingMap = Object.fromEntries(existing.map(e => [e.slug, e]));
+  const parsedSlugs = new Set(parsed.map(e => e.slug));
 
   const isLocalImg = (url: string) => url.startsWith('/fighters/');
+  const today = new Date().toISOString().slice(0, 10);
+
+  // Marcar status en los nuevos eventos
+  for (const e of parsed) {
+    e.status = e.date < today ? 'completed' : 'upcoming';
+  }
 
   for (const e of parsed) {
     if (e.main === 'TBD') continue;
     const prev = existingMap[e.slug];
+
+    // Reutilizar fotos, fightCard y espnEventId del caché
+    if (prev?.fightCard?.length) e.fightCard = prev.fightCard;
+    if (prev?.espnEventId) e.espnEventId = prev.espnEventId;
 
     // Reutilizar solo si ya son rutas locales (no URLs externas de apis viejas)
     if (prev?.f1img && prev?.f2img && isLocalImg(prev.f1img) && isLocalImg(prev.f2img)) {
@@ -223,8 +235,16 @@ async function fetchEvents() {
     await sleep(1500);
   }
 
-  writeJson('events-all.json', parsed);
-  console.log(`✓ events-all.json (${parsed.length} eventos)`);
+  // ── MERGE: preservar eventos pasados que Wikipedia ya quitó de "scheduled" ──
+  const pastEvents = existing
+    .filter(e => !parsedSlugs.has(e.slug))           // no está en los nuevos
+    .map(e => ({ ...e, status: 'completed' as const })); // marcar como completado
+
+  const allEvents = [...pastEvents, ...parsed];
+  allEvents.sort((a, b) => a.date.localeCompare(b.date));
+
+  writeJson('events-all.json', allEvents);
+  console.log(`✓ events-all.json (${allEvents.length} eventos: ${pastEvents.length} pasados + ${parsed.length} programados)`);
 
   const events: EventRow[] = parsed.slice(0, 3).map((e, i) => ({ ...e, ...PALETTES[i % PALETTES.length] }));
   writeJson('events.json', events);
