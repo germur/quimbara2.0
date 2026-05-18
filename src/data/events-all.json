@@ -2,13 +2,13 @@
   {
     "slug": "ufc-328-2026-05-09",
     "name": "UFC 328",
-    "main": "Chimaev vs. Strickland",
+    "main": "Khamzat Chimaev vs. Sean Strickland",
     "loc": "Newark, New Jersey, U.S.",
     "date": "2026-05-09",
     "dateLabel": "9 may 2026",
-    "f1": "Chimaev",
+    "f1": "Khamzat Chimaev",
     "f1img": "/fighters/ufc-328-2026-05-09-f1.png",
-    "f2": "Strickland",
+    "f2": "Sean Strickland",
     "f2img": "/fighters/ufc-328-2026-05-09-f2.png",
     "fightCard": [
       {
@@ -134,13 +134,13 @@
   {
     "slug": "ufc-fight-night-2026-05-16",
     "name": "UFC Fight Night",
-    "main": "Allen vs. Costa",
+    "main": "Arnold Allen vs. Melquizael Costa",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-05-16",
     "dateLabel": "16 may 2026",
-    "f1": "Allen",
+    "f1": "Arnold Allen",
     "f1img": "/fighters/ufc-fight-night-2026-05-16-f1.png",
-    "f2": "Costa",
+    "f2": "Melquizael Costa",
     "f2img": "/fighters/ufc-fight-night-2026-05-16-f2.png",
     "fightCard": [
       {
@@ -266,13 +266,13 @@
   {
     "slug": "ufc-fight-night-2026-05-30",
     "name": "UFC Fight Night",
-    "main": "Song vs. Figueiredo",
+    "main": "Song Yadong vs. Deiveson Figueiredo",
     "loc": "Macau SAR, China",
     "date": "2026-05-30",
     "dateLabel": "30 may 2026",
-    "f1": "Song",
+    "f1": "Song Yadong",
     "f1img": "/fighters/ufc-fight-night-2026-05-30-f1.png",
-    "f2": "Figueiredo",
+    "f2": "Deiveson Figueiredo",
     "f2img": "/fighters/ufc-fight-night-2026-05-30-f2.png",
     "status": "upcoming",
     "fightCard": [
@@ -389,13 +389,13 @@
   {
     "slug": "ufc-fight-night-2026-06-06",
     "name": "UFC Fight Night",
-    "main": "Muhammad vs. Bonfim",
+    "main": "Belal Muhammad vs. Gabriel Bonfim",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-06-06",
     "dateLabel": "6 jun 2026",
-    "f1": "Muhammad",
+    "f1": "Belal Muhammad",
     "f1img": "/fighters/ufc-fight-night-2026-06-06-f1.png",
-    "f2": "Bonfim",
+    "f2": "Gabriel Bonfim",
     "f2img": "/fighters/ufc-fight-night-2026-06-06-f2.png",
     "status": "upcoming",
     "fightCard": [
@@ -516,13 +516,13 @@
   {
     "slug": "ufc-fight-night-2026-06-20",
     "name": "UFC Fight Night",
-    "main": "Kape vs. Horiguchi",
+    "main": "Manel Kape vs. Kyoji Horiguchi",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-06-20",
     "dateLabel": "20 jun 2026",
-    "f1": "Kape",
+    "f1": "Manel Kape",
     "f1img": "/fighters/ufc-fight-night-2026-06-20-f1.png",
-    "f2": "Horiguchi",
+    "f2": "Kyoji Horiguchi",
     "f2img": "/fighters/ufc-fight-night-2026-06-20-f2.png",
     "status": "upcoming",
     "fightCard": [
@@ -585,13 +585,13 @@
   {
     "slug": "ufc-fight-night-2026-06-27",
     "name": "UFC Fight Night",
-    "main": "Fiziev vs. Torres",
+    "main": "Rafael Fiziev vs. Manuel Torres",
     "loc": "Baku, Azerbaijan",
     "date": "2026-06-27",
     "dateLabel": "27 jun 2026",
-    "f1": "Fiziev",
+    "f1": "Rafael Fiziev",
     "f1img": "/fighters/ufc-fight-night-2026-06-27-f1.png",
-    "f2": "Torres",
+    "f2": "Manuel Torres",
     "f2img": "/fighters/ufc-fight-night-2026-06-27-f2.png",
     "status": "upcoming",
     "fightCard": [
@@ -618,13 +618,13 @@
   {
     "slug": "ufc-329-2026-07-11",
     "name": "UFC 329",
-    "main": "McGregor vs. Holloway 2",
+    "main": "Conor McGregor vs. Max Holloway",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-07-11",
     "dateLabel": "11 jul 2026",
-    "f1": "McGregor",
+    "f1": "Conor McGregor",
     "f1img": "/fighters/ufc-329-2026-07-11-f1.png",
-    "f2": "Holloway 2",
+    "f2": "Max Holloway",
     "f2img": "",
     "status": "upcoming",
     "fightCard": [

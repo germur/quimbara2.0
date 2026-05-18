@@ -319,8 +319,14 @@ async function fetchFightCards() {
   for (const event of events) {
     if (event.main === 'TBD') continue;
 
-    // Reutilizar si ya tiene cartelera
+    // Reutilizar si ya tiene cartelera — pero asegurar nombres completos
     if (event.fightCard?.length) {
+      const mainFight = event.fightCard.find(f => f.order === 0) ?? event.fightCard[0];
+      if (mainFight && event.f1 !== mainFight.f1) {
+        event.f1 = mainFight.f1;
+        event.f2 = mainFight.f2;
+        event.main = `${mainFight.f1} vs. ${mainFight.f2}`;
+      }
       console.log(`   · (cached) ${event.name}: ${event.fightCard.length} peleas`);
       continue;
     }
@@ -328,6 +334,13 @@ async function fetchFightCards() {
     const card = await scrapeFightCard(event);
     if (card.length) {
       event.fightCard = card;
+      // Usar nombres completos del main event en vez de solo apellidos
+      const mainFight = card.find(f => f.order === 0) ?? card[0];
+      if (mainFight) {
+        event.f1 = mainFight.f1;
+        event.f2 = mainFight.f2;
+        event.main = `${mainFight.f1} vs. ${mainFight.f2}`;
+      }
       enriched++;
       console.log(`   ✓ ${event.name}: ${card.length} peleas`);
       card.slice(0, 3).forEach(f => console.log(`      · ${f.f1} vs. ${f.f2} (${f.weightClass})`));
