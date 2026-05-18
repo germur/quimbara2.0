@@ -7,7 +7,7 @@
     "date": "2026-05-09",
     "dateLabel": "9 may 2026",
     "f1": "Khamzat Chimaev",
-    "f1img": "",
+    "f1img": "/fighters/ufc-328-2026-05-09-f1.png",
     "f2": "Sean Strickland",
     "f2img": "/fighters/sean-strickland.png",
     "fightCard": [
@@ -141,7 +141,7 @@
     "f1": "Arnold Allen",
     "f1img": "/fighters/arnold-allen.png",
     "f2": "Melquizael Costa",
-    "f2img": "",
+    "f2img": "/fighters/ufc-fight-night-2026-05-16-f2.png",
     "fightCard": [
       {
         "f1": "Arnold Allen",
@@ -271,9 +271,9 @@
     "date": "2026-05-30",
     "dateLabel": "30 may 2026",
     "f1": "Song Yadong",
-    "f1img": "",
+    "f1img": "/fighters/ufc-fight-night-2026-05-30-f1.png",
     "f2": "Deiveson Figueiredo",
-    "f2img": "",
+    "f2img": "/fighters/ufc-fight-night-2026-05-30-f2.png",
     "status": "upcoming",
     "fightCard": [
       {
@@ -396,7 +396,7 @@
     "f1": "Belal Muhammad",
     "f1img": "/fighters/belal-muhammad.png",
     "f2": "Gabriel Bonfim",
-    "f2img": "",
+    "f2img": "/fighters/ufc-fight-night-2026-06-06-f2.png",
     "status": "upcoming",
     "fightCard": [
       {
@@ -521,9 +521,9 @@
     "date": "2026-06-20",
     "dateLabel": "20 jun 2026",
     "f1": "Manel Kape",
-    "f1img": "",
+    "f1img": "/fighters/ufc-fight-night-2026-06-20-f1.png",
     "f2": "Kyoji Horiguchi",
-    "f2img": "",
+    "f2img": "/fighters/ufc-fight-night-2026-06-20-f2.png",
     "status": "upcoming",
     "fightCard": [
       {
@@ -590,9 +590,9 @@
     "date": "2026-06-27",
     "dateLabel": "27 jun 2026",
     "f1": "Rafael Fiziev",
-    "f1img": "",
+    "f1img": "/fighters/ufc-fight-night-2026-06-27-f1.png",
     "f2": "Manuel Torres",
-    "f2img": "",
+    "f2img": "/fighters/ufc-fight-night-2026-06-27-f2.png",
     "status": "upcoming",
     "fightCard": [
       {
@@ -623,7 +623,7 @@
     "date": "2026-07-11",
     "dateLabel": "11 jul 2026",
     "f1": "Conor McGregor",
-    "f1img": "",
+    "f1img": "/fighters/ufc-329-2026-07-11-f1.png",
     "f2": "Max Holloway",
     "f2img": "/fighters/max-holloway.png",
     "status": "upcoming",

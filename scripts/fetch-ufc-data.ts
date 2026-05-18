@@ -148,21 +148,29 @@ async function fetchFighterPhotoMMAAPI(name: string, slug: string): Promise<stri
     type SearchResult = { results: { entity: { id: number; name: string }; type: string }[] };
     const data = await mmaapiGet<SearchResult>(`/api/mma/search/${encodeURIComponent(name)}`);
     const fighters = (data.results ?? []).filter(r => r.type === 'team');
-    if (!fighters.length) return '';
+    if (!fighters.length) { console.log(`      ✗ "${name}": sin resultados en API`); return ''; }
 
-    // Match por nombre completo primero, luego apellido como fallback
+    // Match ESTRICTO: nombre completo debe coincidir o contener TODAS las palabras
     const nameLower = name.toLowerCase();
-    const lastName = name.split(' ').slice(-1)[0]?.toLowerCase() ?? '';
+    const nameParts = nameLower.split(' ').filter(p => p.length > 1);
+
+    // 1. Match exacto
     const exactMatch = fighters.find(r => r.entity.name.toLowerCase() === nameLower);
-    const partialMatch = fighters.find(r => {
-      const n = r.entity.name.toLowerCase();
-      // Para nombres con 2+ palabras, buscar que contenga nombre Y apellido
-      const parts = nameLower.split(' ').filter(p => p.length > 2);
-      return parts.length > 1 ? parts.every(p => n.includes(p)) : n.includes(lastName);
-    });
-    const match = exactMatch ?? partialMatch ?? fighters[0];
-    if (!match) return '';
-    console.log(`      foto: "${name}" → API match: "${match.entity.name}" (id:${match.entity.id})`);
+    // 2. Match cruzado: TODAS las palabras del nombre buscado deben estar en el resultado (y viceversa)
+    const strictMatch = !exactMatch ? fighters.find(r => {
+      const apiParts = r.entity.name.toLowerCase().split(' ').filter(p => p.length > 1);
+      const allSearchInApi = nameParts.every(p => apiParts.some(ap => ap.includes(p) || p.includes(ap)));
+      const allApiInSearch = apiParts.every(ap => nameParts.some(p => p.includes(ap) || ap.includes(p)));
+      return allSearchInApi && allApiInSearch;
+    }) : undefined;
+
+    const match = exactMatch ?? strictMatch;
+    if (!match) {
+      const topNames = fighters.slice(0, 3).map(r => r.entity.name).join(', ');
+      console.log(`      ✗ "${name}": sin match estricto (API devolvió: ${topNames})`);
+      return '';
+    }
+    console.log(`      ✓ "${name}" → "${match.entity.name}" (id:${match.entity.id})`);
 
     // Descargar imagen
     const imgRes = await fetch(`${MMAAPI_BASE}/api/mma/team/${match.entity.id}/image`, {
@@ -685,40 +693,72 @@ async function main() {
     }
   }
 
-  // ── Paso final: cruzar fotos de eventos con fighters verificados ──
-  console.log('\n── Fotos verificadas ──');
+  // ── Paso final: fotos de eventos (1° fighters.json verificados, 2° API estricta) ──
+  console.log('\n── Fotos de eventos ──');
   type FighterRef = { slug: string; name: string; img: string; [k: string]: unknown };
   const vFighters: FighterRef[] = readJson<FighterRef>('fighters.json');
   const allEvts: EventRowFull[] = readJson<EventRowFull>('events-all.json');
-  let photoMatches = 0;
+
+  const findVerifiedPhoto = (name: string): string => {
+    const nl = name.toLowerCase();
+    const exact = vFighters.find(f => f.name.toLowerCase() === nl);
+    if (exact?.img) return exact.img;
+    const last = nl.split(' ').slice(-1)[0];
+    const firstInit = nl[0];
+    const partial = vFighters.find(f => {
+      const fn = f.name.toLowerCase();
+      return fn.split(' ').slice(-1)[0] === last && fn[0] === firstInit;
+    });
+    return partial?.img ?? '';
+  };
+
+  let fromVerified = 0, fromApi = 0, noPhoto = 0;
   for (const e of allEvts) {
     if (e.main === 'TBD') continue;
-    const findPhoto = (name: string): string => {
-      const nl = name.toLowerCase();
-      const exact = vFighters.find(f => f.name.toLowerCase() === nl);
-      if (exact?.img) return exact.img;
-      const last = nl.split(' ').slice(-1)[0];
-      const firstInit = nl[0];
-      const partial = vFighters.find(f => {
-        const fn = f.name.toLowerCase();
-        return fn.split(' ').slice(-1)[0] === last && fn[0] === firstInit;
-      });
-      return partial?.img ?? '';
-    };
-    e.f1img = findPhoto(e.f1);
-    e.f2img = findPhoto(e.f2);
-    if (e.f1img) { console.log(`   ✓ ${e.f1} → ${e.f1img}`); photoMatches++; }
-    if (e.f2img) { console.log(`   ✓ ${e.f2} → ${e.f2img}`); photoMatches++; }
+
+    for (const side of ['f1', 'f2'] as const) {
+      const name = e[side];
+      const imgKey = `${side}img` as 'f1img' | 'f2img';
+      const slug = `${e.slug}-${side}`;
+
+      // 1. ¿Ya tiene foto local que existe en disco?
+      if (e[imgKey] && existsSync(join(IMG_DIR, e[imgKey].replace('/fighters/', '')))) {
+        continue; // ya tiene foto válida, no tocar
+      }
+
+      // 2. Buscar en fighters.json verificados
+      const verified = findVerifiedPhoto(name);
+      if (verified) {
+        e[imgKey] = verified;
+        console.log(`   ✓ ${name} → ${verified} (verificado)`);
+        fromVerified++;
+        continue;
+      }
+
+      // 3. Fallback: API con match estricto (descargar foto)
+      const apiPhoto = await fetchFighterPhotoMMAAPI(name, slug);
+      if (apiPhoto) {
+        e[imgKey] = apiPhoto;
+        fromApi++;
+        continue;
+      }
+
+      // 4. Sin foto → iniciales
+      e[imgKey] = '';
+      noPhoto++;
+    }
+    await sleep(200); // no sobrecargar API
   }
+
   writeJson('events-all.json', allEvts);
   // Actualizar events.json (home) también
   const homeEvts = readJson<EventRow & { f1img?: string; f2img?: string }>('events.json');
   for (const he of homeEvts) {
-    const full = allEvts.find(e => e.slug === (he as any).slug);
+    const full = allEvts.find(ev => ev.slug === (he as any).slug);
     if (full) { he.f1img = full.f1img; he.f2img = full.f2img; }
   }
   writeJson('events.json', homeEvts);
-  console.log(`✓ ${photoMatches} fotos verificadas cruzadas con fighters.json`);
+  console.log(`✓ Fotos: ${fromVerified} verificadas, ${fromApi} de API, ${noPhoto} sin foto (iniciales)`);
 
   if (failed > 0) {
     console.error(`\n${failed} tarea(s) fallaron. El resto se actualizó.`);
