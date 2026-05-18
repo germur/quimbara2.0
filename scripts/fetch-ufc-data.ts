@@ -227,35 +227,9 @@ async function fetchEvents() {
     if (e.main === 'TBD') continue;
     const prev = existingMap[e.slug];
 
-    // Reutilizar fotos, fightCard y espnEventId del caché
+    // Reutilizar fightCard y espnEventId del caché
     if (prev?.fightCard?.length) e.fightCard = prev.fightCard;
     if (prev?.espnEventId) e.espnEventId = prev.espnEventId;
-
-    // Reutilizar solo si ya son rutas locales Y el nombre del peleador no cambió
-    const f1Changed = prev && prev.f1 !== e.f1;
-    const f2Changed = prev && prev.f2 !== e.f2;
-    if (prev?.f1img && prev?.f2img && isLocalImg(prev.f1img) && isLocalImg(prev.f2img) && !f1Changed && !f2Changed) {
-      e.f1img = prev.f1img;
-      e.f2img = prev.f2img;
-      continue;
-    }
-
-    // Re-descargar fotos (nombre cambió o no hay foto)
-    if (f1Changed || !prev?.f1img || !isLocalImg(prev?.f1img ?? '')) {
-      console.log(`   → Buscando foto F1: ${e.f1}${f1Changed ? ` (antes: ${prev?.f1})` : ''}`);
-      e.f1img = await fetchFighterPhotoMMAAPI(e.f1, `${e.slug}-f1`);
-      await sleep(1500);
-    } else {
-      e.f1img = prev!.f1img;
-    }
-
-    if (f2Changed || !prev?.f2img || !isLocalImg(prev?.f2img ?? '')) {
-      console.log(`   → Buscando foto F2: ${e.f2}${f2Changed ? ` (antes: ${prev?.f2})` : ''}`);
-      e.f2img = await fetchFighterPhotoMMAAPI(e.f2, `${e.slug}-f2`);
-      await sleep(1500);
-    } else {
-      e.f2img = prev!.f2img;
-    }
   }
 
   // ── MERGE: preservar eventos pasados que Wikipedia ya quitó de "scheduled" ──
@@ -342,29 +316,13 @@ async function fetchFightCards() {
   for (const event of events) {
     if (event.main === 'TBD') continue;
 
-    // Reutilizar si ya tiene cartelera — pero asegurar nombres completos y fotos
+    // Reutilizar si ya tiene cartelera — pero asegurar nombres completos
     if (event.fightCard?.length) {
       const mainFight = event.fightCard.find(f => f.order === 0) ?? event.fightCard[0];
-      const namesChanged = mainFight && event.f1 !== mainFight.f1;
-      if (namesChanged && mainFight) {
+      if (mainFight && event.f1 !== mainFight.f1) {
         event.f1 = mainFight.f1;
         event.f2 = mainFight.f2;
         event.main = `${mainFight.f1} vs. ${mainFight.f2}`;
-      }
-      // Re-descargar fotos si el nombre cambió O si la foto no existe en disco
-      const f1Missing = !event.f1img || !existsSync(join(IMG_DIR, `${event.slug}-f1.png`));
-      const f2Missing = !event.f2img || !existsSync(join(IMG_DIR, `${event.slug}-f2.png`));
-      if (f1Missing || f2Missing || namesChanged) {
-        console.log(`   ↻ ${event.name}: re-descargando fotos (${namesChanged ? 'nombres cambiados' : 'foto faltante'})...`);
-        if (f1Missing || namesChanged) {
-          event.f1img = await fetchFighterPhotoMMAAPI(event.f1, `${event.slug}-f1`);
-          await sleep(1500);
-        }
-        if (f2Missing || namesChanged) {
-          event.f2img = await fetchFighterPhotoMMAAPI(event.f2, `${event.slug}-f2`);
-          await sleep(1500);
-        }
-        enriched++;
       }
       console.log(`   · (cached) ${event.name}: ${event.fightCard.length} peleas`);
       continue;
@@ -373,17 +331,12 @@ async function fetchFightCards() {
     const card = await scrapeFightCard(event);
     if (card.length) {
       event.fightCard = card;
-      // Usar nombres completos del main event en vez de solo apellidos
+      // Usar nombres completos del main event
       const mainFight = card.find(f => f.order === 0) ?? card[0];
       if (mainFight) {
         event.f1 = mainFight.f1;
         event.f2 = mainFight.f2;
         event.main = `${mainFight.f1} vs. ${mainFight.f2}`;
-        // Descargar fotos con nombres completos
-        event.f1img = await fetchFighterPhotoMMAAPI(event.f1, `${event.slug}-f1`);
-        await sleep(1500);
-        event.f2img = await fetchFighterPhotoMMAAPI(event.f2, `${event.slug}-f2`);
-        await sleep(1500);
       }
       enriched++;
       console.log(`   ✓ ${event.name}: ${card.length} peleas`);
@@ -731,6 +684,41 @@ async function main() {
       failed++;
     }
   }
+
+  // ── Paso final: cruzar fotos de eventos con fighters verificados ──
+  console.log('\n── Fotos verificadas ──');
+  type FighterRef = { slug: string; name: string; img: string; [k: string]: unknown };
+  const vFighters: FighterRef[] = readJson<FighterRef>('fighters.json');
+  const allEvts: EventRowFull[] = readJson<EventRowFull>('events-all.json');
+  let photoMatches = 0;
+  for (const e of allEvts) {
+    if (e.main === 'TBD') continue;
+    const findPhoto = (name: string): string => {
+      const nl = name.toLowerCase();
+      const exact = vFighters.find(f => f.name.toLowerCase() === nl);
+      if (exact?.img) return exact.img;
+      const last = nl.split(' ').slice(-1)[0];
+      const firstInit = nl[0];
+      const partial = vFighters.find(f => {
+        const fn = f.name.toLowerCase();
+        return fn.split(' ').slice(-1)[0] === last && fn[0] === firstInit;
+      });
+      return partial?.img ?? '';
+    };
+    e.f1img = findPhoto(e.f1);
+    e.f2img = findPhoto(e.f2);
+    if (e.f1img) { console.log(`   ✓ ${e.f1} → ${e.f1img}`); photoMatches++; }
+    if (e.f2img) { console.log(`   ✓ ${e.f2} → ${e.f2img}`); photoMatches++; }
+  }
+  writeJson('events-all.json', allEvts);
+  // Actualizar events.json (home) también
+  const homeEvts = readJson<EventRow & { f1img?: string; f2img?: string }>('events.json');
+  for (const he of homeEvts) {
+    const full = allEvts.find(e => e.slug === (he as any).slug);
+    if (full) { he.f1img = full.f1img; he.f2img = full.f2img; }
+  }
+  writeJson('events.json', homeEvts);
+  console.log(`✓ ${photoMatches} fotos verificadas cruzadas con fighters.json`);
 
   if (failed > 0) {
     console.error(`\n${failed} tarea(s) fallaron. El resto se actualizó.`);
