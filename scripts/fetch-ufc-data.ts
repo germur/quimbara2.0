@@ -712,42 +712,25 @@ async function main() {
     return partial?.img ?? '';
   };
 
-  let fromVerified = 0, fromApi = 0, noPhoto = 0;
+  let fromVerified = 0, noPhoto = 0;
   for (const e of allEvts) {
     if (e.main === 'TBD') continue;
 
     for (const side of ['f1', 'f2'] as const) {
       const name = e[side];
       const imgKey = `${side}img` as 'f1img' | 'f2img';
-      const slug = `${e.slug}-${side}`;
 
-      // 1. ¿Ya tiene foto local que existe en disco?
-      if (e[imgKey] && existsSync(join(IMG_DIR, e[imgKey].replace('/fighters/', '')))) {
-        continue; // ya tiene foto válida, no tocar
-      }
-
-      // 2. Buscar en fighters.json verificados
+      // SOLO fotos de fighters.json verificados — la API devuelve fotos incorrectas
       const verified = findVerifiedPhoto(name);
-      if (verified) {
+      if (verified && existsSync(join(IMG_DIR, verified.replace('/fighters/', '')))) {
         e[imgKey] = verified;
-        console.log(`   ✓ ${name} → ${verified} (verificado)`);
+        console.log(`   ✓ ${name} → ${verified}`);
         fromVerified++;
-        continue;
+      } else {
+        e[imgKey] = '';
+        noPhoto++;
       }
-
-      // 3. Fallback: API con match estricto (descargar foto)
-      const apiPhoto = await fetchFighterPhotoMMAAPI(name, slug);
-      if (apiPhoto) {
-        e[imgKey] = apiPhoto;
-        fromApi++;
-        continue;
-      }
-
-      // 4. Sin foto → iniciales
-      e[imgKey] = '';
-      noPhoto++;
     }
-    await sleep(200); // no sobrecargar API
   }
 
   writeJson('events-all.json', allEvts);
@@ -758,7 +741,7 @@ async function main() {
     if (full) { he.f1img = full.f1img; he.f2img = full.f2img; }
   }
   writeJson('events.json', homeEvts);
-  console.log(`✓ Fotos: ${fromVerified} verificadas, ${fromApi} de API, ${noPhoto} sin foto (iniciales)`);
+  console.log(`✓ Fotos: ${fromVerified} verificadas, ${noPhoto} con iniciales`);
 
   if (failed > 0) {
     console.error(`\n${failed} tarea(s) fallaron. El resto se actualizó.`);
