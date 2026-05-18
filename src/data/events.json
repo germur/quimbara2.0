@@ -1,19 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-05-16",
-    "name": "UFC Fight Night",
-    "main": "Allen vs. Costa",
-    "loc": "Las Vegas, Nevada, U.S.",
-    "date": "2026-05-16",
-    "dateLabel": "16 may 2026",
-    "f1": "Allen",
-    "f1img": "/fighters/ufc-fight-night-2026-05-16-f1.png",
-    "f2": "Costa",
-    "f2img": "/fighters/ufc-fight-night-2026-05-16-f2.png",
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-05-30",
     "name": "UFC Fight Night",
     "main": "Song vs. Figueiredo",
@@ -24,8 +10,8 @@
     "f1img": "/fighters/ufc-fight-night-2026-05-30-f1.png",
     "f2": "Figueiredo",
     "f2img": "/fighters/ufc-fight-night-2026-05-30-f2.png",
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-06-06",
@@ -38,6 +24,20 @@
     "f1img": "/fighters/ufc-fight-night-2026-06-06-f1.png",
     "f2": "Bonfim",
     "f2img": "/fighters/ufc-fight-night-2026-06-06-f2.png",
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-freedom-250-2026-06-14",
+    "name": "UFC Freedom 250",
+    "main": "TBD",
+    "loc": "Washington, D.C., U.S.",
+    "date": "2026-06-14",
+    "dateLabel": "14 jun 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
     "bg": "#7B1FA2",
     "color": "#fff"
   }

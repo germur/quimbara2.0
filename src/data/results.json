@@ -1,34 +1,34 @@
 [
   {
-    "w": "Joshua Van",
-    "l": "Tatsuro Taira",
-    "method": "TKO (Front Kick to the Body and Punches)",
-    "round": 5,
-    "time": "1:32",
-    "event": "UFC 328 - Chimaev vs. Strickland"
+    "w": "Doo Ho Choi",
+    "l": "Daniel Santos",
+    "method": "TKO (Punches)",
+    "round": 2,
+    "time": "4:29",
+    "event": "UFC Fight Night 276 - Allen vs. Costa"
   },
   {
-    "w": "Alexander Volkov",
-    "l": "Waldo Cortes-Acosta",
-    "method": "Decision (Unanimous)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC 328 - Chimaev vs. Strickland"
-  },
-  {
-    "w": "Sean Brady",
-    "l": "Joaquin Buckley",
-    "method": "Decision (Unanimous)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC 328 - Chimaev vs. Strickland"
-  },
-  {
-    "w": "King Green",
-    "l": "Jeremy Stephens",
+    "w": "Juan Diaz",
+    "l": "Malcolm Wellmaker",
     "method": "Submission (Rear-Naked Choke)",
-    "round": 1,
-    "time": "4:20",
-    "event": "UFC 328 - Chimaev vs. Strickland"
+    "round": 2,
+    "time": "4:08",
+    "event": "UFC Fight Night 276 - Allen vs. Costa"
+  },
+  {
+    "w": "Modestas Bukauskas",
+    "l": "Christian Edwards",
+    "method": "Decision (Split)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC Fight Night 276 - Allen vs. Costa"
+  },
+  {
+    "w": "Bernardo Sopai",
+    "l": "Timothy Cuamba",
+    "method": "Submission (Rear-Naked Choke)",
+    "round": 2,
+    "time": "2:25",
+    "event": "UFC Fight Night 276 - Allen vs. Costa"
   }
 ]
