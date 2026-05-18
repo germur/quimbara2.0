@@ -150,9 +150,19 @@ async function fetchFighterPhotoMMAAPI(name: string, slug: string): Promise<stri
     const fighters = (data.results ?? []).filter(r => r.type === 'team');
     if (!fighters.length) return '';
 
+    // Match por nombre completo primero, luego apellido como fallback
+    const nameLower = name.toLowerCase();
     const lastName = name.split(' ').slice(-1)[0]?.toLowerCase() ?? '';
-    const match = fighters.find(r => r.entity.name.toLowerCase().includes(lastName)) ?? fighters[0];
+    const exactMatch = fighters.find(r => r.entity.name.toLowerCase() === nameLower);
+    const partialMatch = fighters.find(r => {
+      const n = r.entity.name.toLowerCase();
+      // Para nombres con 2+ palabras, buscar que contenga nombre Y apellido
+      const parts = nameLower.split(' ').filter(p => p.length > 2);
+      return parts.length > 1 ? parts.every(p => n.includes(p)) : n.includes(lastName);
+    });
+    const match = exactMatch ?? partialMatch ?? fighters[0];
     if (!match) return '';
+    console.log(`      foto: "${name}" → API match: "${match.entity.name}" (id:${match.entity.id})`);
 
     // Descargar imagen
     const imgRes = await fetch(`${MMAAPI_BASE}/api/mma/team/${match.entity.id}/image`, {
@@ -221,18 +231,31 @@ async function fetchEvents() {
     if (prev?.fightCard?.length) e.fightCard = prev.fightCard;
     if (prev?.espnEventId) e.espnEventId = prev.espnEventId;
 
-    // Reutilizar solo si ya son rutas locales (no URLs externas de apis viejas)
-    if (prev?.f1img && prev?.f2img && isLocalImg(prev.f1img) && isLocalImg(prev.f2img)) {
+    // Reutilizar solo si ya son rutas locales Y el nombre del peleador no cambió
+    const f1Changed = prev && prev.f1 !== e.f1;
+    const f2Changed = prev && prev.f2 !== e.f2;
+    if (prev?.f1img && prev?.f2img && isLocalImg(prev.f1img) && isLocalImg(prev.f2img) && !f1Changed && !f2Changed) {
       e.f1img = prev.f1img;
       e.f2img = prev.f2img;
       continue;
     }
 
-    console.log(`   → Buscando fotos: ${e.f1} vs ${e.f2}`);
-    e.f1img = await fetchFighterPhotoMMAAPI(e.f1, `${e.slug}-f1`);
-    await sleep(1500);
-    e.f2img = await fetchFighterPhotoMMAAPI(e.f2, `${e.slug}-f2`);
-    await sleep(1500);
+    // Re-descargar fotos (nombre cambió o no hay foto)
+    if (f1Changed || !prev?.f1img || !isLocalImg(prev?.f1img ?? '')) {
+      console.log(`   → Buscando foto F1: ${e.f1}${f1Changed ? ` (antes: ${prev?.f1})` : ''}`);
+      e.f1img = await fetchFighterPhotoMMAAPI(e.f1, `${e.slug}-f1`);
+      await sleep(1500);
+    } else {
+      e.f1img = prev!.f1img;
+    }
+
+    if (f2Changed || !prev?.f2img || !isLocalImg(prev?.f2img ?? '')) {
+      console.log(`   → Buscando foto F2: ${e.f2}${f2Changed ? ` (antes: ${prev?.f2})` : ''}`);
+      e.f2img = await fetchFighterPhotoMMAAPI(e.f2, `${e.slug}-f2`);
+      await sleep(1500);
+    } else {
+      e.f2img = prev!.f2img;
+    }
   }
 
   // ── MERGE: preservar eventos pasados que Wikipedia ya quitó de "scheduled" ──
@@ -319,13 +342,29 @@ async function fetchFightCards() {
   for (const event of events) {
     if (event.main === 'TBD') continue;
 
-    // Reutilizar si ya tiene cartelera — pero asegurar nombres completos
+    // Reutilizar si ya tiene cartelera — pero asegurar nombres completos y fotos
     if (event.fightCard?.length) {
       const mainFight = event.fightCard.find(f => f.order === 0) ?? event.fightCard[0];
-      if (mainFight && event.f1 !== mainFight.f1) {
+      const namesChanged = mainFight && event.f1 !== mainFight.f1;
+      if (namesChanged && mainFight) {
         event.f1 = mainFight.f1;
         event.f2 = mainFight.f2;
         event.main = `${mainFight.f1} vs. ${mainFight.f2}`;
+      }
+      // Re-descargar fotos si el nombre cambió O si la foto no existe en disco
+      const f1Missing = !event.f1img || !existsSync(join(IMG_DIR, `${event.slug}-f1.png`));
+      const f2Missing = !event.f2img || !existsSync(join(IMG_DIR, `${event.slug}-f2.png`));
+      if (f1Missing || f2Missing || namesChanged) {
+        console.log(`   ↻ ${event.name}: re-descargando fotos (${namesChanged ? 'nombres cambiados' : 'foto faltante'})...`);
+        if (f1Missing || namesChanged) {
+          event.f1img = await fetchFighterPhotoMMAAPI(event.f1, `${event.slug}-f1`);
+          await sleep(1500);
+        }
+        if (f2Missing || namesChanged) {
+          event.f2img = await fetchFighterPhotoMMAAPI(event.f2, `${event.slug}-f2`);
+          await sleep(1500);
+        }
+        enriched++;
       }
       console.log(`   · (cached) ${event.name}: ${event.fightCard.length} peleas`);
       continue;
@@ -340,6 +379,11 @@ async function fetchFightCards() {
         event.f1 = mainFight.f1;
         event.f2 = mainFight.f2;
         event.main = `${mainFight.f1} vs. ${mainFight.f2}`;
+        // Descargar fotos con nombres completos
+        event.f1img = await fetchFighterPhotoMMAAPI(event.f1, `${event.slug}-f1`);
+        await sleep(1500);
+        event.f2img = await fetchFighterPhotoMMAAPI(event.f2, `${event.slug}-f2`);
+        await sleep(1500);
       }
       enriched++;
       console.log(`   ✓ ${event.name}: ${card.length} peleas`);
