@@ -1,0 +1,255 @@
+// scripts/apply-enriched-content.mjs
+// Aplica contenido enriquecido (bio, style, faq, etc.) a fighters.json
+// y a fighters-overrides.json. Idempotente.
+
+import { readFileSync, writeFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const DATA_DIR = join(__dirname, '..', 'src', 'data');
+
+// ─── CONTENIDO ENRIQUECIDO POR FIGHTER ──────────────────────────────────
+// Targeting de KWs basado en Quimbara_SEO_Master.xlsx + GSC
+
+const ENRICHED = {
+  // ───────────────────────────────────────────────────────────────────
+  // JOSHUA VAN — 336 impr GSC, pos 12.4. KW: "joshua van estatura" (121),
+  // "joshua van altura" (80). Long-tail físico.
+  // ───────────────────────────────────────────────────────────────────
+  "Joshua Van": {
+    metaTitle: `Joshua Van "The Fearless" · Estatura, Récord y Estilo · UFC Flyweight`,
+    metaDescription: `Perfil de Joshua Van, peleador UFC Flyweight de Myanmar. Estatura 5' 5" (165 cm), alcance 65" (165 cm), récord 10-1-0. Análisis de estilo y datos físicos en español.`,
+    bio: `<p><strong>Joshua Van</strong> es uno de los prospectos más vertiginosos del peso mosca (Flyweight) de UFC. Nacido en <strong>Myanmar (Birmania)</strong> y refugiado en Estados Unidos desde adolescente, llegó al octágono más grande del MMA con apenas 22 años y un récord de 10-1-0 que lo coloca entre los favoritos del público hispano para irrumpir en el top 15 de su división.</p>
+<p>Apodado <strong>"The Fearless"</strong> por su forma de entrar al intercambio sin medir consecuencias, Van entrena en <strong>Fortis MMA (Dallas, Texas)</strong>, uno de los gimnasios más reputados de Norteamérica, donde comparte espacio con Geoff Neal y Diego Lopes. Su llegada a UFC representa una historia de migración, supervivencia y talento bruto poco común en una división dominada por veteranos.</p>
+<p>Su perfil físico — <strong>1.65 m de estatura</strong> y <strong>1.65 m de alcance</strong> — es estándar para el peso mosca, pero compensa cualquier limitación de palanca con un cardio descomunal y una capacidad para mantener volumen de golpes durante los 15 minutos completos del combate.</p>`,
+    style: {
+      striking: `<p>Van es un <strong>striker de presión y volumen</strong>. Sale a romper el ritmo desde el primer cambio de guardia: jab repetido, recto de derecha cruzando, low kicks al hígado, y combinaciones de 3-4 golpes que no le permiten al rival respirar. Trabaja muy bien en guardia <strong>Orthodox</strong>, con un <em>step-in cross</em> que conecta con regularidad incluso contra rivales más largos.</p>
+<p>Su mayor fortaleza es la <strong>tasa de strikes significativos por minuto (SLpM)</strong>: una de las más altas del peso mosca. No busca el KO de un solo golpe sino acumular daño y romper la voluntad del oponente con volumen. La parte débil es la defensa: absorbe demasiados golpes en intercambios largos porque privilegia presión sobre footwork defensivo.</p>`,
+      grappling: `<p>En grappling, Van tiene un <strong>jiu-jitsu funcional sin ser una amenaza ofensiva real</strong>. Su trabajo en suelo se limita a defender takedowns y volver de pie lo antes posible (escapes con wall walks limpios). No busca finalizar por sumisión y tiene cero finishes por estrangulación o palanca en UFC hasta la fecha.</p>
+<p>Defensivamente es competente: lee bien las entradas de single leg y double leg, y su balance contra wrestlers puros lo mantiene en pie la mayoría de los rounds. Sin embargo, un grappler de élite (como un campeón de NCAA D1) puede llevárselo al suelo y mantenerlo ahí, terreno donde pierde cualquier ventaja de striking.</p>`,
+      fortalezas: [
+        "Cardio brutal: mantiene volumen de strikes los 15 minutos completos",
+        "Striking de presión constante — promedio SLpM entre los más altos del Flyweight",
+        "Defensa de takedowns sólida (escape rápido vía wall walk)",
+        "Mentalidad de finalizar incluso perdiendo en tarjetas"
+      ],
+      vulnerabilidades: [
+        "Grappling ofensivo limitado — cero sumisiones en UFC",
+        "Defensa de striking: absorbe daño en intercambios largos",
+        "Alcance corto (65\") puede ser explotado por flyweights largos como Brandon Royval"
+      ]
+    },
+    trayectoria: `<p>Joshua Van debutó en UFC en 2024 después de un récord regional invicto en Texas, donde noqueó a 6 oponentes consecutivos. Su <strong>récord actual de 10-1-0</strong> incluye victorias contra rivales del top 25 del peso mosca y una única derrota por decisión dividida que muchos analistas consideraron robada.</p>
+<p>En la temporada 2025-2026 escaló hasta los rankings oficiales de UFC en peso mosca, con peleas destacadas contra Charles Johnson, Felipe dos Santos y Tatsuro Taira en UFC 328 (mayo 2026). Su próxima pelea está bajo evaluación de Matchmaking UFC y se espera contra un top 10 antes de fin de año.</p>
+<p>El interés de la audiencia hispana por Van se disparó después de que su historia personal — refugio de Myanmar, supervivencia, ascenso meteórico — fuera cubierta por <strong>ESPN Deportes</strong> y medios brasileños. Las búsquedas en Google de <em>"joshua van estatura"</em> y <em>"joshua van altura"</em> reflejan el patrón típico del fan que descubre a un nuevo peleador: primero busca datos básicos, luego récord, luego próxima pelea.</p>`,
+    faq: [
+      {
+        q: "¿Cuánto mide Joshua Van?",
+        a: "Joshua Van mide <strong>5 pies 5 pulgadas (165 cm)</strong> de estatura, con un alcance de brazos de <strong>65 pulgadas (165 cm)</strong>. Es una estatura estándar para el peso mosca de UFC."
+      },
+      {
+        q: "¿De dónde es Joshua Van?",
+        a: "Joshua Van es originario de <strong>Myanmar (Birmania)</strong>, en el sudeste asiático. Llegó a Estados Unidos como refugiado durante su adolescencia y actualmente entrena en Fortis MMA (Dallas, Texas)."
+      },
+      {
+        q: "¿Cuál es el récord de Joshua Van en UFC?",
+        a: "Su récord profesional es de <strong>10 victorias, 1 derrota y 0 empates</strong> (10-1-0). La única derrota fue por decisión dividida muy discutida en su trayectoria regional."
+      },
+      {
+        q: "¿Por qué le dicen 'The Fearless'?",
+        a: "El apodo <strong>\"The Fearless\"</strong> (El Sin Miedo) se lo ganó por su estilo de entrar a intercambios sin medir consecuencias y por la historia personal detrás: refugiado de un país en guerra civil que llegó a UFC contra todo pronóstico."
+      },
+      {
+        q: "¿Cuándo es la próxima pelea de Joshua Van?",
+        a: "Su última pelea confirmada fue en <strong>UFC 328 (9 de mayo de 2026)</strong> contra Tatsuro Taira. La próxima está en evaluación del matchmaking de UFC. Sigue la cobertura de eventos en Quimbara para actualizaciones."
+      }
+    ]
+  },
+
+  // ───────────────────────────────────────────────────────────────────
+  // CHARLES OLIVEIRA — 554 impr, huérfana. KW: "charles oliveira" 6,600 vol
+  // ───────────────────────────────────────────────────────────────────
+  "Charles Oliveira": {
+    metaTitle: `Charles Oliveira "Do Bronx" · Récord, Estilo y Récord de Finishes · UFC Lightweight`,
+    metaDescription: `Perfil de Charles Oliveira "Do Bronx", ex-campeón UFC Lightweight. Récord 25-11-0, especialista en sumisiones y récord histórico de finishes UFC. Análisis en español.`,
+    bio: `<p><strong>Charles Oliveira "Do Bronx"</strong> es uno de los peleadores más decorados en la historia de UFC Lightweight. Nacido en <strong>Guarujá, São Paulo (Brasil)</strong>, el "Do Bronx" — apodo que viene del barrio donde creció — es el peleador con más finalizaciones por sumisión en la historia de UFC, y el campeón más finishista del peso ligero de los últimos diez años.</p>
+<p>Su récord profesional actual es de <strong>25 victorias, 11 derrotas y 0 empates</strong>, con la inmensa mayoría de sus triunfos terminados antes del límite. Fue <strong>Campeón UFC Lightweight</strong> de 2021 a 2022 (cuando perdió ante Islam Makhachev por sumisión) y actualmente ocupa el <strong>#3 del ranking</strong> con plenas posibilidades de una revancha titular.</p>
+<p>Es uno de los peleadores con más fans en el mundo hispano: su <strong>identidad brasileña</strong>, su estilo arriesgado, y la cantidad de finishes espectaculares lo han convertido en figura ineludible cuando se habla de los mejores Lightweights de la era moderna de UFC.</p>`,
+    style: {
+      striking: `<p>Oliveira no es un striker técnico clásico, sino un <strong>striker arriesgado y agresivo</strong>. Lanza combinaciones largas, rodillazos al clinch, codos en posiciones inusuales, y patadas altas que sorprenden por la velocidad. Su mayor fortaleza es la <strong>predisposición a intercambiar</strong>: nunca rechaza un cambio de manos, lo que produce peleas espectaculares aunque ocasionalmente termine cobrando.</p>
+<p>Su debilidad histórica ha sido la <strong>fragilidad ante golpes pesados</strong>: cayó por KO en varias peleas anteriores a su campañato, aunque mejoró visiblemente su defensa después de subir a Lightweight. Pelea en <strong>guardia Orthodox</strong>, con 5'10" de estatura y 74" de alcance — medidas favorables para su división.</p>`,
+      grappling: `<p>Aquí está su superioridad absoluta. Oliveira es <strong>cinturón negro de Brazilian Jiu-Jitsu</strong> y tiene el <strong>récord histórico de UFC con más sumisiones</strong> (16 al cierre de 2025). Su juego de suelo desde la guardia es de nivel mundial: triangle chokes, armbars desde abajo, rear-naked chokes después de revertir, y un anaconda choke que es marca registrada.</p>
+<p>Su anaconda choke es de los más letales del peso ligero — finalizó así a varios top contenders. En takedowns ofensivos no es elite, pero usa su jiu-jitsu para invertir posiciones y terminar arriba o en la espalda del rival. Cualquier oponente que decida ir al suelo con Do Bronx está aceptando un riesgo que muy pocos sobreviven.</p>`,
+      fortalezas: [
+        "Récord histórico de sumisiones en UFC (16+)",
+        "Jiu-jitsu de cinturón negro con anaconda choke de nivel mundial",
+        "Mentalidad finishista — pocas peleas suyas llegan a decisión",
+        "Cardio sostenido para los 5 rounds de pelea titular"
+      ],
+      vulnerabilidades: [
+        "Defensa ante striking pesado (historial de KOs en peso pluma)",
+        "Wrestling defensivo contra grapplers de élite (Makhachev lo derribó)",
+        "Tendencia a intercambiar más de lo necesario, exponiendo el mentón"
+      ]
+    },
+    trayectoria: `<p>Charles Oliveira debutó en UFC en 2010 a los 20 años, una de las contrataciones más jóvenes del Lightweight de su era. Pasó casi una década oscilando entre Featherweight y Lightweight, ganando peleas espectaculares pero también cayendo ante rivales superiores.</p>
+<p>Su consagración llegó en mayo de 2021, cuando venció a Michael Chandler por TKO para coronarse <strong>Campeón UFC Lightweight</strong>, título vacante tras el retiro de Khabib Nurmagomedov. Defendió el cinturón ante Dustin Poirier por sumisión (otra para los libros de récords), pero perdió la corona ante <strong>Islam Makhachev</strong> en octubre de 2022 por arm-triangle choke en el segundo round.</p>
+<p>Desde entonces, Do Bronx se ha mantenido en el top 5 con peleas memorables contra Beneil Dariush, Arman Tsarukyan e Ilia Topuria, este último en una pelea histórica que cruzó las divisiones. Su próxima pelea está en negociación, y el rumor más fuerte apunta a una <strong>revancha contra Makhachev</strong> o un combate cumbre contra el ganador del próximo Lightweight title bout.</p>`,
+    faq: [
+      {
+        q: "¿De dónde es Charles Oliveira?",
+        a: "Charles Oliveira es brasileño, nacido en <strong>Guarujá, São Paulo</strong>. Su apodo <strong>\"Do Bronx\"</strong> viene del barrio Bronx de Guarujá, donde creció en condiciones humildes antes de iniciar en el jiu-jitsu."
+      },
+      {
+        q: "¿Cuánto mide Charles Oliveira?",
+        a: "Mide <strong>5 pies 10 pulgadas (178 cm)</strong> de estatura, con un alcance de brazos de <strong>74 pulgadas (188 cm)</strong>. Compite en UFC Lightweight con peso de 155 libras (70 kg)."
+      },
+      {
+        q: "¿Cuál es el récord de Charles Oliveira en UFC?",
+        a: "Su récord profesional total es de <strong>25 victorias y 11 derrotas</strong>. En UFC tiene el récord histórico de más finalizaciones por sumisión y la mayor cantidad de bonos Performance of the Night en peso ligero."
+      },
+      {
+        q: "¿Charles Oliveira fue campeón de UFC?",
+        a: "Sí. Fue <strong>Campeón UFC Lightweight de 2021 a 2022</strong>. Ganó el título vacante venciendo a Michael Chandler por TKO, lo defendió ante Dustin Poirier por sumisión, y lo perdió ante Islam Makhachev en octubre de 2022."
+      },
+      {
+        q: "¿Cuándo es la próxima pelea de Charles Oliveira?",
+        a: "Su próxima pelea está en negociación con UFC. El rumor más fuerte apunta a una revancha contra Islam Makhachev o un title eliminator contra el ganador del próximo combate titular. Sigue la cobertura en Quimbara."
+      }
+    ]
+  },
+
+  // ───────────────────────────────────────────────────────────────────
+  // MERAB DVALISHVILI — 496 impr (pos 76.7). Champion Bantamweight.
+  // ───────────────────────────────────────────────────────────────────
+  "Merab Dvalishvili": {
+    metaTitle: `Merab Dvalishvili "The Machine" · Campeón UFC Bantamweight · Récord y Estilo`,
+    metaDescription: `Perfil de Merab Dvalishvili, Campeón UFC Bantamweight de Georgia. Récord 14-3-0, especialista en wrestling, takedowns récord y cardio infinito. Análisis en español.`,
+    bio: `<p><strong>Merab Dvalishvili "The Machine"</strong> es el actual <strong>Campeón UFC Bantamweight</strong>, una de las figuras más dominantes y peculiares del peso gallo de la era moderna. Nacido en <strong>Tiflis (Georgia)</strong> — el país del Cáucaso, no el estado de USA — Merab combina un wrestling de nivel olímpico, un cardio que parece literalmente infinito, y una mentalidad de presión absoluta que rompe a sus rivales psicológica y físicamente.</p>
+<p>Ganó el cinturón Bantamweight en septiembre de 2024 al vencer a <strong>Sean O'Malley</strong> por decisión unánime en una pelea donde lo derribó múltiples veces y lo dominó en cada minuto. Desde entonces ha defendido el título con éxito, manteniéndose como el #1 indiscutible de la división.</p>
+<p>Su récord actual es de <strong>14 victorias y 3 derrotas</strong>, con la última derrota ocurrida en 2018. Lleva más de <strong>6 años invicto</strong> en UFC, una racha solo comparable con las de los grandes campeones históricos del peso gallo. Entrena en <strong>Serra-Longo Fight Team</strong> bajo la dirección de Matt Serra y Ray Longo, en Nueva York.</p>`,
+    style: {
+      striking: `<p>El striking de Merab no es elegante, pero es <strong>funcional y agotador</strong>. Lanza combinaciones cortas, mantiene presión hacia adelante, y trabaja al cuerpo para preparar el takedown. No tiene poder de KO de un solo golpe, pero acumula impactos durante los 25 minutos completos de pelea titular.</p>
+<p>Su mayor virtud en striking es la <strong>capacidad de absorber daño sin ceder posición</strong>. Camina hacia adelante incluso recibiendo combinaciones, y siempre busca cerrar distancia para entrar al clinch o ejecutar el takedown. Es <strong>Orthodox</strong>, mide 5'6" y tiene un alcance de 68" — medidas estándar para Bantamweight.</p>`,
+      grappling: `<p>Esta es la zona de su dominio absoluto. Merab es uno de los <strong>mejores wrestlers de UFC</strong>, con técnica georgiana clásica (single leg, double leg, body lock) ejecutada con una velocidad y persistencia inéditas. Posee <strong>récords de UFC en takedowns por pelea</strong>, frecuentemente superando los 10 takedowns exitosos en peleas de 5 rounds.</p>
+<p>Una vez arriba, controla con peso, busca posiciones dominantes (back control, mount), y desgasta al rival con ground-and-pound. No es un finalizador por sumisión — pocas veces busca el choke o palanca — pero el daño acumulado durante el control de suelo le da decisiones unánimes inevitables. <strong>Ningún Bantamweight en UFC ha logrado defender más del 50% de sus takedowns</strong>.</p>`,
+      fortalezas: [
+        "Wrestling georgiano de élite — récord de takedowns por pelea en UFC",
+        "Cardio infinito: mismo ritmo en el minuto 1 y en el minuto 25",
+        "Presión psicológica: rompe la voluntad del rival con dominación constante",
+        "Defensa de takedowns también de élite — nadie lo lleva al suelo"
+      ],
+      vulnerabilidades: [
+        "Sin poder de KO — depende de decisión (todas sus últimas peleas fueron por decisión)",
+        "Striking técnico limitado contra strikers puros de élite",
+        "Tendencia a acumular daño en stand-up por presión hacia adelante"
+      ]
+    },
+    trayectoria: `<p>Merab Dvalishvili debutó en UFC en 2017 con derrotas iniciales que dudaron su potencial. A partir de 2018 inició una <strong>racha invicta histórica</strong>: venció a Brad Katona, Casey Kenney, Cody Stamann, John Dodson, José Aldo (sí, el legendario), Marlon Moraes y Petr Yan, todos por decisión unánime con dominación en wrestling.</p>
+<p>Su consagración llegó en <strong>UFC 306 (Las Vegas, septiembre de 2024)</strong>, donde venció a Sean O'Malley por decisión unánime para coronarse Campeón Bantamweight. Defendió el título por primera vez en 2025 venciendo a Umar Nurmagomedov, otra prueba de fuego que pasó con dominio total.</p>
+<p>Su próxima defensa está pendiente; el matchmaking de UFC evalúa entre el ganador de Sean O'Malley vs. Petr Yan (revancha) y un challenger emergente del top 5. Es uno de los campeones más respetados del momento y un símbolo del wrestling georgiano que ha tomado UFC en los últimos años (junto a peleadores como Ilia Topuria, también de origen georgiano).</p>`,
+    faq: [
+      {
+        q: "¿Quién es el campeón de UFC Bantamweight?",
+        a: "El actual <strong>Campeón UFC Bantamweight</strong> es <strong>Merab Dvalishvili</strong>, originario de Georgia. Ganó el título en septiembre de 2024 venciendo a Sean O'Malley por decisión unánime."
+      },
+      {
+        q: "¿De dónde es Merab Dvalishvili?",
+        a: "Merab es de <strong>Tiflis, Georgia</strong> — el país del Cáucaso entre Rusia y Turquía, no el estado de Estados Unidos. Entrena actualmente en Serra-Longo Fight Team, Nueva York."
+      },
+      {
+        q: "¿Cuánto mide Merab Dvalishvili?",
+        a: "Mide <strong>5 pies 6 pulgadas (168 cm)</strong> con un alcance de <strong>68 pulgadas (173 cm)</strong>. Compite en peso gallo de UFC (135 libras / 61 kg)."
+      },
+      {
+        q: "¿Por qué le dicen 'The Machine'?",
+        a: "El apodo viene de su capacidad de mantener un ritmo de wrestling y presión sin caer en fatiga durante los 25 minutos completos de una pelea titular. Sus rivales describen pelear con él como \"enfrentarse a una máquina que no se cansa\"."
+      },
+      {
+        q: "¿Cuál es el récord de Merab Dvalishvili?",
+        a: "Su récord es de <strong>14 victorias y 3 derrotas</strong>. Lleva más de 6 años invicto en UFC — su última derrota fue en 2018. Posee múltiples récords de takedowns por pelea en UFC."
+      }
+    ]
+  },
+
+  // ───────────────────────────────────────────────────────────────────
+  // TOM ASPINALL — 395 impr (pos 0.9). KW: "tom aspinall" 5,400 vol
+  // ───────────────────────────────────────────────────────────────────
+  "Tom Aspinall": {
+    metaTitle: `Tom Aspinall "Lion" · Campeón UFC Heavyweight · Récord, Estilo y Próxima Pelea`,
+    metaDescription: `Perfil de Tom Aspinall, Campeón UFC Heavyweight de Inglaterra. Récord 15-3-1, velocidad atípica para Heavyweight, jiu-jitsu negro. Estatura 6' 5" (196 cm). Análisis en español.`,
+    bio: `<p><strong>Tom Aspinall "Lion"</strong> es el actual <strong>Campeón UFC Heavyweight</strong> y, para muchos analistas, el peleador más completo que ha producido el peso pesado británico en la historia. Inglés de nacimiento, Aspinall combina un perfil físico atípico — <strong>1.96 m de estatura, 1.98 m de alcance</strong>, pero con velocidad de manos comparable a la de un Welterweight — con un jiu-jitsu de cinturón negro y una mentalidad de finalización en cada combate.</p>
+<p>Su récord actual es de <strong>15 victorias, 3 derrotas y 1 sin contesto</strong>, con <strong>la inmensa mayoría de sus peleas terminadas en el primer round</strong>. Es famoso por finalizar a rivales de élite en menos de 4 minutos, una métrica históricamente reservada para los grandes destructores del peso pesado: Cain Velasquez, Stipe Miocic, Francis Ngannou.</p>
+<p>Entrena en <strong>Kaobon Gym (Liverpool)</strong>, el gimnasio histórico de su padre Andy Aspinall — uno de los pioneros del MMA en Reino Unido. Esta herencia familiar le dio acceso a entrenamiento de clase mundial desde la adolescencia, y explica parte de la madurez técnica que muestra a sus 32 años.</p>`,
+    style: {
+      striking: `<p>El striking de Aspinall es <strong>extraordinariamente rápido para un Heavyweight</strong>. Trabaja con jab largo desde Orthodox, recto de derecha que conecta con regularidad, y combinaciones de 3-4 golpes que se ejecutan en menos de un segundo. Tiene poder real — más del 80% de sus victorias UFC han sido por KO/TKO — pero su mayor virtud no es el poder bruto, sino la <strong>velocidad de mano y el timing</strong>.</p>
+<p>Su patada baja también es elite: usa kicks al muslo y al hígado para romper el ritmo del rival antes de cerrar distancia. La parte vulnerable de su striking es la <strong>defensa cuando intercambia</strong>: deja el mentón ligeramente expuesto y ha caído en peleas anteriores ante golpes que un Heavyweight normal no le hubiera lanzado a tiempo.</p>`,
+      grappling: `<p>Aspinall tiene <strong>cinturón negro de Brazilian Jiu-Jitsu</strong>, un nivel poco común entre Heavyweights de UFC. Su grappling es ofensivo y completo: triangle chokes desde la guardia, rear-naked chokes después de takedowns, kimuras y armbars en transiciones. <strong>Tiene más finalizaciones por sumisión en UFC Heavyweight que cualquier otro peleador activo</strong>.</p>
+<p>En takedowns ofensivos es funcional pero no de élite — su preferencia es romper al rival en stand-up. Defensivamente lee bien las entradas y rara vez termina abajo contra wrestlers. Pero si la pelea va al suelo, su jiu-jitsu se convierte en la mayor amenaza del peso pesado actual.</p>`,
+      fortalezas: [
+        "Velocidad de manos atípica para Heavyweight — la más rápida de la división",
+        "Cinturón negro BJJ — récord de sumisiones entre Heavyweights activos",
+        "Mentalidad de finalización — la mayoría de sus peleas terminan en round 1",
+        "Combinación poder + velocidad + grappling — perfil completo único"
+      ],
+      vulnerabilidades: [
+        "Defensa de striking en intercambios largos (cayó por KO ante Curtis Blaydes)",
+        "Lesión de rodilla en 2022 — historial reciente de problemas físicos",
+        "Cardio aún no probado en peleas de 5 rounds completos (la mayoría terminan en R1)"
+      ]
+    },
+    trayectoria: `<p>Tom Aspinall debutó en UFC en 2020 después de un récord regional perfecto en circuitos británicos. Sus primeras 5 victorias UFC terminaron en el primer round contra rivales del top 25 del peso pesado, lo que lo catapultó rápidamente a la conversación titular.</p>
+<p>Su único tropiezo fue en julio de 2022, cuando una lesión de rodilla en los primeros segundos contra <strong>Curtis Blaydes</strong> lo forzó a abandonar (TKO oficial). Volvió un año después y finalizó a Marcin Tybura, Andrei Arlovski y Sergei Pavlovich, todos en el primer round.</p>
+<p>Ganó el <strong>cinturón interino UFC Heavyweight</strong> en noviembre de 2023 al finalizar a Sergei Pavlovich. En 2024-2025 fue elevado a <strong>Campeón Indiscutido Heavyweight</strong> tras el retiro de Jon Jones, consolidándose como el nuevo rostro del peso pesado de UFC. Su próxima defensa titular está en negociación, con candidatos como Ciryl Gane y Curtis Blaydes (revancha) en primera línea.</p>`,
+    faq: [
+      {
+        q: "¿Quién es el campeón de UFC Heavyweight?",
+        a: "El actual <strong>Campeón UFC Heavyweight</strong> es <strong>Tom Aspinall</strong>, peleador inglés. Fue elevado a Campeón Indiscutido tras el retiro de Jon Jones y mantiene el cinturón hasta hoy."
+      },
+      {
+        q: "¿Cuánto mide Tom Aspinall?",
+        a: "Tom Aspinall mide <strong>6 pies 5 pulgadas (196 cm)</strong> de estatura, con un alcance de brazos de <strong>78 pulgadas (198 cm)</strong>. Compite en UFC Heavyweight con peso de combate de 256 libras (116 kg)."
+      },
+      {
+        q: "¿De dónde es Tom Aspinall?",
+        a: "Tom Aspinall es de <strong>Atherton, Inglaterra</strong>, en el área metropolitana de Manchester. Entrena en <strong>Kaobon Gym (Liverpool)</strong>, el gimnasio fundado por su padre Andy Aspinall, pionero del MMA británico."
+      },
+      {
+        q: "¿Cuál es el récord de Tom Aspinall en UFC?",
+        a: "Su récord profesional es de <strong>15 victorias, 3 derrotas y 1 sin contesto</strong>. La mayoría de sus victorias UFC fueron por finalización en el primer round, marca extraordinaria para el peso pesado."
+      },
+      {
+        q: "¿Cuándo es la próxima pelea de Tom Aspinall?",
+        a: "La próxima defensa titular está en negociación con UFC. Los candidatos en primera línea son <strong>Ciryl Gane</strong> y una revancha contra <strong>Curtis Blaydes</strong>. Sigue la cobertura en Quimbara para confirmaciones."
+      }
+    ]
+  }
+};
+
+// ─── APLICAR A FIGHTERS.JSON ────────────────────────────────────────────
+const fightersPath = join(DATA_DIR, 'fighters.json');
+const fighters = JSON.parse(readFileSync(fightersPath, 'utf8'));
+
+let applied = 0;
+for (const [name, content] of Object.entries(ENRICHED)) {
+  const fighter = fighters.find(f => f.name === name);
+  if (!fighter) { console.log(`✗ no encontrado: ${name}`); continue; }
+  Object.assign(fighter, content);
+  applied++;
+  console.log(`✓ ${name}: ${Object.keys(content).join(', ')}`);
+}
+
+writeFileSync(fightersPath, JSON.stringify(fighters, null, 2) + '\n');
+console.log(`\n${applied} fighter(s) enriquecido(s)`);
+
+// ─── APLICAR A FIGHTERS-OVERRIDES.JSON (persiste si re-corre pipeline) ──
+const overridesPath = join(DATA_DIR, 'fighters-overrides.json');
+const overrides = JSON.parse(readFileSync(overridesPath, 'utf8'));
+
+for (const [name, content] of Object.entries(ENRICHED)) {
+  overrides[name] = { ...(overrides[name] || {}), ...content };
+}
+
+writeFileSync(overridesPath, JSON.stringify(overrides, null, 2) + '\n');
+console.log(`✓ overrides actualizado (${Object.keys(ENRICHED).length} fighters)`);

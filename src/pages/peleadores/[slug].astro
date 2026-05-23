@@ -4,12 +4,49 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import FIGHTERS from '../../data/fighters.json';
 import { getCollection } from 'astro:content';
 
+// Campos opcionales de contenido enriquecido (densificación SEO)
+type FighterEnriched = {
+  bio?: string;
+  style?: {
+    striking?: string;
+    grappling?: string;
+    fortalezas?: string[];
+    vulnerabilidades?: string[];
+  };
+  proximaPelea?: { evento?: string; rival?: string; fecha?: string; eventSlug?: string; };
+  trayectoria?: string;
+  faq?: Array<{ q: string; a: string }>;
+  metaTitle?: string;
+  metaDescription?: string;
+};
+
 export function getStaticPaths() {
   return FIGHTERS.map((f) => ({ params: { slug: f.slug }, props: { fighter: f } }));
 }
 
-const { fighter: f } = Astro.props;
+const { fighter: f } = Astro.props as { fighter: typeof FIGHTERS[0] & FighterEnriched };
 const PX = 'clamp(16px,4vw,60px)';
+
+// ─── Helpers de conversión (imperial → métrico) para long-tail físico ───
+function heightToCm(h: string): number | null {
+  const m = h?.match(/(\d+)'\s*(\d+)/);
+  if (!m) return null;
+  return Math.round((+m[1]) * 30.48 + (+m[2]) * 2.54);
+}
+function inchesToCm(r: string): number | null {
+  const m = r?.match(/(\d+)/);
+  if (!m) return null;
+  return Math.round((+m[1]) * 2.54);
+}
+const heightCm = f.height ? heightToCm(f.height) : null;
+const reachCm  = f.reach  ? inchesToCm(f.reach)  : null;
+
+// ─── Estado: campeón / ranqueado / no ranqueado ───
+const isChampion = f.rank === 'C';
+const isRanked   = !!f.rank && f.rank !== 'C';
+const roleLabel  = isChampion ? `Campeón UFC ${f.div}`
+                 : isRanked   ? `#${f.rank} UFC ${f.div}`
+                 : `Peleador UFC ${f.div}`;
 
 // Buscar artículos relacionados: nombre o apellido del peleador en título o descripción
 const allPosts = await getCollection('blog');
@@ -59,7 +96,7 @@ const siteUrl = 'https://quimbara.org';
 const canonicalUrl = `${siteUrl}/peleadores/${f.slug}/`;
 
 // Schema Person (tripleta semántica: peleador → récord, división, nacionalidad)
-const personSchema = {
+const personSchema: any = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": f.name,
@@ -74,25 +111,44 @@ const personSchema = {
     "name": "UFC",
     "url": "https://www.ufc.com"
   },
-  "award": `Campeón UFC ${f.div}`,
-  "description": `${f.name}${f.nick ? ` "${f.nick}"` : ''} es el actual Campeón UFC ${f.div} con récord de ${f.rec}. ${f.from ? `De ${f.from}.` : ''} ${f.stance ? `Guardia ${f.stance}.` : ''} ${f.team ? `Equipo: ${f.team}.` : ''}`,
+  "description": `${f.name}${f.nick ? ` "${f.nick}"` : ''} es ${isChampion ? 'el actual ' : 'un '}${roleLabel.toLowerCase()} con récord de ${f.rec}. ${f.from ? `De ${f.from}.` : ''} ${f.stance ? `Guardia ${f.stance}.` : ''} ${f.team ? `Equipo: ${f.team}.` : ''}`.trim(),
   "knowsAbout": ["MMA", "UFC", f.div, "Artes Marciales Mixtas"]
 };
+if (isChampion) personSchema.award = `Campeón UFC ${f.div}`;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Inicio", "item": siteUrl },
-    { "@type": "ListItem", "position": 2, "name": f.name, "item": canonicalUrl }
+    { "@type": "ListItem", "position": 2, "name": "Peleadores", "item": `${siteUrl}/peleadores/` },
+    { "@type": "ListItem", "position": 3, "name": f.name, "item": canonicalUrl }
   ]
 };
 
-const fighterSchema = `[${JSON.stringify(personSchema)}, ${JSON.stringify(breadcrumbSchema)}]`;
+// FAQ schema (solo si hay FAQs definidas)
+const faqSchema = f.faq && f.faq.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": f.faq.map(({ q, a }) => ({
+    "@type": "Question",
+    "name": q,
+    "acceptedAnswer": { "@type": "Answer", "text": a }
+  }))
+} : null;
 
-// Meta título y descripción optimizados con keywords del audit
-const metaTitle = `${f.name}${f.nick ? ` "${f.nick}"` : ''} · Récord ${f.rec} · UFC ${f.div}`;
-const metaDescription = `Perfil de ${f.name}, Campeón UFC ${f.div}. Récord ${f.rec}${f.height ? `, altura ${f.height}` : ''}${f.reach ? `, alcance ${f.reach}` : ''}. Forma reciente: ${form.slice(0,5).join('-') || 'n/d'}. Última pelea y datos completos en Quimbara.`;
+const schemas = [personSchema, breadcrumbSchema, faqSchema].filter(Boolean);
+const fighterSchema = JSON.stringify(schemas);
+
+// ─── Title/meta formula (override por-fighter o auto) ───
+const heightForMeta = heightCm ? `${f.height} (${heightCm} cm)` : f.height;
+const reachForMeta  = reachCm  ? `${f.reach} (${reachCm} cm)`  : f.reach;
+
+const metaTitle = f.metaTitle
+  ?? `${f.name}${f.nick ? ` "${f.nick}"` : ''} · ${roleLabel} · Récord ${f.rec}`;
+
+const metaDescription = f.metaDescription
+  ?? `Perfil de ${f.name}${f.nick ? ` "${f.nick}"` : ''}, ${roleLabel}. Récord UFC ${f.rec}${heightForMeta ? `, estatura ${heightForMeta}` : ''}${reachForMeta ? `, alcance ${reachForMeta}` : ''}. Análisis de estilo, datos físicos y próxima pelea en Quimbara.`;
 ---
 
 <BaseLayout
@@ -133,9 +189,14 @@ const metaDescription = `Perfil de ${f.name}, Campeón UFC ${f.div}. Récord ${f
                     style="font-family:var(--font-display);font-size:clamp(28px,5vw,48px);">{initials}</span>
             )}
           </div>
-          <!-- Badge campeón -->
-          <div class="absolute -bottom-2 -right-2 bg-[#FFD600] text-[#111] text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-md"
-               style="font-family:var(--font-sans);">Campeón</div>
+          {isChampion && (
+            <div class="absolute -bottom-2 -right-2 bg-[#FFD600] text-[#111] text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-md"
+                 style="font-family:var(--font-sans);">Campeón</div>
+          )}
+          {isRanked && (
+            <div class="absolute -bottom-2 -right-2 bg-white text-[#111] text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-md border border-gray-200"
+                 style="font-family:var(--font-sans);">#{f.rank}</div>
+          )}
         </div>
 
         <!-- Nombre -->
@@ -238,6 +299,142 @@ const metaDescription = `Perfil de ${f.name}, Campeón UFC ${f.div}. Récord ${f
       <p class="text-[10px] text-gray-400 mt-4" style="font-family:var(--font-sans);">
         Últimas {form.length} peleas · de más reciente a más antigua
       </p>
+    </section>
+  )}
+
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <!-- ═══ SECCIONES ENRIQUECIDAS (solo se renderizan si hay data) ═ -->
+  <!-- ══════════════════════════════════════════════════════════════ -->
+
+  <!-- ── ¿Quién es? (bio) ── -->
+  {f.bio && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 60px;`}>
+      <h2 class="text-2xl md:text-3xl mb-5 text-[#111]"
+          style="font-family:var(--font-display);">¿Quién es {f.name}?</h2>
+      <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed"
+           style="font-family:var(--font-sans);"
+           set:html={f.bio} />
+    </section>
+  )}
+
+  <!-- ── Datos físicos en texto (long-tail "estatura/altura") ── -->
+  {(heightCm || reachCm) && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 60px;`}>
+      <h2 class="text-2xl md:text-3xl mb-5 text-[#111]"
+          style="font-family:var(--font-display);">Estatura, alcance y datos físicos de {f.name}</h2>
+      <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed"
+           style="font-family:var(--font-sans);">
+        <p>
+          {f.name}{f.nick ? ` "${f.nick}"` : ''} mide
+          {heightCm && (<><strong> {f.height} ({heightCm} cm)</strong> de estatura</>)}
+          {reachCm && (<>{heightCm ? ' y tiene un alcance de ' : ' tiene un alcance de '}<strong>{f.reach} ({reachCm} cm)</strong></>)}.
+          {f.stance && (<> Pelea en guardia <strong>{f.stance}</strong>.</>)}
+          {f.weight && (<> Compite en la división <strong>UFC {f.div}</strong> con un peso de combate de <strong>{f.weight}</strong>.</>)}
+        </p>
+      </div>
+    </section>
+  )}
+
+  <!-- ── Estilo de pelea ── -->
+  {f.style && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 60px;`}>
+      <h2 class="text-2xl md:text-3xl mb-5 text-[#111]"
+          style="font-family:var(--font-display);">Estilo de pelea de {f.name}</h2>
+
+      {f.style.striking && (
+        <div class="mb-6">
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-3"
+              style="font-family:var(--font-sans);">Striking</h3>
+          <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed"
+               style="font-family:var(--font-sans);" set:html={f.style.striking} />
+        </div>
+      )}
+
+      {f.style.grappling && (
+        <div class="mb-6">
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-3"
+              style="font-family:var(--font-sans);">Grappling y Wrestling</h3>
+          <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed"
+               style="font-family:var(--font-sans);" set:html={f.style.grappling} />
+        </div>
+      )}
+
+      {(f.style.fortalezas && f.style.fortalezas.length > 0) && (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div class="bg-green-50 border border-green-200 rounded-xl p-5">
+            <h3 class="text-[11px] font-bold uppercase tracking-widest text-green-800 mb-3"
+                style="font-family:var(--font-sans);">Fortalezas</h3>
+            <ul class="space-y-2 text-gray-800" style="font-family:var(--font-sans);">
+              {f.style.fortalezas.map(it => <li class="flex gap-2"><span class="text-green-600">✓</span><span>{it}</span></li>)}
+            </ul>
+          </div>
+          {f.style.vulnerabilidades && f.style.vulnerabilidades.length > 0 && (
+            <div class="bg-red-50 border border-red-200 rounded-xl p-5">
+              <h3 class="text-[11px] font-bold uppercase tracking-widest text-red-800 mb-3"
+                  style="font-family:var(--font-sans);">Vulnerabilidades</h3>
+              <ul class="space-y-2 text-gray-800" style="font-family:var(--font-sans);">
+                {f.style.vulnerabilidades.map(it => <li class="flex gap-2"><span class="text-red-600">✗</span><span>{it}</span></li>)}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+    </section>
+  )}
+
+  <!-- ── Próxima pelea confirmada ── -->
+  {f.proximaPelea && f.proximaPelea.rival && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 60px;`}>
+      <h2 class="text-2xl md:text-3xl mb-5 text-[#111]"
+          style="font-family:var(--font-display);">Próxima pelea de {f.name}</h2>
+      <div class="bg-[#111] text-white rounded-2xl p-6 md:p-8"
+           style="font-family:var(--font-sans);">
+        <div class="text-[#FFD600] text-[10px] font-bold uppercase tracking-widest mb-2">
+          {f.proximaPelea.evento ?? 'Próximo combate'}
+        </div>
+        <div class="text-2xl md:text-3xl font-black mb-3"
+             style="font-family:var(--font-display);">
+          {f.name} vs. {f.proximaPelea.rival}
+        </div>
+        {f.proximaPelea.fecha && (
+          <div class="text-gray-400 mb-4">{f.proximaPelea.fecha}</div>
+        )}
+        {f.proximaPelea.eventSlug && (
+          <a href={`/eventos/${f.proximaPelea.eventSlug}/`}
+             class="inline-block bg-[#FFD600] text-[#111] font-bold text-sm px-5 py-2.5 rounded-md hover:bg-yellow-300 transition-colors">
+            Ver cartelera completa →
+          </a>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- ── Trayectoria ── -->
+  {f.trayectoria && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 60px;`}>
+      <h2 class="text-2xl md:text-3xl mb-5 text-[#111]"
+          style="font-family:var(--font-display);">Trayectoria de {f.name} en UFC</h2>
+      <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed"
+           style="font-family:var(--font-sans);" set:html={f.trayectoria} />
+    </section>
+  )}
+
+  <!-- ── FAQ (con FAQPage schema) ── -->
+  {f.faq && f.faq.length > 0 && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 60px;`}>
+      <h2 class="text-2xl md:text-3xl mb-5 text-[#111]"
+          style="font-family:var(--font-display);">Preguntas frecuentes sobre {f.name}</h2>
+      <div class="space-y-3" style="font-family:var(--font-sans);">
+        {f.faq.map(({ q, a }) => (
+          <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+            <summary class="cursor-pointer list-none px-5 py-4 font-bold text-[#111] flex items-center justify-between hover:bg-gray-100 transition-colors">
+              <span>{q}</span>
+              <span class="text-gray-400 group-open:rotate-180 transition-transform">▾</span>
+            </summary>
+            <div class="px-5 pb-4 text-gray-700 leading-relaxed" set:html={a} />
+          </details>
+        ))}
+      </div>
     </section>
   )}
 

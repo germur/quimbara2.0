@@ -108,10 +108,14 @@ const breadcrumbSchema = {
 const eventSchemaStr = `[${JSON.stringify(eventSchema)}, ${JSON.stringify(breadcrumbSchema)}]`;
 
 // Meta optimizado — diferenciado para eventos pasados vs futuros
-const metaTitle = `${event.name}${hasFight ? `: ${f1} vs. ${f2}` : ''} · ${isCompleted ? 'Resultados' : event.dateLabel}`;
+// Estrategia SEO: priorizar CTR con título descriptivo + KWs comerciales
+const metaTitle = isCompleted
+  ? `${event.name}${hasFight ? `: ${f1} vs. ${f2}` : ''} · Resultados y Cartelera · ${event.dateLabel}`
+  : `${event.name}${hasFight ? `: ${f1} vs. ${f2}` : ''} · Cartelera, Horarios y Dónde Ver · ${event.dateLabel}`;
+
 const metaDescription = isCompleted
-  ? `${event.name}${hasFight ? ` — ${f1} vs. ${f2}` : ''}. Resultados, cartelera completa y resumen del evento celebrado el ${event.dateLabel} en ${event.loc}.`
-  : `${event.name}${hasFight ? ` — ${f1} vs. ${f2}` : ''}. ¿A qué hora es la pelea? ${event.dateLabel} en ${event.loc}. Análisis, predicciones y cobertura completa en Quimbara.`;
+  ? `Resultados de ${event.name}${hasFight ? ` (${f1} vs. ${f2})` : ''} celebrado el ${event.dateLabel} en ${event.loc}. Cartelera completa, ganadores, métodos de victoria y análisis post-evento en español.`
+  : `Cartelera completa de ${event.name}${hasFight ? ` — pelea estelar ${f1} vs. ${f2}` : ''}. ¿A qué hora pelea? Horarios por país (México, Colombia, España, Argentina) y dónde ver en vivo el ${event.dateLabel}.`;
 ---
 
 <BaseLayout
