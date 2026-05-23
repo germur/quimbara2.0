@@ -1,5 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
@@ -7,6 +10,20 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 
 import partytown from '@astrojs/partytown';
+
+// Leer fighters con foto o ranked para filtrar sitemap
+const __cfgDir = dirname(fileURLToPath(import.meta.url));
+const fighters = JSON.parse(readFileSync(join(__cfgDir, 'src/data/fighters.json'), 'utf8'));
+const IMG_DIR = join(__cfgDir, 'public/fighters');
+const sitemapSlugs = new Set(
+  fighters
+    .filter(f => {
+      const ranked = f.rank === 'C' || (!isNaN(Number(f.rank)) && Number(f.rank) <= 15);
+      const hasImg = existsSync(join(IMG_DIR, `${f.slug}.png`)) || existsSync(join(IMG_DIR, `${f.slug}.jpg`));
+      return ranked || hasImg;
+    })
+    .map(f => f.slug)
+);
 
 // https://astro.build/config
 export default defineConfig({
@@ -62,13 +79,20 @@ export default defineConfig({
           '/aviso-legal',
           '/privacidad',
           '/404',
-          // Excluir cualquier residuo del starter v1
           '/peleador/',  // ruta antigua, ahora /peleadores/
           '/tags',
           '/docs',
           '/projects',
         ];
-        return !noIndexPaths.some(p => page.includes(p));
+        if (noIndexPaths.some(p => page.includes(p))) return false;
+
+        // Solo incluir fighters con foto o ranked (no stubs vacíos de 4000+)
+        const pelMatch = page.match(/\/peleadores\/([^/]+)/);
+        if (pelMatch) {
+          return sitemapSlugs.has(pelMatch[1]);
+        }
+
+        return true;
       },
       // Cambiar frecuencia y prioridad para señalizar bien a Google
       changefreq: 'weekly',
