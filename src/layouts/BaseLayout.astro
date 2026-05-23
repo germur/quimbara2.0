@@ -28,7 +28,10 @@ const {
   schema,
 } = Astro.props;
 
-const siteTitle = title === "Quimbara" ? title : `${title} — Quimbara`;
+// Evitar duplicado "— Quimbara — Quimbara" si el title ya lo incluye
+const siteTitle = (title === "Quimbara" || /[—\-]\s*Quimbara\s*$/i.test(title))
+  ? title
+  : `${title} — Quimbara`;
 ---
 
 <!doctype html>

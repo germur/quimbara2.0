@@ -38,9 +38,9 @@ const fighterSlugs = new Set((FIGHTERS_RAW as any[]).map((f: any) => f.slug));
 function fighterUrl(name: string): string {
   if (!name || name === 'TBD') return '';
   const slug = slugify(name);
-  if (fighterSlugs.has(slug)) return `/peleador/${slug}/`;
+  if (fighterSlugs.has(slug)) return `/peleadores/${slug}/`;
   for (const s of fighterSlugs) {
-    if (s.startsWith(slug + '-') || s.endsWith('-' + slug)) return `/peleador/${s}/`;
+    if (s.startsWith(slug + '-') || s.endsWith('-' + slug)) return `/peleadores/${s}/`;
   }
   return '';
 }

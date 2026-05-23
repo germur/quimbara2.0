@@ -28,8 +28,10 @@ export default defineConfig({
   // los exporta automáticamente. En hosting estático puro, hay que
   // duplicarlos en _redirects o vercel.json (ver FASE 2).
   redirects: {
-    // ----- Plurales en inglés -> singular en español -----
-    '/peleadores': '/peleador/',
+    // ----- Migración canónica: /peleador/ → /peleadores/ (plural)
+    // Estrategia SEO Quimbara MAES: ruta canónica con plural y slash final
+    '/peleador': '/peleadores/',
+    '/peleador/[slug]': '/peleadores/[slug]',
 
     // ----- Tags en inglés -> etiqueta en español -----
     '/tags': '/etiqueta/',
@@ -42,7 +44,6 @@ export default defineConfig({
     // ----- Páginas demo del starter que nunca existieron -----
     '/docs': '/',
     '/projects': '/',
-    '/sobre-nosotros': '/',
     '/estadisticas': '/',
     '/noticias': '/blog/',
     '/analisis': '/blog/',
@@ -62,7 +63,7 @@ export default defineConfig({
           '/privacidad',
           '/404',
           // Excluir cualquier residuo del starter v1
-          '/peleadores',
+          '/peleador/',  // ruta antigua, ahora /peleadores/
           '/tags',
           '/docs',
           '/projects',

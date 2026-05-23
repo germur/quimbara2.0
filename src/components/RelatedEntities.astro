@@ -40,7 +40,7 @@ const catColor: Record<string, string> = {
         const initials = f.name.split(' ').slice(0,2).map((n: string) => n[0]).join('');
         const rankBg = catColor[f.rank?.[0] ?? 'W'] ?? '#9ca3af';
         return (
-          <a href={`/peleador/${f.slug}/`}
+          <a href={`/peleadores/${f.slug}/`}
              class="group flex items-center gap-4 rounded-lg border border-gray-200 bg-white hover:border-[#111] hover:shadow-md transition-all duration-200"
              style="padding:14px 16px;text-decoration:none;">
             <!-- Avatar -->

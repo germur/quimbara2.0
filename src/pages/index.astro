@@ -52,6 +52,9 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
   description="La verdad del octágono. Noticias, análisis, perfiles de peleadores y próximos eventos UFC en español. Sin clickbait."
   schema={homeSchema}
 >
+  <!-- ── H1 oculto para SEO (Screaming Frog detectaba 0 H1 en la raíz) ── -->
+  <h1 class="sr-only">Quimbara — MMA y UFC en Español: análisis técnico, perfiles de peleadores y cobertura de eventos</h1>
+
   <!-- ── Ticker ── -->
   <Ticker />
 
@@ -162,7 +165,7 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
     <h2 class="text-2xl md:text-4xl mb-6" style="font-family:var(--font-display);">Fighter Rankings</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
       {FIGHTERS.filter(f => f.rank === 'C').map(f => (
-        <a href={`/peleador/${f.slug}`} class="bg-gray-50 rounded-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg relative block"
+        <a href={`/peleadores/${f.slug}`} class="bg-gray-50 rounded-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg relative block"
              style="padding: clamp(18px,2.5vw,24px);">
           <!-- Rango fantasma -->
           <div class="absolute select-none pointer-events-none top-[-10px] right-2 opacity-5 text-[#111]"

@@ -46,7 +46,7 @@ const WIN_BG: Record<string, string> = {
 <BaseLayout
   title="Peleadores UFC 2026 · Campeones y Contenders por División"
   description="Directorio de peleadores UFC 2026 por división: campeones, top 5 contenders, récords y forma reciente. Quimbara."
-  canonicalUrl={`${siteUrl}/peleador/`}
+  canonicalUrl={`${siteUrl}/peleadores/`}
 >
 
   <!-- ── Hero ── -->
@@ -95,7 +95,7 @@ const WIN_BG: Record<string, string> = {
 
           return isChamp ? (
             /* ── Card campeón — horizontal con foto grande ── */
-            <a href={`/peleador/${f.slug}`}
+            <a href={`/peleadores/${f.slug}`}
                class="group flex flex-col md:flex-row gap-0 rounded-lg overflow-hidden mb-8 border border-gray-100 transition-all duration-300 hover:shadow-xl hover:border-gray-200"
                style="background:#fff;">
 
@@ -162,7 +162,7 @@ const WIN_BG: Record<string, string> = {
             </a>
           ) : (
             /* ── Fila contender — tabla limpia ── */
-            <a href={`/peleador/${f.slug}`}
+            <a href={`/peleadores/${f.slug}`}
                class="group flex items-center gap-4 px-4 py-3 border-b border-gray-100 transition-colors duration-200 hover:bg-gray-50">
 
               {/* Rank */}
