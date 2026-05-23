@@ -28,6 +28,21 @@ const hasFight = event.main !== 'TBD';
 const initials = (name: string) => name.split(' ').slice(0, 2).map(n => n[0]).join('');
 const lastName  = (name: string) => name.split(' ').slice(-1)[0] ?? name;
 
+const slugify = (name: string) => name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[''']/g, '').replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-');
+
+import { readdirSync } from 'node:fs';
+const allPhotos = new Set(readdirSync('public/fighters').filter(f => /\.(png|jpg|webp)$/i.test(f)).map(f => f.replace(/\.(png|jpg|webp)$/i, '')));
+
+function fighterPhoto(name: string): string {
+  if (!name || name === 'TBD') return '';
+  const slug = slugify(name);
+  if (allPhotos.has(slug)) return `/fighters/${slug}.png`;
+  for (const p of allPhotos) {
+    if (p.startsWith(slug + '-') || p.endsWith('-' + slug)) return `/fighters/${p}.png`;
+  }
+  return '';
+}
+
 // Otros eventos próximos (excluir el actual)
 const otherEvents = EVENTS.filter(e => e.slug !== event.slug && e.main !== 'TBD').slice(0, 3);
 
@@ -251,36 +266,46 @@ const metaDescription = isCompleted
   {event.fightCard && event.fightCard.length > 0 && (
     <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
       <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">Cartelera completa</h2>
-      <div class="rounded-2xl border border-gray-100 overflow-hidden" style="font-family:var(--font-sans);">
+      <div class="space-y-4" style="font-family:var(--font-sans);">
         {event.fightCard.map((fight, i) => {
           const isMain = fight.bout === 'Main Event' || i === 0;
           const isCoMain = fight.bout === 'Co-Main Event' || i === 1;
+          const f1Photo = fighterPhoto(fight.f1);
+          const f2Photo = fighterPhoto(fight.f2);
+          const f1Init = initials(fight.f1);
+          const f2Init = initials(fight.f2);
           return (
-            <div class={`flex items-center gap-4 px-5 py-4 ${i > 0 ? 'border-t border-gray-100' : ''} ${isMain ? 'bg-[#111]' : 'bg-white hover:bg-gray-50'} transition-colors`}>
-              <!-- Bout label -->
-              <div class="w-24 flex-shrink-0 text-right hidden sm:block">
-                {isMain ? (
-                  <span class="text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded-sm bg-[#FFD600] text-[#111]">Main Event</span>
-                ) : isCoMain ? (
-                  <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Co-Main</span>
-                ) : (
-                  <span class="text-[10px] text-gray-300 tabular-nums">{String(i + 1).padStart(2, '0')}</span>
-                )}
+            <div class={`rounded-2xl overflow-hidden ${isMain ? 'border-2 border-[#FFD600]' : 'border border-gray-200'}`}>
+              {/* Weight class header */}
+              <div class={`text-center py-2 ${isMain ? 'bg-[#111]' : 'bg-gray-50'}`}>
+                {isMain && <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm bg-[#FFD600] text-[#111] mr-2">Main Event</span>}
+                {isCoMain && <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mr-2">Co-Main</span>}
+                {!isMain && !isCoMain && <span class="text-[10px] text-gray-400 tabular-nums mr-2">{String(i + 1).padStart(2, '0')}</span>}
+                <span class={`text-[10px] font-bold uppercase tracking-widest ${isMain ? 'text-gray-400' : 'text-gray-500'}`}>{fight.weightClass}</span>
               </div>
-              <!-- Fighters -->
-              <div class="flex-1 flex items-center justify-between gap-2 min-w-0">
-                <span class={`font-bold truncate ${isMain ? 'text-white text-base' : 'text-[#111] text-sm'}`}
-                      style="font-family:var(--font-display);">{fight.f1}</span>
-                <span class={`flex-shrink-0 text-xs font-black ${isMain ? 'text-[#FFD600]' : 'text-gray-300'}`}>VS</span>
-                <span class={`font-bold truncate text-right ${isMain ? 'text-white text-base' : 'text-[#111] text-sm'}`}
-                      style="font-family:var(--font-display);">{fight.f2}</span>
-              </div>
-              <!-- Weight class -->
-              {fight.weightClass && (
-                <div class="hidden md:block flex-shrink-0 text-right w-32">
-                  <span class={`text-[11px] ${isMain ? 'text-gray-400' : 'text-gray-400'}`}>{fight.weightClass}</span>
+              {/* Fighter matchup */}
+              <div class={`flex items-center justify-between px-4 sm:px-8 py-5 ${isMain ? 'bg-[#111]' : 'bg-white'}`}>
+                {/* Fighter 1 */}
+                <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+                  {f1Photo ? (
+                    <img src={f1Photo} alt={fight.f1} class="w-14 h-14 sm:w-20 sm:h-20 rounded-full object-cover object-top flex-shrink-0 bg-gray-200" loading="lazy" />
+                  ) : (
+                    <div class={`w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base font-black ${isMain ? 'bg-gray-700 text-gray-400' : 'bg-gray-200 text-gray-500'}`}>{f1Init}</div>
+                  )}
+                  <span class={`font-bold text-sm sm:text-base truncate ${isMain ? 'text-white' : 'text-[#111]'}`} style="font-family:var(--font-display);">{fight.f1}</span>
                 </div>
-              )}
+                {/* VS */}
+                <span class={`flex-shrink-0 text-xs sm:text-sm font-black px-3 ${isMain ? 'text-[#FFD600]' : 'text-gray-300'}`}>VS</span>
+                {/* Fighter 2 */}
+                <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0 justify-end">
+                  <span class={`font-bold text-sm sm:text-base truncate text-right ${isMain ? 'text-white' : 'text-[#111]'}`} style="font-family:var(--font-display);">{fight.f2}</span>
+                  {f2Photo ? (
+                    <img src={f2Photo} alt={fight.f2} class="w-14 h-14 sm:w-20 sm:h-20 rounded-full object-cover object-top flex-shrink-0 bg-gray-200" loading="lazy" />
+                  ) : (
+                    <div class={`w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base font-black ${isMain ? 'bg-gray-700 text-gray-400' : 'bg-gray-200 text-gray-500'}`}>{f2Init}</div>
+                  )}
+                </div>
+              </div>
             </div>
           );
         })}
