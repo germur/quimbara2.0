@@ -18,7 +18,7 @@ async function findOgImage(slug) {
   try {
     const res = await fetch(`https://www.ufc.com/athlete/${slug}`, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36',
       },
       redirect: 'follow',
     });
@@ -55,6 +55,25 @@ async function main() {
   }
 
   const fighters = JSON.parse(readFileSync(fightersPath, 'utf8'));
+  const knownSlugs = new Set(fighters.map(f => f.slug));
+
+  // Also include main eventers from events that aren't in fighters.json
+  const eventsPath = join(DATA_DIR, 'events.json');
+  if (existsSync(eventsPath)) {
+    const events = JSON.parse(readFileSync(eventsPath, 'utf8'));
+    for (const e of events) {
+      for (const fc of (e.fightCard || [])) {
+        for (const name of [fc.f1, fc.f2].filter(Boolean)) {
+          const slug = name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+            .replace(/[''']/g, '').replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-');
+          if (slug && slug !== 'tbd' && !knownSlugs.has(slug)) {
+            fighters.push({ slug, name });
+            knownSlugs.add(slug);
+          }
+        }
+      }
+    }
+  }
 
   const toDownload = fighters.filter(f => {
     if (!f.slug) return false;

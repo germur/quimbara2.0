@@ -15,7 +15,7 @@
  *
  * Run: npx tsx scripts/fetch-ufc-data.ts
  */
-import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
@@ -707,18 +707,37 @@ function assignEventPhotos() {
   const fightersBySlug = new Map(fighters.map(f => [f.slug, f]));
   const allEvts: EventRowFull[] = readJson<EventRowFull>('events-all.json');
 
+  // Build index of ALL photos on disk (not just fighters.json)
+  const photosOnDisk = new Map<string, string>();
+  if (existsSync(IMG_DIR)) {
+    for (const file of readdirSync(IMG_DIR)) {
+      if (/\.(png|jpg|webp)$/i.test(file)) {
+        const slug = file.replace(/\.(png|jpg|webp)$/i, '');
+        photosOnDisk.set(slug, `/fighters/${file}`);
+      }
+    }
+  }
+
   const findPhoto = (name: string): string => {
     if (!name || name === 'TBD') return '';
     const nameSlug = slugify(name);
 
-    // Exact match
+    // Exact match in fighters.json
     const exact = fightersBySlug.get(nameSlug);
     if (exact?.img) return exact.img;
 
-    // Partial match: "Song" → "song-yadong" (prefix/suffix)
+    // Exact match on disk
+    if (photosOnDisk.has(nameSlug)) return photosOnDisk.get(nameSlug)!;
+
+    // Partial match: "Song" → "song-yadong" (prefix/suffix) — fighters.json
     for (const [slug, f] of fightersBySlug) {
       if (!f.img) continue;
       if (slug.startsWith(nameSlug + '-') || slug.endsWith('-' + nameSlug)) return f.img;
+    }
+
+    // Partial match on disk
+    for (const [slug, img] of photosOnDisk) {
+      if (slug.startsWith(nameSlug + '-') || slug.endsWith('-' + nameSlug)) return img;
     }
 
     // Last name match with first initial

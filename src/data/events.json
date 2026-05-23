@@ -7,9 +7,9 @@
     "date": "2026-05-30",
     "dateLabel": "30 may 2026",
     "f1": "Song",
-    "f1img": "",
+    "f1img": "/fighters/song-yadong.png",
     "f2": "Figueiredo",
-    "f2img": "",
+    "f2img": "/fighters/deiveson-figueiredo.png",
     "status": "upcoming",
     "fightCard": [
       {
@@ -134,7 +134,7 @@
     "f1": "Muhammad",
     "f1img": "/fighters/belal-muhammad.png",
     "f2": "Bonfim",
-    "f2img": "",
+    "f2img": "/fighters/gabriel-bonfim.png",
     "status": "upcoming",
     "fightCard": [
       {
