@@ -52,11 +52,22 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
   description="La verdad del octágono. Noticias, análisis, perfiles de peleadores y próximos eventos UFC en español. Sin clickbait."
   schema={homeSchema}
 >
-  <!-- ── H1 oculto para SEO (Screaming Frog detectaba 0 H1 en la raíz) ── -->
-  <h1 class="sr-only">Quimbara — MMA y UFC en Español: análisis técnico, perfiles de peleadores y cobertura de eventos</h1>
-
   <!-- ── Ticker ── -->
   <Ticker />
+
+  <!-- ── Hero editorial: H1 visible estilo /peleadores/ ── -->
+  <div style={`background:#111; padding: 60px ${PX} 50px;`}>
+    <div style="max-width:1400px; margin:0 auto;">
+      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111] mb-5"
+            style="font-family:var(--font-sans);">MMA · UFC · Español</span>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2.8rem,9vw,6.5rem);line-height:0.95;color:#fff;margin:0;">
+        Quim<span style="color:#FFD600;">bara</span>
+      </h1>
+      <p class="text-gray-400 mt-4 text-sm md:text-base max-w-2xl" style="font-family:var(--font-serif);font-style:italic;">
+        La verdad del octágono. Análisis técnico, perfiles de peleadores y cobertura de eventos UFC. Sin clickbait.
+      </p>
+    </div>
+  </div>
 
   <!-- ── Hero grid 3-up ── -->
   <section style={`max-width:1400px; margin: 40px auto 0; padding: 0 ${PX};`}>
