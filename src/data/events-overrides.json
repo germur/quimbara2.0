@@ -1,20 +1,63 @@
 {
-  "_comment": "Overrides manuales para eventos. Se mergean DESPUÉS de fetch-ufc-data.ts. Si el slug existe en events.json se reemplaza; si no, se agrega. Para eventos especiales que las fuentes (Wikipedia/Sherdog) aún no tienen indexados.",
+  "_comment": "Overrides manuales para eventos. Se mergean DESPUÉS de fetch-ufc-data.ts.",
   "events": [
     {
-      "slug": "ufc-white-house-2026-07-04",
-      "name": "UFC en La Casa Blanca",
-      "main": "Card por confirmar",
-      "loc": "South Lawn, Casa Blanca · Washington D.C.",
-      "date": "2026-07-04",
-      "dateLabel": "4 jul 2026",
-      "f1": "",
-      "f1img": "",
-      "f2": "",
-      "f2img": "",
+      "slug": "ufc-freedom-250",
+      "name": "UFC Freedom 250",
+      "main": "Topuria vs. Gaethje",
+      "loc": "The White House · Washington D.C.",
+      "date": "2026-06-14",
+      "dateLabel": "14 jun 2026",
+      "f1": "Topuria",
+      "f1img": "/fighters/ilia-topuria.png",
+      "f2": "Gaethje",
+      "f2img": "/fighters/justin-gaethje.png",
       "status": "upcoming",
       "isSpecial": true,
-      "fightCard": []
+      "fightCard": [
+        {
+          "f1": "Ilia Topuria",
+          "f2": "Justin Gaethje",
+          "weightClass": "Lightweight",
+          "bout": "Ligero Title Bout",
+          "order": 0
+        },
+        {
+          "f1": "Alex Pereira",
+          "f2": "Ciryl Gane",
+          "weightClass": "Heavyweight",
+          "bout": "Peso Pesado Interim Title Bout",
+          "order": 1
+        },
+        {
+          "f1": "Sean O'Malley",
+          "f2": "Aiemann Zahabi",
+          "weightClass": "Bantamweight",
+          "bout": "Peso Gallo Bout",
+          "order": 2
+        },
+        {
+          "f1": "Mauricio Ruffy",
+          "f2": "Michael Chandler",
+          "weightClass": "Lightweight",
+          "bout": "Ligero Bout",
+          "order": 3
+        },
+        {
+          "f1": "Bo Nickal",
+          "f2": "Kyle Daukaus",
+          "weightClass": "Middleweight",
+          "bout": "Peso Medio Bout",
+          "order": 4
+        },
+        {
+          "f1": "Josh Hokit",
+          "f2": "TBD",
+          "weightClass": "Featherweight",
+          "bout": "Peso Pluma Bout",
+          "order": 5
+        }
+      ]
     }
   ]
 }
