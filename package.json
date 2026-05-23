@@ -11,8 +11,10 @@
     "preview": "astro preview",
     "astro": "astro",
     "data:update": "npx tsx scripts/fetch-ufc-data.ts",
+    "data:rankings": "node scripts/fetch-rankings.mjs",
+    "data:overrides": "node scripts/apply-event-overrides.mjs",
     "data:images": "node scripts/download-images.mjs",
-    "data:all": "npm run data:update && npm run data:images"
+    "data:all": "npm run data:update && npm run data:rankings && npm run data:overrides && npm run data:images"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",

@@ -27,6 +27,14 @@ jobs:
       - name: Fetch UFC data (Greco1899 CSVs + Wikipedia + Sherdog)
         run: npm run data:update
 
+      - name: Update official UFC.com rankings (champions + top 15)
+        run: npm run data:rankings
+        continue-on-error: true
+
+      - name: Apply event overrides (Casa Blanca, etc.)
+        run: npm run data:overrides
+        continue-on-error: true
+
       - name: Download missing fighter images (UFC.com)
         run: npm run data:images
         continue-on-error: true

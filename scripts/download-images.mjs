@@ -26,15 +26,16 @@ async function findOgImage(slug) {
     const html = await res.text();
     const $ = cheerio.load(html);
 
-    const candidates = [
-      $('meta[property="og:image"]').attr('content'),
-      $('.hero-profile__image img').attr('src'),
-      $('img.image-style-athlete-bio-full-body').attr('src'),
-    ].filter(Boolean);
+    // PRIORIDAD: full body en alta resolución (athlete_bio_full_body)
+    // Fallback: og:image (versión recortada de menor calidad)
+    let url = null;
+    $('img').each((_, el) => {
+      const src = $(el).attr('src') || '';
+      if (src.includes('athlete_bio_full_body')) { url = src; return false; }
+    });
+    if (!url) url = $('meta[property="og:image"]').attr('content');
+    if (!url) return null;
 
-    if (!candidates.length) return null;
-
-    let url = candidates[0];
     if (url.startsWith('//')) url = 'https:' + url;
     else if (url.startsWith('/')) url = 'https://www.ufc.com' + url;
     return url;
@@ -54,8 +55,14 @@ async function main() {
     process.exit(1);
   }
 
-  const fighters = JSON.parse(readFileSync(fightersPath, 'utf8'));
+  const fightersRaw = JSON.parse(readFileSync(fightersPath, 'utf8'));
+  const force = process.argv.includes('--force-ranked');
+  // Si --force-ranked, solo procesa los ranqueados y descarga aunque exista
+  const fighters = force
+    ? fightersRaw.filter(f => f.rank === 'C' || (!isNaN(Number(f.rank)) && Number(f.rank) <= 15))
+    : fightersRaw;
   const knownSlugs = new Set(fighters.map(f => f.slug));
+  if (force) console.log(`🎯 Modo --force-ranked: re-descargando ${fighters.length} ranqueados\n`);
 
   // Also include main eventers from events that aren't in fighters.json
   const eventsPath = join(DATA_DIR, 'events.json');
@@ -75,11 +82,13 @@ async function main() {
     }
   }
 
-  const toDownload = fighters.filter(f => {
-    if (!f.slug) return false;
-    return !existsSync(join(IMG_DIR, `${f.slug}.png`))
-        && !existsSync(join(IMG_DIR, `${f.slug}.jpg`));
-  });
+  const toDownload = force
+    ? fighters.filter(f => !!f.slug)
+    : fighters.filter(f => {
+        if (!f.slug) return false;
+        return !existsSync(join(IMG_DIR, `${f.slug}.png`))
+            && !existsSync(join(IMG_DIR, `${f.slug}.jpg`));
+      });
 
   console.log(`⬇  ${toDownload.length} to download (${fighters.length - toDownload.length} existing)\n`);
 
@@ -88,7 +97,7 @@ async function main() {
     return;
   }
 
-  const batch = toDownload.slice(0, 50);
+  const batch = toDownload.slice(0, force ? 200 : 50);
   let success = 0, failed = 0;
 
   for (let i = 0; i < batch.length; i++) {
