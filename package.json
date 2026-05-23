@@ -9,7 +9,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "data:update": "npx tsx scripts/fetch-ufc-data.ts",
+    "data:images": "node scripts/download-images.mjs",
+    "data:all": "npm run data:update && npm run data:images"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",
@@ -19,6 +22,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.8",
+    "csv-parse": "^6.2.1",
     "pdf-parse": "^2.4.5",
     "tailwindcss": "^4.2.2"
   },

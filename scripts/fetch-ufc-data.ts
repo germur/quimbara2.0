@@ -1,18 +1,25 @@
 /**
- * Scrapes datos UFC de fuentes públicas y actualiza src/data/*.json:
- *   - events.json      → próximos 3 eventos para el home (Wikipedia)
- *   - events-all.json  → todos los próximos eventos con slug (Wikipedia)
- *   - fighters.json    → campeones actuales con datos físicos (MMAAPI)
- *   - results.json     → últimos 4 resultados del evento más reciente (Sherdog)
- *   - public/fighters/ → fotos de peleadores descargadas desde MMAAPI
+ * Pipeline de datos UFC para Quimbara — SIN APIs de pago.
+ *
+ * Fuentes:
+ *   - Greco1899/scrape_ufc_stats (CSVs públicos) → fighters, récords, form
+ *   - Wikipedia → eventos programados, campeones, fight cards
+ *   - Sherdog → resultados del último evento
+ *   - UFC.com → fotos (og:image), descargadas por download-images.mjs aparte
+ *
+ * Genera:
+ *   - src/data/fighters.json
+ *   - src/data/events.json      (próximos 3, con paleta para el home)
+ *   - src/data/events-all.json  (todos, con fightCard)
+ *   - src/data/results.json     (últimos 4 resultados)
  *
  * Run: npx tsx scripts/fetch-ufc-data.ts
- * CI:  .github/workflows/update-data.yml (cron lunes)
  */
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
+import { parse } from 'csv-parse/sync';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR  = join(__dirname, '..', 'src', 'data');
@@ -20,22 +27,7 @@ const IMG_DIR   = join(__dirname, '..', 'public', 'fighters');
 
 const HEADERS = { 'User-Agent': 'QuimbaraBot/1.0 (github.com/quimbara)' };
 
-// ─── MMAAPI ─────────────────────────────────────────────────────────────────
-const MMAAPI_KEY  = process.env.MMAAPI_KEY ?? '';
-const MMAAPI_BASE = 'https://mmaapi.p.rapidapi.com';
-const MMAAPI_HEADERS = {
-  'x-rapidapi-host': 'mmaapi.p.rapidapi.com',
-  'x-rapidapi-key':  MMAAPI_KEY,
-};
-
-async function mmaapiGet<T>(path: string): Promise<T> {
-  if (!MMAAPI_KEY) throw new Error('MMAAPI_KEY no definida');
-  const res = await fetch(MMAAPI_BASE + path, { headers: MMAAPI_HEADERS });
-  if (!res.ok) throw new Error(`MMAAPI ${path} → HTTP ${res.status}`);
-  return res.json() as Promise<T>;
-}
-
-// ─── Paleta Quimbara ────────────────────────────────────────────────────────
+// ─── Paleta Quimbara (eventos home) ─────────────────────────────────────────
 const PALETTES = [
   { bg: '#FFD600', color: '#111' },
   { bg: '#E53935', color: '#fff' },
@@ -49,18 +41,18 @@ function clean(text: string) {
   return text.replace(/\[.*?\]/g, '').replace(/\s+/g, ' ').trim();
 }
 
-function makeSlug(name: string, date: string) {
-  return `${name}-${date}`
+function slugify(name: string) {
+  return name
     .toLowerCase()
-    .replace(/[áàä]/g, 'a').replace(/[éèë]/g, 'e')
-    .replace(/[íìï]/g, 'i').replace(/[óòö]/g, 'o').replace(/[úùü]/g, 'u')
-    .replace(/ñ/g, 'n')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[''']/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
 }
 
-function fighterSlug(name: string) {
-  return name
+function makeEventSlug(name: string, date: string) {
+  return `${name}-${date}`
     .toLowerCase()
     .replace(/[áàä]/g, 'a').replace(/[éèë]/g, 'e')
     .replace(/[íìï]/g, 'i').replace(/[óòö]/g, 'o').replace(/[úùü]/g, 'u')
@@ -92,30 +84,76 @@ function colIndexMap($: cheerio.CheerioAPI, table: cheerio.Cheerio<cheerio.AnyNo
   return (needle: string) => headers.findIndex((h) => h.includes(needle));
 }
 
-/** Convierte metros a string "X' Y\"" (pies y pulgadas) */
-function mToFeet(m: number): string {
-  const totalInches = m * 39.3701;
-  const feet   = Math.floor(totalInches / 12);
-  const inches = Math.round(totalInches % 12);
-  return `${feet}' ${inches}"`;
+async function downloadCsv(url: string): Promise<string> {
+  console.log(`  ⬇  ${url.split('/').pop()}`);
+  const res = await fetch(url, { headers: HEADERS });
+  if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
+  return res.text();
 }
 
-/** Convierte metros a pulgadas */
-function mToInches(m: number): string {
-  return `${Math.round(m * 39.3701)}"`;
+// ─── Formatters (formatos exactos de Quimbara) ──────────────────────────────
+
+function formatHeight(s: string): string {
+  if (!s || s === '--') return '';
+  const m = s.match(/(\d+)'\s*(\d+)/);
+  if (!m) return s;
+  return `${m[1]}' ${m[2]}"`;
 }
 
-/** Convierte kg a libras */
-function kgToLbs(kg: number): string {
-  return `${Math.round(kg * 2.20462)} lbs`;
+function formatWeight(s: string): string {
+  if (!s || s === '--') return '';
+  const m = s.match(/(\d+)/);
+  if (!m) return '';
+  return `${m[1]} lbs`;
 }
 
-// ─── EVENTS (Wikipedia) ─────────────────────────────────────────────────────
+function formatReach(s: string): string {
+  if (!s || s === '--') return '';
+  const m = s.match(/(\d+)/);
+  if (!m) return '';
+  return `${m[1]}"`;
+}
+
+function formatDivision(wc: string): string {
+  if (!wc) return '';
+  return wc
+    .replace(/^UFC\s+/i, '')
+    .replace(/ Title Bout$/, '')
+    .replace(/ Bout$/, '')
+    .trim();
+}
+
+function parseWinType(method: string): string {
+  if (!method) return 'UD';
+  const m = method.toLowerCase();
+  if (m.includes('ko/tko') || m.includes('tko') || m.includes('ko')) return 'TKO';
+  if (m.includes('submission')) return 'SUB';
+  if (m.includes('split')) return 'SD';
+  if (m.includes('majority')) return 'MD';
+  if (m.includes('unanimous')) return 'UD';
+  if (m.includes('decision')) return 'UD';
+  if (m.includes('dq') || m.includes('disqualification')) return 'DQ';
+  return 'UD';
+}
+
+// ─── Types ──────────────────────────────────────────────────────────────────
+
+type FormEntry = { outcome: string; winType: string };
+
+type Fighter = {
+  slug: string; name: string; nick: string; div: string; rec: string;
+  from: string; img: string;
+  height: string; weight: string; reach: string; stance: string; team: string;
+  form: string[];
+  formTypes: FormEntry[];
+  rank?: string;
+};
 
 type EventRow = {
   slug: string; name: string; date: string; dateLabel: string;
   loc: string; main: string; bg: string; color: string;
 };
+
 type FightCardEntry = {
   f1: string; f1Id: string;
   f2: string; f2Id: string;
@@ -132,6 +170,324 @@ type EventRowFull = Omit<EventRow, 'bg' | 'color'> & {
   status?: 'upcoming' | 'completed';
 };
 
+// ─── CSV Sources ────────────────────────────────────────────────────────────
+
+const CSV_SOURCES = {
+  tott:    'https://raw.githubusercontent.com/Greco1899/scrape_ufc_stats/main/ufc_fighter_tott.csv',
+  details: 'https://raw.githubusercontent.com/Greco1899/scrape_ufc_stats/main/ufc_fighter_details.csv',
+  fights:  'https://raw.githubusercontent.com/Greco1899/scrape_ufc_stats/main/ufc_fight_results.csv',
+  events:  'https://raw.githubusercontent.com/Greco1899/scrape_ufc_stats/main/ufc_event_details.csv',
+};
+
+type FightRecord = {
+  result: string;
+  method: string;
+  opponent: string;
+  date: string;
+  weightClass: string;
+};
+
+type CsvData = {
+  tottByName: Map<string, Record<string, string>>;
+  detailsByName: Map<string, Record<string, string>>;
+  fightsByFighter: Map<string, FightRecord[]>;
+};
+
+let csvCache: CsvData | null = null;
+
+async function loadCsvData(): Promise<CsvData> {
+  if (csvCache) return csvCache;
+
+  console.log('📥 Downloading CSVs from Greco1899/scrape_ufc_stats...');
+  const [tottCsv, detailsCsv, fightsCsv, eventsCsv] = await Promise.all([
+    downloadCsv(CSV_SOURCES.tott),
+    downloadCsv(CSV_SOURCES.details),
+    downloadCsv(CSV_SOURCES.fights),
+    downloadCsv(CSV_SOURCES.events),
+  ]);
+
+  const tott    = parse(tottCsv,    { columns: true, skip_empty_lines: true, relax_quotes: true }) as Record<string, string>[];
+  const details = parse(detailsCsv, { columns: true, skip_empty_lines: true, relax_quotes: true }) as Record<string, string>[];
+  const fights  = parse(fightsCsv,  { columns: true, skip_empty_lines: true, relax_quotes: true }) as Record<string, string>[];
+  const events  = parse(eventsCsv,  { columns: true, skip_empty_lines: true, relax_quotes: true }) as Record<string, string>[];
+
+  console.log(`📊 Loaded: ${tott.length} profiles, ${details.length} details, ${fights.length} fights, ${events.length} events`);
+
+  // Index: FIGHTER name → tott row
+  const tottByName = new Map<string, Record<string, string>>();
+  for (const t of tott) {
+    const name = t.FIGHTER?.trim();
+    if (name) tottByName.set(name, t);
+  }
+
+  // Index: full name → details row (nickname)
+  const detailsByName = new Map<string, Record<string, string>>();
+  for (const d of details) {
+    const fullName = `${d.FIRST} ${d.LAST}`.trim();
+    detailsByName.set(fullName, d);
+  }
+
+  // Index: event name → date
+  const eventDates = new Map<string, string>();
+  for (const e of events) {
+    if (e.EVENT && e.DATE) {
+      const d = new Date(e.DATE);
+      if (!isNaN(d.getTime())) {
+        eventDates.set(e.EVENT.trim(), d.toISOString().split('T')[0]);
+      }
+    }
+  }
+
+  // Index: fighter name → array of fights (sorted by date desc)
+  const fightsByFighter = new Map<string, FightRecord[]>();
+
+  for (const fight of fights) {
+    const bout = fight.BOUT;
+    if (!bout) continue;
+    const parts = bout.split(/\s+vs\.?\s+/);
+    if (parts.length !== 2) continue;
+    const a = parts[0].trim();
+    const b = parts[1].trim();
+    const eventName = fight.EVENT?.trim() ?? '';
+    const date = eventDates.get(eventName) || '';
+    const outcome = fight.OUTCOME || '';
+    const [firstRes, secondRes] = outcome.split('/');
+
+    for (const [name, isFirst] of [[a, true], [b, false]] as [string, boolean][]) {
+      const res = isFirst ? firstRes : secondRes;
+      let result: string;
+      if (res === 'W') result = 'W';
+      else if (res === 'L') result = 'L';
+      else if (res === 'NC') result = 'NC';
+      else result = 'D';
+
+      if (!fightsByFighter.has(name)) fightsByFighter.set(name, []);
+      fightsByFighter.get(name)!.push({
+        result,
+        method: (fight.METHOD || '').replace(/\s+/g, ' ').trim(),
+        opponent: isFirst ? b : a,
+        date,
+        weightClass: fight.WEIGHTCLASS?.trim() || '',
+      });
+    }
+  }
+
+  // Sort by date descending
+  for (const fs of fightsByFighter.values()) {
+    fs.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  }
+
+  csvCache = { tottByName, detailsByName, fightsByFighter };
+  return csvCache;
+}
+
+// ─── FIGHTERS ───────────────────────────────────────────────────────────────
+
+function buildFighter(
+  name: string,
+  csv: CsvData,
+  fallback: Map<string, Fighter>,
+  rankValue?: string,
+): Fighter {
+  const slug = slugify(name);
+  const prev = fallback.get(slug);
+  const tott = csv.tottByName.get(name);
+  const detail = csv.detailsByName.get(name);
+  const allFights = csv.fightsByFighter.get(name) || [];
+
+  // Record from UFC fights
+  let wins = 0, losses = 0, draws = 0;
+  for (const f of allFights) {
+    if (f.result === 'W') wins++;
+    else if (f.result === 'L') losses++;
+    else if (f.result === 'D') draws++;
+  }
+  const rec = `${wins}-${losses}-${draws}`;
+
+  // Division from most recent fight
+  const div = allFights.length > 0
+    ? formatDivision(allFights[0].weightClass)
+    : prev?.div ?? '';
+
+  // Nickname: CSV first, then fallback
+  const nick = detail?.NICKNAME?.trim() || prev?.nick || '';
+
+  // Recent form (last 5 fights, already sorted desc)
+  const recentFights = allFights.slice(0, 5);
+  const form = recentFights.map(f => f.result);
+  const formTypes: FormEntry[] = recentFights.map(f => ({
+    outcome: f.result,
+    winType: parseWinType(f.method),
+  }));
+
+  // Image: check existing files
+  let img = '';
+  if (existsSync(join(IMG_DIR, `${slug}.png`))) img = `/fighters/${slug}.png`;
+  else if (existsSync(join(IMG_DIR, `${slug}.jpg`))) img = `/fighters/${slug}.jpg`;
+  else if (prev?.img) img = prev.img;
+
+  const fighter: Fighter = {
+    slug,
+    name,
+    nick,
+    div,
+    rec,
+    from: prev?.from ?? '',
+    img,
+    height: tott ? formatHeight(tott.HEIGHT) : prev?.height ?? '',
+    weight: tott ? formatWeight(tott.WEIGHT) : prev?.weight ?? '',
+    reach:  tott ? formatReach(tott.REACH)   : prev?.reach  ?? '',
+    stance: (tott?.STANCE && tott.STANCE !== '--') ? tott.STANCE : prev?.stance ?? '',
+    team:   prev?.team ?? '',
+    form,
+    formTypes,
+  };
+
+  // rank: only add if provided (omit property entirely if not ranked)
+  if (rankValue) {
+    fighter.rank = rankValue;
+  }
+
+  return fighter;
+}
+
+// Top 5 contenders by division (seeds — updated from UFC rankings)
+const CONTENDER_SEEDS: { name: string; div: string; rank: number }[] = [
+  { name: 'Jon Jones',           div: 'Heavyweight',       rank: 1 },
+  { name: 'Curtis Blaydes',      div: 'Heavyweight',       rank: 2 },
+  { name: 'Sergei Pavlovich',    div: 'Heavyweight',       rank: 3 },
+  { name: 'Ciryl Gane',          div: 'Heavyweight',       rank: 4 },
+  { name: 'Alexander Volkov',    div: 'Heavyweight',       rank: 5 },
+  { name: 'Alex Pereira',        div: 'Light Heavyweight', rank: 1 },
+  { name: 'Jiri Prochazka',      div: 'Light Heavyweight', rank: 2 },
+  { name: 'Jamahal Hill',        div: 'Light Heavyweight', rank: 3 },
+  { name: 'Magomed Ankalaev',    div: 'Light Heavyweight', rank: 4 },
+  { name: 'Jan Blachowicz',      div: 'Light Heavyweight', rank: 5 },
+  { name: 'Sean Strickland',     div: 'Middleweight',      rank: 1 },
+  { name: 'Dricus Du Plessis',   div: 'Middleweight',      rank: 2 },
+  { name: 'Robert Whittaker',    div: 'Middleweight',      rank: 3 },
+  { name: 'Paulo Costa',         div: 'Middleweight',      rank: 4 },
+  { name: 'Marvin Vettori',      div: 'Middleweight',      rank: 5 },
+  { name: 'Shavkat Rakhmonov',   div: 'Welterweight',      rank: 1 },
+  { name: 'Belal Muhammad',      div: 'Welterweight',      rank: 2 },
+  { name: 'Leon Edwards',        div: 'Welterweight',      rank: 3 },
+  { name: 'Colby Covington',     div: 'Welterweight',      rank: 4 },
+  { name: 'Gilbert Burns',       div: 'Welterweight',      rank: 5 },
+  { name: 'Arman Tsarukyan',     div: 'Lightweight',       rank: 1 },
+  { name: 'Justin Gaethje',      div: 'Lightweight',       rank: 2 },
+  { name: 'Charles Oliveira',    div: 'Lightweight',       rank: 3 },
+  { name: 'Beneil Dariush',      div: 'Lightweight',       rank: 4 },
+  { name: 'Mateusz Gamrot',      div: 'Lightweight',       rank: 5 },
+  { name: 'Max Holloway',        div: 'Featherweight',     rank: 1 },
+  { name: 'Brian Ortega',        div: 'Featherweight',     rank: 2 },
+  { name: 'Yair Rodriguez',      div: 'Featherweight',     rank: 3 },
+  { name: 'Arnold Allen',        div: 'Featherweight',     rank: 4 },
+  { name: 'Josh Emmett',         div: 'Featherweight',     rank: 5 },
+  { name: "Sean O'Malley",       div: 'Bantamweight',      rank: 1 },
+  { name: 'Merab Dvalishvili',   div: 'Bantamweight',      rank: 2 },
+  { name: 'Marlon Vera',         div: 'Bantamweight',      rank: 3 },
+  { name: 'Aljamain Sterling',   div: 'Bantamweight',      rank: 4 },
+  { name: 'Dominick Cruz',       div: 'Bantamweight',      rank: 5 },
+  { name: 'Brandon Moreno',      div: 'Flyweight',         rank: 1 },
+  { name: 'Alexandre Pantoja',   div: 'Flyweight',         rank: 2 },
+  { name: 'Matheus Nicolau',     div: 'Flyweight',         rank: 3 },
+  { name: 'Brandon Royval',      div: 'Flyweight',         rank: 4 },
+  { name: 'Amir Albazi',         div: 'Flyweight',         rank: 5 },
+];
+
+async function fetchFighters() {
+  // 1. Load existing data for fallback (from, team, img, nick, etc.)
+  const existing: Fighter[] = readJson<Fighter>('fighters.json');
+  const fallback = new Map<string, Fighter>(existing.map(f => [f.slug, f]));
+
+  // 2. Load overrides (key can be name OR slug)
+  const overridesPath = join(DATA_DIR, 'fighters-overrides.json');
+  const overridesRaw: Record<string, Partial<Fighter>> = existsSync(overridesPath)
+    ? JSON.parse(readFileSync(overridesPath, 'utf8'))
+    : {};
+
+  // 3. Load CSV data
+  const csv = await loadCsvData();
+
+  // 4. Get champions from Wikipedia
+  const $ = await fetchHtml('https://en.wikipedia.org/wiki/UFC_champions');
+  const championNames: { name: string; div: string }[] = [];
+
+  const DIV_MAP: Record<string, string> = {
+    'Heavyweight': 'Heavyweight',
+    'Light Heavyweight': 'Light Heavyweight',
+    'Middleweight': 'Middleweight',
+    'Welterweight': 'Welterweight',
+    'Lightweight': 'Lightweight',
+    'Featherweight': 'Featherweight',
+    'Bantamweight': 'Bantamweight',
+    'Flyweight': 'Flyweight',
+    "Women's Strawweight": "Strawweight (F)",
+    "Women's Flyweight": "Flyweight (F)",
+    "Women's Bantamweight": "Bantamweight (F)",
+    "Women's Featherweight": "Featherweight (F)",
+  };
+
+  $('table.wikitable').each((_, table) => {
+    const col = colIndexMap($, $(table));
+    const iDiv  = Math.max(col('division'), col('weight'), 0);
+    const iName = Math.max(col('champion'), col('fighter'), 1);
+
+    $(table).find('tr').slice(1).each((_, tr) => {
+      const cells = $(tr).find('td, th');
+      if (cells.length < 4 || championNames.length >= 8) return;
+      const divRaw  = clean($(cells[iDiv]).text());
+      const nameCell = $(cells[iName]);
+      const nameRaw  = clean(nameCell.find('a').first().text() || nameCell.text());
+      if (!nameRaw || /vacant/i.test(nameRaw)) return;
+      championNames.push({ name: nameRaw, div: DIV_MAP[divRaw] ?? divRaw });
+    });
+  });
+
+  if (!championNames.length) throw new Error('Fighters: 0 campeones en Wikipedia');
+
+  // 5. Build fighters
+  const allFighters: Fighter[] = [];
+
+  for (const { name, div } of championNames) {
+    console.log(`   [C] ${name}`);
+    const f = buildFighter(name, csv, fallback, 'C');
+    if (!f.div) f.div = div;
+    allFighters.push(f);
+  }
+
+  const championSlugs = new Set(allFighters.map(f => f.slug));
+  for (const { name, div, rank } of CONTENDER_SEEDS) {
+    const s = slugify(name);
+    if (championSlugs.has(s)) {
+      console.log(`   [#${rank}] ${name} (${div}) — skip (ya es campeón)`);
+      continue;
+    }
+    console.log(`   [#${rank}] ${name} (${div})`);
+    const f = buildFighter(name, csv, fallback, String(rank));
+    if (!f.div) f.div = div;
+    allFighters.push(f);
+  }
+
+  // 6. Apply overrides LAST (wins over CSV and fallback)
+  let overrideCount = 0;
+  for (const f of allFighters) {
+    // Match by name or by slug
+    const ov = overridesRaw[f.name] ?? overridesRaw[f.slug];
+    if (ov && typeof ov === 'object') {
+      Object.assign(f, ov);
+      overrideCount++;
+      console.log(`   ★ override: ${f.name} → ${Object.keys(ov).join(', ')}`);
+    }
+  }
+  if (overrideCount) console.log(`   → ${overrideCount} override(s) applied`);
+
+  writeJson('fighters.json', allFighters);
+  console.log(`✓ fighters.json (${championNames.length} campeones + ${CONTENDER_SEEDS.length} contenders = ${allFighters.length})`);
+}
+
+// ─── EVENTS (Wikipedia) ─────────────────────────────────────────────────────
+
 function parseDate(raw: string) {
   const d = new Date(clean(raw));
   if (isNaN(d.getTime())) return { date: raw, dateLabel: raw };
@@ -139,50 +495,6 @@ function parseDate(raw: string) {
     date: d.toISOString().slice(0, 10),
     dateLabel: d.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' }).replace('.', ''),
   };
-}
-
-async function fetchFighterPhotoMMAAPI(name: string, slug: string): Promise<string> {
-  if (!name || name === 'TBD' || !MMAAPI_KEY) return '';
-  try {
-    // Buscar ID del peleador
-    type SearchResult = { results: { entity: { id: number; name: string }; type: string }[] };
-    const data = await mmaapiGet<SearchResult>(`/api/mma/search/${encodeURIComponent(name)}`);
-    const fighters = (data.results ?? []).filter(r => r.type === 'team');
-    if (!fighters.length) { console.log(`      ✗ "${name}": sin resultados en API`); return ''; }
-
-    // Match ESTRICTO: nombre completo debe coincidir o contener TODAS las palabras
-    const nameLower = name.toLowerCase();
-    const nameParts = nameLower.split(' ').filter(p => p.length > 1);
-
-    // 1. Match exacto
-    const exactMatch = fighters.find(r => r.entity.name.toLowerCase() === nameLower);
-    // 2. Match cruzado: TODAS las palabras del nombre buscado deben estar en el resultado (y viceversa)
-    const strictMatch = !exactMatch ? fighters.find(r => {
-      const apiParts = r.entity.name.toLowerCase().split(' ').filter(p => p.length > 1);
-      const allSearchInApi = nameParts.every(p => apiParts.some(ap => ap.includes(p) || p.includes(ap)));
-      const allApiInSearch = apiParts.every(ap => nameParts.some(p => p.includes(ap) || ap.includes(p)));
-      return allSearchInApi && allApiInSearch;
-    }) : undefined;
-
-    const match = exactMatch ?? strictMatch;
-    if (!match) {
-      const topNames = fighters.slice(0, 3).map(r => r.entity.name).join(', ');
-      console.log(`      ✗ "${name}": sin match estricto (API devolvió: ${topNames})`);
-      return '';
-    }
-    console.log(`      ✓ "${name}" → "${match.entity.name}" (id:${match.entity.id})`);
-
-    // Descargar imagen
-    const imgRes = await fetch(`${MMAAPI_BASE}/api/mma/team/${match.entity.id}/image`, {
-      headers: MMAAPI_HEADERS,
-    });
-    if (!imgRes.ok) return '';
-
-    const buffer = await imgRes.arrayBuffer();
-    if (!existsSync(IMG_DIR)) mkdirSync(IMG_DIR, { recursive: true });
-    writeFileSync(join(IMG_DIR, `${slug}.png`), Buffer.from(buffer));
-    return `/fighters/${slug}.png`;
-  } catch { return ''; }
 }
 
 async function fetchEvents() {
@@ -209,7 +521,7 @@ async function fetchEvents() {
     const main = rest.join(':').trim() || 'TBD';
     const [f1, f2] = main !== 'TBD' ? main.split(' vs. ').map(s => s.trim()) : ['TBD', 'TBD'];
     parsed.push({
-      slug: makeSlug(name, date), name, main, loc: locCell,
+      slug: makeEventSlug(name, date), name, main, loc: locCell,
       date, dateLabel,
       f1: f1 ?? '', f1img: '',
       f2: f2 ?? '', f2img: '',
@@ -218,15 +530,11 @@ async function fetchEvents() {
 
   parsed.sort((a, b) => a.date.localeCompare(b.date));
 
-  // Cargar eventos existentes (incluye pasados que ya no están en Wikipedia)
   const existing: EventRowFull[] = readJson<EventRowFull>('events-all.json');
   const existingMap = Object.fromEntries(existing.map(e => [e.slug, e]));
   const parsedSlugs = new Set(parsed.map(e => e.slug));
-
-  const isLocalImg = (url: string) => url.startsWith('/fighters/');
   const today = new Date().toISOString().slice(0, 10);
 
-  // Marcar status en los nuevos eventos
   for (const e of parsed) {
     e.status = e.date < today ? 'completed' : 'upcoming';
   }
@@ -234,16 +542,13 @@ async function fetchEvents() {
   for (const e of parsed) {
     if (e.main === 'TBD') continue;
     const prev = existingMap[e.slug];
-
-    // Reutilizar fightCard y espnEventId del caché
     if (prev?.fightCard?.length) e.fightCard = prev.fightCard;
     if (prev?.espnEventId) e.espnEventId = prev.espnEventId;
   }
 
-  // ── MERGE: preservar eventos pasados que Wikipedia ya quitó de "scheduled" ──
   const pastEvents = existing
-    .filter(e => !parsedSlugs.has(e.slug))           // no está en los nuevos
-    .map(e => ({ ...e, status: 'completed' as const })); // marcar como completado
+    .filter(e => !parsedSlugs.has(e.slug))
+    .map(e => ({ ...e, status: 'completed' as const }));
 
   const allEvents = [...pastEvents, ...parsed];
   allEvents.sort((a, b) => a.date.localeCompare(b.date));
@@ -260,12 +565,9 @@ async function fetchEvents() {
 // ─── FIGHT CARDS (Wikipedia individual event pages) ─────────────────────────
 
 function wikiEventUrl(event: EventRowFull): string {
-  // PPV: "UFC 328" → https://en.wikipedia.org/wiki/UFC_328
   if (/^UFC \d+$/.test(event.name)) {
     return `https://en.wikipedia.org/wiki/${event.name.replace(/ /g, '_')}`;
   }
-  // Fight Night: "UFC Fight Night" + main "Allen vs. Costa"
-  // → https://en.wikipedia.org/wiki/UFC_Fight_Night:_Allen_vs._Costa
   const title = `${event.name}: ${event.main}`.replace(/ /g, '_');
   return `https://en.wikipedia.org/wiki/${title}`;
 }
@@ -279,10 +581,8 @@ async function scrapeFightCard(event: EventRowFull): Promise<FightCardEntry[]> {
     let boutType = 'maincard';
     let order = 0;
 
-    // La tabla de cartelera en Wikipedia usa class="toccolours" (no wikitable)
     $('table.toccolours, table.wikitable').each((_, table) => {
       $(table).find('tr').each((_, tr) => {
-        // Detectar cabeceras de sección (Fight card / Preliminary card / Early prelims)
         const sectionTh = $(tr).find('th[colspan]');
         if (sectionTh.length) {
           const txt = sectionTh.text().toLowerCase();
@@ -294,17 +594,15 @@ async function scrapeFightCard(event: EventRowFull): Promise<FightCardEntry[]> {
 
         const cells = $(tr).find('td');
         if (cells.length < 4) return;
-        // Col 2 debe ser "vs." para ser una fila de pelea
         if (!$(cells[2]).text().includes('vs')) return;
 
         const weightClass = clean($(cells[0]).text());
-        // Quitar "(c)" de campeones
         const f1 = clean($(cells[1]).text()).replace(/\s*\([cC]\)\s*/g, '').trim();
         const f2 = clean($(cells[3]).text()).replace(/\s*\([cC]\)\s*/g, '').trim();
         if (!f1 || !f2) return;
 
         const bout = order === 0 ? 'Main Event' : order === 1 ? 'Co-Main Event' : boutType;
-        fights.push({ f1, f1Id: '', f2, f2Id: '', weightClass, bout, order });
+        fights.push({ f1, f1Id: slugify(f1), f2, f2Id: slugify(f2), weightClass, bout, order });
         order++;
       });
     });
@@ -324,7 +622,6 @@ async function fetchFightCards() {
   for (const event of events) {
     if (event.main === 'TBD') continue;
 
-    // Reutilizar si ya tiene cartelera — pero asegurar nombres completos
     if (event.fightCard?.length) {
       const mainFight = event.fightCard.find(f => f.order === 0) ?? event.fightCard[0];
       if (mainFight && event.f1 !== mainFight.f1) {
@@ -339,7 +636,6 @@ async function fetchFightCards() {
     const card = await scrapeFightCard(event);
     if (card.length) {
       event.fightCard = card;
-      // Usar nombres completos del main event
       const mainFight = card.find(f => f.order === 0) ?? card[0];
       if (mainFight) {
         event.f1 = mainFight.f1;
@@ -359,279 +655,11 @@ async function fetchFightCards() {
   console.log(`✓ events-all.json enriquecido (${enriched} eventos con cartelera)`);
 }
 
-// ─── FIGHTERS / CHAMPIONS (Wikipedia + MMAAPI) ──────────────────────────────
-
-type FormEntry = { outcome: 'W' | 'L' | 'D'; winType: string };
-
-type Fighter = {
-  slug: string; name: string; nick: string; div: string; rec: string;
-  from: string; rank: string; img: string;
-  height: string; weight: string; reach: string; stance: string; team: string;
-  form: string[];        // últimas 5 peleas: ["W","W","W","L","W"]
-  formTypes: FormEntry[]; // detalle: [{outcome:"W",winType:"KO"}, ...]
-};
-
-const DIV_ES: Record<string, string> = {
-  'Heavyweight': 'Heavyweight',
-  'Light Heavyweight': 'Light Heavyweight',
-  'Middleweight': 'Middleweight',
-  'Welterweight': 'Welterweight',
-  'Lightweight': 'Lightweight',
-  'Featherweight': 'Featherweight',
-  'Bantamweight': 'Bantamweight',
-  'Flyweight': 'Flyweight',
-  "Women's Strawweight": "Strawweight (F)",
-  "Women's Flyweight": "Flyweight (F)",
-  "Women's Bantamweight": "Bantamweight (F)",
-  "Women's Featherweight": "Featherweight (F)",
-};
-
-// MMAAPI weightClass → División UFC
-const WEIGHT_CLASS_TO_DIV: Record<string, string> = {
-  'heavy':   'Heavyweight',
-  'light_heavy': 'Light Heavyweight',
-  'middleweight': 'Middleweight',
-  'welter':  'Welterweight',
-  'light':   'Lightweight',
-  'feather': 'Featherweight',
-  'bantam':  'Bantamweight',
-  'fly':     'Flyweight',
-};
-
-type MMAAPISearchResponse = {
-  results: {
-    entity: { id: number; name: string; slug: string };
-    type: string;
-  }[];
-};
-
-type MMAAPITeamResponse = {
-  team: {
-    id: number;
-    name: string;
-    country: { name: string; alpha2: string };
-    playerTeamInfo: {
-      nickname?: string;
-      height?: number;
-      reach?: number;
-      weight?: number;
-      weightClass?: string;
-      fightingStyle?: string;
-    };
-    teamRankings: {
-      rankingTypeName: string;
-      weightClass: string;
-    }[];
-    wdlRecord: { wins: number; draws: number; losses: number };
-  };
-  pregameForm: {
-    form: string[];
-    winTypeForm: FormEntry[];
-  };
-};
-
-// ─── Top 5 contendientes por división (seeds — MMAAPI actualiza stats/fotos) ──
-const CONTENDER_SEEDS: { name: string; div: string; rank: number }[] = [
-  // Heavyweight
-  { name: 'Jon Jones',           div: 'Heavyweight',       rank: 1 },
-  { name: 'Curtis Blaydes',      div: 'Heavyweight',       rank: 2 },
-  { name: 'Sergei Pavlovich',    div: 'Heavyweight',       rank: 3 },
-  { name: 'Ciryl Gane',          div: 'Heavyweight',       rank: 4 },
-  { name: 'Alexander Volkov',    div: 'Heavyweight',       rank: 5 },
-  // Light Heavyweight
-  { name: 'Alex Pereira',        div: 'Light Heavyweight', rank: 1 },
-  { name: 'Jiri Prochazka',      div: 'Light Heavyweight', rank: 2 },
-  { name: 'Jamahal Hill',        div: 'Light Heavyweight', rank: 3 },
-  { name: 'Magomed Ankalaev',    div: 'Light Heavyweight', rank: 4 },
-  { name: 'Jan Blachowicz',      div: 'Light Heavyweight', rank: 5 },
-  // Middleweight
-  { name: 'Sean Strickland',     div: 'Middleweight',      rank: 1 },
-  { name: 'Dricus Du Plessis',   div: 'Middleweight',      rank: 2 },
-  { name: 'Robert Whittaker',    div: 'Middleweight',      rank: 3 },
-  { name: 'Paulo Costa',         div: 'Middleweight',      rank: 4 },
-  { name: 'Marvin Vettori',      div: 'Middleweight',      rank: 5 },
-  // Welterweight
-  { name: 'Shavkat Rakhmonov',   div: 'Welterweight',      rank: 1 },
-  { name: 'Belal Muhammad',      div: 'Welterweight',      rank: 2 },
-  { name: 'Leon Edwards',        div: 'Welterweight',      rank: 3 },
-  { name: 'Colby Covington',     div: 'Welterweight',      rank: 4 },
-  { name: 'Gilbert Burns',       div: 'Welterweight',      rank: 5 },
-  // Lightweight
-  { name: 'Arman Tsarukyan',     div: 'Lightweight',       rank: 1 },
-  { name: 'Justin Gaethje',      div: 'Lightweight',       rank: 2 },
-  { name: 'Charles Oliveira',    div: 'Lightweight',       rank: 3 },
-  { name: 'Beneil Dariush',      div: 'Lightweight',       rank: 4 },
-  { name: 'Mateusz Gamrot',      div: 'Lightweight',       rank: 5 },
-  // Featherweight
-  { name: 'Max Holloway',        div: 'Featherweight',     rank: 1 },
-  { name: 'Brian Ortega',        div: 'Featherweight',     rank: 2 },
-  { name: 'Yair Rodriguez',      div: 'Featherweight',     rank: 3 },
-  { name: 'Arnold Allen',        div: 'Featherweight',     rank: 4 },
-  { name: 'Josh Emmett',         div: 'Featherweight',     rank: 5 },
-  // Bantamweight
-  { name: 'Sean O\'Malley',      div: 'Bantamweight',      rank: 1 },
-  { name: 'Merab Dvalishvili',   div: 'Bantamweight',      rank: 2 },
-  { name: 'Marlon Vera',         div: 'Bantamweight',      rank: 3 },
-  { name: 'Aljamain Sterling',   div: 'Bantamweight',      rank: 4 },
-  { name: 'Dominick Cruz',       div: 'Bantamweight',      rank: 5 },
-  // Flyweight
-  { name: 'Brandon Moreno',      div: 'Flyweight',         rank: 1 },
-  { name: 'Alexandre Pantoja',   div: 'Flyweight',         rank: 2 },
-  { name: 'Matheus Nicolau',     div: 'Flyweight',         rank: 3 },
-  { name: 'Brandon Royval',      div: 'Flyweight',         rank: 4 },
-  { name: 'Amir Albazi',         div: 'Flyweight',         rank: 5 },
-];
-
-async function enrichFighter(
-  name: string,
-  div: string,
-  rank: string,
-  byName: Record<string, Fighter>
-): Promise<Fighter> {
-  const slug = fighterSlug(name);
-  const prev = byName[name.toLowerCase()];
-
-  try {
-    // Intentar búsqueda por nombre completo, luego por apellido si falla
-    const searchName = name.replace(/'/g, '');  // quitar apóstrofes para la URL
-    const searchData = await mmaapiGet<MMAAPISearchResponse>(
-      `/api/mma/search/${encodeURIComponent(searchName)}`
-    );
-    await sleep(1000);
-
-    const teamResults = (searchData.results ?? []).filter(r => r.type === 'team');
-    const lastName = name.split(' ').slice(-1)[0]?.toLowerCase().replace(/'/g, '') ?? '';
-    const matchResult = teamResults.find(r => r.entity.name.toLowerCase().includes(lastName)) ?? teamResults[0];
-    if (!matchResult) throw new Error(`No encontrado: ${name}`);
-
-    const teamId = matchResult.entity.id;
-    const teamData = await mmaapiGet<MMAAPITeamResponse>(`/api/mma/team/${teamId}`);
-    await sleep(1000);
-
-    const t  = teamData.team;
-    const pi = t.playerTeamInfo ?? {};
-    const wr = t.wdlRecord ?? { wins: 0, draws: 0, losses: 0 };
-    const pf = teamData.pregameForm ?? { form: [], winTypeForm: [] };
-    const rec = `${wr.wins}-${wr.losses}-${wr.draws}`;
-
-    let finalDiv = div;
-    if (t.teamRankings?.length) {
-      const rn = t.teamRankings[0];
-      finalDiv = rn.rankingTypeName
-        ? rn.rankingTypeName.replace('UFC ', '').replace(' Champion', '')
-        : WEIGHT_CLASS_TO_DIV[rn.weightClass] ?? div;
-    }
-
-    const height = pi.height ? mToFeet(pi.height) : prev?.height ?? '';
-    const reach  = pi.reach  ? mToInches(pi.reach) : prev?.reach  ?? '';
-    const weight = pi.weight ? kgToLbs(pi.weight)  : prev?.weight ?? '';
-
-    // Foto — solo descarga si no existe localmente
-    if (!existsSync(IMG_DIR)) mkdirSync(IMG_DIR, { recursive: true });
-    const localImgPath  = join(IMG_DIR, `${slug}.png`);
-    const publicImgPath = `/fighters/${slug}.png`;
-    let img = prev?.img ?? '';
-
-    if (!existsSync(localImgPath)) {
-      const imgRes = await fetch(`${MMAAPI_BASE}/api/mma/team/${teamId}/image`, { headers: MMAAPI_HEADERS });
-      await sleep(500);
-      if (imgRes.ok) {
-        writeFileSync(localImgPath, Buffer.from(await imgRes.arrayBuffer()));
-        img = publicImgPath;
-        console.log(`      ✓ Foto: ${slug}.png`);
-      }
-    } else {
-      img = publicImgPath;
-    }
-
-    return {
-      slug, name, nick: pi.nickname ?? prev?.nick ?? '',
-      div: finalDiv, rec, from: t.country?.name ?? prev?.from ?? '',
-      rank, img, height, weight, reach,
-      stance: prev?.stance ?? '', team: prev?.team ?? '',
-      form: pf.form?.slice(0, 5) ?? [],
-      formTypes: pf.winTypeForm?.slice(0, 5) ?? [],
-    };
-  } catch (e) {
-    console.warn(`   ⚠ No se pudo enriquecer ${name}: ${(e as Error).message}`);
-    return {
-      slug, name, nick: prev?.nick ?? '', div, rec: prev?.rec ?? '—',
-      from: prev?.from ?? '', rank, img: prev?.img ?? '',
-      height: prev?.height ?? '', weight: prev?.weight ?? '',
-      reach: prev?.reach ?? '', stance: prev?.stance ?? '', team: prev?.team ?? '',
-      form: prev?.form ?? [], formTypes: prev?.formTypes ?? [],
-    };
-  }
-}
-
-async function fetchFighters() {
-  const existing: Fighter[] = readJson<Fighter>('fighters.json');
-  const byName = Object.fromEntries(existing.map(f => [f.name.toLowerCase(), f]));
-
-  // 1. Obtener lista de campeones actuales de Wikipedia
-  const $ = await fetchHtml('https://en.wikipedia.org/wiki/UFC_champions');
-  const championNames: { name: string; div: string }[] = [];
-
-  $('table.wikitable').each((_, table) => {
-    const col = colIndexMap($, $(table));
-    const iDiv  = Math.max(col('division'), col('weight'), 0);
-    const iName = Math.max(col('champion'), col('fighter'), 1);
-
-    $(table).find('tr').slice(1).each((_, tr) => {
-      const cells = $(tr).find('td, th');
-      if (cells.length < 4 || championNames.length >= 8) return;
-      const divRaw  = clean($(cells[iDiv]).text());
-      const nameCell = $(cells[iName]);
-      const nameRaw  = clean(nameCell.find('a').first().text() || nameCell.text());
-      if (!nameRaw || /vacant/i.test(nameRaw)) return;
-      championNames.push({ name: nameRaw, div: DIV_ES[divRaw] ?? divRaw });
-    });
-  });
-
-  if (!championNames.length) throw new Error('Fighters: 0 campeones en Wikipedia');
-
-  // 2. Campeones — enriquecer con MMAAPI
-  const champions: Fighter[] = [];
-  for (const { name, div } of championNames) {
-    console.log(`   [C] ${name}`);
-    champions.push(await enrichFighter(name, div, 'C', byName));
-  }
-  if (!champions.length) throw new Error('Fighters: 0 campeones procesados');
-
-  // 3. Contenders — enriquecer con MMAAPI (solo si no están ya actualizados)
-  const contenders: Fighter[] = [];
-  for (const { name, div, rank } of CONTENDER_SEEDS) {
-    console.log(`   [#${rank}] ${name} (${div})`);
-    contenders.push(await enrichFighter(name, div, String(rank), byName));
-  }
-
-  const allFighters = [...champions, ...contenders];
-
-  // 4. Aplicar overrides manuales
-  const overridesPath = join(DATA_DIR, 'fighters-overrides.json');
-  if (existsSync(overridesPath)) {
-    const overrides = JSON.parse(readFileSync(overridesPath, 'utf8')) as Record<string, Partial<Fighter>>;
-    let applied = 0;
-    allFighters.forEach((f, i) => {
-      const ov = overrides[f.name];
-      if (ov && typeof ov === 'object') {
-        allFighters[i] = { ...f, ...ov };
-        applied++;
-        console.log(`   ★ override: ${f.name} → ${Object.keys(ov).join(', ')}`);
-      }
-    });
-    if (applied) console.log(`   → ${applied} override(s) aplicados`);
-  }
-
-  writeJson('fighters.json', allFighters);
-  console.log(`✓ fighters.json (${champions.length} campeones + ${contenders.length} contenders = ${allFighters.length} total)`);
-}
-
 // ─── RESULTS (Sherdog) ──────────────────────────────────────────────────────
 
 type Result = { w: string; l: string; method: string; round: number; time: string; event: string };
 
-function sherdonName($: cheerio.CheerioAPI, cell: cheerio.Cheerio<cheerio.AnyNode>): string {
+function sherdogName($: cheerio.CheerioAPI, cell: cheerio.Cheerio<cheerio.AnyNode>): string {
   const nameSpan = cell.find('span[itemprop="name"]').first();
   if (nameSpan.length) {
     return nameSpan.html()?.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() ?? '';
@@ -658,8 +686,8 @@ async function fetchResults() {
   $ev('table.new_table.result tr').slice(1, 6).each((_, tr) => {
     const cells = $ev(tr).find('td');
     if (cells.length < 5) return;
-    const w      = sherdonName($ev, $ev(cells[1]));
-    const l      = sherdonName($ev, $ev(cells[3]));
+    const w      = sherdogName($ev, $ev(cells[1]));
+    const l      = sherdogName($ev, $ev(cells[3]));
     const method = $ev(cells[4]).text().split('\n').map(s => s.trim()).filter(Boolean)[0] ?? '—';
     const round  = parseInt($ev(cells[5]).text().trim()) || 1;
     const time   = $ev(cells[6]).text().trim();
@@ -672,14 +700,82 @@ async function fetchResults() {
   results.slice(0, 4).forEach(r => console.log(`   · ${r.w} def. ${r.l} · ${r.method} R${r.round}`));
 }
 
+// ─── EVENT PHOTOS (match fighters to events) ───────────────────────────────
+
+function assignEventPhotos() {
+  const fighters: Fighter[] = readJson<Fighter>('fighters.json');
+  const fightersBySlug = new Map(fighters.map(f => [f.slug, f]));
+  const allEvts: EventRowFull[] = readJson<EventRowFull>('events-all.json');
+
+  const findPhoto = (name: string): string => {
+    if (!name || name === 'TBD') return '';
+    const nameSlug = slugify(name);
+
+    // Exact match
+    const exact = fightersBySlug.get(nameSlug);
+    if (exact?.img) return exact.img;
+
+    // Partial match: "Song" → "song-yadong" (prefix/suffix)
+    for (const [slug, f] of fightersBySlug) {
+      if (!f.img) continue;
+      if (slug.startsWith(nameSlug + '-') || slug.endsWith('-' + nameSlug)) return f.img;
+    }
+
+    // Last name match with first initial
+    const nameLower = name.toLowerCase();
+    const lastName = nameLower.split(' ').slice(-1)[0];
+    const firstInit = nameLower[0];
+    for (const f of fighters) {
+      if (!f.img) continue;
+      const fn = f.name.toLowerCase();
+      if (fn.split(' ').slice(-1)[0] === lastName && fn[0] === firstInit) return f.img;
+    }
+
+    return '';
+  };
+
+  let matched = 0, unmatched = 0;
+  for (const e of allEvts) {
+    if (e.main === 'TBD') continue;
+    for (const side of ['f1', 'f2'] as const) {
+      const name = e[side];
+      const imgKey = `${side}img` as 'f1img' | 'f2img';
+      const photo = findPhoto(name);
+      if (photo && existsSync(join(IMG_DIR, photo.replace('/fighters/', '')))) {
+        e[imgKey] = photo;
+        matched++;
+      } else {
+        e[imgKey] = '';
+        unmatched++;
+      }
+    }
+  }
+
+  writeJson('events-all.json', allEvts);
+
+  // Update home events too
+  const homeEvts = readJson<EventRow & { f1img?: string; f2img?: string }>('events.json');
+  for (const he of homeEvts) {
+    const full = allEvts.find(ev => ev.slug === (he as any).slug);
+    if (full) { he.f1img = full.f1img; he.f2img = full.f2img; }
+  }
+  writeJson('events.json', homeEvts);
+
+  console.log(`✓ Fotos de eventos: ${matched} matched, ${unmatched} sin foto`);
+}
+
 // ─── Main ────────────────────────────────────────────────────────────────────
 
 async function main() {
+  if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
+  if (!existsSync(IMG_DIR)) mkdirSync(IMG_DIR, { recursive: true });
+
   const tasks = [
-    { name: 'Events',      fn: fetchEvents      },
-    { name: 'Fight Cards', fn: fetchFightCards  },
-    { name: 'Fighters',    fn: fetchFighters    },
-    { name: 'Results',     fn: fetchResults     },
+    { name: 'Events',       fn: fetchEvents      },
+    { name: 'Fight Cards',  fn: fetchFightCards   },
+    { name: 'Fighters',     fn: fetchFighters     },
+    { name: 'Results',      fn: fetchResults      },
+    { name: 'Event Photos', fn: async () => assignEventPhotos() },
   ];
 
   let failed = 0;
@@ -692,56 +788,6 @@ async function main() {
       failed++;
     }
   }
-
-  // ── Paso final: fotos de eventos (1° fighters.json verificados, 2° API estricta) ──
-  console.log('\n── Fotos de eventos ──');
-  type FighterRef = { slug: string; name: string; img: string; [k: string]: unknown };
-  const vFighters: FighterRef[] = readJson<FighterRef>('fighters.json');
-  const allEvts: EventRowFull[] = readJson<EventRowFull>('events-all.json');
-
-  const findVerifiedPhoto = (name: string): string => {
-    const nl = name.toLowerCase();
-    const exact = vFighters.find(f => f.name.toLowerCase() === nl);
-    if (exact?.img) return exact.img;
-    const last = nl.split(' ').slice(-1)[0];
-    const firstInit = nl[0];
-    const partial = vFighters.find(f => {
-      const fn = f.name.toLowerCase();
-      return fn.split(' ').slice(-1)[0] === last && fn[0] === firstInit;
-    });
-    return partial?.img ?? '';
-  };
-
-  let fromVerified = 0, noPhoto = 0;
-  for (const e of allEvts) {
-    if (e.main === 'TBD') continue;
-
-    for (const side of ['f1', 'f2'] as const) {
-      const name = e[side];
-      const imgKey = `${side}img` as 'f1img' | 'f2img';
-
-      // SOLO fotos de fighters.json verificados — la API devuelve fotos incorrectas
-      const verified = findVerifiedPhoto(name);
-      if (verified && existsSync(join(IMG_DIR, verified.replace('/fighters/', '')))) {
-        e[imgKey] = verified;
-        console.log(`   ✓ ${name} → ${verified}`);
-        fromVerified++;
-      } else {
-        e[imgKey] = '';
-        noPhoto++;
-      }
-    }
-  }
-
-  writeJson('events-all.json', allEvts);
-  // Actualizar events.json (home) también
-  const homeEvts = readJson<EventRow & { f1img?: string; f2img?: string }>('events.json');
-  for (const he of homeEvts) {
-    const full = allEvts.find(ev => ev.slug === (he as any).slug);
-    if (full) { he.f1img = full.f1img; he.f2img = full.f2img; }
-  }
-  writeJson('events.json', homeEvts);
-  console.log(`✓ Fotos: ${fromVerified} verificadas, ${noPhoto} con iniciales`);
 
   if (failed > 0) {
     console.error(`\n${failed} tarea(s) fallaron. El resto se actualizó.`);

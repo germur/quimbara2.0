@@ -2,9 +2,8 @@ name: Update UFC data
 
 on:
   schedule:
-    # Lunes a las 06:00 UTC (08:00 Madrid en invierno, 07:00 Madrid en verano)
-    - cron: '0 6 * * 1'
-  workflow_dispatch: # permite dispararlo a mano desde la pestaña "Actions"
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -25,15 +24,17 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      - name: Fetch UFC data (Wikipedia + Sherdog + MMAAPI)
-        run: npx tsx scripts/fetch-ufc-data.ts
-        env:
-          MMAAPI_KEY: ${{ secrets.MMAAPI_KEY }}
+      - name: Fetch UFC data (Greco1899 CSVs + Wikipedia + Sherdog)
+        run: npm run data:update
+
+      - name: Download missing fighter images (UFC.com)
+        run: npm run data:images
+        continue-on-error: true
 
       - name: Commit changes (si los hay)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore(data): actualización automática de eventos UFC'
-          file_pattern: 'src/data/*.json public/fighters/*.png'
+          file_pattern: 'src/data/*.json public/fighters/*'
           commit_user_name: 'Quimbara Bot'
           commit_user_email: 'bot@quimbara.local'

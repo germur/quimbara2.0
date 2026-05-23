@@ -1,6 +1,13 @@
 {
-  "_readme": "Overrides manuales para fighters.json. Las claves son el nombre exacto del peleador. Cualquier campo aquí sobreescribe lo que devuelve la API. Se aplica en cada ejecución del cron.",
+  "_readme": "Overrides manuales para fighters.json. Claves: nombre exacto O slug del peleador. Se aplican DESPUÉS del CSV y fallback, así que siempre ganan.",
   "Ilia Topuria": {
-    "rec": "17-0-0"
+    "rec": "17-0-0",
+    "from": "Georgia",
+    "team": "Climent Club"
+  },
+  "Tom Aspinall": {
+    "rec": "15-3-1",
+    "from": "England",
+    "team": "Kaobon"
   }
 }
