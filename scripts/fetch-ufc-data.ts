@@ -469,10 +469,21 @@ async function fetchFighters() {
     allFighters.push(f);
   }
 
-  // 6. Apply overrides LAST (wins over CSV and fallback)
+  // 6. Add ALL remaining fighters from CSV
+  const addedSlugs = new Set(allFighters.map(f => f.slug));
+  let csvCount = 0;
+  for (const name of csv.tottByName.keys()) {
+    const slug = slugify(name);
+    if (addedSlugs.has(slug)) continue;
+    allFighters.push(buildFighter(name, csv, fallback));
+    addedSlugs.add(slug);
+    csvCount++;
+  }
+  console.log(`   + ${csvCount} fighters del CSV (roster completo)`);
+
+  // 7. Apply overrides LAST (wins over CSV and fallback)
   let overrideCount = 0;
   for (const f of allFighters) {
-    // Match by name or by slug
     const ov = overridesRaw[f.name] ?? overridesRaw[f.slug];
     if (ov && typeof ov === 'object') {
       Object.assign(f, ov);
@@ -483,7 +494,7 @@ async function fetchFighters() {
   if (overrideCount) console.log(`   → ${overrideCount} override(s) applied`);
 
   writeJson('fighters.json', allFighters);
-  console.log(`✓ fighters.json (${championNames.length} campeones + ${CONTENDER_SEEDS.length} contenders = ${allFighters.length})`);
+  console.log(`✓ fighters.json (${championNames.length} campeones + ${CONTENDER_SEEDS.length} contenders + ${csvCount} CSV = ${allFighters.length} total)`);
 }
 
 // ─── EVENTS (Wikipedia) ─────────────────────────────────────────────────────
