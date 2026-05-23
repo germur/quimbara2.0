@@ -30,8 +30,14 @@ function saveJson(file, data) {
 function applyOverrides(list, overrides) {
   const map = new Map(list.map(e => [e.slug, e]));
   for (const ov of overrides) {
+    // Eliminar TODOS los eventos con la misma fecha (el override los reemplaza)
+    for (const [slug, e] of map) {
+      if (e.date === ov.date && slug !== ov.slug) {
+        map.delete(slug);
+      }
+    }
+    // Si ya existe por slug → merge; si no → agregar
     if (map.has(ov.slug)) {
-      // merge campo por campo (override gana)
       map.set(ov.slug, { ...map.get(ov.slug), ...ov });
     } else {
       map.set(ov.slug, ov);
@@ -58,19 +64,11 @@ function main() {
   saveJson('events-all.json', mergedAll);
   console.log(`✓ events-all.json: ${mergedAll.length} eventos (${ovList.length} overrides aplicados)`);
 
-  // events.json (solo próximos 3 con paleta para el home)
+  // events.json (solo próximos 3, orden CRONOLÓGICO estricto)
   const today = new Date().toISOString().slice(0, 10);
   const upcoming = mergedAll
     .filter(e => (e.date || '') >= today && e.status !== 'completed')
-    .sort((a, b) => {
-      // pinear isSpecial primero si está dentro de los próximos 60 días
-      const da = new Date(a.date), db = new Date(b.date);
-      const aSoon = (da - new Date()) / 86400000 < 90;
-      const bSoon = (db - new Date()) / 86400000 < 90;
-      if (a.isSpecial && aSoon && !(b.isSpecial && bSoon)) return -1;
-      if (b.isSpecial && bSoon && !(a.isSpecial && aSoon)) return 1;
-      return (a.date || '').localeCompare(b.date || '');
-    })
+    .sort((a, b) => (a.date || '').localeCompare(b.date || ''))
     .slice(0, 3)
     .map((e, i) => ({ ...e, ...PALETTES[i % PALETTES.length] }));
 

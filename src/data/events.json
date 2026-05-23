@@ -1,65 +1,5 @@
 [
   {
-    "slug": "ufc-freedom-250",
-    "name": "UFC Freedom 250",
-    "main": "Topuria vs. Gaethje",
-    "loc": "The White House · Washington D.C.",
-    "date": "2026-06-14",
-    "dateLabel": "14 jun 2026",
-    "f1": "Topuria",
-    "f1img": "/fighters/ilia-topuria.png",
-    "f2": "Gaethje",
-    "f2img": "/fighters/justin-gaethje.png",
-    "status": "upcoming",
-    "isSpecial": true,
-    "fightCard": [
-      {
-        "f1": "Ilia Topuria",
-        "f2": "Justin Gaethje",
-        "weightClass": "Lightweight",
-        "bout": "Ligero Title Bout",
-        "order": 0
-      },
-      {
-        "f1": "Alex Pereira",
-        "f2": "Ciryl Gane",
-        "weightClass": "Heavyweight",
-        "bout": "Peso Pesado Interim Title Bout",
-        "order": 1
-      },
-      {
-        "f1": "Sean O'Malley",
-        "f2": "Aiemann Zahabi",
-        "weightClass": "Bantamweight",
-        "bout": "Peso Gallo Bout",
-        "order": 2
-      },
-      {
-        "f1": "Mauricio Ruffy",
-        "f2": "Michael Chandler",
-        "weightClass": "Lightweight",
-        "bout": "Ligero Bout",
-        "order": 3
-      },
-      {
-        "f1": "Bo Nickal",
-        "f2": "Kyle Daukaus",
-        "weightClass": "Middleweight",
-        "bout": "Peso Medio Bout",
-        "order": 4
-      },
-      {
-        "f1": "Josh Hokit",
-        "f2": "TBD",
-        "weightClass": "Featherweight",
-        "bout": "Peso Pluma Bout",
-        "order": 5
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-05-30",
     "name": "UFC Fight Night",
     "main": "Song Yadong vs. Deiveson Figueiredo",
@@ -181,8 +121,8 @@
         "order": 11
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-06-06",
@@ -295,6 +235,66 @@
         "weightClass": "Women's Flyweight",
         "bout": "maincard",
         "order": 10
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-freedom-250",
+    "name": "UFC Freedom 250",
+    "main": "Topuria vs. Gaethje",
+    "loc": "The White House · Washington D.C.",
+    "date": "2026-06-14",
+    "dateLabel": "14 jun 2026",
+    "f1": "Topuria",
+    "f1img": "/fighters/ilia-topuria.png",
+    "f2": "Gaethje",
+    "f2img": "/fighters/justin-gaethje.png",
+    "status": "upcoming",
+    "isSpecial": true,
+    "fightCard": [
+      {
+        "f1": "Ilia Topuria",
+        "f2": "Justin Gaethje",
+        "weightClass": "Lightweight",
+        "bout": "Ligero Title Bout",
+        "order": 0
+      },
+      {
+        "f1": "Alex Pereira",
+        "f2": "Ciryl Gane",
+        "weightClass": "Heavyweight",
+        "bout": "Peso Pesado Interim Title Bout",
+        "order": 1
+      },
+      {
+        "f1": "Sean O'Malley",
+        "f2": "Aiemann Zahabi",
+        "weightClass": "Bantamweight",
+        "bout": "Peso Gallo Bout",
+        "order": 2
+      },
+      {
+        "f1": "Mauricio Ruffy",
+        "f2": "Michael Chandler",
+        "weightClass": "Lightweight",
+        "bout": "Ligero Bout",
+        "order": 3
+      },
+      {
+        "f1": "Bo Nickal",
+        "f2": "Kyle Daukaus",
+        "weightClass": "Middleweight",
+        "bout": "Peso Medio Bout",
+        "order": 4
+      },
+      {
+        "f1": "Josh Hokit",
+        "f2": "TBD",
+        "weightClass": "Featherweight",
+        "bout": "Peso Pluma Bout",
+        "order": 5
       }
     ],
     "bg": "#7B1FA2",
