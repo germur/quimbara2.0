@@ -71672,15 +71672,16 @@
     "slug": "conor-mcgregor",
     "name": "Conor McGregor",
     "nick": "The Notorious",
-    "div": "Lightweight",
-    "rec": "10-4-0",
-    "from": "",
-    "img": "",
+    "div": "Welterweight",
+    "rec": "22-6-0",
+    "from": "Dublín, Irlanda",
+    "img": "/fighters/conor-mcgregor.png",
     "height": "5' 9\"",
-    "weight": "155 lbs",
+    "weight": "170 lbs",
     "reach": "74\"",
     "stance": "Southpaw",
-    "team": "",
+    "team": "SBG Ireland",
+    "dob": "1988-07-14",
     "form": [
       "L",
       "L",
@@ -71709,7 +71710,49 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "bio": "Conor Anthony McGregor nació el 14 de julio de 1988 en Crumlin, un barrio obrero del sur de Dublín, Irlanda. Desde joven mostró interés por los deportes de contacto, comenzando con el boxeo a los 12 años en el Crumlin Boxing Club antes de descubrir las artes marciales mixtas. En 2006 conoció a John Kavanagh, fundador de SBG Ireland (Straight Blast Gym), quien se convertiría en su entrenador de por vida y pieza clave de su ascenso meteórico.\n\nMcGregor debutó profesionalmente en MMA en 2008 con una victoria por TKO en apenas 16 segundos. Tras dominar la escena europea con un récord de 12-2, firmó con UFC en 2013 y debutó con un KO fulminante a Marcus Brimage en la primera ronda. Su carisma, confianza desbordante y capacidad de promoción lo convirtieron rápidamente en la mayor atracción del deporte.\n\nEl momento que definió su legado llegó en UFC 194 (diciembre 2015), cuando noqueó al invicto campeón José Aldo en apenas 13 segundos — el KO más rápido en la historia de las peleas por título de UFC. Un año después, en UFC 205, derrotó a Eddie Alvarez para coronarse campeón de peso ligero, convirtiéndose en el primer peleador en la historia de UFC en sostener dos cinturones de divisiones diferentes de forma simultánea.\n\nSu impacto trasciende el octágono. McGregor protagonizó el combate de boxeo más lucrativo contra Floyd Mayweather Jr. en agosto de 2017, generando más de 4.3 millones de compras de pay-per-view. Es el mayor generador de ingresos en la historia de UFC, con múltiples récords de audiencia y ventas de PPV que aún no han sido superados.\n\nFuera de las artes marciales, McGregor ha construido un imperio empresarial con su whisky Proper No. Twelve (vendido a Proximo Spirits por aproximadamente 600 millones de dólares) y su marca de moda August McGregor. Su estilo extravagante, sus conferencias de prensa icónicas y su capacidad para generar rivalidades han redefinido lo que significa ser una estrella del MMA moderno.\n\nTras una fractura de tibia sufrida en UFC 264 contra Dustin Poirier (julio 2021) y una suspensión de 18 meses por incumplimiento del programa antidopaje de USADA, McGregor regresa al octágono en 2026 para enfrentar a Max Holloway en la revancha estelar de UFC 329 en peso welterweight.",
+    "style": {
+      "striking": "McGregor es uno de los strikers más precisos y eficientes en la historia de UFC. Su base combina boxeo ortodoxo irlandés con elementos de karate Shotokan y taekwondo, creando un estilo híbrido que resulta extremadamente difícil de leer para sus oponentes. Pelea desde una postura zurda (southpaw) amplia que le permite generar potencia rotacional con todo el cuerpo, especialmente con su devastador left hand — un gancho de izquierda con timing quirúrgico que ha noqueado a campeones en segundos. Su gestión de la distancia es élite: utiliza teep kicks y front kicks para controlar el centro del octágono y mantener a los rivales en su rango ideal. Posee un contraataque letal, leyendo los patrones del oponente y castigando cada error con precisión milimétrica.",
+      "grappling": "El grappling ha sido históricamente el área menos dominante de McGregor. Posee cinturón marrón de jiu-jitsu brasileño bajo John Kavanagh y ha mostrado mejoras significativas en su takedown defense a lo largo de su carrera. Sin embargo, cuando oponentes de élite como Khabib Nurmagomedov o Nate Díaz logran llevar la pelea al suelo, McGregor ha demostrado dificultades para recuperar la posición de pie. Su trabajo desde la guardia es más defensivo que ofensivo, buscando levantarse en lugar de buscar sumisiones desde abajo.",
+      "fortalezas": [
+        "Left hand con potencia de knockout instantáneo — responsable de 19 de sus 22 victorias por KO/TKO",
+        "Lectura de oponentes y timing de contraataque en el nivel más alto del deporte",
+        "Gestión de distancia élite con movimiento lateral fluido y uso de kicks para controlar el rango",
+        "Mentalidad y presión psicológica: su guerra mental antes y durante la pelea desestabiliza a los rivales",
+        "Capacidad de ajuste técnico entre rounds, adaptándose a diferentes estilos de oponentes"
+      ],
+      "vulnerabilidades": [
+        "Cardio en peleas de campeonato: su rendimiento cae notablemente después del segundo round en combates de alta intensidad",
+        "Vulnerabilidad al grappling de élite, especialmente contra wrestlers y grapplers con presión constante",
+        "Inactividad prolongada: con solo una pelea desde 2020 (la fractura en UFC 264), el ring rust es un factor significativo"
+      ]
+    },
+    "trayectoria": "Debutó en MMA en 2008 en Irlanda. Firmó con UFC en 2013. Campeón interino de peso pluma (UFC 189, 2015). Campeón indiscutido de peso pluma tras noquear a José Aldo en 13 segundos (UFC 194, 2015). Campeón de peso ligero al derrotar a Eddie Alvarez (UFC 205, 2016) — primer doble campeón simultáneo en historia de UFC. Combate de boxeo vs. Floyd Mayweather Jr. (2017). Perdió vs. Khabib Nurmagomedov por sumisión (UFC 229, 2018). Victoria por KO a Donald Cerrone en 40 segundos (UFC 246, 2020). Dos derrotas consecutivas vs. Dustin Poirier (UFC 257 y UFC 264, 2021). Regreso programado vs. Max Holloway en UFC 329 (2026).",
+    "faqs": [
+      {
+        "q": "¿Cuántos cinturones de UFC tiene Conor McGregor?",
+        "a": "McGregor ganó dos cinturones de UFC: el campeonato de peso pluma (2015) noqueando a José Aldo en 13 segundos, y el campeonato de peso ligero (2016) derrotando a Eddie Alvarez. Fue el primer peleador en la historia de UFC en ser campeón de dos divisiones al mismo tiempo."
+      },
+      {
+        "q": "¿Cuál es el récord de Conor McGregor en MMA?",
+        "a": "Conor McGregor tiene un récord profesional de 22-6-0 en MMA, con 19 de sus 22 victorias por KO/TKO. En UFC específicamente, su récord es de 10 victorias y 4 derrotas."
+      },
+      {
+        "q": "¿Cuándo es la próxima pelea de Conor McGregor?",
+        "a": "McGregor está programado para regresar al octágono el 11 de julio de 2026 en UFC 329, donde enfrentará a Max Holloway en la revancha del evento estelar en la división de peso welterweight. Será su primera pelea desde julio de 2021."
+      },
+      {
+        "q": "¿Por qué McGregor estuvo tanto tiempo sin pelear?",
+        "a": "McGregor sufrió una fractura de tibia en UFC 264 contra Dustin Poirier en julio de 2021, lo que requirió una larga rehabilitación. Posteriormente recibió una suspensión de 18 meses de USADA por faltas en el programa de localización antidopaje durante 2024. La suspensión terminó en marzo de 2026."
+      },
+      {
+        "q": "¿Cuánto dinero ha ganado Conor McGregor en su carrera?",
+        "a": "McGregor es el peleador de MMA mejor pagado de la historia. Solo su combate de boxeo contra Floyd Mayweather le reportó aproximadamente 100 millones de dólares. Además, vendió su marca de whisky Proper No. Twelve por alrededor de 600 millones de dólares, consolidándolo como uno de los atletas más ricos del mundo."
+      }
+    ],
+    "metaTitle": "Conor McGregor — Récord, Biografía y Próxima Pelea UFC 2026",
+    "metaDescription": "Perfil completo de Conor McGregor 'The Notorious': récord 22-6-0, doble campeón UFC, estilo de pelea, análisis técnico y regreso en UFC 329 vs. Max Holloway."
   },
   {
     "slug": "greg-mcintyre",
@@ -97094,32 +97137,33 @@
     "name": "Ronda Rousey",
     "nick": "Rowdy",
     "div": "Women's Bantamweight",
-    "rec": "6-2-0",
-    "from": "",
-    "img": "",
+    "rec": "14-2-0",
+    "from": "Riverside, California, EE.UU.",
+    "img": "/fighters/ronda-rousey.png",
     "height": "5' 7\"",
     "weight": "135 lbs",
     "reach": "66\"",
     "stance": "Orthodox",
-    "team": "",
+    "team": "Glendale Fighting Club",
+    "dob": "1987-02-01",
     "form": [
-      "L",
-      "L",
       "W",
+      "L",
+      "L",
       "W",
       "W"
     ],
     "formTypes": [
       {
-        "outcome": "L",
-        "winType": "TKO"
-      },
-      {
-        "outcome": "L",
-        "winType": "TKO"
-      },
-      {
         "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
         "winType": "TKO"
       },
       {
@@ -97130,7 +97174,49 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "bio": "Ronda Jean Rousey nació el 1 de febrero de 1987 en Riverside, California. Hija de AnnMaria De Mars, la primera estadounidense en ganar un Campeonato Mundial de Judo, Rousey heredó la disciplina marcial como destino. A los 11 años comenzó a entrenar judo con su madre y rápidamente se convirtió en una prodigio, ganando múltiples campeonatos nacionales juveniles antes de representar a Estados Unidos en los Juegos Olímpicos.\n\nEn los Juegos Olímpicos de Atenas 2004, Rousey se convirtió en la judoka estadounidense más joven en clasificar a unos JJOO con solo 17 años. Cuatro años después, en Beijing 2008, ganó la medalla de bronce, siendo la primera estadounidense en ganar una medalla olímpica en judo. A pesar de su éxito, la frustración por no alcanzar el oro la llevó a dejar el judo competitivo y buscar nuevos retos.\n\nEn 2010 descubrió las MMA y debutó profesionalmente en 2011 bajo King of the Cage, sometiendo a su oponente con un armbar en apenas 25 segundos. Su dominio absoluto fue inmediato: ganó el cinturón de Strikeforce antes de que la promoción fuera absorbida por UFC en 2012. Dana White, quien previamente había declarado que las mujeres nunca pelearían en UFC, cambió de opinión tras ver a Rousey.\n\nRonda se convirtió en la primera campeona de peso gallo femenino de UFC y la primera mujer en ser cabeza de cartel de un evento de UFC (UFC 157, febrero 2013). Su reinado fue devastador: seis defensas consecutivas del título, todas finalizadas, la mayoría en menos de un minuto. Contra Cat Zingano en UFC 184 estableció un récord con un armbar en apenas 14 segundos.\n\nEl 15 de noviembre de 2015, el aura de invencibilidad se derrumbó. Holly Holm la noqueó con una patada a la cabeza en el segundo round de UFC 193, frente a un récord de 56,214 espectadores en Melbourne. Tras más de un año fuera, Rousey regresó en UFC 207 contra Amanda Nunes, pero fue derrotada por TKO en 48 segundos. Se retiró de MMA y pasó a WWE, donde se convirtió en campeona de Raw.\n\nEn mayo de 2026, tras casi una década alejada del octágono, Rousey protagonizó un regreso sorpresa bajo Most Valuable Promotions en Netflix, sometiendo a Gina Carano con su legendario armbar en apenas 17 segundos. Tras la victoria, confirmó su retiro definitivo para enfocarse en su familia.\n\nRousey trasciende el deporte como la mujer que abrió las puertas de UFC al talento femenino, transformando las MMA para siempre. Fue la primera mujer inductada al Salón de la Fama de UFC en 2018.",
+    "style": {
+      "striking": "El striking de Rousey es funcional pero limitado comparado con su grappling. Desarrolló un estilo agresivo de clinch boxing bajo Edmond Tarverdyan en Glendale Fighting Club, enfocado en cerrar distancia rápidamente para llevar la pelea al clinch o al suelo. Su jab y cross son herramientas de setup más que armas de knockout, diseñados para crear las aperturas necesarias para sus lanzamientos de judo. Posee buena presión hacia adelante y no teme recibir golpes para acortar la distancia, aunque sus últimas dos peleas expusieron deficiencias significativas en su defensa de striking contra golpeadoras técnicas.",
+      "grappling": "El grappling de Rousey es su arma definitoria y posiblemente el mejor judo ofensivo en la historia de las MMA femeninas. Su base como medallista olímpica se traduce en lanzamientos explosivos de cadera (uchi-mata, harai-goshi, o-goshi) que desorientan completamente a sus oponentes. Una vez en el suelo, su transición al armbar es casi automática: 11 de sus 14 victorias fueron por armbar. Su promedio de 6.26 derribos por pelea con 68% de efectividad demuestra un nivel de judo sin paralelo en UFC. Es igualmente efectiva desde el clinch, donde sus lanzamientos de judo le dan una ventaja insuperable contra oponentes sin experiencia en lucha olímpica.",
+      "fortalezas": [
+        "Judo olímpico de nivel mundial: lanzamientos de cadera y barridos que neutralizan incluso a oponentes más grandes",
+        "Armbar más letal en la historia de MMA femenino — 11 sumisiones por armbar en 14 victorias",
+        "Velocidad de finalización: 12 de 14 victorias en el primer round, con un tiempo promedio de pelea inferior a 90 segundos",
+        "Presión implacable y mentalidad de finish, nunca busca decisiones de los jueces",
+        "Transiciones suelo-sumisión extremadamente fluidas, herencia directa del judo competitivo de élite"
+      ],
+      "vulnerabilidades": [
+        "Striking defensivo deficiente: 44% de efectividad en defensa de golpes, vulnerable a strikers técnicas con buena gestión de distancia",
+        "Dependencia excesiva de un único plan de juego (clinch → lanzamiento → armbar), previsible para oponentes bien preparadas",
+        "Sin solución efectiva contra oponentes que mantienen distancia y la castigan con golpes a larga distancia"
+      ]
+    },
+    "trayectoria": "Medalla de bronce en judo, Juegos Olímpicos Beijing 2008. Debut MMA en 2011 bajo King of the Cage. Campeona de peso gallo de Strikeforce (2012). Primera campeona de peso gallo femenino de UFC (2012-2015). Seis defensas consecutivas del título. Derrotada por Holly Holm vía KO en UFC 193 (2015). Derrotada por Amanda Nunes vía TKO en UFC 207 (2016). Retiro de MMA e ingreso a WWE. Inductada al Salón de la Fama de UFC (2018). Regreso sorpresa en MVP MMA 1 vs. Gina Carano — victoria por armbar en 17 segundos (mayo 2026). Retiro definitivo.",
+    "faqs": [
+      {
+        "q": "¿Cuál es el récord de Ronda Rousey en MMA?",
+        "a": "Ronda Rousey tiene un récord profesional de 14-2-0 en MMA. De sus 14 victorias, 11 fueron por sumisión (armbar) y 3 por TKO. En UFC específicamente, su récord fue de 6-2, con 6 defensas consecutivas del título de peso gallo."
+      },
+      {
+        "q": "¿Quién le ganó a Ronda Rousey?",
+        "a": "Rousey solo perdió dos peleas en su carrera: contra Holly Holm por KO (patada a la cabeza) en UFC 193 en noviembre de 2015, y contra Amanda Nunes por TKO en UFC 207 en diciembre de 2016. Ambas derrotas expusieron sus debilidades en el striking defensivo."
+      },
+      {
+        "q": "¿Ronda Rousey regresó a pelear en 2026?",
+        "a": "Sí, el 16 de mayo de 2026 Rousey hizo un regreso sorpresa tras casi una década fuera del MMA, enfrentando a Gina Carano bajo Most Valuable Promotions en Netflix. Ganó por armbar en apenas 17 segundos. Después de la pelea confirmó su retiro definitivo."
+      },
+      {
+        "q": "¿Por qué Ronda Rousey es tan importante para el MMA?",
+        "a": "Rousey fue la primera campeona femenina de UFC y la primera mujer en encabezar un evento de UFC. Su dominio y carisma convencieron a Dana White de abrir UFC al talento femenino, cambiando el deporte para siempre. Fue la primera mujer inductada al Salón de la Fama de UFC en 2018."
+      },
+      {
+        "q": "¿Ronda Rousey fue a los Juegos Olímpicos?",
+        "a": "Sí, Rousey compitió en judo en dos Juegos Olímpicos: Atenas 2004 (con solo 17 años, la judoka estadounidense más joven en clasificar) y Beijing 2008, donde ganó la medalla de bronce. Fue la primera estadounidense en ganar una medalla olímpica en judo."
+      }
+    ],
+    "metaTitle": "Ronda Rousey — Récord MMA, Biografía y Regreso 2026 vs Carano",
+    "metaDescription": "Perfil completo de Ronda Rousey 'Rowdy': récord 14-2-0, primera campeona UFC, medalla olímpica en judo, análisis técnico y regreso 2026 vs Gina Carano."
   },
   {
     "slug": "ray-routh",
