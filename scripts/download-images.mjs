@@ -97,7 +97,7 @@ async function main() {
     return;
   }
 
-  const batch = toDownload.slice(0, force ? 200 : 50);
+  const batch = toDownload.slice(0, force ? 200 : 500);
   let success = 0, failed = 0;
 
   for (let i = 0; i < batch.length; i++) {
