@@ -18,11 +18,11 @@ const ENRICHED = {
   // "joshua van altura" (80). Long-tail físico.
   // ───────────────────────────────────────────────────────────────────
   "Joshua Van": {
-    metaTitle: `Joshua Van "The Fearless" · Estatura, Récord y Estilo · UFC Flyweight`,
-    metaDescription: `Perfil de Joshua Van, peleador UFC Flyweight de Myanmar. Estatura 5' 5" (165 cm), alcance 65" (165 cm), récord 10-1-0. Análisis de estilo y datos físicos en español.`,
-    bio: `<p><strong>Joshua Van</strong> es uno de los prospectos más vertiginosos del peso mosca (Flyweight) de UFC. Nacido en <strong>Myanmar (Birmania)</strong> y refugiado en Estados Unidos desde adolescente, llegó al octágono más grande del MMA con apenas 22 años y un récord de 10-1-0 que lo coloca entre los favoritos del público hispano para irrumpir en el top 15 de su división.</p>
-<p>Apodado <strong>"The Fearless"</strong> por su forma de entrar al intercambio sin medir consecuencias, Van entrena en <strong>Fortis MMA (Dallas, Texas)</strong>, uno de los gimnasios más reputados de Norteamérica, donde comparte espacio con Geoff Neal y Diego Lopes. Su llegada a UFC representa una historia de migración, supervivencia y talento bruto poco común en una división dominada por veteranos.</p>
-<p>Su perfil físico — <strong>1.65 m de estatura</strong> y <strong>1.65 m de alcance</strong> — es estándar para el peso mosca, pero compensa cualquier limitación de palanca con un cardio descomunal y una capacidad para mantener volumen de golpes durante los 15 minutos completos del combate.</p>`,
+    metaTitle: `Joshua Van "The Fearless" · Campeón UFC Flyweight · Estatura y Récord`,
+    metaDescription: `Perfil de Joshua Van, actual Campeón UFC Flyweight. Originario de Myanmar, estatura 5' 5" (165 cm), alcance 65" (165 cm), récord 10-1-0. Análisis de estilo y datos físicos en español.`,
+    bio: `<p><strong>Joshua Van</strong> es el <strong>actual Campeón UFC Flyweight (peso mosca)</strong>, una de las coronaciones más vertiginosas de la era moderna de UFC. Nacido en <strong>Myanmar (Birmania)</strong> y refugiado en Estados Unidos desde adolescente, llegó al octágono más grande del MMA con apenas 22 años, y conquistó el cinturón en 2026 con un récord de 10-1-0 que ya lo convierte en el favorito del público hispano del peso mosca.</p>
+<p>Apodado <strong>"The Fearless"</strong> por su forma de entrar al intercambio sin medir consecuencias, Van entrena en <strong>Fortis MMA (Dallas, Texas)</strong>, uno de los gimnasios más reputados de Norteamérica, donde comparte espacio con Geoff Neal y Diego Lopes. Su llegada a UFC y posterior coronación representan una historia de migración, supervivencia y talento bruto poco común entre los campeones del peso mosca.</p>
+<p>Su perfil físico — <strong>1.65 m de estatura</strong> y <strong>1.65 m de alcance</strong> — es estándar para el peso mosca, pero compensa cualquier limitación de palanca con un cardio descomunal y una capacidad para mantener volumen de golpes durante los 25 minutos completos del combate titular.</p>`,
     style: {
       striking: `<p>Van es un <strong>striker de presión y volumen</strong>. Sale a romper el ritmo desde el primer cambio de guardia: jab repetido, recto de derecha cruzando, low kicks al hígado, y combinaciones de 3-4 golpes que no le permiten al rival respirar. Trabaja muy bien en guardia <strong>Orthodox</strong>, con un <em>step-in cross</em> que conecta con regularidad incluso contra rivales más largos.</p>
 <p>Su mayor fortaleza es la <strong>tasa de strikes significativos por minuto (SLpM)</strong>: una de las más altas del peso mosca. No busca el KO de un solo golpe sino acumular daño y romper la voluntad del oponente con volumen. La parte débil es la defensa: absorbe demasiados golpes en intercambios largos porque privilegia presión sobre footwork defensivo.</p>`,
@@ -61,8 +61,12 @@ const ENRICHED = {
         a: "El apodo <strong>\"The Fearless\"</strong> (El Sin Miedo) se lo ganó por su estilo de entrar a intercambios sin medir consecuencias y por la historia personal detrás: refugiado de un país en guerra civil que llegó a UFC contra todo pronóstico."
       },
       {
-        q: "¿Cuándo es la próxima pelea de Joshua Van?",
-        a: "Su última pelea confirmada fue en <strong>UFC 328 (9 de mayo de 2026)</strong> contra Tatsuro Taira. La próxima está en evaluación del matchmaking de UFC. Sigue la cobertura de eventos en Quimbara para actualizaciones."
+        q: "¿Joshua Van es campeón de UFC?",
+        a: "Sí. Joshua Van es el <strong>actual Campeón UFC Flyweight (peso mosca)</strong>, conquistó el título en 2026. Es uno de los campeones más jóvenes de la división."
+      },
+      {
+        q: "¿Cuándo es la próxima defensa titular de Joshua Van?",
+        a: "Su próxima defensa titular está en evaluación del matchmaking de UFC. El #1 contender Brandon Royval y otros top 5 son candidatos. Sigue la cobertura en Quimbara para confirmaciones."
       }
     ]
   },
@@ -124,11 +128,11 @@ const ENRICHED = {
   // MERAB DVALISHVILI — 496 impr (pos 76.7). Champion Bantamweight.
   // ───────────────────────────────────────────────────────────────────
   "Merab Dvalishvili": {
-    metaTitle: `Merab Dvalishvili "The Machine" · Campeón UFC Bantamweight · Récord y Estilo`,
-    metaDescription: `Perfil de Merab Dvalishvili, Campeón UFC Bantamweight de Georgia. Récord 14-3-0, especialista en wrestling, takedowns récord y cardio infinito. Análisis en español.`,
-    bio: `<p><strong>Merab Dvalishvili "The Machine"</strong> es el actual <strong>Campeón UFC Bantamweight</strong>, una de las figuras más dominantes y peculiares del peso gallo de la era moderna. Nacido en <strong>Tiflis (Georgia)</strong> — el país del Cáucaso, no el estado de USA — Merab combina un wrestling de nivel olímpico, un cardio que parece literalmente infinito, y una mentalidad de presión absoluta que rompe a sus rivales psicológica y físicamente.</p>
-<p>Ganó el cinturón Bantamweight en septiembre de 2024 al vencer a <strong>Sean O'Malley</strong> por decisión unánime en una pelea donde lo derribó múltiples veces y lo dominó en cada minuto. Desde entonces ha defendido el título con éxito, manteniéndose como el #1 indiscutible de la división.</p>
-<p>Su récord actual es de <strong>14 victorias y 3 derrotas</strong>, con la última derrota ocurrida en 2018. Lleva más de <strong>6 años invicto</strong> en UFC, una racha solo comparable con las de los grandes campeones históricos del peso gallo. Entrena en <strong>Serra-Longo Fight Team</strong> bajo la dirección de Matt Serra y Ray Longo, en Nueva York.</p>`,
+    metaTitle: `Merab Dvalishvili "The Machine" · #1 UFC Bantamweight · Récord y Estilo`,
+    metaDescription: `Perfil de Merab Dvalishvili, #1 contender UFC Bantamweight de Georgia. Récord 14-3-0, especialista en wrestling, takedowns récord y cardio infinito. Análisis en español.`,
+    bio: `<p><strong>Merab Dvalishvili "The Machine"</strong> es el <strong>#1 contender de UFC Bantamweight</strong>, una de las figuras más dominantes y peculiares del peso gallo de la era moderna. Nacido en <strong>Tiflis (Georgia)</strong> — el país del Cáucaso, no el estado de USA — Merab combina un wrestling de nivel olímpico, un cardio que parece literalmente infinito, y una mentalidad de presión absoluta que rompe a sus rivales psicológica y físicamente.</p>
+<p>Fue Campeón UFC Bantamweight entre 2024 y 2026, periodo en el cual venció a <strong>Sean O'Malley</strong> y defendió el título contra Umar Nurmagomedov. Perdió el cinturón ante <strong>Petr Yan</strong> en 2026 en una pelea de gran nivel técnico, y ahora ocupa el #1 del ranking con plena posibilidad de revancha titular.</p>
+<p>Su récord actual es de <strong>14 victorias y 3 derrotas</strong>. Entrena en <strong>Serra-Longo Fight Team</strong> bajo la dirección de Matt Serra y Ray Longo, en Nueva York, y mantiene los récords históricos de takedowns por pelea en UFC.</p>`,
     style: {
       striking: `<p>El striking de Merab no es elegante, pero es <strong>funcional y agotador</strong>. Lanza combinaciones cortas, mantiene presión hacia adelante, y trabaja al cuerpo para preparar el takedown. No tiene poder de KO de un solo golpe, pero acumula impactos durante los 25 minutos completos de pelea titular.</p>
 <p>Su mayor virtud en striking es la <strong>capacidad de absorber daño sin ceder posición</strong>. Camina hacia adelante incluso recibiendo combinaciones, y siempre busca cerrar distancia para entrar al clinch o ejecutar el takedown. Es <strong>Orthodox</strong>, mide 5'6" y tiene un alcance de 68" — medidas estándar para Bantamweight.</p>`,
@@ -147,12 +151,12 @@ const ENRICHED = {
       ]
     },
     trayectoria: `<p>Merab Dvalishvili debutó en UFC en 2017 con derrotas iniciales que dudaron su potencial. A partir de 2018 inició una <strong>racha invicta histórica</strong>: venció a Brad Katona, Casey Kenney, Cody Stamann, John Dodson, José Aldo (sí, el legendario), Marlon Moraes y Petr Yan, todos por decisión unánime con dominación en wrestling.</p>
-<p>Su consagración llegó en <strong>UFC 306 (Las Vegas, septiembre de 2024)</strong>, donde venció a Sean O'Malley por decisión unánime para coronarse Campeón Bantamweight. Defendió el título por primera vez en 2025 venciendo a Umar Nurmagomedov, otra prueba de fuego que pasó con dominio total.</p>
-<p>Su próxima defensa está pendiente; el matchmaking de UFC evalúa entre el ganador de Sean O'Malley vs. Petr Yan (revancha) y un challenger emergente del top 5. Es uno de los campeones más respetados del momento y un símbolo del wrestling georgiano que ha tomado UFC en los últimos años (junto a peleadores como Ilia Topuria, también de origen georgiano).</p>`,
+<p>Su consagración llegó en <strong>UFC 306 (Las Vegas, septiembre de 2024)</strong>, donde venció a Sean O'Malley por decisión unánime para coronarse Campeón Bantamweight. Defendió el título contra Umar Nurmagomedov en 2025 con dominio total.</p>
+<p>En 2026 perdió el cinturón ante <strong>Petr Yan</strong> en una revancha histórica, donde el ruso supo neutralizar el wrestling georgiano con striking de alta precisión. Merab quedó como <strong>#1 contender</strong> y la revancha titular es la pelea más esperada del peso gallo para 2026-2027.</p>`,
     faq: [
       {
-        q: "¿Quién es el campeón de UFC Bantamweight?",
-        a: "El actual <strong>Campeón UFC Bantamweight</strong> es <strong>Merab Dvalishvili</strong>, originario de Georgia. Ganó el título en septiembre de 2024 venciendo a Sean O'Malley por decisión unánime."
+        q: "¿Quién es el campeón actual de UFC Bantamweight?",
+        a: "El actual <strong>Campeón UFC Bantamweight</strong> es <strong>Petr Yan</strong>, quien le ganó el título a Merab Dvalishvili en 2026. Merab es actualmente el #1 contender y la revancha titular está en negociación."
       },
       {
         q: "¿De dónde es Merab Dvalishvili?",

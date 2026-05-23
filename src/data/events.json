@@ -1,14 +1,31 @@
 [
   {
+    "slug": "ufc-white-house-2026-07-04",
+    "name": "UFC en La Casa Blanca",
+    "main": "Card por confirmar",
+    "loc": "South Lawn, Casa Blanca · Washington D.C.",
+    "date": "2026-07-04",
+    "dateLabel": "4 jul 2026",
+    "f1": "",
+    "f1img": "",
+    "f2": "",
+    "f2img": "",
+    "status": "upcoming",
+    "isSpecial": true,
+    "fightCard": [],
+    "bg": "#FFD600",
+    "color": "#111"
+  },
+  {
     "slug": "ufc-fight-night-2026-05-30",
     "name": "UFC Fight Night",
-    "main": "Song vs. Figueiredo",
+    "main": "Song Yadong vs. Deiveson Figueiredo",
     "loc": "Macau SAR, China",
     "date": "2026-05-30",
     "dateLabel": "30 may 2026",
-    "f1": "Song",
+    "f1": "Song Yadong",
     "f1img": "/fighters/song-yadong.png",
-    "f2": "Figueiredo",
+    "f2": "Deiveson Figueiredo",
     "f2img": "/fighters/deiveson-figueiredo.png",
     "status": "upcoming",
     "fightCard": [
@@ -121,19 +138,19 @@
         "order": 11
       }
     ],
-    "bg": "#FFD600",
-    "color": "#111"
+    "bg": "#E53935",
+    "color": "#fff"
   },
   {
     "slug": "ufc-fight-night-2026-06-06",
     "name": "UFC Fight Night",
-    "main": "Muhammad vs. Bonfim",
+    "main": "Belal Muhammad vs. Gabriel Bonfim",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-06-06",
     "dateLabel": "6 jun 2026",
-    "f1": "Muhammad",
+    "f1": "Belal Muhammad",
     "f1img": "/fighters/belal-muhammad.png",
-    "f2": "Bonfim",
+    "f2": "Gabriel Bonfim",
     "f2img": "/fighters/gabriel-bonfim.png",
     "status": "upcoming",
     "fightCard": [
@@ -237,21 +254,6 @@
         "order": 10
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
-  },
-  {
-    "slug": "ufc-freedom-250-2026-06-14",
-    "name": "UFC Freedom 250",
-    "main": "TBD",
-    "loc": "Washington, D.C., U.S.",
-    "date": "2026-06-14",
-    "dateLabel": "14 jun 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": "",
-    "status": "upcoming",
     "bg": "#7B1FA2",
     "color": "#fff"
   }

@@ -1,0 +1,20 @@
+{
+  "_comment": "Overrides manuales para eventos. Se mergean DESPUÉS de fetch-ufc-data.ts. Si el slug existe en events.json se reemplaza; si no, se agrega. Para eventos especiales que las fuentes (Wikipedia/Sherdog) aún no tienen indexados.",
+  "events": [
+    {
+      "slug": "ufc-white-house-2026-07-04",
+      "name": "UFC en La Casa Blanca",
+      "main": "Card por confirmar",
+      "loc": "South Lawn, Casa Blanca · Washington D.C.",
+      "date": "2026-07-04",
+      "dateLabel": "4 jul 2026",
+      "f1": "",
+      "f1img": "",
+      "f2": "",
+      "f2img": "",
+      "status": "upcoming",
+      "isSpecial": true,
+      "fightCard": []
+    }
+  ]
+}
