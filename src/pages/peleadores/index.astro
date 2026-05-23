@@ -50,9 +50,6 @@ for (const div of Object.keys(byDiv)) {
   });
 }
 
-const divisions = divOrder.filter(d => byDiv[d]?.length);
-const TOTAL_OFICIALES = Object.values(byDiv).reduce((sum, arr) => sum + arr.length, 0);
-
 const WIN_BG: Record<string, string> = {
   KO: '#E53935', TKO: '#E53935', SUB: '#7B1FA2',
   UD: '#111', SD: '#111', MD: '#111',
@@ -61,6 +58,16 @@ const WIN_BG: Record<string, string> = {
 // Helpers
 const initials = (name: string) => name.split(' ').slice(0, 2).map(n => n[0]).join('');
 const isRanked = (f: Fighter) => f.rank === 'C' || (!isNaN(Number(f.rank)) && Number(f.rank) <= 15);
+
+// Conteo visible: ranked (siempre se muestran) + roster con foto
+const visibleCount = (div: string) => {
+  const all = byDiv[div] || [];
+  const ranked = all.filter(isRanked);
+  const restWithPhoto = all.filter(f => !isRanked(f) && f.img);
+  return ranked.length + restWithPhoto.length;
+};
+const divisions = divOrder.filter(d => visibleCount(d) > 0);
+const TOTAL_OFICIALES = divisions.reduce((sum, d) => sum + visibleCount(d), 0);
 ---
 
 <BaseLayout
@@ -97,7 +104,7 @@ const isRanked = (f: Fighter) => f.rank === 'C' || (!isNaN(Number(f.rank)) && Nu
             ]}
             style="font-family:var(--font-sans);"
           >
-            {divLabels[div] ?? div} <span class="text-gray-300 ml-1">({byDiv[div].length})</span>
+            {divLabels[div] ?? div} <span class="text-gray-300 ml-1">({visibleCount(div)})</span>
           </button>
         ))}
       </div>
@@ -108,7 +115,7 @@ const isRanked = (f: Fighter) => f.rank === 'C' || (!isNaN(Number(f.rank)) && Nu
   <div style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 80px;`}>
     {divisions.map((div, divIdx) => {
       const ranked = byDiv[div].filter(isRanked);
-      const rest   = byDiv[div].filter(f => !isRanked(f));
+      const rest   = byDiv[div].filter(f => !isRanked(f) && f.img);
       return (
         <div class="div-section" data-div={div} style={divIdx > 0 ? 'display:none;' : ''}>
 
@@ -306,7 +313,7 @@ const isRanked = (f: Fighter) => f.rank === 'C' || (!isNaN(Number(f.rank)) && Nu
   const PER_PAGE = 24;
   const pageState: Record<string, number> = {};
 
-  function renderPage(div: string) {
+  function renderPage(div: string, scrollToGrid = false) {
     const page = pageState[div] || 1;
     const grid = document.querySelector<HTMLElement>(`.roster-grid[data-div="${div}"]`);
     if (!grid) return;
@@ -341,14 +348,14 @@ const isRanked = (f: Fighter) => f.rank === 'C' || (!isNaN(Number(f.rank)) && Nu
       next.classList.toggle('text-gray-400', page === totalPages);
     }
 
-    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (scrollToGrid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   document.querySelectorAll<HTMLButtonElement>('.pag-prev').forEach(btn => {
     btn.addEventListener('click', () => {
       const div = btn.dataset.div!;
       pageState[div] = Math.max(1, (pageState[div] || 1) - 1);
-      renderPage(div);
+      renderPage(div, true);
     });
   });
   document.querySelectorAll<HTMLButtonElement>('.pag-next').forEach(btn => {
@@ -359,7 +366,7 @@ const isRanked = (f: Fighter) => f.rank === 'C' || (!isNaN(Number(f.rank)) && Nu
       const total = Number(grid.dataset.total || 0);
       const totalPages = Math.ceil(total / PER_PAGE);
       pageState[div] = Math.min(totalPages, (pageState[div] || 1) + 1);
-      renderPage(div);
+      renderPage(div, true);
     });
   });
 </script>
