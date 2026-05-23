@@ -31,7 +31,19 @@ const lastName  = (name: string) => name.split(' ').slice(-1)[0] ?? name;
 const slugify = (name: string) => name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[''']/g, '').replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-');
 
 import { readdirSync } from 'node:fs';
+import FIGHTERS_RAW from '../../data/fighters.json';
 const allPhotos = new Set(readdirSync('public/fighters').filter(f => /\.(png|jpg|webp)$/i.test(f)).map(f => f.replace(/\.(png|jpg|webp)$/i, '')));
+const fighterSlugs = new Set((FIGHTERS_RAW as any[]).map((f: any) => f.slug));
+
+function fighterUrl(name: string): string {
+  if (!name || name === 'TBD') return '';
+  const slug = slugify(name);
+  if (fighterSlugs.has(slug)) return `/peleador/${slug}/`;
+  for (const s of fighterSlugs) {
+    if (s.startsWith(slug + '-') || s.endsWith('-' + slug)) return `/peleador/${s}/`;
+  }
+  return '';
+}
 
 function fighterPhoto(name: string): string {
   if (!name || name === 'TBD') return '';
@@ -274,6 +286,8 @@ const metaDescription = isCompleted
           const f2Photo = fighterPhoto(fight.f2);
           const f1Init = initials(fight.f1);
           const f2Init = initials(fight.f2);
+          const f1Url = fighterUrl(fight.f1);
+          const f2Url = fighterUrl(fight.f2);
           return (
             <div class={`rounded-2xl overflow-hidden ${isMain ? 'border-2 border-[#FFD600]' : 'border border-gray-200'}`}>
               {/* Weight class header */}
@@ -286,25 +300,47 @@ const metaDescription = isCompleted
               {/* Fighter matchup */}
               <div class={`flex items-center justify-between px-4 sm:px-8 py-5 ${isMain ? 'bg-[#111]' : 'bg-white'}`}>
                 {/* Fighter 1 */}
-                <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
-                  {f1Photo ? (
-                    <img src={f1Photo} alt={fight.f1} class="w-14 h-14 sm:w-20 sm:h-20 rounded-full object-cover object-top flex-shrink-0 bg-gray-200" loading="lazy" />
-                  ) : (
-                    <div class={`w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base font-black ${isMain ? 'bg-gray-700 text-gray-400' : 'bg-gray-200 text-gray-500'}`}>{f1Init}</div>
-                  )}
-                  <span class={`font-bold text-sm sm:text-base truncate ${isMain ? 'text-white' : 'text-[#111]'}`} style="font-family:var(--font-display);">{fight.f1}</span>
-                </div>
+                {f1Url ? (
+                  <a href={f1Url} class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0 no-underline hover:opacity-80 transition-opacity">
+                    {f1Photo ? (
+                      <img src={f1Photo} alt={fight.f1} class="w-14 h-14 sm:w-20 sm:h-20 rounded-full object-cover object-top flex-shrink-0 bg-gray-200" loading="lazy" />
+                    ) : (
+                      <div class={`w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base font-black ${isMain ? 'bg-gray-700 text-gray-400' : 'bg-gray-200 text-gray-500'}`}>{f1Init}</div>
+                    )}
+                    <span class={`font-bold text-sm sm:text-base truncate ${isMain ? 'text-white' : 'text-[#111]'}`} style="font-family:var(--font-display);">{fight.f1}</span>
+                  </a>
+                ) : (
+                  <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+                    {f1Photo ? (
+                      <img src={f1Photo} alt={fight.f1} class="w-14 h-14 sm:w-20 sm:h-20 rounded-full object-cover object-top flex-shrink-0 bg-gray-200" loading="lazy" />
+                    ) : (
+                      <div class={`w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base font-black ${isMain ? 'bg-gray-700 text-gray-400' : 'bg-gray-200 text-gray-500'}`}>{f1Init}</div>
+                    )}
+                    <span class={`font-bold text-sm sm:text-base truncate ${isMain ? 'text-white' : 'text-[#111]'}`} style="font-family:var(--font-display);">{fight.f1}</span>
+                  </div>
+                )}
                 {/* VS */}
                 <span class={`flex-shrink-0 text-xs sm:text-sm font-black px-3 ${isMain ? 'text-[#FFD600]' : 'text-gray-300'}`}>VS</span>
                 {/* Fighter 2 */}
-                <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0 justify-end">
-                  <span class={`font-bold text-sm sm:text-base truncate text-right ${isMain ? 'text-white' : 'text-[#111]'}`} style="font-family:var(--font-display);">{fight.f2}</span>
-                  {f2Photo ? (
-                    <img src={f2Photo} alt={fight.f2} class="w-14 h-14 sm:w-20 sm:h-20 rounded-full object-cover object-top flex-shrink-0 bg-gray-200" loading="lazy" />
-                  ) : (
-                    <div class={`w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base font-black ${isMain ? 'bg-gray-700 text-gray-400' : 'bg-gray-200 text-gray-500'}`}>{f2Init}</div>
-                  )}
-                </div>
+                {f2Url ? (
+                  <a href={f2Url} class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0 justify-end no-underline hover:opacity-80 transition-opacity">
+                    <span class={`font-bold text-sm sm:text-base truncate text-right ${isMain ? 'text-white' : 'text-[#111]'}`} style="font-family:var(--font-display);">{fight.f2}</span>
+                    {f2Photo ? (
+                      <img src={f2Photo} alt={fight.f2} class="w-14 h-14 sm:w-20 sm:h-20 rounded-full object-cover object-top flex-shrink-0 bg-gray-200" loading="lazy" />
+                    ) : (
+                      <div class={`w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base font-black ${isMain ? 'bg-gray-700 text-gray-400' : 'bg-gray-200 text-gray-500'}`}>{f2Init}</div>
+                    )}
+                  </a>
+                ) : (
+                  <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0 justify-end">
+                    <span class={`font-bold text-sm sm:text-base truncate text-right ${isMain ? 'text-white' : 'text-[#111]'}`} style="font-family:var(--font-display);">{fight.f2}</span>
+                    {f2Photo ? (
+                      <img src={f2Photo} alt={fight.f2} class="w-14 h-14 sm:w-20 sm:h-20 rounded-full object-cover object-top flex-shrink-0 bg-gray-200" loading="lazy" />
+                    ) : (
+                      <div class={`w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center flex-shrink-0 text-sm sm:text-base font-black ${isMain ? 'bg-gray-700 text-gray-400' : 'bg-gray-200 text-gray-500'}`}>{f2Init}</div>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           );
