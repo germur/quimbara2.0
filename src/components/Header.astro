@@ -1,13 +1,16 @@
 ---
+import { divLabels, divSlugs, divOrder, isFemale } from '../data/divisions';
+
 const activePath = Astro.url.pathname;
 
 const navLinks = [
-  { href: '/blog/', label: 'Noticias' },
+  { href: '/blog/', label: 'Blog', match: 'blog' },
+  { href: '/rankings/', label: 'Rankings', match: 'ranking' },
   { href: '/eventos/', label: 'Eventos', match: 'eventos' },
-  { href: '/categoria/laboratorio-tecnico/', label: 'Análisis', match: 'laboratorio' },
-  { href: '/categoria/punto-de-vista/', label: 'Opinión', match: 'vista' },
-  { href: '/peleadores/', label: 'Peleadores', match: 'peleador' },
 ];
+
+const maleDivs = divOrder.filter(d => !isFemale(d));
+const femaleDivs = divOrder.filter(d => isFemale(d));
 ---
 
 <header id="site-header"
@@ -29,7 +32,7 @@ const navLinks = [
           href={link.href}
           class:list={[
             "text-xs font-semibold uppercase tracking-widest transition-colors duration-200",
-            (link.match ? activePath.includes(link.match) : activePath === link.href)
+            activePath.includes(link.match)
               ? "text-[#FFD600]"
               : "text-gray-300 hover:text-white"
           ]}
@@ -37,6 +40,60 @@ const navLinks = [
           {link.label}
         </a>
       ))}
+
+      <!-- Peleadores dropdown -->
+      <div class="relative" id="pel-dropdown">
+        <button
+          class:list={[
+            "text-xs font-semibold uppercase tracking-widest transition-colors duration-200 flex items-center gap-1",
+            activePath.includes('peleador')
+              ? "text-[#FFD600]"
+              : "text-gray-300 hover:text-white"
+          ]}
+          aria-expanded="false" aria-haspopup="true">
+          Peleadores
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M2 4 L5 7 L8 4" />
+          </svg>
+        </button>
+        <div class="pel-menu hidden absolute top-full left-1/2 -translate-x-1/2 pt-3" style="min-width:320px;">
+          <div class="rounded-lg overflow-hidden shadow-2xl border border-white/10" style="background:#151515;">
+            <a href="/peleadores/" class="block px-5 py-3 text-xs font-bold uppercase tracking-widest text-[#FFD600] hover:bg-white/5 transition-colors border-b border-white/5">
+              Todos los peleadores
+            </a>
+            <div class="grid grid-cols-2 gap-0">
+              <div class="border-r border-white/5">
+                <div class="px-4 pt-3 pb-1 text-[9px] font-black uppercase tracking-widest text-gray-500">Masculino</div>
+                {maleDivs.map(d => (
+                  <a href={`/peleadores/${divSlugs[d]}/`}
+                     class:list={[
+                       "block px-4 py-2 text-xs transition-colors hover:bg-white/5",
+                       activePath.includes(divSlugs[d])
+                         ? "text-[#FFD600] font-semibold"
+                         : "text-gray-300"
+                     ]}>
+                    {divLabels[d]}
+                  </a>
+                ))}
+              </div>
+              <div>
+                <div class="px-4 pt-3 pb-1 text-[9px] font-black uppercase tracking-widest text-gray-500">Femenino</div>
+                {femaleDivs.map(d => (
+                  <a href={`/peleadores/${divSlugs[d]}/`}
+                     class:list={[
+                       "block px-4 py-2 text-xs transition-colors hover:bg-white/5",
+                       activePath.includes(divSlugs[d])
+                         ? "text-[#FFD600] font-semibold"
+                         : "text-gray-300"
+                     ]}>
+                    {divLabels[d]}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <!-- Right cluster: search + mobile -->
@@ -76,6 +133,21 @@ const navLinks = [
           {link.label}
         </a>
       ))}
+      <a href="/peleadores/"
+         class="py-4 text-sm font-semibold uppercase tracking-widest text-gray-300 border-b border-white/5 hover:text-[#FFD600] transition-colors duration-200">
+        Peleadores
+      </a>
+      <div class="py-2 pl-4 border-b border-white/5">
+        <div class="text-[9px] font-black uppercase tracking-widest text-gray-600 mb-2">Divisiones</div>
+        <div class="grid grid-cols-2 gap-x-4">
+          {divOrder.map(d => (
+            <a href={`/peleadores/${divSlugs[d]}/`}
+               class="py-1.5 text-xs text-gray-400 hover:text-[#FFD600] transition-colors">
+              {divLabels[d]}
+            </a>
+          ))}
+        </div>
+      </div>
     </nav>
   </div>
 </header>
@@ -116,7 +188,7 @@ const navLinks = [
   const iconMenu = document.getElementById('icon-menu') as SVGElement;
   const iconClose = document.getElementById('icon-close') as SVGElement;
 
-  // Hide on scroll down, show on scroll up (estilo UFC)
+  // Hide on scroll down, show on scroll up
   let lastY = window.scrollY;
   const onScroll = () => {
     const y = window.scrollY;
@@ -138,6 +210,21 @@ const navLinks = [
     iconClose.classList.toggle('hidden');
     toggle.setAttribute('aria-expanded', String(!menu.classList.contains('hidden')));
   });
+
+  // ============ PELEADORES DROPDOWN ============
+  const pelDrop = document.getElementById('pel-dropdown') as HTMLElement;
+  if (pelDrop) {
+    const btn = pelDrop.querySelector('button') as HTMLButtonElement;
+    const pelMenu = pelDrop.querySelector('.pel-menu') as HTMLElement;
+    let timeout: ReturnType<typeof setTimeout>;
+
+    const show = () => { clearTimeout(timeout); pelMenu.classList.remove('hidden'); btn.setAttribute('aria-expanded', 'true'); };
+    const hide = () => { timeout = setTimeout(() => { pelMenu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); }, 150); };
+
+    pelDrop.addEventListener('mouseenter', show);
+    pelDrop.addEventListener('mouseleave', hide);
+    btn.addEventListener('click', () => pelMenu.classList.contains('hidden') ? show() : hide());
+  }
 
   // ============ SEARCH OVERLAY ============
   const overlay = document.getElementById('search-overlay') as HTMLElement;

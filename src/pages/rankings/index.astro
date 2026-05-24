@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FIGHTERS from '../../data/fighters.json';
+import { divOrder, divLabels, divSlugs, divWeights, isFemale } from '../../data/divisions';
+
+const PX = 'clamp(16px,4vw,60px)';
+
+type Fighter = typeof FIGHTERS[number];
+
+const WIN_BG: Record<string, string> = {
+  KO: '#E53935', TKO: '#E53935', SUB: '#7B1FA2',
+  UD: '#111', SD: '#111', MD: '#111',
+};
+
+const initials = (name: string) => name.split(' ').slice(0, 2).map(n => n[0]).join('');
+
+// Build rankings per division
+const divisions = divOrder.map(div => {
+  const all = FIGHTERS.filter(f => f.div === div).sort((a, b) => {
+    if (a.rank === 'C' && b.rank !== 'C') return -1;
+    if (b.rank === 'C' && a.rank !== 'C') return 1;
+    const ra = Number(a.rank), rb = Number(b.rank);
+    if (!isNaN(ra) && !isNaN(rb)) return ra - rb;
+    if (!isNaN(ra)) return -1;
+    if (!isNaN(rb)) return 1;
+    return 0;
+  });
+  const ranked = all.filter(f => f.rank === 'C' || (!isNaN(Number(f.rank)) && Number(f.rank) <= 15));
+  return {
+    key: div,
+    label: divLabels[div] ?? div,
+    slug: divSlugs[div] ?? '',
+    weight: divWeights[div] ?? '',
+    female: isFemale(div),
+    champ: ranked.find(f => f.rank === 'C'),
+    contenders: ranked.filter(f => f.rank !== 'C'),
+    total: all.length,
+  };
+});
+
+const maleDivs = divisions.filter(d => !d.female);
+const femaleDivs = divisions.filter(d => d.female);
+---
+
+<BaseLayout
+  title="Rankings UFC 2026 — Clasificación Oficial por División"
+  description="Rankings UFC actualizados: clasificación oficial de todas las divisiones, campeones y top 15 contendientes. Peso pesado, ligero, pluma y más."
+  canonicalUrl="https://quimbara.org/rankings/"
+>
+
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="text-xs text-gray-400 mb-0" style={`padding: 20px ${PX} 0; max-width:1400px; margin:0 auto; font-family:var(--font-sans);`}>
+  <ol class="flex items-center gap-1.5" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="/"><span itemprop="name">Inicio</span></a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <li class="text-gray-600">/</li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name" class="text-gray-600">Rankings</span>
+      <meta itemprop="position" content="2" />
+    </li>
+  </ol>
+</nav>
+
+<!-- Hero -->
+<div style={`background:#111; padding: 50px ${PX} 50px;`}>
+  <div style="max-width:1400px; margin:0 auto;">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111]"
+            style="font-family:var(--font-sans);">Rankings oficiales</span>
+    </div>
+    <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,5.5rem);line-height:0.95;color:#fff;">
+      Rankings UFC
+    </h1>
+    <p class="text-gray-400 mt-4 text-sm max-w-2xl" style="font-family:var(--font-sans);">
+      Clasificación oficial actualizada de todas las divisiones de UFC. Campeones, top 15 contendientes y rankings pound-for-pound.
+    </p>
+  </div>
+</div>
+
+<!-- Content -->
+<div style={`max-width:1400px; margin:0 auto; padding: 40px ${PX} 80px;`}>
+
+  <!-- Jump links -->
+  <div class="flex flex-wrap gap-2 mb-10">
+    {divisions.map(d => (
+      <a href={`#${d.slug}`}
+         class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded border transition-colors hover:border-[#FFD600] hover:text-[#FFD600]"
+         style={`font-family:var(--font-sans); border-color:${d.female ? '#E53935' : '#ddd'}; color:${d.female ? '#E53935' : '#666'};`}>
+        {d.label}
+      </a>
+    ))}
+  </div>
+
+  <!-- Male divisions -->
+  <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-6 mt-2"
+      style="font-family:var(--font-sans);">Divisiones Masculinas</h2>
+
+  {maleDivs.map(d => (
+    <section id={d.slug} class="mb-12 scroll-mt-20">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <h3 class="text-2xl font-black text-[#111]" style="font-family:var(--font-display);">{d.label}</h3>
+          <span class="text-gray-400 text-xs" style="font-family:var(--font-sans);">{d.weight}</span>
+        </div>
+        <a href={`/peleadores/${d.slug}/`}
+           class="text-xs font-bold text-gray-400 hover:text-[#E53935] transition-colors"
+           style="font-family:var(--font-sans);">
+          Ver división →
+        </a>
+      </div>
+
+      {/* Campeón */}
+      {d.champ && (
+        <a href={`/peleadores/${d.champ.slug}/`}
+           class="group flex items-center gap-4 px-4 py-3 bg-[#FFFDE7] rounded-t border border-[#FFD600]/30 hover:bg-[#FFF9C4] transition-colors">
+          <div class="text-[#FFD600] font-black text-sm w-6 text-center flex-shrink-0" style="font-family:var(--font-display);">C</div>
+          <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-gray-100 flex items-center justify-center border-2 border-[#FFD600]">
+            {d.champ.img ? (
+              <img src={d.champ.img} alt={d.champ.name} class="w-full h-full object-cover object-top" loading="lazy" />
+            ) : (
+              <span class="text-gray-400 text-xs font-black" style="font-family:var(--font-display);">{initials(d.champ.name)}</span>
+            )}
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-[#111] text-sm font-bold group-hover:text-[#E53935] transition-colors truncate" style="font-family:var(--font-display);">
+              {d.champ.name}
+              <span class="text-[10px] font-black ml-2 px-2 py-0.5 bg-[#FFD600] text-[#111] rounded">CAMPEÓN</span>
+            </div>
+          </div>
+          <div class="text-[#111] font-black text-sm w-16 text-right" style="font-family:var(--font-display);">{d.champ.rec}</div>
+          <div class="hidden md:flex gap-1 flex-shrink-0">
+            {(d.champ.formTypes ?? []).slice(0, 5).map((ft: {outcome: string; winType: string}) => {
+              const isLoss = ft.outcome === 'L';
+              const isDraw = ft.outcome === 'D';
+              const bg = isLoss ? '#fff' : isDraw ? '#9ca3af' : (WIN_BG[ft.winType] ?? '#111');
+              const color = isLoss ? '#E53935' : '#fff';
+              const border = isLoss ? '1px solid #E53935' : `1px solid ${bg}`;
+              return (
+                <div class="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-black"
+                     style={`background:${bg}; color:${color}; border:${border};`}>
+                  {ft.outcome}
+                </div>
+              );
+            })}
+          </div>
+        </a>
+      )}
+
+      {/* Contenders */}
+      {d.contenders.map(f => (
+        <a href={`/peleadores/${f.slug}/`}
+           class="group flex items-center gap-4 px-4 py-3 border-b border-x border-gray-100 transition-colors hover:bg-gray-50">
+          <div class="text-gray-300 font-black text-sm w-6 text-center flex-shrink-0" style="font-family:var(--font-display);">#{f.rank}</div>
+          <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-gray-100 flex items-center justify-center border border-gray-200">
+            {f.img ? (
+              <img src={f.img} alt={f.name} class="w-full h-full object-cover object-top" loading="lazy" />
+            ) : (
+              <span class="text-gray-400 text-xs font-black" style="font-family:var(--font-display);">{initials(f.name)}</span>
+            )}
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-[#111] text-sm font-bold group-hover:text-[#E53935] transition-colors truncate" style="font-family:var(--font-display);">{f.name}</div>
+          </div>
+          <div class="text-gray-400 text-xs hidden sm:block w-28 text-right truncate" style="font-family:var(--font-sans);">{f.from || ''}</div>
+          <div class="text-[#111] font-black text-sm w-16 text-right" style="font-family:var(--font-display);">{f.rec}</div>
+          <div class="hidden md:flex gap-1 flex-shrink-0">
+            {(f.formTypes ?? []).slice(0, 5).map((ft: {outcome: string; winType: string}) => {
+              const isLoss = ft.outcome === 'L';
+              const isDraw = ft.outcome === 'D';
+              const bg = isLoss ? '#fff' : isDraw ? '#9ca3af' : (WIN_BG[ft.winType] ?? '#111');
+              const color = isLoss ? '#E53935' : '#fff';
+              const border = isLoss ? '1px solid #E53935' : `1px solid ${bg}`;
+              return (
+                <div class="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-black"
+                     style={`background:${bg}; color:${color}; border:${border};`}>
+                  {ft.outcome}
+                </div>
+              );
+            })}
+          </div>
+        </a>
+      ))}
+    </section>
+  ))}
+
+  <!-- Female divisions -->
+  <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-6 mt-4 pt-8 border-t border-gray-200"
+      style="font-family:var(--font-sans);">Divisiones Femeninas</h2>
+
+  {femaleDivs.map(d => (
+    <section id={d.slug} class="mb-12 scroll-mt-20">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <h3 class="text-2xl font-black text-[#111]" style="font-family:var(--font-display);">{d.label}</h3>
+          <span class="text-gray-400 text-xs" style="font-family:var(--font-sans);">{d.weight}</span>
+        </div>
+        <a href={`/peleadores/${d.slug}/`}
+           class="text-xs font-bold text-gray-400 hover:text-[#E53935] transition-colors"
+           style="font-family:var(--font-sans);">
+          Ver división →
+        </a>
+      </div>
+
+      {d.champ && (
+        <a href={`/peleadores/${d.champ.slug}/`}
+           class="group flex items-center gap-4 px-4 py-3 bg-[#FCE4EC] rounded-t border border-[#E53935]/20 hover:bg-[#FFCDD2] transition-colors">
+          <div class="text-[#E53935] font-black text-sm w-6 text-center flex-shrink-0" style="font-family:var(--font-display);">C</div>
+          <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-gray-100 flex items-center justify-center border-2 border-[#E53935]">
+            {d.champ.img ? (
+              <img src={d.champ.img} alt={d.champ.name} class="w-full h-full object-cover object-top" loading="lazy" />
+            ) : (
+              <span class="text-gray-400 text-xs font-black" style="font-family:var(--font-display);">{initials(d.champ.name)}</span>
+            )}
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-[#111] text-sm font-bold group-hover:text-[#E53935] transition-colors truncate" style="font-family:var(--font-display);">
+              {d.champ.name}
+              <span class="text-[10px] font-black ml-2 px-2 py-0.5 bg-[#E53935] text-white rounded">CAMPEONA</span>
+            </div>
+          </div>
+          <div class="text-[#111] font-black text-sm w-16 text-right" style="font-family:var(--font-display);">{d.champ.rec}</div>
+          <div class="hidden md:flex gap-1 flex-shrink-0">
+            {(d.champ.formTypes ?? []).slice(0, 5).map((ft: {outcome: string; winType: string}) => {
+              const isLoss = ft.outcome === 'L';
+              const isDraw = ft.outcome === 'D';
+              const bg = isLoss ? '#fff' : isDraw ? '#9ca3af' : (WIN_BG[ft.winType] ?? '#111');
+              const color = isLoss ? '#E53935' : '#fff';
+              const border = isLoss ? '1px solid #E53935' : `1px solid ${bg}`;
+              return (
+                <div class="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-black"
+                     style={`background:${bg}; color:${color}; border:${border};`}>
+                  {ft.outcome}
+                </div>
+              );
+            })}
+          </div>
+        </a>
+      )}
+
+      {d.contenders.map(f => (
+        <a href={`/peleadores/${f.slug}/`}
+           class="group flex items-center gap-4 px-4 py-3 border-b border-x border-gray-100 transition-colors hover:bg-gray-50">
+          <div class="text-gray-300 font-black text-sm w-6 text-center flex-shrink-0" style="font-family:var(--font-display);">#{f.rank}</div>
+          <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-gray-100 flex items-center justify-center border border-gray-200">
+            {f.img ? (
+              <img src={f.img} alt={f.name} class="w-full h-full object-cover object-top" loading="lazy" />
+            ) : (
+              <span class="text-gray-400 text-xs font-black" style="font-family:var(--font-display);">{initials(f.name)}</span>
+            )}
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-[#111] text-sm font-bold group-hover:text-[#E53935] transition-colors truncate" style="font-family:var(--font-display);">{f.name}</div>
+          </div>
+          <div class="text-gray-400 text-xs hidden sm:block w-28 text-right truncate" style="font-family:var(--font-sans);">{f.from || ''}</div>
+          <div class="text-[#111] font-black text-sm w-16 text-right" style="font-family:var(--font-display);">{f.rec}</div>
+          <div class="hidden md:flex gap-1 flex-shrink-0">
+            {(f.formTypes ?? []).slice(0, 5).map((ft: {outcome: string; winType: string}) => {
+              const isLoss = ft.outcome === 'L';
+              const isDraw = ft.outcome === 'D';
+              const bg = isLoss ? '#fff' : isDraw ? '#9ca3af' : (WIN_BG[ft.winType] ?? '#111');
+              const color = isLoss ? '#E53935' : '#fff';
+              const border = isLoss ? '1px solid #E53935' : `1px solid ${bg}`;
+              return (
+                <div class="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-black"
+                     style={`background:${bg}; color:${color}; border:${border};`}>
+                  {ft.outcome}
+                </div>
+              );
+            })}
+          </div>
+        </a>
+      ))}
+    </section>
+  ))}
+</div>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuáles son los rankings actuales de UFC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `UFC tiene 12 divisiones con rankings oficiales: 8 masculinas (desde Mosca hasta Peso Pesado) y 4 femeninas. Cada división tiene un campeón y un top 15 de contendientes.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántas divisiones tiene UFC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UFC tiene 12 divisiones de peso: 8 masculinas (Mosca, Gallo, Pluma, Ligero, Wélter, Peso Medio, Semipesado y Peso Pesado) y 4 femeninas (Paja, Mosca, Gallo y Pluma)."
+      }
+    }
+  ]
+})} />
+
+</BaseLayout>
