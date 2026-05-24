@@ -1,11 +1,23 @@
 /**
  * Pipeline de datos UFC para Quimbara — SIN APIs de pago.
  *
- * Fuentes:
- *   - Greco1899/scrape_ufc_stats (CSVs públicos) → fighters, récords, form
- *   - Wikipedia → eventos programados, campeones, fight cards
- *   - Sherdog → resultados del último evento
- *   - UFC.com → fotos (og:image), descargadas por download-images.mjs aparte
+ * Fuentes (cada una usada SOLO para lo que es buena):
+ *   - Greco1899/scrape_ufc_stats (CSVs públicos) → fighters base, stats por round,
+ *                                                   form (últimas 5 peleas UFC),
+ *                                                   ufcRec (peleas UFC contadas)
+ *                                                   ⚠ NO usar para `rec` pro: solo tiene UFC
+ *   - UFC.com athlete page  → `rec` pro completo (scripts/fix-records.mjs corre después)
+ *                              → ranking + campeones (scripts/fetch-rankings.mjs)
+ *                              → fotos full-body (scripts/download-images.mjs)
+ *   - Wikipedia             → eventos programados, fight cards (fallback record)
+ *   - Sherdog               → resultados del último evento
+ *
+ * Orden del pipeline (npm run data:all):
+ *   1. data:update    → este script (CSVs + Wikipedia + Sherdog)
+ *   2. data:rankings  → UFC.com rankings
+ *   3. data:records   → UFC.com pro records (sobrescribe rec)
+ *   4. data:overrides → eventos especiales manuales
+ *   5. data:images    → fotos faltantes
  *
  * Genera:
  *   - src/data/fighters.json
@@ -141,7 +153,11 @@ function parseWinType(method: string): string {
 type FormEntry = { outcome: string; winType: string };
 
 type Fighter = {
-  slug: string; name: string; nick: string; div: string; rec: string;
+  slug: string; name: string; nick: string; div: string;
+  /** Récord pro completo (canónico, viene de UFC.com vía scripts/fix-records.mjs) */
+  rec: string;
+  /** Récord UFC-only calculado desde los CSVs de Greco1899 (informacional) */
+  ufcRec?: string;
   from: string; img: string;
   height: string; weight: string; reach: string; stance: string; team: string;
   form: string[];
@@ -295,14 +311,20 @@ function buildFighter(
   const detail = csv.detailsByName.get(name);
   const allFights = csv.fightsByFighter.get(name) || [];
 
-  // Record from UFC fights
+  // ⚠ Record: los CSVs de Greco1899 SOLO contienen peleas UFC, no el récord pro completo.
+  // Para el récord pro real usamos UFC.com → scripts/fix-records.mjs (corre después).
+  // Aquí guardamos:
+  //   - ufcRec: lo que sí podemos calcular (peleas UFC contadas en CSV) — informacional
+  //   - rec:    preservamos el previo si existe (fix-records.mjs es la fuente canónica);
+  //             si no hay previo (fighter nuevo), usamos ufcRec como semilla temporal
   let wins = 0, losses = 0, draws = 0;
   for (const f of allFights) {
     if (f.result === 'W') wins++;
     else if (f.result === 'L') losses++;
     else if (f.result === 'D') draws++;
   }
-  const rec = `${wins}-${losses}-${draws}`;
+  const ufcRec = `${wins}-${losses}-${draws}`;
+  const rec = prev?.rec && prev.rec !== '0-0-0' ? prev.rec : ufcRec;
 
   // Division from most recent fight
   const div = allFights.length > 0
@@ -332,6 +354,7 @@ function buildFighter(
     nick,
     div,
     rec,
+    ufcRec,
     from: prev?.from ?? '',
     img,
     height: tott ? formatHeight(tott.HEIGHT) : prev?.height ?? '',
