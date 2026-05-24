@@ -1,43 +1,19 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FIGHTERS from '../../data/fighters.json';
+import { divOrder, divLabels, divSlugs, isFemale } from '../../data/divisions';
 
 const PX = 'clamp(16px,4vw,60px)';
 const siteUrl = 'https://quimbara.org';
 
-// ─── DIVISIONES OFICIALES UFC (filtrar basura: tournaments, catch weight, etc.) ───
-const divOrder = [
-  'Heavyweight', 'Light Heavyweight', 'Middleweight',
-  'Welterweight', 'Lightweight', 'Featherweight',
-  'Bantamweight', 'Flyweight',
-  "Women's Strawweight", "Women's Flyweight",
-  "Women's Bantamweight", "Women's Featherweight",
-];
-
-const divLabels: Record<string, string> = {
-  'Heavyweight':           'Peso Pesado',
-  'Light Heavyweight':     'Semipesado',
-  'Middleweight':          'Peso Medio',
-  'Welterweight':          'Wélter',
-  'Lightweight':           'Ligero',
-  'Featherweight':         'Pluma',
-  'Bantamweight':          'Gallo',
-  'Flyweight':             'Mosca',
-  "Women's Strawweight":   'Paja (F)',
-  "Women's Flyweight":     'Mosca (F)',
-  "Women's Bantamweight":  'Gallo (F)',
-  "Women's Featherweight": 'Pluma (F)',
-};
-
 type Fighter = typeof FIGHTERS[number];
 const byDiv: Record<string, Fighter[]> = {};
 for (const f of FIGHTERS) {
-  if (!f.div || !divOrder.includes(f.div)) continue; // descartar sin división o divisiones no oficiales
+  if (!f.div || !divOrder.includes(f.div as any)) continue;
   if (!byDiv[f.div]) byDiv[f.div] = [];
   byDiv[f.div].push(f);
 }
 
-// Orden: campeón → contenders por rank → resto alfabético
 for (const div of Object.keys(byDiv)) {
   byDiv[div].sort((a, b) => {
     if (a.rank === 'C' && b.rank !== 'C') return -1;
@@ -54,18 +30,16 @@ const WIN_BG: Record<string, string> = {
   KO: '#E53935', TKO: '#E53935', SUB: '#7B1FA2',
   UD: '#111', SD: '#111', MD: '#111',
 };
-
-// Helpers
 const initials = (name: string) => name.split(' ').slice(0, 2).map(n => n[0]).join('');
 const isRanked = (f: Fighter) => f.rank === 'C' || (!isNaN(Number(f.rank)) && Number(f.rank) <= 15);
-
-// Conteo visible: ranked + roster con foto (no mostrar fantasmas sin imagen)
 const divCount = (div: string) => {
   const all = byDiv[div] || [];
   return all.filter(f => isRanked(f) || f.img).length;
 };
 const divisions = divOrder.filter(d => divCount(d) > 0);
-const TOTAL_OFICIALES = divisions.reduce((sum, d) => sum + divCount(d), 0);
+const maleDivs = divisions.filter(d => !isFemale(d));
+const femaleDivs = divisions.filter(d => isFemale(d));
+const TOTAL = divisions.reduce((sum, d) => sum + divCount(d), 0);
 ---
 
 <BaseLayout
@@ -73,7 +47,6 @@ const TOTAL_OFICIALES = divisions.reduce((sum, d) => sum + divCount(d), 0);
   description="Directorio completo de peleadores UFC 2026: campeones, rankings oficiales y roster histórico filtrable por división. Récord, estilo y datos de cada fighter."
   canonicalUrl={`${siteUrl}/peleadores/`}
 >
-
   <!-- ── Hero ── -->
   <div style={`background:#111; padding: 70px ${PX} 60px;`}>
     <div style="max-width:1400px; margin:0 auto;">
@@ -83,26 +56,45 @@ const TOTAL_OFICIALES = divisions.reduce((sum, d) => sum + divCount(d), 0);
         Pelead<span style="color:#FFD600;">ores</span>
       </h1>
       <p class="text-gray-400 mt-5 text-sm" style="font-family:var(--font-sans);">
-        {TOTAL_OFICIALES} peleadores · 12 divisiones oficiales UFC
+        {TOTAL} peleadores · {divisions.length} divisiones oficiales UFC
       </p>
     </div>
   </div>
 
-  <!-- ── Tabs de división ── -->
-  <div class="bg-white border-b border-gray-200 sticky top-16 z-40">
-    <div style={`max-width:1400px; margin:0 auto; padding: 0 ${PX}; overflow-x:auto;`}>
-      <div class="flex gap-0" id="div-tabs" style="min-width:max-content;">
-        {divisions.map((div, i) => (
+  <!-- ── Tabs dark con separador M/F ── -->
+  <div id="div-tabs-bar" class="sticky top-16 z-40" style="background:#1a1a1a; border-bottom:1px solid rgba(255,255,255,0.08);">
+    <div style={`max-width:1400px; margin:0 auto; padding: 0 ${PX};`}>
+      <div class="flex items-stretch overflow-x-auto" id="div-tabs" style="scrollbar-width:none; -ms-overflow-style:none;">
+        <!-- Masculino -->
+        {maleDivs.map((div, i) => (
           <button
             data-div={div}
-            class:list={['div-tab px-5 py-4 text-[11px] font-bold uppercase tracking-widest transition-all duration-200 whitespace-nowrap border-b-2',
+            class:list={['div-tab px-4 py-3.5 text-[11px] font-bold uppercase tracking-widest transition-all duration-200 whitespace-nowrap border-b-2 flex-shrink-0',
               i === 0
-                ? 'text-[#111] border-[#111]'
-                : 'text-gray-400 border-transparent hover:text-[#111]'
+                ? 'text-[#FFD600] border-[#FFD600]'
+                : 'text-gray-500 border-transparent hover:text-gray-300'
             ]}
             style="font-family:var(--font-sans);"
           >
-            {divLabels[div] ?? div} <span class="text-gray-300 ml-1">({divCount(div)})</span>
+            {divLabels[div] ?? div} <span class="text-gray-600 ml-0.5">({divCount(div)})</span>
+          </button>
+        ))}
+
+        <!-- Separador visual ♀ -->
+        <div class="flex items-center px-3 flex-shrink-0" aria-hidden="true">
+          <div style="width:1px; height:24px; background:rgba(255,255,255,0.15);"></div>
+          <span class="text-[10px] font-black uppercase tracking-[0.25em] text-[#E53935] ml-3"
+                style="font-family:var(--font-sans);">Femenino</span>
+        </div>
+
+        <!-- Femenino -->
+        {femaleDivs.map(div => (
+          <button
+            data-div={div}
+            class="div-tab px-4 py-3.5 text-[11px] font-bold uppercase tracking-widest transition-all duration-200 whitespace-nowrap border-b-2 text-gray-500 border-transparent hover:text-gray-300 flex-shrink-0"
+            style="font-family:var(--font-sans);"
+          >
+            {divLabels[div]?.replace(' Femenino', '') ?? div} <span class="text-gray-600 ml-0.5">({divCount(div)})</span>
           </button>
         ))}
       </div>
@@ -114,20 +106,32 @@ const TOTAL_OFICIALES = divisions.reduce((sum, d) => sum + divCount(d), 0);
     {divisions.map((div, divIdx) => {
       const ranked = byDiv[div].filter(isRanked);
       const rest   = byDiv[div].filter(f => !isRanked(f) && f.img);
+      const hubSlug = divSlugs[div];
       return (
         <div class="div-section" data-div={div} style={divIdx > 0 ? 'display:none;' : ''}>
+
+          {/* Link al hub SEO de esta división */}
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400"
+                style="font-family:var(--font-sans);">
+              Rankings oficiales · {divLabels[div]}
+            </h2>
+            {hubSlug && (
+              <a href={`/peleadores/${hubSlug}/`}
+                 class="text-[11px] font-bold uppercase tracking-widest text-[#E53935] hover:text-[#c62828] transition-colors"
+                 style="font-family:var(--font-sans);">
+                Ver división completa →
+              </a>
+            )}
+          </div>
 
           {/* ═══ RANKED: Campeón + Top 15 ═══ */}
           {ranked.length > 0 && (
             <>
-              <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5"
-                  style="font-family:var(--font-sans);">Rankings oficiales · {divLabels[div]}</h2>
-
               {ranked.map((f) => {
                 const isChamp = f.rank === 'C';
                 return isChamp ? (
-                  /* ── Card campeón — horizontal con foto grande ── */
-                  <a href={`/peleadores/${f.slug}`}
+                  <a href={`/peleadores/${f.slug}/`}
                      class="group flex flex-col md:flex-row gap-0 rounded-lg overflow-hidden mb-8 border border-gray-100 transition-all duration-300 hover:shadow-xl hover:border-gray-200"
                      style="background:#fff;">
                     <div class="relative md:w-64 flex-shrink-0 bg-gray-100 overflow-hidden" style="min-height:260px;">
@@ -186,8 +190,7 @@ const TOTAL_OFICIALES = divisions.reduce((sum, d) => sum + divCount(d), 0);
                     </div>
                   </a>
                 ) : (
-                  /* ── Fila contender — tabla limpia ── */
-                  <a href={`/peleadores/${f.slug}`}
+                  <a href={`/peleadores/${f.slug}/`}
                      class="group flex items-center gap-4 px-4 py-3 border-b border-gray-100 transition-colors duration-200 hover:bg-gray-50">
                     <div class="text-gray-300 font-black text-sm w-6 text-center flex-shrink-0"
                          style="font-family:var(--font-display);">#{f.rank}</div>
@@ -239,11 +242,10 @@ const TOTAL_OFICIALES = divisions.reduce((sum, d) => sum + divCount(d), 0);
                     style="font-family:var(--font-sans);">Roster completo · {divLabels[div]}</h2>
                 <span class="text-xs text-gray-400" style="font-family:var(--font-sans);">{rest.length} peleadores</span>
               </div>
-
               <div class="roster-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3"
                    data-div={div} data-total={rest.length}>
                 {rest.map((f, idx) => (
-                  <a href={`/peleadores/${f.slug}`}
+                  <a href={`/peleadores/${f.slug}/`}
                      data-idx={idx}
                      class="roster-item group rounded-lg overflow-hidden bg-gray-50 border border-gray-100 hover:border-gray-300 hover:shadow-md transition-all"
                      style={idx >= 24 ? 'display:none;' : ''}>
@@ -262,8 +264,6 @@ const TOTAL_OFICIALES = divisions.reduce((sum, d) => sum + divCount(d), 0);
                   </a>
                 ))}
               </div>
-
-              {/* Paginación */}
               {rest.length > 24 && (
                 <div class="flex items-center justify-center gap-3 mt-8">
                   <button class="pag-prev px-4 py-2 text-xs font-bold uppercase tracking-widest border border-gray-300 rounded-md text-gray-400 cursor-not-allowed"
@@ -284,8 +284,12 @@ const TOTAL_OFICIALES = divisions.reduce((sum, d) => sum + divCount(d), 0);
 
 </BaseLayout>
 
+<style>
+  #div-tabs::-webkit-scrollbar { display: none; }
+</style>
+
 <script>
-  // ─── Tabs de división ───
+  // ─── Tabs ───
   const tabs = document.querySelectorAll<HTMLButtonElement>('.div-tab');
   const sections = document.querySelectorAll<HTMLElement>('.div-section');
 
@@ -293,21 +297,22 @@ const TOTAL_OFICIALES = divisions.reduce((sum, d) => sum + divCount(d), 0);
     tab.addEventListener('click', () => {
       const target = tab.dataset.div;
       tabs.forEach(t => {
-        t.classList.remove('text-[#111]', 'border-[#111]');
-        t.classList.add('text-gray-400', 'border-transparent');
+        t.classList.remove('text-[#FFD600]', 'border-[#FFD600]');
+        t.classList.add('text-gray-500', 'border-transparent');
       });
-      tab.classList.add('text-[#111]', 'border-[#111]');
-      tab.classList.remove('text-gray-400', 'border-transparent');
+      tab.classList.add('text-[#FFD600]', 'border-[#FFD600]');
+      tab.classList.remove('text-gray-500', 'border-transparent');
       sections.forEach(s => {
         s.style.display = s.dataset.div === target ? '' : 'none';
       });
-      // reset paginación al cambiar de tab
       if (target) pageState[target] = 1;
       if (target) renderPage(target);
+      // Scroll tab into view
+      tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     });
   });
 
-  // ─── Paginación del roster completo ───
+  // ─── Paginación ───
   const PER_PAGE = 24;
   const pageState: Record<string, number> = {};
 
