@@ -6,19 +6,19 @@ const PX = 'clamp(16px,4vw,60px)';
 <footer class="mt-20 border-t-2 border-[#E53935]" style={`background:#0a0a0a; color:#fff; padding: 60px ${PX} 0;`}>
   <div style="max-width:1400px; margin:0 auto;">
 
-    <!-- Top grid: brand + columns + newsletter -->
+    <!-- Top grid: brand + columnas -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12">
 
       <!-- Brand + descripción + social -->
-      <div class="md:col-span-5">
+      <div class="md:col-span-6">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-10 h-10 rounded-md flex items-center justify-center" style="background:#E53935;">
             <span class="text-white font-black text-xl" style="font-family:var(--font-display);">Q</span>
           </div>
           <div class="text-white text-3xl tracking-widest uppercase" style="font-family:var(--font-display);">Quimbara</div>
         </div>
-        <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-6" style="font-family:var(--font-sans);">
-          Periodismo de MMA sin concesiones. Análisis táctico, cobertura de eventos UFC y el pulso real del octágono.
+        <p class="text-gray-400 text-sm leading-relaxed max-w-md mb-6" style="font-family:var(--font-sans);">
+          La verdad del octágono. Análisis táctico, cobertura de eventos UFC y el pulso real del MMA en español. Sin clickbait.
         </p>
 
         <!-- Social icons -->
@@ -52,44 +52,25 @@ const PX = 'clamp(16px,4vw,60px)';
         </div>
       </div>
 
-      <!-- Secciones -->
-      <div class="md:col-span-2">
+      <!-- Explora -->
+      <div class="md:col-span-3">
         <h4 class="text-[11px] font-black uppercase tracking-[0.2em] text-[#FFD600] mb-4" style="font-family:var(--font-sans);">Explora</h4>
         <ul class="flex flex-col gap-3 text-sm text-gray-300" style="font-family:var(--font-sans);">
           <li><a href="/" class="hover:text-white transition-colors">Inicio</a></li>
-          <li><a href="/blog" class="hover:text-white transition-colors">Artículos</a></li>
-          <li><a href="/eventos" class="hover:text-white transition-colors">Eventos</a></li>
-          <li><a href="/peleador" class="hover:text-white transition-colors">Peleadores</a></li>
+          <li><a href="/blog/" class="hover:text-white transition-colors">Artículos</a></li>
+          <li><a href="/eventos/" class="hover:text-white transition-colors">Eventos UFC</a></li>
+          <li><a href="/peleadores/" class="hover:text-white transition-colors">Peleadores</a></li>
         </ul>
       </div>
 
       <!-- Categorías -->
-      <div class="md:col-span-2">
+      <div class="md:col-span-3">
         <h4 class="text-[11px] font-black uppercase tracking-[0.2em] text-[#FFD600] mb-4" style="font-family:var(--font-sans);">Categorías</h4>
         <ul class="flex flex-col gap-3 text-sm text-gray-300" style="font-family:var(--font-sans);">
           <li><a href="/categoria/laboratorio-tecnico/" class="hover:text-white transition-colors">Laboratorio Técnico</a></li>
           <li><a href="/categoria/guia-del-insider/" class="hover:text-white transition-colors">Guía del Insider</a></li>
           <li><a href="/categoria/punto-de-vista/" class="hover:text-white transition-colors">Punto de Vista</a></li>
         </ul>
-      </div>
-
-      <!-- Newsletter -->
-      <div class="md:col-span-3">
-        <h4 class="text-[11px] font-black uppercase tracking-[0.2em] text-[#FFD600] mb-4" style="font-family:var(--font-sans);">Newsletter</h4>
-        <p class="text-gray-400 text-xs leading-relaxed mb-4" style="font-family:var(--font-sans);">
-          Análisis táctico del octágono cada lunes. Sin spam.
-        </p>
-        <form id="newsletter-form" class="flex flex-col gap-2">
-          <input type="email" name="email" required placeholder="tu@email.com"
-                 class="px-3 py-2.5 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-gray-500 text-sm focus:outline-none focus:border-[#E53935] transition-colors"
-                 style="font-family:var(--font-sans);" />
-          <button type="submit"
-                  class="px-4 py-2.5 rounded-md bg-[#E53935] hover:bg-[#c62828] text-white text-xs font-bold uppercase tracking-[0.15em] transition-colors"
-                  style="font-family:var(--font-sans);">
-            Suscribirme
-          </button>
-        </form>
-        <p id="newsletter-msg" class="text-[11px] text-[#FFD600] mt-2 hidden" style="font-family:var(--font-sans);"></p>
       </div>
     </div>
 
@@ -99,25 +80,10 @@ const PX = 'clamp(16px,4vw,60px)';
         © {currentYear} Quimbara · Todos los derechos reservados
       </div>
       <div class="flex flex-wrap gap-5 text-xs text-gray-400" style="font-family:var(--font-sans);">
-        <a href="/aviso-legal" class="hover:text-white transition-colors">Aviso Legal</a>
-        <a href="/privacidad" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="/aviso-legal/" class="hover:text-white transition-colors">Aviso Legal</a>
+        <a href="/privacidad/" class="hover:text-white transition-colors">Privacidad</a>
         <a href="/rss.xml" class="hover:text-white transition-colors">RSS</a>
       </div>
     </div>
   </div>
 </footer>
-
-<script>
-  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
-  const msg  = document.getElementById('newsletter-msg');
-  if (form && msg) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = form.querySelector('input[name="email"]') as HTMLInputElement;
-      if (!input?.value) return;
-      msg.textContent = '¡Gracias! Te confirmaremos por email.';
-      msg.classList.remove('hidden');
-      form.reset();
-    });
-  }
-</script>

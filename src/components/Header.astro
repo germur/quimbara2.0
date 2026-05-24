@@ -2,35 +2,36 @@
 const activePath = Astro.url.pathname;
 
 const navLinks = [
-  { href: '/blog', label: 'Noticias' },
-  { href: '/eventos', label: 'Eventos', match: 'eventos' },
-  { href: '/categoria/laboratorio-tecnico', label: 'Análisis', match: 'laboratorio' },
-  { href: '/categoria/punto-de-vista', label: 'Opinión', match: 'vista' },
-  { href: '/peleador', label: 'Peleadores', match: 'peleador' },
+  { href: '/blog/', label: 'Noticias' },
+  { href: '/eventos/', label: 'Eventos', match: 'eventos' },
+  { href: '/categoria/laboratorio-tecnico/', label: 'Análisis', match: 'laboratorio' },
+  { href: '/categoria/punto-de-vista/', label: 'Opinión', match: 'vista' },
+  { href: '/peleadores/', label: 'Peleadores', match: 'peleador' },
 ];
 ---
 
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-  style="background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); border-bottom: 1px solid transparent;">
+<header id="site-header"
+        class="fixed top-0 left-0 right-0 z-50 transition-transform duration-300 will-change-transform"
+        style="background:#0a0a0a; border-bottom:1px solid rgba(255,255,255,0.08);">
   <div style="max-width:1400px; margin:0 auto; padding: 0 clamp(16px,4vw,60px);"
        class="h-16 flex items-center justify-between">
 
-    <!-- Logo — Anton font -->
-    <a href="/" class="text-[#111] text-2xl md:text-3xl tracking-widest transition-opacity duration-200 hover:opacity-70"
+    <!-- Logo -->
+    <a href="/" class="text-white text-2xl md:text-3xl tracking-widest transition-opacity duration-200 hover:opacity-70"
        style="font-family: var(--font-display);">
-      QUIMBARA
+      QUIM<span style="color:#FFD600;">BARA</span>
     </a>
 
-    <!-- Desktop nav — Space Grotesk -->
+    <!-- Desktop nav -->
     <nav class="hidden md:flex items-center gap-7" style="font-family: var(--font-sans);">
       {navLinks.map(link => (
         <a
           href={link.href}
           class:list={[
-            "text-xs font-semibold uppercase tracking-widest transition-opacity duration-200",
+            "text-xs font-semibold uppercase tracking-widest transition-colors duration-200",
             (link.match ? activePath.includes(link.match) : activePath === link.href)
-              ? "opacity-100 text-[#E53935]"
-              : "opacity-70 text-[#111] hover:opacity-100"
+              ? "text-[#FFD600]"
+              : "text-gray-300 hover:text-white"
           ]}
         >
           {link.label}
@@ -38,39 +39,75 @@ const navLinks = [
       ))}
     </nav>
 
-    <!-- Mobile hamburger -->
-    <button
-      id="mobile-toggle"
-      class="md:hidden p-2 text-[#111] transition-opacity duration-200 hover:opacity-70"
-      aria-label="Abrir menú"
-      aria-expanded="false"
-    >
-      <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="7" x2="21" y2="7"></line>
-        <line x1="3" y1="17" x2="21" y2="17"></line>
-      </svg>
-      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
+    <!-- Right cluster: search + mobile -->
+    <div class="flex items-center gap-2">
+      <!-- Search button (lupita) -->
+      <button id="search-toggle"
+              class="p-2 text-gray-300 hover:text-[#FFD600] transition-colors duration-200"
+              aria-label="Buscar peleadores">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button id="mobile-toggle"
+              class="md:hidden p-2 text-gray-300 hover:text-white transition-colors duration-200"
+              aria-label="Abrir menú" aria-expanded="false">
+        <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="7" x2="21" y2="7"></line>
+          <line x1="3" y1="17" x2="21" y2="17"></line>
+        </svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200"
-       style="font-family: var(--font-sans);">
-    <nav class="flex flex-col" style="padding: 0 clamp(16px,4vw,60px);">
+  <div id="mobile-menu" class="hidden md:hidden" style="background:#0a0a0a; border-top:1px solid rgba(255,255,255,0.08);">
+    <nav class="flex flex-col" style="padding: 0 clamp(16px,4vw,60px); font-family:var(--font-sans);">
       {navLinks.map(link => (
-        <a
-          href={link.href}
-          class="py-4 text-sm font-semibold uppercase tracking-widest text-[#111] border-b border-gray-100 hover:text-[#E53935] transition-colors duration-200"
-        >
+        <a href={link.href}
+           class="py-4 text-sm font-semibold uppercase tracking-widest text-gray-300 border-b border-white/5 hover:text-[#FFD600] transition-colors duration-200">
           {link.label}
         </a>
       ))}
     </nav>
   </div>
 </header>
+
+<!-- Search overlay -->
+<div id="search-overlay" class="fixed inset-0 z-[60] hidden"
+     style="background: rgba(10,10,10,0.96); backdrop-filter: blur(8px);">
+  <div style="max-width:880px; margin:0 auto; padding: clamp(60px,10vh,120px) clamp(16px,4vw,40px) 40px;">
+    <div class="flex items-center gap-3 pb-4 border-b-2 border-[#FFD600]">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input id="search-input" type="text" autocomplete="off" placeholder="Busca un peleador… (Ilia Topuria, Conor, Lazy Boy)"
+             class="flex-1 bg-transparent text-white text-xl md:text-2xl placeholder:text-gray-500 outline-none"
+             style="font-family: var(--font-sans);" />
+      <button id="search-close" class="p-2 text-gray-400 hover:text-white" aria-label="Cerrar búsqueda">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <p id="search-hint" class="text-gray-500 text-xs uppercase tracking-widest mt-4" style="font-family:var(--font-sans);">
+      Escribe al menos 2 letras para buscar
+    </p>
+
+    <ul id="search-results" class="mt-4 max-h-[60vh] overflow-y-auto divide-y divide-white/5"
+        style="font-family:var(--font-sans);"></ul>
+  </div>
+</div>
 
 <script>
   const header = document.getElementById('site-header') as HTMLElement;
@@ -79,25 +116,103 @@ const navLinks = [
   const iconMenu = document.getElementById('icon-menu') as SVGElement;
   const iconClose = document.getElementById('icon-close') as SVGElement;
 
-  // Frosted/solid on scroll
-  const updateHeader = () => {
-    if (window.scrollY > 60) {
-      header.style.background = 'rgba(255,255,255,0.97)';
-      header.style.borderBottomColor = '#e0e0e0';
+  // Hide on scroll down, show on scroll up (estilo UFC)
+  let lastY = window.scrollY;
+  const onScroll = () => {
+    const y = window.scrollY;
+    const isMenuOpen = !menu.classList.contains('hidden');
+    if (isMenuOpen) { header.style.transform = 'translateY(0)'; lastY = y; return; }
+    if (y > 80 && y > lastY) {
+      header.style.transform = 'translateY(-100%)';
     } else {
-      header.style.background = 'rgba(255,255,255,0.6)';
-      header.style.borderBottomColor = 'transparent';
+      header.style.transform = 'translateY(0)';
     }
+    lastY = y;
   };
-  window.addEventListener('scroll', updateHeader, { passive: true });
-  updateHeader();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   // Mobile toggle
   toggle.addEventListener('click', () => {
-    const isOpen = !menu.classList.contains('hidden');
     menu.classList.toggle('hidden');
     iconMenu.classList.toggle('hidden');
     iconClose.classList.toggle('hidden');
-    toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.setAttribute('aria-expanded', String(!menu.classList.contains('hidden')));
   });
+
+  // ============ SEARCH OVERLAY ============
+  const overlay = document.getElementById('search-overlay') as HTMLElement;
+  const searchBtn = document.getElementById('search-toggle') as HTMLButtonElement;
+  const closeBtn = document.getElementById('search-close') as HTMLButtonElement;
+  const input = document.getElementById('search-input') as HTMLInputElement;
+  const results = document.getElementById('search-results') as HTMLUListElement;
+  const hint = document.getElementById('search-hint') as HTMLElement;
+
+  let index: Array<{slug:string;name:string;nick:string;div:string;img:string;rank:string}> | null = null;
+  let indexLoading = false;
+
+  const loadIndex = async () => {
+    if (index || indexLoading) return;
+    indexLoading = true;
+    try {
+      const r = await fetch('/fighters-index.json');
+      index = await r.json();
+    } catch (e) { console.error('Search index load failed', e); }
+    indexLoading = false;
+  };
+
+  const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+  const render = (q: string) => {
+    if (!index) { results.innerHTML = ''; return; }
+    const nq = norm(q.trim());
+    if (nq.length < 2) {
+      hint.textContent = 'Escribe al menos 2 letras para buscar';
+      results.innerHTML = '';
+      return;
+    }
+    const matches = index
+      .filter(f => norm(f.name).includes(nq) || norm(f.nick).includes(nq))
+      .slice(0, 20);
+    hint.textContent = matches.length ? `${matches.length} resultado${matches.length===1?'':'s'}` : 'Sin resultados';
+    results.innerHTML = matches.map(f => `
+      <li>
+        <a href="/peleadores/${f.slug}/" class="flex items-center gap-4 py-3 px-2 hover:bg-white/5 transition-colors">
+          <div class="w-12 h-12 rounded-full overflow-hidden bg-white/5 flex-shrink-0 border border-white/10">
+            <img src="${f.img}" alt="${f.name}" loading="lazy" class="w-full h-full object-cover" onerror="this.style.display='none'">
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="text-white text-sm font-semibold truncate">${f.name}${f.nick ? ` <span class='text-gray-500 font-normal'>"${f.nick}"</span>` : ''}</div>
+            <div class="text-gray-500 text-xs uppercase tracking-wider truncate">${f.div || ''}</div>
+          </div>
+          ${f.rank ? `<span class="text-[10px] font-black bg-[#FFD600] text-black px-2 py-0.5 rounded uppercase tracking-wider">${f.rank === 'C' ? 'Campeón' : '#' + f.rank}</span>` : ''}
+        </a>
+      </li>
+    `).join('');
+  };
+
+  const openSearch = async () => {
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    await loadIndex();
+    setTimeout(() => input.focus(), 50);
+  };
+  const closeSearch = () => {
+    overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+    input.value = '';
+    results.innerHTML = '';
+    hint.textContent = 'Escribe al menos 2 letras para buscar';
+  };
+
+  searchBtn.addEventListener('click', openSearch);
+  closeBtn.addEventListener('click', closeSearch);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeSearch(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !overlay.classList.contains('hidden')) closeSearch();
+    if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) {
+      e.preventDefault();
+      overlay.classList.contains('hidden') ? openSearch() : closeSearch();
+    }
+  });
+  input.addEventListener('input', () => render(input.value));
 </script>
