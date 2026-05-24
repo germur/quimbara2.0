@@ -46,3 +46,15 @@ jobs:
           file_pattern: 'src/data/*.json public/fighters/*'
           commit_user_name: 'Quimbara Bot'
           commit_user_email: 'bot@quimbara.local'
+
+      # Espera 90s para que Netlify deployee el commit antes de hacer ping a IndexNow
+      - name: Esperar deploy de Netlify
+        run: sleep 90
+
+      - name: Build local para generar sitemap fresco
+        run: npm run build
+        continue-on-error: true
+
+      - name: Notificar IndexNow (Bing/Yandex/Seznam/Naver)
+        run: npm run indexnow
+        continue-on-error: true
