@@ -14,7 +14,8 @@
     "data:rankings": "node scripts/fetch-rankings.mjs",
     "data:overrides": "node scripts/apply-event-overrides.mjs",
     "data:images": "node scripts/download-images.mjs",
-    "data:all": "npm run data:update && npm run data:rankings && npm run data:overrides && npm run data:images",
+    "data:records": "node scripts/fix-records.mjs",
+    "data:all": "npm run data:update && npm run data:rankings && npm run data:records && npm run data:overrides && npm run data:images",
     "indexnow": "node scripts/indexnow-submit.mjs"
   },
   "dependencies": {
