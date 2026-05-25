@@ -41,7 +41,7 @@ const siteTitle = (title === "Quimbara" || /[—\-]\s*Quimbara\s*$/i.test(title)
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#0A0A0B" />
 
     <!-- SEO core -->
     <title>{siteTitle}</title>
@@ -80,15 +80,15 @@ const siteTitle = (title === "Quimbara" || /[—\-]\s*Quimbara\s*$/i.test(title)
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.site ?? Astro.url.origin).href} />
 
-    <!-- Google Fonts: Anton (display) + Space Grotesk (body) + Playfair Display (accent) -->
+    <!-- Google Fonts: Big Shoulders Display + Manrope + Newsreader + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;700&family=Newsreader:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet" />
 
     <!-- Schema.org JSON-LD -->
     {schema && <script type="application/ld+json" set:html={schema} />}
   </head>
-  <body class="bg-white text-[#111] min-h-screen flex flex-col selection:bg-[#E53935]/20 selection:text-[#111]">
+  <body class="bg-[var(--color-paper)] text-[var(--color-ink)] min-h-screen flex flex-col selection:bg-[var(--color-acid)]/20 selection:text-[var(--color-ink)]">
     <slot name="progress-bar" />
     <Header />
     <!-- pt-16 = altura del header fijo -->

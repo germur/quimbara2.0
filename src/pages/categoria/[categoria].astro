@@ -25,11 +25,11 @@ const { posts, currentCategory } = Astro.props;
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const categoryColors: Record<string, string> = {
-  'Laboratorio Técnico': '#E53935',
+  'Laboratorio Técnico': '#F2D928',
   'Guía del Insider':   '#FF6D00',
   'Punto de Vista':     '#7B1FA2',
 };
-const catColor = categoryColors[currentCategory] ?? '#E53935';
+const catColor = categoryColors[currentCategory] ?? '#F2D928';
 
 const PX = 'clamp(16px,4vw,60px)';
 ---

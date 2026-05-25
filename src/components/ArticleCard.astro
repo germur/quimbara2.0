@@ -13,12 +13,12 @@ const dtf = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'short', y
 const formattedDate = dtf.format(pubDate);
 
 const categoryColors: Record<string, string> = {
-  'Laboratorio Técnico': '#E53935',
-  'Guía del Insider': '#FFD600',
+  'Laboratorio Técnico': '#F2D928',
+  'Guía del Insider': '#F2D928',
   'Punto de Vista': '#7B1FA2',
 };
-const catColor = categoryColors[category] || '#E53935';
-const tagTextColor = catColor === '#FFD600' ? '#111' : '#fff';
+const catColor = categoryColors[category] || '#F2D928';
+const tagTextColor = '#0A0A0B';
 
 // Gradientes para el hero
 const heroMainGradient = 'linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.2) 60%)';
@@ -50,7 +50,7 @@ const heroSideGradient = `linear-gradient(to top, ${catColor}dd 0%, ${catColor}6
       </div>
     </div>
     <!-- Texto debajo de la imagen -->
-    <h3 class="text-[#111] text-lg leading-tight mt-3 transition-colors duration-200 group-hover:text-[#E53935]"
+    <h3 class="text-[#111] text-lg leading-tight mt-3 transition-colors duration-200 group-hover:text-[#F2D928]"
         style="font-family: var(--font-display);">
       {title}
     </h3>

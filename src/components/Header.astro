@@ -15,14 +15,23 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
 
 <header id="site-header"
         class="fixed top-0 left-0 right-0 z-50 transition-transform duration-300 will-change-transform"
-        style="background:#0a0a0a; border-bottom:1px solid rgba(255,255,255,0.08);">
+        style="background:#0A0A0B; border-bottom:1px solid rgba(255,255,255,0.08);">
   <div style="max-width:1400px; margin:0 auto; padding: 0 clamp(16px,4vw,60px);"
        class="h-16 flex items-center justify-between">
 
-    <!-- Logo -->
-    <a href="/" class="text-white text-2xl md:text-3xl tracking-widest transition-opacity duration-200 hover:opacity-70"
-       style="font-family: var(--font-display);">
-      QUIM<span style="color:#FFD600;">BARA</span>
+    <!-- Logo: Spiral mark + Wave wordmark -->
+    <a href="/" class="transition-opacity duration-200 hover:opacity-70"
+       style="color:#F4F2EC; display:inline-flex; align-items:center; gap:14px;">
+      <svg width="32" height="32" viewBox="0 0 220 220" aria-hidden="true" style="flex-shrink:0;">
+        <g transform="translate(110 110)" fill="currentColor">
+          <path d="M 0 -85 A 85 85 0 1 1 -60 -60 L -42 -42 A 60 60 0 1 0 0 -60 Z"/>
+          <path d="M 0 -85 A 85 85 0 1 1 -60 -60 L -42 -42 A 60 60 0 1 0 0 -60 Z" transform="rotate(120) scale(0.72)"/>
+          <circle r="14"/>
+        </g>
+      </svg>
+      <span class="qb-wordmark" style="font-size: clamp(20px, 2.4vw, 28px);">
+        <span>Q</span><span>U</span><span>I</span><span>M</span><span>B</span><span>A</span><span>R</span><span>A</span>
+      </span>
     </a>
 
     <!-- Desktop nav -->
@@ -33,7 +42,7 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
           class:list={[
             "text-xs font-semibold uppercase tracking-widest transition-colors duration-200",
             activePath.includes(link.match)
-              ? "text-[#FFD600]"
+              ? "text-[#F2D928]"
               : "text-gray-300 hover:text-white"
           ]}
         >
@@ -47,7 +56,7 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
           class:list={[
             "text-xs font-semibold uppercase tracking-widest transition-colors duration-200 flex items-center gap-1",
             activePath.includes('peleador')
-              ? "text-[#FFD600]"
+              ? "text-[#F2D928]"
               : "text-gray-300 hover:text-white"
           ]}
           aria-expanded="false" aria-haspopup="true">
@@ -58,7 +67,7 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
         </button>
         <div class="pel-menu hidden absolute top-full left-1/2 -translate-x-1/2 pt-3" style="min-width:320px;">
           <div class="rounded-lg overflow-hidden shadow-2xl border border-white/10" style="background:#151515;">
-            <a href="/peleadores/" class="block px-5 py-3 text-xs font-bold uppercase tracking-widest text-[#FFD600] hover:bg-white/5 transition-colors border-b border-white/5">
+            <a href="/peleadores/" class="block px-5 py-3 text-xs font-bold uppercase tracking-widest text-[#F2D928] hover:bg-white/5 transition-colors border-b border-white/5">
               Todos los peleadores
             </a>
             <div class="grid grid-cols-2 gap-0">
@@ -69,7 +78,7 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
                      class:list={[
                        "block px-4 py-2 text-xs transition-colors hover:bg-white/5",
                        activePath.includes(divSlugs[d])
-                         ? "text-[#FFD600] font-semibold"
+                         ? "text-[#F2D928] font-semibold"
                          : "text-gray-300"
                      ]}>
                     {divLabels[d]}
@@ -83,7 +92,7 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
                      class:list={[
                        "block px-4 py-2 text-xs transition-colors hover:bg-white/5",
                        activePath.includes(divSlugs[d])
-                         ? "text-[#FFD600] font-semibold"
+                         ? "text-[#F2D928] font-semibold"
                          : "text-gray-300"
                      ]}>
                     {divLabels[d]}
@@ -100,7 +109,7 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
     <div class="flex items-center gap-2">
       <!-- Search button (lupita) -->
       <button id="search-toggle"
-              class="p-2 text-gray-300 hover:text-[#FFD600] transition-colors duration-200"
+              class="p-2 text-gray-300 hover:text-[#F2D928] transition-colors duration-200"
               aria-label="Buscar peleadores">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="7"></circle>
@@ -125,16 +134,16 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden" style="background:#0a0a0a; border-top:1px solid rgba(255,255,255,0.08);">
+  <div id="mobile-menu" class="hidden md:hidden" style="background:#0A0A0B; border-top:1px solid rgba(255,255,255,0.08);">
     <nav class="flex flex-col" style="padding: 0 clamp(16px,4vw,60px); font-family:var(--font-sans);">
       {navLinks.map(link => (
         <a href={link.href}
-           class="py-4 text-sm font-semibold uppercase tracking-widest text-gray-300 border-b border-white/5 hover:text-[#FFD600] transition-colors duration-200">
+           class="py-4 text-sm font-semibold uppercase tracking-widest text-gray-300 border-b border-white/5 hover:text-[#F2D928] transition-colors duration-200">
           {link.label}
         </a>
       ))}
       <a href="/peleadores/"
-         class="py-4 text-sm font-semibold uppercase tracking-widest text-gray-300 border-b border-white/5 hover:text-[#FFD600] transition-colors duration-200">
+         class="py-4 text-sm font-semibold uppercase tracking-widest text-gray-300 border-b border-white/5 hover:text-[#F2D928] transition-colors duration-200">
         Peleadores
       </a>
       <div class="py-2 pl-4 border-b border-white/5">
@@ -142,7 +151,7 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
         <div class="grid grid-cols-2 gap-x-4">
           {divOrder.map(d => (
             <a href={`/peleadores/${divSlugs[d]}/`}
-               class="py-1.5 text-xs text-gray-400 hover:text-[#FFD600] transition-colors">
+               class="py-1.5 text-xs text-gray-400 hover:text-[#F2D928] transition-colors">
               {divLabels[d]}
             </a>
           ))}
@@ -156,8 +165,8 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
 <div id="search-overlay" class="fixed inset-0 z-[60] hidden"
      style="background: rgba(10,10,10,0.96); backdrop-filter: blur(8px);">
   <div style="max-width:880px; margin:0 auto; padding: clamp(60px,10vh,120px) clamp(16px,4vw,40px) 40px;">
-    <div class="flex items-center gap-3 pb-4 border-b-2 border-[#FFD600]">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <div class="flex items-center gap-3 pb-4 border-b-2 border-[#F2D928]">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F2D928" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="7"></circle>
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
       </svg>
@@ -271,7 +280,7 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
             <div class="text-white text-sm font-semibold truncate">${f.name}${f.nick ? ` <span class='text-gray-500 font-normal'>"${f.nick}"</span>` : ''}</div>
             <div class="text-gray-500 text-xs uppercase tracking-wider truncate">${f.div || ''}</div>
           </div>
-          ${f.rank ? `<span class="text-[10px] font-black bg-[#FFD600] text-black px-2 py-0.5 rounded uppercase tracking-wider">${f.rank === 'C' ? 'Campeón' : '#' + f.rank}</span>` : ''}
+          ${f.rank ? `<span class="text-[10px] font-black bg-[#F2D928] text-black px-2 py-0.5 rounded uppercase tracking-wider">${f.rank === 'C' ? 'Campeón' : '#' + f.rank}</span>` : ''}
         </a>
       </li>
     `).join('');

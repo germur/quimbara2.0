@@ -3,7 +3,7 @@ const currentYear = new Date().getFullYear();
 const PX = 'clamp(16px,4vw,60px)';
 ---
 
-<footer class="mt-20 border-t-2 border-[#E53935]" style={`background:#0a0a0a; color:#fff; padding: 60px ${PX} 0;`}>
+<footer class="mt-20 border-t border-[var(--color-bone)]" style={`background:#0A0A0B; color:#F4F2EC; padding: 60px ${PX} 0;`}>
   <div style="max-width:1400px; margin:0 auto;">
 
     <!-- Top grid: brand + columnas -->
@@ -12,10 +12,16 @@ const PX = 'clamp(16px,4vw,60px)';
       <!-- Brand + descripción + social -->
       <div class="md:col-span-6">
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-md flex items-center justify-center" style="background:#E53935;">
-            <span class="text-white font-black text-xl" style="font-family:var(--font-display);">Q</span>
-          </div>
-          <div class="text-white text-3xl tracking-widest uppercase" style="font-family:var(--font-display);">Quimbara</div>
+          <svg width="36" height="36" viewBox="0 0 220 220" aria-hidden="true" style="flex-shrink:0;">
+            <g transform="translate(110 110)" fill="#F2D928">
+              <path d="M 0 -85 A 85 85 0 1 1 -60 -60 L -42 -42 A 60 60 0 1 0 0 -60 Z"/>
+              <path d="M 0 -85 A 85 85 0 1 1 -60 -60 L -42 -42 A 60 60 0 1 0 0 -60 Z" transform="rotate(120) scale(0.72)"/>
+              <circle r="14"/>
+            </g>
+          </svg>
+          <span class="qb-wordmark text-2xl" style="color:#F4F2EC;">
+            <span>Q</span><span>U</span><span>I</span><span>M</span><span>B</span><span>A</span><span>R</span><span>A</span>
+          </span>
         </div>
         <p class="text-gray-400 text-sm leading-relaxed max-w-md mb-6" style="font-family:var(--font-sans);">
           La verdad del octágono. Análisis táctico, cobertura de eventos UFC y el pulso real del MMA en español. Sin clickbait.
@@ -24,28 +30,28 @@ const PX = 'clamp(16px,4vw,60px)';
         <!-- Social icons -->
         <div class="flex items-center gap-3">
           <a href="https://x.com/quimbaraufc" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"
-             class="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-[#E53935] border border-white/10 hover:border-[#E53935] transition-all duration-200">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" class="text-white">
+             class="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-[#F2D928] border border-white/10 hover:border-[#F2D928] transition-all duration-200 hover:text-[#0A0A0B]">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" class="text-current">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
           </a>
           <a href="https://instagram.com/quimbaraufc" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
-             class="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-[#E53935] border border-white/10 hover:border-[#E53935] transition-all duration-200">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+             class="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-[#F2D928] border border-white/10 hover:border-[#F2D928] transition-all duration-200 hover:text-[#0A0A0B]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-current">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
             </svg>
           </a>
           <a href="https://youtube.com/@quimbara" target="_blank" rel="noopener noreferrer" aria-label="YouTube"
-             class="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-[#E53935] border border-white/10 hover:border-[#E53935] transition-all duration-200">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" class="text-white">
+             class="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-[#F2D928] border border-white/10 hover:border-[#F2D928] transition-all duration-200 hover:text-[#0A0A0B]">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" class="text-current">
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
           </a>
           <a href="/rss.xml" aria-label="RSS"
-             class="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-[#E53935] border border-white/10 hover:border-[#E53935] transition-all duration-200">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" class="text-white">
+             class="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-[#F2D928] border border-white/10 hover:border-[#F2D928] transition-all duration-200 hover:text-[#0A0A0B]">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" class="text-current">
               <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z"/>
             </svg>
           </a>
@@ -54,22 +60,23 @@ const PX = 'clamp(16px,4vw,60px)';
 
       <!-- Explora -->
       <div class="md:col-span-3">
-        <h4 class="text-[11px] font-black uppercase tracking-[0.2em] text-[#FFD600] mb-4" style="font-family:var(--font-sans);">Explora</h4>
+        <h4 class="text-[11px] font-black uppercase tracking-[0.2em] text-[#F2D928] mb-4" style="font-family:var(--font-mono);">Explora</h4>
         <ul class="flex flex-col gap-3 text-sm text-gray-300" style="font-family:var(--font-sans);">
-          <li><a href="/" class="hover:text-white transition-colors">Inicio</a></li>
-          <li><a href="/blog/" class="hover:text-white transition-colors">Artículos</a></li>
-          <li><a href="/eventos/" class="hover:text-white transition-colors">Eventos UFC</a></li>
-          <li><a href="/peleadores/" class="hover:text-white transition-colors">Peleadores</a></li>
+          <li><a href="/" class="hover:text-[#F2D928] transition-colors">Inicio</a></li>
+          <li><a href="/blog/" class="hover:text-[#F2D928] transition-colors">Blog</a></li>
+          <li><a href="/rankings/" class="hover:text-[#F2D928] transition-colors">Rankings</a></li>
+          <li><a href="/eventos/" class="hover:text-[#F2D928] transition-colors">Eventos UFC</a></li>
+          <li><a href="/peleadores/" class="hover:text-[#F2D928] transition-colors">Peleadores</a></li>
         </ul>
       </div>
 
       <!-- Categorías -->
       <div class="md:col-span-3">
-        <h4 class="text-[11px] font-black uppercase tracking-[0.2em] text-[#FFD600] mb-4" style="font-family:var(--font-sans);">Categorías</h4>
+        <h4 class="text-[11px] font-black uppercase tracking-[0.2em] text-[#F2D928] mb-4" style="font-family:var(--font-mono);">Categorías</h4>
         <ul class="flex flex-col gap-3 text-sm text-gray-300" style="font-family:var(--font-sans);">
-          <li><a href="/categoria/laboratorio-tecnico/" class="hover:text-white transition-colors">Laboratorio Técnico</a></li>
-          <li><a href="/categoria/guia-del-insider/" class="hover:text-white transition-colors">Guía del Insider</a></li>
-          <li><a href="/categoria/punto-de-vista/" class="hover:text-white transition-colors">Punto de Vista</a></li>
+          <li><a href="/categoria/laboratorio-tecnico/" class="hover:text-[#F2D928] transition-colors">Laboratorio Técnico</a></li>
+          <li><a href="/categoria/guia-del-insider/" class="hover:text-[#F2D928] transition-colors">Guía del Insider</a></li>
+          <li><a href="/categoria/punto-de-vista/" class="hover:text-[#F2D928] transition-colors">Punto de Vista</a></li>
         </ul>
       </div>
     </div>
@@ -77,12 +84,12 @@ const PX = 'clamp(16px,4vw,60px)';
     <!-- Bottom bar -->
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 py-6 border-t border-white/10">
       <div class="text-xs text-gray-500" style="font-family:var(--font-sans);">
-        © {currentYear} Quimbara · Todos los derechos reservados
+        &copy; {currentYear} Quimbara &middot; Todos los derechos reservados
       </div>
       <div class="flex flex-wrap gap-5 text-xs text-gray-400" style="font-family:var(--font-sans);">
-        <a href="/aviso-legal/" class="hover:text-white transition-colors">Aviso Legal</a>
-        <a href="/privacidad/" class="hover:text-white transition-colors">Privacidad</a>
-        <a href="/rss.xml" class="hover:text-white transition-colors">RSS</a>
+        <a href="/aviso-legal/" class="hover:text-[#F2D928] transition-colors">Aviso Legal</a>
+        <a href="/privacidad/" class="hover:text-[#F2D928] transition-colors">Privacidad</a>
+        <a href="/rss.xml" class="hover:text-[#F2D928] transition-colors">RSS</a>
       </div>
     </div>
   </div>

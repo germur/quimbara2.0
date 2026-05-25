@@ -67,7 +67,7 @@ const femaleDivs = divisions.filter(d => d.female);
 <div style={`background:#111; padding: 50px ${PX} 50px;`}>
   <div style="max-width:1400px; margin:0 auto;">
     <div class="flex items-center gap-3 mb-5">
-      <span class="px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111]"
+      <span class="px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-sm bg-[#F2D928] text-[#111]"
             style="font-family:var(--font-sans);">Rankings oficiales</span>
     </div>
     <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,5.5rem);line-height:0.95;color:#fff;">
@@ -86,8 +86,8 @@ const femaleDivs = divisions.filter(d => d.female);
   <div class="flex flex-wrap gap-2 mb-10">
     {divisions.map(d => (
       <a href={`#${d.slug}`}
-         class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded border transition-colors hover:border-[#FFD600] hover:text-[#FFD600]"
-         style={`font-family:var(--font-sans); border-color:${d.female ? '#E53935' : '#ddd'}; color:${d.female ? '#E53935' : '#666'};`}>
+         class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded border transition-colors hover:border-[#F2D928] hover:text-[#F2D928]"
+         style={`font-family:var(--font-sans); border-color:${d.female ? '#F2D928' : '#E2DDD0'}; color:${d.female ? '#F2D928' : '#3A3A3D'};`}>
         {d.label}
       </a>
     ))}
@@ -105,7 +105,7 @@ const femaleDivs = divisions.filter(d => d.female);
           <span class="text-gray-400 text-xs" style="font-family:var(--font-sans);">{d.weight}</span>
         </div>
         <a href={`/peleadores/${d.slug}/`}
-           class="text-xs font-bold text-gray-400 hover:text-[#E53935] transition-colors"
+           class="text-xs font-bold text-gray-400 hover:text-[#F2D928] transition-colors"
            style="font-family:var(--font-sans);">
           Ver división →
         </a>
@@ -114,9 +114,9 @@ const femaleDivs = divisions.filter(d => d.female);
       {/* Campeón */}
       {d.champ && (
         <a href={`/peleadores/${d.champ.slug}/`}
-           class="group flex items-center gap-4 px-4 py-3 bg-[#FFFDE7] rounded-t border border-[#FFD600]/30 hover:bg-[#FFF9C4] transition-colors">
-          <div class="text-[#FFD600] font-black text-sm w-6 text-center flex-shrink-0" style="font-family:var(--font-display);">C</div>
-          <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-gray-100 flex items-center justify-center border-2 border-[#FFD600]">
+           class="group flex items-center gap-4 px-4 py-3 bg-[#FFFDE7] rounded-t border border-[#F2D928]/30 hover:bg-[#FFF9C4] transition-colors">
+          <div class="text-[#F2D928] font-black text-sm w-6 text-center flex-shrink-0" style="font-family:var(--font-display);">C</div>
+          <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-gray-100 flex items-center justify-center border-2 border-[#F2D928]">
             {d.champ.img ? (
               <img src={d.champ.img} alt={d.champ.name} class="w-full h-full object-cover object-top" loading="lazy" />
             ) : (
@@ -124,9 +124,9 @@ const femaleDivs = divisions.filter(d => d.female);
             )}
           </div>
           <div class="flex-1 min-w-0">
-            <div class="text-[#111] text-sm font-bold group-hover:text-[#E53935] transition-colors truncate" style="font-family:var(--font-display);">
+            <div class="text-[#111] text-sm font-bold group-hover:text-[#F2D928] transition-colors truncate" style="font-family:var(--font-display);">
               {d.champ.name}
-              <span class="text-[10px] font-black ml-2 px-2 py-0.5 bg-[#FFD600] text-[#111] rounded">CAMPEÓN</span>
+              <span class="text-[10px] font-black ml-2 px-2 py-0.5 bg-[#F2D928] text-[#111] rounded">CAMPEÓN</span>
             </div>
           </div>
           <div class="text-[#111] font-black text-sm w-16 text-right" style="font-family:var(--font-display);">{d.champ.rec}</div>
@@ -161,7 +161,7 @@ const femaleDivs = divisions.filter(d => d.female);
             )}
           </div>
           <div class="flex-1 min-w-0">
-            <div class="text-[#111] text-sm font-bold group-hover:text-[#E53935] transition-colors truncate" style="font-family:var(--font-display);">{f.name}</div>
+            <div class="text-[#111] text-sm font-bold group-hover:text-[#F2D928] transition-colors truncate" style="font-family:var(--font-display);">{f.name}</div>
           </div>
           <div class="text-gray-400 text-xs hidden sm:block w-28 text-right truncate" style="font-family:var(--font-sans);">{f.from || ''}</div>
           <div class="text-[#111] font-black text-sm w-16 text-right" style="font-family:var(--font-display);">{f.rec}</div>
@@ -197,7 +197,7 @@ const femaleDivs = divisions.filter(d => d.female);
           <span class="text-gray-400 text-xs" style="font-family:var(--font-sans);">{d.weight}</span>
         </div>
         <a href={`/peleadores/${d.slug}/`}
-           class="text-xs font-bold text-gray-400 hover:text-[#E53935] transition-colors"
+           class="text-xs font-bold text-gray-400 hover:text-[#F2D928] transition-colors"
            style="font-family:var(--font-sans);">
           Ver división →
         </a>
@@ -205,9 +205,9 @@ const femaleDivs = divisions.filter(d => d.female);
 
       {d.champ && (
         <a href={`/peleadores/${d.champ.slug}/`}
-           class="group flex items-center gap-4 px-4 py-3 bg-[#FCE4EC] rounded-t border border-[#E53935]/20 hover:bg-[#FFCDD2] transition-colors">
-          <div class="text-[#E53935] font-black text-sm w-6 text-center flex-shrink-0" style="font-family:var(--font-display);">C</div>
-          <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-gray-100 flex items-center justify-center border-2 border-[#E53935]">
+           class="group flex items-center gap-4 px-4 py-3 bg-[#FFFDE7] rounded-t border border-[#F2D928]/30 hover:bg-[#FFF9C4] transition-colors">
+          <div class="text-[#F2D928] font-black text-sm w-6 text-center flex-shrink-0" style="font-family:var(--font-display);">C</div>
+          <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-gray-100 flex items-center justify-center border-2 border-[#F2D928]">
             {d.champ.img ? (
               <img src={d.champ.img} alt={d.champ.name} class="w-full h-full object-cover object-top" loading="lazy" />
             ) : (
@@ -215,9 +215,9 @@ const femaleDivs = divisions.filter(d => d.female);
             )}
           </div>
           <div class="flex-1 min-w-0">
-            <div class="text-[#111] text-sm font-bold group-hover:text-[#E53935] transition-colors truncate" style="font-family:var(--font-display);">
+            <div class="text-[#111] text-sm font-bold group-hover:text-[#F2D928] transition-colors truncate" style="font-family:var(--font-display);">
               {d.champ.name}
-              <span class="text-[10px] font-black ml-2 px-2 py-0.5 bg-[#E53935] text-white rounded">CAMPEONA</span>
+              <span class="text-[10px] font-black ml-2 px-2 py-0.5 bg-[#F2D928] text-[#0A0A0B] rounded">CAMPEONA</span>
             </div>
           </div>
           <div class="text-[#111] font-black text-sm w-16 text-right" style="font-family:var(--font-display);">{d.champ.rec}</div>
@@ -251,7 +251,7 @@ const femaleDivs = divisions.filter(d => d.female);
             )}
           </div>
           <div class="flex-1 min-w-0">
-            <div class="text-[#111] text-sm font-bold group-hover:text-[#E53935] transition-colors truncate" style="font-family:var(--font-display);">{f.name}</div>
+            <div class="text-[#111] text-sm font-bold group-hover:text-[#F2D928] transition-colors truncate" style="font-family:var(--font-display);">{f.name}</div>
           </div>
           <div class="text-gray-400 text-xs hidden sm:block w-28 text-right truncate" style="font-family:var(--font-sans);">{f.from || ''}</div>
           <div class="text-[#111] font-black text-sm w-16 text-right" style="font-family:var(--font-display);">{f.rec}</div>

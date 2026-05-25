@@ -20,14 +20,14 @@ if (matchedFighters.length === 0 && matchedEvents.length === 0) {
 }
 
 const catColor: Record<string, string> = {
-  W: '#FFD600', C: '#E53935', P: '#7B1FA2',
+  W: '#F2D928', C: '#F2D928', P: '#7B1FA2',
 };
 ---
 
 {(matchedFighters.length > 0 || matchedEvents.length > 0) && (
   <aside class="not-prose my-10" aria-label="Entidades relacionadas">
     <div class="flex items-center gap-3 mb-5">
-      <div style="height:2px;width:28px;background:#E53935;flex-shrink:0;"></div>
+      <div style="height:2px;width:28px;background:#F2D928;flex-shrink:0;"></div>
       <span style="font-family:var(--font-sans);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.18em;color:#9ca3af;">
         Perfiles en este análisis
       </span>
@@ -54,19 +54,19 @@ const catColor: Record<string, string> = {
             </div>
             <!-- Info -->
             <div class="min-w-0 flex-1">
-              <div style="font-family:var(--font-display);font-size:1rem;font-weight:900;color:#111;line-height:1.2;" class="truncate group-hover:text-[#E53935] transition-colors">
+              <div style="font-family:var(--font-display);font-size:1rem;font-weight:900;color:#111;line-height:1.2;" class="truncate group-hover:text-[#F2D928] transition-colors">
                 {f.name}
               </div>
               <div class="flex items-center gap-2 mt-1 flex-wrap">
                 {f.rank && f.rank !== '—' && (
-                  <span style={`font-family:var(--font-sans);font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;background:${rankBg};color:${rankBg === '#FFD600' ? '#111' : '#fff'};`}>
+                  <span style={`font-family:var(--font-sans);font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;background:${rankBg};color:${rankBg === '#F2D928' ? '#111' : '#fff'};`}>
                     {f.rank === 'C' ? '🏆 Campeón' : `#${f.rank}`}
                   </span>
                 )}
                 <span style="font-family:var(--font-sans);font-size:11px;color:#9ca3af;">{f.div}</span>
               </div>
             </div>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300 group-hover:text-[#E53935] transition-colors flex-shrink-0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300 group-hover:text-[#F2D928] transition-colors flex-shrink-0">
               <path d="m9 18 6-6-6-6"/>
             </svg>
           </a>
@@ -81,19 +81,19 @@ const catColor: Record<string, string> = {
           <!-- Icono -->
           <div class="flex-shrink-0 rounded-full flex items-center justify-center"
                style="width:44px;height:44px;background:#111;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F2D928" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
             </svg>
           </div>
           <!-- Info -->
           <div class="min-w-0 flex-1">
             <div style="font-family:var(--font-sans);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#9ca3af;" class="mb-0.5">Evento</div>
-            <div style="font-family:var(--font-display);font-size:0.95rem;font-weight:900;color:#111;line-height:1.2;" class="truncate group-hover:text-[#E53935] transition-colors">
+            <div style="font-family:var(--font-display);font-size:0.95rem;font-weight:900;color:#111;line-height:1.2;" class="truncate group-hover:text-[#F2D928] transition-colors">
               {e.name}
             </div>
             <div style="font-family:var(--font-sans);font-size:11px;color:#9ca3af;margin-top:2px;">{e.dateLabel} · {e.loc}</div>
           </div>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300 group-hover:text-[#E53935] transition-colors flex-shrink-0">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300 group-hover:text-[#F2D928] transition-colors flex-shrink-0">
             <path d="m9 18 6-6-6-6"/>
           </svg>
         </a>

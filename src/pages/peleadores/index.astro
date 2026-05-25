@@ -50,10 +50,10 @@ const TOTAL = divisions.reduce((sum, d) => sum + divCount(d), 0);
   <!-- ── Hero ── -->
   <div style={`background:#111; padding: 70px ${PX} 60px;`}>
     <div style="max-width:1400px; margin:0 auto;">
-      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111] mb-6"
+      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#F2D928] text-[#111] mb-6"
             style="font-family:var(--font-sans);">UFC 2026</span>
       <h1 style="font-family:var(--font-display);font-size:clamp(3rem,10vw,7rem);line-height:0.95;color:#fff;">
-        Pelead<span style="color:#FFD600;">ores</span>
+        Pelead<span style="color:#F2D928;">ores</span>
       </h1>
       <p class="text-gray-400 mt-5 text-sm" style="font-family:var(--font-sans);">
         {TOTAL} peleadores · {divisions.length} divisiones oficiales UFC
@@ -71,7 +71,7 @@ const TOTAL = divisions.reduce((sum, d) => sum + divCount(d), 0);
             data-div={div}
             class:list={['div-tab px-4 py-3.5 text-[11px] font-bold uppercase tracking-widest transition-all duration-200 whitespace-nowrap border-b-2 flex-shrink-0',
               i === 0
-                ? 'text-[#FFD600] border-[#FFD600]'
+                ? 'text-[#F2D928] border-[#F2D928]'
                 : 'text-gray-500 border-transparent hover:text-gray-300'
             ]}
             style="font-family:var(--font-sans);"
@@ -83,7 +83,7 @@ const TOTAL = divisions.reduce((sum, d) => sum + divCount(d), 0);
         <!-- Separador visual ♀ -->
         <div class="flex items-center px-3 flex-shrink-0" aria-hidden="true">
           <div style="width:1px; height:24px; background:rgba(255,255,255,0.15);"></div>
-          <span class="text-[10px] font-black uppercase tracking-[0.25em] text-[#E53935] ml-3"
+          <span class="text-[10px] font-black uppercase tracking-[0.25em] text-[#F2D928] ml-3"
                 style="font-family:var(--font-sans);">Femenino</span>
         </div>
 
@@ -118,7 +118,7 @@ const TOTAL = divisions.reduce((sum, d) => sum + divCount(d), 0);
             </h2>
             {hubSlug && (
               <a href={`/peleadores/${hubSlug}/`}
-                 class="text-[11px] font-bold uppercase tracking-widest text-[#E53935] hover:text-[#c62828] transition-colors"
+                 class="text-[11px] font-bold uppercase tracking-widest text-[#F2D928] hover:text-[#F2D928]/80 transition-colors"
                  style="font-family:var(--font-sans);">
                 Ver división completa →
               </a>
@@ -147,12 +147,12 @@ const TOTAL = divisions.reduce((sum, d) => sum + divCount(d), 0);
                     </div>
                     <div class="flex flex-col justify-center p-6 md:p-8 flex-1 border-l border-gray-100">
                       <div class="flex items-center gap-3 mb-4 flex-wrap">
-                        <span class="px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111]"
+                        <span class="px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-sm bg-[#F2D928] text-[#111]"
                               style="font-family:var(--font-sans);">Campeón</span>
                         <span class="text-[11px] font-bold uppercase tracking-widest text-gray-400"
                               style="font-family:var(--font-sans);">{divLabels[div] ?? div}</span>
                       </div>
-                      <h3 class="text-[#111] leading-none group-hover:text-[#E53935] transition-colors duration-200"
+                      <h3 class="text-[#111] leading-none group-hover:text-[#F2D928] transition-colors duration-200"
                           style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);">{f.name}</h3>
                       {f.nick?.trim() && (
                         <div class="text-gray-400 text-base italic mt-1" style="font-family:var(--font-serif);">"{f.nick.trim()}"</div>
@@ -202,7 +202,7 @@ const TOTAL = divisions.reduce((sum, d) => sum + divCount(d), 0);
                       )}
                     </div>
                     <div class="flex-1 min-w-0">
-                      <div class="text-[#111] text-sm font-bold group-hover:text-[#E53935] transition-colors duration-200 truncate"
+                      <div class="text-[#111] text-sm font-bold group-hover:text-[#F2D928] transition-colors duration-200 truncate"
                            style="font-family:var(--font-display);">{f.name}</div>
                       {f.nick?.trim() && (
                         <div class="text-gray-400 text-xs italic truncate" style="font-family:var(--font-sans);">"{f.nick.trim()}"</div>
@@ -227,7 +227,7 @@ const TOTAL = divisions.reduce((sum, d) => sum + divCount(d), 0);
                         );
                       })}
                     </div>
-                    <div class="text-gray-300 group-hover:text-[#E53935] text-xs font-bold transition-colors">→</div>
+                    <div class="text-gray-300 group-hover:text-[#F2D928] text-xs font-bold transition-colors">→</div>
                   </a>
                 );
               })}
@@ -257,7 +257,7 @@ const TOTAL = divisions.reduce((sum, d) => sum + divCount(d), 0);
                       )}
                     </div>
                     <div class="p-3">
-                      <div class="text-[#111] text-xs font-bold leading-tight group-hover:text-[#E53935] transition-colors line-clamp-2"
+                      <div class="text-[#111] text-xs font-bold leading-tight group-hover:text-[#F2D928] transition-colors line-clamp-2"
                            style="font-family:var(--font-display);">{f.name}</div>
                       <div class="text-gray-400 text-[10px] mt-1 font-mono">{f.rec}</div>
                     </div>
@@ -297,10 +297,10 @@ const TOTAL = divisions.reduce((sum, d) => sum + divCount(d), 0);
     tab.addEventListener('click', () => {
       const target = tab.dataset.div;
       tabs.forEach(t => {
-        t.classList.remove('text-[#FFD600]', 'border-[#FFD600]');
+        t.classList.remove('text-[#F2D928]', 'border-[#F2D928]');
         t.classList.add('text-gray-500', 'border-transparent');
       });
-      tab.classList.add('text-[#FFD600]', 'border-[#FFD600]');
+      tab.classList.add('text-[#F2D928]', 'border-[#F2D928]');
       tab.classList.remove('text-gray-500', 'border-transparent');
       sections.forEach(s => {
         s.style.display = s.dataset.div === target ? '' : 'none';

@@ -71,8 +71,8 @@
       // Intersection Observer — resaltar sección activa
       const tocLinks = list.querySelectorAll<HTMLAnchorElement>('[data-toc-id]');
       const activeStyles = (a: HTMLAnchorElement, on: boolean) => {
-        a.style.color = on ? '#E53935' : '#6b7280';
-        a.style.borderLeftColor = on ? '#E53935' : 'transparent';
+        a.style.color = on ? '#F2D928' : '#6b7280';
+        a.style.borderLeftColor = on ? '#F2D928' : 'transparent';
         a.style.fontWeight = on ? '700' : (a.getAttribute('data-h3') ? '400' : '600');
         if (on) a.classList.add('toc-active');
         else a.classList.remove('toc-active');

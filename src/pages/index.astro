@@ -56,12 +56,12 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
   <Ticker />
 
   <!-- ── Hero editorial: H1 visible estilo /peleadores/ ── -->
-  <div style={`background:#111; padding: 60px ${PX} 50px;`}>
+  <div style={`background:#0A0A0B; padding: 60px ${PX} 50px;`}>
     <div style="max-width:1400px; margin:0 auto;">
-      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111] mb-5"
-            style="font-family:var(--font-sans);">MMA · UFC · Español</span>
-      <h1 style="font-family:var(--font-display);font-size:clamp(2.8rem,9vw,6.5rem);line-height:0.95;color:#fff;margin:0;">
-        Quim<span style="color:#FFD600;">bara</span>
+      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#F2D928] text-[#0A0A0B] mb-5"
+            style="font-family:var(--font-mono);">MMA · UFC · Español</span>
+      <h1 class="qb-wordmark" style="font-size:clamp(2.8rem,9vw,6.5rem);color:#F4F2EC;margin:0;">
+        <span>Q</span><span>U</span><span>I</span><span>M</span><span>B</span><span>A</span><span>R</span><span>A</span>
       </h1>
       <p class="text-gray-400 mt-4 text-sm md:text-base max-w-2xl" style="font-family:var(--font-serif);font-style:italic;">
         La verdad del octágono. Análisis técnico, perfiles de peleadores y cobertura de eventos UFC. Sin clickbait.
@@ -159,12 +159,12 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
               onerror={`this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'`}
             />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
-              <div class="w-14 h-14 rounded-full bg-[#E53935] flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-110">
+              <div class="w-14 h-14 rounded-full bg-[#F2D928] flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-110">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg>
               </div>
             </div>
           </div>
-          <h3 class="text-[#111] text-base leading-tight mt-3 group-hover:text-[#E53935] transition-colors duration-200"
+          <h3 class="text-[#111] text-base leading-tight mt-3 group-hover:text-[#F2D928] transition-colors duration-200"
               style="font-family:var(--font-display);">{v.title}</h3>
         </a>
       ))}
@@ -231,13 +231,13 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
                onmouseenter="this.style.background='rgba(255,255,255,0.08)'"
                onmouseleave="this.style.background='rgba(255,255,255,0.04)'">
             <div class="flex-1 text-right" style="font-family:var(--font-display);font-size:clamp(14px,1.5vw,18px);">
-              <span style="color:#FFD600;">W</span>
+              <span style="color:#F2D928;">W</span>
               <span class="text-white ml-1">{r.w}</span>
             </div>
             <div class="text-gray-500 text-xs font-bold" style="font-family:var(--font-sans);">DEF.</div>
             <div class="flex-1 text-white/50" style="font-family:var(--font-display);font-size:clamp(14px,1.5vw,18px);">{r.l}</div>
             <div class="text-gray-500 text-xs hidden md:block" style="font-family:var(--font-sans);">{r.method} · R{r.round} {r.time}</div>
-            <div class="text-[#E53935] text-xs font-bold hidden md:block" style="font-family:var(--font-sans);">{r.event}</div>
+            <div class="text-[#F2D928] text-xs font-bold hidden md:block" style="font-family:var(--font-sans);">{r.event}</div>
           </div>
         ))}
       </div>

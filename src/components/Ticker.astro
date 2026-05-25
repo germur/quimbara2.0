@@ -9,7 +9,7 @@ const tickerItems = [...events, ...events, ...events];
   <div class="inline-flex" style="animation: marquee 30s linear infinite;">
     {tickerItems.map((e) => (
       <a href={`/eventos/${e.slug}`} class="inline-flex items-center gap-2 mr-14 text-xs hover:opacity-80 transition-opacity" style="font-family: var(--font-sans); letter-spacing: 0.05em; text-decoration:none; color:inherit;">
-        <span class="px-2 py-[2px] text-white text-[11px] font-bold rounded-sm" style="background: #E53935;">
+        <span class="px-2 py-[2px] text-white text-[11px] font-bold rounded-sm" style="background: #F2D928;">
           {e.name}
         </span>
         <span class="opacity-60">{e.dateLabel}</span>

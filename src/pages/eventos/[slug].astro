@@ -151,7 +151,7 @@ const metaDescription = isCompleted
       <!-- Info superior centrada -->
       <div class="text-center mb-2">
         <div class="flex items-center justify-center gap-2 mb-3 flex-wrap">
-          <span class={`inline-block px-3 py-1 text-[11px] font-black uppercase tracking-widest rounded-sm ${isPPV ? 'bg-[#FFD600] text-[#111]' : 'border border-gray-600 text-gray-400'}`}
+          <span class={`inline-block px-3 py-1 text-[11px] font-black uppercase tracking-widest rounded-sm ${isPPV ? 'bg-[#F2D928] text-[#111]' : 'border border-gray-600 text-gray-400'}`}
                 style="font-family:var(--font-sans);">{isPPV ? '★ PPV' : 'Fight Night'}</span>
           {isCompleted && (
             <span class="inline-block px-3 py-1 text-[11px] font-black uppercase tracking-widest rounded-sm bg-gray-700 text-gray-300"
@@ -160,7 +160,7 @@ const metaDescription = isCompleted
         </div>
         <h1 class="text-white" style="font-family:var(--font-display);font-size:clamp(2rem,6vw,4.5rem);line-height:0.95;">{event.name}</h1>
         <div class="flex flex-wrap items-center justify-center gap-5 mt-3" style="font-family:var(--font-sans);">
-          <div class="flex items-center gap-2 text-[#FFD600] text-sm font-bold">
+          <div class="flex items-center gap-2 text-[#F2D928] text-sm font-bold">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             {event.dateLabel}
           </div>
@@ -181,7 +181,7 @@ const metaDescription = isCompleted
             <div class="flex flex-col items-center text-center">
               <!-- Nombre arriba de la foto -->
               <div class="mb-3">
-                <div class="text-[#FFD600] text-[10px] font-black uppercase tracking-[0.2em] mb-1" style="font-family:var(--font-sans);">Main Event</div>
+                <div class="text-[#F2D928] text-[10px] font-black uppercase tracking-[0.2em] mb-1" style="font-family:var(--font-sans);">Main Event</div>
                 <div class="text-white font-black leading-none" style="font-family:var(--font-display);font-size:clamp(1.6rem,4vw,3rem);">{lastName(f1)}</div>
                 <div class="text-gray-500 text-xs mt-1 font-medium" style="font-family:var(--font-sans);">{f1}</div>
               </div>
@@ -192,7 +192,7 @@ const metaDescription = isCompleted
                        class="object-cover object-top"
                        style="height:clamp(160px,25vw,280px); filter: drop-shadow(0 0 40px rgba(255,214,0,0.15));" />
                 ) : (
-                  <div class="flex items-center justify-center rounded-full border-4 border-[#FFD600] bg-gray-800"
+                  <div class="flex items-center justify-center rounded-full border-4 border-[#F2D928] bg-gray-800"
                        style="width:clamp(100px,18vw,160px); height:clamp(100px,18vw,160px);">
                     <span class="text-white font-black" style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);">{initials(f1)}</span>
                   </div>
@@ -203,7 +203,7 @@ const metaDescription = isCompleted
             {/* ── VS central ── */}
             <div class="flex flex-col items-center justify-end pb-8 md:pb-16 px-3 md:px-8 relative z-10">
               <div class="relative">
-                <div class="text-[#FFD600] font-black" style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4.5rem);line-height:1;text-shadow: 0 0 60px rgba(255,214,0,0.3);">VS</div>
+                <div class="text-[#F2D928] font-black" style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4.5rem);line-height:1;text-shadow: 0 0 60px rgba(255,214,0,0.3);">VS</div>
               </div>
             </div>
 
@@ -232,7 +232,7 @@ const metaDescription = isCompleted
           </div>
 
           <!-- Línea decorativa base -->
-          <div class="h-[3px] w-full" style="background: linear-gradient(90deg, #FFD600 0%, #FFD600 50%, #333 50%, #333 100%);"></div>
+          <div class="h-[3px] w-full" style="background: linear-gradient(90deg, #F2D928 0%, #F2D928 50%, #333 50%, #333 100%);"></div>
         </div>
       ) : (
         <div class="rounded-2xl border-2 border-dashed border-gray-700 p-12 text-center mt-6 mb-8">
@@ -263,9 +263,9 @@ const metaDescription = isCompleted
     <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">Cómo ver</h2>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
       {[
-        { plat: 'UFC Fight Pass', detail: 'Prelims completas + archivo', color: '#E53935' },
-        { plat: 'ESPN / ESPN+',   detail: 'Prelims + Cartelera estelar', color: '#E53935' },
-        { plat: isPPV ? 'PPV (ESPN+ / Movistar)' : 'TV abierta / streaming', detail: isPPV ? 'Cartelera estelar PPV' : 'Cartelera estelar incluida', color: '#FFD600' },
+        { plat: 'UFC Fight Pass', detail: 'Prelims completas + archivo', color: '#F2D928' },
+        { plat: 'ESPN / ESPN+',   detail: 'Prelims + Cartelera estelar', color: '#F2D928' },
+        { plat: isPPV ? 'PPV (ESPN+ / Movistar)' : 'TV abierta / streaming', detail: isPPV ? 'Cartelera estelar PPV' : 'Cartelera estelar incluida', color: '#F2D928' },
       ].map(({ plat, detail, color }) => (
         <div class="rounded-xl border border-gray-100 p-5 flex items-start gap-4">
           <div class="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style={`background:${color};`}></div>
@@ -293,10 +293,10 @@ const metaDescription = isCompleted
           const f1Url = fighterUrl(fight.f1);
           const f2Url = fighterUrl(fight.f2);
           return (
-            <div class={`rounded-2xl overflow-hidden ${isMain ? 'border-2 border-[#FFD600]' : 'border border-gray-200'}`}>
+            <div class={`rounded-2xl overflow-hidden ${isMain ? 'border-2 border-[#F2D928]' : 'border border-gray-200'}`}>
               {/* Weight class header */}
               <div class={`text-center py-2 ${isMain ? 'bg-[#111]' : 'bg-gray-50'}`}>
-                {isMain && <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm bg-[#FFD600] text-[#111] mr-2">Main Event</span>}
+                {isMain && <span class="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm bg-[#F2D928] text-[#111] mr-2">Main Event</span>}
                 {isCoMain && <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mr-2">Co-Main</span>}
                 {!isMain && !isCoMain && <span class="text-[10px] text-gray-400 tabular-nums mr-2">{String(i + 1).padStart(2, '0')}</span>}
                 <span class={`text-[10px] font-bold uppercase tracking-widest ${isMain ? 'text-gray-400' : 'text-gray-500'}`}>{fight.weightClass}</span>
@@ -324,7 +324,7 @@ const metaDescription = isCompleted
                   </div>
                 )}
                 {/* VS */}
-                <span class={`flex-shrink-0 text-xs sm:text-sm font-black px-3 ${isMain ? 'text-[#FFD600]' : 'text-gray-300'}`}>VS</span>
+                <span class={`flex-shrink-0 text-xs sm:text-sm font-black px-3 ${isMain ? 'text-[#F2D928]' : 'text-gray-300'}`}>VS</span>
                 {/* Fighter 2 */}
                 {f2Url ? (
                   <a href={f2Url} class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0 justify-end no-underline hover:opacity-80 transition-opacity">
@@ -408,7 +408,7 @@ const metaDescription = isCompleted
               <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-gray-500 mb-0.5" style="font-family:var(--font-sans);">{e.name}</div>
               <div class="text-[#111] group-hover:text-white font-bold text-sm truncate" style="font-family:var(--font-display);">{e.main}</div>
             </div>
-            <div class="text-gray-200 group-hover:text-[#FFD600] text-lg">→</div>
+            <div class="text-gray-200 group-hover:text-[#F2D928] text-lg">→</div>
           </a>
         ))}
       </div>

@@ -78,7 +78,7 @@ const nextDiv = curIdx < pool.length - 1 ? pool[curIdx + 1] : null;
   <div style="max-width:1400px; margin:0 auto;">
     <div class="flex items-center gap-3 mb-5">
       <span class="px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-sm text-[#111]"
-            style={`font-family:var(--font-sans); background:${female ? '#E53935' : '#FFD600'}; color:${female ? '#fff' : '#111'};`}>
+            style={`font-family:var(--font-sans); background:#F2D928; color:#0A0A0B;`}>
         {female ? 'UFC Femenino' : 'UFC'}
       </span>
       {weight && (
@@ -116,10 +116,10 @@ const nextDiv = curIdx < pool.length - 1 ? pool[curIdx + 1] : null;
       </div>
       <div class="flex flex-col justify-center p-6 md:p-10 flex-1 border-l border-gray-100">
         <div class="flex items-center gap-3 mb-4 flex-wrap">
-          <span class="px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-sm bg-[#FFD600] text-[#111]"
+          <span class="px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-sm bg-[#F2D928] text-[#111]"
                 style="font-family:var(--font-sans);">Campeón</span>
         </div>
-        <h2 class="text-[#111] leading-none group-hover:text-[#E53935] transition-colors duration-200"
+        <h2 class="text-[#0A0A0B] leading-none group-hover:text-[#F2D928] transition-colors duration-200"
             style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);">{champ.name}</h2>
         {champ.nick?.trim() && (
           <div class="text-gray-400 text-lg italic mt-2" style="font-family:var(--font-serif);">"{champ.nick.trim()}"</div>
@@ -182,7 +182,7 @@ const nextDiv = curIdx < pool.length - 1 ? pool[curIdx + 1] : null;
             )}
           </div>
           <div class="flex-1 min-w-0">
-            <div class="text-[#111] text-sm font-bold group-hover:text-[#E53935] transition-colors truncate"
+            <div class="text-[#0A0A0B] text-sm font-bold group-hover:text-[#F2D928] transition-colors truncate"
                  style="font-family:var(--font-display);">{f.name}</div>
             {f.nick?.trim() && (
               <div class="text-gray-400 text-xs italic truncate" style="font-family:var(--font-sans);">"{f.nick.trim()}"</div>
@@ -207,7 +207,7 @@ const nextDiv = curIdx < pool.length - 1 ? pool[curIdx + 1] : null;
               );
             })}
           </div>
-          <div class="text-gray-300 group-hover:text-[#E53935] text-xs font-bold transition-colors">→</div>
+          <div class="text-gray-300 group-hover:text-[#F2D928] text-xs font-bold transition-colors">→</div>
         </a>
       ))}
     </div>
@@ -230,7 +230,7 @@ const nextDiv = curIdx < pool.length - 1 ? pool[curIdx + 1] : null;
               )}
             </div>
             <div class="p-3">
-              <div class="text-[#111] text-xs font-bold leading-tight group-hover:text-[#E53935] transition-colors line-clamp-2"
+              <div class="text-[#0A0A0B] text-xs font-bold leading-tight group-hover:text-[#F2D928] transition-colors line-clamp-2"
                    style="font-family:var(--font-display);">{f.name}</div>
               <div class="text-gray-400 text-[10px] mt-1 font-mono">{f.rec}</div>
             </div>
@@ -244,7 +244,7 @@ const nextDiv = curIdx < pool.length - 1 ? pool[curIdx + 1] : null;
   <div class="flex items-center justify-between pt-8 border-t border-gray-200">
     {prevDiv ? (
       <a href={`/peleadores/${prevDiv[1]}/`}
-         class="text-sm font-bold text-gray-500 hover:text-[#E53935] transition-colors"
+         class="text-sm font-bold text-gray-500 hover:text-[#F2D928] transition-colors"
          style="font-family:var(--font-sans);">
         ← {divLabels[prevDiv[0]]}
       </a>
@@ -255,7 +255,7 @@ const nextDiv = curIdx < pool.length - 1 ? pool[curIdx + 1] : null;
     </a>
     {nextDiv ? (
       <a href={`/peleadores/${nextDiv[1]}/`}
-         class="text-sm font-bold text-gray-500 hover:text-[#E53935] transition-colors"
+         class="text-sm font-bold text-gray-500 hover:text-[#F2D928] transition-colors"
          style="font-family:var(--font-sans);">
         {divLabels[nextDiv[0]]} →
       </a>

@@ -9,17 +9,17 @@ export interface Props {
 const { points, title = 'Lo esencial' } = Astro.props;
 ---
 
-<aside class="not-prose my-8" style="border-left:4px solid #E53935; background:#fafafa; border-radius:0 8px 8px 0; padding:20px 24px;" aria-label="Puntos clave del artículo">
+<aside class="not-prose my-8" style="border-left:4px solid #F2D928; background:#F4F2EC; border-radius:0 8px 8px 0; padding:20px 24px;" aria-label="Puntos clave del artículo">
   <div class="flex items-center gap-2 mb-4">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E53935" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F2D928" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
     </svg>
-    <span style="font-family:var(--font-sans);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.18em;color:#E53935;">{title}</span>
+    <span style="font-family:var(--font-sans);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.18em;color:#F2D928;">{title}</span>
   </div>
   <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
     {points.map((point) => (
       <li style="display:flex;align-items:flex-start;gap:10px;font-family:var(--font-sans);font-size:14px;color:#374151;line-height:1.55;">
-        <span style="color:#E53935;font-weight:900;flex-shrink:0;margin-top:1px;">→</span>
+        <span style="color:#F2D928;font-weight:900;flex-shrink:0;margin-top:1px;">→</span>
         <span>{point}</span>
       </li>
     ))}

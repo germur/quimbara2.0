@@ -1,10 +1,28 @@
+/* ─────────────────────────────────────────────────────────────
+ * Quimbara — global.css
+ * Final identity tokens.
+ *   · Type: Big Shoulders Display (display) × Newsreader (serif) ×
+ *           Manrope (body) × JetBrains Mono (mono)
+ *   · Color: Editorial Mono — Ink + Paper + Acid yellow accent
+ *   · Replaces: Anton, Space Grotesk, Playfair, #FFD600, #E53935
+ * ───────────────────────────────────────────────────────────── */
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: 'Space Grotesk', system-ui, sans-serif;
-  --font-display: 'Anton', system-ui, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  /* TYPOGRAPHY */
+  --font-sans:    'Manrope', system-ui, sans-serif;
+  --font-display: 'Big Shoulders Display', 'Anton', system-ui, sans-serif;
+  --font-serif:   'Newsreader', Georgia, serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* COLOR — Editorial Mono */
+  --color-ink:      #0A0A0B;  /* texto, fondos oscuros */
+  --color-paper:    #F4F2EC;  /* fondos claros */
+  --color-acid:     #F2D928;  /* acento único — CTA, marca, hover */
+  --color-graphite: #3A3A3D;  /* texto secundario */
+  --color-bone:     #E2DDD0;  /* bordes, dividers */
 }
 
 @keyframes marquee {
@@ -19,75 +37,111 @@
 
 @layer base {
   body {
-    @apply antialiased bg-white text-[#111];
+    @apply antialiased bg-[var(--color-paper)] text-[var(--color-ink)];
     font-family: var(--font-sans);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply text-[#111] tracking-tight uppercase;
+    @apply text-[var(--color-ink)] tracking-tight uppercase;
     font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: -0.01em;
   }
 
   /* Prose headings inside articles should NOT be uppercase */
   .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
     text-transform: none;
+    letter-spacing: -0.005em;
   }
 
   .content-area a {
     @apply transition-colors duration-200;
   }
   .content-area a:hover {
-    @apply text-[#E53935];
+    color: var(--color-acid);
   }
 }
 
 @layer components {
-  /* Botón primario — fondo negro, hover rojo */
+  /* Botón primario — fondo tinta, hover ácido */
   .btn-primary {
-    @apply bg-[#111] text-white font-bold uppercase tracking-widest text-xs px-6 py-3 transition-colors duration-200 inline-block rounded-sm;
+    @apply bg-[var(--color-ink)] text-[var(--color-paper)] font-bold uppercase tracking-widest text-xs px-6 py-3 transition-colors duration-200 inline-block rounded-sm;
     font-family: var(--font-sans);
   }
   .btn-primary:hover {
-    @apply bg-[#E53935];
+    background: var(--color-acid);
+    color: var(--color-ink);
   }
 
   /* Botón fantasma — borde inferior */
   .btn-ghost {
-    @apply text-[#111] font-bold uppercase tracking-[0.15em] text-xs border-b border-[#111] pb-1 transition-colors duration-200 inline-flex items-center gap-2;
+    @apply text-[var(--color-ink)] font-bold uppercase tracking-[0.15em] text-xs pb-1 transition-colors duration-200 inline-flex items-center gap-2;
     font-family: var(--font-sans);
+    border-bottom: 1px solid var(--color-ink);
   }
   .btn-ghost:hover {
-    @apply text-[#E53935] border-[#E53935];
+    color: var(--color-acid);
+    border-color: var(--color-acid);
   }
 
   /* Input limpio — borde inferior */
   .input-field {
-    @apply bg-transparent border-b border-gray-300 text-[#111] px-0 py-3 outline-none transition-colors duration-200 w-full text-sm;
+    @apply bg-transparent text-[var(--color-ink)] px-0 py-3 outline-none transition-colors duration-200 w-full text-sm;
     font-family: var(--font-sans);
+    border-bottom: 1px solid rgb(0 0 0 / 0.15);
   }
   .input-field:focus {
-    @apply border-[#E53935];
+    border-color: var(--color-acid);
   }
 
-  /* Etiqueta de sección — texto rojo pequeño */
+  /* Etiqueta de sección — kicker mono */
   .section-label {
-    @apply text-[#E53935] text-xs font-bold uppercase tracking-[0.2em] block;
-    font-family: var(--font-sans);
-    letter-spacing: 0.2em;
+    color: var(--color-acid);
+    @apply text-xs font-bold uppercase tracking-[0.22em] block;
+    font-family: var(--font-mono);
   }
 
   /* Tag de categoría */
   .cat-tag {
     @apply inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm;
-    font-family: var(--font-sans);
+    font-family: var(--font-mono);
   }
 
   /* Pull quote en artículos */
   .prose blockquote {
-    @apply border-l-4 border-[#E53935] pl-6 my-10 not-italic;
+    border-left: 4px solid var(--color-acid);
+    @apply pl-6 my-10 not-italic;
   }
   .prose blockquote p {
-    font-family: var(--font-display);
-    @apply text-3xl md:text-4xl text-[#111] leading-tight not-italic;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 600;
+    @apply text-3xl md:text-4xl text-[var(--color-ink)] leading-tight not-italic;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────
+ * Wordmark · Onda (wave-distorted Quimbara)
+ * ───────────────────────────────────────────────────────────── */
+.qb-wordmark {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  display: inline-flex;
+  align-items: baseline;
+  color: currentColor;
+}
+.qb-wordmark > span {
+  display: inline-block;
+  transform: translateY(var(--dy, 0));
+}
+.qb-wordmark > span:nth-child(1) { --dy: 0%;   }
+.qb-wordmark > span:nth-child(2) { --dy: -9%;  }
+.qb-wordmark > span:nth-child(3) { --dy: -12%; }
+.qb-wordmark > span:nth-child(4) { --dy: -7%;  }
+.qb-wordmark > span:nth-child(5) { --dy: 4%;   }
+.qb-wordmark > span:nth-child(6) { --dy: 11%;  }
+.qb-wordmark > span:nth-child(7) { --dy: 9%;   }
+.qb-wordmark > span:nth-child(8) { --dy: 0%;   }
