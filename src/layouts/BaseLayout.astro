@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import NextEventWidget from '../components/NextEventWidget.astro';
+import SpiralCursor from '../components/SpiralCursor.astro';
 
 interface Props {
   title?: string;
@@ -97,6 +98,7 @@ const siteTitle = (title === "Quimbara" || /[—\-]\s*Quimbara\s*$/i.test(title)
     </main>
     <NextEventWidget />
     <Footer />
+    <SpiralCursor />
 
     <!-- ── Wave wordmark animator ──────────────────────────────────
          Da vida a TODOS los .qb-wordmark de la página:

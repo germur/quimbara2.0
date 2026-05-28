@@ -1,0 +1,70 @@
+---
+/**
+ * TaleOfTheTape.astro — section divider con metadata estilo card oficial UFC.
+ *
+ * Reemplaza los <hr> o margenes en blanco entre secciones del homepage.
+ * Renderiza un bloque mono con kicker en brackets + 2-4 stats + linea ácida.
+ *
+ * Uso:
+ *   <TaleOfTheTape
+ *     label="Análisis"
+ *     stats={[
+ *       { k: 'Artículos', v: '47' },
+ *       { k: 'Últ. publicación', v: 'hace 2 días' },
+ *       { k: 'Autores', v: '3' },
+ *     ]}
+ *   />
+ */
+
+interface Stat {
+  k: string;  // label
+  v: string;  // value
+}
+
+interface Props {
+  label: string;
+  stats?: Stat[];
+  variant?: 'light' | 'dark';
+}
+
+const { label, stats = [], variant = 'light' } = Astro.props;
+const isDark = variant === 'dark';
+---
+
+<div class={`tale-of-tape ${isDark ? 'tot-dark' : 'tot-light'} my-12 md:my-16`}
+     style={`max-width:1400px; margin-left:auto; margin-right:auto; padding: 0 clamp(16px,4vw,60px); ${isDark ? 'background:#0A0A0B; padding-top:24px; padding-bottom:24px;' : ''}`}>
+
+  <div class="flex items-center gap-4 mb-3">
+    <span class="tot-kicker text-[11px] font-bold uppercase tracking-[0.22em]"
+          style="font-family:var(--font-mono);">
+      [ {label} ]
+    </span>
+    <div class="tot-line flex-1 h-px"></div>
+  </div>
+
+  {stats.length > 0 && (
+    <div class="grid gap-x-8 gap-y-2"
+         style={`grid-template-columns: repeat(${Math.min(stats.length, 4)}, minmax(0,1fr));`}>
+      {stats.map((s) => (
+        <div class="flex flex-col">
+          <span class="tot-k text-[9px] font-bold uppercase tracking-[0.22em] mb-0.5"
+                style="font-family:var(--font-mono);">{s.k}</span>
+          <span class="tot-v text-sm md:text-base font-bold tabular-nums leading-none"
+                style="font-family:var(--font-display);">{s.v}</span>
+        </div>
+      ))}
+    </div>
+  )}
+</div>
+
+<style>
+  .tot-light .tot-kicker { color: #0A0A0B; }
+  .tot-light .tot-line   { background: linear-gradient(to right, #0A0A0B 0%, #0A0A0B 24px, #E2DDD0 24px, #E2DDD0 100%); }
+  .tot-light .tot-k      { color: #3A3A3D; }
+  .tot-light .tot-v      { color: #0A0A0B; }
+
+  .tot-dark .tot-kicker  { color: #F2D928; }
+  .tot-dark .tot-line    { background: linear-gradient(to right, #F2D928 0%, #F2D928 24px, rgba(255,255,255,0.12) 24px, rgba(255,255,255,0.12) 100%); }
+  .tot-dark .tot-k       { color: #6b6b6b; }
+  .tot-dark .tot-v       { color: #F4F2EC; }
+</style>

@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import Ticker from '../components/Ticker.astro';
 import OctagonScene from '../components/OctagonScene.astro';
+import TaleOfTheTape from '../components/TaleOfTheTape.astro';
 import EVENTS from '../data/events.json';
 import VIDEOS from '../data/videos.json';
 import FIGHTERS from '../data/fighters.json';
@@ -16,6 +17,22 @@ const heroArticles = allPosts.slice(0, 3);
 const latestArticles = allPosts.slice(3);
 
 const PX = "clamp(16px,4vw,60px)";
+
+// ── Stats para los dividers Tale of the Tape ──
+const totalChamps = FIGHTERS.filter(f => f.rank === 'C').length;
+const totalRanked = FIGHTERS.filter(f => f.rank === 'C' || (!isNaN(Number(f.rank)) && Number(f.rank) <= 15)).length;
+const totalFighters = FIGHTERS.length;
+
+const latestPostDate = allPosts[0]?.data.pubDate;
+const daysSinceLatest = latestPostDate
+  ? Math.max(0, Math.floor((Date.now() - latestPostDate.getTime()) / 86400000))
+  : 0;
+const lastPostLabel = daysSinceLatest === 0 ? 'Hoy' : daysSinceLatest === 1 ? 'Ayer' : `hace ${daysSinceLatest} días`;
+
+const categoriesSet = new Set(allPosts.map(p => p.data.category));
+
+const nextEvent = EVENTS[0];
+const nextEventLabel = nextEvent?.dateLabel ?? '—';
 
 const siteUrl = 'https://quimbara.org';
 
@@ -92,6 +109,15 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
     </div>
   </section>
 
+  <TaleOfTheTape
+    label="Calendario UFC"
+    stats={[
+      { k: 'Próximos eventos', v: String(EVENTS.length) },
+      { k: 'Siguiente', v: nextEventLabel },
+      { k: 'Cobertura', v: 'Live + Análisis' },
+    ]}
+  />
+
   <!-- ── Próximos Eventos ── -->
   <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX};`}>
     <div class="flex items-baseline justify-between mb-6">
@@ -135,6 +161,15 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
     </div>
   </section>
 
+  <TaleOfTheTape
+    label="Editorial"
+    stats={[
+      { k: 'Artículos publicados', v: String(allPosts.length) },
+      { k: 'Categorías', v: String(categoriesSet.size) },
+      { k: 'Última publicación', v: lastPostLabel },
+    ]}
+  />
+
   <!-- ── Últimos Artículos ── -->
   {latestArticles.length > 0 && (
     <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 50px;`}>
@@ -172,6 +207,16 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
       ))}
     </div>
   </section>
+
+  <TaleOfTheTape
+    label="Roster UFC"
+    stats={[
+      { k: 'Peleadores', v: String(totalFighters) },
+      { k: 'Rankeados', v: String(totalRanked) },
+      { k: 'Campeones', v: String(totalChamps) },
+      { k: 'Divisiones', v: '12' },
+    ]}
+  />
 
   <!-- ── Fighter Rankings ── -->
   <section style={`max-width:1400px; margin:0 auto; padding: 10px ${PX} 50px;`}>
