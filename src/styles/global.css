@@ -136,7 +136,11 @@
 .qb-wordmark > span {
   display: inline-block;
   transform: translateY(var(--dy, 0));
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
+
+/* Static fallback — used when JS hasn't initialized yet OR reduced motion is requested */
 .qb-wordmark > span:nth-child(1) { --dy: 0%;   }
 .qb-wordmark > span:nth-child(2) { --dy: -9%;  }
 .qb-wordmark > span:nth-child(3) { --dy: -12%; }
@@ -145,3 +149,7 @@
 .qb-wordmark > span:nth-child(6) { --dy: 11%;  }
 .qb-wordmark > span:nth-child(7) { --dy: 9%;   }
 .qb-wordmark > span:nth-child(8) { --dy: 0%;   }
+
+@media (prefers-reduced-motion: reduce) {
+  .qb-wordmark > span { transition: none !important; }
+}

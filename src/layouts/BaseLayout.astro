@@ -97,5 +97,95 @@ const siteTitle = (title === "Quimbara" || /[—\-]\s*Quimbara\s*$/i.test(title)
     </main>
     <NextEventWidget />
     <Footer />
+
+    <!-- ── Wave wordmark animator ──────────────────────────────────
+         Da vida a TODOS los .qb-wordmark de la página:
+           · Sine wave continuo (la palabra "respira")
+           · Boost de amplitud con scroll velocity
+           · Boost local cuando el cursor se acerca a la wordmark
+           · Respeta prefers-reduced-motion (no anima, deja estático)
+    ───────────────────────────────────────────────────────────── -->
+    <script is:inline>
+      (() => {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) return; // keep static CSS offsets
+
+        const marks = Array.from(document.querySelectorAll('.qb-wordmark'));
+        if (!marks.length) return;
+
+        // Per-mark state cache
+        const cache = marks.map(m => {
+          const spans = Array.from(m.querySelectorAll(':scope > span'));
+          return { el: m, spans, rect: m.getBoundingClientRect() };
+        });
+
+        // Ambient state
+        let cursorX = -9999, cursorY = -9999;
+        let scrollVel = 0;
+        let lastScrollY = window.scrollY;
+        let lastScrollT = performance.now();
+
+        window.addEventListener('mousemove', (e) => {
+          cursorX = e.clientX;
+          cursorY = e.clientY;
+        }, { passive: true });
+
+        window.addEventListener('scroll', () => {
+          const now = performance.now();
+          const dy = window.scrollY - lastScrollY;
+          const dt = Math.max(1, now - lastScrollT);
+          // Smooth: lerp toward target velocity
+          scrollVel = scrollVel * 0.7 + Math.min(3, Math.abs(dy / dt) * 12) * 0.3;
+          lastScrollY = window.scrollY;
+          lastScrollT = now;
+        }, { passive: true });
+
+        window.addEventListener('resize', () => {
+          cache.forEach(c => { c.rect = c.el.getBoundingClientRect(); });
+        });
+
+        // Recompute rects on scroll (rare, throttled via rAF anyway)
+        let rectTick = 0;
+        const refreshRects = () => {
+          if (++rectTick % 30 === 0) cache.forEach(c => { c.rect = c.el.getBoundingClientRect(); });
+        };
+
+        const start = performance.now();
+        const tick = () => {
+          const t = (performance.now() - start) / 1000;
+
+          // Continuous decay of scroll velocity so it relaxes when you stop
+          scrollVel *= 0.92;
+
+          cache.forEach(({ spans, rect }) => {
+            // Distance from cursor to wordmark center, normalized
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = cursorX - cx;
+            const dy = cursorY - cy;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            // Proximity factor: 1 when cursor is on the mark, 0 when far (~300px)
+            const proximity = Math.max(0, 1 - dist / 300);
+
+            // Base amplitude (%) + boosts
+            const amp = 8 + scrollVel * 4 + proximity * 6;
+            // Wave speed
+            const speed = 1.4 + proximity * 1.2;
+
+            spans.forEach((s, i) => {
+              // Phase per letter — gives the running-wave look
+              const phase = i * 0.55;
+              const dyPct = Math.sin(t * speed + phase) * amp;
+              s.style.setProperty('--dy', dyPct.toFixed(2) + '%');
+            });
+          });
+
+          refreshRects();
+          requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+      })();
+    </script>
   </body>
 </html>
