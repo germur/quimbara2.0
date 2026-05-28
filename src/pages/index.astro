@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import Ticker from '../components/Ticker.astro';
+import OctagonScene from '../components/OctagonScene.astro';
 import EVENTS from '../data/events.json';
 import VIDEOS from '../data/videos.json';
 import FIGHTERS from '../data/fighters.json';
@@ -55,9 +56,10 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
   <!-- ── Ticker ── -->
   <Ticker />
 
-  <!-- ── Hero editorial: H1 visible estilo /peleadores/ ── -->
-  <div style={`background:#0A0A0B; padding: 60px ${PX} 50px;`}>
-    <div style="max-width:1400px; margin:0 auto;">
+  <!-- ── Hero editorial con octágono 3D ── -->
+  <div class="relative overflow-hidden" style={`background:#0A0A0B; padding: 60px ${PX} 50px; min-height: 380px;`}>
+    <OctagonScene />
+    <div class="relative z-10" style="max-width:1400px; margin:0 auto;">
       <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm bg-[#F2D928] text-[#0A0A0B] mb-5"
             style="font-family:var(--font-mono);">MMA · UFC · Español</span>
       <h1 class="qb-wordmark" style="font-size:clamp(2.8rem,9vw,6.5rem);color:#F4F2EC;margin:0;">

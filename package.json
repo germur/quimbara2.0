@@ -25,10 +25,12 @@
     "@astrojs/sitemap": "^3.7.1",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
+    "@types/three": "^0.184.1",
     "astro": "^6.0.8",
     "csv-parse": "^6.2.1",
     "pdf-parse": "^2.4.5",
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.2.2",
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.88.0",
