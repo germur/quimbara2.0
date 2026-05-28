@@ -1,85 +1,104 @@
 ---
 /**
- * SpiralCursor.astro — custom cursor con el mark Spiral de Quimbara.
+ * SpiralCursor.astro — Round Clock cursor (MMA fight timer).
  *
- * Comportamiento:
- *  · Cursor nativo → escondido en desktop, intacto en touch/mobile.
- *  · Ring (outline) sigue el cursor con lerp (sensación inertial).
- *  · Dot (centro) sigue 1:1.
- *  · Hover sobre <a>, <button>, [role=button], .qb-wordmark, [data-cursor]:
- *      ring crece + acid yellow + rotación más rápida.
- *  · Click: ring se contrae brevemente (feedback).
- *  · Respeta prefers-reduced-motion (no se monta).
- *  · Solo se monta si pointer:fine (no en touch).
+ * Inspirado en el reloj del referí dentro de la jaula UFC:
+ *  · Estado normal: pill mono "5:00" (tiempo completo del round)
+ *  · Estado hover:  pill acid "0:30" (los últimos 30 segundos — "championship rounds")
+ *  · Click: contracción breve + flash
+ *
+ * Sigue el cursor con lerp (sensación inertial). Solo desktop.
+ * Respeta prefers-reduced-motion y pointer:coarse (touch).
  */
 ---
 
-<div id="spiral-cursor" aria-hidden="true" class="hidden">
-  <!-- Ring: el Spiral rotando -->
-  <svg id="sc-ring" width="40" height="40" viewBox="0 0 220 220">
-    <g transform="translate(110 110)" fill="currentColor">
-      <path d="M 0 -85 A 85 85 0 1 1 -60 -60 L -42 -42 A 60 60 0 1 0 0 -60 Z"/>
-      <path d="M 0 -85 A 85 85 0 1 1 -60 -60 L -42 -42 A 60 60 0 1 0 0 -60 Z" transform="rotate(120) scale(0.72)"/>
-      <circle r="14"/>
-    </g>
-  </svg>
-  <!-- Dot: centro preciso -->
-  <div id="sc-dot"></div>
+<div id="rc-cursor" aria-hidden="true">
+  <div id="rc-pill">
+    <span id="rc-time">5:00</span>
+  </div>
+  <div id="rc-dot"></div>
 </div>
 
 <style is:global>
-  /* Hide native cursor on desktop only — activated by JS when supported */
-  html.spiral-cursor-on,
-  html.spiral-cursor-on body,
-  html.spiral-cursor-on * { cursor: none !important; }
+  /* Hide native cursor when our custom one is active */
+  html.rc-on,
+  html.rc-on body,
+  html.rc-on a,
+  html.rc-on button,
+  html.rc-on input,
+  html.rc-on label { cursor: none !important; }
 
-  #spiral-cursor {
+  #rc-cursor {
     position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
     z-index: 9999;
-    mix-blend-mode: difference;
+    display: none;
   }
-  #spiral-cursor.visible { display: block; }
+  #rc-cursor.visible { display: block; }
 
-  #sc-ring {
+  #rc-pill {
     position: absolute;
     top: 0;
     left: 0;
+    min-width: 52px;
+    padding: 5px 9px 4px;
+    background: #0A0A0B;
     color: #F4F2EC;
-    opacity: 0.85;
-    transform: translate3d(-50%, -50%, 0) rotate(0deg) scale(0.55);
-    transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
-                opacity 0.2s ease,
-                color 0.2s ease;
+    border: 1px solid rgba(244,242,236,0.18);
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-align: center;
+    line-height: 1;
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    transition: background 0.18s ease, color 0.18s ease,
+                border-color 0.18s ease, transform 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.18s ease;
     will-change: transform;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
   }
-  #sc-dot {
+  #rc-dot {
     position: absolute;
     top: 0;
     left: 0;
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: #F2D928;
     transform: translate3d(-50%, -50%, 0);
     will-change: transform;
+    box-shadow: 0 0 6px rgba(242,217,40,0.7);
   }
 
-  /* Hover state — set by JS */
-  #spiral-cursor.hover #sc-ring {
-    color: #F2D928;
-    opacity: 1;
-    transform: translate3d(-50%, -50%, 0) rotate(var(--sc-rot, 0deg)) scale(1.05);
+  /* Hover state — "championship round" colors */
+  #rc-cursor.hover #rc-pill {
+    background: #F2D928;
+    color: #0A0A0B;
+    border-color: #F2D928;
+    transform: translate3d(-50%, -50%, 0) scale(1.08);
+    box-shadow: 0 4px 16px rgba(242,217,40,0.35);
   }
-  #spiral-cursor.hover #sc-dot {
-    background: #F4F2EC;
+  #rc-cursor.hover #rc-dot {
+    background: #0A0A0B;
+    box-shadow: 0 0 6px rgba(0,0,0,0.4);
   }
 
   /* Click feedback */
-  #spiral-cursor.click #sc-ring {
-    transform: translate3d(-50%, -50%, 0) rotate(var(--sc-rot, 0deg)) scale(0.4);
+  #rc-cursor.click #rc-pill {
+    transform: translate3d(-50%, -50%, 0) scale(0.85);
+  }
+
+  /* Pulsing during championship round (last 30s) */
+  @keyframes rc-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.55; }
+  }
+  #rc-cursor.hover #rc-time {
+    animation: rc-pulse 0.6s ease-in-out infinite;
   }
 </style>
 
@@ -89,49 +108,46 @@
     const fine   = window.matchMedia('(pointer: fine)').matches;
     if (reduce || !fine) return;
 
-    const root = document.getElementById('spiral-cursor');
-    const ring = document.getElementById('sc-ring');
-    const dot  = document.getElementById('sc-dot');
-    if (!root || !ring || !dot) return;
+    const root = document.getElementById('rc-cursor');
+    const pill = document.getElementById('rc-pill');
+    const dot  = document.getElementById('rc-dot');
+    const time = document.getElementById('rc-time');
+    if (!root || !pill || !dot || !time) return;
 
-    document.documentElement.classList.add('spiral-cursor-on');
+    document.documentElement.classList.add('rc-on');
     root.classList.add('visible');
 
     // Position state
     let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    let rx = mx, ry = my; // ring lerps
+    let px = mx, py = my; // pill lerps
 
-    let rot = 0;
-    let rotSpeed = 0.4; // base degrees per frame
     let hovering = false;
 
-    const onMove = (e) => {
-      mx = e.clientX;
-      my = e.clientY;
-    };
+    const onMove = (e) => { mx = e.clientX; my = e.clientY; };
     const onDown = () => root.classList.add('click');
     const onUp   = () => root.classList.remove('click');
 
-    // Selectors that trigger hover state
-    const HOVER_SEL = 'a, button, [role="button"], [data-cursor], input[type="submit"], .qb-wordmark, label[for]';
+    // What triggers "championship round" mode
+    const HOVER_SEL = 'a, button, [role="button"], [data-cursor], input[type="submit"], .qb-wordmark, label[for], summary';
 
     const onOver = (e) => {
       const target = e.target;
       if (target && target.closest && target.closest(HOVER_SEL)) {
-        hovering = true;
-        root.classList.add('hover');
-        rotSpeed = 2.4;
+        if (!hovering) {
+          hovering = true;
+          root.classList.add('hover');
+          time.textContent = '0:30'; // last 30 seconds — fight is about to end
+        }
       }
     };
     const onOut = (e) => {
       const target = e.target;
       if (target && target.closest && target.closest(HOVER_SEL)) {
-        // Check if leaving to a non-hoverable
         const to = e.relatedTarget;
         if (!to || !to.closest || !to.closest(HOVER_SEL)) {
           hovering = false;
           root.classList.remove('hover');
-          rotSpeed = 0.4;
+          time.textContent = '5:00'; // full round
         }
       }
     };
@@ -141,25 +157,21 @@
     window.addEventListener('mouseup',     onUp,    { passive: true });
     document.addEventListener('mouseover', onOver,  { passive: true });
     document.addEventListener('mouseout',  onOut,   { passive: true });
-    window.addEventListener('mouseleave', () => {
-      root.style.opacity = '0';
-    });
-    window.addEventListener('mouseenter', () => {
-      root.style.opacity = '1';
-    });
+
+    document.addEventListener('mouseleave', () => { root.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { root.style.opacity = '1'; });
 
     const tick = () => {
       // Dot follows cursor 1:1
       dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate3d(-50%, -50%, 0)`;
 
-      // Ring lerps for inertial feel
-      rx += (mx - rx) * 0.22;
-      ry += (my - ry) * 0.22;
-
-      rot = (rot + rotSpeed) % 360;
-      ring.style.setProperty('--sc-rot', rot.toFixed(1) + 'deg');
-      ring.style.transform =
-        `translate3d(${rx}px, ${ry}px, 0) translate3d(-50%, -50%, 0) rotate(${rot}deg) scale(${hovering ? 1.05 : 0.55})`;
+      // Pill lerps for inertial feel + offset down-right so it doesn't cover what you're pointing at
+      px += (mx - px) * 0.20;
+      py += (my - py) * 0.20;
+      const offX = 16, offY = 16;
+      // Apply translate only via inline; the scale & extra translate come from CSS class transforms
+      pill.style.left = `${px + offX}px`;
+      pill.style.top  = `${py + offY}px`;
 
       requestAnimationFrame(tick);
     };
