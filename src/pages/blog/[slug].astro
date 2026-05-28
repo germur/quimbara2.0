@@ -8,6 +8,7 @@ import ShareAndComment from '../../components/ShareAndComment.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import RelatedEntities from '../../components/RelatedEntities.astro';
 import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import RoundProgress from '../../components/RoundProgress.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -80,10 +81,8 @@ const PX = "clamp(16px,4vw,60px)";
   publishDate={pubDate}
   schema={combinedSchema}
 >
-  <!-- Barra de progreso de lectura -->
-  <div slot="progress-bar" id="reading-progress"
-       class="fixed top-0 left-0 z-[70] w-0"
-       style="height:3px; background:#F2D928; transition:none;"></div>
+  <!-- Round counter — scroll progress estilo fight card MMA -->
+  <RoundProgress slot="progress-bar" rounds={3} />
 
   <!-- Hero: imagen full-width con gradiente de color de categoría -->
   <div class="relative w-full overflow-hidden" style="aspect-ratio: 16/9; max-height: 80vh; min-height: 280px;">
@@ -195,13 +194,3 @@ const PX = "clamp(16px,4vw,60px)";
   </div>
 </BaseLayout>
 
-<script>
-  const bar = document.getElementById('reading-progress') as HTMLElement | null;
-  if (bar) {
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.width = height > 0 ? `${(scrollTop / height) * 100}%` : '0%';
-    }, { passive: true });
-  }
-</script>

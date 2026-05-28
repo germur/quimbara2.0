@@ -1,0 +1,137 @@
+---
+/**
+ * RoundProgress.astro — scroll progress bar styled as MMA fight rounds.
+ *
+ * Replaces the standard 1px progress line with a 3-round structure inspired
+ * by an MMA fight scorecard. As you scroll the page, each round fills from
+ * 0% → 100%. The active round is highlighted in Acid yellow (#F2D928); the
+ * completed rounds turn Paper; the upcoming rounds stay Graphite.
+ *
+ * Drop as `<RoundProgress />` on long-form pages (blog posts, fighter
+ * profiles, event pages). Sits fixed at the very top of the viewport,
+ * above the main header — uses `--rp-h` to push the header down.
+ *
+ * Props:
+ *   rounds: number of rounds (default 3, set 5 for "main events")
+ *   mainEvent: if true, uses 5 rounds and a "MAIN EVENT" badge
+ */
+
+interface Props {
+  rounds?: number;
+  mainEvent?: boolean;
+}
+
+const { rounds: r, mainEvent = false } = Astro.props;
+const rounds = r ?? (mainEvent ? 5 : 3);
+const segments = Array.from({ length: rounds }, (_, i) => i + 1);
+---
+
+<div id="round-progress"
+     class="fixed top-0 left-0 right-0 z-[70] select-none pointer-events-none"
+     style="background:#0A0A0B; border-bottom:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:1400px; margin:0 auto; padding: 6px clamp(16px,4vw,60px) 7px;">
+
+    <!-- Fight meta strip -->
+    <div class="flex items-center justify-between mb-1.5" style="font-family:var(--font-mono);">
+      <div class="flex items-center gap-2 text-[9px] tracking-[0.22em] uppercase text-gray-500">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#F2D928] animate-pulse"></span>
+        <span>{mainEvent ? 'Main Event' : 'Fight Card'}</span>
+        <span class="text-gray-700">·</span>
+        <span>{rounds} rounds × 5:00</span>
+      </div>
+      <div class="text-[9px] tracking-[0.22em] uppercase text-gray-500">
+        <span id="rp-time" class="text-[#F2D928]">0:00</span>
+        <span class="text-gray-700">/</span>
+        <span>{rounds * 5}:00</span>
+      </div>
+    </div>
+
+    <!-- Rounds grid -->
+    <div class="grid gap-1.5" style={`grid-template-columns: repeat(${rounds}, 1fr);`}>
+      {segments.map(n => (
+        <div class="round-segment" data-round={n}>
+          <div class="flex items-center justify-between mb-1">
+            <span class="round-label text-[9px] font-bold tracking-[0.22em] uppercase"
+                  style="font-family:var(--font-mono); color:#3A3A3D;">R{n}</span>
+            <span class="round-pct text-[8px] tabular-nums"
+                  style="font-family:var(--font-mono); color:#3A3A3D;">0%</span>
+          </div>
+          <div class="round-track h-[2px] w-full overflow-hidden" style="background:rgba(255,255,255,0.06);">
+            <div class="round-fill h-full transition-none" style="width:0%; background:#F2D928;"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* Push the site header down by the height of the round counter */
+  :root { --rp-h: 44px; }
+  #site-header { top: var(--rp-h) !important; }
+  body > main { padding-top: calc(4rem + var(--rp-h)) !important; }
+  @media (max-width: 640px) {
+    :root { --rp-h: 40px; }
+  }
+</style>
+
+<script define:vars={{ rounds }}>
+  const root  = document.getElementById('round-progress');
+  if (root) {
+    const segs    = Array.from(root.querySelectorAll('.round-segment'));
+    const timeEl  = document.getElementById('rp-time');
+    const totalSec = rounds * 5 * 60; // total fight seconds (5 min × N rounds)
+
+    const fmt = s => {
+      const m = Math.floor(s / 60);
+      const ss = Math.floor(s % 60).toString().padStart(2, '0');
+      return `${m}:${ss}`;
+    };
+
+    let raf = 0;
+    const update = () => {
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct  = docH > 0 ? Math.min(1, Math.max(0, window.scrollY / docH)) : 0;
+
+      // Distribute scroll progress across N rounds
+      segs.forEach((seg, i) => {
+        const segStart = i / rounds;
+        const segEnd   = (i + 1) / rounds;
+        const segPct   = Math.min(1, Math.max(0, (pct - segStart) / (segEnd - segStart)));
+
+        const fill  = seg.querySelector('.round-fill');
+        const label = seg.querySelector('.round-label');
+        const pctEl = seg.querySelector('.round-pct');
+
+        fill.style.width  = `${segPct * 100}%`;
+        pctEl.textContent = `${Math.round(segPct * 100)}%`;
+
+        if (segPct >= 1) {
+          // Completed round
+          label.style.color = '#F4F2EC';
+          pctEl.style.color = '#F4F2EC';
+          fill.style.opacity = '0.45';
+        } else if (segPct > 0) {
+          // Active round
+          label.style.color = '#F2D928';
+          pctEl.style.color = '#F2D928';
+          fill.style.opacity = '1';
+        } else {
+          // Future round
+          label.style.color = '#3A3A3D';
+          pctEl.style.color = '#3A3A3D';
+          fill.style.opacity = '1';
+        }
+      });
+
+      if (timeEl) timeEl.textContent = fmt(pct * totalSec);
+    };
+
+    window.addEventListener('scroll', () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+</script>

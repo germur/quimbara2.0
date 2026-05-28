@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import RoundProgress from '../../components/RoundProgress.astro';
 import FIGHTERS from '../../data/fighters.json';
 import { getCollection } from 'astro:content';
 
@@ -158,6 +159,8 @@ const metaDescription = f.metaDescription
   ogImage={f.img || '/default-og.jpg'}
   schema={fighterSchema}
 >
+  <!-- Round counter — 5 rounds para campeones (main event), 3 para resto -->
+  <RoundProgress slot="progress-bar" mainEvent={f.rank === 'C'} />
 
   <!-- ── Hero ── -->
   <div class="relative overflow-hidden" style="background:#111; min-height: 380px;">
