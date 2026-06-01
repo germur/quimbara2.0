@@ -274,7 +274,7 @@
     "f1img": "/fighters/song-yadong.png",
     "f2": "Deiveson Figueiredo",
     "f2img": "/fighters/deiveson-figueiredo.png",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Song Yadong",
@@ -806,6 +806,88 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2026-08-01",
+    "name": "UFC Fight Night",
+    "main": "Uroš Medić vs. Daniel Rodriguez",
+    "loc": "Belgrade, Serbia",
+    "date": "2026-08-01",
+    "dateLabel": "1 ago 2026",
+    "f1": "Uroš Medić",
+    "f1img": "/fighters/uros-medic.png",
+    "f2": "Daniel Rodriguez",
+    "f2img": "/fighters/daniel-rodriguez.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Uroš Medić",
+        "f1Id": "uros-medic",
+        "f2": "Daniel Rodriguez",
+        "f2Id": "daniel-rodriguez",
+        "weightClass": "Welterweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Ante Delija",
+        "f1Id": "ante-delija",
+        "f2": "Johnny Walker",
+        "f2Id": "johnny-walker",
+        "weightClass": "Heavyweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Aleksandar Rakić",
+        "f1Id": "aleksandar-rakic",
+        "f2": "Marcin Tybura",
+        "f2Id": "marcin-tybura",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Duško Todorović",
+        "f1Id": "dusko-todorovic",
+        "f2": "Robert Valentin",
+        "f2Id": "robert-valentin",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Vlasto Čepo",
+        "f1Id": "vlasto-cepo",
+        "f2": "Gilbert Urbina",
+        "f2Id": "gilbert-urbina",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Jovan Leka",
+        "f1Id": "jovan-leka",
+        "f2": "Max Gimenis",
+        "f2Id": "max-gimenis",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 5
+      }
+    ]
+  },
+  {
+    "slug": "ufc-fight-night-284-2026-08-08",
+    "name": "UFC Fight Night 284",
+    "main": "TBD",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-08-08",
+    "dateLabel": "8 ago 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
     "status": "upcoming"
   },
   {
@@ -837,6 +919,19 @@
   {
     "slug": "ufc-fight-night-284-2026-08-29",
     "name": "UFC Fight Night 284",
+    "main": "TBD",
+    "loc": "Shanghai, China",
+    "date": "2026-08-29",
+    "dateLabel": "29 ago 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-285-2026-08-29",
+    "name": "UFC Fight Night 285",
     "main": "TBD",
     "loc": "Shanghai, China",
     "date": "2026-08-29",

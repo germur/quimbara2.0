@@ -1,130 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-05-30",
-    "name": "UFC Fight Night",
-    "main": "Song Yadong vs. Deiveson Figueiredo",
-    "loc": "Macau SAR, China",
-    "date": "2026-05-30",
-    "dateLabel": "30 may 2026",
-    "f1": "Song Yadong",
-    "f1img": "/fighters/song-yadong.png",
-    "f2": "Deiveson Figueiredo",
-    "f2img": "/fighters/deiveson-figueiredo.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Song Yadong",
-        "f1Id": "",
-        "f2": "Deiveson Figueiredo",
-        "f2Id": "",
-        "weightClass": "Bantamweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Zhang Mingyang",
-        "f1Id": "",
-        "f2": "Alonzo Menifield",
-        "f2Id": "",
-        "weightClass": "Light Heavyweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      },
-      {
-        "f1": "Sergei Pavlovich",
-        "f1Id": "",
-        "f2": "Tallison Teixeira",
-        "f2Id": "",
-        "weightClass": "Heavyweight",
-        "bout": "maincard",
-        "order": 2
-      },
-      {
-        "f1": "Kai Asakura",
-        "f1Id": "",
-        "f2": "Cameron Smotherman",
-        "f2Id": "",
-        "weightClass": "Bantamweight",
-        "bout": "maincard",
-        "order": 3
-      },
-      {
-        "f1": "Zhu Kangjie",
-        "f1Id": "",
-        "f2": "Ramon Taveras",
-        "f2Id": "",
-        "weightClass": "Featherweight",
-        "bout": "maincard",
-        "order": 4
-      },
-      {
-        "f1": "Alex Perez",
-        "f1Id": "",
-        "f2": "Su Mudaerji",
-        "f2Id": "",
-        "weightClass": "Flyweight",
-        "bout": "maincard",
-        "order": 5
-      },
-      {
-        "f1": "Muslim Salikhov",
-        "f1Id": "",
-        "f2": "Jake Matthews",
-        "f2Id": "",
-        "weightClass": "Welterweight",
-        "bout": "prelim",
-        "order": 6
-      },
-      {
-        "f1": "Lee Yi-sak",
-        "f1Id": "",
-        "f2": "Luis Felipe Dias",
-        "f2Id": "",
-        "weightClass": "Middleweight",
-        "bout": "prelim",
-        "order": 7
-      },
-      {
-        "f1": "Aori Qileng",
-        "f1Id": "",
-        "f2": "Cody Haddon",
-        "f2Id": "",
-        "weightClass": "Bantamweight",
-        "bout": "prelim",
-        "order": 8
-      },
-      {
-        "f1": "Rei Tsuruya",
-        "f1Id": "",
-        "f2": "Jesús Santos Aguilar",
-        "f2Id": "",
-        "weightClass": "Flyweight",
-        "bout": "prelim",
-        "order": 9
-      },
-      {
-        "f1": "Angela Hill",
-        "f1Id": "",
-        "f2": "Xiong Jingnan",
-        "f2Id": "",
-        "weightClass": "Women's Strawweight",
-        "bout": "prelim",
-        "order": 10
-      },
-      {
-        "f1": "Loma Lookboonmee",
-        "f1Id": "",
-        "f2": "Jaqueline Amorim",
-        "f2Id": "",
-        "weightClass": "Women's Strawweight",
-        "bout": "prelim",
-        "order": 11
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-06-06",
     "name": "UFC Fight Night",
     "main": "Belal Muhammad vs. Gabriel Bonfim",
@@ -237,8 +112,8 @@
         "order": 10
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-freedom-250",
@@ -294,6 +169,77 @@
         "f2": "TBD",
         "weightClass": "Featherweight",
         "bout": "Peso Pluma Bout",
+        "order": 5
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-06-20",
+    "name": "UFC Fight Night",
+    "main": "Manel Kape vs. Kyoji Horiguchi",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-06-20",
+    "dateLabel": "20 jun 2026",
+    "f1": "Manel Kape",
+    "f1img": "/fighters/manel-kape.png",
+    "f2": "Kyoji Horiguchi",
+    "f2img": "/fighters/kyoji-horiguchi.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Manel Kape",
+        "f1Id": "",
+        "f2": "Kyoji Horiguchi",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Ion Cuțelaba",
+        "f1Id": "",
+        "f2": "Navajo Stirling",
+        "f2Id": "",
+        "weightClass": "Light Heavyweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "André Lima",
+        "f1Id": "",
+        "f2": "Kevin Borjas",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Hyder Amil",
+        "f1Id": "",
+        "f2": "Christian Rodriguez",
+        "f2Id": "",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Beatriz Mesquita",
+        "f1Id": "",
+        "f2": "Melissa Mullins",
+        "f2Id": "",
+        "weightClass": "Women's Bantamweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Allan Nascimento",
+        "f1Id": "",
+        "f2": "Mitch Raposo",
+        "f2Id": "",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
         "order": 5
       }
     ],
