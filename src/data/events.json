@@ -1,121 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-06-06",
-    "name": "UFC Fight Night",
-    "main": "Belal Muhammad vs. Gabriel Bonfim",
-    "loc": "Las Vegas, Nevada, U.S.",
-    "date": "2026-06-06",
-    "dateLabel": "6 jun 2026",
-    "f1": "Belal Muhammad",
-    "f1img": "/fighters/belal-muhammad.png",
-    "f2": "Gabriel Bonfim",
-    "f2img": "/fighters/gabriel-bonfim.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Belal Muhammad",
-        "f1Id": "",
-        "f2": "Gabriel Bonfim",
-        "f2Id": "",
-        "weightClass": "Welterweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Brendan Allen",
-        "f1Id": "",
-        "f2": "Edmen Shahbazyan",
-        "f2Id": "",
-        "weightClass": "Middleweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      },
-      {
-        "f1": "Bryce Mitchell",
-        "f1Id": "",
-        "f2": "Victor Henry",
-        "f2Id": "",
-        "weightClass": "Bantamweight",
-        "bout": "maincard",
-        "order": 2
-      },
-      {
-        "f1": "Iwo Baraniewski",
-        "f1Id": "",
-        "f2": "Billy Elekana",
-        "f2Id": "",
-        "weightClass": "Light Heavyweight",
-        "bout": "maincard",
-        "order": 3
-      },
-      {
-        "f1": "Imanol Rodríguez",
-        "f1Id": "",
-        "f2": "Matt Schnell",
-        "f2Id": "",
-        "weightClass": "Flyweight",
-        "bout": "maincard",
-        "order": 4
-      },
-      {
-        "f1": "Bruno Gustavo da Silva",
-        "f1Id": "",
-        "f2": "Édgar Cháirez",
-        "f2Id": "",
-        "weightClass": "Flyweight",
-        "bout": "maincard",
-        "order": 5
-      },
-      {
-        "f1": "Jordan Leavitt",
-        "f1Id": "",
-        "f2": "Joanderson Brito",
-        "f2Id": "",
-        "weightClass": "Featherweight",
-        "bout": "maincard",
-        "order": 6
-      },
-      {
-        "f1": "Farès Ziam",
-        "f1Id": "",
-        "f2": "Tom Nolan",
-        "f2Id": "",
-        "weightClass": "Lightweight",
-        "bout": "maincard",
-        "order": 7
-      },
-      {
-        "f1": "Ketlen Souza",
-        "f1Id": "",
-        "f2": "Ariane Carnelossi",
-        "f2Id": "",
-        "weightClass": "Women's Strawweight",
-        "bout": "maincard",
-        "order": 8
-      },
-      {
-        "f1": "Priscila Cachoeira",
-        "f1Id": "",
-        "f2": "Chelsea Chandler",
-        "f2Id": "",
-        "weightClass": "Women's Bantamweight",
-        "bout": "maincard",
-        "order": 9
-      },
-      {
-        "f1": "Jeisla Chaves",
-        "f1Id": "",
-        "f2": "Yuneisy Duben",
-        "f2Id": "",
-        "weightClass": "Women's Flyweight",
-        "bout": "maincard",
-        "order": 10
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-freedom-250",
     "name": "UFC Freedom 250",
     "main": "Topuria vs. Gaethje",
@@ -172,8 +56,8 @@
         "order": 5
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-06-20",
@@ -241,6 +125,41 @@
         "weightClass": "Flyweight",
         "bout": "maincard",
         "order": 5
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-06-27",
+    "name": "UFC Fight Night",
+    "main": "Rafael Fiziev vs. Manuel Torres",
+    "loc": "Baku, Azerbaijan",
+    "date": "2026-06-27",
+    "dateLabel": "27 jun 2026",
+    "f1": "Rafael Fiziev",
+    "f1img": "/fighters/rafael-fiziev.png",
+    "f2": "Manuel Torres",
+    "f2img": "",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Rafael Fiziev",
+        "f1Id": "",
+        "f2": "Manuel Torres",
+        "f2Id": "",
+        "weightClass": "Lightweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Sharabutdin Magomedov",
+        "f1Id": "",
+        "f2": "Michel Pereira",
+        "f2Id": "",
+        "weightClass": "Middleweight",
+        "bout": "Co-Main Event",
+        "order": 1
       }
     ],
     "bg": "#7B1FA2",

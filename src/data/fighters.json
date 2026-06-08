@@ -1121,7 +1121,7 @@
     "name": "Belal Muhammad",
     "nick": "Remember the Name",
     "div": "Welterweight",
-    "rec": "24-5-0",
+    "rec": "24-6-0",
     "ufcRec": "15-5-0",
     "from": "USA",
     "img": "/fighters/belal-muhammad.png",
@@ -1828,7 +1828,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "2"
+    "rank": "3"
   },
   {
     "slug": "merab-dvalishvili",
@@ -4824,7 +4824,7 @@
     "name": "Brendan Allen",
     "nick": "All In",
     "div": "Middleweight",
-    "rec": "26-7-0",
+    "rec": "27-7-0",
     "ufcRec": "14-4-0",
     "from": "",
     "img": "/fighters/brendan-allen.png",
@@ -11135,7 +11135,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8"
+    "rank": "7"
   },
   {
     "slug": "chris-beal",
@@ -13996,7 +13996,7 @@
     "name": "Gabriel Bonfim",
     "nick": "Marretinha",
     "div": "Welterweight",
-    "rec": "19-1-0",
+    "rec": "20-1-0",
     "ufcRec": "6-1-0",
     "from": "",
     "img": "/fighters/gabriel-bonfim.png",
@@ -20933,7 +20933,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "9"
+    "rank": "10"
   },
   {
     "slug": "igor-cavalcanti",
@@ -24817,7 +24817,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "vitor-costa",
@@ -28237,7 +28237,7 @@
     "rec": "0-2-0",
     "ufcRec": "0-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/jorge-de-oliveira.png",
     "height": "5' 8\"",
     "weight": "155 lbs",
     "reach": "",
@@ -28283,7 +28283,7 @@
     "rec": "0-1-0",
     "ufcRec": "0-1-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/isabela-de-padua.png",
     "height": "5' 3\"",
     "weight": "125 lbs",
     "reach": "64\"",
@@ -28307,7 +28307,7 @@
     "rec": "1-3-0",
     "ufcRec": "1-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/gloria-de-paula.png",
     "height": "5' 5\"",
     "weight": "115 lbs",
     "reach": "67\"",
@@ -28346,7 +28346,7 @@
     "rec": "7-3-0",
     "ufcRec": "7-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/germaine-de-randamie.png",
     "height": "5' 9\"",
     "weight": "135 lbs",
     "reach": "71\"",
@@ -28452,7 +28452,7 @@
     "rec": "0-2-0",
     "ufcRec": "0-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/carl-deaton.png",
     "height": "5' 7\"",
     "weight": "155 lbs",
     "reach": "69\"",
@@ -28481,7 +28481,7 @@
     "rec": "0-2-0",
     "ufcRec": "0-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/tom-deblass.png",
     "height": "6' 0\"",
     "weight": "185 lbs",
     "reach": "",
@@ -28544,7 +28544,7 @@
     "rec": "0-2-0",
     "ufcRec": "0-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/shane-del-rosario.png",
     "height": "6' 4\"",
     "weight": "250 lbs",
     "reach": "",
@@ -28573,7 +28573,7 @@
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/wallen-del-rosario.png",
     "height": "5' 4\"",
     "weight": "125 lbs",
     "reach": "67\"",
@@ -28590,7 +28590,7 @@
     "rec": "2-1-0",
     "ufcRec": "2-1-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/yadier-del-valle.png",
     "height": "5' 9\"",
     "weight": "145 lbs",
     "reach": "69\"",
@@ -28624,7 +28624,7 @@
     "rec": "1-0-0",
     "ufcRec": "1-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/jose-delano.png",
     "height": "5' 8\"",
     "weight": "145 lbs",
     "reach": "70\"",
@@ -28716,7 +28716,7 @@
     "rec": "3-1-0",
     "ufcRec": "3-1-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/jose-delgado.png",
     "height": "5' 11\"",
     "weight": "145 lbs",
     "reach": "74\"",
@@ -28835,7 +28835,7 @@
     "rec": "3-3-0",
     "ufcRec": "3-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/roland-delorme.png",
     "height": "5' 9\"",
     "weight": "135 lbs",
     "reach": "71\"",
@@ -28879,7 +28879,7 @@
     "rec": "1-3-0",
     "ufcRec": "1-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/jon-delos-reyes.png",
     "height": "5' 6\"",
     "weight": "125 lbs",
     "reach": "67\"",
@@ -28969,7 +28969,7 @@
     "rec": "5-5-0",
     "ufcRec": "5-5-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/vanessa-demopoulos.png",
     "height": "5' 2\"",
     "weight": "125 lbs",
     "reach": "59\"",
@@ -29013,7 +29013,7 @@
     "rec": "1-3-0",
     "ufcRec": "1-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/chris-dempsey.png",
     "height": "5' 10\"",
     "weight": "185 lbs",
     "reach": "72\"",
@@ -29052,7 +29052,7 @@
     "rec": "1-1-0",
     "ufcRec": "1-1-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/nick-denis.png",
     "height": "5' 7\"",
     "weight": "135 lbs",
     "reach": "",
@@ -29260,7 +29260,7 @@
     "rec": "1-2-0",
     "ufcRec": "1-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/robelis-despaigne.png",
     "height": "6' 7\"",
     "weight": "265 lbs",
     "reach": "84\"",
@@ -29362,7 +29362,7 @@
     "rec": "4-7-0",
     "ufcRec": "4-7-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/alessio-di-chirico.png",
     "height": "6' 0\"",
     "weight": "185 lbs",
     "reach": "74\"",
@@ -29406,7 +29406,7 @@
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/micol-di-segni.png",
     "height": "5' 3\"",
     "weight": "115 lbs",
     "reach": "60\"",
@@ -29423,7 +29423,7 @@
     "rec": "4-4-0",
     "ufcRec": "4-4-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/cyrille-diabate.png",
     "height": "6' 6\"",
     "weight": "205 lbs",
     "reach": "81\"",
@@ -29484,7 +29484,7 @@
     "rec": "8-7-0",
     "ufcRec": "8-7-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/marc-diakiese.png",
     "height": "5' 10\"",
     "weight": "155 lbs",
     "reach": "73\"",
@@ -29528,7 +29528,7 @@
     "rec": "0-1-0",
     "ufcRec": "0-1-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/tyler-diamond.png",
     "height": "5' 7\"",
     "weight": "145 lbs",
     "reach": "69\"",
@@ -29552,7 +29552,7 @@
     "rec": "0-3-0",
     "ufcRec": "0-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/blood-diamond.png",
     "height": "5' 11\"",
     "weight": "170 lbs",
     "reach": "76\"",
@@ -29627,7 +29627,7 @@
     "rec": "3-5-0",
     "ufcRec": "3-5-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/hacran-dias.png",
     "height": "5' 8\"",
     "weight": "155 lbs",
     "reach": "69\"",
@@ -29671,7 +29671,7 @@
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/victor-dias.png",
     "height": "5' 6\"",
     "weight": "125 lbs",
     "reach": "69\"",
@@ -29705,7 +29705,7 @@
     "rec": "7-7-0",
     "ufcRec": "7-7-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/nick-diaz.png",
     "height": "6' 1\"",
     "weight": "170 lbs",
     "reach": "76\"",
@@ -29749,7 +29749,7 @@
     "rec": "16-11-0",
     "ufcRec": "16-11-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/nate-diaz.png",
     "height": "6' 0\"",
     "weight": "170 lbs",
     "reach": "76\"",
@@ -29827,7 +29827,7 @@
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/adrian-diaz.png",
     "height": "5' 10\"",
     "weight": "145 lbs",
     "reach": "",
@@ -29844,7 +29844,7 @@
     "rec": "1-2-0",
     "ufcRec": "1-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/ozzy-diaz.png",
     "height": "6' 4\"",
     "weight": "185 lbs",
     "reach": "79\"",
@@ -29878,7 +29878,7 @@
     "rec": "1-0-0",
     "ufcRec": "1-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/juan-diaz.png",
     "height": "",
     "weight": "135 lbs",
     "reach": "",
@@ -29970,7 +29970,7 @@
     "rec": "13-5-0",
     "ufcRec": "13-5-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/tj-dillashaw.png",
     "height": "5' 6\"",
     "weight": "135 lbs",
     "reach": "67\"",
@@ -30048,7 +30048,7 @@
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/ding-meng.png",
     "height": "6' 2\"",
     "weight": "170 lbs",
     "reach": "73\"",
@@ -30082,7 +30082,7 @@
     "rec": "3-2-0",
     "ufcRec": "3-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/jhonata-diniz.png",
     "height": "6' 4\"",
     "weight": "254 lbs",
     "reach": "79\"",
@@ -30143,7 +30143,7 @@
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/rico-disciullo.png",
     "height": "5' 8\"",
     "weight": "135 lbs",
     "reach": "",
@@ -30160,7 +30160,7 @@
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/matt-dixon.png",
     "height": "5' 10\"",
     "weight": "170 lbs",
     "reach": "75\"",
@@ -30211,7 +30211,7 @@
     "rec": "3-5-0",
     "ufcRec": "3-5-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/russell-doane.png",
     "height": "5' 7\"",
     "weight": "135 lbs",
     "reach": "70\"",
@@ -30255,7 +30255,7 @@
     "rec": "15-11-0",
     "ufcRec": "15-11-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/drew-dober.png",
     "height": "5' 8\"",
     "weight": "155 lbs",
     "reach": "70\"",
@@ -30299,7 +30299,7 @@
     "rec": "2-4-0",
     "ufcRec": "2-4-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/shana-dobson.png",
     "height": "5' 6\"",
     "weight": "125 lbs",
     "reach": "69\"",
@@ -30343,7 +30343,7 @@
     "rec": "1-3-0",
     "ufcRec": "1-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/aj-dobson.png",
     "height": "6' 1\"",
     "weight": "185 lbs",
     "reach": "76\"",
@@ -30411,7 +30411,7 @@
     "rec": "10-7-0",
     "ufcRec": "10-7-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/john-dodson.png",
     "height": "5' 3\"",
     "weight": "135 lbs",
     "reach": "66\"",
@@ -30455,7 +30455,7 @@
     "rec": "2-7-0",
     "ufcRec": "2-7-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/joe-doerksen.png",
     "height": "6' 0\"",
     "weight": "185 lbs",
     "reach": "75\"",
@@ -30585,7 +30585,7 @@
     "rec": "11-9-0",
     "ufcRec": "11-9-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/cb-dollaway.png",
     "height": "6' 2\"",
     "weight": "185 lbs",
     "reach": "76\"",
@@ -30680,7 +30680,7 @@
     "rec": "2-0-0",
     "ufcRec": "2-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/daniil-donchenko.png",
     "height": "5' 11\"",
     "weight": "170 lbs",
     "reach": "71\"",
@@ -30726,7 +30726,7 @@
     "rec": "1-3-0",
     "ufcRec": "1-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/cody-donovan.png",
     "height": "6' 3\"",
     "weight": "205 lbs",
     "reach": "74\"",
@@ -30789,7 +30789,7 @@
     "rec": "21-15-0",
     "ufcRec": "21-15-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/rafael-dos-anjos.png",
     "height": "5' 8\"",
     "weight": "170 lbs",
     "reach": "70\"",
@@ -30894,7 +30894,7 @@
     "rec": "0-2-0",
     "ufcRec": "0-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/antonio-dos-santos.png",
     "height": "5' 10\"",
     "weight": "185 lbs",
     "reach": "",
@@ -33600,7 +33600,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "oban-elliott",
@@ -36785,7 +36785,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7"
+    "rank": "9"
   },
   {
     "slug": "francisco-figueiredo",
@@ -42335,7 +42335,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "sergio-gomez",
@@ -50189,7 +50189,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "14"
+    "rank": "12"
   },
   {
     "slug": "tyler-hill",
@@ -61857,7 +61857,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "mariusz-ksiazkiewicz",
@@ -72308,7 +72308,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9"
+    "rank": "8"
   },
   {
     "slug": "wagner-da-conceicao-martins",
@@ -78426,7 +78426,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11"
+    "rank": "13"
   },
   {
     "slug": "andrew-montanez",
@@ -88462,7 +88462,7 @@
     "name": "Mick Parkin",
     "nick": "",
     "div": "Heavyweight",
-    "rec": "4-1-0",
+    "rec": "10-1-0",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "",
@@ -88499,7 +88499,8 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "15"
   },
   {
     "slug": "willie-parks",
@@ -90456,7 +90457,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "markus-perez",
@@ -91973,7 +91974,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "fabiola-pidroni",
@@ -94853,7 +94854,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "14"
   },
   {
     "slug": "jessica-rakoczy",
@@ -100082,7 +100083,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "10"
+    "rank": "9"
   },
   {
     "slug": "jacob-rosales",
@@ -104039,7 +104040,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13"
+    "rank": "11"
   },
   {
     "slug": "djorden-santos",
@@ -108182,7 +108183,7 @@
     "name": "Bruno Silva",
     "nick": "Blindado",
     "div": "Flyweight",
-    "rec": "15-8-2",
+    "rec": "15-9-2",
     "ufcRec": "9-12-0",
     "from": "",
     "img": "/fighters/bruno-silva.png",
@@ -116164,8 +116165,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "tra-telligman",
@@ -116533,7 +116533,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "13"
+    "rank": "14"
   },
   {
     "slug": "brandon-thatch",
@@ -122652,7 +122652,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "13"
   },
   {
     "slug": "brogan-walker",
@@ -128922,7 +128922,7 @@
     "name": "Fares Ziam",
     "nick": "The Smile Killer",
     "div": "Lightweight",
-    "rec": "18-4-0",
+    "rec": "18-5-0",
     "ufcRec": "8-2-0",
     "from": "",
     "img": "/fighters/fares-ziam.png",

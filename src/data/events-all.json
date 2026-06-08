@@ -397,7 +397,7 @@
     "f1img": "/fighters/belal-muhammad.png",
     "f2": "Gabriel Bonfim",
     "f2img": "/fighters/gabriel-bonfim.png",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Belal Muhammad",
@@ -780,7 +780,103 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2026-07-25",
+    "name": "UFC Fight Night",
+    "main": "Magomed Ankalaev vs. Khalil Rountree Jr.",
+    "loc": "Abu Dhabi, United Arab Emirates",
+    "date": "2026-07-25",
+    "dateLabel": "25 jul 2026",
+    "f1": "Magomed Ankalaev",
+    "f1img": "/fighters/magomed-ankalaev.png",
+    "f2": "Khalil Rountree Jr.",
+    "f2img": "/fighters/khalil-rountree-jr.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Magomed Ankalaev",
+        "f1Id": "magomed-ankalaev",
+        "f2": "Khalil Rountree Jr.",
+        "f2Id": "khalil-rountree-jr",
+        "weightClass": "Light Heavyweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Umar Nurmagomedov",
+        "f1Id": "umar-nurmagomedov",
+        "f2": "David Martínez",
+        "f2Id": "david-martinez",
+        "weightClass": "Bantamweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Rizvan Kuniev",
+        "f1Id": "rizvan-kuniev",
+        "f2": "Tyrell Fortune",
+        "f2Id": "tyrell-fortune",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Valter Walker",
+        "f1Id": "valter-walker",
+        "f2": "Thomas Petersen",
+        "f2Id": "thomas-petersen",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Magomed Tuchalov",
+        "f1Id": "magomed-tuchalov",
+        "f2": "Brendson Ribeiro",
+        "f2Id": "brendson-ribeiro",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Steve Erceg",
+        "f1Id": "steve-erceg",
+        "f2": "Ramazan Temirov",
+        "f2Id": "ramazan-temirov",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Islam Dulatov",
+        "f1Id": "islam-dulatov",
+        "f2": "Wellington Turman",
+        "f2Id": "wellington-turman",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 6
+      },
+      {
+        "f1": "Ismael Bonfim",
+        "f1Id": "ismael-bonfim",
+        "f2": "Axel Sola",
+        "f2Id": "axel-sola",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 7
+      },
+      {
+        "f1": "Uran Satybaldiev",
+        "f1Id": "uran-satybaldiev",
+        "f2": "Dustin Jacoby",
+        "f2Id": "dustin-jacoby",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 8
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-282-2026-08-01",
@@ -936,6 +1032,19 @@
     "loc": "Shanghai, China",
     "date": "2026-08-29",
     "dateLabel": "29 ago 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
+  },
+  {
+    "slug": "ufc-fight-night-286-2026-09-05",
+    "name": "UFC Fight Night 286",
+    "main": "TBD",
+    "loc": "Paris, France",
+    "date": "2026-09-05",
+    "dateLabel": "5 sept 2026",
     "f1": "TBD",
     "f1img": "",
     "f2": "TBD",
