@@ -4,9 +4,13 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import RoundProgress from '../../components/RoundProgress.astro';
 import FIGHTERS from '../../data/fighters.json';
 import { getCollection } from 'astro:content';
+// @ts-ignore — módulo JS compartido con astro.config.mjs y scripts/
+import { isIndexable } from '../../lib/indexable.mjs';
 
 // Campos opcionales de contenido enriquecido (densificación SEO)
 type FighterEnriched = {
+  /** 'pro' cuando fix-records.mjs confirmó el récord pro completo desde UFC.com */
+  recScope?: string;
   bio?: string;
   style?: {
     striking?: string;
@@ -45,9 +49,9 @@ const reachCm  = f.reach  ? inchesToCm(f.reach)  : null;
 // ─── Estado: campeón / ranqueado / no ranqueado ───
 const isChampion = f.rank === 'C';
 const isRanked   = !!f.rank && f.rank !== 'C';
-const roleLabel  = isChampion ? `Campeón UFC ${f.div}`
+const roleLabel  = (isChampion ? `Campeón UFC ${f.div}`
                  : isRanked   ? `#${f.rank} UFC ${f.div}`
-                 : `Peleador UFC ${f.div}`;
+                 : `Peleador UFC ${f.div}`).trim(); // .trim(): hay fighters sin división en el CSV
 
 // Buscar artículos relacionados: nombre o apellido del peleador en título o descripción
 const allPosts = await getCollection('blog');
@@ -71,7 +75,14 @@ const [wins, losses, draws] = f.rec !== '—' ? f.rec.split('-').map(Number) : [
 const totalFights = wins + losses + (draws || 0);
 const winPct = totalFights > 0 ? Math.round((wins / totalFights) * 100) : 0;
 
+// ─── Récord: pro completo (UFC.com vía fix-records) vs solo-UFC (CSV) ───
+// Etiquetar mal esto es un problema de E-E-A-T: solo decimos "profesional"
+// cuando fix-records.mjs lo confirmó (recScope === 'pro').
+const recIsPro = f.recScope === 'pro';
+const recLabel = recIsPro ? 'Récord profesional' : 'Récord UFC';
+
 const physicals = [
+  { label: 'Récord UFC', value: recIsPro && f.ufcRec && f.ufcRec !== f.rec ? f.ufcRec : '', icon: '🥋' },
   { label: 'Altura',  value: f.height,  icon: '↕' },
   { label: 'Peso',    value: f.weight,  icon: '⚖' },
   { label: 'Alcance', value: f.reach,   icon: '↔' },
@@ -149,7 +160,7 @@ const metaTitle = f.metaTitle
   ?? `${f.name}${f.nick ? ` "${f.nick}"` : ''} · ${roleLabel} · Récord ${f.rec}`;
 
 const metaDescription = f.metaDescription
-  ?? `Perfil de ${f.name}${f.nick ? ` "${f.nick}"` : ''}, ${roleLabel}. Récord UFC ${f.rec}${heightForMeta ? `, estatura ${heightForMeta}` : ''}${reachForMeta ? `, alcance ${reachForMeta}` : ''}. Análisis de estilo, datos físicos y próxima pelea en Quimbara.`;
+  ?? `Perfil de ${f.name}${f.nick ? ` "${f.nick}"` : ''}, ${roleLabel}. ${recLabel} ${f.rec}${heightForMeta ? `, estatura ${heightForMeta}` : ''}${reachForMeta ? `, alcance ${reachForMeta}` : ''}. Análisis de estilo, datos físicos y próxima pelea en Quimbara.`;
 ---
 
 <BaseLayout
@@ -158,6 +169,7 @@ const metaDescription = f.metaDescription
   canonicalUrl={canonicalUrl}
   ogImage={f.img || '/default-og.jpg'}
   schema={fighterSchema}
+  noIndex={!isIndexable(f)}
 >
   <!-- Round counter — 5 rounds para campeones (main event), 3 para resto -->
   <RoundProgress slot="progress-bar" mainEvent={f.rank === 'C'} />

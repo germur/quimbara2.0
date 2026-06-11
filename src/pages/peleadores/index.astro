@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FIGHTERS from '../../data/fighters.json';
 import { divOrder, divLabels, divSlugs, isFemale } from '../../data/divisions';
+// @ts-ignore — criterio único compartido (sitemap, meta robots, listados)
+import { isRanked, isIndexable } from '../../lib/indexable.mjs';
 
 const PX = 'clamp(16px,4vw,60px)';
 const siteUrl = 'https://quimbara.org';
@@ -31,10 +33,9 @@ const WIN_BG: Record<string, string> = {
   UD: '#111', SD: '#111', MD: '#111',
 };
 const initials = (name: string) => name.split(' ').slice(0, 2).map(n => n[0]).join('');
-const isRanked = (f: Fighter) => f.rank === 'C' || (!isNaN(Number(f.rank)) && Number(f.rank) <= 15);
 const divCount = (div: string) => {
   const all = byDiv[div] || [];
-  return all.filter(f => isRanked(f) || f.img).length;
+  return all.filter(f => isIndexable(f)).length;
 };
 const divisions = divOrder.filter(d => divCount(d) > 0);
 const maleDivs = divisions.filter(d => !isFemale(d));

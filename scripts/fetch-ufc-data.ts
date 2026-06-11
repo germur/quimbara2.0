@@ -78,14 +78,91 @@ function readJson<T>(filename: string): T[] {
   return existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : [];
 }
 
+/**
+ * Escritura protegida: si una fuente (Wikipedia/Sherdog/CSV) devuelve vacío o
+ * drásticamente menos que lo que ya había, NO sobreescribimos — conservamos lo
+ * anterior y avisamos. Evita perder events.json/results.json en silencio cuando
+ * un scraper revienta. Override consciente: FORCE_WRITE=1.
+ */
 function writeJson(filename: string, data: unknown) {
-  writeFileSync(join(DATA_DIR, filename), JSON.stringify(data, null, 2) + '\n', 'utf8');
+  const p = join(DATA_DIR, filename);
+
+  if (process.env.FORCE_WRITE !== '1' && Array.isArray(data) && existsSync(p)) {
+    try {
+      const prev = JSON.parse(readFileSync(p, 'utf8'));
+      if (Array.isArray(prev) && prev.length > 0) {
+        if (data.length === 0) {
+          console.error(`⛔ ${filename}: lo nuevo está VACÍO (antes: ${prev.length} filas). Se conserva el archivo anterior. (FORCE_WRITE=1 para forzar)`);
+          process.exitCode = 1;
+          return;
+        }
+        if (data.length < prev.length * 0.5) {
+          console.error(`⛔ ${filename}: caída drástica ${prev.length} → ${data.length} filas. Se conserva el archivo anterior. (FORCE_WRITE=1 para forzar)`);
+          process.exitCode = 1;
+          return;
+        }
+      }
+    } catch { /* anterior corrupto/ilegible → escribir normal */ }
+  }
+
+  writeFileSync(p, JSON.stringify(data, null, 2) + '\n', 'utf8');
 }
 
 async function fetchHtml(url: string, extraHeaders?: Record<string, string>): Promise<cheerio.CheerioAPI> {
   const res = await fetch(url, { headers: { ...HEADERS, ...extraHeaders } });
   if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
   return cheerio.load(await res.text());
+}
+
+// ─── Wikipedia vía API (no scraping de URLs adivinadas) ─────────────────────
+// La MediaWiki API da: títulos canónicos (sigue redirects y renombres) y el
+// HTML del contenido (action=parse) sin depender del chrome de la página.
+
+const WIKI_API = 'https://en.wikipedia.org/w/api.php';
+
+async function wikiApi(params: Record<string, string>): Promise<any> {
+  const qs = new URLSearchParams({ format: 'json', formatversion: '2', ...params });
+  const res = await fetch(`${WIKI_API}?${qs}`, { headers: HEADERS });
+  if (!res.ok) throw new Error(`Wikipedia API → HTTP ${res.status}`);
+  return res.json();
+}
+
+/** HTML del contenido de un artículo, por título canónico. */
+async function fetchWikiHtml(title: string): Promise<cheerio.CheerioAPI> {
+  const json = await wikiApi({ action: 'parse', page: title, prop: 'text', redirects: '1' });
+  if (json.error) throw new Error(`Wikipedia parse "${title}": ${json.error.info ?? json.error.code}`);
+  return cheerio.load(json.parse.text);
+}
+
+/**
+ * Resuelve el título canónico del artículo de un evento.
+ * 1) Intento exacto vía action=query (sigue redirects — cubre renombres).
+ * 2) Fallback: list=search, validando que el resultado se parezca de verdad al
+ *    evento (empieza por su nombre e incluye a uno de los peleadores del main).
+ * Antes esto era una URL construida a mano que reventaba si el título no coincidía.
+ */
+async function wikiResolveEventTitle(event: EventRowFull): Promise<string | null> {
+  const exact = /^UFC \d+$/.test(event.name)
+    ? event.name
+    : `${event.name}: ${event.main}`;
+
+  const q = await wikiApi({ action: 'query', titles: exact, redirects: '1' });
+  const page = (q.query?.pages ?? [])[0];
+  if (page && !page.missing && !page.invalid) return page.title;
+
+  // Búsqueda como fallback
+  const s = await wikiApi({ action: 'query', list: 'search', srsearch: `${event.name} ${event.main}`, srlimit: '5' });
+  const surnames = [event.f1, event.f2]
+    .filter(n => n && n !== 'TBD')
+    .map(n => n.split(' ').slice(-1)[0].toLowerCase());
+  for (const hit of s.query?.search ?? []) {
+    const t = (hit.title as string);
+    const tl = t.toLowerCase();
+    const startsOk = tl.startsWith(event.name.toLowerCase());
+    const fighterOk = surnames.length === 0 || surnames.some(sn => tl.includes(sn));
+    if (startsOk && fighterOk) return t;
+  }
+  return null;
 }
 
 function colIndexMap($: cheerio.CheerioAPI, table: cheerio.Cheerio<cheerio.AnyNode>) {
@@ -156,6 +233,8 @@ type Fighter = {
   slug: string; name: string; nick: string; div: string;
   /** Récord pro completo (canónico, viene de UFC.com vía scripts/fix-records.mjs) */
   rec: string;
+  /** 'pro' cuando fix-records.mjs confirmó `rec` contra UFC.com — la UI/meta lo usa para etiquetar bien */
+  recScope?: string;
   /** Récord UFC-only calculado desde los CSVs de Greco1899 (informacional) */
   ufcRec?: string;
   from: string; img: string;
@@ -254,6 +333,26 @@ async function loadCsvData(): Promise<CsvData> {
     }
   }
 
+  // ─── Guard de frescura ────────────────────────────────────────────────────
+  // TODA la base (fighters, peleas, form, ufcRec) depende de los CSVs de
+  // Greco1899/scrape_ufc_stats. Si ese repo deja de actualizarse, los datos se
+  // congelan EN SILENCIO. UFC celebra eventos casi cada semana: si el evento
+  // más reciente del CSV tiene >21 días, algo va mal. Override: ALLOW_STALE=1.
+  const newestEvent = [...eventDates.values()].sort().pop() ?? '';
+  const staleDays = newestEvent
+    ? Math.floor((Date.now() - new Date(newestEvent).getTime()) / 86_400_000)
+    : Infinity;
+  if (staleDays > 21) {
+    const msg = `CSVs de Greco1899 posiblemente CONGELADOS: el evento más reciente es de ${newestEvent || 'fecha desconocida'} (hace ${staleDays === Infinity ? '∞' : staleDays} días).`;
+    if (process.env.ALLOW_STALE === '1') {
+      console.warn(`⚠ ${msg} Continuando por ALLOW_STALE=1.`);
+    } else {
+      throw new Error(`${msg} Verifica github.com/Greco1899/scrape_ufc_stats o corre con ALLOW_STALE=1.`);
+    }
+  } else {
+    console.log(`✓ Frescura CSV OK: último evento ${newestEvent} (hace ${staleDays} días)`);
+  }
+
   // Index: fighter name → array of fights (sorted by date desc)
   const fightsByFighter = new Map<string, FightRecord[]>();
 
@@ -325,6 +424,9 @@ function buildFighter(
   }
   const ufcRec = `${wins}-${losses}-${draws}`;
   const rec = prev?.rec && prev.rec !== '0-0-0' ? prev.rec : ufcRec;
+  // recScope solo se conserva si `rec` se preservó del previo (si rec se
+  // regeneró desde el CSV, vuelve a ser solo-UFC y la marca 'pro' ya no aplica)
+  const recScope = rec === prev?.rec ? prev?.recScope : undefined;
 
   // Division from most recent fight
   const div = allFights.length > 0
@@ -354,6 +456,7 @@ function buildFighter(
     nick,
     div,
     rec,
+    ...(recScope ? { recScope } : {}),
     ufcRec,
     from: prev?.from ?? '',
     img,
@@ -532,7 +635,7 @@ function parseDate(raw: string) {
 }
 
 async function fetchEvents() {
-  const $ = await fetchHtml('https://en.wikipedia.org/wiki/List_of_UFC_events');
+  const $ = await fetchWikiHtml('List_of_UFC_events');
 
   const heading = $('h2, h3').filter((_, el) => /scheduled/i.test($(el).text())).first();
   const container = heading.closest('.mw-heading').length ? heading.closest('.mw-heading') : heading;
@@ -598,19 +701,15 @@ async function fetchEvents() {
 
 // ─── FIGHT CARDS (Wikipedia individual event pages) ─────────────────────────
 
-function wikiEventUrl(event: EventRowFull): string {
-  if (/^UFC \d+$/.test(event.name)) {
-    return `https://en.wikipedia.org/wiki/${event.name.replace(/ /g, '_')}`;
-  }
-  const title = `${event.name}: ${event.main}`.replace(/ /g, '_');
-  return `https://en.wikipedia.org/wiki/${title}`;
-}
-
 async function scrapeFightCard(event: EventRowFull): Promise<FightCardEntry[]> {
   if (event.main === 'TBD') return [];
-  const url = wikiEventUrl(event);
   try {
-    const $ = await fetchHtml(url);
+    const title = await wikiResolveEventTitle(event);
+    if (!title) {
+      console.warn(`   ⚠ Wiki ${event.name}: sin artículo todavía (query + search sin resultados)`);
+      return [];
+    }
+    const $ = await fetchWikiHtml(title);
     const fights: FightCardEntry[] = [];
     let boutType = 'maincard';
     let order = 0;

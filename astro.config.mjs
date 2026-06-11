@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -11,19 +11,13 @@ import mdx from '@astrojs/mdx';
 
 import partytown from '@astrojs/partytown';
 
-// Leer fighters con foto o ranked para filtrar sitemap
+// Criterio único de indexabilidad (compartido con [slug].astro y listados)
+import { isIndexable } from './src/lib/indexable.mjs';
+
+// Leer fighters para filtrar el sitemap con el MISMO criterio que el meta robots
 const __cfgDir = dirname(fileURLToPath(import.meta.url));
 const fighters = JSON.parse(readFileSync(join(__cfgDir, 'src/data/fighters.json'), 'utf8'));
-const IMG_DIR = join(__cfgDir, 'public/fighters');
-const sitemapSlugs = new Set(
-  fighters
-    .filter(f => {
-      const ranked = f.rank === 'C' || (!isNaN(Number(f.rank)) && Number(f.rank) <= 15);
-      const hasImg = existsSync(join(IMG_DIR, `${f.slug}.png`)) || existsSync(join(IMG_DIR, `${f.slug}.jpg`));
-      return ranked || hasImg;
-    })
-    .map(f => f.slug)
-);
+const fightersBySlug = new Map(fighters.map(f => [f.slug, f]));
 
 // https://astro.build/config
 export default defineConfig({
@@ -86,10 +80,13 @@ export default defineConfig({
         ];
         if (noIndexPaths.some(p => page.includes(p))) return false;
 
-        // Solo incluir fighters con foto o ranked (no stubs vacíos de 4000+)
+        // Perfiles de peleador: mismo criterio que el meta robots (isIndexable).
+        // Si el slug no es de un peleador (índice, páginas de división), se incluye.
         const pelMatch = page.match(/\/peleadores\/([^/]+)/);
         if (pelMatch) {
-          return sitemapSlugs.has(pelMatch[1]);
+          const fighter = fightersBySlug.get(pelMatch[1]);
+          if (fighter) return isIndexable(fighter);
+          return true; // /peleadores/ y divisiones (gallo, ligero, peso-medio…)
         }
 
         return true;
