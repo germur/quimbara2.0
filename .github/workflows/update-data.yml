@@ -2,8 +2,11 @@ name: Update UFC data
 
 on:
   schedule:
-    - cron: '0 12 * * 1'
-  workflow_dispatch:
+    # Diario a las 12:00 UTC. Cubre cualquier evento (sáb/dom) al día siguiente,
+    # capturando el pico de búsqueda post-pelea. Antes era solo los lunes y la
+    # data quedaba desactualizada hasta una semana tras cada evento.
+    - cron: '0 12 * * *'
+  workflow_dispatch:  # disparo manual inmediato (Actions → Run workflow) tras un evento grande
 
 permissions:
   contents: write
@@ -24,8 +27,11 @@ jobs:
       - name: Install deps
         run: npm ci
 
+      # Si los CSVs de Greco vienen viejos, el guard de frescura aborta este paso.
+      # No debe tumbar el job: rankings y records (UFC.com) siguen siendo válidos.
       - name: Fetch UFC data (Greco1899 CSVs + Wikipedia + Sherdog)
         run: npm run data:update
+        continue-on-error: true
 
       - name: Update official UFC.com rankings (champions + top 15)
         run: npm run data:rankings
