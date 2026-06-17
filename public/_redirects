@@ -1,22 +1,54 @@
-# 301 redirects — limpieza de URLs legacy
-# Netlify procesa este archivo directamente
-# Canónica: /peleadores/{slug}/ (plural)
+# ============================================================
+# 301 redirects - Netlify procesa este archivo directamente
+# Canonica de peleadores: /peleadores/{slug}/ (plural, slash final)
+# Las reglas se evaluan de ARRIBA hacia ABAJO: las especificas van primero.
+# ============================================================
 
+# ----- Slugs CORRUPTOS legacy (bug viejo de slugify ya corregido) -----
+/peleadores/jira-procha-zka       /peleadores/jiri-prochazka/    301
+/peleadores/jos-aldo              /peleadores/jose-aldo/         301
+/peleadores/morgan-charria-re     /peleadores/morgan-charriere/  301
+/peleadores/da-x27-mon-blackshear /peleadores/damon-blackshear/  301
+
+# ----- Divisiones: nomenclatura vieja (peso-X) -> slug real -----
+/peleadores/peso-pluma            /peleadores/pluma/           301
+/peleadores/peso-gallo            /peleadores/gallo/           301
+/peleadores/peso-ligero           /peleadores/ligero/          301
+/peleadores/peso-mediano          /peleadores/peso-medio/      301
+/peleadores/peso-mosca            /peleadores/mosca/           301
+/peleadores/peso-welter           /peleadores/welter/          301
+/peleadores/peso-semipesado       /peleadores/semipesado/      301
+/peleadores/peso-paja-femenino    /peleadores/paja-femenino/   301
+
+# ----- Eventos con slug viejo (fecha duplicada en el slug) -----
+/eventos/ufc-freedom-250-2026-06-14  /eventos/ufc-freedom-250/  301
+
+# ----- Migracion /peleador/ (singular) -> /peleadores/ (plural) -----
 /peleador            /peleadores/        301
 /peleador/*          /peleadores/:splat  301
-/tags                /etiqueta/          301
-/tags/*              /etiqueta/:splat    301
+
+# ----- Rutas legacy del blog -----
 /blog/perfiles-luchadores/*  /peleadores/:splat  301
-/blog/analisis-peleas/*      /blog/:splat      301
+/blog/analisis-peleas/*      /blog/:splat        301
 /blog/customize      /blog/              301
 /blog/markdown       /blog/              301
 /blog/markdown-zh    /blog/              301
+
+# ----- Tags en ingles -> blog (los nombres no mapean 1:1 a etiquetas) -----
+/tags                /etiqueta/          301
+/tags/*              /blog/              301
+
+# ----- Basura del Astro starter / rutas que nunca existieron -----
 /docs                /                   301
 /docs/*              /                   301
 /projects            /                   301
 /projects/*          /                   301
+/fighters/*          /peleadores/        301
+/search              /                   301
+/cultura             /                   301
 /sobre-nosotros      /                   301
 /estadisticas        /                   301
+/tecnicas-entrenamientos  /             301
 /noticias            /blog/              301
 /analisis            /blog/              301
 /categoria           /blog/              301
