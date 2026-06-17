@@ -1,34 +1,34 @@
 [
   {
-    "w": "Brendan Allen",
-    "l": "Edmen Shahbazyan",
-    "method": "Decision (Unanimous)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC Fight Night 278 - Muhammad vs. Bonfim"
+    "w": "Ciryl Gane",
+    "l": "Alex Pereira",
+    "method": "TKO (Punches)",
+    "round": 2,
+    "time": "1:27",
+    "event": "UFC White House - Freedom 250: Topuria vs. Gaethje"
   },
   {
-    "w": "Tom Nolan",
-    "l": "Fares Ziam",
-    "method": "Decision (Unanimous)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC Fight Night 278 - Muhammad vs. Bonfim"
+    "w": "Sean O'Malley",
+    "l": "Aiemann Zahabi",
+    "method": "TKO (Punches)",
+    "round": 2,
+    "time": "4:02",
+    "event": "UFC White House - Freedom 250: Topuria vs. Gaethje"
   },
   {
-    "w": "Bryce Mitchell",
-    "l": "Santiago Luna",
-    "method": "Submission (Arm-Triangle Choke)",
-    "round": 3,
-    "time": "4:52",
-    "event": "UFC Fight Night 278 - Muhammad vs. Bonfim"
+    "w": "Josh Hokit",
+    "l": "Derrick Lewis",
+    "method": "TKO (Punches)",
+    "round": 2,
+    "time": "4:09",
+    "event": "UFC White House - Freedom 250: Topuria vs. Gaethje"
   },
   {
-    "w": "Iwo Baraniewski",
-    "l": "Junior Tafa",
-    "method": "TKO (Leg Kick and Punches)",
+    "w": "Mauricio Ruffy",
+    "l": "Michael Chandler",
+    "method": "TKO (Spinning Wheel Kick and Punches)",
     "round": 1,
-    "time": "1:25",
-    "event": "UFC Fight Night 278 - Muhammad vs. Bonfim"
+    "time": "4:29",
+    "event": "UFC White House - Freedom 250: Topuria vs. Gaethje"
   }
 ]

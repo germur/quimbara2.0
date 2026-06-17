@@ -229,7 +229,7 @@
     "name": "Ilia Topuria",
     "nick": "El Matador",
     "div": "Lightweight",
-    "rec": "17-0-0",
+    "rec": "17-1-0",
     "ufcRec": "9-0-0",
     "from": "Georgia",
     "img": "/fighters/ilia-topuria.png",
@@ -267,7 +267,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "C",
+    "rank": "1",
     "recScope": "pro"
   },
   {
@@ -595,7 +595,7 @@
     "name": "Ciryl Gane",
     "nick": "Bon Gamin",
     "div": "Heavyweight",
-    "rec": "13-2-0",
+    "rec": "14-2-0",
     "ufcRec": "10-2-0",
     "from": "France",
     "img": "/fighters/ciryl-gane.png",
@@ -687,7 +687,7 @@
     "name": "Alex Pereira",
     "nick": "Poatan",
     "div": "Light Heavyweight",
-    "rec": "13-3-0",
+    "rec": "13-4-0",
     "ufcRec": "10-2-0",
     "from": "Brazil",
     "img": "/fighters/alex-pereira.png",
@@ -1007,7 +1007,7 @@
     "slug": "paulo-costa",
     "name": "Paulo Costa",
     "nick": "The Eraser",
-    "div": "Middleweight",
+    "div": "Light Heavyweight",
     "rec": "16-4-0",
     "ufcRec": "8-4-0",
     "from": "Brazil",
@@ -1046,7 +1046,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14",
+    "rank": "7",
     "recScope": "pro"
   },
   {
@@ -1182,7 +1182,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "5",
+    "rank": "7",
     "recScope": "pro"
   },
   {
@@ -1228,7 +1228,7 @@
         "winType": "MD"
       }
     ],
-    "rank": "7",
+    "rank": "8",
     "recScope": "pro"
   },
   {
@@ -1372,7 +1372,7 @@
     "name": "Justin Gaethje",
     "nick": "The Highlight",
     "div": "Lightweight",
-    "rec": "27-5-0",
+    "rec": "28-5-0",
     "ufcRec": "10-5-0",
     "from": "Safford, Arizona, EE.UU.",
     "img": "/fighters/justin-gaethje.png",
@@ -1410,7 +1410,7 @@
         "winType": "MD"
       }
     ],
-    "rank": "1",
+    "rank": "C",
     "recScope": "pro"
   },
   {
@@ -1543,7 +1543,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
+    "rank": "13",
     "recScope": "pro"
   },
   {
@@ -1589,7 +1589,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7",
+    "rank": "8",
     "recScope": "pro"
   },
   {
@@ -1827,7 +1827,7 @@
     "name": "Sean O'Malley",
     "nick": "Suga",
     "div": "Bantamweight",
-    "rec": "19-3-0",
+    "rec": "20-3-0",
     "ufcRec": "11-3-0",
     "from": "",
     "img": "/fighters/sean-omalley.png",
@@ -4126,7 +4126,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "7",
+    "rank": "6",
     "recScope": "pro"
   },
   {
@@ -11056,7 +11056,6 @@
         "winType": "SUB"
       }
     ],
-    "rank": "15",
     "recScope": "pro"
   },
   {
@@ -11349,7 +11348,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8",
+    "rank": "7",
     "recScope": "pro"
   },
   {
@@ -14300,7 +14299,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11",
+    "rank": "5",
     "recScope": "pro"
   },
   {
@@ -14653,7 +14652,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "4",
+    "rank": "5",
     "recScope": "pro"
   },
   {
@@ -17321,7 +17320,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "9",
+    "rank": "10",
     "recScope": "pro"
   },
   {
@@ -21727,7 +21726,8 @@
         "winType": "UD"
       }
     ],
-    "recScope": "pro"
+    "recScope": "pro",
+    "rank": "15"
   },
   {
     "slug": "ansar-chalangov",
@@ -21808,7 +21808,7 @@
     "name": "Michael Chandler",
     "nick": "Iron",
     "div": "Lightweight",
-    "rec": "23-10-0",
+    "rec": "23-11-0",
     "ufcRec": "2-5-0",
     "from": "",
     "img": "/fighters/michael-chandler.png",
@@ -21846,7 +21846,6 @@
         "winType": "UD"
       }
     ],
-    "rank": "13",
     "recScope": "pro"
   },
   {
@@ -24783,7 +24782,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
+    "rank": "12",
     "recScope": "pro"
   },
   {
@@ -24919,7 +24918,7 @@
     "team": "",
     "form": [],
     "formTypes": [],
-    "rank": "4",
+    "rank": "5",
     "recScope": "pro"
   },
   {
@@ -25247,7 +25246,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12",
+    "rank": "13",
     "recScope": "pro"
   },
   {
@@ -29212,7 +29211,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11",
+    "rank": "10",
     "recScope": "pro"
   },
   {
@@ -30986,7 +30985,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -31359,7 +31358,7 @@
     "rec": "1-3-0",
     "ufcRec": "1-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/anderson-dos-santos.png",
     "height": "5' 5\"",
     "weight": "135 lbs",
     "reach": "70\"",
@@ -31398,7 +31397,7 @@
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/acacio-dos-santos.png",
     "height": "6' 4\"",
     "weight": "205 lbs",
     "reach": "79\"",
@@ -31415,7 +31414,7 @@
     "rec": "0-3-0",
     "ufcRec": "0-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/rayanne-dos-santos.png",
     "height": "5' 2\"",
     "weight": "115 lbs",
     "reach": "62\"",
@@ -31449,7 +31448,7 @@
     "rec": "1-3-0",
     "ufcRec": "1-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/felipe-dos-santos.png",
     "height": "5' 7\"",
     "weight": "125 lbs",
     "reach": "70\"",
@@ -31578,7 +31577,7 @@
     "rec": "1-0-0",
     "ufcRec": "1-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/lerryan-douglas.png",
     "height": "5' 9\"",
     "weight": "145 lbs",
     "reach": "72\"",
@@ -31781,7 +31780,7 @@
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/kyle-driscoll.png",
     "height": "5' 11\"",
     "weight": "145 lbs",
     "reach": "74\"",
@@ -31815,7 +31814,7 @@
     "rec": "3-3-0",
     "ufcRec": "3-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/tomasz-drwal.png",
     "height": "6' 1\"",
     "weight": "205 lbs",
     "reach": "76\"",
@@ -31859,7 +31858,7 @@
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/robert-drysdale.png",
     "height": "6' 3\"",
     "weight": "205 lbs",
     "reach": "",
@@ -31983,7 +31982,7 @@
     "rec": "2-3-0",
     "ufcRec": "2-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/emily-ducote.png",
     "height": "5' 2\"",
     "weight": "115 lbs",
     "reach": "63\"",
@@ -32027,7 +32026,7 @@
     "rec": "2-2-0",
     "ufcRec": "2-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/viktoriia-dudakova.png",
     "height": "5' 5\"",
     "weight": "115 lbs",
     "reach": "67\"",
@@ -32066,7 +32065,7 @@
     "rec": "1-2-0",
     "ufcRec": "1-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/milana-dudieva.png",
     "height": "5' 3\"",
     "weight": "135 lbs",
     "reach": "",
@@ -32117,7 +32116,7 @@
     "rec": "3-2-0",
     "ufcRec": "3-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/todd-duffee.png",
     "height": "6' 3\"",
     "weight": "260 lbs",
     "reach": "78\"",
@@ -32161,7 +32160,7 @@
     "rec": "4-4-0",
     "ufcRec": "4-4-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/joe-duffy.png",
     "height": "5' 10\"",
     "weight": "155 lbs",
     "reach": "73\"",
@@ -32222,7 +32221,7 @@
     "rec": "0-2-0",
     "ufcRec": "0-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/alexis-dufresne.png",
     "height": "5' 9\"",
     "weight": "135 lbs",
     "reach": "",
@@ -32251,7 +32250,7 @@
     "rec": "1-3-0",
     "ufcRec": "1-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/jessamyn-duke.png",
     "height": "5' 11\"",
     "weight": "135 lbs",
     "reach": "73\"",
@@ -32290,7 +32289,7 @@
     "rec": "1-0-0",
     "ufcRec": "1-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/islam-dulatov.png",
     "height": "6' 3\"",
     "weight": "170 lbs",
     "reach": "75\"",
@@ -32314,7 +32313,7 @@
     "rec": "2-2-0",
     "ufcRec": "2-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/isaac-dulgarian.png",
     "height": "5' 7\"",
     "weight": "145 lbs",
     "reach": "71\"",
@@ -32377,7 +32376,7 @@
     "rec": "3-5-0",
     "ufcRec": "3-5-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/sedriques-dumas.png",
     "height": "6' 2\"",
     "weight": "185 lbs",
     "reach": "79\"",
@@ -32467,7 +32466,7 @@
     "rec": "6-2-0",
     "ufcRec": "6-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/chris-duncan.png",
     "height": "5' 10\"",
     "weight": "155 lbs",
     "reach": "71\"",
@@ -32557,7 +32556,7 @@
     "rec": "11-9-1",
     "ufcRec": "11-9-1",
     "from": "",
-    "img": "",
+    "img": "/fighters/evan-dunham.png",
     "height": "5' 10\"",
     "weight": "155 lbs",
     "reach": "70\"",
@@ -32618,7 +32617,7 @@
     "rec": "2-1-0",
     "ufcRec": "2-1-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/tom-duquesnoy.png",
     "height": "5' 7\"",
     "weight": "135 lbs",
     "reach": "68\"",
@@ -32652,7 +32651,7 @@
     "rec": "2-2-0",
     "ufcRec": "2-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/albert-duraev.png",
     "height": "5' 11\"",
     "weight": "185 lbs",
     "reach": "75\"",
@@ -32691,7 +32690,7 @@
     "rec": "1-3-0",
     "ufcRec": "1-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/reuben-duran.png",
     "height": "5' 7\"",
     "weight": "135 lbs",
     "reach": "71\"",
@@ -32730,7 +32729,7 @@
     "rec": "7-8-1",
     "ufcRec": "7-8-1",
     "from": "",
-    "img": "",
+    "img": "/fighters/cody-durden.png",
     "height": "5' 7\"",
     "weight": "125 lbs",
     "reach": "67\"",
@@ -37230,7 +37229,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7",
+    "rank": "9",
     "recScope": "pro"
   },
   {
@@ -40887,7 +40886,7 @@
     "name": "Steve Garcia",
     "nick": "Mean Machine",
     "div": "Featherweight",
-    "rec": "19-5-0",
+    "rec": "19-6-0",
     "ufcRec": "8-2-0",
     "from": "",
     "img": "/fighters/steve-garcia.png",
@@ -40925,7 +40924,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9",
+    "rank": "10",
     "recScope": "pro"
   },
   {
@@ -42785,7 +42784,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12",
+    "rank": "13",
     "recScope": "pro"
   },
   {
@@ -50646,7 +50645,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "14",
+    "rank": "12",
     "recScope": "pro"
   },
   {
@@ -51082,7 +51081,7 @@
     "name": "Josh Hokit",
     "nick": "",
     "div": "Heavyweight",
-    "rec": "9-0-0",
+    "rec": "10-0-0",
     "ufcRec": "3-0-0",
     "from": "",
     "img": "/fighters/josh-hokit.png",
@@ -51110,7 +51109,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "5",
+    "rank": "4",
     "recScope": "pro"
   },
   {
@@ -51878,7 +51877,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "8",
+    "rank": "9",
     "recScope": "pro"
   },
   {
@@ -62325,7 +62324,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13",
+    "rank": "12",
     "recScope": "pro"
   },
   {
@@ -66203,7 +66202,7 @@
     "name": "Derrick Lewis",
     "nick": "The Black Beast",
     "div": "Heavyweight",
-    "rec": "29-13-0",
+    "rec": "29-14-0",
     "ufcRec": "20-11-0",
     "from": "",
     "img": "/fighters/derrick-lewis.png",
@@ -66241,7 +66240,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9",
+    "rank": "11",
     "recScope": "pro"
   },
   {
@@ -67791,7 +67790,7 @@
     "name": "Diego Lopes",
     "nick": "",
     "div": "Featherweight",
-    "rec": "27-8-0",
+    "rec": "28-8-0",
     "ufcRec": "6-3-0",
     "from": "",
     "img": "/fighters/diego-lopes.png",
@@ -72785,7 +72784,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9",
+    "rank": "8",
     "recScope": "pro"
   },
   {
@@ -74588,7 +74587,7 @@
     "name": "Marcus McGhee",
     "nick": "The Maniac",
     "div": "Bantamweight",
-    "rec": "4-1-0",
+    "rec": "11-2-0",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "",
@@ -74625,7 +74624,9 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "ryan-mcgillivray",
@@ -75454,7 +75455,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -76362,7 +76363,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "15",
+    "rank": "13",
     "recScope": "pro"
   },
   {
@@ -78566,7 +78567,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9",
+    "rank": "10",
     "recScope": "pro"
   },
   {
@@ -78913,7 +78914,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -83745,7 +83746,7 @@
     "name": "Bo Nickal",
     "nick": "",
     "div": "Middleweight",
-    "rec": "5-1-0",
+    "rec": "9-1-0",
     "ufcRec": "5-1-0",
     "from": "",
     "img": "",
@@ -83782,7 +83783,9 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "mike-nickels",
@@ -84542,7 +84545,8 @@
         "winType": "TKO"
       }
     ],
-    "recScope": "pro"
+    "recScope": "pro",
+    "rank": "14"
   },
   {
     "slug": "eric-nolan",
@@ -85299,7 +85303,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "2",
+    "rank": "3",
     "recScope": "pro"
   },
   {
@@ -88961,7 +88965,7 @@
     "name": "Mick Parkin",
     "nick": "",
     "div": "Heavyweight",
-    "rec": "4-1-0",
+    "rec": "10-1-0",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "",
@@ -88998,7 +89002,9 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "willie-parks",
@@ -91047,7 +91053,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6",
+    "rank": "5",
     "recScope": "pro"
   },
   {
@@ -92477,7 +92483,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
+    "rank": "12",
     "recScope": "pro"
   },
   {
@@ -94591,7 +94597,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6",
+    "rank": "7",
     "recScope": "pro"
   },
   {
@@ -95361,7 +95367,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -100599,7 +100605,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "10",
+    "rank": "8",
     "recScope": "pro"
   },
   {
@@ -101439,7 +101445,7 @@
     "name": "Mauricio Ruffy",
     "nick": "",
     "div": "Lightweight",
-    "rec": "13-2-0",
+    "rec": "14-2-0",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "/fighters/mauricio-ruffy.png",
@@ -101477,7 +101483,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9",
+    "rank": "7",
     "recScope": "pro"
   },
   {
@@ -104359,7 +104365,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8",
+    "rank": "7",
     "recScope": "pro"
   },
   {
@@ -104566,7 +104572,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14",
+    "rank": "11",
     "recScope": "pro"
   },
   {
@@ -108752,7 +108758,6 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
     "recScope": "pro"
   },
   {
@@ -116113,7 +116118,7 @@
     "name": "Miesha Tate",
     "nick": "Cupcake",
     "div": "Women's Bantamweight",
-    "rec": "7-7-0",
+    "rec": "20-10-0",
     "ufcRec": "7-7-0",
     "from": "",
     "img": "",
@@ -116150,7 +116155,9 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "aaron-tau",
@@ -116707,7 +116714,6 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
     "recScope": "pro"
   },
   {
@@ -117076,7 +117082,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "13",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -118396,7 +118402,7 @@
     "name": "Manuel Torres",
     "nick": "El Loco",
     "div": "Lightweight",
-    "rec": "5-1-0",
+    "rec": "17-3-0",
     "ufcRec": "5-1-0",
     "from": "",
     "img": "",
@@ -118433,7 +118439,9 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "justice-torres",
@@ -120224,7 +120232,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8",
+    "rank": "9",
     "recScope": "pro"
   },
   {
@@ -120661,7 +120669,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10",
+    "rank": "9",
     "recScope": "pro"
   },
   {
@@ -122239,7 +122247,6 @@
         "winType": "UD"
       }
     ],
-    "rank": "5",
     "recScope": "pro"
   },
   {
@@ -123203,7 +123210,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14",
+    "rank": "13",
     "recScope": "pro"
   },
   {
@@ -128668,7 +128675,7 @@
     "name": "Aiemann Zahabi",
     "nick": "",
     "div": "Bantamweight",
-    "rec": "14-2-0",
+    "rec": "14-3-0",
     "ufcRec": "8-2-0",
     "from": "",
     "img": "/fighters/aiemann-zahabi.png",
@@ -129520,7 +129527,6 @@
         "winType": "UD"
       }
     ],
-    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -129839,7 +129845,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "10",
+    "rank": "11",
     "recScope": "pro"
   },
   {
