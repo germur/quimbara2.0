@@ -989,15 +989,35 @@
   {
     "slug": "ufc-330-2026-08-15",
     "name": "UFC 330",
-    "main": "TBD",
+    "main": "Islam Makhachev vs. Ian Machado Garry",
     "loc": "Philadelphia, Pennsylvania, U.S.",
     "date": "2026-08-15",
     "dateLabel": "15 ago 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": "",
-    "status": "upcoming"
+    "f1": "Islam Makhachev",
+    "f1img": "/fighters/islam-makhachev.png",
+    "f2": "Ian Machado Garry",
+    "f2img": "/fighters/ian-machado-garry.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Islam Makhachev",
+        "f1Id": "islam-makhachev",
+        "f2": "Ian Machado Garry",
+        "f2Id": "ian-machado-garry",
+        "weightClass": "Welterweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Mackenzie Dern",
+        "f1Id": "mackenzie-dern",
+        "f2": "Gillian Robertson",
+        "f2Id": "gillian-robertson",
+        "weightClass": "Women's Strawweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-285-2026-08-22",
