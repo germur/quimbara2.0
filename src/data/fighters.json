@@ -33626,7 +33626,7 @@
     "name": "Stephanie Egger",
     "nick": "",
     "div": "Women's Bantamweight",
-    "rec": "3-4-0",
+    "rec": "8-5-0",
     "ufcRec": "3-4-0",
     "from": "",
     "img": "/fighters/stephanie-egger.png",
@@ -33663,7 +33663,8 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "justin-eilers",
@@ -33789,7 +33790,7 @@
     "name": "Evan Elder",
     "nick": "The Phenom",
     "div": "Lightweight",
-    "rec": "3-2-0",
+    "rec": "10-2-0",
     "ufcRec": "3-2-0",
     "from": "",
     "img": "/fighters/evan-elder.png",
@@ -33826,7 +33827,8 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "billy-elekana",
@@ -33890,7 +33892,7 @@
     "name": "Joao Elias",
     "nick": "Alicate",
     "div": "",
-    "rec": "0-0-0",
+    "rec": "0-1-0",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/joao-elias.png",
@@ -33900,7 +33902,8 @@
     "stance": "Southpaw",
     "team": "",
     "form": [],
-    "formTypes": []
+    "formTypes": [],
+    "recScope": "pro"
   },
   {
     "slug": "saul-elizondo",
@@ -33924,7 +33927,7 @@
     "name": "Darren Elkins",
     "nick": "The Damage",
     "div": "Featherweight",
-    "rec": "19-11-0",
+    "rec": "29-12-0",
     "ufcRec": "19-11-0",
     "from": "",
     "img": "/fighters/darren-elkins.png",
@@ -33961,14 +33964,15 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "jake-ellenberger",
     "name": "Jake Ellenberger",
     "nick": "The Juggernaut",
     "div": "Welterweight",
-    "rec": "10-11-0",
+    "rec": "31-15-0",
     "ufcRec": "10-11-0",
     "from": "",
     "img": "/fighters/jake-ellenberger.png",
@@ -34005,14 +34009,15 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "joe-ellenberger",
     "name": "Joe Ellenberger",
     "nick": "Excalibur",
     "div": "Lightweight",
-    "rec": "1-1-0",
+    "rec": "15-2-0",
     "ufcRec": "1-1-0",
     "from": "",
     "img": "/fighters/joe-ellenberger.png",
@@ -34034,7 +34039,8 @@
         "outcome": "W",
         "winType": "SD"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "tim-elliott",
@@ -34087,7 +34093,7 @@
     "name": "Oban Elliott",
     "nick": "The Welsh Gangster",
     "div": "Welterweight",
-    "rec": "3-2-0",
+    "rec": "12-4-0",
     "ufcRec": "3-2-0",
     "from": "",
     "img": "/fighters/oban-elliott.png",
@@ -34124,7 +34130,8 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "eddy-ellis",
@@ -34151,7 +34158,7 @@
     "rec": "0-2-0",
     "ufcRec": "0-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/lisa-ellis.png",
     "height": "5' 4\"",
     "weight": "115 lbs",
     "reach": "",
@@ -34180,7 +34187,7 @@
     "rec": "0-1-0",
     "ufcRec": "0-1-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/elisha-ellison.png",
     "height": "6' 0\"",
     "weight": "238 lbs",
     "reach": "78\"",
@@ -34204,7 +34211,7 @@
     "rec": "0-2-0",
     "ufcRec": "0-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/anna-elmose.png",
     "height": "5' 3\"",
     "weight": "115 lbs",
     "reach": "",
@@ -34233,7 +34240,7 @@
     "rec": "0-2-0",
     "ufcRec": "0-2-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/cameron-else.png",
     "height": "5' 9\"",
     "weight": "135 lbs",
     "reach": "71\"",
@@ -34296,7 +34303,7 @@
     "rec": "5-3-0",
     "ufcRec": "5-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/ramazan-emeev.png",
     "height": "5' 10\"",
     "weight": "170 lbs",
     "reach": "76\"",
