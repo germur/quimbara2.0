@@ -6117,7 +6117,7 @@
     "name": "Hyder Amil",
     "nick": "The Hurricane",
     "div": "Featherweight",
-    "rec": "11-2-0",
+    "rec": "11-3-0",
     "ufcRec": "3-2-0",
     "from": "",
     "img": "/fighters/hyder-amil.png",
@@ -8482,7 +8482,7 @@
     "name": "Michael Aswell",
     "nick": "",
     "div": "",
-    "rec": "11-4-0",
+    "rec": "11-5-0",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/michael-aswell.png",
@@ -9356,7 +9356,7 @@
     "name": "Melsik Baghdasaryan",
     "nick": "The Gun",
     "div": "Featherweight",
-    "rec": "8-3-0",
+    "rec": "8-4-0",
     "ufcRec": "3-2-0",
     "from": "",
     "img": "/fighters/melsik-baghdasaryan.png",
@@ -14135,7 +14135,7 @@
     "name": "Gaston Bolanos",
     "nick": "The Dreamkiller",
     "div": "Bantamweight",
-    "rec": "8-5-0",
+    "rec": "9-5-0",
     "ufcRec": "2-2-0",
     "from": "",
     "img": "/fighters/gaston-bolanos.png",
@@ -14551,7 +14551,7 @@
     "name": "Kevin Borjas",
     "nick": "El Gallo Negro",
     "div": "Flyweight",
-    "rec": "10-5-0",
+    "rec": "11-5-0",
     "ufcRec": "1-4-0",
     "from": "",
     "img": "/fighters/kevin-borjas.png",
@@ -34155,7 +34155,7 @@
     "name": "Lisa Ellis",
     "nick": "",
     "div": "Women's Strawweight",
-    "rec": "0-2-0",
+    "rec": "15-9-0",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/lisa-ellis.png",
@@ -34177,14 +34177,15 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "elisha-ellison",
     "name": "Elisha Ellison",
     "nick": "The Snack Panther",
     "div": "Heavyweight",
-    "rec": "0-1-0",
+    "rec": "5-2-0",
     "ufcRec": "0-1-0",
     "from": "",
     "img": "/fighters/elisha-ellison.png",
@@ -34201,14 +34202,15 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "anna-elmose",
     "name": "Anna Elmose",
     "nick": "Panda",
     "div": "Women's Strawweight",
-    "rec": "0-2-0",
+    "rec": "3-2-0",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/anna-elmose.png",
@@ -34230,14 +34232,15 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "cameron-else",
     "name": "Cameron Else",
     "nick": "Camchida",
     "div": "Bantamweight",
-    "rec": "0-2-0",
+    "rec": "10-6-0",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/cameron-else.png",
@@ -34259,7 +34262,8 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "aaron-ely",
@@ -34300,7 +34304,7 @@
     "name": "Ramazan Emeev",
     "nick": "Gorets",
     "div": "Welterweight",
-    "rec": "5-3-0",
+    "rec": "20-6-0",
     "ufcRec": "5-3-0",
     "from": "",
     "img": "/fighters/ramazan-emeev.png",
@@ -34337,7 +34341,8 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "aleksander-emelianenko",
@@ -34425,7 +34430,7 @@
     "rec": "5-4-0",
     "ufcRec": "5-4-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/jamall-emmers.png",
     "height": "5' 10\"",
     "weight": "145 lbs",
     "reach": "74\"",
@@ -58626,7 +58631,7 @@
     "name": "Manel Kape",
     "nick": "StarBoy",
     "div": "Flyweight",
-    "rec": "22-7-0",
+    "rec": "23-7-0",
     "ufcRec": "7-3-0",
     "from": "",
     "img": "/fighters/manel-kape.png",
@@ -86552,7 +86557,7 @@
     "name": "Vinicius Oliveira",
     "nick": "LokDog",
     "div": "Bantamweight",
-    "rec": "23-4-0",
+    "rec": "24-4-0",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "/fighters/vinicius-oliveira.png",
@@ -100613,7 +100618,7 @@
     "name": "Karol Rosa",
     "nick": "",
     "div": "Women's Bantamweight",
-    "rec": "19-7-0",
+    "rec": "19-8-0",
     "ufcRec": "8-4-0",
     "from": "",
     "img": "/fighters/karol-rosa.png",
@@ -104580,7 +104585,7 @@
     "name": "Luana Santos",
     "nick": "",
     "div": "Women's Bantamweight",
-    "rec": "10-2-0",
+    "rec": "11-2-0",
     "ufcRec": "5-1-0",
     "from": "",
     "img": "/fighters/luana-santos.png",

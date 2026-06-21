@@ -1,76 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-06-20",
-    "name": "UFC Fight Night",
-    "main": "Manel Kape vs. Kyoji Horiguchi",
-    "loc": "Las Vegas, Nevada, U.S.",
-    "date": "2026-06-20",
-    "dateLabel": "20 jun 2026",
-    "f1": "Manel Kape",
-    "f1img": "/fighters/manel-kape.png",
-    "f2": "Kyoji Horiguchi",
-    "f2img": "/fighters/kyoji-horiguchi.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Manel Kape",
-        "f1Id": "",
-        "f2": "Kyoji Horiguchi",
-        "f2Id": "",
-        "weightClass": "Flyweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Ion Cuțelaba",
-        "f1Id": "",
-        "f2": "Navajo Stirling",
-        "f2Id": "",
-        "weightClass": "Light Heavyweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      },
-      {
-        "f1": "André Lima",
-        "f1Id": "",
-        "f2": "Kevin Borjas",
-        "f2Id": "",
-        "weightClass": "Flyweight",
-        "bout": "maincard",
-        "order": 2
-      },
-      {
-        "f1": "Hyder Amil",
-        "f1Id": "",
-        "f2": "Christian Rodriguez",
-        "f2Id": "",
-        "weightClass": "Featherweight",
-        "bout": "maincard",
-        "order": 3
-      },
-      {
-        "f1": "Beatriz Mesquita",
-        "f1Id": "",
-        "f2": "Melissa Mullins",
-        "f2Id": "",
-        "weightClass": "Women's Bantamweight",
-        "bout": "maincard",
-        "order": 4
-      },
-      {
-        "f1": "Allan Nascimento",
-        "f1Id": "",
-        "f2": "Mitch Raposo",
-        "f2Id": "",
-        "weightClass": "Flyweight",
-        "bout": "maincard",
-        "order": 5
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-06-27",
     "name": "UFC Fight Night",
     "main": "Rafael Fiziev vs. Manuel Torres",
@@ -102,8 +31,8 @@
         "order": 1
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-329-2026-07-11",
@@ -200,6 +129,21 @@
         "order": 8
       }
     ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-281-2026-07-18",
+    "name": "UFC Fight Night 281",
+    "main": "TBD",
+    "loc": "Oklahoma City, Oklahoma, U.S.",
+    "date": "2026-07-18",
+    "dateLabel": "18 jul 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming",
     "bg": "#7B1FA2",
     "color": "#fff"
   }

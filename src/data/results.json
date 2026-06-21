@@ -1,34 +1,34 @@
 [
   {
-    "w": "Ciryl Gane",
-    "l": "Alex Pereira",
+    "w": "Navajo Stirling",
+    "l": "Ion Cutelaba",
     "method": "TKO (Punches)",
     "round": 2,
-    "time": "1:27",
-    "event": "UFC White House - Freedom 250: Topuria vs. Gaethje"
+    "time": "3:23",
+    "event": "UFC Fight Night 279 - Kape vs. Horiguchi 2"
   },
   {
-    "w": "Sean O'Malley",
-    "l": "Aiemann Zahabi",
-    "method": "TKO (Punches)",
-    "round": 2,
-    "time": "4:02",
-    "event": "UFC White House - Freedom 250: Topuria vs. Gaethje"
-  },
-  {
-    "w": "Josh Hokit",
-    "l": "Derrick Lewis",
-    "method": "TKO (Punches)",
-    "round": 2,
-    "time": "4:09",
-    "event": "UFC White House - Freedom 250: Topuria vs. Gaethje"
-  },
-  {
-    "w": "Mauricio Ruffy",
-    "l": "Michael Chandler",
-    "method": "TKO (Spinning Wheel Kick and Punches)",
+    "w": "Christian Rodriguez",
+    "l": "Hyder Amil",
+    "method": "Technical Submission (Guillotine Choke)",
     "round": 1,
-    "time": "4:29",
-    "event": "UFC White House - Freedom 250: Topuria vs. Gaethje"
+    "time": "3:43",
+    "event": "UFC Fight Night 279 - Kape vs. Horiguchi 2"
+  },
+  {
+    "w": "Murtazali Magomedov",
+    "l": "Melsik Baghdasaryan",
+    "method": "Submission (Twister)",
+    "round": 1,
+    "time": "1:17",
+    "event": "UFC Fight Night 279 - Kape vs. Horiguchi 2"
+  },
+  {
+    "w": "Vinicius Oliveira",
+    "l": "Andre Fili",
+    "method": "TKO (Punches and Elbows)",
+    "round": 2,
+    "time": "4:56",
+    "event": "UFC Fight Night 279 - Kape vs. Horiguchi 2"
   }
 ]
