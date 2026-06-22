@@ -34427,7 +34427,7 @@
     "name": "Jamall Emmers",
     "nick": "Pretty Boy",
     "div": "Featherweight",
-    "rec": "5-4-0",
+    "rec": "22-8-0",
     "ufcRec": "5-4-0",
     "from": "",
     "img": "/fighters/jamall-emmers.png",
@@ -34464,7 +34464,8 @@
         "outcome": "L",
         "winType": "SD"
       }
-    ]
+    ],
+    "recScope": "pro"
   },
   {
     "slug": "marius-enache",

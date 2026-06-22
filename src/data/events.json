@@ -133,17 +133,82 @@
     "color": "#fff"
   },
   {
-    "slug": "ufc-fight-night-281-2026-07-18",
-    "name": "UFC Fight Night 281",
-    "main": "TBD",
+    "slug": "ufc-fight-night-2026-07-18",
+    "name": "UFC Fight Night",
+    "main": "Dricus du Plessis vs. Kamaru Usman",
     "loc": "Oklahoma City, Oklahoma, U.S.",
     "date": "2026-07-18",
     "dateLabel": "18 jul 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": "",
+    "f1": "Dricus du Plessis",
+    "f1img": "/fighters/dricus-du-plessis.png",
+    "f2": "Kamaru Usman",
+    "f2img": "/fighters/kamaru-usman.png",
     "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Dricus du Plessis",
+        "f1Id": "dricus-du-plessis",
+        "f2": "Kamaru Usman",
+        "f2Id": "kamaru-usman",
+        "weightClass": "Middleweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Jared Cannonier",
+        "f1Id": "jared-cannonier",
+        "f2": "Christian Leroy Duncan",
+        "f2Id": "christian-leroy-duncan",
+        "weightClass": "Middleweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Kevin Holland",
+        "f1Id": "kevin-holland",
+        "f2": "Jacobe Smith",
+        "f2Id": "jacobe-smith",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Alden Coria",
+        "f1Id": "alden-coria",
+        "f2": "Stewart Nicoll",
+        "f2Id": "stewart-nicoll",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Brad Tavares",
+        "f1Id": "brad-tavares",
+        "f2": "Marc-André Barriault",
+        "f2Id": "marc-andre-barriault",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Chase Hooper",
+        "f1Id": "chase-hooper",
+        "f2": "Mitch Ramirez",
+        "f2Id": "mitch-ramirez",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Veronica Hardy",
+        "f1Id": "veronica-hardy",
+        "f2": "Dione Barbosa",
+        "f2Id": "dione-barbosa",
+        "weightClass": "Women's Flyweight",
+        "bout": "maincard",
+        "order": 6
+      }
+    ],
     "bg": "#7B1FA2",
     "color": "#fff"
   }
