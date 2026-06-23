@@ -52,3 +52,7 @@
 /noticias            /blog/              301
 /analisis            /blog/              301
 /categoria           /blog/              301
+
+# ----- Etiquetas renombradas a espanol (post frialdad-del-algoritmo) -----
+/etiqueta/business     /etiqueta/negocio-del-mma/  301
+/etiqueta/paramount    /etiqueta/derechos-tv/      301
