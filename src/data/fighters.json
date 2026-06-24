@@ -4356,7 +4356,8 @@
         "winType": "SD"
       }
     ],
-    "recScope": "pro"
+    "recScope": "pro",
+    "rank": "15"
   },
   {
     "slug": "jim-alers",
@@ -4838,7 +4839,8 @@
         "winType": "TKO"
       }
     ],
-    "recScope": "pro"
+    "recScope": "pro",
+    "rank": "14"
   },
   {
     "slug": "leon-aliu",
@@ -6262,7 +6264,8 @@
         "winType": "TKO"
       }
     ],
-    "recScope": "pro"
+    "recScope": "pro",
+    "rank": "13"
   },
   {
     "slug": "bertrand-amoussou",
@@ -11056,7 +11059,8 @@
         "winType": "SUB"
       }
     ],
-    "recScope": "pro"
+    "recScope": "pro",
+    "rank": "10"
   },
   {
     "slug": "austin-bashi",
@@ -14589,7 +14593,8 @@
         "winType": "UD"
       }
     ],
-    "recScope": "pro"
+    "recScope": "pro",
+    "rank": "10"
   },
   {
     "slug": "calen-born",
@@ -16163,7 +16168,8 @@
         "winType": "SUB"
       }
     ],
-    "recScope": "pro"
+    "recScope": "pro",
+    "rank": "14"
   },
   {
     "slug": "kaik-brito",
@@ -25903,7 +25909,7 @@
     "name": "Melissa Croden",
     "nick": "Scare",
     "div": "Women's Bantamweight",
-    "rec": "2-1-0",
+    "rec": "8-3-0",
     "ufcRec": "2-1-0",
     "from": "",
     "img": "",
@@ -25930,7 +25936,9 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "9",
+    "recScope": "pro"
   },
   {
     "slug": "kevin-croom",
@@ -28167,7 +28175,7 @@
     "name": "Grant Dawson",
     "nick": "KGD",
     "div": "Lightweight",
-    "rec": "12-2-1",
+    "rec": "24-3-1",
     "ufcRec": "12-2-1",
     "from": "",
     "img": "",
@@ -28204,7 +28212,9 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "14",
+    "recScope": "pro"
   },
   {
     "slug": "jason-day",
@@ -41013,7 +41023,7 @@
     "name": "Rafa Garcia",
     "nick": "Gifted",
     "div": "Lightweight",
-    "rec": "7-4-0",
+    "rec": "19-4-0",
     "ufcRec": "7-4-0",
     "from": "",
     "img": "",
@@ -41050,7 +41060,9 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "fernie-garcia",
@@ -52073,7 +52085,7 @@
     "name": "Kyoji Horiguchi",
     "nick": "Karate Kid",
     "div": "Flyweight",
-    "rec": "36-5-0",
+    "rec": "36-6-0",
     "ufcRec": "9-1-0",
     "from": "",
     "img": "/fighters/kyoji-horiguchi.png",
@@ -54778,7 +54790,7 @@
     "name": "Montel Jackson",
     "nick": "Quik",
     "div": "Bantamweight",
-    "rec": "9-4-0",
+    "rec": "15-4-0",
     "ufcRec": "9-4-0",
     "from": "",
     "img": "",
@@ -54815,7 +54827,9 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "eric-jacob",
@@ -54856,7 +54870,7 @@
     "name": "Dustin Jacoby",
     "nick": "The Hanyak",
     "div": "Light Heavyweight",
-    "rec": "10-6-1",
+    "rec": "22-9-1",
     "ufcRec": "10-6-1",
     "from": "",
     "img": "",
@@ -54893,7 +54907,9 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "11",
+    "recScope": "pro"
   },
   {
     "slug": "justin-james",
@@ -57562,7 +57578,7 @@
     "name": "Charles Jourdain",
     "nick": "Air",
     "div": "Bantamweight",
-    "rec": "9-7-1",
+    "rec": "18-8-1",
     "ufcRec": "9-7-1",
     "from": "",
     "img": "",
@@ -57599,7 +57615,9 @@
         "outcome": "L",
         "winType": "SD"
       }
-    ]
+    ],
+    "rank": "13",
+    "recScope": "pro"
   },
   {
     "slug": "louis-jourdain",
@@ -76392,7 +76410,7 @@
     "name": "Bia Mesquita",
     "nick": "The Lady GOAT",
     "div": "Women's Bantamweight",
-    "rec": "6-0-0",
+    "rec": "8-0-0",
     "ufcRec": "2-0-0",
     "from": "",
     "img": "/fighters/bia-mesquita.png",
@@ -78076,7 +78094,8 @@
         "winType": "UD"
       }
     ],
-    "recScope": "pro"
+    "recScope": "pro",
+    "rank": "14"
   },
   {
     "slug": "maurice-mitchell",
@@ -91609,7 +91628,7 @@
     "name": "Vitor Petrino",
     "nick": "",
     "div": "Heavyweight",
-    "rec": "7-2-0",
+    "rec": "14-2-0",
     "ufcRec": "7-2-0",
     "from": "",
     "img": "",
@@ -91646,7 +91665,9 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ]
+    ],
+    "rank": "10",
+    "recScope": "pro"
   },
   {
     "slug": "andre-petroski",
@@ -93010,7 +93031,7 @@
     "name": "Mario Pinto",
     "nick": "",
     "div": "Heavyweight",
-    "rec": "3-0-0",
+    "rec": "12-0-0",
     "ufcRec": "3-0-0",
     "from": "",
     "img": "",
@@ -93037,7 +93058,9 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "13",
+    "recScope": "pro"
   },
   {
     "slug": "gaetano-pirrello",
@@ -95866,7 +95889,7 @@
     "name": "Mitch Raposo",
     "nick": "",
     "div": "Flyweight",
-    "rec": "1-2-0",
+    "rec": "11-3-0",
     "ufcRec": "1-2-0",
     "from": "",
     "img": "",
@@ -95893,7 +95916,9 @@
         "outcome": "L",
         "winType": "SD"
       }
-    ]
+    ],
+    "rank": "11",
+    "recScope": "pro"
   },
   {
     "slug": "hussain-rasouli",
@@ -99689,7 +99714,7 @@
     "name": "Piera Rodriguez",
     "nick": "La Fiera",
     "div": "Women's Strawweight",
-    "rec": "5-2-0",
+    "rec": "12-2-0",
     "ufcRec": "5-2-0",
     "from": "",
     "img": "",
@@ -99726,7 +99751,9 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ]
+    ],
+    "rank": "6",
+    "recScope": "pro"
   },
   {
     "slug": "christian-rodriguez",
@@ -101891,7 +101918,7 @@
     "name": "Pat Sabatini",
     "nick": "",
     "div": "Featherweight",
-    "rec": "9-2-0",
+    "rec": "22-5-0",
     "ufcRec": "9-2-0",
     "from": "",
     "img": "",
@@ -101928,7 +101955,9 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "7",
+    "recScope": "pro"
   },
   {
     "slug": "amir-sadollah",
@@ -112092,7 +112121,7 @@
     "name": "Ryan Spann",
     "nick": "Superman",
     "div": "Heavyweight",
-    "rec": "10-6-0",
+    "rec": "24-11-0",
     "ufcRec": "10-6-0",
     "from": "",
     "img": "",
@@ -112129,7 +112158,9 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "ron-sparks",
@@ -113505,7 +113536,7 @@
     "name": "Navajo Stirling",
     "nick": "",
     "div": "Light Heavyweight",
-    "rec": "4-0-0",
+    "rec": "10-0-0",
     "ufcRec": "4-0-0",
     "from": "",
     "img": "",
@@ -113537,7 +113568,9 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "12",
+    "recScope": "pro"
   },
   {
     "slug": "dan-stittgen",
@@ -114600,7 +114633,7 @@
     "name": "Sumudaerji",
     "nick": "The Tibetan Eagle",
     "div": "Flyweight",
-    "rec": "6-4-0",
+    "rec": "19-7-0",
     "ufcRec": "6-4-0",
     "from": "",
     "img": "",
@@ -114637,7 +114670,9 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ]
+    ],
+    "rank": "12",
+    "recScope": "pro"
   },
   {
     "slug": "rama-supandhi",
@@ -126584,7 +126619,7 @@
     "name": "Nathaniel Wood",
     "nick": "The Last Kingsman",
     "div": "Featherweight",
-    "rec": "11-3-0",
+    "rec": "23-6-0",
     "ufcRec": "11-3-0",
     "from": "",
     "img": "",
@@ -126621,7 +126656,9 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "9",
+    "recScope": "pro"
   },
   {
     "slug": "val-woodburn",
@@ -129384,7 +129421,7 @@
     "name": "Daria Zhelezniakova",
     "nick": "Iron Lady",
     "div": "Women's Bantamweight",
-    "rec": "2-2-0",
+    "rec": "10-3-0",
     "ufcRec": "2-2-0",
     "from": "",
     "img": "",
@@ -129416,7 +129453,9 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "14",
+    "recScope": "pro"
   },
   {
     "slug": "yao-zhikui",
