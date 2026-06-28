@@ -1,40 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-06-27",
-    "name": "UFC Fight Night",
-    "main": "Rafael Fiziev vs. Manuel Torres",
-    "loc": "Baku, Azerbaijan",
-    "date": "2026-06-27",
-    "dateLabel": "27 jun 2026",
-    "f1": "Rafael Fiziev",
-    "f1img": "/fighters/rafael-fiziev.png",
-    "f2": "Manuel Torres",
-    "f2img": "",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Rafael Fiziev",
-        "f1Id": "",
-        "f2": "Manuel Torres",
-        "f2Id": "",
-        "weightClass": "Lightweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Sharabutdin Magomedov",
-        "f1Id": "",
-        "f2": "Michel Pereira",
-        "f2Id": "",
-        "weightClass": "Middleweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-329-2026-07-11",
     "name": "UFC 329",
     "main": "Conor McGregor vs. Max Holloway",
@@ -129,8 +94,8 @@
         "order": 8
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-07-18",
@@ -207,6 +172,104 @@
         "weightClass": "Women's Flyweight",
         "bout": "maincard",
         "order": 6
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-07-25",
+    "name": "UFC Fight Night",
+    "main": "Magomed Ankalaev vs. Khalil Rountree Jr.",
+    "loc": "Abu Dhabi, United Arab Emirates",
+    "date": "2026-07-25",
+    "dateLabel": "25 jul 2026",
+    "f1": "Magomed Ankalaev",
+    "f1img": "/fighters/magomed-ankalaev.png",
+    "f2": "Khalil Rountree Jr.",
+    "f2img": "/fighters/khalil-rountree-jr.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Magomed Ankalaev",
+        "f1Id": "magomed-ankalaev",
+        "f2": "Khalil Rountree Jr.",
+        "f2Id": "khalil-rountree-jr",
+        "weightClass": "Light Heavyweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Umar Nurmagomedov",
+        "f1Id": "umar-nurmagomedov",
+        "f2": "David Martínez",
+        "f2Id": "david-martinez",
+        "weightClass": "Bantamweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Rizvan Kuniev",
+        "f1Id": "rizvan-kuniev",
+        "f2": "Tyrell Fortune",
+        "f2Id": "tyrell-fortune",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Valter Walker",
+        "f1Id": "valter-walker",
+        "f2": "Thomas Petersen",
+        "f2Id": "thomas-petersen",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Magomed Tuchalov",
+        "f1Id": "magomed-tuchalov",
+        "f2": "Brendson Ribeiro",
+        "f2Id": "brendson-ribeiro",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Steve Erceg",
+        "f1Id": "steve-erceg",
+        "f2": "Ramazan Temirov",
+        "f2Id": "ramazan-temirov",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Islam Dulatov",
+        "f1Id": "islam-dulatov",
+        "f2": "Wellington Turman",
+        "f2Id": "wellington-turman",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 6
+      },
+      {
+        "f1": "Ismael Bonfim",
+        "f1Id": "ismael-bonfim",
+        "f2": "Axel Sola",
+        "f2Id": "axel-sola",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 7
+      },
+      {
+        "f1": "Uran Satybaldiev",
+        "f1Id": "uran-satybaldiev",
+        "f2": "Dustin Jacoby",
+        "f2Id": "dustin-jacoby",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 8
       }
     ],
     "bg": "#7B1FA2",
