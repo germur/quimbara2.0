@@ -1819,7 +1819,6 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
     "recScope": "pro"
   },
   {
@@ -2135,7 +2134,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "8",
+    "rank": "9",
     "recScope": "pro"
   },
   {
@@ -2318,7 +2317,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "7",
+    "rank": "8",
     "recScope": "pro"
   },
   {
@@ -4126,7 +4125,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "6",
+    "rank": "7",
     "recScope": "pro"
   },
   {
@@ -4840,7 +4839,7 @@
       }
     ],
     "recScope": "pro",
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "leon-aliu",
@@ -5052,7 +5051,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "9",
+    "rank": "7",
     "recScope": "pro"
   },
   {
@@ -10256,7 +10255,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "14",
+    "rank": "13",
     "recScope": "pro"
   },
   {
@@ -11060,7 +11059,7 @@
       }
     ],
     "recScope": "pro",
-    "rank": "10"
+    "rank": "15"
   },
   {
     "slug": "austin-bashi",
@@ -37980,7 +37979,7 @@
         "winType": "MD"
       }
     ],
-    "rank": "11",
+    "rank": "10",
     "recScope": "pro"
   },
   {
@@ -70245,7 +70244,7 @@
     "name": "Abus Magomedov",
     "nick": "",
     "div": "Middleweight",
-    "rec": "4-3-0",
+    "rec": "29-7-1",
     "ufcRec": "4-3-0",
     "from": "",
     "img": "",
@@ -70282,7 +70281,9 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "shara-magomedov",
@@ -74695,7 +74696,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "15",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -76222,7 +76223,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14",
+    "rank": "15",
     "recScope": "pro"
   },
   {
@@ -79613,7 +79614,7 @@
     "name": "Joseph Morales",
     "nick": "Bopo",
     "div": "Flyweight",
-    "rec": "3-2-0",
+    "rec": "15-2-0",
     "ufcRec": "3-2-0",
     "from": "",
     "img": "",
@@ -79650,7 +79651,9 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "vince-morales",
@@ -81634,7 +81637,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8",
+    "rank": "7",
     "recScope": "pro"
   },
   {
@@ -86615,7 +86618,6 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
     "recScope": "pro"
   },
   {
@@ -95442,7 +95444,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -104446,7 +104448,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7",
+    "rank": "6",
     "recScope": "pro"
   },
   {
