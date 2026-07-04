@@ -1062,7 +1062,31 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2026-08-08",
+    "name": "UFC Fight Night",
+    "main": "Mateusz Gamrot vs. Quillan Salkilld",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-08-08",
+    "dateLabel": "8 ago 2026",
+    "f1": "Mateusz Gamrot",
+    "f1img": "/fighters/mateusz-gamrot.png",
+    "f2": "Quillan Salkilld",
+    "f2img": "/fighters/quillan-salkilld.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Mateusz Gamrot",
+        "f1Id": "mateusz-gamrot",
+        "f2": "Quillan Salkilld",
+        "f2Id": "quillan-salkilld",
+        "weightClass": "Lightweight",
+        "bout": "Main Event",
+        "order": 0
+      }
+    ]
   },
   {
     "slug": "ufc-330-2026-08-15",
