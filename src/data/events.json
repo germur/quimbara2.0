@@ -1,103 +1,5 @@
 [
   {
-    "slug": "ufc-329-2026-07-11",
-    "name": "UFC 329",
-    "main": "Conor McGregor vs. Max Holloway",
-    "loc": "Las Vegas, Nevada, U.S.",
-    "date": "2026-07-11",
-    "dateLabel": "11 jul 2026",
-    "f1": "Conor McGregor",
-    "f1img": "/fighters/conor-mcgregor.png",
-    "f2": "Max Holloway",
-    "f2img": "/fighters/max-holloway.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Conor McGregor",
-        "f1Id": "",
-        "f2": "Max Holloway",
-        "f2Id": "",
-        "weightClass": "Welterweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Paddy Pimblett",
-        "f1Id": "",
-        "f2": "Benoît Saint Denis",
-        "f2Id": "",
-        "weightClass": "Lightweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      },
-      {
-        "f1": "Cody Garbrandt",
-        "f1Id": "",
-        "f2": "Adrian Yañez",
-        "f2Id": "",
-        "weightClass": "Bantamweight",
-        "bout": "maincard",
-        "order": 2
-      },
-      {
-        "f1": "Robert Whittaker",
-        "f1Id": "",
-        "f2": "Nikita Krylov",
-        "f2Id": "",
-        "weightClass": "Light Heavyweight",
-        "bout": "maincard",
-        "order": 3
-      },
-      {
-        "f1": "Brandon Royval",
-        "f1Id": "",
-        "f2": "Lone'er Kavanagh",
-        "f2Id": "",
-        "weightClass": "Flyweight",
-        "bout": "maincard",
-        "order": 4
-      },
-      {
-        "f1": "Tracy Cortez",
-        "f1Id": "",
-        "f2": "Wang Cong",
-        "f2Id": "",
-        "weightClass": "Women's Flyweight",
-        "bout": "maincard",
-        "order": 5
-      },
-      {
-        "f1": "Damian Pinas",
-        "f1Id": "",
-        "f2": "César Almeida",
-        "f2Id": "",
-        "weightClass": "Middleweight",
-        "bout": "maincard",
-        "order": 6
-      },
-      {
-        "f1": "Luke Riley",
-        "f1Id": "",
-        "f2": "Kai Kamaka III",
-        "f2Id": "",
-        "weightClass": "Featherweight",
-        "bout": "maincard",
-        "order": 7
-      },
-      {
-        "f1": "Ode' Osbourne",
-        "f1Id": "",
-        "f2": "Cody Durden",
-        "f2Id": "",
-        "weightClass": "Flyweight",
-        "bout": "maincard",
-        "order": 8
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-07-18",
     "name": "UFC Fight Night",
     "main": "Dricus du Plessis vs. Kamaru Usman",
@@ -174,8 +76,8 @@
         "order": 6
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-07-25",
@@ -270,6 +172,77 @@
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
         "order": 8
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-08-01",
+    "name": "UFC Fight Night",
+    "main": "Uroš Medić vs. Daniel Rodriguez",
+    "loc": "Belgrade, Serbia",
+    "date": "2026-08-01",
+    "dateLabel": "1 ago 2026",
+    "f1": "Uroš Medić",
+    "f1img": "/fighters/uros-medic.png",
+    "f2": "Daniel Rodriguez",
+    "f2img": "/fighters/daniel-rodriguez.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Uroš Medić",
+        "f1Id": "uros-medic",
+        "f2": "Daniel Rodriguez",
+        "f2Id": "daniel-rodriguez",
+        "weightClass": "Welterweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Ante Delija",
+        "f1Id": "ante-delija",
+        "f2": "Johnny Walker",
+        "f2Id": "johnny-walker",
+        "weightClass": "Heavyweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Aleksandar Rakić",
+        "f1Id": "aleksandar-rakic",
+        "f2": "Marcin Tybura",
+        "f2Id": "marcin-tybura",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Duško Todorović",
+        "f1Id": "dusko-todorovic",
+        "f2": "Robert Valentin",
+        "f2Id": "robert-valentin",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Vlasto Čepo",
+        "f1Id": "vlasto-cepo",
+        "f2": "Gilbert Urbina",
+        "f2Id": "gilbert-urbina",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Jovan Leka",
+        "f1Id": "jovan-leka",
+        "f2": "Max Gimenis",
+        "f2Id": "max-gimenis",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 5
       }
     ],
     "bg": "#7B1FA2",

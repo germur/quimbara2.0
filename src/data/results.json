@@ -1,34 +1,34 @@
 [
   {
-    "w": "Sharabutdin Magomedov",
-    "l": "Michel Pereira",
+    "w": "Paddy Pimblett",
+    "l": "Benoit St. Denis",
+    "method": "Technical Submission (Peruvian Necktie)",
+    "round": 1,
+    "time": "0:52",
+    "event": "UFC 329 - McGregor vs. Holloway 2"
+  },
+  {
+    "w": "Mario Bautista",
+    "l": "Cory Sandhagen",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 280 - Fiziev vs. Torres"
+    "event": "UFC 329 - McGregor vs. Holloway 2"
   },
   {
-    "w": "Matheus Camilo",
-    "l": "Nazim Sadykhov",
+    "w": "Brandon Royval",
+    "l": "Lone'er Kavanagh",
+    "method": "Submission (Rear-Naked Choke)",
+    "round": 3,
+    "time": "3:40",
+    "event": "UFC 329 - McGregor vs. Holloway 2"
+  },
+  {
+    "w": "King Green",
+    "l": "Terrance McKinney",
     "method": "TKO (Punches)",
     "round": 1,
-    "time": "1:31",
-    "event": "UFC Fight Night 280 - Fiziev vs. Torres"
-  },
-  {
-    "w": "Asu Almabayev",
-    "l": "Charles Johnson",
-    "method": "Submission (Kneebar)",
-    "round": 3,
-    "time": "3:33",
-    "event": "UFC Fight Night 280 - Fiziev vs. Torres"
-  },
-  {
-    "w": "Ikram Aliskerov",
-    "l": "Brunno Ferreira",
-    "method": "Decision (Unanimous)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC Fight Night 280 - Fiziev vs. Torres"
+    "time": "4:59",
+    "event": "UFC 329 - McGregor vs. Holloway 2"
   }
 ]
