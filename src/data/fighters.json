@@ -817,7 +817,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "6",
+    "rank": "7",
     "recScope": "pro"
   },
   {
@@ -961,7 +961,7 @@
     "slug": "robert-whittaker",
     "name": "Robert Whittaker",
     "nick": "The Reaper",
-    "div": "Middleweight",
+    "div": "Light Heavyweight",
     "rec": "28-9-0",
     "ufcRec": "17-7-0",
     "from": "Australia",
@@ -1000,7 +1000,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10",
+    "rank": "12",
     "recScope": "pro"
   },
   {
@@ -1046,7 +1046,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7",
+    "rank": "6",
     "recScope": "pro"
   },
   {
@@ -2271,7 +2271,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "4",
+    "rank": "3",
     "recScope": "pro"
   },
   {
@@ -4839,7 +4839,7 @@
       }
     ],
     "recScope": "pro",
-    "rank": "15"
+    "rank": "13"
   },
   {
     "slug": "leon-aliu",
@@ -11059,7 +11059,7 @@
       }
     ],
     "recScope": "pro",
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "austin-bashi",
@@ -11351,7 +11351,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7",
+    "rank": "4",
     "recScope": "pro"
   },
   {
@@ -19679,7 +19679,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11",
+    "rank": "10",
     "recScope": "pro"
   },
   {
@@ -24969,7 +24969,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8",
+    "rank": "9",
     "recScope": "pro"
   },
   {
@@ -25169,7 +25169,7 @@
     "name": "Alessandro Costa",
     "nick": "Nono",
     "div": "Flyweight",
-    "rec": "3-3-0",
+    "rec": "17-5-0",
     "ufcRec": "3-3-0",
     "from": "",
     "img": "",
@@ -25206,7 +25206,9 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "melquizael-costa",
@@ -29220,7 +29222,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10",
+    "rank": "9",
     "recScope": "pro"
   },
   {
@@ -30994,7 +30996,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14",
+    "rank": "15",
     "recScope": "pro"
   },
   {
@@ -32573,7 +32575,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13",
+    "rank": "12",
     "recScope": "pro"
   },
   {
@@ -37979,7 +37981,7 @@
         "winType": "MD"
       }
     ],
-    "rank": "10",
+    "rank": "11",
     "recScope": "pro"
   },
   {
@@ -46329,7 +46331,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10",
+    "rank": "9",
     "recScope": "pro"
   },
   {
@@ -50708,7 +50710,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "12",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -62393,7 +62395,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12",
+    "rank": "15",
     "recScope": "pro"
   },
   {
@@ -70282,7 +70284,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -73622,7 +73624,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "9",
+    "rank": "10",
     "recScope": "pro"
   },
   {
@@ -74696,7 +74698,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "14",
+    "rank": "15",
     "recScope": "pro"
   },
   {
@@ -76223,7 +76225,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -79652,7 +79654,6 @@
         "winType": "SUB"
       }
     ],
-    "rank": "15",
     "recScope": "pro"
   },
   {
@@ -81637,7 +81638,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7",
+    "rank": "8",
     "recScope": "pro"
   },
   {
@@ -83858,7 +83859,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -85676,7 +85677,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "11",
+    "rank": "12",
     "recScope": "pro"
   },
   {
@@ -91196,7 +91197,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
+    "rank": "14",
     "recScope": "pro"
   },
   {
@@ -92845,7 +92846,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6",
+    "rank": "5",
     "recScope": "pro"
   },
   {
@@ -99304,7 +99305,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12",
+    "rank": "11",
     "recScope": "pro"
   },
   {
@@ -101764,7 +101765,7 @@
     "name": "Nursulton Ruziboev",
     "nick": "Black",
     "div": "Middleweight",
-    "rec": "4-1-0",
+    "rec": "37-9-2",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "",
@@ -101801,7 +101802,9 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "casey-ryan",
@@ -102362,7 +102365,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "5",
+    "rank": "6",
     "recScope": "pro"
   },
   {
@@ -103696,7 +103699,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "4",
+    "rank": "5",
     "recScope": "pro"
   },
   {
@@ -109012,7 +109015,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "10",
+    "rank": "11",
     "recScope": "pro"
   },
   {
@@ -111161,7 +111164,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "5",
+    "rank": "6",
     "recScope": "pro"
   },
   {
@@ -115533,7 +115536,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "3",
+    "rank": "4",
     "recScope": "pro"
   },
   {
@@ -117171,7 +117174,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "14",
+    "rank": "12",
     "recScope": "pro"
   },
   {
@@ -123379,7 +123382,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14",
+    "rank": "13",
     "recScope": "pro"
   },
   {
@@ -123844,7 +123847,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12",
+    "rank": "8",
     "recScope": "pro"
   },
   {
@@ -128804,7 +128807,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "6",
+    "rank": "7",
     "recScope": "pro"
   },
   {
