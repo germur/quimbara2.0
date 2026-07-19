@@ -780,7 +780,7 @@
     "f1img": "/fighters/dricus-du-plessis.png",
     "f2": "Kamaru Usman",
     "f2img": "/fighters/kamaru-usman.png",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Dricus du Plessis",
@@ -1389,6 +1389,19 @@
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-09-26",
     "dateLabel": "26 sept 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
+  },
+  {
+    "slug": "ufc-fight-night-290-2026-10-17",
+    "name": "UFC Fight Night 290",
+    "main": "TBD",
+    "loc": "Edmonton, Alberta, Canada",
+    "date": "2026-10-17",
+    "dateLabel": "17 oct 2026",
     "f1": "TBD",
     "f1img": "",
     "f2": "TBD",

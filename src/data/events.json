@@ -1,85 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-07-18",
-    "name": "UFC Fight Night",
-    "main": "Dricus du Plessis vs. Kamaru Usman",
-    "loc": "Oklahoma City, Oklahoma, U.S.",
-    "date": "2026-07-18",
-    "dateLabel": "18 jul 2026",
-    "f1": "Dricus du Plessis",
-    "f1img": "/fighters/dricus-du-plessis.png",
-    "f2": "Kamaru Usman",
-    "f2img": "/fighters/kamaru-usman.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Dricus du Plessis",
-        "f1Id": "dricus-du-plessis",
-        "f2": "Kamaru Usman",
-        "f2Id": "kamaru-usman",
-        "weightClass": "Middleweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Jared Cannonier",
-        "f1Id": "jared-cannonier",
-        "f2": "Christian Leroy Duncan",
-        "f2Id": "christian-leroy-duncan",
-        "weightClass": "Middleweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      },
-      {
-        "f1": "Kevin Holland",
-        "f1Id": "kevin-holland",
-        "f2": "Jacobe Smith",
-        "f2Id": "jacobe-smith",
-        "weightClass": "Middleweight",
-        "bout": "maincard",
-        "order": 2
-      },
-      {
-        "f1": "Alden Coria",
-        "f1Id": "alden-coria",
-        "f2": "Stewart Nicoll",
-        "f2Id": "stewart-nicoll",
-        "weightClass": "Flyweight",
-        "bout": "maincard",
-        "order": 3
-      },
-      {
-        "f1": "Brad Tavares",
-        "f1Id": "brad-tavares",
-        "f2": "Marc-André Barriault",
-        "f2Id": "marc-andre-barriault",
-        "weightClass": "Middleweight",
-        "bout": "maincard",
-        "order": 4
-      },
-      {
-        "f1": "Chase Hooper",
-        "f1Id": "chase-hooper",
-        "f2": "Mitch Ramirez",
-        "f2Id": "mitch-ramirez",
-        "weightClass": "Lightweight",
-        "bout": "maincard",
-        "order": 5
-      },
-      {
-        "f1": "Veronica Hardy",
-        "f1Id": "veronica-hardy",
-        "f2": "Dione Barbosa",
-        "f2Id": "dione-barbosa",
-        "weightClass": "Women's Flyweight",
-        "bout": "maincard",
-        "order": 6
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-07-25",
     "name": "UFC Fight Night",
     "main": "Magomed Ankalaev vs. Khalil Rountree Jr.",
@@ -174,8 +94,8 @@
         "order": 8
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-08-01",
@@ -243,6 +163,32 @@
         "weightClass": "Heavyweight",
         "bout": "maincard",
         "order": 5
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-08-08",
+    "name": "UFC Fight Night",
+    "main": "Mateusz Gamrot vs. Quillan Salkilld",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-08-08",
+    "dateLabel": "8 ago 2026",
+    "f1": "Mateusz Gamrot",
+    "f1img": "/fighters/mateusz-gamrot.png",
+    "f2": "Quillan Salkilld",
+    "f2img": "/fighters/quillan-salkilld.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Mateusz Gamrot",
+        "f1Id": "mateusz-gamrot",
+        "f2": "Quillan Salkilld",
+        "f2Id": "quillan-salkilld",
+        "weightClass": "Lightweight",
+        "bout": "Main Event",
+        "order": 0
       }
     ],
     "bg": "#7B1FA2",
