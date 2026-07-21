@@ -6223,7 +6223,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "13"
+    "rank": "14"
   },
   {
     "slug": "bertrand-amoussou",
@@ -16147,7 +16147,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "kaik-brito",
@@ -23073,6 +23073,7 @@
     "nick": "",
     "div": "Light Heavyweight",
     "rec": "15-9-0",
+    "recScope": "pro",
     "ufcRec": "6-7-0",
     "from": "",
     "img": "/fighters/misha-cirkunov.png",
@@ -23109,8 +23110,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "johnny-cisneros",
@@ -23271,6 +23271,7 @@
     "nick": "Brown Bear",
     "div": "Light Heavyweight",
     "rec": "14-9-0",
+    "recScope": "pro",
     "ufcRec": "8-9-0",
     "from": "",
     "img": "/fighters/devin-clark.png",
@@ -23307,8 +23308,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "jessica-rose-clark",
@@ -23316,6 +23316,7 @@
     "nick": "",
     "div": "Women's Bantamweight",
     "rec": "11-9-0",
+    "recScope": "pro",
     "ufcRec": "4-5-0",
     "from": "",
     "img": "/fighters/jessica-rose-clark.png",
@@ -23352,8 +23353,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "shannon-clark",
@@ -23395,6 +23395,7 @@
     "nick": "Danger Zone",
     "div": "Lightweight",
     "rec": "11-5-0",
+    "recScope": "pro",
     "ufcRec": "2-5-0",
     "from": "",
     "img": "/fighters/mitch-clarke.png",
@@ -23431,8 +23432,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "rich-clementi",
@@ -23484,6 +23484,7 @@
     "nick": "The Menace",
     "div": "Welterweight",
     "rec": "12-5-0",
+    "recScope": "pro",
     "ufcRec": "2-2-0",
     "from": "",
     "img": "/fighters/chris-clements.png",
@@ -23520,8 +23521,7 @@
         "outcome": "W",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "rj-clifford",
@@ -23546,6 +23546,7 @@
     "nick": "",
     "div": "",
     "rec": "1-1-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/mark-climaco.png",
@@ -23555,8 +23556,7 @@
     "stance": "Southpaw",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "josh-clopton",
@@ -23564,6 +23564,7 @@
     "nick": "The Gentleman",
     "div": "Featherweight",
     "rec": "6-2-1",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/josh-clopton.png",
@@ -23585,8 +23586,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "brian-cobb",
@@ -23703,6 +23703,7 @@
     "nick": "The Potter",
     "div": "Lightweight",
     "rec": "7-4-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/john-cofer.png",
@@ -23724,8 +23725,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "chris-coggins",
@@ -23750,6 +23750,7 @@
     "nick": "Cabocao",
     "div": "Featherweight",
     "rec": "10-4-0",
+    "recScope": "pro",
     "ufcRec": "2-4-0",
     "from": "",
     "img": "/fighters/felipe-colares.png",
@@ -23786,8 +23787,7 @@
         "outcome": "W",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "wayne-cole",
@@ -23880,6 +23880,7 @@
     "nick": "The Hammer",
     "div": "Light Heavyweight",
     "rec": "16-10-0",
+    "recScope": "pro",
     "ufcRec": "7-5-0",
     "from": "",
     "img": "/fighters/mark-coleman.png",
@@ -23916,8 +23917,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "cortez-coleman",
@@ -23942,6 +23942,7 @@
     "nick": "Cassius",
     "div": "Featherweight",
     "rec": "14-7-0",
+    "recScope": "pro",
     "ufcRec": "1-3-0",
     "from": "",
     "img": "/fighters/clay-collard.png",
@@ -23973,8 +23974,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "jamie-colleen",
@@ -23982,6 +23982,7 @@
     "nick": "",
     "div": "",
     "rec": "4-2-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/jamie-colleen.png",
@@ -23991,8 +23992,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "jake-collier",
@@ -24000,6 +24000,7 @@
     "nick": "The Prototype",
     "div": "Heavyweight",
     "rec": "13-10-0",
+    "recScope": "pro",
     "ufcRec": "5-9-0",
     "from": "",
     "img": "/fighters/jake-collier.png",
@@ -24036,8 +24037,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "christian-colombo",
@@ -24045,6 +24045,7 @@
     "nick": "",
     "div": "Heavyweight",
     "rec": "8-3-1",
+    "recScope": "pro",
     "ufcRec": "0-2-1",
     "from": "",
     "img": "/fighters/christian-colombo.png",
@@ -24071,8 +24072,7 @@
         "outcome": "D",
         "winType": "MD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "willian-colorado",
@@ -24160,6 +24160,7 @@
     "nick": "The Natural Born Killer",
     "div": "Welterweight",
     "rec": "32-14-0",
+    "recScope": "pro",
     "ufcRec": "9-10-0",
     "from": "",
     "img": "/fighters/carlos-condit.png",
@@ -24196,8 +24197,7 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "chris-condo",
@@ -24246,6 +24246,7 @@
     "nick": "Boondock",
     "div": "Featherweight",
     "rec": "14-8-0",
+    "recScope": "pro",
     "ufcRec": "1-2-0",
     "from": "",
     "img": "/fighters/tristan-connelly.png",
@@ -24272,8 +24273,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "marcos-conrado-jr",
@@ -24475,6 +24475,7 @@
     "nick": "ABC",
     "div": "Women's Strawweight",
     "rec": "4-5-0",
+    "recScope": "pro",
     "ufcRec": "2-4-0",
     "from": "",
     "img": "/fighters/amanda-cooper.png",
@@ -24511,8 +24512,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "kit-cope",
@@ -24544,6 +24544,7 @@
     "nick": "C-Murder",
     "div": "Welterweight",
     "rec": "5-4-0",
+    "recScope": "pro",
     "ufcRec": "1-2-0",
     "from": "",
     "img": "/fighters/chris-cope.png",
@@ -24570,8 +24571,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "josh-copeland",
@@ -24579,6 +24579,7 @@
     "nick": "Cuddly Bear",
     "div": "Heavyweight",
     "rec": "9-2-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/josh-copeland.png",
@@ -24600,8 +24601,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "michael-cora",
@@ -24609,6 +24609,7 @@
     "nick": "Kookie Monster",
     "div": "",
     "rec": "4-2-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/michael-cora.png",
@@ -24618,8 +24619,7 @@
     "stance": "Southpaw",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "akira-corassani",
@@ -24627,6 +24627,7 @@
     "nick": "",
     "div": "Featherweight",
     "rec": "14-7-1",
+    "recScope": "pro",
     "ufcRec": "3-3-0",
     "from": "",
     "img": "/fighters/akira-corassani.png",
@@ -24663,8 +24664,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "muhsin-corbbrey",
@@ -24689,6 +24689,7 @@
     "nick": "Cobra",
     "div": "Flyweight",
     "rec": "13-3-0",
+    "recScope": "pro",
     "ufcRec": "3-0-0",
     "from": "",
     "img": "/fighters/alden-coria.png",
@@ -24715,8 +24716,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "daniel-cormier",
@@ -24724,6 +24724,7 @@
     "nick": "DC",
     "div": "Heavyweight",
     "rec": "22-3-0",
+    "recScope": "pro",
     "ufcRec": "11-3-0",
     "from": "",
     "img": "/fighters/daniel-cormier.png",
@@ -24760,8 +24761,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "nora-cornolle",
@@ -24849,6 +24849,7 @@
     "nick": "Pitbull",
     "div": "Women's Bantamweight",
     "rec": "11-6-1",
+    "recScope": "pro",
     "ufcRec": "5-6-1",
     "from": "",
     "img": "/fighters/bethe-correia.png",
@@ -24885,8 +24886,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "wesley-correira",
@@ -25032,6 +25032,7 @@
     "nick": "",
     "div": "Welterweight",
     "rec": "7-2-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/louis-cosce.png",
@@ -25053,8 +25054,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "orion-cosce",
@@ -25062,6 +25062,7 @@
     "nick": "Galaxy",
     "div": "Welterweight",
     "rec": "8-2-0",
+    "recScope": "pro",
     "ufcRec": "1-2-0",
     "from": "",
     "img": "/fighters/orion-cosce.png",
@@ -25088,8 +25089,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "miguel-cosio",
@@ -25148,6 +25148,7 @@
     "nick": "The Zohan",
     "div": "Bantamweight",
     "rec": "6-4-0",
+    "recScope": "pro",
     "ufcRec": "2-4-0",
     "from": "",
     "img": "/fighters/randy-costa.png",
@@ -25184,8 +25185,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "alessandro-costa",
@@ -25302,6 +25302,7 @@
     "nick": "Elevation",
     "div": "",
     "rec": "10-2-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/oscar-cota.png",
@@ -25311,8 +25312,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "patrick-cote",
@@ -25320,6 +25320,7 @@
     "nick": "The Predator",
     "div": "Welterweight",
     "rec": "24-11-0",
+    "recScope": "pro",
     "ufcRec": "10-11-0",
     "from": "",
     "img": "/fighters/patrick-cote.png",
@@ -25356,8 +25357,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "jc-cottrell",
@@ -25365,6 +25365,7 @@
     "nick": "",
     "div": "Lightweight",
     "rec": "17-5-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/jc-cottrell.png",
@@ -25386,8 +25387,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "jr-coughran",
@@ -25412,6 +25412,7 @@
     "nick": "Daywalker",
     "div": "Light Heavyweight",
     "rec": "9-4-0",
+    "recScope": "pro",
     "ufcRec": "1-3-0",
     "from": "",
     "img": "/fighters/rashad-coulter.png",
@@ -25443,8 +25444,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "dave-courchaine",
@@ -25469,6 +25469,7 @@
     "nick": "The Natural",
     "div": "Light Heavyweight",
     "rec": "19-11-0",
+    "recScope": "pro",
     "ufcRec": "16-8-0",
     "from": "",
     "img": "/fighters/randy-couture.png",
@@ -25505,8 +25506,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "kim-couture",
@@ -25531,6 +25531,7 @@
     "nick": "",
     "div": "Lightweight",
     "rec": "6-3-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/ryan-couture.png",
@@ -25552,8 +25553,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "nikk-covert",
@@ -25578,6 +25578,7 @@
     "nick": "All Hail",
     "div": "Women's Bantamweight",
     "rec": "7-5-0",
+    "recScope": "pro",
     "ufcRec": "0-3-0",
     "from": "",
     "img": "/fighters/hailey-cowan.png",
@@ -25604,8 +25605,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "jeff-cox",
@@ -25613,6 +25613,7 @@
     "nick": "The Grinder",
     "div": "Lightweight",
     "rec": "14-5-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/jeff-cox.png",
@@ -25634,8 +25635,7 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "nathan-coy",
@@ -25643,6 +25643,7 @@
     "nick": "Soulforce",
     "div": "Welterweight",
     "rec": "15-7-0",
+    "recScope": "pro",
     "ufcRec": "1-2-0",
     "from": "",
     "img": "/fighters/nathan-coy.png",
@@ -25669,8 +25670,7 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "andrew-craig",
@@ -25678,6 +25678,7 @@
     "nick": "Highlight",
     "div": "Welterweight",
     "rec": "9-4-0",
+    "recScope": "pro",
     "ufcRec": "3-4-0",
     "from": "",
     "img": "/fighters/andrew-craig.png",
@@ -25714,8 +25715,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "paul-craig",
@@ -25723,6 +25723,7 @@
     "nick": "Bearjew",
     "div": "Light Heavyweight",
     "rec": "17-10-1",
+    "recScope": "pro",
     "ufcRec": "9-10-1",
     "from": "",
     "img": "/fighters/paul-craig.png",
@@ -25759,8 +25760,7 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "dan-cramer",
@@ -25826,6 +25826,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "13-6-0",
+    "recScope": "pro",
     "ufcRec": "3-2-0",
     "from": "",
     "img": "/fighters/tim-credeur.png",
@@ -25862,8 +25863,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "paul-creighton",
@@ -25982,6 +25982,7 @@
     "nick": "Crash",
     "div": "Bantamweight",
     "rec": "21-15-0",
+    "recScope": "pro",
     "ufcRec": "0-3-0",
     "from": "",
     "img": "/fighters/kevin-croom.png",
@@ -26013,8 +26014,7 @@
         "outcome": "NC",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "kiefer-crosbie",
@@ -26022,6 +26022,7 @@
     "nick": "BDK",
     "div": "Welterweight",
     "rec": "10-6-0",
+    "recScope": "pro",
     "ufcRec": "0-3-0",
     "from": "",
     "img": "/fighters/kiefer-crosbie.png",
@@ -26048,8 +26049,7 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "ken-cross",
@@ -26091,6 +26091,7 @@
     "nick": "Pretty Boy",
     "div": "Heavyweight",
     "rec": "10-4-0",
+    "recScope": "pro",
     "ufcRec": "1-2-0",
     "from": "",
     "img": "/fighters/allen-crowder.png",
@@ -26117,8 +26118,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "daron-cruickshank",
@@ -26126,6 +26126,7 @@
     "nick": "Detroit Superstar",
     "div": "Lightweight",
     "rec": "16-8-0",
+    "recScope": "pro",
     "ufcRec": "6-6-0",
     "from": "",
     "img": "/fighters/daron-cruickshank.png",
@@ -26162,8 +26163,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "richard-crunkilton",
@@ -26195,6 +26195,7 @@
     "nick": "",
     "div": "Light Heavyweight",
     "rec": "14-4-2",
+    "recScope": "pro",
     "ufcRec": "6-4-2",
     "from": "",
     "img": "/fighters/jimmy-crute.png",
@@ -26231,8 +26232,7 @@
         "outcome": "D",
         "winType": "MD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "marcio-cruz",
@@ -26279,6 +26279,7 @@
     "nick": "",
     "div": "Lightweight",
     "rec": "8-4-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/aalon-cruz.png",
@@ -26300,8 +26301,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "timmy-cuamba",
@@ -26353,6 +26353,7 @@
     "nick": "",
     "div": "Ultimate Fighter 27 Featherweight Tournament",
     "rec": "9-1-0",
+    "recScope": "pro",
     "ufcRec": "0-1-0",
     "from": "",
     "img": "/fighters/jay-cucciniello.png",
@@ -26369,8 +26370,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "emilio-cuellar",
@@ -26395,6 +26395,7 @@
     "nick": "Kuya",
     "div": "Featherweight",
     "rec": "11-4-1",
+    "recScope": "pro",
     "ufcRec": "3-4-1",
     "from": "",
     "img": "/fighters/josh-culibao.png",
@@ -26431,8 +26432,7 @@
         "outcome": "W",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "chris-culley",
@@ -26474,6 +26474,7 @@
     "nick": "",
     "div": "Light Heavyweight",
     "rec": "25-7-0",
+    "recScope": "pro",
     "ufcRec": "10-4-0",
     "from": "",
     "img": "/fighters/zak-cummings.png",
@@ -26510,8 +26511,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "everett-cummings",
@@ -26536,6 +26536,7 @@
     "nick": "Durkin",
     "div": "Light Heavyweight",
     "rec": "10-7-0",
+    "recScope": "pro",
     "ufcRec": "6-7-0",
     "from": "",
     "img": "/fighters/patrick-cummins.png",
@@ -26572,8 +26573,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "luke-cummo",
@@ -26642,6 +26642,7 @@
     "nick": "The Bo-Man",
     "div": "",
     "rec": "7-2-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/alton-cunningham.png",
@@ -26651,8 +26652,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "aj-cunningham",
@@ -26660,6 +26660,7 @@
     "nick": "The Savage",
     "div": "Bantamweight",
     "rec": "11-5-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/aj-cunningham.png",
@@ -26681,8 +26682,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "tommy-cuozzi-jr",
@@ -26707,6 +26707,7 @@
     "nick": "",
     "div": "",
     "rec": "0-1-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/santo-curatolo.png",
@@ -26716,8 +26717,7 @@
     "stance": "Southpaw",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "larry-cureton",
@@ -26754,6 +26754,7 @@
     "nick": "Big Frog",
     "div": "Bantamweight",
     "rec": "35-15-1",
+    "recScope": "pro",
     "ufcRec": "0-3-0",
     "from": "",
     "img": "/fighters/jeff-curran.png",
@@ -26780,8 +26781,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "kailin-curran",
@@ -26789,6 +26789,7 @@
     "nick": "",
     "div": "Women's Strawweight",
     "rec": "4-6-0",
+    "recScope": "pro",
     "ufcRec": "1-6-0",
     "from": "",
     "img": "/fighters/kailin-curran.png",
@@ -26825,8 +26826,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "pat-curran",
@@ -26868,6 +26868,7 @@
     "nick": "Action-Man",
     "div": "Welterweight",
     "rec": "32-13-0",
+    "recScope": "pro",
     "ufcRec": "6-5-0",
     "from": "",
     "img": "/fighters/chris-curtis.png",
@@ -26904,8 +26905,7 @@
         "outcome": "W",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "ion-cutelaba",
@@ -26913,6 +26913,7 @@
     "nick": "The Hulk",
     "div": "Light Heavyweight",
     "rec": "20-12-1",
+    "recScope": "pro",
     "ufcRec": "9-11-1",
     "from": "",
     "img": "/fighters/ion-cutelaba.png",
@@ -26949,8 +26950,7 @@
         "outcome": "W",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "gleidson-cutis",
@@ -26975,6 +26975,7 @@
     "nick": "The Monster",
     "div": "",
     "rec": "0-0-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/sarah-dalelio.png",
@@ -26984,8 +26985,7 @@
     "stance": "",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "marcos-da-matta",
@@ -27010,6 +27010,7 @@
     "nick": "Frankenstein",
     "div": "Light Heavyweight",
     "rec": "12-4-0",
+    "recScope": "pro",
     "ufcRec": "2-4-0",
     "from": "",
     "img": "/fighters/henrique-da-silva.png",
@@ -27046,8 +27047,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "ariane-da-silva",
@@ -27055,6 +27055,7 @@
     "nick": "Queen of Violence",
     "div": "Women's Flyweight",
     "rec": "17-11-0",
+    "recScope": "pro",
     "ufcRec": "6-8-0",
     "from": "",
     "img": "/fighters/ariane-da-silva.png",
@@ -27091,8 +27092,7 @@
         "outcome": "W",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "alex-da-silva",
@@ -27100,6 +27100,7 @@
     "nick": "Leko",
     "div": "Lightweight",
     "rec": "21-4-0",
+    "recScope": "pro",
     "ufcRec": "1-3-0",
     "from": "",
     "img": "/fighters/alex-da-silva.png",
@@ -27131,8 +27132,7 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "radley-da-silva",
@@ -27191,6 +27191,7 @@
     "nick": "Lokomotivo",
     "div": "Welterweight",
     "rec": "24-6-1",
+    "recScope": "pro",
     "ufcRec": "8-5-1",
     "from": "",
     "img": "/fighters/nicolas-dalby.png",
@@ -27227,8 +27228,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "paul-daley",
@@ -27236,6 +27236,7 @@
     "nick": "Semtex",
     "div": "Welterweight",
     "rec": "29-12-2",
+    "recScope": "pro",
     "ufcRec": "2-1-0",
     "from": "",
     "img": "/fighters/paul-daley.png",
@@ -27262,8 +27263,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "dave-dalgliesh",
@@ -27305,6 +27305,7 @@
     "nick": "Ais the Bash",
     "div": "Women's Strawweight",
     "rec": "16-5-0",
+    "recScope": "pro",
     "ufcRec": "2-1-0",
     "from": "",
     "img": "/fighters/aisling-daly.png",
@@ -27331,8 +27332,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "marko-damiani",
@@ -27357,6 +27357,7 @@
     "nick": "Puppy",
     "div": "",
     "rec": "0-1-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/leonardo-damiani.png",
@@ -27366,8 +27367,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "rodrigo-damm",
@@ -27375,6 +27375,7 @@
     "nick": "",
     "div": "Lightweight",
     "rec": "12-9-0",
+    "recScope": "pro",
     "ufcRec": "3-4-0",
     "from": "",
     "img": "/fighters/rodrigo-damm.png",
@@ -27411,8 +27412,7 @@
         "outcome": "W",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "carina-damm",
@@ -27437,6 +27437,7 @@
     "nick": "Storm",
     "div": "Bantamweight",
     "rec": "12-5-0",
+    "recScope": "pro",
     "ufcRec": "3-4-0",
     "from": "",
     "img": "/fighters/batgerel-danaa.png",
@@ -27473,8 +27474,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "cindy-dandois",
@@ -27482,6 +27482,7 @@
     "nick": "Battlecat",
     "div": "Women's Bantamweight",
     "rec": "8-3-0",
+    "recScope": "pro",
     "ufcRec": "0-1-0",
     "from": "",
     "img": "/fighters/cindy-dandois.png",
@@ -27498,8 +27499,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "peter-danesoe",
@@ -27507,6 +27507,7 @@
     "nick": "The Asian Viking",
     "div": "",
     "rec": "1-2-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/peter-danesoe.png",
@@ -27516,8 +27517,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "jarjis-danho",
@@ -27525,6 +27525,7 @@
     "nick": "Man Mountain",
     "div": "Heavyweight",
     "rec": "7-1-1",
+    "recScope": "pro",
     "ufcRec": "1-1-1",
     "from": "",
     "img": "/fighters/jarjis-danho.png",
@@ -27551,8 +27552,7 @@
         "outcome": "L",
         "winType": "MD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "jose-daniel-medina",
@@ -27560,6 +27560,7 @@
     "nick": "Chicho",
     "div": "Middleweight",
     "rec": "11-7-0",
+    "recScope": "pro",
     "ufcRec": "0-4-0",
     "from": "",
     "img": "/fighters/jose-daniel-medina.png",
@@ -27591,8 +27592,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "raymond-daniels",
@@ -27697,6 +27697,7 @@
     "nick": "",
     "div": "Lightweight",
     "rec": "22-12-1",
+    "recScope": "pro",
     "ufcRec": "5-8-0",
     "from": "",
     "img": "/fighters/mac-danzig.png",
@@ -27733,8 +27734,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "karen-darabedyan",
@@ -27783,6 +27783,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "17-4-0",
+    "recScope": "pro",
     "ufcRec": "4-5-0",
     "from": "",
     "img": "/fighters/kyle-daukaus.png",
@@ -27819,8 +27820,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "chris-daukaus",
@@ -27828,6 +27828,7 @@
     "nick": "",
     "div": "Light Heavyweight",
     "rec": "12-7-0",
+    "recScope": "pro",
     "ufcRec": "4-4-0",
     "from": "",
     "img": "/fighters/chris-daukaus.png",
@@ -27864,8 +27865,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "brian-davidson",
@@ -27890,6 +27890,7 @@
     "nick": "The Flying Squirrel",
     "div": "Lightweight",
     "rec": "3-1-1",
+    "recScope": "pro",
     "ufcRec": "0-1-0",
     "from": "",
     "img": "/fighters/rick-davis.png",
@@ -27906,8 +27907,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "marcus-davis",
@@ -27915,6 +27915,7 @@
     "nick": "The Irish Hand Grenade",
     "div": "Lightweight",
     "rec": "22-9-0",
+    "recScope": "pro",
     "ufcRec": "9-6-0",
     "from": "",
     "img": "/fighters/marcus-davis.png",
@@ -27951,8 +27952,7 @@
         "outcome": "L",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "lc-davis",
@@ -27977,6 +27977,7 @@
     "nick": "Mr. Wonderful",
     "div": "Light Heavyweight",
     "rec": "13-3-0",
+    "recScope": "pro",
     "ufcRec": "9-3-0",
     "from": "",
     "img": "/fighters/phil-davis.png",
@@ -28013,8 +28014,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "lemont-davis",
@@ -28039,6 +28039,7 @@
     "nick": "Beast Boy",
     "div": "Lightweight",
     "rec": "12-3-0",
+    "recScope": "pro",
     "ufcRec": "5-2-0",
     "from": "",
     "img": "/fighters/mike-davis.png",
@@ -28075,8 +28076,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "justin-davis",
@@ -28101,6 +28101,7 @@
     "nick": "",
     "div": "Women's Bantamweight",
     "rec": "21-11-0",
+    "recScope": "pro",
     "ufcRec": "8-6-0",
     "from": "",
     "img": "/fighters/alexis-davis.png",
@@ -28137,8 +28138,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "danny-davis",
@@ -28163,6 +28163,7 @@
     "nick": "Killer B",
     "div": "Bantamweight",
     "rec": "14-10-0",
+    "recScope": "pro",
     "ufcRec": "2-7-0",
     "from": "",
     "img": "/fighters/brandon-davis.png",
@@ -28199,8 +28200,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "hakeem-dawodu",
@@ -28208,6 +28208,7 @@
     "nick": "Mean",
     "div": "Featherweight",
     "rec": "13-4-1",
+    "recScope": "pro",
     "ufcRec": "6-4-0",
     "from": "",
     "img": "/fighters/hakeem-dawodu.png",
@@ -28244,8 +28245,7 @@
         "outcome": "W",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "grant-dawson",
@@ -28333,6 +28333,7 @@
     "nick": "The Spartan",
     "div": "Featherweight",
     "rec": "8-6-0",
+    "recScope": "pro",
     "ufcRec": "0-4-0",
     "from": "",
     "img": "/fighters/martin-day.png",
@@ -28364,8 +28365,7 @@
         "outcome": "L",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "angel-de-anda",
@@ -28373,6 +28373,7 @@
     "nick": "The Dream",
     "div": "",
     "rec": "18-6-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/angel-de-anda.png",
@@ -28382,8 +28383,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "yorgan-de-castro",
@@ -28391,6 +28391,7 @@
     "nick": "The Mad Titan",
     "div": "Heavyweight",
     "rec": "6-3-0",
+    "recScope": "pro",
     "ufcRec": "1-3-0",
     "from": "",
     "img": "/fighters/yorgan-de-castro.png",
@@ -28422,8 +28423,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "geraldo-de-freitas",
@@ -28509,6 +28509,7 @@
     "nick": "",
     "div": "Heavyweight",
     "rec": "5-3-0",
+    "recScope": "pro",
     "ufcRec": "1-3-0",
     "from": "",
     "img": "/fighters/chris-de-la-rocha.png",
@@ -28540,8 +28541,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "montana-de-la-rosa",
@@ -28549,6 +28549,7 @@
     "nick": "",
     "div": "Women's Flyweight",
     "rec": "13-9-1",
+    "recScope": "pro",
     "ufcRec": "6-5-1",
     "from": "",
     "img": "/fighters/montana-de-la-rosa.png",
@@ -28585,8 +28586,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "mark-de-la-rosa",
@@ -28594,6 +28594,7 @@
     "nick": "Bumblebee",
     "div": "Bantamweight",
     "rec": "11-5-0",
+    "recScope": "pro",
     "ufcRec": "2-5-0",
     "from": "",
     "img": "/fighters/mark-de-la-rosa.png",
@@ -28630,8 +28631,7 @@
         "outcome": "W",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "mike-de-la-torre",
@@ -28639,6 +28639,7 @@
     "nick": "El Cucuy",
     "div": "Featherweight",
     "rec": "14-7-0",
+    "recScope": "pro",
     "ufcRec": "2-4-0",
     "from": "",
     "img": "/fighters/mike-de-la-torre.png",
@@ -28675,8 +28676,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "rodrigo-de-lima",
@@ -28684,6 +28684,7 @@
     "nick": "Monstro",
     "div": "Lightweight",
     "rec": "8-3-1",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/rodrigo-de-lima.png",
@@ -28705,8 +28706,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "edilberto-de-oliveira",
@@ -28760,6 +28760,7 @@
     "nick": "Blade",
     "div": "Lightweight",
     "rec": "7-2-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/jorge-de-oliveira.png",
@@ -28781,8 +28782,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "jair-de-oliveira",
@@ -28807,6 +28807,7 @@
     "nick": "Belinha",
     "div": "Women's Flyweight",
     "rec": "0-1-0",
+    "recScope": "pro",
     "ufcRec": "0-1-0",
     "from": "",
     "img": "/fighters/isabela-de-padua.png",
@@ -28823,8 +28824,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "gloria-de-paula",
@@ -28832,6 +28832,7 @@
     "nick": "Glorinha",
     "div": "Women's Strawweight",
     "rec": "6-5-0",
+    "recScope": "pro",
     "ufcRec": "1-3-0",
     "from": "",
     "img": "/fighters/gloria-de-paula.png",
@@ -28863,8 +28864,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "germaine-de-randamie",
@@ -28872,6 +28872,7 @@
     "nick": "The Iron Lady",
     "div": "Women's Bantamweight",
     "rec": "10-5-0",
+    "recScope": "pro",
     "ufcRec": "7-3-0",
     "from": "",
     "img": "/fighters/germaine-de-randamie.png",
@@ -28908,8 +28909,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "reinier-de-ridder",
@@ -28980,6 +28980,7 @@
     "nick": "The Anishinaabe Kid",
     "div": "Lightweight",
     "rec": "17-7-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/carl-deaton.png",
@@ -29001,8 +29002,7 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "tom-deblass",
@@ -29010,6 +29010,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "7-2-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/tom-deblass.png",
@@ -29031,8 +29032,7 @@
         "outcome": "L",
         "winType": "MD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "issac-dejesus",
@@ -29074,6 +29074,7 @@
     "nick": "",
     "div": "Heavyweight",
     "rec": "11-2-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/shane-del-rosario.png",
@@ -29095,8 +29096,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "wallen-del-rosario",
@@ -29104,6 +29104,7 @@
     "nick": "",
     "div": "",
     "rec": "0-1-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/wallen-del-rosario.png",
@@ -29113,8 +29114,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "yadier-del-valle",
@@ -29122,6 +29122,7 @@
     "nick": "The Cuban Problem",
     "div": "Featherweight",
     "rec": "10-1-0",
+    "recScope": "pro",
     "ufcRec": "2-1-0",
     "from": "",
     "img": "/fighters/yadier-del-valle.png",
@@ -29148,8 +29149,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "jose-delano",
@@ -29157,6 +29157,7 @@
     "nick": "",
     "div": "Featherweight",
     "rec": "17-3-0",
+    "recScope": "pro",
     "ufcRec": "1-0-0",
     "from": "",
     "img": "/fighters/jose-delano.png",
@@ -29173,8 +29174,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "humberto-deleon",
@@ -29250,6 +29250,7 @@
     "nick": "",
     "div": "Featherweight",
     "rec": "10-2-0",
+    "recScope": "pro",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "/fighters/jose-delgado.png",
@@ -29286,8 +29287,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "ante-delija",
@@ -29377,6 +29377,7 @@
     "nick": "",
     "div": "Bantamweight",
     "rec": "9-4-0",
+    "recScope": "pro",
     "ufcRec": "3-3-0",
     "from": "",
     "img": "/fighters/roland-delorme.png",
@@ -29413,8 +29414,7 @@
         "outcome": "NC",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "jon-delos-reyes",
@@ -29422,6 +29422,7 @@
     "nick": "The Heat",
     "div": "Flyweight",
     "rec": "8-5-0",
+    "recScope": "pro",
     "ufcRec": "1-3-0",
     "from": "",
     "img": "/fighters/jon-delos-reyes.png",
@@ -29453,8 +29454,7 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "jason-delucia",
@@ -29513,6 +29513,7 @@
     "nick": "Lil Monster",
     "div": "Women's Flyweight",
     "rec": "11-8-0",
+    "recScope": "pro",
     "ufcRec": "5-5-0",
     "from": "",
     "img": "/fighters/vanessa-demopoulos.png",
@@ -29549,8 +29550,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "chris-dempsey",
@@ -29558,6 +29558,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "11-4-0",
+    "recScope": "pro",
     "ufcRec": "1-3-0",
     "from": "",
     "img": "/fighters/chris-dempsey.png",
@@ -29589,8 +29590,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "nick-denis",
@@ -29598,6 +29598,7 @@
     "nick": "The Ninja of Love",
     "div": "Bantamweight",
     "rec": "11-3-0",
+    "recScope": "pro",
     "ufcRec": "1-1-0",
     "from": "",
     "img": "/fighters/nick-denis.png",
@@ -29619,8 +29620,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "thomas-denny",
@@ -29808,6 +29808,7 @@
     "nick": "The Big Boy",
     "div": "Heavyweight",
     "rec": "5-2-0",
+    "recScope": "pro",
     "ufcRec": "1-2-0",
     "from": "",
     "img": "/fighters/robelis-despaigne.png",
@@ -29834,8 +29835,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "cory-devela",
@@ -29911,6 +29911,7 @@
     "nick": "Manzo",
     "div": "Middleweight",
     "rec": "13-7-0",
+    "recScope": "pro",
     "ufcRec": "4-7-0",
     "from": "",
     "img": "/fighters/alessio-di-chirico.png",
@@ -29947,8 +29948,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "micol-di-segni",
@@ -29956,6 +29956,7 @@
     "nick": "",
     "div": "",
     "rec": "0-0-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/micol-di-segni.png",
@@ -29965,8 +29966,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "cyrille-diabate",
@@ -29974,6 +29974,7 @@
     "nick": "The Snake",
     "div": "Light Heavyweight",
     "rec": "20-10-3",
+    "recScope": "pro",
     "ufcRec": "4-4-0",
     "from": "",
     "img": "/fighters/cyrille-diabate.png",
@@ -30010,8 +30011,7 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "thomas-diagne",
@@ -30036,6 +30036,7 @@
     "nick": "Bonecrusher",
     "div": "Lightweight",
     "rec": "17-7-0",
+    "recScope": "pro",
     "ufcRec": "8-7-0",
     "from": "",
     "img": "/fighters/marc-diakiese.png",
@@ -30072,8 +30073,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "tyler-diamond",
@@ -30081,6 +30081,7 @@
     "nick": "",
     "div": "Featherweight",
     "rec": "9-2-0",
+    "recScope": "pro",
     "ufcRec": "0-1-0",
     "from": "",
     "img": "/fighters/tyler-diamond.png",
@@ -30097,8 +30098,7 @@
         "outcome": "L",
         "winType": "MD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "blood-diamond",
@@ -30106,6 +30106,7 @@
     "nick": "",
     "div": "Welterweight",
     "rec": "3-3-0",
+    "recScope": "pro",
     "ufcRec": "0-3-0",
     "from": "",
     "img": "/fighters/blood-diamond.png",
@@ -30132,8 +30133,7 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "eldo-xavier-dias",
@@ -30182,6 +30182,7 @@
     "nick": "Barnabe",
     "div": "Lightweight",
     "rec": "23-6-1",
+    "recScope": "pro",
     "ufcRec": "3-5-0",
     "from": "",
     "img": "/fighters/hacran-dias.png",
@@ -30218,8 +30219,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "victor-dias",
@@ -30227,6 +30227,7 @@
     "nick": "Crazy Horse",
     "div": "",
     "rec": "0-1-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/victor-dias.png",
@@ -30236,8 +30237,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "magno-dias",
@@ -30262,6 +30262,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "26-11-0",
+    "recScope": "pro",
     "ufcRec": "7-7-0",
     "from": "",
     "img": "/fighters/nick-diaz.png",
@@ -30298,8 +30299,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "nate-diaz",
@@ -30307,6 +30307,7 @@
     "nick": "",
     "div": "Welterweight",
     "rec": "22-13-0",
+    "recScope": "pro",
     "ufcRec": "16-11-0",
     "from": "",
     "img": "/fighters/nate-diaz.png",
@@ -30343,8 +30344,7 @@
         "outcome": "L",
         "winType": "MD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "michael-diaz",
@@ -30386,6 +30386,7 @@
     "nick": "",
     "div": "",
     "rec": "11-5-1",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/adrian-diaz.png",
@@ -30395,8 +30396,7 @@
     "stance": "Southpaw",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "ozzy-diaz",
@@ -30404,6 +30404,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "10-3-0",
+    "recScope": "pro",
     "ufcRec": "1-2-0",
     "from": "",
     "img": "/fighters/ozzy-diaz.png",
@@ -30430,8 +30431,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "juan-diaz",
@@ -30439,6 +30439,7 @@
     "nick": "Pegajoso",
     "div": "Bantamweight",
     "rec": "16-1-1",
+    "recScope": "pro",
     "ufcRec": "1-0-0",
     "from": "",
     "img": "/fighters/juan-diaz.png",
@@ -30455,8 +30456,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "mark-dickman",
@@ -30532,6 +30532,7 @@
     "nick": "",
     "div": "Bantamweight",
     "rec": "18-5-0",
+    "recScope": "pro",
     "ufcRec": "13-5-0",
     "from": "",
     "img": "/fighters/tj-dillashaw.png",
@@ -30568,8 +30569,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "ralph-dillon",
@@ -30611,6 +30611,7 @@
     "nick": "",
     "div": "Welterweight",
     "rec": "35-10-0",
+    "recScope": "pro",
     "ufcRec": "0-1-0",
     "from": "",
     "img": "/fighters/ding-meng.png",
@@ -30627,8 +30628,7 @@
         "outcome": "L",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "rodolfo-marques-diniz",
@@ -30653,6 +30653,7 @@
     "nick": "",
     "div": "Heavyweight",
     "rec": "9-2-0",
+    "recScope": "pro",
     "ufcRec": "3-2-0",
     "from": "",
     "img": "/fighters/jhonata-diniz.png",
@@ -30689,8 +30690,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "helio-dipp",
@@ -30715,6 +30715,7 @@
     "nick": "",
     "div": "",
     "rec": "9-3-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/rico-disciullo.png",
@@ -30724,8 +30725,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "matt-dixon",
@@ -30733,6 +30733,7 @@
     "nick": "Magic",
     "div": "",
     "rec": "9-1-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/matt-dixon.png",
@@ -30742,8 +30743,7 @@
     "stance": "Switch",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "john-dixson",
@@ -30785,6 +30785,7 @@
     "nick": "",
     "div": "Bantamweight",
     "rec": "15-8-0",
+    "recScope": "pro",
     "ufcRec": "3-5-0",
     "from": "",
     "img": "/fighters/russell-doane.png",
@@ -30821,8 +30822,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "drew-dober",
@@ -30830,6 +30830,7 @@
     "nick": "",
     "div": "Lightweight",
     "rec": "29-15-0",
+    "recScope": "pro",
     "ufcRec": "15-11-0",
     "from": "",
     "img": "/fighters/drew-dober.png",
@@ -30866,8 +30867,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "shana-dobson",
@@ -30875,6 +30875,7 @@
     "nick": "Danger",
     "div": "Women's Flyweight",
     "rec": "4-5-0",
+    "recScope": "pro",
     "ufcRec": "2-4-0",
     "from": "",
     "img": "/fighters/shana-dobson.png",
@@ -30911,8 +30912,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "aj-dobson",
@@ -30920,6 +30920,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "7-3-0",
+    "recScope": "pro",
     "ufcRec": "1-3-0",
     "from": "",
     "img": "/fighters/aj-dobson.png",
@@ -30951,8 +30952,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "david-dodd",
@@ -30989,6 +30989,7 @@
     "nick": "The Magician",
     "div": "Bantamweight",
     "rec": "22-12-0",
+    "recScope": "pro",
     "ufcRec": "10-7-0",
     "from": "",
     "img": "/fighters/john-dodson.png",
@@ -31025,8 +31026,7 @@
         "outcome": "W",
         "winType": "SD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "joe-doerksen",
@@ -31034,6 +31034,7 @@
     "nick": "El Dirte",
     "div": "Middleweight",
     "rec": "45-14-0",
+    "recScope": "pro",
     "ufcRec": "2-7-0",
     "from": "",
     "img": "/fighters/joe-doerksen.png",
@@ -31070,8 +31071,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "mike-dolce",
@@ -31166,6 +31166,7 @@
     "nick": "The Doberman",
     "div": "Middleweight",
     "rec": "18-10-0",
+    "recScope": "pro",
     "ufcRec": "11-9-0",
     "from": "",
     "img": "/fighters/cb-dollaway.png",
@@ -31202,8 +31203,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "dennis-dombrow",
@@ -31262,6 +31262,7 @@
     "nick": "",
     "div": "Welterweight",
     "rec": "15-2-0",
+    "recScope": "pro",
     "ufcRec": "3-0-0",
     "from": "",
     "img": "/fighters/daniil-donchenko.png",
@@ -31288,8 +31289,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "dong-huaxiang",
@@ -31314,6 +31314,7 @@
     "nick": "Donnybrook",
     "div": "Light Heavyweight",
     "rec": "8-5-0",
+    "recScope": "pro",
     "ufcRec": "1-3-0",
     "from": "",
     "img": "/fighters/cody-donovan.png",
@@ -31345,8 +31346,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "houston-dorr",
@@ -31378,6 +31378,7 @@
     "nick": "",
     "div": "Welterweight",
     "rec": "32-17-0",
+    "recScope": "pro",
     "ufcRec": "21-15-0",
     "from": "",
     "img": "/fighters/rafael-dos-anjos.png",
@@ -31414,8 +31415,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "junior-dos-santos",
@@ -31484,6 +31484,7 @@
     "nick": "Junior Alpha",
     "div": "Middleweight",
     "rec": "6-3-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/antonio-dos-santos.png",
@@ -31505,8 +31506,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "anderson-dos-santos",
@@ -55104,7 +55104,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11"
+    "rank": "10"
   },
   {
     "slug": "justin-james",
@@ -76462,7 +76462,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "13"
   },
   {
     "slug": "ivan-menjivar",
@@ -100052,7 +100052,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "6"
+    "rank": "7"
   },
   {
     "slug": "christian-rodriguez",
@@ -113888,7 +113888,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "dan-stittgen",
@@ -115376,7 +115376,7 @@
     "name": "Klaudia Sygula",
     "nick": "",
     "div": "Women's Bantamweight",
-    "rec": "2-1-0",
+    "rec": "8-2-0",
     "ufcRec": "2-1-0",
     "from": "",
     "img": "",
@@ -115403,7 +115403,9 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "bentley-syler",
@@ -129856,7 +129858,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "13"
   },
   {
     "slug": "yao-zhikui",
