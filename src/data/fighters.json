@@ -1001,7 +1001,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "paulo-costa",
@@ -2909,7 +2909,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9"
+    "rank": "8"
   },
   {
     "slug": "sam-adkins",
@@ -4079,8 +4079,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "rank": "7"
+    ]
   },
   {
     "slug": "hector-aldana",
@@ -19664,7 +19663,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "12"
   },
   {
     "slug": "jose-canseco",
@@ -21308,7 +21307,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "10"
+    "rank": "9"
   },
   {
     "slug": "igor-cavalcanti",
@@ -25974,7 +25973,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9"
+    "rank": "15"
   },
   {
     "slug": "kevin-croom",
@@ -28955,7 +28954,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "8"
+    "rank": "9"
   },
   {
     "slug": "crezio-de-souza",
@@ -29249,7 +29248,7 @@
     "name": "Jose Delgado",
     "nick": "",
     "div": "Featherweight",
-    "rec": "10-2-0",
+    "rec": "12-2-0",
     "recScope": "pro",
     "ufcRec": "4-1-0",
     "from": "",
@@ -32728,7 +32727,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "10"
   },
   {
     "slug": "evan-dunham",
@@ -42774,7 +42773,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6"
+    "rank": "7"
   },
   {
     "slug": "jason-godsey",
@@ -61389,7 +61388,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11"
+    "rank": "6"
   },
   {
     "slug": "felix-klinkhammer",
@@ -62604,8 +62603,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "mariusz-ksiazkiewicz",
@@ -62826,7 +62824,7 @@
     "name": "Rizvan Kuniev",
     "nick": "",
     "div": "Heavyweight",
-    "rec": "12-3-1",
+    "rec": "13-3-1",
     "recScope": "pro",
     "ufcRec": "1-1-0",
     "from": "",
@@ -65846,7 +65844,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7"
+    "rank": "8"
   },
   {
     "slug": "giacomo-lemos",
@@ -76462,7 +76460,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13"
+    "rank": "14"
   },
   {
     "slug": "ivan-menjivar",
@@ -76678,7 +76676,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "jeremiah-metcalf",
@@ -79230,7 +79228,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "12"
   },
   {
     "slug": "andrew-montanez",
@@ -86130,8 +86128,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "rank": "9"
+    ]
   },
   {
     "slug": "kaan-ofli",
@@ -95722,7 +95719,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "13"
   },
   {
     "slug": "jessica-rakoczy",
@@ -97258,7 +97255,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "10"
   },
   {
     "slug": "alex-reyes",
@@ -97503,7 +97500,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "11"
   },
   {
     "slug": "vitor-ribeiro",
@@ -97773,7 +97770,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8"
+    "rank": "10"
   },
   {
     "slug": "matt-ricehouse",
@@ -100984,7 +100981,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11"
+    "rank": "10"
   },
   {
     "slug": "jacob-rosales",
@@ -104955,7 +104952,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "9"
+    "rank": "7"
   },
   {
     "slug": "djorden-santos",
@@ -113888,7 +113885,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11"
+    "rank": "15"
   },
   {
     "slug": "dan-stittgen",
@@ -115377,6 +115374,7 @@
     "nick": "",
     "div": "Women's Bantamweight",
     "rec": "8-2-0",
+    "recScope": "pro",
     "ufcRec": "2-1-0",
     "from": "",
     "img": "",
@@ -115404,8 +115402,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
-    "recScope": "pro"
+    "rank": "15"
   },
   {
     "slug": "bentley-syler",
@@ -116571,7 +116568,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "aaron-tau",
@@ -123681,7 +123678,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "brogan-walker",
