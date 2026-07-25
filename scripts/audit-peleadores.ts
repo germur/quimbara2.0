@@ -12,7 +12,7 @@
  * WARN  = trabajo editorial pendiente. No bloquea el build.
  */
 
-import { statSync } from 'node:fs';
+import { statSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import {
@@ -184,13 +184,59 @@ if (armaCaducada.length || editorialCaducado.length) {
   console.log('  ✓ sin afirmaciones editoriales caducadas');
 }
 
-// ── 7. Gap conocido: historial de peleas ─────────────────────────────
-avisos.push(
-  `peleas[] no tiene fuente todavía — el MCP de MMA API no tiene suscripción\n` +
-  `      activa y results.json solo guarda 4 entradas (widget de home).\n` +
-  `      BLOQUEA: Camino del Peleador (timeline). Alternativa pendiente de\n` +
-  `      evaluar: scrapear las tablas de récord de Wikipedia.`
+// ── 7. Historial de peleas (Wikipedia) ───────────────────────────────
+const PELEAS = JSON.parse(
+  readFileSync(resolve(__dirname, '../src/data/peleadores-peleas.json'), 'utf8')
+) as {
+  peleadores: Record<string, { recordWiki: string; desgloseCuadra: boolean; peleas: unknown[] }>;
+  sinPagina: string[];
+};
+
+const conHistorial = rankeados.filter(p => PELEAS.peleadores[p.slug]);
+const coberturaHist = rankeados.length ? conHistorial.length / rankeados.length : 0;
+const totalPeleas = Object.values(PELEAS.peleadores).reduce((n, o) => n + o.peleas.length, 0);
+
+console.log(
+  `  ✓ historial: ${conHistorial.length}/${rankeados.length} rankeados ` +
+  `(${(coberturaHist * 100).toFixed(1)}%) · ${totalPeleas} peleas`
 );
+
+const sinHistorial = rankeados.filter(p => !PELEAS.peleadores[p.slug]);
+if (sinHistorial.length) {
+  avisos.push(
+    `${sinHistorial.length} rankeado(s) sin historial de peleas.\n` +
+    `      Corre: npm run data:peleas\n${lista(sinHistorial, 6)}`
+  );
+}
+
+/**
+ * Wikipedia va detrás de UFC.com para algunos peleadores. Importa porque el
+ * timeline se dibuja con Wikipedia: si va atrasada, al peleador le falta su
+ * última pelea en el gráfico aunque el récord de la ficha esté bien.
+ */
+const timelineAtrasado = conHistorial.filter(p => {
+  const w = PELEAS.peleadores[p.slug].recordWiki.split('-').map(Number);
+  return p.record.victorias !== null && w[0] !== undefined && w[0] !== p.record.victorias;
+});
+if (timelineAtrasado.length) {
+  avisos.push(
+    `${timelineAtrasado.length} timeline(s) desfasados respecto a UFC.com.\n` +
+    `      El récord de la ficha es correcto (viene de UFC.com); es el timeline\n` +
+    `      el que le falta la pelea más reciente porque Wikipedia no la tiene:\n` +
+    timelineAtrasado.slice(0, 6).map(p =>
+      `      · ${p.slug.padEnd(24)} wiki ${PELEAS.peleadores[p.slug].recordWiki.padEnd(8)} · ufc ${p.record.texto}`
+    ).join('\n')
+  );
+}
+
+const desgloseDescartado = Object.entries(PELEAS.peleadores).filter(([, o]) => !o.desgloseCuadra);
+if (desgloseDescartado.length) {
+  avisos.push(
+    `${desgloseDescartado.length} desglose(s) ko/sub/dec descartados: el recordbox de\n` +
+    `      Wikipedia no cuadra con su propia tabla. La carta omite el desglose\n` +
+    `      para estos en vez de mostrar números que no suman.`
+  );
+}
 
 // ── Resumen ──────────────────────────────────────────────────────────
 const pares = getParesComparables();

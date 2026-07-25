@@ -15,11 +15,12 @@
     "data:overrides": "node scripts/apply-event-overrides.mjs",
     "data:images": "node scripts/download-images.mjs",
     "data:records": "node scripts/fix-records.mjs",
-    "data:all": "npm run data:update && npm run data:rankings && npm run data:records && npm run data:overrides && npm run data:images",
+    "data:all": "npm run data:update && npm run data:rankings && npm run data:records && npm run data:peleas && npm run data:overrides && npm run data:images",
     "indexnow": "node scripts/indexnow-submit.mjs",
     "audit:peleadores": "npx tsx scripts/audit-peleadores.ts",
     "gen:redirects": "node scripts/gen-redirects-comparador.mjs",
-    "test:puntaje": "npx tsx scripts/test-puntaje.ts"
+    "test:puntaje": "npx tsx scripts/test-puntaje.ts",
+    "data:peleas": "node scripts/fetch-peleas.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",
