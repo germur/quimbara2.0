@@ -18,7 +18,8 @@
     "data:all": "npm run data:update && npm run data:rankings && npm run data:records && npm run data:overrides && npm run data:images",
     "indexnow": "node scripts/indexnow-submit.mjs",
     "audit:peleadores": "npx tsx scripts/audit-peleadores.ts",
-    "gen:redirects": "node scripts/gen-redirects-comparador.mjs"
+    "gen:redirects": "node scripts/gen-redirects-comparador.mjs",
+    "test:puntaje": "npx tsx scripts/test-puntaje.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",

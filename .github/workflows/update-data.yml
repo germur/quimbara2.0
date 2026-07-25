@@ -57,6 +57,11 @@ jobs:
         run: npm run audit:peleadores
         continue-on-error: true
 
+      # El motor de puntaje decide puntajes de usuarios: un cambio que lo rompa
+      # se traduce en disputas. Esto NO lleva continue-on-error a propósito.
+      - name: Test del motor de puntaje
+        run: npm run test:puntaje
+
       - name: Commit changes (si los hay)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:

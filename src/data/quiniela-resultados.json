@@ -1,0 +1,24 @@
+{
+  "_lee_esto_primero": {
+    "proposito": "Resultados reales que publicas DESPUES de cada evento. Hasta que un evento aparezca aca con 'publicado', el usuario ve sus picks pero no su puntaje.",
+    "cuando": "Idealmente la misma noche o la manana siguiente. El usuario ya voto y esta esperando ver como le fue — es el momento de mayor intencion de volver al sitio.",
+    "formato_resultado": {
+      "ganador": "'f1' | 'f2' | null. null = No Contest, pelea cancelada o empate: esa pelea no puntua para nadie y no penaliza.",
+      "metodo": "'ko' (cubre KO y TKO) | 'sub' | 'dec' (cualquier decision) | null si no aplica",
+      "round": "1-5, o null si fue por decision"
+    },
+    "puntaje": "Se calcula solo desde estos datos con src/lib/quiniela/puntaje.ts. No hay que escribir puntajes a mano.",
+    "ids": "Mismo id que en quiniela-eventos.json: los dos slugs en orden alfabetico unidos por -vs-."
+  },
+
+  "_ejemplo_no_borrar": {
+    "publicado": "2026-09-20T06:00:00.000Z",
+    "resultados": {
+      "peleador-a-vs-peleador-b": { "ganador": "f2", "metodo": "ko", "round": 2 },
+      "peleador-c-vs-peleador-d": { "ganador": "f1", "metodo": "dec", "round": null },
+      "peleador-e-vs-peleador-f": { "ganador": null, "metodo": null, "round": null }
+    }
+  },
+
+  "eventos": {}
+}

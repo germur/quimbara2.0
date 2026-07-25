@@ -21,6 +21,10 @@ const isPPV = /UFC \d/.test(event.name);
 const isCompleted = event.status === 'completed' || event.date < new Date().toISOString().slice(0, 10);
 const eventNum = event.name.replace('UFC ', '').replace('Fight Night', 'FN');
 
+// La quiniela solo existe si UFC ya anunció la cartelera: sin peleas no hay
+// nada que picar. La página es noindex (producto de retención, no contenido).
+const tieneQuiniela = Array.isArray(event.fightCard) && event.fightCard.length > 0;
+
 const f1 = event.f1 ?? (event.main !== 'TBD' ? event.main.split(' vs. ')[0]?.trim() : 'TBD');
 const f2 = event.f2 ?? (event.main !== 'TBD' ? event.main.split(' vs. ')[1]?.trim() : 'TBD');
 const hasFight = event.main !== 'TBD';
@@ -234,7 +238,32 @@ const metaDescription = isCompleted
           <!-- Línea decorativa base -->
           <div class="h-[3px] w-full" style="background: linear-gradient(90deg, #F2D928 0%, #F2D928 50%, #333 50%, #333 100%);"></div>
         </div>
-      ) : (
+      ) : null}
+
+      {/* CTA a la quiniela. Solo si el evento tiene cartelera cargada, que es
+          lo que la quiniela necesita para existir. La página es noindex. */}
+      {tieneQuiniela && (
+        <a href={`/eventos/${event.slug}/quiniela/`}
+           class="group flex items-center justify-between gap-4 rounded-2xl px-6 py-5 mt-2 mb-8 transition-transform hover:-translate-y-0.5"
+           style="background:#F2D928; color:#0A0A0B;">
+          <div>
+            <div class="text-[10px] font-black uppercase tracking-[0.2em] opacity-60"
+                 style="font-family:var(--font-mono);">Quiniela</div>
+            <div class="text-xl md:text-2xl font-black leading-tight mt-1"
+                 style="font-family:var(--font-display);">
+              {isCompleted ? 'Mirá cómo te fue' : 'Haz tus predicciones'}
+            </div>
+            <p class="text-xs mt-1 opacity-70" style="font-family:var(--font-sans);">
+              {isCompleted
+                ? 'Compará tu puntaje contra los picks de Quimbara.'
+                : 'Picá ganador, método y round. Competís contra Quimbara, no contra un ranking anónimo.'}
+            </p>
+          </div>
+          <span class="text-2xl font-black flex-shrink-0 transition-transform group-hover:translate-x-1">→</span>
+        </a>
+      )}
+
+      {!hasFight && (
         <div class="rounded-2xl border-2 border-dashed border-gray-700 p-12 text-center mt-6 mb-8">
           <div class="text-5xl mb-4" style="font-family:var(--font-display); color:#333;">?</div>
           <div class="text-gray-400 text-xl font-bold" style="font-family:var(--font-display);">Cartel por confirmar</div>

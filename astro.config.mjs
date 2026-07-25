@@ -78,6 +78,7 @@ export default defineConfig({
           '/docs',
           '/projects',
           '/lab/',       // herramientas internas de desarrollo
+          '/quiniela',   // producto de retención, no contenido para Google
         ];
         if (noIndexPaths.some(p => page.includes(p))) return false;
 

@@ -1,0 +1,40 @@
+{
+  "_lee_esto_primero": {
+    "proposito": "Config de la quiniela por evento. Las PELEAS salen solas del fightCard de events-all.json (scrapeado de UFC.com); aca solo va lo que el scraper no puede saber: la hora de cierre, quien es underdog, y tus propios picks.",
+    "flujo_antes_de_cada_evento": [
+      "1. Verifica que el evento tenga fightCard en events-all.json (si UFC ya la anuncio, el scraper la trajo)",
+      "2. Pon 'cierre' con la hora ISO del primer combate — despues de eso los picks quedan solo lectura",
+      "3. Marca los underdog segun las odds de APERTURA (no las de cierre). Solo los que quieras; sin marca no hay multiplicador",
+      "4. Escribe tus picksQuimbara — el usuario compite contra vos, no contra un ranking anonimo. Es lo que convierte la mecanica en personaje",
+      "5. Post-evento: publica los resultados en quiniela-resultados.json"
+    ],
+    "id_de_pelea": "Los dos peleadores slugificados en orden ALFABETICO, unidos por -vs-. Ej: 'khalil-rountree-jr-vs-magomed-ankalaev'. Es estable si UFC reordena la cartelera. Si cambian a un peleador, el id cambia y el pick queda invalidado — que es lo correcto.",
+    "esquinas": "f1 y f2 corresponden a los campos del fightCard, en ese orden. f1 es el que UFC lista primero.",
+    "underdog": "Esquina marcada como no-favorita. Acertarla multiplica x1.5 el subtotal de esa pelea. NO se calcula desde datos: sale de las odds, que las pones a mano.",
+    "picksQuimbara": "Tus predicciones. Mismo formato que los del usuario: { ganador, metodo, round }. metodo: 'ko' | 'sub' | 'dec'. round: null si metodo es 'dec'. Podes dejar metodo/round en null si solo queres picar ganador."
+  },
+
+  "_ejemplo_no_borrar": {
+    "cierre": "2026-09-20T02:00:00.000Z",
+    "peleas": {
+      "peleador-a-vs-peleador-b": { "underdog": "f2" }
+    },
+    "picksQuimbara": {
+      "peleador-a-vs-peleador-b": { "ganador": "f2", "metodo": "ko", "round": 2 },
+      "peleador-c-vs-peleador-d": { "ganador": "f1", "metodo": "dec", "round": null }
+    }
+  },
+
+  "eventos": {
+    "ufc-fight-night-2026-07-25": {
+      "cierre": "2026-07-26T01:00:00.000Z",
+      "peleas": {},
+      "picksQuimbara": {}
+    },
+    "ufc-fight-night-2026-08-01": {
+      "cierre": "2026-08-02T01:00:00.000Z",
+      "peleas": {},
+      "picksQuimbara": {}
+    }
+  }
+}

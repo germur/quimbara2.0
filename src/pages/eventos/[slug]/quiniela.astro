@@ -1,0 +1,469 @@
+---
+/**
+ * /eventos/{evento}/quiniela/ — quiniela de predicciones.
+ *
+ * noindex a propósito: no es contenido para Google, es producto de
+ * retención. La página del evento sí indexa y enlaza acá.
+ *
+ * MVP sin backend: los picks viven en localStorage detrás de QuinielaStore.
+ * Ver src/lib/quiniela/store.ts para la ruta de migración a Supabase.
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getEventosConQuiniela, getEventoQuiniela } from '../../../lib/quiniela/cartelera';
+import { METODOS } from '../../../lib/quiniela/tipos';
+import { PUNTOS, roundsValidos, puntajeMaximo } from '../../../lib/quiniela/puntaje';
+
+export async function getStaticPaths() {
+  return getEventosConQuiniela().map(ev => ({
+    params: { slug: ev.slug },
+    props: { ev },
+  }));
+}
+
+const { ev } = Astro.props;
+const PX = 'clamp(16px,4vw,60px)';
+
+const estelares = ev.peleas.filter(p => p.segmento === 'estelar');
+const prelims = ev.peleas.filter(p => p.segmento === 'preliminar');
+const maximo = puntajeMaximo(ev.peleas);
+
+const dtf = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+const fechaLabel = ev.fecha ? dtf.format(new Date(ev.fecha + 'T12:00:00')) : '';
+
+const hayPicksQuimbara = Object.keys(ev.picksQuimbara).length > 0;
+
+// Payload para el cliente. Va en un <script type="application/json"> en vez
+// de define:vars porque el script de logica es un modulo con imports.
+const payload = {
+  eventoSlug: ev.slug,
+  eventoNombre: ev.nombre,
+  fecha: ev.fecha,
+  cierre: ev.cierre,
+  resultadosPublicados: ev.resultadosPublicados,
+  resultados: ev.resultados,
+  picksQuimbara: ev.picksQuimbara,
+  peleas: ev.peleas.map(p => ({
+    id: p.id,
+    f1: p.f1,
+    f2: p.f2,
+    segmento: p.segmento,
+    esMainEvent: p.esMainEvent,
+    underdog: p.underdog,
+  })),
+};
+---
+
+<BaseLayout
+  title={`Quiniela ${ev.nombre} — Predicciones`}
+  description={`Haz tus predicciones para ${ev.nombre} y compará tu puntaje contra los picks de Quimbara.`}
+  noIndex={true}
+>
+  <script type="application/json" id="quiniela-payload" set:html={JSON.stringify(payload)} />
+
+  {/* ── Header ── */}
+  <div style={`background:#0A0A0B; padding: 36px ${PX} 40px;`}>
+    <div style="max-width:900px; margin:0 auto;">
+      <a href={`/eventos/${ev.slug}/`}
+         class="text-gray-500 text-[10px] uppercase tracking-[0.2em] hover:text-[#F2D928] transition-colors"
+         style="font-family:var(--font-mono);">← Volver al evento</a>
+
+      <div class="flex items-center gap-3 mt-4 mb-4">
+        <span class="px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] rounded-sm bg-[#F2D928] text-[#0A0A0B]"
+              style="font-family:var(--font-mono);">Quiniela</span>
+        <span class="text-gray-500 text-[10px] uppercase tracking-[0.18em]"
+              style="font-family:var(--font-mono);">{ev.peleas.length} peleas · máx {maximo} pts</span>
+      </div>
+
+      <h1 style="font-family:var(--font-display);font-size:clamp(1.9rem,5.5vw,3.4rem);line-height:0.98;color:#F4F2EC;margin:0;">
+        {ev.nombre}
+      </h1>
+      <p class="text-gray-500 text-xs mt-3" style="font-family:var(--font-mono);">
+        {fechaLabel}{ev.lugar && ` · ${ev.lugar}`}
+      </p>
+
+      {/* Estado — lo rellena el cliente */}
+      <div id="q-estado" class="mt-6 rounded-lg px-4 py-3 text-xs hidden"
+           style="font-family:var(--font-mono); background:rgba(244,242,236,0.06); color:#F4F2EC;"></div>
+
+      {/* Puntaje — solo cuando hay resultados */}
+      <div id="q-puntaje" class="mt-6 hidden">
+        <div class="rounded-xl p-5" style="background:#F2D928; color:#0A0A0B;">
+          <div class="flex items-end justify-between gap-4 flex-wrap">
+            <div>
+              <div class="text-[10px] font-black uppercase tracking-[0.2em] opacity-60"
+                   style="font-family:var(--font-mono);">Tu puntaje</div>
+              <div class="font-black leading-none mt-1"
+                   style="font-family:var(--font-display);font-size:clamp(2.5rem,8vw,4rem);">
+                <span id="q-total">0</span><span class="text-[0.4em] opacity-50"> / {maximo}</span>
+              </div>
+            </div>
+            <div class="text-right text-[11px]" style="font-family:var(--font-mono);">
+              <div><span id="q-aciertos">0</span> ganadores acertados</div>
+              <div id="q-bono" class="font-bold mt-1"></div>
+              <div id="q-vs-quimbara" class="mt-1 opacity-70"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* ── Reglas ── */}
+  <div style={`max-width:900px; margin:0 auto; padding: 28px ${PX} 0;`}>
+    <details class="rounded-lg border" style="border-color:#E2DDD0;">
+      <summary class="px-4 py-3 text-[11px] font-bold uppercase tracking-[0.18em] cursor-pointer text-[#3A3A3D]"
+               style="font-family:var(--font-mono);">Cómo se puntúa</summary>
+      <div class="px-4 pb-4 text-sm text-[#3A3A3D] leading-relaxed" style="font-family:var(--font-sans);">
+        <ul class="flex flex-col gap-1.5 mt-1">
+          <li><strong>{PUNTOS.ganador} pts</strong> por acertar el ganador.</li>
+          <li><strong>+{PUNTOS.metodo} pts</strong> por el método, si acertaste el ganador.</li>
+          <li><strong>+{PUNTOS.round} pts</strong> por el round, si acertaste ganador y método y no fue decisión.</li>
+          <li><strong>+{PUNTOS.bonoEstelar} pts</strong> si aciertas todos los ganadores de la cartelera estelar.</li>
+          <li><strong>×{PUNTOS.multiplicadorUnderdog}</strong> sobre esa pelea si aciertas picando al underdog.</li>
+        </ul>
+        <p class="mt-3 text-xs text-gray-500">
+          Los picks se cierran al empezar el primer combate. Después quedan en solo lectura.
+          Se guardan en este navegador.
+        </p>
+      </div>
+    </details>
+  </div>
+
+  {/* ── Cartelera ── */}
+  <div style={`max-width:900px; margin:0 auto; padding: 28px ${PX} 60px;`}>
+    {[
+      { titulo: 'Cartelera estelar', peleas: estelares },
+      { titulo: 'Preliminares', peleas: prelims },
+    ].filter(g => g.peleas.length > 0).map(grupo => (
+      <>
+        <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 mt-8 first:mt-0"
+            style="font-family:var(--font-mono);">{grupo.titulo}</h2>
+
+        <div class="flex flex-col gap-3">
+          {grupo.peleas.map(p => (
+            <div class="q-pelea rounded-xl border overflow-hidden" data-pelea={p.id}
+                 style="border-color:#E2DDD0;">
+
+              <div class="flex items-center justify-between px-4 pt-3 pb-2">
+                <span class="text-[9px] uppercase tracking-[0.2em] text-gray-500"
+                      style="font-family:var(--font-mono);">
+                  {p.boutLabel || p.division}{p.division && p.boutLabel ? ` · ${p.division}` : ''}
+                </span>
+                <span class="q-puntos-pelea text-[10px] font-bold tabular-nums text-gray-400"
+                      style="font-family:var(--font-mono);"></span>
+              </div>
+
+              {/* Ganador */}
+              <div class="grid grid-cols-2 gap-px" style="background:#E2DDD0;">
+                {(['f1', 'f2'] as const).map(esq => (
+                  <button type="button" class="q-ganador px-4 py-4 text-left transition-colors"
+                          data-esquina={esq}
+                          style="background:#fff;">
+                    <div class="flex items-center gap-2">
+                      <span class="text-sm font-bold text-[#0A0A0B] leading-tight"
+                            style="font-family:var(--font-display);">
+                        {esq === 'f1' ? p.f1 : p.f2}
+                      </span>
+                      {p.underdog === esq && (
+                        <span class="text-[8px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded-sm flex-shrink-0"
+                              style="font-family:var(--font-mono); background:#0A0A0B; color:#F2D928;">
+                          ×{PUNTOS.multiplicadorUnderdog}
+                        </span>
+                      )}
+                    </div>
+                    <span class="q-marca text-[9px] uppercase tracking-[0.18em] text-gray-400 mt-1 block"
+                          style="font-family:var(--font-mono);"></span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Método + round */}
+              <div class="px-4 py-3 flex flex-wrap items-center gap-x-4 gap-y-2" style="background:#F4F2EC;">
+                <span class="text-[9px] uppercase tracking-[0.2em] text-gray-500"
+                      style="font-family:var(--font-mono);">Método</span>
+                <div class="flex gap-1.5">
+                  {METODOS.map(m => (
+                    <button type="button" class="q-metodo px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-sm border transition-colors"
+                            data-metodo={m.valor}
+                            style="font-family:var(--font-mono); border-color:#E2DDD0; background:#fff; color:#3A3A3D;">
+                      {m.corto}
+                    </button>
+                  ))}
+                </div>
+
+                <div class="q-round-wrap flex items-center gap-1.5 opacity-40 pointer-events-none transition-opacity">
+                  <span class="text-[9px] uppercase tracking-[0.2em] text-gray-500"
+                        style="font-family:var(--font-mono);">Round</span>
+                  {roundsValidos(p.esMainEvent).map(r => (
+                    <button type="button" class="q-round w-7 h-7 text-[10px] font-bold rounded-sm border transition-colors"
+                            data-round={r}
+                            style="font-family:var(--font-mono); border-color:#E2DDD0; background:#fff; color:#3A3A3D;">
+                      {r}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Comparación con Quimbara / resultado */}
+              <div class="q-detalle hidden px-4 py-2.5 text-[10px] border-t"
+                   style="font-family:var(--font-mono); background:#fff; border-color:#E2DDD0;"></div>
+            </div>
+          ))}
+        </div>
+      </>
+    ))}
+
+    {hayPicksQuimbara && (
+      <p class="text-xs text-gray-500 mt-6" style="font-family:var(--font-sans);">
+        Quimbara ya publicó sus picks para este evento. Vas a ver en qué coincidís y en qué no
+        cuando cierre la quiniela.
+      </p>
+    )}
+
+    {/* Historial */}
+    <div id="q-historial" class="mt-12 hidden">
+      <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4"
+          style="font-family:var(--font-mono);">Tu historial</h2>
+      <div id="q-historial-lista" class="flex flex-col gap-2"></div>
+    </div>
+  </div>
+
+  <script>
+    import { getStore, PicksCerradosError } from '../../../lib/quiniela/store';
+    import { calcularPuntaje, calcularRacha, admiteRound } from '../../../lib/quiniela/puntaje';
+    import type { PicksEvento, Pick, Esquina, Metodo } from '../../../lib/quiniela/tipos';
+
+    const payloadEl = document.getElementById('quiniela-payload');
+    if (payloadEl?.textContent) {
+      const P = JSON.parse(payloadEl.textContent);
+      const store = getStore();
+
+      let picks: PicksEvento = {};
+      let cerrado = false;
+
+      const cerradoPorFecha = () =>
+        !!P.cierre && Date.now() >= new Date(P.cierre).getTime();
+
+      // ── Render de una pelea ──
+      const pintarPelea = (card: HTMLElement) => {
+        const id = card.dataset.pelea!;
+        const pick = picks[id];
+        const res = P.resultadosPublicados ? P.resultados[id] : null;
+        const qb = P.picksQuimbara[id];
+
+        // Ganador
+        card.querySelectorAll<HTMLButtonElement>('.q-ganador').forEach(btn => {
+          const esq = btn.dataset.esquina as Esquina;
+          const elegido = pick?.ganador === esq;
+          btn.style.background = elegido ? '#0A0A0B' : '#fff';
+          btn.querySelector<HTMLElement>('[style*="font-display"]')!.style.color =
+            elegido ? '#F4F2EC' : '#0A0A0B';
+
+          const marca = btn.querySelector<HTMLElement>('.q-marca')!;
+          const partes: string[] = [];
+          if (elegido) partes.push('TU PICK');
+          if (qb?.ganador === esq) partes.push('QUIMBARA');
+          if (res && res.ganador === esq) partes.push('✓ GANÓ');
+          marca.textContent = partes.join(' · ');
+          marca.style.color = res && res.ganador === esq ? '#0A0A0B'
+            : elegido ? '#F2D928' : '#9ca3af';
+        });
+
+        // Método
+        card.querySelectorAll<HTMLButtonElement>('.q-metodo').forEach(btn => {
+          const m = btn.dataset.metodo as Metodo;
+          const elegido = pick?.metodo === m;
+          btn.style.background = elegido ? '#0A0A0B' : '#fff';
+          btn.style.color = elegido ? '#F2D928' : '#3A3A3D';
+          btn.style.borderColor = elegido ? '#0A0A0B' : '#E2DDD0';
+        });
+
+        // Round — habilitado solo con método de finalización
+        const wrap = card.querySelector<HTMLElement>('.q-round-wrap')!;
+        const puedeRound = admiteRound(pick);
+        wrap.style.opacity = puedeRound ? '1' : '0.4';
+        wrap.style.pointerEvents = puedeRound && !cerrado ? 'auto' : 'none';
+        card.querySelectorAll<HTMLButtonElement>('.q-round').forEach(btn => {
+          const elegido = pick?.round === Number(btn.dataset.round);
+          btn.style.background = elegido ? '#0A0A0B' : '#fff';
+          btn.style.color = elegido ? '#F2D928' : '#3A3A3D';
+          btn.style.borderColor = elegido ? '#0A0A0B' : '#E2DDD0';
+        });
+
+        // Detalle post-resultado
+        const detalle = card.querySelector<HTMLElement>('.q-detalle')!;
+        if (res) {
+          const nombreGanador = res.ganador === 'f1' ? P.peleas.find((x:any)=>x.id===id)?.f1
+            : res.ganador === 'f2' ? P.peleas.find((x:any)=>x.id===id)?.f2 : null;
+          const txt = res.ganador === null
+            ? 'Sin resultado (No Contest o cancelada) — no puntúa'
+            : `Resultado: ${nombreGanador} por ${res.metodo?.toUpperCase() ?? '—'}${res.round ? ` en R${res.round}` : ''}`;
+          detalle.textContent = txt;
+          detalle.classList.remove('hidden');
+        }
+      };
+
+      const pintarTodo = () => {
+        document.querySelectorAll<HTMLElement>('.q-pelea').forEach(pintarPelea);
+        pintarEstado();
+        if (P.resultadosPublicados) pintarPuntaje();
+      };
+
+      // ── Estado ──
+      const pintarEstado = () => {
+        const el = document.getElementById('q-estado')!;
+        const hechos = Object.keys(picks).length;
+        let txt = '';
+        if (P.resultadosPublicados) {
+          txt = 'Resultados publicados. Tus picks quedaron en solo lectura.';
+        } else if (cerrado) {
+          txt = 'Quiniela cerrada. Esperando resultados.';
+        } else {
+          const cierreTxt = P.cierre
+            ? ` · cierra ${new Intl.DateTimeFormat('es-ES', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' }).format(new Date(P.cierre))}`
+            : '';
+          txt = `${hechos} de ${P.peleas.length} peleas picadas${cierreTxt}`;
+        }
+        el.textContent = txt;
+        el.classList.remove('hidden');
+      };
+
+      // ── Puntaje ──
+      const pintarPuntaje = () => {
+        const pj = calcularPuntaje(P.eventoSlug, P.peleas, picks, P.resultados);
+        document.getElementById('q-total')!.textContent = String(pj.total);
+        document.getElementById('q-aciertos')!.textContent = `${pj.aciertos} de ${pj.resueltas}`;
+        document.getElementById('q-bono')!.textContent =
+          pj.bonoEstelar > 0 ? `+${pj.bonoEstelar} bono cartelera estelar` : '';
+
+        // vs Quimbara
+        const vs = document.getElementById('q-vs-quimbara')!;
+        if (Object.keys(P.picksQuimbara).length > 0) {
+          const pjQb = calcularPuntaje(P.eventoSlug, P.peleas, P.picksQuimbara, P.resultados);
+          vs.textContent = pj.total > pjQb.total
+            ? `Le ganaste a Quimbara (${pjQb.total})`
+            : pj.total === pjQb.total
+              ? `Empate con Quimbara (${pjQb.total})`
+              : `Quimbara hizo ${pjQb.total}`;
+        }
+
+        document.getElementById('q-puntaje')!.classList.remove('hidden');
+
+        // Puntos por pelea
+        for (const d of pj.desglose) {
+          const card = document.querySelector<HTMLElement>(`.q-pelea[data-pelea="${d.peleaId}"]`);
+          const el = card?.querySelector<HTMLElement>('.q-puntos-pelea');
+          if (!el) continue;
+          if (!d.resultado || d.resultado.ganador === null) { el.textContent = ''; continue; }
+          el.textContent = d.puntos > 0
+            ? `+${d.puntos} pts${d.underdogAcertado ? ' ×1.5' : ''}`
+            : '0 pts';
+          el.style.color = d.puntos > 0 ? '#0A0A0B' : '#9ca3af';
+        }
+
+        // Guardar en historial + desbloquear cartas de los ganadores acertados
+        store.guardarEnHistorial({
+          eventoSlug: P.eventoSlug,
+          eventoNombre: P.eventoNombre,
+          fecha: P.fecha,
+          total: pj.total,
+          aciertos: pj.aciertos,
+          resueltas: pj.resueltas,
+        }).then(pintarHistorial);
+
+        for (const d of pj.desglose) {
+          if (!d.ganadorOk || !d.resultado?.ganador) continue;
+          const pel = P.peleas.find((x: any) => x.id === d.peleaId);
+          const nombre = d.resultado.ganador === 'f1' ? pel?.f1 : pel?.f2;
+          if (nombre) {
+            const slug = nombre.toLowerCase().normalize('NFD')
+              .replace(/[̀-ͯ]/g, '').replace(/['’.]/g, '')
+              .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            store.desbloquearCarta(slug);
+          }
+        }
+      };
+
+      // ── Historial ──
+      const pintarHistorial = async () => {
+        const h = await store.getHistorial();
+        if (!h.length) return;
+        const cont = document.getElementById('q-historial-lista')!;
+        const racha = calcularRacha(h);
+        cont.innerHTML = h.map(x => `
+          <div class="flex items-center justify-between px-4 py-3 rounded-lg border" style="border-color:#E2DDD0;">
+            <div>
+              <div class="text-sm font-bold text-[#0A0A0B]" style="font-family:var(--font-display);">${x.eventoNombre}</div>
+              <div class="text-[10px] text-gray-500" style="font-family:var(--font-mono);">${x.fecha} · ${x.aciertos}/${x.resueltas} ganadores</div>
+            </div>
+            <div class="text-xl font-black tabular-nums text-[#0A0A0B]" style="font-family:var(--font-display);">${x.total}</div>
+          </div>
+        `).join('') + (racha > 1
+          ? `<div class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-2" style="font-family:var(--font-mono);">Racha: ${racha} eventos puntuando</div>`
+          : '');
+        document.getElementById('q-historial')!.classList.remove('hidden');
+      };
+
+      // ── Guardado ──
+      const guardar = async () => {
+        try {
+          await store.savePicks(P.eventoSlug, picks);
+        } catch (e) {
+          if (e instanceof PicksCerradosError) {
+            cerrado = true;
+            pintarTodo();
+          } else throw e;
+        }
+      };
+
+      const setPick = (id: string, cambio: Partial<Pick>) => {
+        if (cerrado) return;
+        const actual = picks[id] ?? { ganador: null as any, metodo: null, round: null };
+        const nuevo: Pick = { ...actual, ...cambio };
+        // Una decisión no tiene round de finalización
+        if (nuevo.metodo === 'dec') nuevo.round = null;
+        picks[id] = nuevo;
+        guardar();
+        pintarPelea(document.querySelector<HTMLElement>(`.q-pelea[data-pelea="${id}"]`)!);
+        pintarEstado();
+      };
+
+      // ── Eventos ──
+      document.querySelectorAll<HTMLElement>('.q-pelea').forEach(card => {
+        const id = card.dataset.pelea!;
+        card.querySelectorAll<HTMLButtonElement>('.q-ganador').forEach(btn =>
+          btn.addEventListener('click', () =>
+            setPick(id, { ganador: btn.dataset.esquina as Esquina })));
+        card.querySelectorAll<HTMLButtonElement>('.q-metodo').forEach(btn =>
+          btn.addEventListener('click', () => {
+            const m = btn.dataset.metodo as Metodo;
+            setPick(id, { metodo: picks[id]?.metodo === m ? null : m });
+          }));
+        card.querySelectorAll<HTMLButtonElement>('.q-round').forEach(btn =>
+          btn.addEventListener('click', () => {
+            const r = Number(btn.dataset.round);
+            setPick(id, { round: picks[id]?.round === r ? null : r });
+          }));
+      });
+
+      // ── Init ──
+      (async () => {
+        picks = await store.getPicks(P.eventoSlug);
+        cerrado = (await store.estanCerrados(P.eventoSlug)) || cerradoPorFecha() || P.resultadosPublicados;
+
+        // Sellar de una vez si ya pasó la hora
+        if (cerradoPorFecha() && !(await store.estanCerrados(P.eventoSlug))) {
+          await store.cerrarPicks(P.eventoSlug);
+        }
+
+        if (cerrado) {
+          document.querySelectorAll<HTMLButtonElement>('.q-ganador, .q-metodo, .q-round')
+            .forEach(b => { b.disabled = true; b.style.cursor = 'default'; });
+        }
+
+        pintarTodo();
+        pintarHistorial();
+      })();
+    }
+  </script>
+</BaseLayout>
