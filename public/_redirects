@@ -56,3 +56,19 @@
 # ----- Etiquetas renombradas a espanol (post frialdad-del-algoritmo) -----
 /etiqueta/business     /etiqueta/negocio-del-mma/  301
 /etiqueta/paramount    /etiqueta/derechos-tv/      301
+
+# >>> COMPARADOR: generado por npm run gen:redirects — no editar a mano
+# 11 pares publicados · regenerado 2026-07-25
+
+/comparar/justin-gaethje-vs-ilia-topuria/               /comparar/ilia-topuria-vs-justin-gaethje/               301
+/comparar/sean-strickland-vs-khamzat-chimaev/           /comparar/khamzat-chimaev-vs-sean-strickland/           301
+/comparar/movsar-evloev-vs-alexander-volkanovski/       /comparar/alexander-volkanovski-vs-movsar-evloev/       301
+/comparar/petr-yan-vs-merab-dvalishvili/                /comparar/merab-dvalishvili-vs-petr-yan/                301
+/comparar/joshua-van-vs-alexandre-pantoja/              /comparar/alexandre-pantoja-vs-joshua-van/              301
+/comparar/tom-aspinall-vs-ciryl-gane/                   /comparar/ciryl-gane-vs-tom-aspinall/                   301
+/comparar/magomed-ankalaev-vs-carlos-ulberg/            /comparar/carlos-ulberg-vs-magomed-ankalaev/            301
+/comparar/islam-makhachev-vs-ian-machado-garry/         /comparar/ian-machado-garry-vs-islam-makhachev/         301
+/comparar/zhang-weili-vs-mackenzie-dern/                /comparar/mackenzie-dern-vs-zhang-weili/                301
+/comparar/kayla-harrison-vs-julianna-pena/              /comparar/julianna-pena-vs-kayla-harrison/              301
+/comparar/valentina-shevchenko-vs-natalia-silva/        /comparar/natalia-silva-vs-valentina-shevchenko/        301
+# <<< COMPARADOR

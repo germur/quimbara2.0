@@ -1,0 +1,359 @@
+---
+/**
+ * /comparar/{a}-vs-{b}/ — comparador visual de dos peleadores.
+ *
+ * getStaticPaths sale de getParesPublicados(), que solo devuelve pares de
+ * la lista blanca CON editorial escrito. Un par sin editorial no genera
+ * página: es el gate anti-thin-content.
+ *
+ * El slug es siempre el orden alfabético (canónico). La URL inversa hace
+ * 301 vía public/_redirects (ver scripts/gen-redirects-comparador.mjs).
+ * El orden visual se invierte con ?a={slug}, que no se indexa.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiluetaPeleador from '../../components/SiluetaPeleador.astro';
+import {
+  getParesPublicados,
+  getPar,
+  metricasComparativas,
+  generarTextoComparativo,
+  seoDelPar,
+} from '../../lib/comparar';
+import { divSlugs } from '../../data/divisions';
+
+export async function getStaticPaths() {
+  return getParesPublicados().map(par => ({
+    params: { par: par.slug },
+    props: { par },
+  }));
+}
+
+const { par } = Astro.props;
+const { a, b, editorial } = par;
+
+const PX = 'clamp(16px,4vw,60px)';
+const seo = seoDelPar(a, b);
+const metricas = metricasComparativas(a, b);
+const parrafos = generarTextoComparativo(a, b);
+const canonical = `https://quimbara.org/comparar/${par.slug}/`;
+
+const divisionSlug = divSlugs[a.division] ?? '';
+const fmtApe = (n: number | null) => (n === null ? '—' : `${n > 0 ? '+' : ''}${n}`);
+
+// Altura del contenedor de siluetas: IDÉNTICA para las dos.
+// Cambiar esto por valores distintos rompe la comparación a escala real.
+const ALTO_SILUETA = 420;
+
+const schema = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: seo.h1,
+    description: seo.description,
+    url: canonical,
+    inLanguage: 'es',
+    about: [
+      { '@type': 'Person', name: a.nombre, url: `https://quimbara.org/peleadores/${a.slug}/` },
+      { '@type': 'Person', name: b.nombre, url: `https://quimbara.org/peleadores/${b.slug}/` },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://quimbara.org/' },
+      { '@type': 'ListItem', position: 2, name: 'Peleadores', item: 'https://quimbara.org/peleadores/' },
+      { '@type': 'ListItem', position: 3, name: `${a.nombre} vs ${b.nombre}`, item: canonical },
+    ],
+  },
+]);
+---
+
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  canonicalUrl={canonical}
+  ogImage={a.img || '/default-og.jpg'}
+  schema={schema}
+>
+  {/* ── Breadcrumb ── */}
+  <nav aria-label="Breadcrumb" class="text-xs text-gray-500"
+       style={`padding: 20px ${PX} 0; max-width:1400px; margin:0 auto; font-family:var(--font-sans);`}>
+    <ol class="flex items-center gap-1.5 flex-wrap">
+      <li><a href="/" class="hover:text-[#F2D928] transition-colors">Inicio</a></li>
+      <li class="text-gray-400">/</li>
+      <li><a href="/peleadores/" class="hover:text-[#F2D928] transition-colors">Peleadores</a></li>
+      <li class="text-gray-400">/</li>
+      <li class="text-gray-700">{a.nombre} vs {b.nombre}</li>
+    </ol>
+  </nav>
+
+  {/* ── Hero: siluetas a escala real compartida ── */}
+  <div style={`background:#0A0A0B; padding: 40px ${PX} 48px;`}>
+    <div style="max-width:1400px; margin:0 auto;">
+
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] rounded-sm bg-[#F2D928] text-[#0A0A0B]"
+              style="font-family:var(--font-mono);">Comparador</span>
+        <a href={`/peleadores/${divisionSlug}/`}
+           class="text-gray-500 text-[10px] uppercase tracking-[0.18em] hover:text-[#F2D928] transition-colors"
+           style="font-family:var(--font-mono);">{a.divisionLabel}</a>
+      </div>
+
+      <h1 style="font-family:var(--font-display);font-size:clamp(1.9rem,5vw,3.6rem);line-height:0.98;color:#F4F2EC;margin:0;max-width:22ch;">
+        {seo.h1}
+      </h1>
+
+      <p class="text-gray-500 text-xs mt-4" style="font-family:var(--font-mono);">
+        Siluetas dibujadas a escala real compartida · guías cada 20 cm
+      </p>
+
+      {/* Las dos siluetas. MISMA altura de contenedor = escala comparable. */}
+      <div id="comparador-figuras" class="flex items-end justify-center gap-4 sm:gap-10 mt-6">
+        {[a, b].map((p, i) => (
+          <div class="flex flex-col items-center gap-3 flex-1" style="max-width:280px;">
+            <div style={`height:${ALTO_SILUETA}px; width:100%; display:flex; align-items:flex-end;`}>
+              <SiluetaPeleador
+                alturaCm={p.fisico.altura_cm!}
+                envergaduraCm={p.fisico.alcance_cm ?? undefined}
+                pesoKg={p.fisico.peso_kg ?? undefined}
+                nombre={p.nombre}
+                marca={i === 0 ? 'punta' : 'barra'}
+                mostrarGuias={i === 0}
+              />
+            </div>
+            <div class="text-center border-t pt-3 w-full" style="border-color:rgba(244,242,236,0.14);">
+              <a href={`/peleadores/${p.slug}/`}
+                 class="block text-[#F4F2EC] uppercase leading-tight hover:text-[#F2D928] transition-colors"
+                 style="font-family:var(--font-display);font-weight:900;font-size:clamp(0.95rem,2.2vw,1.35rem);">
+                {p.nombre}
+              </a>
+              <div class="text-[10px] tabular-nums text-gray-500 mt-1.5" style="font-family:var(--font-mono);">
+                {p.fisico.altura_cm} cm · {p.fisico.alcance_cm} cm · {p.fisico.peso_kg} kg
+              </div>
+              <div class="text-[10px] text-[#F2D928] mt-1" style="font-family:var(--font-mono);">
+                {p.ranking === 'C' ? 'Campeón' : p.ranking !== null ? `#${p.ranking}` : '—'}
+                <span class="text-gray-600"> · ape {fmtApe(p.fisico.ape_index)}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="flex justify-center mt-8">
+        <button id="btn-exportar"
+                class="px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.15em] rounded-sm transition-colors"
+                style="font-family:var(--font-mono); background:#F2D928; color:#0A0A0B;">
+          Descargar imagen
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {/* ── Métricas ── */}
+  <div style={`max-width:1000px; margin:0 auto; padding: 48px ${PX} 0;`}>
+    <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-6"
+        style="font-family:var(--font-mono);">Ventaja física</h2>
+
+    <div class="flex flex-col gap-5">
+      {metricas.map(m => {
+        const pctA = m.valorA !== null ? Math.max(4, (Math.abs(m.valorA) / Math.max(Math.abs(m.max), 1)) * 100) : 0;
+        const pctB = m.valorB !== null ? Math.max(4, (Math.abs(m.valorB) / Math.max(Math.abs(m.max), 1)) * 100) : 0;
+        return (
+          <div>
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="text-sm font-bold tabular-nums text-[#0A0A0B]" style="font-family:var(--font-display);">
+                {m.valorA ?? '—'}<span class="text-[10px] text-gray-500 font-normal ml-0.5" style="font-family:var(--font-mono);">{m.unidad}</span>
+              </span>
+              <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500" style="font-family:var(--font-mono);">
+                {m.label}
+                {m.diff !== null && m.diff > 0 && (
+                  <span class="text-gray-400 normal-case tracking-normal"> · +{m.diff} {m.unidad}</span>
+                )}
+              </span>
+              <span class="text-sm font-bold tabular-nums text-[#0A0A0B]" style="font-family:var(--font-display);">
+                {m.valorB ?? '—'}<span class="text-[10px] text-gray-500 font-normal ml-0.5" style="font-family:var(--font-mono);">{m.unidad}</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <div class="flex-1 flex justify-end h-2 rounded-sm overflow-hidden" style="background:#E2DDD0;">
+                <div style={`width:${pctA}%; background:${m.ventaja === 'a' ? '#F2D928' : '#3A3A3D'};`}></div>
+              </div>
+              <div class="flex-1 h-2 rounded-sm overflow-hidden" style="background:#E2DDD0;">
+                <div style={`width:${pctB}%; background:${m.ventaja === 'b' ? '#F2D928' : '#3A3A3D'};`}></div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    {/* ── Récord ── */}
+    <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 mt-12"
+        style="font-family:var(--font-mono);">Récord profesional</h2>
+    <div class="grid grid-cols-2 gap-4">
+      {[a, b].map(p => (
+        <div class="rounded-lg border p-5" style="border-color:#E2DDD0;">
+          <div class="text-[10px] uppercase tracking-[0.18em] text-gray-500 mb-2" style="font-family:var(--font-mono);">
+            {p.nombre}
+          </div>
+          <div class="text-3xl font-black tabular-nums text-[#0A0A0B]" style="font-family:var(--font-display);">
+            {p.record.texto ?? '—'}
+          </div>
+          {p.forma.length > 0 && (
+            <div class="flex gap-1 mt-3">
+              {p.forma.slice(0, 5).map(ft => {
+                const perdio = ft.outcome === 'L';
+                const empate = ft.outcome === 'D';
+                const bg = perdio ? '#fff' : empate ? '#9ca3af' : '#0A0A0B';
+                return (
+                  <div class="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-black"
+                       style={`background:${bg}; color:${perdio ? '#E53935' : '#fff'}; border:1px solid ${perdio ? '#E53935' : bg};`}>
+                    {ft.outcome}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    {/* ── Análisis ── */}
+    <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 mt-12"
+        style="font-family:var(--font-mono);">El análisis</h2>
+
+    <div class="flex flex-col gap-4 text-[15px] leading-relaxed text-[#3A3A3D]"
+         style="font-family:var(--font-sans); max-width:68ch;">
+      <p class="text-[#0A0A0B] text-lg leading-relaxed"
+         style="font-family:var(--font-serif); font-style:italic; font-weight:600;">
+        {editorial}
+      </p>
+      {parrafos.map(t => <p>{t}</p>)}
+    </div>
+
+    {/* ── Enlaces internos ── */}
+    <div class="mt-12 pt-8 border-t grid grid-cols-1 sm:grid-cols-3 gap-3" style="border-color:#E2DDD0;">
+      {[a, b].map(p => (
+        <a href={`/peleadores/${p.slug}/`}
+           class="group rounded-lg border p-4 transition-colors hover:border-[#F2D928]"
+           style="border-color:#E2DDD0;">
+          <div class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-1" style="font-family:var(--font-mono);">Ficha completa</div>
+          <div class="text-sm font-bold text-[#0A0A0B] group-hover:text-[#F2D928] transition-colors"
+               style="font-family:var(--font-display);">{p.nombre} →</div>
+        </a>
+      ))}
+      <a href={`/peleadores/${divisionSlug}/`}
+         class="group rounded-lg border p-4 transition-colors hover:border-[#F2D928]"
+         style="border-color:#E2DDD0;">
+        <div class="text-[9px] uppercase tracking-[0.2em] text-gray-500 mb-1" style="font-family:var(--font-mono);">Ranking</div>
+        <div class="text-sm font-bold text-[#0A0A0B] group-hover:text-[#F2D928] transition-colors"
+             style="font-family:var(--font-display);">{a.divisionLabel} →</div>
+      </a>
+    </div>
+  </div>
+
+  <div style="height:60px;"></div>
+
+  <script define:vars={{ slugA: a.slug, nombreA: a.nombre, nombreB: b.nombre, parSlug: par.slug }}>
+    // ── Orden visual vía ?a= (no indexado) ──
+    // La URL canónica renderiza en orden alfabético. Este param solo invierte
+    // la presentación con flex-direction, sin duplicar DOM ni crear otra página.
+    const figuras = document.getElementById('comparador-figuras');
+    const quiereB = new URLSearchParams(location.search).get('a');
+    if (figuras && quiereB && quiereB !== slugA) {
+      figuras.style.flexDirection = 'row-reverse';
+    }
+
+    // ── Export a PNG ──
+    // Rasteriza solo los <path>/<ellipse> de las siluetas (el SVG no puede
+    // cargar fuentes externas), y el texto se dibuja con fillText usando
+    // fuentes ya disponibles en el documento.
+    const btn = document.getElementById('btn-exportar');
+    btn?.addEventListener('click', async () => {
+      const original = btn.textContent;
+      btn.textContent = 'Generando…';
+      try {
+        const svgs = [...document.querySelectorAll('#comparador-figuras svg')];
+        if (svgs.length < 2) throw new Error('siluetas no encontradas');
+
+        const W = 1200, H = 630;
+        const canvas = document.createElement('canvas');
+        canvas.width = W; canvas.height = H;
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = '#0A0A0B';
+        ctx.fillRect(0, 0, W, H);
+
+        // Rasterizar cada silueta manteniendo su escala relativa
+        const figuraH = 400, baseY = 500;
+        await Promise.all(svgs.map((svg, i) => new Promise((res, rej) => {
+          const clone = svg.cloneNode(true);
+          clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+          clone.setAttribute('width', '300');
+          clone.setAttribute('height', String(figuraH));
+          // quitar textos: las fuentes no cargan dentro de un SVG rasterizado
+          clone.querySelectorAll('text, title').forEach(n => n.remove());
+          const blob = new Blob([new XMLSerializer().serializeToString(clone)], { type: 'image/svg+xml' });
+          const url = URL.createObjectURL(blob);
+          const img = new Image();
+          img.onload = () => {
+            ctx.drawImage(img, i === 0 ? 210 : 690, baseY - figuraH, 300, figuraH);
+            URL.revokeObjectURL(url);
+            res();
+          };
+          img.onerror = e => { URL.revokeObjectURL(url); rej(e); };
+          img.src = url;
+        })));
+
+        // Texto
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#F4F2EC';
+        ctx.font = '900 34px "Big Shoulders Display", Impact, sans-serif';
+        ctx.fillText(nombreA.toUpperCase(), 360, 552);
+        ctx.fillText(nombreB.toUpperCase(), 840, 552);
+
+        ctx.fillStyle = '#F2D928';
+        ctx.font = '600 15px "JetBrains Mono", monospace';
+        ctx.fillText('VS', 600, 300);
+
+        // Datos bajo cada nombre
+        ctx.fillStyle = '#8a8b8f';
+        ctx.font = '500 15px "JetBrains Mono", monospace';
+        const datos = el => {
+           const t = el.querySelector('title')?.textContent ?? '';
+           const m = t.match(/(\d+) cm de estatura, (\d+) cm de alcance, (\d+) kg/);
+           return m ? `${m[1]} cm · ${m[2]} cm · ${m[3]} kg` : '';
+        };
+        ctx.fillText(datos(svgs[0]), 360, 578);
+        ctx.fillText(datos(svgs[1]), 840, 578);
+
+        // Cabecera + marca de agua
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#F2D928';
+        ctx.fillRect(60, 52, 10, 10);
+        ctx.font = '600 14px "JetBrains Mono", monospace';
+        ctx.fillText('ESCALA REAL COMPARTIDA', 82, 63);
+        ctx.fillStyle = '#F4F2EC';
+        ctx.font = '900 40px "Big Shoulders Display", Impact, sans-serif';
+        ctx.fillText(`${nombreA.toUpperCase()}  VS  ${nombreB.toUpperCase()}`, 60, 112);
+
+        ctx.textAlign = 'right';
+        ctx.fillStyle = '#F2D928';
+        ctx.font = '600 16px "JetBrains Mono", monospace';
+        ctx.fillText('quimbara.org', W - 60, H - 40);
+
+        const url = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = `quimbara-${parSlug}.png`;
+        link.href = url;
+        link.click();
+        btn.textContent = original;
+      } catch (err) {
+        console.error('Export falló:', err);
+        btn.textContent = 'Error, reintenta';
+        setTimeout(() => { btn.textContent = original; }, 2000);
+      }
+    });
+  </script>
+</BaseLayout>

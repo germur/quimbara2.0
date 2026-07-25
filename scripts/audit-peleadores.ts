@@ -22,6 +22,7 @@ import {
   PeleadorSchema,
   type Peleador,
 } from '../src/lib/peleadores.ts';
+import { getParesPublicados, getParesEnListaBlanca } from '../src/lib/comparar.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIAS_FRESCURA = 14; // el pipeline corre semanal; 14d = dos ciclos perdidos
@@ -141,7 +142,49 @@ if (sinNacimiento.length) {
   );
 }
 
-// ── 6. Gap conocido: historial de peleas ─────────────────────────────
+// ── 6. Afirmaciones editoriales que caducaron ────────────────────────
+// El texto generado sale de datos vivos, así que no puede quedar stale.
+// El editorial y el `arma` SÍ: "invicto" deja de ser cierto en cuanto el
+// peleador pierde. Este chequeo agarra justamente eso.
+const RECLAMOS = [/\binvicto\b/i, /\binvicta\b/i, /\bsin derrotas\b/i, /\bcero derrotas\b/i];
+
+const armaCaducada = TODOS.filter(p => {
+  if (!p.arma || p.record.derrotas === null) return false;
+  return p.record.derrotas > 0 && RECLAMOS.some(r => r.test(p.arma!));
+});
+
+const editorialCaducado: string[] = [];
+for (const par of getParesPublicados()) {
+  const claim = RECLAMOS.some(r => r.test(par.editorial));
+  if (!claim) continue;
+  // Si el editorial dice "invicto" pero NINGUNO de los dos lo está, está mal
+  const hayInvicto = [par.a, par.b].some(p => p.record.derrotas === 0);
+  if (!hayInvicto) editorialCaducado.push(par.slug);
+}
+
+if (armaCaducada.length || editorialCaducado.length) {
+  const partes: string[] = [];
+  if (armaCaducada.length) {
+    partes.push(
+      `${armaCaducada.length} arma(s) afirman "invicto" sobre alguien que ya perdió:\n` +
+      armaCaducada.slice(0, 6).map(p =>
+        `      · ${p.slug.padEnd(24)} ${p.record.texto}  "${p.arma}"`
+      ).join('\n')
+    );
+  }
+  if (editorialCaducado.length) {
+    partes.push(
+      `${editorialCaducado.length} editorial(es) del comparador afirman "invicto" sin que\n` +
+      `      ninguno de los dos peleadores lo esté:\n` +
+      editorialCaducado.map(s => `      · ${s}`).join('\n')
+    );
+  }
+  errores.push(partes.join('\n\n      '));
+} else {
+  console.log('  ✓ sin afirmaciones editoriales caducadas');
+}
+
+// ── 7. Gap conocido: historial de peleas ─────────────────────────────
 avisos.push(
   `peleas[] no tiene fuente todavía — el MCP de MMA API no tiene suscripción\n` +
   `      activa y results.json solo guarda 4 entradas (widget de home).\n` +
@@ -165,6 +208,20 @@ console.log(`  con arma escrita        ${TODOS.filter(p => p.arma).length}`);
 console.log('\n  rareza de cartas:');
 for (const r of ['legendaria', 'epica', 'rara', 'comun'] as const) {
   console.log(`    ${r.padEnd(12)} ${porRareza[r] ?? 0}`);
+}
+
+const lb = getParesEnListaBlanca();
+const pub = getParesPublicados();
+console.log('\n  comparador:');
+console.log(`    en lista blanca   ${lb.length}`);
+console.log(`    publicados        ${pub.length}  (con editorial)`);
+console.log(`    esperando editorial ${lb.length - pub.length}`);
+const sinRevisar = pub.filter(p => !p.editorialRevisada).length;
+if (sinRevisar) {
+  avisos.push(
+    `${sinRevisar} editorial(es) del comparador vienen de borrador y falta pasarlos\n` +
+    `      por tu voz. Edita src/data/pares-publicados.json y pon editorialRevisada:true.`
+  );
 }
 
 if (avisos.length) {

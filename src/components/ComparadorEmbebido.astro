@@ -1,0 +1,111 @@
+---
+/**
+ * ComparadorEmbebido.astro — módulo de comparación dentro de la ficha.
+ *
+ * Es la pieza que ABSORBE el tráfico de "cuánto mide X". El usuario llega
+ * buscando un número, ve la silueta de su peleador, y encuentra rivales
+ * con los que compararlo.
+ *
+ * Los enlaces van a la URL canónica del par —páginas reales, no cambio de
+ * estado en cliente— y solo se muestran los pares que están publicados.
+ * Si ninguno de los rivales sugeridos tiene página, el módulo no aparece.
+ */
+import SiluetaPeleador from '../components/SiluetaPeleador.astro';
+import { getRivalesSugeridos, slugPar, type Peleador } from '../lib/peleadores';
+import { getParesPublicados } from '../lib/comparar';
+
+interface Props {
+  peleador: Peleador;
+}
+const { peleador: p } = Astro.props;
+
+const publicados = new Set(getParesPublicados().map(x => x.slug));
+
+// Rivales con página de comparación publicada. Se piden más de 3 porque
+// se filtran por disponibilidad.
+const rivales = getRivalesSugeridos(p.slug, 12)
+  .map(r => ({ rival: r, slug: slugPar(p.slug, r.slug) }))
+  .filter(x => publicados.has(x.slug))
+  .slice(0, 3);
+
+const fmtApe = (n: number | null) => (n === null ? '—' : `${n > 0 ? '+' : ''}${n}`);
+const ALTO = 200;
+---
+
+{rivales.length > 0 && p.fisico.altura_cm && (
+  <section class="rounded-xl overflow-hidden my-10" style="background:#0A0A0B;">
+    <div class="p-6 sm:p-8">
+      <div class="flex items-center gap-2 mb-5">
+        <span style="width:7px; height:7px; background:#F2D928; display:block;"></span>
+        <h2 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 m-0"
+            style="font-family:var(--font-mono);">Comparar a escala real</h2>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        {/* Silueta del peleador de la ficha */}
+        <div class="flex flex-col items-center gap-2 flex-shrink-0 mx-auto sm:mx-0" style="width:150px;">
+          <div style={`height:${ALTO}px; width:100%; display:flex; align-items:flex-end;`}>
+            <SiluetaPeleador
+              alturaCm={p.fisico.altura_cm}
+              envergaduraCm={p.fisico.alcance_cm ?? undefined}
+              pesoKg={p.fisico.peso_kg ?? undefined}
+              nombre={p.nombre}
+              mostrarBase={false}
+            />
+          </div>
+          <div class="text-center border-t pt-2 w-full" style="border-color:rgba(244,242,236,0.14);">
+            <div class="text-[#F4F2EC] text-xs uppercase leading-tight"
+                 style="font-family:var(--font-display);font-weight:900;">{p.nombre}</div>
+            <div class="text-[9px] tabular-nums text-gray-500 mt-1" style="font-family:var(--font-mono);">
+              {p.fisico.altura_cm} cm · ape {fmtApe(p.fisico.ape_index)}
+            </div>
+          </div>
+        </div>
+
+        {/* Rivales */}
+        <div class="flex-1 w-full">
+          <p class="text-gray-400 text-sm leading-relaxed mb-4" style="font-family:var(--font-sans);">
+            {p.nombre} mide <strong class="text-[#F4F2EC]">{p.fisico.altura_cm} cm</strong>
+            {p.fisico.alcance_cm && <> con <strong class="text-[#F4F2EC]">{p.fisico.alcance_cm} cm</strong> de alcance</>}.
+            Mirá cómo se ve al lado de otros peleadores de {p.divisionLabel.toLowerCase()}.
+          </p>
+
+          <div class="flex flex-col gap-2">
+            {rivales.map(({ rival, slug }) => {
+              const dh = p.fisico.altura_cm! - (rival.fisico.altura_cm ?? 0);
+              return (
+                <a href={`/comparar/${slug}/`}
+                   class="group flex items-center gap-3 p-3 rounded-lg transition-colors"
+                   style="background:rgba(244,242,236,0.05);">
+                  <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center"
+                       style="background:rgba(244,242,236,0.08);">
+                    {rival.img
+                      ? <img src={rival.img} alt="" class="w-full h-full object-cover object-top" loading="lazy" />
+                      : <span class="text-[9px] font-black text-gray-500" style="font-family:var(--font-display);">
+                          {rival.nombre.split(' ').slice(0, 2).map(n => n[0]).join('')}
+                        </span>}
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-[#F4F2EC] text-sm font-bold truncate group-hover:text-[#F2D928] transition-colors"
+                         style="font-family:var(--font-display);">
+                      {rival.nombre}
+                    </div>
+                    <div class="text-[10px] tabular-nums text-gray-500" style="font-family:var(--font-mono);">
+                      {rival.ranking === 'C' ? 'Campeón' : rival.ranking !== null ? `#${rival.ranking}` : '—'}
+                      {rival.fisico.altura_cm && <> · {rival.fisico.altura_cm} cm
+                        {dh !== 0 && <span class="text-gray-600"> ({dh > 0 ? '−' : '+'}{Math.abs(dh)})</span>}
+                      </>}
+                    </div>
+                  </div>
+                  <span class="text-gray-600 group-hover:text-[#F2D928] text-xs font-bold transition-colors flex-shrink-0">
+                    Comparar →
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)}

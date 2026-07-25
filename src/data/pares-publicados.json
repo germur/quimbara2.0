@@ -1,0 +1,84 @@
+{
+  "_lee_esto_primero": {
+    "proposito": "Lista blanca del comparador. SOLO se generan paginas para los pares que esten aca Y que tengan editorial != null. Con 195 rankeados hay miles de pares posibles; publicarlos todos con texto puro-template seria thin content masivo.",
+    "la_regla": "Ningun par se publica sin parrafo editorial propio. El texto generado desde datos (altura, alcance, ape index, record) lo produce src/lib/comparar.ts automaticamente; el editorial es la interpretacion, y va a mano.",
+    "canonicalizacion": "El slug SIEMPRE va en orden alfabetico. La URL en orden inverso hace 301 a la canonica — nunca canonical tag. El orden visual en pantalla se controla con ?a={slug}, que no se indexa.",
+    "editorialRevisada": "false = lo redacte yo como borrador analitico, falta pasarlo por tu voz. Mismo patron que armaRevisada en peleadores-editorial.json.",
+    "como_agregar": "1. Poner el par con el slug en orden alfabetico  2. Escribir editorial  3. npm run build. Para saber que pares valen la pena, mira GSC: los que ya reciben impresiones son los candidatos de la ola 2.",
+    "olas": {
+      "1": "Campeon vs #1 de cada division — el choque que todos quieren ver",
+      "2": "Los que empiecen a recibir impresiones en GSC",
+      "3": "Resto, solo si las olas 1 y 2 muestran clicks reales"
+    }
+  },
+
+  "pares": {
+    "ilia-topuria-vs-justin-gaethje": {
+      "editorial": "Es el choque que define el peso ligero: el campeon que convirtio la violencia en metodo contra el que subio de division sin perder el poder. Gaethje pelea hacia adelante y acepta el intercambio como precio de entrada; Topuria pega mas duro de lo que su cuerpo sugiere y tiene el timing para castigar justo eso. Los diez centimetros de Gaethje importan menos de lo que parece porque el alcance esta empatado — el margen esta en quien impone el ritmo en los primeros dos rounds.",
+      "editorialRevisada": false,
+      "ola": 1
+    },
+    "khamzat-chimaev-vs-sean-strickland": {
+      "editorial": "El estilo mas feo del peso medio contra el mas asfixiante. Strickland gana caminando hacia adelante detras de una guardia de Filadelfia que no se rompe, sumando jabs hasta que el otro se cansa de existir; Chimaev no necesita rounds, necesita un agarre. La pregunta no es quien pega mejor sino cuantas veces Strickland puede negar el clinch antes de que uno entre.",
+      "editorialRevisada": false,
+      "ola": 1
+    },
+    "alexander-volkanovski-vs-movsar-evloev": {
+      "editorial": "Volkanovski lleva anos demostrando que ser el mas bajo de la division no importa si nadie te puede mover. Evloev llega invicto y con el problema opuesto: nadie ha encontrado como pararlo porque no le da nada con que trabajar. Es una pelea de margenes chicos, de quien gana el intercambio numero cuarenta, no el primero.",
+      "editorialRevisada": false,
+      "ola": 1
+    },
+    "merab-dvalishvili-vs-petr-yan": {
+      "editorial": "Boxeo quirurgico contra cardio que no se acaba. Yan es el tecnico mas limpio del peso gallo y castiga cualquier error de posicion; Dvalishvili gana convirtiendo la pelea en una tarea fisica que nadie quiere hacer durante veinticinco minutos. Quien dicte donde ocurre la pelea gana.",
+      "editorialRevisada": false,
+      "ola": 1
+    },
+    "alexandre-pantoja-vs-joshua-van": {
+      "editorial": "El campeon mas joven de la division contra el cazador mas persistente. Van pelea con un ritmo que no corresponde a su peso y una disposicion a comer para dar que preocupa a largo plazo; Pantoja no necesita ventanas grandes, necesita una espalda descuidada. Es juventud y volumen contra oficio y paciencia.",
+      "editorialRevisada": false,
+      "ola": 1
+    },
+    "ciryl-gane-vs-tom-aspinall": {
+      "editorial": "Los dos pesados mas atleticos de la division, que es una frase rara de escribir. Gane se mueve como alguien treinta kilos mas liviano y pelea a distancia con patadas que nadie de su tamano deberia lanzar; Aspinall tiene velocidad de mediano y termina peleas por arriba y por abajo. En peso pesado nadie sobrevive a un error, y ninguno de los dos falla seguido.",
+      "editorialRevisada": false,
+      "ola": 1
+    },
+    "carlos-ulberg-vs-magomed-ankalaev": {
+      "editorial": "City Kickboxing contra Daguestan, que es el resumen del semipesado moderno. Ulberg llego al titulo con manos limpias y confianza creciente; Ankalaev construyo su caso siendo el problema que nadie queria resolver, controlando donde ocurre cada segundo. Es striking de precision contra control que no cede.",
+      "editorialRevisada": false,
+      "ola": 1
+    },
+    "ian-machado-garry-vs-islam-makhachev": {
+      "editorial": "Makhachev subio a welter y se llevo el cinturon con el mismo control de sambo que hizo insostenible el peso ligero. Garry es mas alto, mas largo y pelea desde afuera, que en teoria es exactamente el perfil que mas incomoda a un luchador. En la practica, todos los que apostaron a eso terminaron en el suelo.",
+      "editorialRevisada": false,
+      "ola": 1
+    },
+    "mackenzie-dern-vs-zhang-weili": {
+      "editorial": "Si Dern te lleva al suelo, se acabo: es probablemente el mejor jiu-jitsu del roster femenino. Weili tiene el striking mas pesado de la division y la lucha suficiente para negar la entrada, que es la unica manera de ganarle. Toda la pelea cabe en la pregunta de si ese agarre llega.",
+      "editorialRevisada": false,
+      "ola": 1
+    },
+    "julianna-pena-vs-kayla-harrison": {
+      "editorial": "Harrison entro a UFC con credenciales de judo olimpico y una expectativa que casi nadie carga; Pena ya demostro que las expectativas ajenas no le importan. Es fuerza y control de grado internacional contra alguien que gana justamente cuando la pelea se vuelve incomoda y sucia.",
+      "editorialRevisada": false,
+      "ola": 1
+    },
+    "natalia-silva-vs-valentina-shevchenko": {
+      "editorial": "Shevchenko es la peleadora mas completa que ha pasado por el mosca femenino y lleva anos ganando sin ceder terreno. Silva llega con velocidad y patadas que rompen el ritmo de cualquiera, que es una de las pocas rutas que quedan contra alguien que lee todo. Tecnica acumulada contra explosion.",
+      "editorialRevisada": false,
+      "ola": 1
+    },
+
+    "arman-tsarukyan-vs-ilia-topuria": { "editorial": null, "ola": 2 },
+    "diego-lopes-vs-movsar-evloev": { "editorial": null, "ola": 2 },
+    "jiri-prochazka-vs-magomed-ankalaev": { "editorial": null, "ola": 2 },
+    "carlos-prates-vs-ian-machado-garry": { "editorial": null, "ola": 2 },
+    "alexandre-pantoja-vs-manel-kape": { "editorial": null, "ola": 2 },
+    "merab-dvalishvili-vs-sean-omalley": { "editorial": null, "ola": 2 },
+    "dricus-du-plessis-vs-khamzat-chimaev": { "editorial": null, "ola": 2 },
+    "alexander-volkov-vs-ciryl-gane": { "editorial": null, "ola": 2 },
+    "julianna-pena-vs-raquel-pennington": { "editorial": null, "ola": 2 },
+    "tatiana-suarez-vs-zhang-weili": { "editorial": null, "ola": 2 },
+    "manon-fiorot-vs-natalia-silva": { "editorial": null, "ola": 2 }
+  }
+}

@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import RoundProgress from '../../components/RoundProgress.astro';
+import ComparadorEmbebido from '../../components/ComparadorEmbebido.astro';
+import { getPeleador } from '../../lib/peleadores';
 import FIGHTERS from '../../data/fighters.json';
 import { getCollection } from 'astro:content';
 // @ts-ignore — módulo JS compartido con astro.config.mjs y scripts/
@@ -30,6 +32,10 @@ export function getStaticPaths() {
 }
 
 const { fighter: f } = Astro.props as { fighter: typeof FIGHTERS[0] & FighterEnriched };
+
+// Versión derivada (métrico, ape index, rareza) para el comparador embebido.
+// null si el peleador no es comparable — entonces el módulo no se renderiza.
+const peleadorDerivado = getPeleador(f.slug);
 const PX = 'clamp(16px,4vw,60px)';
 
 // ─── Helpers de conversión (imperial → métrico) para long-tail físico ───
@@ -43,8 +49,14 @@ function inchesToCm(r: string): number | null {
   if (!m) return null;
   return Math.round((+m[1]) * 2.54);
 }
-const heightCm = f.height ? heightToCm(f.height) : null;
-const reachCm  = f.reach  ? inchesToCm(f.reach)  : null;
+function lbsToKg(w: string): number | null {
+  const m = w?.match(/(\d+)/);
+  if (!m) return null;
+  return Math.round((+m[1]) * 0.4536);
+}
+const heightCm  = f.height ? heightToCm(f.height) : null;
+const reachCm   = f.reach  ? inchesToCm(f.reach)  : null;
+const weightKg  = f.weight ? lbsToKg(f.weight)    : null;
 
 // ─── Estado: campeón / ranqueado / no ranqueado ───
 const isChampion = f.rank === 'C';
@@ -83,9 +95,9 @@ const recLabel = recIsPro ? 'Récord profesional' : 'Récord UFC';
 
 const physicals = [
   { label: 'Récord UFC', value: recIsPro && f.ufcRec && f.ufcRec !== f.rec ? f.ufcRec : '', icon: '🥋' },
-  { label: 'Altura',  value: f.height,  icon: '↕' },
-  { label: 'Peso',    value: f.weight,  icon: '⚖' },
-  { label: 'Alcance', value: f.reach,   icon: '↔' },
+  { label: 'Altura',  value: heightCm ? `${heightCm} cm · ${f.height}` : f.height,  icon: '↕' },
+  { label: 'Peso',    value: weightKg ? `${weightKg} kg · ${f.weight}` : f.weight,  icon: '⚖' },
+  { label: 'Alcance', value: reachCm  ? `${reachCm} cm · ${f.reach}`   : f.reach,   icon: '↔' },
   { label: 'Guardia', value: f.stance,  icon: '🥊' },
   { label: 'Gym',     value: f.team,    icon: '🏛' },
   { label: 'País',    value: f.from,    icon: '🌍' },
@@ -116,8 +128,14 @@ const personSchema: any = {
   "url": canonicalUrl,
   "image": f.img ? new URL(f.img, siteUrl).href : undefined,
   "nationality": f.from || undefined,
-  "height": f.height ? { "@type": "QuantitativeValue", "value": f.height } : undefined,
-  "weight": f.weight ? { "@type": "QuantitativeValue", "value": f.weight } : undefined,
+  // Valores numéricos en métrico con unitCode UN/CEFACT (CMT = cm, KGM = kg):
+  // así Google puede entender "180 cm" como cantidad, no como string imperial.
+  "height": heightCm
+    ? { "@type": "QuantitativeValue", "value": heightCm, "unitCode": "CMT", "description": f.height }
+    : (f.height ? { "@type": "QuantitativeValue", "value": f.height } : undefined),
+  "weight": weightKg
+    ? { "@type": "QuantitativeValue", "value": weightKg, "unitCode": "KGM", "description": f.weight }
+    : (f.weight ? { "@type": "QuantitativeValue", "value": f.weight } : undefined),
   "memberOf": {
     "@type": "SportsOrganization",
     "name": "UFC",
@@ -138,14 +156,46 @@ const breadcrumbSchema = {
   ]
 };
 
-// FAQ schema (solo si hay FAQs definidas)
-const faqSchema = f.faq && f.faq.length > 0 ? {
+// ─── FAQ: manual (overrides) o auto-generada desde los datos ───
+// Las queries GSC con más impresiones son "¿cuánto mide X?" / "alcance de X":
+// si no hay FAQ manual, se genera una biométrica con los datos reales.
+const autoFaq: Array<{ q: string; a: string }> = [];
+if (heightCm) {
+  autoFaq.push({
+    q: `¿Cuánto mide ${f.name}?`,
+    a: `${f.name}${f.nick ? ` "${f.nick}"` : ''} mide <strong>${heightCm} cm (${f.height})</strong> de estatura.${reachCm ? ` Su alcance de brazos es de ${reachCm} cm (${f.reach}).` : ''}`
+  });
+}
+if (reachCm) {
+  autoFaq.push({
+    q: `¿Cuál es el alcance de ${f.name}?`,
+    a: `El alcance de ${f.name} es de <strong>${reachCm} cm (${f.reach})</strong>.${heightCm ? ` Con ${heightCm} cm de estatura, su ratio alcance/altura es clave en su estilo de pelea.` : ''}`
+  });
+}
+if (f.rec && f.rec !== '—' && totalFights > 0) {
+  autoFaq.push({
+    q: `¿Cuál es el récord de ${f.name}?`,
+    a: `Su ${recLabel.toLowerCase()} es de <strong>${wins} victorias, ${losses} derrotas${draws ? ` y ${draws} empates` : ''}</strong> (${f.rec}), con una tasa de victoria del ${winPct}%.`
+  });
+}
+if (f.div) {
+  autoFaq.push({
+    q: `¿En qué división pelea ${f.name}?`,
+    a: `${f.name} compite en <strong>UFC ${f.div}</strong>${isChampion ? ' y es el actual <strong>campeón</strong> de la división' : isRanked ? ` donde ocupa el puesto <strong>#${f.rank}</strong> del ranking` : ''}${weightKg ? `, con un peso de combate de ${weightKg} kg (${f.weight})` : ''}.`
+  });
+}
+
+const faqToShow: Array<{ q: string; a: string }> =
+  (f.faq && f.faq.length > 0) ? f.faq : autoFaq;
+
+// FAQ schema (manual o auto)
+const faqSchema = faqToShow.length > 0 ? {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": f.faq.map(({ q, a }) => ({
+  "mainEntity": faqToShow.map(({ q, a }) => ({
     "@type": "Question",
     "name": q,
-    "acceptedAnswer": { "@type": "Answer", "text": a }
+    "acceptedAnswer": { "@type": "Answer", "text": a.replace(/<[^>]+>/g, '') }
   }))
 } : null;
 
@@ -153,14 +203,23 @@ const schemas = [personSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 const fighterSchema = JSON.stringify(schemas);
 
 // ─── Title/meta formula (override por-fighter o auto) ───
-const heightForMeta = heightCm ? `${f.height} (${heightCm} cm)` : f.height;
-const reachForMeta  = reachCm  ? `${f.reach} (${reachCm} cm)`  : f.reach;
+// GSC: las queries reales son "cuánto mide X" / "estatura de X" / "alcance de X".
+// El title ataca esa intención con cm PRIMERO (audiencia hispana busca en métrico).
+const heightForMeta = heightCm ? `${heightCm} cm (${f.height})` : f.height;
+const reachForMeta  = reachCm  ? `${reachCm} cm (${f.reach})`  : f.reach;
 
 const metaTitle = f.metaTitle
-  ?? `${f.name}${f.nick ? ` "${f.nick}"` : ''} · ${roleLabel} · Récord ${f.rec}`;
+  ?? (isChampion && heightCm
+      ? `${f.name}: Campeón UFC ${f.div} · estatura (${heightCm} cm), alcance y récord`
+      : heightCm
+      ? `${f.name}: estatura (${heightCm} cm), alcance, récord y próxima pelea`
+      : `${f.name}${f.nick ? ` "${f.nick}"` : ''} · ${roleLabel} · Récord ${f.rec}`);
 
+// Description con la respuesta directa al principio (fórmula featured-snippet)
 const metaDescription = f.metaDescription
-  ?? `Perfil de ${f.name}${f.nick ? ` "${f.nick}"` : ''}, ${roleLabel}. ${recLabel} ${f.rec}${heightForMeta ? `, estatura ${heightForMeta}` : ''}${reachForMeta ? `, alcance ${reachForMeta}` : ''}. Análisis de estilo, datos físicos y próxima pelea en Quimbara.`;
+  ?? (heightCm
+      ? `${f.name}${f.nick ? ` "${f.nick}"` : ''} mide ${heightForMeta} de estatura${reachForMeta ? ` y tiene un alcance de ${reachForMeta}` : ''}. ${roleLabel}, ${recLabel.toLowerCase()} ${f.rec}. Estilo, datos físicos y próxima pelea en Quimbara.`
+      : `Perfil de ${f.name}${f.nick ? ` "${f.nick}"` : ''}, ${roleLabel}. ${recLabel} ${f.rec}. Análisis de estilo, datos físicos y próxima pelea en Quimbara.`);
 ---
 
 <BaseLayout
@@ -287,6 +346,15 @@ const metaDescription = f.metaDescription
     </section>
   )}
 
+  <!-- ── Comparador embebido ──
+       Va justo después de los datos físicos: es donde aterriza quien buscó
+       "cuánto mide {peleador}", y convierte ese dato muerto en navegación. -->
+  {peleadorDerivado && (
+    <div style={`max-width:1400px; margin:0 auto; padding: 0 ${PX};`}>
+      <ComparadorEmbebido peleador={peleadorDerivado} />
+    </div>
+  )}
+
   <!-- ── Forma reciente ── -->
   {form.length > 0 && (
     <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 60px;`}>
@@ -341,11 +409,20 @@ const metaDescription = f.metaDescription
            style="font-family:var(--font-sans);">
         <p>
           {f.name}{f.nick ? ` "${f.nick}"` : ''} mide
-          {heightCm && (<><strong> {f.height} ({heightCm} cm)</strong> de estatura</>)}
-          {reachCm && (<>{heightCm ? ' y tiene un alcance de ' : ' tiene un alcance de '}<strong>{f.reach} ({reachCm} cm)</strong></>)}.
+          {heightCm && (<><strong> {heightCm} cm ({f.height})</strong> de estatura</>)}
+          {reachCm && (<>{heightCm ? ' y tiene un alcance de ' : ' tiene un alcance de '}<strong>{reachCm} cm ({f.reach})</strong></>)}.
           {f.stance && (<> Pelea en guardia <strong>{f.stance}</strong>.</>)}
-          {f.weight && (<> Compite en la división <strong>UFC {f.div}</strong> con un peso de combate de <strong>{f.weight}</strong>.</>)}
+          {f.weight && (<> Compite en la división <strong>UFC {f.div}</strong> con un peso de combate de <strong>{weightKg ? `${weightKg} kg (${f.weight})` : f.weight}</strong>.</>)}
         </p>
+        <table class="mt-4">
+          <tbody>
+            {heightCm && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">Estatura</th><td>{heightCm} cm ({f.height})</td></tr>)}
+            {reachCm && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">Alcance</th><td>{reachCm} cm ({f.reach})</td></tr>)}
+            {weightKg && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">Peso de combate</th><td>{weightKg} kg ({f.weight})</td></tr>)}
+            {f.stance && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">Guardia</th><td>{f.stance}</td></tr>)}
+            {f.div && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">División</th><td>UFC {f.div}</td></tr>)}
+          </tbody>
+        </table>
       </div>
     </section>
   )}
@@ -387,7 +464,7 @@ const metaDescription = f.metaDescription
             <div class="bg-red-50 border border-red-200 rounded-xl p-5">
               <h3 class="text-[11px] font-bold uppercase tracking-widest text-red-800 mb-3"
                   style="font-family:var(--font-sans);">Vulnerabilidades</h3>
-              <ul class="space-y-2 text-gray-800" style="font-family:var(--font-sans);">
+                            <ul class="space-y-2 text-gray-800" style="font-family:var(--font-sans);">
                 {f.style.vulnerabilidades.map(it => <li class="flex gap-2"><span class="text-red-600">✗</span><span>{it}</span></li>)}
               </ul>
             </div>
@@ -434,13 +511,13 @@ const metaDescription = f.metaDescription
     </section>
   )}
 
-  <!-- ── FAQ (con FAQPage schema) ── -->
-  {f.faq && f.faq.length > 0 && (
+  <!-- ── FAQ (con FAQPage schema; manual o auto-generada desde datos) ── -->
+  {faqToShow.length > 0 && (
     <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 60px;`}>
       <h2 class="text-2xl md:text-3xl mb-5 text-[#111]"
           style="font-family:var(--font-display);">Preguntas frecuentes sobre {f.name}</h2>
       <div class="space-y-3" style="font-family:var(--font-sans);">
-        {f.faq.map(({ q, a }) => (
+        {faqToShow.map(({ q, a }) => (
           <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
             <summary class="cursor-pointer list-none px-5 py-4 font-bold text-[#111] flex items-center justify-between hover:bg-gray-100 transition-colors">
               <span>{q}</span>
