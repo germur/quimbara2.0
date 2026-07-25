@@ -1,0 +1,330 @@
+---
+/**
+ * CaminoDelPeleador.astro — el récord como línea de tiempo visual.
+ *
+ * ─── SEO ─────────────────────────────────────────────────────────────
+ * Ataca "{peleador} record", "{peleador} victorias y derrotas",
+ * "{peleador} peleas" — 318 queries en posición ~47 hoy.
+ *
+ * TODO el contenido va en el HTML servido, nada se genera en cliente:
+ *   · El SVG se renderiza en el servidor
+ *   · Cada nodo lleva <title> con el detalle completo
+ *   · Debajo va la tabla completa, que es el dato indexable de verdad
+ *   · Un párrafo de resumen en prosa para los snippets
+ * El JS solo agrega el panel de detalle al pasar el cursor. Sin JS, la
+ * tabla y los <title> del SVG siguen sirviendo todo.
+ */
+import {
+  getHistorial,
+  calcularTimeline,
+  rachaActual,
+  resumenHistorial,
+  fechaCorta,
+  METODO_LABEL,
+  RESULTADO_LABEL,
+  type Pelea,
+} from '../lib/peleas';
+
+interface Props {
+  slug: string;
+  nombre: string;
+}
+const { slug, nombre } = Astro.props;
+
+const historial = getHistorial(slug);
+const peleas = historial?.peleas ?? [];
+const geo = peleas.length ? calcularTimeline(peleas) : null;
+const racha = rachaActual(peleas);
+const resumen = peleas.length ? resumenHistorial(nombre, peleas) : '';
+const desglose = historial?.desglose ?? null;
+
+const totalV = peleas.filter(p => p.resultado === 'victoria').length;
+const totalD = peleas.filter(p => p.resultado === 'derrota').length;
+const totalE = peleas.filter(p => p.resultado === 'empate').length;
+
+/** Descripción completa para el <title> del nodo y el panel. */
+function detalle(p: Pelea): string {
+  const partes = [
+    RESULTADO_LABEL[p.resultado],
+    `vs ${p.rivalNombre}`,
+    p.metodoDetalle || METODO_LABEL[p.metodo],
+  ];
+  if (p.round) partes.push(`R${p.round}${p.tiempo ? ` ${p.tiempo}` : ''}`);
+  if (p.evento) partes.push(p.evento);
+  if (p.fecha) partes.push(fechaCorta(p.fecha));
+  return partes.join(' · ');
+}
+
+// Datos mínimos para el panel de hover. Solo lo que se muestra.
+const datosPanel = peleas.map(p => ({
+  r: p.resultado,
+  rival: p.rivalNombre,
+  slug: p.rivalSlug,
+  metodo: p.metodoDetalle || METODO_LABEL[p.metodo],
+  round: p.round,
+  tiempo: p.tiempo,
+  evento: p.evento,
+  eventoSlug: p.eventoSlug,
+  fecha: fechaCorta(p.fecha),
+  registro: p.registro,
+  imp: p.importancia,
+}));
+
+const RELLENO = {
+  victoria: '#0A0A0B',
+  derrota: '#FFFFFF',
+  empate: '#C9C3B4',
+  nc: '#C9C3B4',
+} as const;
+const BORDE = {
+  victoria: '#0A0A0B',
+  derrota: '#E53935',
+  empate: '#8a8b8f',
+  nc: '#8a8b8f',
+} as const;
+---
+
+{peleas.length > 0 && geo && (
+  <section class="my-10" aria-labelledby="camino-titulo">
+    <div class="flex items-baseline justify-between gap-4 flex-wrap mb-1">
+      <h2 id="camino-titulo" class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 m-0"
+          style="font-family:var(--font-mono);">
+        Camino del peleador
+      </h2>
+      <span class="text-[10px] tabular-nums text-gray-400" style="font-family:var(--font-mono);">
+        {peleas.length} peleas · {totalV}-{totalD}{totalE > 0 ? `-${totalE}` : ''}
+        {racha.tipo && racha.largo > 1 && (
+          <span style={`color:${racha.tipo === 'victorias' ? '#0A0A0B' : '#E53935'};`}>
+            {' '}· {racha.largo} {racha.tipo === 'victorias' ? 'V' : 'D'} seguidas
+          </span>
+        )}
+      </span>
+    </div>
+
+    {/* Resumen en prosa — es lo que puede terminar en un snippet */}
+    <p class="text-sm text-gray-600 leading-relaxed mb-5 max-w-2xl" style="font-family:var(--font-sans);">
+      {resumen}
+    </p>
+
+    {/* ── Timeline ── */}
+    <div class="rounded-xl border overflow-hidden" style="border-color:#E2DDD0; background:#fff;">
+      <div id="camino-scroll" class="overflow-x-auto" style="scrollbar-width:thin;">
+        <svg
+          id="camino-svg"
+          width={geo.ancho}
+          height={geo.alto}
+          viewBox={`0 0 ${geo.ancho} ${geo.alto}`}
+          role="img"
+          aria-label={`Línea de tiempo de las ${peleas.length} peleas de ${nombre}`}
+          style="display:block; margin-inline:auto;"
+        >
+          {/* Guías por nivel de importancia */}
+          {geo.niveles.map(nv => (
+            <>
+              <line x1="0" x2={geo.ancho} y1={nv.y} y2={nv.y}
+                    stroke="#F4F2EC" stroke-width="1" />
+              <text x="6" y={nv.y - 6} fill="#C9C3B4"
+                    style="font: 600 7px var(--font-mono), monospace; letter-spacing:0.1em; text-transform:uppercase;">
+                {nv.label}
+              </text>
+            </>
+          ))}
+
+          {/* Segmentos: grosor = racha activa */}
+          {geo.nodos.slice(1).map((nd, idx) => {
+            const prev = geo.nodos[idx];
+            return (
+              <line x1={prev.x} y1={prev.y} x2={nd.x} y2={nd.y}
+                    stroke={nd.colorEntrada} stroke-width={nd.grosorEntrada}
+                    stroke-linecap="round" opacity="0.85" />
+            );
+          })}
+
+          {/* Nodos */}
+          {geo.nodos.map(nd => {
+            const p = nd.pelea;
+            const esTitulo = p.importancia === 'titulo';
+            return (
+              <g class="camino-nodo" data-i={nd.i} style="cursor:pointer;">
+                {/* Anillo ácido en peleas de título */}
+                {esTitulo && (
+                  <circle cx={nd.x} cy={nd.y} r={geo.radio + 3.5}
+                          fill="none" stroke="#F2D928" stroke-width="2" />
+                )}
+                {/* Empate: mitad y mitad */}
+                {p.resultado === 'empate' ? (
+                  <>
+                    <path d={`M ${nd.x} ${nd.y - geo.radio} A ${geo.radio} ${geo.radio} 0 0 1 ${nd.x} ${nd.y + geo.radio} Z`}
+                          fill="#0A0A0B" />
+                    <path d={`M ${nd.x} ${nd.y - geo.radio} A ${geo.radio} ${geo.radio} 0 0 0 ${nd.x} ${nd.y + geo.radio} Z`}
+                          fill="#FFFFFF" />
+                    <circle cx={nd.x} cy={nd.y} r={geo.radio} fill="none" stroke={BORDE.empate} stroke-width="1.6" />
+                  </>
+                ) : (
+                  <circle cx={nd.x} cy={nd.y} r={geo.radio}
+                          fill={RELLENO[p.resultado]} stroke={BORDE[p.resultado]} stroke-width="1.8" />
+                )}
+                {/* Área de toque generosa para móvil */}
+                <circle cx={nd.x} cy={nd.y} r={Math.max(14, geo.radio + 7)} fill="transparent" />
+                <title>{detalle(p)}</title>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      {/* Panel de detalle — lo rellena el JS al hacer hover/tap */}
+      <div id="camino-panel" class="border-t px-4 py-3" style="border-color:#E2DDD0; background:#F4F2EC; min-height:64px;">
+        <div id="camino-panel-vacio" class="text-[11px] text-gray-500" style="font-family:var(--font-mono);">
+          Pasá el cursor o tocá un nodo para ver el detalle de la pelea.
+        </div>
+        <div id="camino-panel-datos" class="hidden"></div>
+      </div>
+
+      {/* Leyenda */}
+      <div class="border-t px-4 py-2.5 flex flex-wrap items-center gap-x-4 gap-y-1.5"
+           style="border-color:#E2DDD0;">
+        {[
+          { label: 'Victoria', fill: '#0A0A0B', stroke: '#0A0A0B' },
+          { label: 'Derrota', fill: '#FFFFFF', stroke: '#E53935' },
+          { label: 'Empate', fill: '#C9C3B4', stroke: '#8a8b8f' },
+        ].map(l => (
+          <span class="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.15em] text-gray-500"
+                style="font-family:var(--font-mono);">
+            <svg width="11" height="11" aria-hidden="true"><circle cx="5.5" cy="5.5" r="4.5" fill={l.fill} stroke={l.stroke} stroke-width="1.5" /></svg>
+            {l.label}
+          </span>
+        ))}
+        <span class="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.15em] text-gray-500"
+              style="font-family:var(--font-mono);">
+          <svg width="11" height="11" aria-hidden="true"><circle cx="5.5" cy="5.5" r="3" fill="none" stroke="#F2D928" stroke-width="2" /></svg>
+          Título
+        </span>
+        <span class="text-[9px] uppercase tracking-[0.15em] text-gray-400 ml-auto"
+              style="font-family:var(--font-mono);">Altura = importancia · grosor = racha</span>
+      </div>
+    </div>
+
+    {/* ── Tabla completa: el dato indexable ── */}
+    <details class="mt-4 rounded-xl border" style="border-color:#E2DDD0;" open={peleas.length <= 12}>
+      <summary class="px-4 py-3 text-[11px] font-bold uppercase tracking-[0.18em] cursor-pointer text-gray-500"
+               style="font-family:var(--font-mono);">
+        Récord completo · {peleas.length} peleas
+      </summary>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left" style="border-collapse:collapse; font-family:var(--font-sans);">
+          <caption class="sr-only">Historial completo de peleas profesionales de {nombre}</caption>
+          <thead>
+            <tr style="background:#F4F2EC;">
+              {['', 'Récord', 'Rival', 'Método', 'R', 'Tiempo', 'Evento', 'Fecha'].map(h => (
+                <th scope="col" class="px-3 py-2 text-[9px] font-bold uppercase tracking-[0.15em] text-gray-500 whitespace-nowrap"
+                    style="font-family:var(--font-mono);">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {[...peleas].reverse().map(p => (
+              <tr class="border-t" style="border-color:#E2DDD0;">
+                <td class="px-3 py-2">
+                  <span class="inline-block w-5 text-center text-[9px] font-black rounded-sm px-1 py-0.5"
+                        style={`font-family:var(--font-mono); background:${p.resultado === 'victoria' ? '#0A0A0B' : p.resultado === 'derrota' ? '#E53935' : '#C9C3B4'}; color:#fff;`}>
+                    {p.resultado === 'victoria' ? 'V' : p.resultado === 'derrota' ? 'D' : p.resultado === 'empate' ? 'E' : '—'}
+                  </span>
+                </td>
+                <td class="px-3 py-2 text-xs tabular-nums text-gray-500 whitespace-nowrap" style="font-family:var(--font-mono);">{p.registro}</td>
+                <td class="px-3 py-2 text-sm font-semibold text-[#0A0A0B]">
+                  {p.rivalSlug
+                    ? <a href={`/peleadores/${p.rivalSlug}/`} class="hover:text-[#F2D928] transition-colors">{p.rivalNombre}</a>
+                    : p.rivalNombre}
+                </td>
+                <td class="px-3 py-2 text-xs text-gray-600">{p.metodoDetalle || METODO_LABEL[p.metodo]}</td>
+                <td class="px-3 py-2 text-xs tabular-nums text-gray-600 text-center">{p.round ?? '—'}</td>
+                <td class="px-3 py-2 text-xs tabular-nums text-gray-600 whitespace-nowrap">{p.tiempo ?? '—'}</td>
+                <td class="px-3 py-2 text-xs text-gray-600">
+                  {p.eventoSlug
+                    ? <a href={`/eventos/${p.eventoSlug}/`} class="hover:text-[#F2D928] transition-colors">{p.evento}</a>
+                    : (p.evento ?? '—')}
+                </td>
+                <td class="px-3 py-2 text-xs text-gray-500 whitespace-nowrap">{fechaCorta(p.fecha)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {desglose && (
+        <div class="border-t px-4 py-3 flex flex-wrap gap-x-6 gap-y-1" style="border-color:#E2DDD0;">
+          <span class="text-[9px] uppercase tracking-[0.18em] text-gray-500" style="font-family:var(--font-mono);">Desglose</span>
+          <span class="text-xs tabular-nums text-gray-600" style="font-family:var(--font-mono);">
+            Victorias · KO {desglose.koVictorias} · SUB {desglose.subVictorias} · DEC {desglose.decVictorias}
+          </span>
+          <span class="text-xs tabular-nums text-gray-600" style="font-family:var(--font-mono);">
+            Derrotas · KO {desglose.koDerrotas} · SUB {desglose.subDerrotas} · DEC {desglose.decDerrotas}
+          </span>
+        </div>
+      )}
+
+      <div class="border-t px-4 py-2" style="border-color:#E2DDD0;">
+        <p class="text-[10px] text-gray-400 m-0" style="font-family:var(--font-mono);">
+          Historial vía Wikipedia. El récord oficial de la ficha viene de UFC.com.
+        </p>
+      </div>
+    </details>
+
+    <script type="application/json" id="camino-datos" set:html={JSON.stringify(datosPanel)} />
+
+    <script>
+      const svg = document.getElementById('camino-svg');
+      const raw = document.getElementById('camino-datos');
+      if (svg && raw?.textContent) {
+        const datos = JSON.parse(raw.textContent);
+        const panelVacio = document.getElementById('camino-panel-vacio');
+        const panelDatos = document.getElementById('camino-panel-datos');
+
+        const IMP_LABEL = {
+          'titulo': 'Pelea de título', 'main-event': 'Main event',
+          'co-main': 'Co-main', 'main-card': 'Cartelera', 'prelim': 'Preliminar',
+        };
+        const COLOR_R = { victoria: '#0A0A0B', derrota: '#E53935', empate: '#8a8b8f', nc: '#8a8b8f' };
+        const LABEL_R = { victoria: 'Victoria', derrota: 'Derrota', empate: 'Empate', nc: 'Sin resultado' };
+
+        const mostrar = (i) => {
+          const d = datos[i];
+          if (!d) return;
+          const rival = d.slug
+            ? `<a href="/peleadores/${d.slug}/" style="color:#0A0A0B; text-decoration:underline;">${d.rival}</a>`
+            : d.rival;
+          const evento = d.evento
+            ? (d.eventoSlug
+                ? `<a href="/eventos/${d.eventoSlug}/" style="color:#3A3A3D; text-decoration:underline;">${d.evento}</a>`
+                : d.evento)
+            : '—';
+          panelDatos.innerHTML = `
+            <div style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;">
+              <span style="font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:${COLOR_R[d.r]};">${LABEL_R[d.r]}</span>
+              <span style="font-family:var(--font-mono); font-size:9px; color:#8a8b8f;">${IMP_LABEL[d.imp] ?? ''} · ${d.registro}</span>
+            </div>
+            <div style="font-family:var(--font-display); font-weight:900; font-size:1.05rem; color:#0A0A0B; margin-top:2px;">vs ${rival}</div>
+            <div style="font-family:var(--font-mono); font-size:11px; color:#3A3A3D; margin-top:3px;">
+              ${d.metodo}${d.round ? ` · R${d.round}` : ''}${d.tiempo ? ` ${d.tiempo}` : ''} · ${evento} · ${d.fecha}
+            </div>`;
+          panelDatos.classList.remove('hidden');
+          panelVacio.classList.add('hidden');
+        };
+
+        for (const g of svg.querySelectorAll('.camino-nodo')) {
+          const i = Number(g.dataset.i);
+          g.addEventListener('mouseenter', () => mostrar(i));
+          g.addEventListener('click', () => mostrar(i));
+          g.addEventListener('focus', () => mostrar(i));
+        }
+
+        // Arranca en la pelea más reciente y scrollea hasta el final, que es
+        // donde está el presente del peleador.
+        const scroller = document.getElementById('camino-scroll');
+        if (scroller) scroller.scrollLeft = scroller.scrollWidth;
+        if (datos.length) mostrar(datos.length - 1);
+      }
+    </script>
+  </section>
+)}

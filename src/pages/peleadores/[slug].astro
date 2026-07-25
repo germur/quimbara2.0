@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import RoundProgress from '../../components/RoundProgress.astro';
 import ComparadorEmbebido from '../../components/ComparadorEmbebido.astro';
+import CaminoDelPeleador from '../../components/CaminoDelPeleador.astro';
 import { getPeleador } from '../../lib/peleadores';
 import FIGHTERS from '../../data/fighters.json';
 import { getCollection } from 'astro:content';
@@ -354,6 +355,13 @@ const metaDescription = f.metaDescription
       <ComparadorEmbebido peleador={peleadorDerivado} />
     </div>
   )}
+
+  <!-- ── Camino del Peleador: el récord completo como timeline ──
+       Va arriba de "Forma reciente" porque la contiene: la forma son las
+       últimas 5, el camino es la carrera entera. -->
+  <div style={`max-width:1400px; margin:0 auto; padding: 0 ${PX};`}>
+    <CaminoDelPeleador slug={f.slug} nombre={f.name} />
+  </div>
 
   <!-- ── Forma reciente ── -->
   {form.length > 0 && (
