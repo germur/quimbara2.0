@@ -49,6 +49,14 @@ jobs:
         run: npm run data:images
         continue-on-error: true
 
+      # Corre DESPUÉS del pipeline y ANTES del commit: si UFC.com cambió el
+      # HTML y el parser se rompió, la auditoría falla y el workflow se marca
+      # en rojo. Los datos igual se commitean (continue-on-error) para poder
+      # inspeccionar qué llegó, pero queda el aviso de que algo se rompió.
+      - name: Auditar base de peleadores
+        run: npm run audit:peleadores
+        continue-on-error: true
+
       - name: Commit changes (si los hay)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:

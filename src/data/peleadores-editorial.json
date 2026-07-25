@@ -1,0 +1,160 @@
+{
+  "_lee_esto_primero": {
+    "proposito": "Campos editoriales que NO se pueden scrapear. Todo lo demas (altura, alcance, peso, record, ranking, stance) sale de fighters.json, que se refresca semanalmente desde UFC.com.",
+    "arma": "Frase corta con la voz de Quimbara, max 40 caracteres. Es lo que diferencia la carta de una ficha de Wikipedia.",
+    "armaRevisada": "false = viene del seed inicial, falta reescribirla con tu voz. Corre npm run audit:peleadores para listar las pendientes.",
+    "nacimiento": "ISO date. Solo para calcular edad en la carta. null = desconocido, la carta omite el campo."
+  },
+  "peleadores": {
+    "max-holloway": {
+      "arma": "Volumen imposible, no se cansa nunca",
+      "armaRevisada": false,
+      "nacimiento": "1991-12-04"
+    },
+    "justin-gaethje": {
+      "arma": "Camina hacia el fuego y le gusta",
+      "armaRevisada": false,
+      "nacimiento": "1988-11-14"
+    },
+    "khamzat-chimaev": {
+      "arma": "Te abraza y ya no existes",
+      "armaRevisada": false,
+      "nacimiento": "1994-05-01"
+    },
+    "josh-hokit": {
+      "arma": "Luchador de verdad con manos de piedra",
+      "armaRevisada": false,
+      "nacimiento": null
+    },
+    "petr-yan": {
+      "arma": "Boxeo quirurgico, sin desperdicio",
+      "armaRevisada": false,
+      "nacimiento": "1993-02-11"
+    },
+    "derrick-lewis": {
+      "arma": "Un golpe y se acabo la noche",
+      "armaRevisada": false,
+      "nacimiento": "1985-02-07"
+    },
+    "joshua-van": {
+      "arma": "Ritmo de mosca con corazon de pesado",
+      "armaRevisada": false,
+      "nacimiento": "2001-09-27"
+    },
+    "tom-aspinall": {
+      "arma": "Velocidad de mediano en cuerpo de pesado",
+      "armaRevisada": false,
+      "nacimiento": "1993-04-11"
+    },
+    "michael-chandler": {
+      "arma": "Explota o muere en el intento",
+      "armaRevisada": false,
+      "nacimiento": "1986-04-24"
+    },
+    "sean-strickland": {
+      "arma": "Guardia de Filadelfia y cero respeto",
+      "armaRevisada": false,
+      "nacimiento": "1991-02-27"
+    },
+    "sean-omalley": {
+      "arma": "Distancia larga y timing de francotirador",
+      "armaRevisada": false,
+      "nacimiento": "1994-10-24"
+    },
+    "alexander-volkanovski": {
+      "arma": "Bajito, ancho e imposible de mover",
+      "armaRevisada": false,
+      "nacimiento": "1988-09-29"
+    },
+    "movsar-evloev": {
+      "arma": "Invicto porque nadie sabe como pararlo",
+      "armaRevisada": false,
+      "nacimiento": "1994-02-06"
+    },
+    "navajo-stirling": {
+      "arma": "City Kickboxing con hambre de prospecto",
+      "armaRevisada": false,
+      "nacimiento": null
+    },
+    "islam-makhachev": {
+      "arma": "Control de sambo que no se rompe",
+      "armaRevisada": false,
+      "nacimiento": "1991-10-27"
+    },
+    "brandon-moreno": {
+      "arma": "El corazon de Tijuana en el octagono",
+      "armaRevisada": false,
+      "nacimiento": "1993-12-07"
+    },
+    "alexandre-pantoja": {
+      "arma": "Te caza hasta la espalda y no suelta",
+      "armaRevisada": false,
+      "nacimiento": "1990-04-16"
+    },
+    "merab-dvalishvili": {
+      "arma": "Cardio infinito y derribos en cadena",
+      "armaRevisada": false,
+      "nacimiento": "1991-01-10"
+    },
+    "diego-lopes": {
+      "arma": "Poder mexicano con jiu-jitsu escondido",
+      "armaRevisada": false,
+      "nacimiento": "1994-12-08"
+    },
+    "bo-nickal": {
+      "arma": "Lucha de nivel mundial, cero dudas",
+      "armaRevisada": false,
+      "nacimiento": "1996-01-14"
+    },
+    "dricus-du-plessis": {
+      "arma": "Estilo feo que funciona siempre",
+      "armaRevisada": false,
+      "nacimiento": "1994-01-14"
+    },
+    "charles-oliveira": {
+      "arma": "Record de sumisiones de la UFC",
+      "armaRevisada": false,
+      "nacimiento": "1989-10-17"
+    },
+    "alex-pereira": {
+      "arma": "La izquierda que apaga la luz",
+      "armaRevisada": false,
+      "nacimiento": "1987-07-07"
+    },
+    "ilia-topuria": {
+      "arma": "Invicto con manos de dinamita",
+      "armaRevisada": false,
+      "nacimiento": "1997-01-21"
+    },
+    "jon-jones": {
+      "arma": "El alcance mas injusto de la historia",
+      "armaRevisada": false,
+      "nacimiento": "1987-07-19"
+    },
+    "mackenzie-dern": {
+      "arma": "Si va al suelo contigo, se acabo",
+      "armaRevisada": false,
+      "nacimiento": "1993-03-24"
+    },
+    "jiri-prochazka": {
+      "arma": "Caos samurai sin manual",
+      "armaRevisada": false,
+      "nacimiento": "1992-10-14"
+    },
+    "marlon-vera": {
+      "arma": "Rodillas y codos que rompen noches",
+      "armaRevisada": false,
+      "nacimiento": "1992-11-04"
+    },
+    "arman-tsarukyan": {
+      "arma": "Presion constante sin bajar el ritmo",
+      "armaRevisada": false,
+      "nacimiento": "1996-10-11"
+    },
+    "jack-della-maddalena": {
+      "arma": "Manos rapidas en espacios chicos",
+      "armaRevisada": false,
+      "nacimiento": "1996-09-06"
+    }
+  }
+}
