@@ -1,0 +1,200 @@
+---
+/**
+ * /lab/siluetas/ — página interna de referencia del motor de siluetas.
+ * noindex: es herramienta de desarrollo, no contenido.
+ *
+ * Sirve para verificar el motor después de tocar src/lib/silueta.ts.
+ * Usa peleadores reales vía getPeleador(), así que también valida que la
+ * capa de datos y la silueta encajen.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiluetaPeleador from '../../components/SiluetaPeleador.astro';
+import { getPeleador } from '../../lib/peleadores';
+
+const PX = 'clamp(16px,4vw,60px)';
+
+// Arquetipos: de mosca a pesado. Los que pide el brief D2.
+const arquetipos = [
+  'joshua-van',
+  'alexander-volkanovski',
+  'khamzat-chimaev',
+  'alex-pereira',
+  'tom-aspinall',
+].map(s => getPeleador(s)).filter(Boolean);
+
+// El par extremo: campeón de mosca vs campeón de pesado
+const mosca   = getPeleador('joshua-van');
+const pesado  = getPeleador('tom-aspinall');
+
+// Ape index extremo conocido
+const jones   = getPeleador('jon-jones');
+const topuria = getPeleador('ilia-topuria');
+
+const fmtApe = (n: number | null) => (n === null ? '—' : `${n > 0 ? '+' : ''}${n}`);
+---
+
+<BaseLayout
+  title="Lab · Motor de siluetas"
+  description="Referencia interna del motor paramétrico de siluetas."
+  noIndex={true}
+>
+  <div style={`background:#0A0A0B; padding: 48px ${PX};`}>
+    <div style="max-width:1240px; margin:0 auto;">
+      <div class="flex items-center gap-2 mb-4">
+        <span style="width:8px; height:8px; background:#F2D928; display:block;"></span>
+        <span class="text-[10px] uppercase tracking-[0.22em] text-gray-500"
+              style="font-family:var(--font-mono);">quimbara.org · interno · D2</span>
+      </div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2.2rem,6vw,4rem);line-height:0.95;color:#F4F2EC;margin:0;">
+        Motor de siluetas
+      </h1>
+      <p class="text-gray-400 mt-4 text-sm max-w-2xl" style="font-family:var(--font-sans);">
+        Tres números entran —altura, envergadura, peso— y sale una figura. Geometría original,
+        cero trazado de fotos. El viewBox mide 232 cm reales: dos siluetas en contenedores de la
+        misma altura quedan a escala real sin normalizar.
+      </p>
+    </div>
+  </div>
+
+  <div style={`max-width:1240px; margin:0 auto; padding: 40px ${PX} 80px;`}>
+
+    {/* ═══ 01 · Cara a cara, escala compartida ═══ */}
+    <h2 class="text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500 mb-1"
+        style="font-family:var(--font-mono);">01 · Escala real compartida</h2>
+    <p class="text-sm text-gray-500 mb-6" style="font-family:var(--font-sans);">
+      Cinco cuerpos con el mismo motor, sin normalizar. Contenedores de 300 px alineados abajo.
+    </p>
+
+    <div class="rounded-xl border p-6 overflow-x-auto"
+         style="background:#0A0A0B; border-color:rgba(244,242,236,0.12);">
+      <div class="grid gap-3 items-end" style="grid-template-columns:repeat(5,minmax(112px,1fr));">
+        {arquetipos.map(p => (
+          <figure class="m-0 flex flex-col gap-3">
+            <div style="height:300px; display:flex; align-items:flex-end;">
+              <SiluetaPeleador
+                alturaCm={p!.fisico.altura_cm!}
+                envergaduraCm={p!.fisico.alcance_cm ?? undefined}
+                pesoKg={p!.fisico.peso_kg ?? undefined}
+                nombre={p!.nombre}
+                mostrarGuias={true}
+              />
+            </div>
+            <figcaption class="flex flex-col gap-1 pt-2.5 border-t"
+                        style="border-color:rgba(244,242,236,0.12);">
+              <span class="text-[10px] uppercase tracking-[0.1em] text-[#F2D928]"
+                    style="font-family:var(--font-mono);">{p!.divisionLabel}</span>
+              <span class="text-base leading-none text-[#F4F2EC] uppercase"
+                    style="font-family:var(--font-display);font-weight:900;">{p!.nombre}</span>
+              <span class="text-xs tabular-nums text-gray-400" style="font-family:var(--font-mono);">
+                {p!.fisico.altura_cm} · {p!.fisico.alcance_cm} · {p!.fisico.peso_kg}kg
+              </span>
+              <span class="text-[10px] tabular-nums text-gray-600" style="font-family:var(--font-mono);">
+                ape {fmtApe(p!.fisico.ape_index)}
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+
+    {/* ═══ 02 · El par extremo ═══ */}
+    {mosca && pesado && (
+      <>
+        <h2 class="text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500 mb-1 mt-14"
+            style="font-family:var(--font-mono);">02 · Par extremo</h2>
+        <p class="text-sm text-gray-500 mb-6" style="font-family:var(--font-sans);">
+          {mosca.nombre} ({mosca.fisico.altura_cm} cm, {mosca.fisico.peso_kg} kg) contra{' '}
+          {pesado.nombre} ({pesado.fisico.altura_cm} cm, {pesado.fisico.peso_kg} kg).
+          Se llevan {pesado.fisico.altura_cm! - mosca.fisico.altura_cm!} cm y{' '}
+          {pesado.fisico.peso_kg! - mosca.fisico.peso_kg!} kg — y se ve.
+        </p>
+        <div class="rounded-xl border p-8"
+             style="background:#0A0A0B; border-color:rgba(244,242,236,0.12);">
+          <div class="flex items-end justify-center gap-12">
+            {[mosca, pesado].map(p => (
+              <div class="flex flex-col items-center gap-3" style="width:180px;">
+                <div style="height:400px; display:flex; align-items:flex-end;">
+                  <SiluetaPeleador
+                    alturaCm={p.fisico.altura_cm!}
+                    envergaduraCm={p.fisico.alcance_cm ?? undefined}
+                    pesoKg={p.fisico.peso_kg ?? undefined}
+                    nombre={p.nombre}
+                    mostrarGuias={true}
+                  />
+                </div>
+                <span class="text-sm text-[#F4F2EC] uppercase text-center"
+                      style="font-family:var(--font-display);font-weight:900;">{p.nombre}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
+    )}
+
+    {/* ═══ 03 · Ape index ═══ */}
+    {jones && topuria && (
+      <>
+        <h2 class="text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500 mb-1 mt-14"
+            style="font-family:var(--font-mono);">03 · Ape index</h2>
+        <p class="text-sm text-gray-500 mb-6" style="font-family:var(--font-sans);">
+          La barra amarilla es la envergadura. Jones tiene el alcance más desproporcionado
+          de la historia ({fmtApe(jones.fisico.ape_index)} cm); Topuria es casi cuadrado
+          ({fmtApe(topuria.fisico.ape_index)} cm).
+        </p>
+        <div class="rounded-xl border p-8"
+             style="background:#0A0A0B; border-color:rgba(244,242,236,0.12);">
+          <div class="flex items-end justify-center gap-12">
+            {[jones, topuria].map(p => (
+              <div class="flex flex-col items-center gap-3" style="width:200px;">
+                <div style="height:360px; display:flex; align-items:flex-end;">
+                  <SiluetaPeleador
+                    alturaCm={p.fisico.altura_cm!}
+                    envergaduraCm={p.fisico.alcance_cm ?? undefined}
+                    pesoKg={p.fisico.peso_kg ?? undefined}
+                    nombre={p.nombre}
+                    marca="barra"
+                  />
+                </div>
+                <span class="text-sm text-[#F4F2EC] uppercase"
+                      style="font-family:var(--font-display);font-weight:900;">{p.nombre}</span>
+                <span class="text-xs tabular-nums text-gray-400" style="font-family:var(--font-mono);">
+                  {p.fisico.altura_cm} cm · alc {p.fisico.alcance_cm} cm · ape {fmtApe(p.fisico.ape_index)}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
+    )}
+
+    {/* ═══ 04 · Prueba de tamaños ═══ */}
+    {mosca && pesado && (
+      <>
+        <h2 class="text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500 mb-1 mt-14"
+            style="font-family:var(--font-mono);">04 · Tamaños</h2>
+        <p class="text-sm text-gray-500 mb-6" style="font-family:var(--font-sans);">
+          60 px (miniatura de listado), 280 px (comparador), 400 px (carta).
+        </p>
+        <div class="rounded-xl border p-8"
+             style="background:#0A0A0B; border-color:rgba(244,242,236,0.12);">
+          <div class="flex items-end gap-10">
+            {[60, 280, 400].map(size => (
+              <div class="flex flex-col items-center gap-3">
+                <div style={`height:${size}px; display:flex; align-items:flex-end;`}>
+                  <SiluetaPeleador
+                    alturaCm={pesado.fisico.altura_cm!}
+                    envergaduraCm={pesado.fisico.alcance_cm ?? undefined}
+                    pesoKg={pesado.fisico.peso_kg ?? undefined}
+                    mostrarBase={false}
+                  />
+                </div>
+                <span class="text-[10px] tabular-nums text-gray-600"
+                      style="font-family:var(--font-mono);">{size} px</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
+    )}
+  </div>
+</BaseLayout>

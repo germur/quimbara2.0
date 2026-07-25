@@ -77,6 +77,7 @@ export default defineConfig({
           '/tags',
           '/docs',
           '/projects',
+          '/lab/',       // herramientas internas de desarrollo
         ];
         if (noIndexPaths.some(p => page.includes(p))) return false;
 

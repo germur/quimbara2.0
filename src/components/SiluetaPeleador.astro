@@ -1,0 +1,119 @@
+---
+/**
+ * SiluetaPeleador.astro — silueta paramétrica de peleador.
+ *
+ * Tres números entran (altura, envergadura, peso) y sale una figura
+ * geométrica original. Ver src/lib/silueta.ts para la matemática y la
+ * explicación del espacio de coordenadas en centímetros.
+ *
+ * ─── CÓMO COMPARAR DOS SILUETAS ──────────────────────────────────────
+ * Poné ambas en contenedores de la MISMA altura en px y alineados abajo
+ * (`align-items:flex-end`). El viewBox hace el resto: quedan a escala real.
+ *
+ *   <div class="flex items-end gap-8">
+ *     <div style="height:320px"><SiluetaPeleador alturaCm={168} … /></div>
+ *     <div style="height:320px"><SiluetaPeleador alturaCm={196} … /></div>
+ *   </div>
+ *
+ * NO le pongas alturas distintas a los contenedores ni escales una figura
+ * para "que quepa" — eso destruye la comparación, que es todo el producto.
+ */
+import { calcularSilueta, VIEWBOX, type MarcaEsquina } from '../lib/silueta';
+
+interface Props {
+  alturaCm: number;
+  envergaduraCm?: number;
+  pesoKg?: number;
+  /** Codificación de esquina independiente del color (daltonismo) */
+  marca?: MarcaEsquina;
+  acento?: string;
+  colorCuerpo?: string;
+  colorGuia?: string;
+  mostrarGuias?: boolean;
+  mostrarBase?: boolean;
+  /** Nombre para el <title> del SVG. Omitir lo vuelve decorativo. */
+  nombre?: string;
+  class?: string;
+}
+
+const {
+  alturaCm,
+  envergaduraCm,
+  pesoKg,
+  marca = 'punta',
+  acento = '#F2D928',
+  colorCuerpo = '#F4F2EC',
+  colorGuia = 'rgba(244,242,236,0.26)',
+  mostrarGuias = false,
+  mostrarBase = true,
+  nombre,
+  class: className = '',
+} = Astro.props;
+
+const g = calcularSilueta({ alturaCm, envergaduraCm, pesoKg, marca });
+
+const ape = envergaduraCm != null ? envergaduraCm - alturaCm : null;
+const descripcion = nombre
+  ? `${nombre}: ${alturaCm} cm de estatura` +
+    (envergaduraCm ? `, ${envergaduraCm} cm de alcance` : '') +
+    (pesoKg ? `, ${pesoKg} kg` : '') +
+    (ape !== null ? ` (ape index ${ape > 0 ? '+' : ''}${ape})` : '')
+  : null;
+---
+
+<div class={`flex items-end ${className}`} style="width:100%; height:100%;">
+  <svg
+    viewBox={VIEWBOX}
+    preserveAspectRatio="xMidYMid meet"
+    style="display:block; width:100%; height:100%; overflow:visible;"
+    role={descripcion ? 'img' : undefined}
+    aria-hidden={descripcion ? undefined : 'true'}
+  >
+    {descripcion && <title>{descripcion}</title>}
+
+    {/* Guías cada 20 cm — referencia de escala */}
+    {mostrarGuias && (
+      <g>
+        {g.guias.map(gu => (
+          <>
+            <line x1="-108" x2="108" y1={gu.y} y2={gu.y}
+                  stroke={colorGuia} stroke-width="0.5" stroke-dasharray="2 3" />
+            <text x="-106" y={gu.ty} fill={colorGuia}
+                  style="font: 600 6px var(--font-mono), monospace; letter-spacing:0.05em;">
+              {gu.label}
+            </text>
+          </>
+        ))}
+      </g>
+    )}
+
+    {/* Envergadura: span horizontal a la altura de los hombros, con marcas */}
+    <g>
+      <line x1={g.spanX1} x2={g.spanX2} y1={g.spanY} y2={g.spanY}
+            stroke={acento} stroke-width={g.spanW}
+            stroke-linecap="butt" stroke-dasharray={g.spanDash} />
+      <line x1={g.spanX1} x2={g.spanX1} y1={g.tickY1} y2={g.tickY2}
+            stroke={acento} stroke-width={g.tickW} stroke-linecap={g.tickCap} />
+      <line x1={g.spanX2} x2={g.spanX2} y1={g.tickY1} y2={g.tickY2}
+            stroke={acento} stroke-width={g.tickW} stroke-linecap={g.tickCap} />
+    </g>
+
+    {/* Cuerpo */}
+    <g fill={colorCuerpo} stroke={colorCuerpo} stroke-linejoin="round" stroke-linecap="round">
+      <path d={g.brazoIzq}  fill="none" stroke-width={g.brazoW} />
+      <path d={g.brazoDer}  fill="none" stroke-width={g.brazoW} />
+      <path d={g.piernaIzq} fill="none" stroke-width={g.piernaW} />
+      <path d={g.piernaDer} fill="none" stroke-width={g.piernaW} />
+      <rect x={g.cuelloX} y={g.cuelloY} width={g.cuelloW} height={g.cuelloH} rx={g.cuelloR} />
+      <path d={g.torso} stroke-width={g.torsoSuavizado} />
+      <ellipse cx="0" cy={g.cabezaCy} rx={g.cabezaRx} ry={g.cabezaRy} stroke-width="0" />
+      <ellipse cx={g.pieIzqX} cy={g.pieY} rx={g.pieRx} ry={g.pieRy} stroke-width="0" />
+      <ellipse cx={g.pieDerX} cy={g.pieY} rx={g.pieRx} ry={g.pieRy} stroke-width="0" />
+    </g>
+
+    {/* Línea de suelo */}
+    {mostrarBase && (
+      <line x1="-104" x2="104" y1={g.baseY} y2={g.baseY} stroke={colorGuia} stroke-width="0.9" />
+    )}
+  </svg>
+</div>
