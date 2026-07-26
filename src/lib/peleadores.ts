@@ -29,6 +29,8 @@ import { z } from 'zod';
 import FIGHTERS from '../data/fighters.json';
 import EDITORIAL from '../data/peleadores-editorial.json';
 import { divLabels, divSlugs, slugToDiv, isFemale } from '../data/divisions';
+import { getBio } from './peleas';
+import { resolverPais, type PaisResuelto } from './paises';
 
 // ─── Rangos de validación ────────────────────────────────────────────
 export const RANGO = {
@@ -44,7 +46,15 @@ export interface Peleador {
   slug: string;
   nombre: string;
   apodo: string | null;
-  pais: string | null;
+  /**
+   * País normalizado con bandera. Resuelto con precedencia:
+   * override a mano > birth_place de Wikipedia > demónimo. Ver lib/paises.ts.
+   * `iso` en null significa que no se pudo determinar con confianza — la
+   * carta omite la bandera en vez de mostrar una equivocada.
+   */
+  pais: PaisResuelto;
+  /** Valor crudo de fighters.json. Inconsistente; solo para depurar. */
+  paisCrudo: string | null;
   img: string | null;
 
   /** Nombre interno de división, ej. "Lightweight" */
@@ -208,6 +218,17 @@ function derivar(f: RawFighter): Peleador {
   const ranking = parseRanking((f as any).rank);
   const ed = EDIT[f.slug] ?? { arma: null, armaRevisada: false, nacimiento: null };
 
+  // Edad y país: el override editorial gana, después lo scrapeado de Wikipedia.
+  // fighters.json no trae fecha de nacimiento y su campo `from` es inconsistente.
+  const bio = getBio(f.slug);
+  const nacimiento = ed.nacimiento ?? bio?.nacimiento ?? null;
+  const pais = resolverPais({
+    override: (ed as any).pais ?? null,
+    paisNacimiento: bio?.paisNacimiento ?? null,
+    nacionalidad: bio?.nacionalidad ?? null,
+    paisUfc: (f as any).from ?? null,
+  });
+
   const div = (f as any).div ?? '';
   const ape = altura_cm !== null && alcance_cm !== null ? alcance_cm - altura_cm : null;
 
@@ -228,7 +249,8 @@ function derivar(f: RawFighter): Peleador {
     slug: f.slug,
     nombre: f.name,
     apodo: (f as any).nick?.trim() || null,
-    pais: (f as any).from || null,
+    pais,
+    paisCrudo: (f as any).from || null,
     img: (f as any).img || null,
 
     division: div,
@@ -252,8 +274,8 @@ function derivar(f: RawFighter): Peleador {
 
     arma: ed.arma,
     armaRevisada: ed.armaRevisada,
-    nacimiento: ed.nacimiento,
-    edad: calcularEdad(ed.nacimiento),
+    nacimiento,
+    edad: calcularEdad(nacimiento),
 
     equipo: (f as any).team || null,
     comparable,

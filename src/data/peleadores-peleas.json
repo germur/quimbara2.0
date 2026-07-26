@@ -6,12 +6,17 @@
     "importancia": "INFERIDA, no publicada por Wikipedia: titulo si las notas mencionan campeonato, main-event si el apellido aparece en el nombre del evento, main-card por defecto. El campo importanciaInferida lo marca.",
     "orden": "peleas[] va en orden cronologico ascendente (la mas antigua primero)."
   },
-  "actualizado": "2026-07-25T12:14:25.618Z",
+  "actualizado": "2026-07-25T12:57:33.336Z",
   "peleadores": {
     "charles-oliveira": {
       "wikipedia": "Charles_Oliveira",
-      "actualizado": "2026-07-25T12:12:33.085Z",
+      "actualizado": "2026-07-25T12:55:31.371Z",
       "recordWiki": "37-11",
+      "bio": {
+        "nacimiento": "1989-10-17",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 10,
         "subVictorias": 22,
@@ -810,8 +815,13 @@
     },
     "marlon-vera": {
       "wikipedia": "Marlon_Vera",
-      "actualizado": "2026-07-25T12:12:38.388Z",
+      "actualizado": "2026-07-25T12:55:36.634Z",
       "recordWiki": "23-12-1",
+      "bio": {
+        "nacimiento": "1992-12-02",
+        "paisNacimiento": "Ecuador",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 10,
@@ -1402,8 +1412,13 @@
     },
     "movsar-evloev": {
       "wikipedia": "Movsar_Evloev",
-      "actualizado": "2026-07-25T12:13:06.303Z",
+      "actualizado": "2026-07-25T12:56:13.389Z",
       "recordWiki": "20-0",
+      "bio": {
+        "nacimiento": "1994-02-11",
+        "paisNacimiento": "Ordzhonikidzvskaya",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 4,
@@ -1738,8 +1753,13 @@
     },
     "tom-aspinall": {
       "wikipedia": "Tom_Aspinall",
-      "actualizado": "2026-07-25T12:12:21.041Z",
+      "actualizado": "2026-07-25T12:55:18.860Z",
       "recordWiki": "15-3",
+      "bio": {
+        "nacimiento": "1993-04-11",
+        "paisNacimiento": "England",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 12,
         "subVictorias": 3,
@@ -2058,8 +2078,13 @@
     },
     "carlos-ulberg": {
       "wikipedia": "Carlos_Ulberg",
-      "actualizado": "2026-07-25T12:12:21.463Z",
+      "actualizado": "2026-07-25T12:55:19.292Z",
       "recordWiki": "14-1",
+      "bio": {
+        "nacimiento": "1990-11-17",
+        "paisNacimiento": "New Zealand",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 1,
@@ -2314,8 +2339,13 @@
     },
     "sean-strickland": {
       "wikipedia": "Sean_Strickland",
-      "actualizado": "2026-07-25T12:12:21.939Z",
+      "actualizado": "2026-07-25T12:55:19.818Z",
       "recordWiki": "31-7",
+      "bio": {
+        "nacimiento": "1991-02-27",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 12,
         "subVictorias": 4,
@@ -2938,8 +2968,13 @@
     },
     "islam-makhachev": {
       "wikipedia": "Islam_Makhachev",
-      "actualizado": "2026-07-25T12:12:22.393Z",
+      "actualizado": "2026-07-25T12:55:20.319Z",
       "recordWiki": "28-1",
+      "bio": {
+        "nacimiento": null,
+        "paisNacimiento": "Soviet Union",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 13,
@@ -3418,8 +3453,13 @@
     },
     "justin-gaethje": {
       "wikipedia": "Justin_Gaethje",
-      "actualizado": "2026-07-25T12:12:22.907Z",
+      "actualizado": "2026-07-25T12:55:20.836Z",
       "recordWiki": "28-5",
+      "bio": {
+        "nacimiento": "1988-11-14",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 21,
         "subVictorias": 1,
@@ -3962,8 +4002,13 @@
     },
     "alexander-volkanovski": {
       "wikipedia": "Alexander_Volkanovski",
-      "actualizado": "2026-07-25T12:12:23.350Z",
+      "actualizado": "2026-07-25T12:55:21.363Z",
       "recordWiki": "28-4",
+      "bio": {
+        "nacimiento": "1988-09-29",
+        "paisNacimiento": "Australia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 13,
         "subVictorias": 3,
@@ -4490,8 +4535,13 @@
     },
     "petr-yan": {
       "wikipedia": "Petr_Yan",
-      "actualizado": "2026-07-25T12:12:23.785Z",
+      "actualizado": "2026-07-25T12:55:21.818Z",
       "recordWiki": "20-5",
+      "bio": {
+        "nacimiento": "1993-02-11",
+        "paisNacimiento": "Russia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 1,
@@ -4906,8 +4956,13 @@
     },
     "joshua-van": {
       "wikipedia": "Joshua_Van",
-      "actualizado": "2026-07-25T12:12:24.198Z",
+      "actualizado": "2026-07-25T12:55:22.247Z",
       "recordWiki": "17-2",
+      "bio": {
+        "nacimiento": "2001-10-10",
+        "paisNacimiento": "Myanmar",
+        "nacionalidad": "Burmese"
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 2,
@@ -5226,8 +5281,13 @@
     },
     "curtis-blaydes": {
       "wikipedia": "Curtis_Blaydes",
-      "actualizado": "2026-07-25T12:12:24.652Z",
+      "actualizado": "2026-07-25T12:55:22.751Z",
       "recordWiki": "19-5",
+      "bio": {
+        "nacimiento": "1991-02-18",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 13,
         "subVictorias": 0,
@@ -5642,8 +5702,13 @@
     },
     "sergei-pavlovich": {
       "wikipedia": "Sergei_Pavlovich",
-      "actualizado": "2026-07-25T12:12:25.073Z",
+      "actualizado": "2026-07-25T12:55:23.174Z",
       "recordWiki": "21-3",
+      "bio": {
+        "nacimiento": "1992-05-13",
+        "paisNacimiento": "Russia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 16,
         "subVictorias": 0,
@@ -6042,8 +6107,13 @@
     },
     "ciryl-gane": {
       "wikipedia": "Ciryl_Gane",
-      "actualizado": "2026-07-25T12:12:25.502Z",
+      "actualizado": "2026-07-25T12:55:23.669Z",
       "recordWiki": "14-2",
+      "bio": {
+        "nacimiento": "1990-04-12",
+        "paisNacimiento": "France",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 3,
@@ -6330,8 +6400,13 @@
     },
     "alexander-volkov": {
       "wikipedia": "Alexander_Volkov_(fighter)",
-      "actualizado": "2026-07-25T12:12:26.984Z",
+      "actualizado": "2026-07-25T12:55:25.125Z",
       "recordWiki": "40-11",
+      "bio": {
+        "nacimiento": "1988-10-24",
+        "paisNacimiento": "Soviet Union",
+        "nacionalidad": "Russian"
+      },
       "desglose": {
         "koVictorias": 24,
         "subVictorias": 4,
@@ -7162,8 +7237,13 @@
     },
     "alex-pereira": {
       "wikipedia": "Alex_Pereira",
-      "actualizado": "2026-07-25T12:12:27.446Z",
+      "actualizado": "2026-07-25T12:55:25.617Z",
       "recordWiki": "13-4",
+      "bio": {
+        "nacimiento": "1987-07-07",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 11,
         "subVictorias": 0,
@@ -7450,8 +7530,13 @@
     },
     "jiri-prochazka": {
       "wikipedia": "Jiri_Prochazka",
-      "actualizado": "2026-07-25T12:12:27.892Z",
+      "actualizado": "2026-07-25T12:55:26.070Z",
       "recordWiki": "32-5-1",
+      "bio": {
+        "nacimiento": "1992-10-14",
+        "paisNacimiento": "Czechoslovakia",
+        "nacionalidad": "Czech"
+      },
       "desglose": {
         "koVictorias": 28,
         "subVictorias": 3,
@@ -8074,8 +8159,13 @@
     },
     "jamahal-hill": {
       "wikipedia": "Jamahal_Hill",
-      "actualizado": "2026-07-25T12:12:28.350Z",
+      "actualizado": "2026-07-25T12:55:26.509Z",
       "recordWiki": "12-4",
+      "bio": {
+        "nacimiento": "1991-05-19",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 0,
@@ -8330,8 +8420,13 @@
     },
     "magomed-ankalaev": {
       "wikipedia": "Magomed_Ankalaev",
-      "actualizado": "2026-07-25T12:12:28.823Z",
+      "actualizado": "2026-07-25T12:55:26.998Z",
       "recordWiki": "20-2-1",
+      "bio": {
+        "nacimiento": "1992-06-02",
+        "paisNacimiento": "Russia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 10,
         "subVictorias": 0,
@@ -8730,8 +8825,13 @@
     },
     "dricus-du-plessis": {
       "wikipedia": "Dricus_Du_Plessis",
-      "actualizado": "2026-07-25T12:12:29.282Z",
+      "actualizado": "2026-07-25T12:55:27.489Z",
       "recordWiki": "24-3",
+      "bio": {
+        "nacimiento": "1994-01-14",
+        "paisNacimiento": "South Africa",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 11,
@@ -9178,8 +9278,13 @@
     },
     "robert-whittaker": {
       "wikipedia": "Robert_Whittaker_(fighter)",
-      "actualizado": "2026-07-25T12:12:30.801Z",
+      "actualizado": "2026-07-25T12:55:29.050Z",
       "recordWiki": "26-9",
+      "bio": {
+        "nacimiento": "1990-12-20",
+        "paisNacimiento": "New Zealand",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 11,
         "subVictorias": 5,
@@ -9658,8 +9763,13 @@
     },
     "paulo-costa": {
       "wikipedia": "Paulo_Costa",
-      "actualizado": "2026-07-25T12:12:31.220Z",
+      "actualizado": "2026-07-25T12:55:29.509Z",
       "recordWiki": "15-4",
+      "bio": {
+        "nacimiento": "1991-04-21",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 12,
         "subVictorias": 1,
@@ -9978,8 +10088,13 @@
     },
     "belal-muhammad": {
       "wikipedia": "Belal_Muhammad",
-      "actualizado": "2026-07-25T12:12:31.681Z",
+      "actualizado": "2026-07-25T12:55:29.959Z",
       "recordWiki": "24-6",
+      "bio": {
+        "nacimiento": "1988-07-09",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 1,
@@ -10490,8 +10605,13 @@
     },
     "leon-edwards": {
       "wikipedia": "Leon_Edwards",
-      "actualizado": "2026-07-25T12:12:32.099Z",
+      "actualizado": "2026-07-25T12:55:30.391Z",
       "recordWiki": "22-6",
+      "bio": {
+        "nacimiento": "1991-08-25",
+        "paisNacimiento": "Jamaica",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 3,
@@ -10970,8 +11090,13 @@
     },
     "arman-tsarukyan": {
       "wikipedia": "Arman_Tsarukyan",
-      "actualizado": "2026-07-25T12:12:32.599Z",
+      "actualizado": "2026-07-25T12:55:30.880Z",
       "recordWiki": "23-3",
+      "bio": {
+        "nacimiento": "1996-10-11",
+        "paisNacimiento": "Georgia",
+        "nacionalidad": "Armenian"
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 6,
@@ -11402,8 +11527,13 @@
     },
     "beneil-dariush": {
       "wikipedia": "Beneil_Dariush",
-      "actualizado": "2026-07-25T12:12:33.534Z",
+      "actualizado": "2026-07-25T12:55:31.897Z",
       "recordWiki": "23-8-1",
+      "bio": {
+        "nacimiento": "1989-05-06",
+        "paisNacimiento": "Iran",
+        "nacionalidad": "American"
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 8,
@@ -11930,8 +12060,13 @@
     },
     "mateusz-gamrot": {
       "wikipedia": "Mateusz_Gamrot",
-      "actualizado": "2026-07-25T12:12:34.015Z",
+      "actualizado": "2026-07-25T12:55:32.393Z",
       "recordWiki": "26-4",
+      "bio": {
+        "nacimiento": "1990-12-11",
+        "paisNacimiento": "Poland",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 6,
@@ -12442,8 +12577,13 @@
     },
     "max-holloway": {
       "wikipedia": "Max_Holloway",
-      "actualizado": "2026-07-25T12:12:34.508Z",
+      "actualizado": "2026-07-25T12:55:32.896Z",
       "recordWiki": "28-9",
+      "bio": {
+        "nacimiento": "1991-12-04",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 13,
         "subVictorias": 2,
@@ -13034,8 +13174,13 @@
     },
     "brian-ortega": {
       "wikipedia": "Brian_Ortega",
-      "actualizado": "2026-07-25T12:12:34.973Z",
+      "actualizado": "2026-07-25T12:55:33.444Z",
       "recordWiki": "16-5",
+      "bio": {
+        "nacimiento": "1991-02-21",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": "American • Mexican"
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 8,
@@ -13402,8 +13547,13 @@
     },
     "yair-rodriguez": {
       "wikipedia": "Yair_Rodriguez",
-      "actualizado": "2026-07-25T12:12:35.407Z",
+      "actualizado": "2026-07-25T12:55:33.860Z",
       "recordWiki": "20-5",
+      "bio": {
+        "nacimiento": "1992-10-06",
+        "paisNacimiento": "Mexico",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 5,
@@ -13834,8 +13984,13 @@
     },
     "arnold-allen": {
       "wikipedia": "Arnold_Allen",
-      "actualizado": "2026-07-25T12:12:35.886Z",
+      "actualizado": "2026-07-25T12:55:34.293Z",
       "recordWiki": "21-4",
+      "bio": {
+        "nacimiento": "1994-01-22",
+        "paisNacimiento": "England",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 4,
@@ -14250,8 +14405,13 @@
     },
     "sean-omalley": {
       "wikipedia": "Sean_O'Malley_(fighter)",
-      "actualizado": "2026-07-25T12:12:37.415Z",
+      "actualizado": "2026-07-25T12:55:35.727Z",
       "recordWiki": "20-3",
+      "bio": {
+        "nacimiento": "1994-10-24",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 13,
         "subVictorias": 1,
@@ -14650,8 +14810,13 @@
     },
     "merab-dvalishvili": {
       "wikipedia": "Merab_Dvalishvili",
-      "actualizado": "2026-07-25T12:12:37.913Z",
+      "actualizado": "2026-07-25T12:55:36.189Z",
       "recordWiki": "21-5",
+      "bio": {
+        "nacimiento": "1991-01-10",
+        "paisNacimiento": "Soviet Union",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 2,
@@ -15098,8 +15263,13 @@
     },
     "aljamain-sterling": {
       "wikipedia": "Aljamain_Sterling",
-      "actualizado": "2026-07-25T12:12:38.816Z",
+      "actualizado": "2026-07-25T12:55:37.068Z",
       "recordWiki": "26-5",
+      "bio": {
+        "nacimiento": "1989-07-31",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 8,
@@ -15610,8 +15780,13 @@
     },
     "brandon-moreno": {
       "wikipedia": "Brandon_Moreno",
-      "actualizado": "2026-07-25T12:12:39.290Z",
+      "actualizado": "2026-07-25T12:55:37.490Z",
       "recordWiki": "23-10-2",
+      "bio": {
+        "nacimiento": "1993-12-07",
+        "paisNacimiento": "Mexico",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 11,
@@ -16186,8 +16361,13 @@
     },
     "alexandre-pantoja": {
       "wikipedia": "Alexandre_Pantoja",
-      "actualizado": "2026-07-25T12:12:39.740Z",
+      "actualizado": "2026-07-25T12:55:37.941Z",
       "recordWiki": "30-6",
+      "bio": {
+        "nacimiento": "1990-04-16",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": "Brazilian"
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 12,
@@ -16778,8 +16958,13 @@
     },
     "brandon-royval": {
       "wikipedia": "Brandon_Royval",
-      "actualizado": "2026-07-25T12:12:40.198Z",
+      "actualizado": "2026-07-25T12:55:38.392Z",
       "recordWiki": "18-9",
+      "bio": {
+        "nacimiento": "1992-08-16",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 10,
@@ -17226,8 +17411,13 @@
     },
     "amir-albazi": {
       "wikipedia": "Amir_Albazi",
-      "actualizado": "2026-07-25T12:12:40.616Z",
+      "actualizado": "2026-07-25T12:55:38.826Z",
       "recordWiki": "17-3",
+      "bio": {
+        "nacimiento": "1993-10-27",
+        "paisNacimiento": "Iraq",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 9,
@@ -17562,8 +17752,13 @@
     },
     "israel-adesanya": {
       "wikipedia": "Israel_Adesanya",
-      "actualizado": "2026-07-25T12:12:41.215Z",
+      "actualizado": "2026-07-25T12:55:39.308Z",
       "recordWiki": "24-6",
+      "bio": {
+        "nacimiento": "1989-07-22",
+        "paisNacimiento": "Nigeria",
+        "nacionalidad": "Nigerian"
+      },
       "desglose": {
         "koVictorias": 16,
         "subVictorias": 0,
@@ -18058,8 +18253,13 @@
     },
     "jj-aldrich": {
       "wikipedia": "JJ_Aldrich",
-      "actualizado": "2026-07-25T12:12:41.678Z",
+      "actualizado": "2026-07-25T12:55:39.722Z",
       "recordWiki": "15-7",
+      "bio": {
+        "nacimiento": "1992-09-29",
+        "paisNacimiento": "United States",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 0,
@@ -18426,8 +18626,13 @@
     },
     "talita-alencar": {
       "wikipedia": "Talita_Alencar",
-      "actualizado": "2026-07-25T12:12:42.106Z",
+      "actualizado": "2026-07-25T12:55:40.168Z",
       "recordWiki": "8-1-1",
+      "bio": {
+        "nacimiento": "1990-10-17",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 0,
         "subVictorias": 4,
@@ -18602,8 +18807,13 @@
     },
     "ikram-aliskerov": {
       "wikipedia": "Ikram_Aliskerov",
-      "actualizado": "2026-07-25T12:12:42.528Z",
+      "actualizado": "2026-07-25T12:55:40.584Z",
       "recordWiki": "18-2",
+      "bio": {
+        "nacimiento": "1992-12-07",
+        "paisNacimiento": "Russia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 5,
@@ -18938,8 +19148,13 @@
     },
     "brendan-allen": {
       "wikipedia": "Brendan_Allen",
-      "actualizado": "2026-07-25T12:12:42.967Z",
+      "actualizado": "2026-07-25T12:55:41.007Z",
       "recordWiki": "27-7",
+      "bio": {
+        "nacimiento": "1995-12-28",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 14,
@@ -19498,8 +19713,13 @@
     },
     "asu-almabayev": {
       "wikipedia": "Asu_Almabayev",
-      "actualizado": "2026-07-25T12:12:43.417Z",
+      "actualizado": "2026-07-25T12:55:41.456Z",
       "recordWiki": "24-3",
+      "bio": {
+        "nacimiento": "1994-01-25",
+        "paisNacimiento": "Kazakhstan",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 11,
@@ -19946,8 +20166,13 @@
     },
     "jaqueline-amorim": {
       "wikipedia": "Polyana_Viana",
-      "actualizado": "2026-07-25T12:12:44.882Z",
+      "actualizado": "2026-07-25T12:55:42.821Z",
       "recordWiki": "13-9",
+      "bio": {
+        "nacimiento": "1992-06-14",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 8,
@@ -20314,8 +20539,13 @@
     },
     "jessica-andrade": {
       "wikipedia": "Jessica_Andrade",
-      "actualizado": "2026-07-25T12:12:45.327Z",
+      "actualizado": "2026-07-25T12:55:43.257Z",
       "recordWiki": "26-15",
+      "bio": {
+        "nacimiento": "1991-09-25",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 10,
         "subVictorias": 8,
@@ -20986,8 +21216,13 @@
     },
     "maycee-barber": {
       "wikipedia": "Maycee_Barber",
-      "actualizado": "2026-07-25T12:12:45.751Z",
+      "actualizado": "2026-07-25T12:55:43.695Z",
       "recordWiki": "15-2",
+      "bio": {
+        "nacimiento": "1998-05-18",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 2,
@@ -21274,8 +21509,13 @@
     },
     "raoni-barcelos": {
       "wikipedia": "Raoni_Barcelos",
-      "actualizado": "2026-07-25T12:12:46.178Z",
+      "actualizado": "2026-07-25T12:55:44.130Z",
       "recordWiki": "22-5",
+      "bio": {
+        "nacimiento": "1987-05-01",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 3,
@@ -21722,8 +21962,13 @@
     },
     "farid-basharat": {
       "wikipedia": "Farid_Basharat",
-      "actualizado": "2026-07-25T12:12:46.613Z",
+      "actualizado": "2026-07-25T12:55:44.552Z",
       "recordWiki": "16-0",
+      "bio": {
+        "nacimiento": "1997-08-02",
+        "paisNacimiento": "Afghanistan",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 1,
         "subVictorias": 6,
@@ -21994,8 +22239,13 @@
     },
     "mario-bautista": {
       "wikipedia": "Mario_Bautista",
-      "actualizado": "2026-07-25T12:12:47.066Z",
+      "actualizado": "2026-07-25T12:55:44.999Z",
       "recordWiki": "18-3",
+      "bio": {
+        "nacimiento": "1993-07-01",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 7,
@@ -22346,8 +22596,13 @@
     },
     "erin-blanchfield": {
       "wikipedia": "Erin_Blanchfield",
-      "actualizado": "2026-07-25T12:12:47.521Z",
+      "actualizado": "2026-07-25T12:55:45.446Z",
       "recordWiki": "14-2",
+      "bio": {
+        "nacimiento": "1999-05-04",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 5,
@@ -22618,8 +22873,13 @@
     },
     "gabriel-bonfim": {
       "wikipedia": "Gabriel_Bonfim",
-      "actualizado": "2026-07-25T12:12:47.964Z",
+      "actualizado": "2026-07-25T12:55:45.920Z",
       "recordWiki": "20-1",
+      "bio": {
+        "nacimiento": "1997-08-20",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 13,
@@ -22970,8 +23230,13 @@
     },
     "kevin-borjas": {
       "wikipedia": "Joshua_Van",
-      "actualizado": "2026-07-25T12:12:49.397Z",
+      "actualizado": "2026-07-25T12:55:47.397Z",
       "recordWiki": "17-2",
+      "bio": {
+        "nacimiento": "2001-10-10",
+        "paisNacimiento": "Myanmar",
+        "nacionalidad": "Burmese"
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 2,
@@ -23290,8 +23555,13 @@
     },
     "caio-borralho": {
       "wikipedia": "Caio_Borralho",
-      "actualizado": "2026-07-25T12:12:49.850Z",
+      "actualizado": "2026-07-25T12:55:47.824Z",
       "recordWiki": "17-2",
+      "bio": {
+        "nacimiento": "1993-01-16",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 4,
@@ -23626,8 +23896,13 @@
     },
     "sean-brady": {
       "wikipedia": "Sean_Brady_(fighter)",
-      "actualizado": "2026-07-25T12:12:51.308Z",
+      "actualizado": "2026-07-25T12:55:49.275Z",
       "recordWiki": "19-2",
+      "bio": {
+        "nacimiento": "1992-11-23",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 6,
@@ -23978,8 +24253,13 @@
     },
     "joanderson-brito": {
       "wikipedia": "Joanderson_Brito",
-      "actualizado": "2026-07-25T12:12:51.705Z",
+      "actualizado": "2026-07-25T12:55:49.699Z",
       "recordWiki": "19-5-1",
+      "bio": {
+        "nacimiento": "1995-02-15",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 8,
@@ -24394,8 +24674,13 @@
     },
     "joaquin-buckley": {
       "wikipedia": "Joaquin_Buckley",
-      "actualizado": "2026-07-25T12:12:52.155Z",
+      "actualizado": "2026-07-25T12:55:50.127Z",
       "recordWiki": "21-7",
+      "bio": {
+        "nacimiento": "1994-04-27",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 15,
         "subVictorias": 0,
@@ -24858,8 +25143,13 @@
     },
     "jared-cannonier": {
       "wikipedia": "Jared_Cannonier",
-      "actualizado": "2026-07-25T12:12:52.569Z",
+      "actualizado": "2026-07-25T12:56:00.591Z",
       "recordWiki": "18-10",
+      "bio": {
+        "nacimiento": "1984-03-16",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 11,
         "subVictorias": 2,
@@ -25322,8 +25612,13 @@
     },
     "jacqueline-cavalcanti": {
       "wikipedia": "Jacqueline_Cavalcanti",
-      "actualizado": "2026-07-25T12:12:53.029Z",
+      "actualizado": "2026-07-25T12:56:01.002Z",
       "recordWiki": "10-2",
+      "bio": {
+        "nacimiento": "1997-08-29",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 0,
@@ -25530,8 +25825,13 @@
     },
     "edgar-chairez": {
       "wikipedia": "Édgar_Cháirez",
-      "actualizado": "2026-07-25T12:12:54.427Z",
+      "actualizado": "2026-07-25T12:56:02.495Z",
       "recordWiki": "14-6",
+      "bio": {
+        "nacimiento": "1996-01-27",
+        "paisNacimiento": "Mexico",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 9,
@@ -25882,8 +26182,13 @@
     },
     "macy-chiasson": {
       "wikipedia": "Macy_Chiasson",
-      "actualizado": "2026-07-25T12:12:54.871Z",
+      "actualizado": "2026-07-25T12:56:02.912Z",
       "recordWiki": "10-6",
+      "bio": {
+        "nacimiento": "1991-07-27",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 3,
@@ -26154,8 +26459,13 @@
     },
     "khamzat-chimaev": {
       "wikipedia": "Khamzat_Chimaev",
-      "actualizado": "2026-07-25T12:12:55.305Z",
+      "actualizado": "2026-07-25T12:56:03.430Z",
       "recordWiki": "15-1",
+      "bio": {
+        "nacimiento": "1994-05-01",
+        "paisNacimiento": "Russia",
+        "nacionalidad": "Russian"
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 6,
@@ -26426,8 +26736,13 @@
     },
     "nora-cornolle": {
       "wikipedia": "Nora_Cornolle",
-      "actualizado": "2026-07-25T12:12:55.735Z",
+      "actualizado": "2026-07-25T12:56:03.894Z",
       "recordWiki": "9-4",
+      "bio": {
+        "nacimiento": "1989-12-06",
+        "paisNacimiento": "France",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 2,
@@ -26650,8 +26965,13 @@
     },
     "waldo-cortes-acosta": {
       "wikipedia": "Waldo_Cortes-Acosta",
-      "actualizado": "2026-07-25T12:12:56.290Z",
+      "actualizado": "2026-07-25T12:56:04.305Z",
       "recordWiki": "17-3",
+      "bio": {
+        "nacimiento": "1991-10-03",
+        "paisNacimiento": "Dominican Republic",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 1,
@@ -26986,8 +27306,13 @@
     },
     "tracy-cortez": {
       "wikipedia": "Tracy_Cortez",
-      "actualizado": "2026-07-25T12:12:56.770Z",
+      "actualizado": "2026-07-25T12:56:04.771Z",
       "recordWiki": "12-4",
+      "bio": {
+        "nacimiento": "1993-12-10",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 1,
         "subVictorias": 1,
@@ -27258,8 +27583,13 @@
     },
     "alessandro-costa": {
       "wikipedia": "Steve_Erceg",
-      "actualizado": "2026-07-25T12:12:58.191Z",
+      "actualizado": "2026-07-25T12:56:06.163Z",
       "recordWiki": "14-4",
+      "bio": {
+        "nacimiento": "1995-07-27",
+        "paisNacimiento": "Australia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 6,
@@ -27562,8 +27892,13 @@
     },
     "melquizael-costa": {
       "wikipedia": "Melquizael_Costa",
-      "actualizado": "2026-07-25T12:12:58.606Z",
+      "actualizado": "2026-07-25T12:56:06.614Z",
       "recordWiki": "26-8",
+      "bio": {
+        "nacimiento": "1996-09-14",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 8,
@@ -28122,8 +28457,13 @@
     },
     "melissa-croden": {
       "wikipedia": "Iasmin_Lucindo",
-      "actualizado": "2026-07-25T12:13:00.040Z",
+      "actualizado": "2026-07-25T12:56:08.092Z",
       "recordWiki": "18-6",
+      "bio": {
+        "nacimiento": "2002-01-08",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 3,
@@ -28522,8 +28862,13 @@
     },
     "grant-dawson": {
       "wikipedia": "Grant_Dawson",
-      "actualizado": "2026-07-25T12:13:00.505Z",
+      "actualizado": "2026-07-25T12:56:08.540Z",
       "recordWiki": "24-3-1",
+      "bio": {
+        "nacimiento": "1994-02-20",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 14,
@@ -28986,8 +29331,13 @@
     },
     "reinier-de-ridder": {
       "wikipedia": "Reinier_de_Ridder",
-      "actualizado": "2026-07-25T12:13:00.916Z",
+      "actualizado": "2026-07-25T12:56:08.984Z",
       "recordWiki": "21-4",
+      "bio": {
+        "nacimiento": "1990-09-07",
+        "paisNacimiento": "Netherlands",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 13,
@@ -29402,8 +29752,13 @@
     },
     "ante-delija": {
       "wikipedia": "Ante_Delija",
-      "actualizado": "2026-07-25T12:13:01.352Z",
+      "actualizado": "2026-07-25T12:56:09.405Z",
       "recordWiki": "26-8",
+      "bio": {
+        "nacimiento": "1990-08-07",
+        "paisNacimiento": "Croatia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 13,
         "subVictorias": 6,
@@ -29962,8 +30317,13 @@
     },
     "jack-della-maddalena": {
       "wikipedia": "Jack_Della_Maddalena",
-      "actualizado": "2026-07-25T12:13:01.795Z",
+      "actualizado": "2026-07-25T12:56:09.817Z",
       "recordWiki": "18-4",
+      "bio": {
+        "nacimiento": "1996-09-10",
+        "paisNacimiento": "Australia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 12,
         "subVictorias": 2,
@@ -30330,8 +30690,13 @@
     },
     "mackenzie-dern": {
       "wikipedia": "Mackenzie_Dern",
-      "actualizado": "2026-07-25T12:13:02.267Z",
+      "actualizado": "2026-07-25T12:56:10.258Z",
       "recordWiki": "16-5",
+      "bio": {
+        "nacimiento": "1993-03-24",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": "American"
+      },
       "desglose": {
         "koVictorias": 0,
         "subVictorias": 8,
@@ -30682,8 +31047,13 @@
     },
     "roman-dolidze": {
       "wikipedia": "Roman_Dolidze",
-      "actualizado": "2026-07-25T12:13:02.706Z",
+      "actualizado": "2026-07-25T12:56:10.707Z",
       "recordWiki": "15-5",
+      "bio": {
+        "nacimiento": "1988-07-15",
+        "paisNacimiento": "Soviet Union",
+        "nacionalidad": "Georgian"
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 3,
@@ -31018,8 +31388,13 @@
     },
     "norma-dumont": {
       "wikipedia": "Norma_Dumont",
-      "actualizado": "2026-07-25T12:13:03.115Z",
+      "actualizado": "2026-07-25T12:56:11.156Z",
       "recordWiki": "13-3",
+      "bio": {
+        "nacimiento": "1990-10-01",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 0,
         "subVictorias": 2,
@@ -31290,8 +31665,13 @@
     },
     "christian-leroy-duncan": {
       "wikipedia": "Christian_Leroy_Duncan",
-      "actualizado": "2026-07-25T12:13:03.540Z",
+      "actualizado": "2026-07-25T12:56:11.595Z",
       "recordWiki": "15-2",
+      "bio": {
+        "nacimiento": "1995-07-24",
+        "paisNacimiento": "England",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 10,
         "subVictorias": 1,
@@ -31578,8 +31958,13 @@
     },
     "joselyne-edwards": {
       "wikipedia": "Joselyne_Edwards",
-      "actualizado": "2026-07-25T12:13:04.890Z",
+      "actualizado": "2026-07-25T12:56:12.003Z",
       "recordWiki": "18-6",
+      "bio": {
+        "nacimiento": "1995-09-29",
+        "paisNacimiento": "Panama",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 4,
@@ -31978,8 +32363,13 @@
     },
     "tim-elliott": {
       "wikipedia": "Tim_Elliott",
-      "actualizado": "2026-07-25T12:13:05.348Z",
+      "actualizado": "2026-07-25T12:56:12.476Z",
       "recordWiki": "21-14-1",
+      "bio": {
+        "nacimiento": "1986-12-24",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 8,
@@ -32570,8 +32960,13 @@
     },
     "steve-erceg": {
       "wikipedia": "Steve_Erceg",
-      "actualizado": "2026-07-25T12:13:05.848Z",
+      "actualizado": "2026-07-25T12:56:12.903Z",
       "recordWiki": "14-4",
+      "bio": {
+        "nacimiento": "1995-07-27",
+        "paisNacimiento": "Australia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 6,
@@ -32874,8 +33269,13 @@
     },
     "gabriella-fernandes": {
       "wikipedia": "Wang_Cong",
-      "actualizado": "2026-07-25T12:13:07.818Z",
+      "actualizado": "2026-07-25T12:56:14.828Z",
       "recordWiki": "10-1",
+      "bio": {
+        "nacimiento": "1992-05-15",
+        "paisNacimiento": "China",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 2,
@@ -33066,8 +33466,13 @@
     },
     "deiveson-figueiredo": {
       "wikipedia": "Deiveson_Figueiredo",
-      "actualizado": "2026-07-25T12:13:08.238Z",
+      "actualizado": "2026-07-25T12:56:15.427Z",
       "recordWiki": "25-7-1",
+      "bio": {
+        "nacimiento": "1987-12-18",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 9,
@@ -33610,8 +34015,13 @@
     },
     "manon-fiorot": {
       "wikipedia": "Manon_Fiorot",
-      "actualizado": "2026-07-25T12:13:08.661Z",
+      "actualizado": "2026-07-25T12:56:15.890Z",
       "recordWiki": "13-2",
+      "bio": {
+        "nacimiento": "1990-02-17",
+        "paisNacimiento": "France",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 0,
@@ -33866,8 +34276,13 @@
     },
     "rafael-fiziev": {
       "wikipedia": "Rafael_Fiziev",
-      "actualizado": "2026-07-25T12:13:09.080Z",
+      "actualizado": "2026-07-25T12:56:16.373Z",
       "recordWiki": "14-5",
+      "bio": {
+        "nacimiento": "1993-03-05",
+        "paisNacimiento": "Kazakhstan",
+        "nacionalidad": "Azerbaijani"
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 1,
@@ -34186,8 +34601,13 @@
     },
     "steve-garcia": {
       "wikipedia": "Steve_Garcia",
-      "actualizado": "2026-07-25T12:13:09.536Z",
+      "actualizado": "2026-07-25T12:56:16.805Z",
       "recordWiki": "19-6",
+      "bio": {
+        "nacimiento": "1992-05-22",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 15,
         "subVictorias": 0,
@@ -34602,8 +35022,13 @@
     },
     "rafa-garcia": {
       "wikipedia": "Rafa_García_(fighter)",
-      "actualizado": "2026-07-25T12:13:10.978Z",
+      "actualizado": "2026-07-25T12:56:18.224Z",
       "recordWiki": "18-4",
+      "bio": {
+        "nacimiento": "1994-08-05",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": "Mexican"
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 8,
@@ -34970,8 +35395,13 @@
     },
     "loopy-godinez": {
       "wikipedia": "Loopy_Godinez",
-      "actualizado": "2026-07-25T12:13:11.434Z",
+      "actualizado": "2026-07-25T12:56:18.680Z",
       "recordWiki": "14-6",
+      "bio": {
+        "nacimiento": "1993-09-06",
+        "paisNacimiento": "Mexico",
+        "nacionalidad": "Mexican"
+      },
       "desglose": {
         "koVictorias": 1,
         "subVictorias": 2,
@@ -35306,8 +35736,13 @@
     },
     "denise-gomes": {
       "wikipedia": "Denise_Gomes",
-      "actualizado": "2026-07-25T12:13:12.051Z",
+      "actualizado": "2026-07-25T12:56:19.119Z",
       "recordWiki": "12-3",
+      "bio": {
+        "nacimiento": "1999-12-30",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 0,
@@ -35562,8 +35997,13 @@
     },
     "alexa-grasso": {
       "wikipedia": "Alexa_Grasso",
-      "actualizado": "2026-07-25T12:13:12.488Z",
+      "actualizado": "2026-07-25T12:56:19.571Z",
       "recordWiki": "16-5-1",
+      "bio": {
+        "nacimiento": "1993-08-09",
+        "paisNacimiento": "Mexico",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 2,
@@ -35930,8 +36370,13 @@
     },
     "bogdan-guskov": {
       "wikipedia": "Bogdan_Guskov",
-      "actualizado": "2026-07-25T12:13:12.915Z",
+      "actualizado": "2026-07-25T12:56:20.010Z",
       "recordWiki": "18-3-1",
+      "bio": {
+        "nacimiento": "1992-09-12",
+        "paisNacimiento": "Uzbekistan",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 15,
         "subVictorias": 3,
@@ -36298,8 +36743,13 @@
     },
     "kayla-harrison": {
       "wikipedia": "Kayla_Harrison",
-      "actualizado": "2026-07-25T12:13:13.358Z",
+      "actualizado": "2026-07-25T12:56:20.462Z",
       "recordWiki": "19-1",
+      "bio": {
+        "nacimiento": "1990-07-02",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 8,
@@ -36634,8 +37084,13 @@
     },
     "anthony-hernandez": {
       "wikipedia": "Anthony_Hernandez",
-      "actualizado": "2026-07-25T12:13:13.804Z",
+      "actualizado": "2026-07-25T12:56:20.884Z",
       "recordWiki": "15-3",
+      "bio": {
+        "nacimiento": "1993-10-18",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 9,
@@ -36954,8 +37409,13 @@
     },
     "angela-hill": {
       "wikipedia": "Angela_Hill",
-      "actualizado": "2026-07-25T12:13:14.285Z",
+      "actualizado": "2026-07-25T12:56:21.336Z",
       "recordWiki": "19-16",
+      "bio": {
+        "nacimiento": "1985-01-12",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 1,
@@ -37546,8 +38006,13 @@
     },
     "josh-hokit": {
       "wikipedia": "Josh_Hokit",
-      "actualizado": "2026-07-25T12:13:14.698Z",
+      "actualizado": "2026-07-25T12:56:21.776Z",
       "recordWiki": "10-0",
+      "bio": {
+        "nacimiento": "1997-11-12",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 3,
@@ -37722,8 +38187,13 @@
     },
     "dan-hooker": {
       "wikipedia": "Dan_Hooker",
-      "actualizado": "2026-07-25T12:13:15.143Z",
+      "actualizado": "2026-07-25T12:56:22.233Z",
       "recordWiki": "24-14",
+      "bio": {
+        "nacimiento": "1990-02-13",
+        "paisNacimiento": "New Zealand",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 11,
         "subVictorias": 7,
@@ -38346,8 +38816,13 @@
     },
     "kyoji-horiguchi": {
       "wikipedia": "Kyoji_Horiguchi",
-      "actualizado": "2026-07-25T12:13:15.556Z",
+      "actualizado": "2026-07-25T12:56:22.697Z",
       "recordWiki": "36-6",
+      "bio": {
+        "nacimiento": "1990-10-12",
+        "paisNacimiento": "Japan",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 15,
         "subVictorias": 6,
@@ -39050,8 +39525,13 @@
     },
     "nassourdine-imavov": {
       "wikipedia": "Nassourdine_Imavov",
-      "actualizado": "2026-07-25T12:13:15.977Z",
+      "actualizado": "2026-07-25T12:56:23.145Z",
       "recordWiki": "17-4",
+      "bio": {
+        "nacimiento": "1995-03-01",
+        "paisNacimiento": "Russia",
+        "nacionalidad": "Russian"
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 4,
@@ -39418,8 +39898,13 @@
     },
     "montel-jackson": {
       "wikipedia": "Montel_Jackson",
-      "actualizado": "2026-07-25T12:13:16.435Z",
+      "actualizado": "2026-07-25T12:56:23.618Z",
       "recordWiki": "15-4",
+      "bio": {
+        "nacimiento": "1992-04-24",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 1,
@@ -39738,8 +40223,13 @@
     },
     "dustin-jacoby": {
       "wikipedia": "Dustin_Jacoby",
-      "actualizado": "2026-07-25T12:13:16.933Z",
+      "actualizado": "2026-07-25T12:56:24.107Z",
       "recordWiki": "22-9-1",
+      "bio": {
+        "nacimiento": "1988-04-04",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 15,
         "subVictorias": 1,
@@ -40266,8 +40756,13 @@
     },
     "virna-jandiroba": {
       "wikipedia": "Virna_Jandiroba",
-      "actualizado": "2026-07-25T12:13:17.341Z",
+      "actualizado": "2026-07-25T12:56:24.551Z",
       "recordWiki": "22-4",
+      "bio": {
+        "nacimiento": "1988-05-30",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 1,
         "subVictorias": 14,
@@ -40698,8 +41193,13 @@
     },
     "jasmine-jasudavicius": {
       "wikipedia": "Jasmine_Jasudavicius",
-      "actualizado": "2026-07-25T12:13:17.788Z",
+      "actualizado": "2026-07-25T12:56:24.999Z",
       "recordWiki": "15-4",
+      "bio": {
+        "nacimiento": "1989-03-01",
+        "paisNacimiento": "Canada",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 4,
@@ -41018,8 +41518,13 @@
     },
     "charles-johnson": {
       "wikipedia": "Charles_Johnson_(fighter)",
-      "actualizado": "2026-07-25T12:13:19.431Z",
+      "actualizado": "2026-07-25T12:56:26.599Z",
       "recordWiki": "19-9",
+      "bio": {
+        "nacimiento": "1991-01-10",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 3,
@@ -41482,8 +41987,13 @@
     },
     "charles-jourdain": {
       "wikipedia": "Charles_Jourdain",
-      "actualizado": "2026-07-25T12:13:19.853Z",
+      "actualizado": "2026-07-25T12:56:27.060Z",
       "recordWiki": "18-8-1",
+      "bio": {
+        "nacimiento": "1995-11-27",
+        "paisNacimiento": "Canada",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 7,
@@ -41930,8 +42440,13 @@
     },
     "manel-kape": {
       "wikipedia": "Manel_Kape",
-      "actualizado": "2026-07-25T12:13:20.320Z",
+      "actualizado": "2026-07-25T12:56:27.482Z",
       "recordWiki": "23-7",
+      "bio": {
+        "nacimiento": "1993-11-14",
+        "paisNacimiento": "Angola",
+        "nacionalidad": "Angolan"
+      },
       "desglose": {
         "koVictorias": 15,
         "subVictorias": 5,
@@ -42426,8 +42941,13 @@
     },
     "loneer-kavanagh": {
       "wikipedia": "Lone'er_Kavanagh",
-      "actualizado": "2026-07-25T12:13:20.725Z",
+      "actualizado": "2026-07-25T12:56:27.894Z",
       "recordWiki": "10-2",
+      "bio": {
+        "nacimiento": "1999-06-09",
+        "paisNacimiento": "England",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 1,
@@ -42634,8 +43154,13 @@
     },
     "fatima-kline": {
       "wikipedia": "Fatima_Kline",
-      "actualizado": "2026-07-25T12:13:21.120Z",
+      "actualizado": "2026-07-25T12:56:28.297Z",
       "recordWiki": "10-1",
+      "bio": {
+        "nacimiento": "2000-07-12",
+        "paisNacimiento": "United States",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 1,
@@ -42826,8 +43351,13 @@
     },
     "rizvan-kuniev": {
       "wikipedia": "Rizvan_Kuniev",
-      "actualizado": "2026-07-25T12:13:21.544Z",
+      "actualizado": "2026-07-25T12:56:28.720Z",
       "recordWiki": "13-3-1",
+      "bio": {
+        "nacimiento": "1992-03-10",
+        "paisNacimiento": "Russia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 2,
@@ -43130,8 +43660,13 @@
     },
     "amanda-lemos": {
       "wikipedia": "Amanda_Lemos",
-      "actualizado": "2026-07-25T12:13:21.956Z",
+      "actualizado": "2026-07-25T12:56:29.192Z",
       "recordWiki": "15-6-1",
+      "bio": {
+        "nacimiento": "1987-05-22",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 3,
@@ -43498,8 +44033,13 @@
     },
     "derrick-lewis": {
       "wikipedia": "Derrick_Lewis",
-      "actualizado": "2026-07-25T12:13:22.373Z",
+      "actualizado": "2026-07-25T12:56:29.674Z",
       "recordWiki": "29-14",
+      "bio": {
+        "nacimiento": "1985-02-07",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 24,
         "subVictorias": 1,
@@ -44218,8 +44758,13 @@
     },
     "diego-lopes": {
       "wikipedia": "Diego_Lopes_(fighter)",
-      "actualizado": "2026-07-25T12:13:23.791Z",
+      "actualizado": "2026-07-25T12:56:31.202Z",
       "recordWiki": "28-8",
+      "bio": {
+        "nacimiento": "1994-12-30",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 12,
         "subVictorias": 12,
@@ -44810,8 +45355,13 @@
     },
     "ian-machado-garry": {
       "wikipedia": "Ian_Machado_Garry",
-      "actualizado": "2026-07-25T12:13:24.201Z",
+      "actualizado": "2026-07-25T12:56:31.649Z",
       "recordWiki": "17-1",
+      "bio": {
+        "nacimiento": "1997-11-17",
+        "paisNacimiento": "Ireland",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 1,
@@ -45114,8 +45664,13 @@
     },
     "abus-magomedov": {
       "wikipedia": "Abus_Magomedov",
-      "actualizado": "2026-07-25T12:13:24.615Z",
+      "actualizado": "2026-07-25T12:56:32.060Z",
       "recordWiki": "29-7-1",
+      "bio": {
+        "nacimiento": "1990-09-02",
+        "paisNacimiento": "Soviet Union",
+        "nacionalidad": "Russian"
+      },
       "desglose": {
         "koVictorias": 14,
         "subVictorias": 8,
@@ -45722,8 +46277,13 @@
     },
     "mike-malott": {
       "wikipedia": "Mike_Malott",
-      "actualizado": "2026-07-25T12:13:25.070Z",
+      "actualizado": "2026-07-25T12:56:32.476Z",
       "recordWiki": "14-2-1",
+      "bio": {
+        "nacimiento": "1991-11-07",
+        "paisNacimiento": "United States",
+        "nacionalidad": "Canadian"
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 6,
@@ -46010,8 +46570,13 @@
     },
     "david-martinez": {
       "wikipedia": "David_Martínez_(fighter)",
-      "actualizado": "2026-07-25T12:13:26.487Z",
+      "actualizado": "2026-07-25T12:56:33.876Z",
       "recordWiki": "14-1",
+      "bio": {
+        "nacimiento": "1998-08-03",
+        "paisNacimiento": "Mexico",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 10,
         "subVictorias": 0,
@@ -46266,8 +46831,13 @@
     },
     "miranda-maverick": {
       "wikipedia": "Miranda_Maverick",
-      "actualizado": "2026-07-25T12:13:26.938Z",
+      "actualizado": "2026-07-25T12:56:34.305Z",
       "recordWiki": "15-6",
+      "bio": {
+        "nacimiento": "1997-07-01",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 1,
         "subVictorias": 7,
@@ -46618,8 +47188,13 @@
     },
     "marcus-mcghee": {
       "wikipedia": "Marcus_McGhee",
-      "actualizado": "2026-07-25T12:13:27.342Z",
+      "actualizado": "2026-07-25T12:56:34.726Z",
       "recordWiki": "11-2",
+      "bio": {
+        "nacimiento": "1990-05-07",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 1,
@@ -46842,8 +47417,13 @@
     },
     "uros-medic": {
       "wikipedia": "Uros_Medic",
-      "actualizado": "2026-07-25T12:13:27.746Z",
+      "actualizado": "2026-07-25T12:56:35.140Z",
       "recordWiki": "13-3",
+      "bio": {
+        "nacimiento": "1993-04-25",
+        "paisNacimiento": "FR Yugoslavia",
+        "nacionalidad": "Serbian"
+      },
       "desglose": {
         "koVictorias": 11,
         "subVictorias": 2,
@@ -47114,8 +47694,13 @@
     },
     "alonzo-menifield": {
       "wikipedia": "Alonzo_Menifield",
-      "actualizado": "2026-07-25T12:13:28.171Z",
+      "actualizado": "2026-07-25T12:56:35.549Z",
       "recordWiki": "18-6-1",
+      "bio": {
+        "nacimiento": "1987-10-18",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 11,
         "subVictorias": 3,
@@ -47530,8 +48115,13 @@
     },
     "bia-mesquita": {
       "wikipedia": "Bia_Mesquita",
-      "actualizado": "2026-07-25T12:13:28.580Z",
+      "actualizado": "2026-07-25T12:56:35.977Z",
       "recordWiki": "8-0",
+      "bio": {
+        "nacimiento": "1991-04-07",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 1,
         "subVictorias": 6,
@@ -47674,8 +48264,13 @@
     },
     "bryce-mitchell": {
       "wikipedia": "Bryce_Mitchell",
-      "actualizado": "2026-07-25T12:13:29.009Z",
+      "actualizado": "2026-07-25T12:56:36.446Z",
       "recordWiki": "19-3",
+      "bio": {
+        "nacimiento": "1994-10-04",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 1,
         "subVictorias": 10,
@@ -48058,8 +48653,13 @@
     },
     "mizuki": {
       "wikipedia": "Mizuki_Inoue",
-      "actualizado": "2026-07-25T12:13:30.472Z",
+      "actualizado": "2026-07-25T12:56:37.924Z",
       "recordWiki": "16-6",
+      "bio": {
+        "nacimiento": "1994-08-19",
+        "paisNacimiento": "Japan",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 0,
         "subVictorias": 9,
@@ -48426,8 +49026,13 @@
     },
     "renato-moicano": {
       "wikipedia": "Renato_Moicano",
-      "actualizado": "2026-07-25T12:13:30.940Z",
+      "actualizado": "2026-07-25T12:56:38.363Z",
       "recordWiki": "20-7-1",
+      "bio": {
+        "nacimiento": "1989-05-21",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 11,
@@ -48874,8 +49479,13 @@
     },
     "michelle-montague": {
       "wikipedia": "Navajo_Stirling",
-      "actualizado": "2026-07-25T12:13:32.362Z",
+      "actualizado": "2026-07-25T12:56:39.816Z",
       "recordWiki": "10-0",
+      "bio": {
+        "nacimiento": "1997-11-07",
+        "paisNacimiento": "New Zealand",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 0,
@@ -49050,8 +49660,13 @@
     },
     "michael-morales": {
       "wikipedia": "Michael_Morales_(fighter)",
-      "actualizado": "2026-07-25T12:13:33.809Z",
+      "actualizado": "2026-07-25T12:56:41.253Z",
       "recordWiki": "19-0",
+      "bio": {
+        "nacimiento": "1999-06-24",
+        "paisNacimiento": "Ecuador",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 14,
         "subVictorias": 1,
@@ -49370,8 +49985,13 @@
     },
     "eduarda-moura": {
       "wikipedia": "Wang_Cong",
-      "actualizado": "2026-07-25T12:13:35.167Z",
+      "actualizado": "2026-07-25T12:56:42.626Z",
       "recordWiki": "10-1",
+      "bio": {
+        "nacimiento": "1992-05-15",
+        "paisNacimiento": "China",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 2,
@@ -49562,8 +50182,13 @@
     },
     "lerone-murphy": {
       "wikipedia": "Lerone_Murphy",
-      "actualizado": "2026-07-25T12:13:35.620Z",
+      "actualizado": "2026-07-25T12:56:43.081Z",
       "recordWiki": "17-1-1",
+      "bio": {
+        "nacimiento": "1991-07-22",
+        "paisNacimiento": "England",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 0,
@@ -49882,8 +50507,13 @@
     },
     "azamat-murzakanov": {
       "wikipedia": "Azamat_Murzakanov",
-      "actualizado": "2026-07-25T12:13:36.068Z",
+      "actualizado": "2026-07-25T12:56:43.514Z",
       "recordWiki": "16-1",
+      "bio": {
+        "nacimiento": "1989-04-12",
+        "paisNacimiento": "Russia)",
+        "nacionalidad": "Russian"
+      },
       "desglose": {
         "koVictorias": 12,
         "subVictorias": 1,
@@ -50170,8 +50800,13 @@
     },
     "rose-namajunas": {
       "wikipedia": "Rose_Namajunas",
-      "actualizado": "2026-07-25T12:13:36.516Z",
+      "actualizado": "2026-07-25T12:56:43.969Z",
       "recordWiki": "14-8",
+      "bio": {
+        "nacimiento": "1992-06-29",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 5,
@@ -50538,8 +51173,13 @@
     },
     "bo-nickal": {
       "wikipedia": "Bo_Nickal",
-      "actualizado": "2026-07-25T12:13:36.981Z",
+      "actualizado": "2026-07-25T12:56:44.453Z",
       "recordWiki": "9-1",
+      "bio": {
+        "nacimiento": "1996-01-14",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 4,
@@ -50634,8 +51274,13 @@
     },
     "tom-nolan": {
       "wikipedia": "Tom_Aspinall",
-      "actualizado": "2026-07-25T12:13:38.446Z",
+      "actualizado": "2026-07-25T12:56:45.891Z",
       "recordWiki": "15-3",
+      "bio": {
+        "nacimiento": "1993-04-11",
+        "paisNacimiento": "England",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 12,
         "subVictorias": 3,
@@ -50954,8 +51599,13 @@
     },
     "umar-nurmagomedov": {
       "wikipedia": "Umar_Nurmagomedov",
-      "actualizado": "2026-07-25T12:13:38.871Z",
+      "actualizado": "2026-07-25T12:56:46.361Z",
       "recordWiki": "20-1",
+      "bio": {
+        "nacimiento": "1996-01-03",
+        "paisNacimiento": "Russia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 7,
@@ -51306,8 +51956,13 @@
     },
     "casey-oneill": {
       "wikipedia": "Casey_O'Neill",
-      "actualizado": "2026-07-25T12:13:39.301Z",
+      "actualizado": "2026-07-25T12:56:46.880Z",
       "recordWiki": "10-2",
+      "bio": {
+        "nacimiento": "1997-10-07",
+        "paisNacimiento": "Scotland",
+        "nacionalidad": "Australian"
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 2,
@@ -51514,8 +52169,13 @@
     },
     "david-onama": {
       "wikipedia": "David_Onama",
-      "actualizado": "2026-07-25T12:13:39.710Z",
+      "actualizado": "2026-07-25T12:56:47.354Z",
       "recordWiki": "14-3",
+      "bio": {
+        "nacimiento": "1994-06-07",
+        "paisNacimiento": "Uganda",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 4,
@@ -51802,8 +52462,13 @@
     },
     "mick-parkin": {
       "wikipedia": "Mick_Parkin",
-      "actualizado": "2026-07-25T12:13:40.141Z",
+      "actualizado": "2026-07-25T12:56:47.922Z",
       "recordWiki": "10-1",
+      "bio": {
+        "nacimiento": "1995-10-02",
+        "paisNacimiento": "England",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 1,
@@ -51994,8 +52659,13 @@
     },
     "julianna-pena": {
       "wikipedia": "Julianna_Pena",
-      "actualizado": "2026-07-25T12:13:40.609Z",
+      "actualizado": "2026-07-25T12:56:48.368Z",
       "recordWiki": "12-6",
+      "bio": {
+        "nacimiento": "1989-08-19",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 5,
@@ -52298,8 +52968,13 @@
     },
     "raquel-pennington": {
       "wikipedia": "Raquel_Pennington",
-      "actualizado": "2026-07-25T12:13:41.034Z",
+      "actualizado": "2026-07-25T12:56:48.794Z",
       "recordWiki": "16-9",
+      "bio": {
+        "nacimiento": "1988-09-05",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 1,
         "subVictorias": 4,
@@ -52714,8 +53389,13 @@
     },
     "alex-perez": {
       "wikipedia": "Alex_Perez_(fighter)",
-      "actualizado": "2026-07-25T12:13:42.512Z",
+      "actualizado": "2026-07-25T12:56:50.264Z",
       "recordWiki": "26-10",
+      "bio": {
+        "nacimiento": "1992-03-21",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 7,
@@ -53322,8 +54002,13 @@
     },
     "ailin-perez": {
       "wikipedia": "Ailín_Pérez",
-      "actualizado": "2026-07-25T12:13:43.957Z",
+      "actualizado": "2026-07-25T12:56:51.661Z",
       "recordWiki": "13-2",
+      "bio": {
+        "nacimiento": "1994-10-05",
+        "paisNacimiento": "Argentina",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 2,
@@ -53578,8 +54263,13 @@
     },
     "brando-pericic": {
       "wikipedia": "Brando_Peričić",
-      "actualizado": "2026-07-25T12:13:45.345Z",
+      "actualizado": "2026-07-25T12:56:53.104Z",
       "recordWiki": "7-1",
+      "bio": {
+        "nacimiento": "1994-08-03",
+        "paisNacimiento": "South Australia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 1,
@@ -53722,8 +54412,13 @@
     },
     "vitor-petrino": {
       "wikipedia": "Vitor_Petrino",
-      "actualizado": "2026-07-25T12:13:45.742Z",
+      "actualizado": "2026-07-25T12:56:53.563Z",
       "recordWiki": "14-2",
+      "bio": {
+        "nacimiento": "1997-08-28",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 2,
@@ -53994,8 +54689,13 @@
     },
     "aaron-pico": {
       "wikipedia": "Aaron_Pico",
-      "actualizado": "2026-07-25T12:13:46.195Z",
+      "actualizado": "2026-07-25T12:56:53.998Z",
       "recordWiki": "14-5",
+      "bio": {
+        "nacimiento": "1996-09-23",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 2,
@@ -54314,8 +55014,13 @@
     },
     "paddy-pimblett": {
       "wikipedia": "Paddy_Pimblett",
-      "actualizado": "2026-07-25T12:13:46.630Z",
+      "actualizado": "2026-07-25T12:56:54.454Z",
       "recordWiki": "24-4",
+      "bio": {
+        "nacimiento": "1995-01-03",
+        "paisNacimiento": "England",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 11,
@@ -54778,8 +55483,13 @@
     },
     "mario-pinto": {
       "wikipedia": "Mick_Parkin",
-      "actualizado": "2026-07-25T12:13:48.493Z",
+      "actualizado": "2026-07-25T12:56:56.272Z",
       "recordWiki": "10-1",
+      "bio": {
+        "nacimiento": "1995-10-02",
+        "paisNacimiento": "England",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 1,
@@ -54970,8 +55680,13 @@
     },
     "carlos-prates": {
       "wikipedia": "Carlos_Prates",
-      "actualizado": "2026-07-25T12:13:48.937Z",
+      "actualizado": "2026-07-25T12:56:56.737Z",
       "recordWiki": "23-7",
+      "bio": {
+        "nacimiento": "1993-08-17",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 19,
         "subVictorias": 3,
@@ -55466,8 +56181,13 @@
     },
     "joe-pyfer": {
       "wikipedia": "Joe_Pyfer",
-      "actualizado": "2026-07-25T12:13:49.368Z",
+      "actualizado": "2026-07-25T12:56:57.191Z",
       "recordWiki": "16-3",
+      "bio": {
+        "nacimiento": "1996-09-17",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 10,
         "subVictorias": 4,
@@ -55786,8 +56506,13 @@
     },
     "aleksandar-rakic": {
       "wikipedia": "Aleksandar_Rakić",
-      "actualizado": "2026-07-25T12:13:50.861Z",
+      "actualizado": "2026-07-25T12:56:58.759Z",
       "recordWiki": "14-6",
+      "bio": {
+        "nacimiento": "1992-02-06",
+        "paisNacimiento": "Austria",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 1,
@@ -56122,8 +56847,13 @@
     },
     "mitch-raposo": {
       "wikipedia": "Su_Mudaerji",
-      "actualizado": "2026-07-25T12:13:52.298Z",
+      "actualizado": "2026-07-25T12:57:00.223Z",
       "recordWiki": "19-7",
+      "bio": {
+        "nacimiento": "1996-01-20",
+        "paisNacimiento": "China",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 13,
         "subVictorias": 1,
@@ -56570,8 +57300,13 @@
     },
     "dominick-reyes": {
       "wikipedia": "Dominick_Reyes",
-      "actualizado": "2026-07-25T12:13:52.745Z",
+      "actualizado": "2026-07-25T12:57:00.692Z",
       "recordWiki": "15-5",
+      "bio": {
+        "nacimiento": "1989-12-26",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 10,
         "subVictorias": 2,
@@ -56906,8 +57641,13 @@
     },
     "amanda-ribas": {
       "wikipedia": "Amanda_Ribas",
-      "actualizado": "2026-07-25T12:13:53.199Z",
+      "actualizado": "2026-07-25T12:57:01.114Z",
       "recordWiki": "13-7",
+      "bio": {
+        "nacimiento": "1993-08-26",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 4,
@@ -57242,8 +57982,13 @@
     },
     "tabatha-ricci": {
       "wikipedia": "Tabatha_Ricci",
-      "actualizado": "2026-07-25T12:13:53.595Z",
+      "actualizado": "2026-07-25T12:57:01.530Z",
       "recordWiki": "12-5",
+      "bio": {
+        "nacimiento": "1995-02-21",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 3,
@@ -57530,8 +58275,13 @@
     },
     "gillian-robertson": {
       "wikipedia": "Gillian_Robertson",
-      "actualizado": "2026-07-25T12:13:53.999Z",
+      "actualizado": "2026-07-25T12:57:02.006Z",
       "recordWiki": "17-8",
+      "bio": {
+        "nacimiento": "1995-05-17",
+        "paisNacimiento": "Canada",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 9,
@@ -57946,8 +58696,13 @@
     },
     "gregory-rodrigues": {
       "wikipedia": "Gregory_Rodrigues",
-      "actualizado": "2026-07-25T12:13:54.440Z",
+      "actualizado": "2026-07-25T12:57:02.426Z",
       "recordWiki": "19-6",
+      "bio": {
+        "nacimiento": "1992-02-17",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 12,
         "subVictorias": 3,
@@ -58362,8 +59117,13 @@
     },
     "daniel-rodriguez": {
       "wikipedia": "Daniel_Rodriguez_(fighter)",
-      "actualizado": "2026-07-25T12:13:55.869Z",
+      "actualizado": "2026-07-25T12:57:03.910Z",
       "recordWiki": "20-5",
+      "bio": {
+        "nacimiento": "1986-12-31",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 4,
@@ -58778,8 +59538,13 @@
     },
     "piera-rodriguez": {
       "wikipedia": "Gillian_Robertson",
-      "actualizado": "2026-07-25T12:13:57.422Z",
+      "actualizado": "2026-07-25T12:57:05.319Z",
       "recordWiki": "17-8",
+      "bio": {
+        "nacimiento": "1995-05-17",
+        "paisNacimiento": "Canada",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 9,
@@ -59194,8 +59959,13 @@
     },
     "karol-rosa": {
       "wikipedia": "Karol_Rosa",
-      "actualizado": "2026-07-25T12:13:57.837Z",
+      "actualizado": "2026-07-25T12:57:05.739Z",
       "recordWiki": "19-8",
+      "bio": {
+        "nacimiento": "1994-12-30",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 2,
@@ -59642,8 +60412,13 @@
     },
     "raul-rosas-jr": {
       "wikipedia": "Raul_Rosas_Jr.",
-      "actualizado": "2026-07-25T12:13:58.289Z",
+      "actualizado": "2026-07-25T12:57:06.174Z",
       "recordWiki": "12-1",
+      "bio": {
+        "nacimiento": "2004-10-08",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 6,
@@ -59866,8 +60641,13 @@
     },
     "khalil-rountree-jr": {
       "wikipedia": "Khalil_Rountree_Jr.",
-      "actualizado": "2026-07-25T12:13:58.718Z",
+      "actualizado": "2026-07-25T12:57:06.600Z",
       "recordWiki": "14-7",
+      "bio": {
+        "nacimiento": "1990-02-06",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 0,
@@ -60234,8 +61014,13 @@
     },
     "mauricio-ruffy": {
       "wikipedia": "Mauricio_Ruffy",
-      "actualizado": "2026-07-25T12:13:59.129Z",
+      "actualizado": "2026-07-25T12:57:07.027Z",
       "recordWiki": "14-2",
+      "bio": {
+        "nacimiento": "1996-06-17",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 13,
         "subVictorias": 0,
@@ -60506,8 +61291,13 @@
     },
     "nursulton-ruziboev": {
       "wikipedia": "Nursulton_Ruziboev",
-      "actualizado": "2026-07-25T12:13:59.576Z",
+      "actualizado": "2026-07-25T12:57:07.488Z",
       "recordWiki": "37-9-2",
+      "bio": {
+        "nacimiento": "1993-11-19",
+        "paisNacimiento": "Uzbekistan",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 13,
         "subVictorias": 21,
@@ -61322,8 +62112,13 @@
     },
     "pat-sabatini": {
       "wikipedia": "Pat_Sabatini",
-      "actualizado": "2026-07-25T12:13:59.986Z",
+      "actualizado": "2026-07-25T12:57:07.905Z",
       "recordWiki": "22-5",
+      "bio": {
+        "nacimiento": "1990-11-09",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 12,
@@ -61770,8 +62565,13 @@
     },
     "benoit-saint-denis": {
       "wikipedia": "Benoît_Saint_Denis",
-      "actualizado": "2026-07-25T12:14:01.518Z",
+      "actualizado": "2026-07-25T12:57:09.400Z",
       "recordWiki": "17-4",
+      "bio": {
+        "nacimiento": "1995-12-18",
+        "paisNacimiento": "France",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 11,
@@ -62138,8 +62938,13 @@
     },
     "quillan-salkilld": {
       "wikipedia": "Quillan_Salkilld",
-      "actualizado": "2026-07-25T12:14:01.976Z",
+      "actualizado": "2026-07-25T12:57:09.834Z",
       "recordWiki": "12-1",
+      "bio": {
+        "nacimiento": "1999-12-28",
+        "paisNacimiento": "Australia",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 4,
@@ -62362,8 +63167,13 @@
     },
     "cory-sandhagen": {
       "wikipedia": "Cory_Sandhagen",
-      "actualizado": "2026-07-25T12:14:02.404Z",
+      "actualizado": "2026-07-25T12:57:10.267Z",
       "recordWiki": "18-7",
+      "bio": {
+        "nacimiento": "1992-04-20",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 3,
@@ -62778,8 +63588,13 @@
     },
     "yana-santos": {
       "wikipedia": "Yana_Santos",
-      "actualizado": "2026-07-25T12:14:02.862Z",
+      "actualizado": "2026-07-25T12:57:10.740Z",
       "recordWiki": "17-8",
+      "bio": {
+        "nacimiento": "1989-11-11",
+        "paisNacimiento": "Soviet Union",
+        "nacionalidad": "Russian"
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 1,
@@ -63194,8 +64009,13 @@
     },
     "luana-santos": {
       "wikipedia": "Gillian_Robertson",
-      "actualizado": "2026-07-25T12:14:04.770Z",
+      "actualizado": "2026-07-25T12:57:12.630Z",
       "recordWiki": "17-8",
+      "bio": {
+        "nacimiento": "1995-05-17",
+        "paisNacimiento": "Canada",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 3,
         "subVictorias": 9,
@@ -63610,8 +64430,13 @@
     },
     "valentina-shevchenko": {
       "wikipedia": "Valentina_Shevchenko",
-      "actualizado": "2026-07-25T12:14:05.277Z",
+      "actualizado": "2026-07-25T12:57:13.102Z",
       "recordWiki": "26-4-1",
+      "bio": {
+        "nacimiento": "1988-03-07",
+        "paisNacimiento": "Kyrgyzstan)",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 7,
@@ -64122,8 +64947,13 @@
     },
     "jean-silva": {
       "wikipedia": "Jean_Silva",
-      "actualizado": "2026-07-25T12:14:05.679Z",
+      "actualizado": "2026-07-25T12:57:13.548Z",
       "recordWiki": "17-3",
+      "bio": {
+        "nacimiento": "1996-12-13",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 12,
         "subVictorias": 3,
@@ -64458,8 +65288,13 @@
     },
     "natalia-silva": {
       "wikipedia": "Natália_Silva_(fighter)",
-      "actualizado": "2026-07-25T12:14:07.122Z",
+      "actualizado": "2026-07-25T12:57:14.990Z",
       "recordWiki": "20-5-1",
+      "bio": {
+        "nacimiento": "1997-02-03",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 5,
         "subVictorias": 7,
@@ -64890,8 +65725,13 @@
     },
     "karine-silva": {
       "wikipedia": "Karine_Silva",
-      "actualizado": "2026-07-25T12:14:07.512Z",
+      "actualizado": "2026-07-25T12:57:15.464Z",
       "recordWiki": "19-7",
+      "bio": {
+        "nacimiento": "1993-12-02",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 8,
@@ -65322,8 +66162,13 @@
     },
     "song-yadong": {
       "wikipedia": "Song_Yadong",
-      "actualizado": "2026-07-25T12:14:07.944Z",
+      "actualizado": "2026-07-25T12:57:15.932Z",
       "recordWiki": "23-9-1",
+      "bio": {
+        "nacimiento": "1997-12-02",
+        "paisNacimiento": "China",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 4,
@@ -65882,8 +66727,13 @@
     },
     "ryan-spann": {
       "wikipedia": "Ryan_Spann",
-      "actualizado": "2026-07-25T12:14:08.358Z",
+      "actualizado": "2026-07-25T12:57:16.355Z",
       "recordWiki": "24-11",
+      "bio": {
+        "nacimiento": "1991-08-24",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 14,
@@ -66458,8 +67308,13 @@
     },
     "serghei-spivac": {
       "wikipedia": "Serghei_Spivac",
-      "actualizado": "2026-07-25T12:14:08.784Z",
+      "actualizado": "2026-07-25T12:57:16.841Z",
       "recordWiki": "18-6",
+      "bio": {
+        "nacimiento": "1995-01-24",
+        "paisNacimiento": "Moldova",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 8,
@@ -66858,8 +67713,13 @@
     },
     "navajo-stirling": {
       "wikipedia": "Navajo_Stirling",
-      "actualizado": "2026-07-25T12:14:09.233Z",
+      "actualizado": "2026-07-25T12:57:17.266Z",
       "recordWiki": "10-0",
+      "bio": {
+        "nacimiento": "1997-11-07",
+        "paisNacimiento": "New Zealand",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 0,
@@ -67034,8 +67894,13 @@
     },
     "tatiana-suarez": {
       "wikipedia": "Tatiana_Suarez",
-      "actualizado": "2026-07-25T12:14:09.668Z",
+      "actualizado": "2026-07-25T12:57:17.725Z",
       "recordWiki": "12-1",
+      "bio": {
+        "nacimiento": "1990-12-19",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 6,
@@ -67258,8 +68123,13 @@
     },
     "sumudaerji": {
       "wikipedia": "Sumudaerji",
-      "actualizado": "2026-07-25T12:14:10.129Z",
+      "actualizado": "2026-07-25T12:57:18.193Z",
       "recordWiki": "19-7",
+      "bio": {
+        "nacimiento": "1996-01-20",
+        "paisNacimiento": "China",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 13,
         "subVictorias": 1,
@@ -67706,8 +68576,13 @@
     },
     "klaudia-sygula": {
       "wikipedia": "Priscila_Cachoeira",
-      "actualizado": "2026-07-25T12:14:11.544Z",
+      "actualizado": "2026-07-25T12:57:19.610Z",
       "recordWiki": "13-9",
+      "bio": {
+        "nacimiento": "1988-08-19",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 0,
@@ -68074,8 +68949,13 @@
     },
     "tatsuro-taira": {
       "wikipedia": "Tatsuro_Taira",
-      "actualizado": "2026-07-25T12:14:11.959Z",
+      "actualizado": "2026-07-25T12:57:20.071Z",
       "recordWiki": "18-2",
+      "bio": {
+        "nacimiento": "2000-01-27",
+        "paisNacimiento": "Japan",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 8,
@@ -68410,8 +69290,13 @@
     },
     "payton-talbott": {
       "wikipedia": "Payton_Talbott",
-      "actualizado": "2026-07-25T12:14:12.404Z",
+      "actualizado": "2026-07-25T12:57:20.494Z",
       "recordWiki": "11-1",
+      "bio": {
+        "nacimiento": "1998-09-09",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 1,
@@ -68618,8 +69503,13 @@
     },
     "miesha-tate": {
       "wikipedia": "Miesha_Tate",
-      "actualizado": "2026-07-25T12:14:12.913Z",
+      "actualizado": "2026-07-25T12:57:20.966Z",
       "recordWiki": "20-10",
+      "bio": {
+        "nacimiento": "1986-08-18",
+        "paisNacimiento": "U.S.",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 8,
@@ -69114,8 +70004,13 @@
     },
     "alexia-thainara": {
       "wikipedia": "Loma_Lookboonmee",
-      "actualizado": "2026-07-25T12:14:14.784Z",
+      "actualizado": "2026-07-25T12:57:22.369Z",
       "recordWiki": "10-5",
+      "bio": {
+        "nacimiento": "1996-01-18",
+        "paisNacimiento": "Thailand",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 1,
         "subVictorias": 1,
@@ -69370,8 +70265,13 @@
     },
     "ilia-topuria": {
       "wikipedia": "Ilia_Topuria",
-      "actualizado": "2026-07-25T12:14:15.215Z",
+      "actualizado": "2026-07-25T12:57:22.810Z",
       "recordWiki": "17-1",
+      "bio": {
+        "nacimiento": "1997-01-21",
+        "paisNacimiento": "Germany",
+        "nacionalidad": "Georgian"
+      },
       "desglose": {
         "koVictorias": 7,
         "subVictorias": 8,
@@ -69674,8 +70574,13 @@
     },
     "manuel-torres": {
       "wikipedia": "Manuel_Torres_(fighter)",
-      "actualizado": "2026-07-25T12:14:16.729Z",
+      "actualizado": "2026-07-25T12:57:24.318Z",
       "recordWiki": "17-4",
+      "bio": {
+        "nacimiento": "1995-03-25",
+        "paisNacimiento": "Mexico",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 7,
@@ -70026,8 +70931,13 @@
     },
     "marcin-tybura": {
       "wikipedia": "Marcin_Tybura",
-      "actualizado": "2026-07-25T12:14:17.149Z",
+      "actualizado": "2026-07-25T12:57:24.768Z",
       "recordWiki": "27-11",
+      "bio": {
+        "nacimiento": "1985-11-09",
+        "paisNacimiento": "Poland",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 10,
         "subVictorias": 7,
@@ -70650,8 +71560,13 @@
     },
     "tagir-ulanbekov": {
       "wikipedia": "Tagir_Ulanbekov",
-      "actualizado": "2026-07-25T12:14:17.548Z",
+      "actualizado": "2026-07-25T12:57:25.191Z",
       "recordWiki": "17-3",
+      "bio": {
+        "nacimiento": "1991-07-08",
+        "paisNacimiento": "Soviet Union",
+        "nacionalidad": "Russian"
+      },
       "desglose": {
         "koVictorias": 1,
         "subVictorias": 8,
@@ -70986,8 +71901,13 @@
     },
     "kamaru-usman": {
       "wikipedia": "Kamaru_Usman",
-      "actualizado": "2026-07-25T12:14:17.997Z",
+      "actualizado": "2026-07-25T12:57:25.645Z",
       "recordWiki": "21-5",
+      "bio": {
+        "nacimiento": "1987-05-11",
+        "paisNacimiento": "Nigeria",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 1,
@@ -71418,8 +72338,13 @@
     },
     "kevin-vallejos": {
       "wikipedia": "Kevin_Vallejos",
-      "actualizado": "2026-07-25T12:14:18.436Z",
+      "actualizado": "2026-07-25T12:57:26.055Z",
       "recordWiki": "18-1",
+      "bio": {
+        "nacimiento": "2001-12-08",
+        "paisNacimiento": "Argentina",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 13,
         "subVictorias": 2,
@@ -71738,8 +72663,13 @@
     },
     "johnny-walker": {
       "wikipedia": "Johnny_Walker_(fighter)",
-      "actualizado": "2026-07-25T12:14:19.884Z",
+      "actualizado": "2026-07-25T12:57:27.550Z",
       "recordWiki": "22-10",
+      "bio": {
+        "nacimiento": "1992-03-30",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 17,
         "subVictorias": 3,
@@ -72282,8 +73212,13 @@
     },
     "valter-walker": {
       "wikipedia": "Valter_Walker",
-      "actualizado": "2026-07-25T12:14:20.279Z",
+      "actualizado": "2026-07-25T12:57:27.993Z",
       "recordWiki": "15-1",
+      "bio": {
+        "nacimiento": "1997-12-14",
+        "paisNacimiento": "Brazil",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 5,
@@ -72554,8 +73489,13 @@
     },
     "wang-cong": {
       "wikipedia": "Wang_Cong",
-      "actualizado": "2026-07-25T12:14:20.687Z",
+      "actualizado": "2026-07-25T12:57:28.411Z",
       "recordWiki": "10-1",
+      "bio": {
+        "nacimiento": "1992-05-15",
+        "paisNacimiento": "China",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 2,
         "subVictorias": 2,
@@ -72746,8 +73686,13 @@
     },
     "nathaniel-wood": {
       "wikipedia": "Nathaniel_Wood_(fighter)",
-      "actualizado": "2026-07-25T12:14:22.198Z",
+      "actualizado": "2026-07-25T12:57:29.938Z",
       "recordWiki": "23-6",
+      "bio": {
+        "nacimiento": "1993-08-05",
+        "paisNacimiento": "England",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 5,
@@ -73226,8 +74171,13 @@
     },
     "yan-xiaonan": {
       "wikipedia": "Yan_Xiaonan",
-      "actualizado": "2026-07-25T12:14:22.618Z",
+      "actualizado": "2026-07-25T12:57:30.383Z",
       "recordWiki": "19-5",
+      "bio": {
+        "nacimiento": "1989-06-16",
+        "paisNacimiento": "China",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 8,
         "subVictorias": 1,
@@ -73642,8 +74592,13 @@
     },
     "aiemann-zahabi": {
       "wikipedia": "Aiemann_Zahabi",
-      "actualizado": "2026-07-25T12:14:23.067Z",
+      "actualizado": "2026-07-25T12:57:30.835Z",
       "recordWiki": "14-3",
+      "bio": {
+        "nacimiento": "1987-11-19",
+        "paisNacimiento": "Canada",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 6,
         "subVictorias": 2,
@@ -73930,8 +74885,13 @@
     },
     "youssef-zalal": {
       "wikipedia": "Youssef_Zalal",
-      "actualizado": "2026-07-25T12:14:23.544Z",
+      "actualizado": "2026-07-25T12:57:31.276Z",
       "recordWiki": "18-6-1",
+      "bio": {
+        "nacimiento": "1996-09-04",
+        "paisNacimiento": "Morocco",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 4,
         "subVictorias": 10,
@@ -74282,8 +75242,13 @@
     },
     "zhang-weili": {
       "wikipedia": "Zhang_Weili",
-      "actualizado": "2026-07-25T12:14:24.011Z",
+      "actualizado": "2026-07-25T12:57:31.742Z",
       "recordWiki": "26-4",
+      "bio": {
+        "nacimiento": "1990-09-30",
+        "paisNacimiento": "China",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 11,
         "subVictorias": 8,
@@ -74778,8 +75743,13 @@
     },
     "yaroslav-amosov": {
       "wikipedia": "Yaroslav_Amosov",
-      "actualizado": "2026-07-25T12:14:25.353Z",
+      "actualizado": "2026-07-25T12:57:33.071Z",
       "recordWiki": "30-1",
+      "bio": {
+        "nacimiento": "1993-09-09",
+        "paisNacimiento": "Ukraine",
+        "nacionalidad": null
+      },
       "desglose": {
         "koVictorias": 9,
         "subVictorias": 13,

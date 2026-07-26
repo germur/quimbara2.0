@@ -135,6 +135,64 @@ function inferirImportancia(notas, evento, nombrePeleador) {
 
 // ─── Parseo de la tabla ──────────────────────────────────────────────
 
+/**
+ * Extrae un campo del infobox.
+ *
+ * Anclado a línea completa (^...$ con flag m) a propósito: cuando un campo
+ * está vacío, un regex sin anclar se come la línea siguiente y devuelve el
+ * valor del campo de al lado. Eso daba "nationality = | height = 5 ft 7 in".
+ */
+function campoInfobox(box, clave) {
+  const m = new RegExp(`^\\s*\\|\\s*${clave}\\s*=\\s*(.*)$`, 'im').exec(box);
+  if (!m) return null;
+  const v = m[1].trim();
+  if (!v || v.startsWith('|')) return null; // campo vacío
+  return v;
+}
+
+/** `{{birth date and age|df=y|1993|4|11}}` → "1993-04-11" */
+function parsearNacimiento(valor) {
+  const m = /\{\{\s*birth date(?: and age)?\s*\|([^}]+)\}\}/i.exec(valor ?? '');
+  if (!m) return null;
+  const nums = m[1].split('|')
+    .map(s => s.trim())
+    .filter(s => !s.includes('='))   // descarta df=y, mf=yes
+    .map(Number)
+    .filter(n => Number.isFinite(n));
+  if (nums.length < 3) return null;
+  const [a, mes, d] = nums;
+  if (a < 1930 || a > 2015 || mes < 1 || mes > 12 || d < 1 || d > 31) return null;
+  return `${a}-${String(mes).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+}
+
+/**
+ * País desde `birth_place`. El último segmento separado por comas es el país:
+ *   "[[Hakha]], Chin State, Myanmar"  → Myanmar
+ *   "[[Phoenix, Arizona]], U.S."      → U.S.
+ */
+function parsearPais(valor) {
+  const limpio = limpiarLinks(valor ?? '').replace(/\{\{[^}]*\}\}/g, '').trim();
+  if (!limpio) return null;
+  const partes = limpio.split(',').map(s => s.trim()).filter(Boolean);
+  return partes[partes.length - 1] || null;
+}
+
+function parsearBio(wt) {
+  const box = /\{\{Infobox martial artist([\s\S]*?)\n\}\}/i.exec(wt);
+  if (!box) return null;
+  const b = box[1];
+  const nacionalidad = campoInfobox(b, 'nationality');
+  return {
+    nacimiento: parsearNacimiento(campoInfobox(b, 'birth_date')),
+    paisNacimiento: parsearPais(campoInfobox(b, 'birth_place')),
+    // Demónimo, y puede venir múltiple ("Burmese<br>American"). Se guarda
+    // crudo solo como respaldo cuando no hay birth_place.
+    nacionalidad: nacionalidad
+      ? limpiarLinks(nacionalidad.split(/<br\s*\/?>/i)[0]).replace(/\{\{[^}]*\}\}/g, '').trim() || null
+      : null,
+  };
+}
+
 function parsearRecordbox(wt) {
   const m = /\{\{MMArecordbox([\s\S]*?)\}\}/i.exec(wt);
   if (!m) return null;
@@ -388,6 +446,9 @@ for (const [i, f] of objetivos.entries()) {
       wikipedia: res.titulo,
       actualizado: new Date().toISOString(),
       recordWiki,
+      // Edad y país para la carta. fighters.json tiene `from` inconsistente
+      // (mezcla países con ciudades) y no tiene fecha de nacimiento.
+      bio: parsearBio(res.wikitext),
       desglose,
       desgloseCuadra,
       peleas,

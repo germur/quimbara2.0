@@ -59,6 +59,20 @@ export interface HistorialPeleador {
 
 const TABLA = (PELEAS_RAW as any).peleadores as Record<string, any>;
 
+export interface BioWikipedia {
+  nacimiento: string | null;
+  paisNacimiento: string | null;
+  nacionalidad: string | null;
+}
+
+/**
+ * Accesor liviano a los datos biográficos, sin arrastrar las 49 peleas.
+ * Lo usa peleadores.ts para rellenar edad y país en la carta.
+ */
+export function getBio(slug: string): BioWikipedia | null {
+  return (TABLA[slug]?.bio as BioWikipedia | undefined) ?? null;
+}
+
 export function getHistorial(slug: string): HistorialPeleador | null {
   const h = TABLA[slug];
   if (!h || !Array.isArray(h.peleas) || h.peleas.length === 0) return null;

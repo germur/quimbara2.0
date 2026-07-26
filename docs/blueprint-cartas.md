@@ -16,9 +16,9 @@ Formato: vertical 2:3, 400px de ancho, exportable a PNG.
 | Récord V-D-E | UFC.com semanal | 195 / 195 | ✅ listo |
 | Desglose KO/SUB/DEC | Wikipedia, validado | 168 / 195 | ✅ listo (omite si no cuadra) |
 | Altura · alcance · peso | UFC.com semanal | 195 / 195 | ✅ listo |
-| **Edad** | — | **26 / 195** | ⚠️ lo scrapeo yo |
-| **Bandera de país** | — | **41 / 195, e inconsistente** | ⚠️ lo scrapeo yo |
-| **`arma`** | editorial | **28 / 195** | 🔴 **solo tú** |
+| Edad | Wikipedia `birth_date` | 194 / 195 | ✅ resuelto |
+| Bandera de país | Wikipedia `birth_place` | 194 / 195 | ✅ resuelto |
+| **`arma`** | editorial | **28 / 195** | 🔴 **solo tú — único bloqueo** |
 
 ### Rareza — ya funciona, no se toca
 
@@ -33,13 +33,33 @@ Se calcula desde `ranking` en cada build. Cuando el bot refresca los rankings el
 
 ---
 
-## 2. Lo que lleno yo (no requiere nada tuyo)
+## 2. Edad y país — resuelto (25 jul)
 
-**Edad.** El infobox de Wikipedia trae `birth_date` en formato `{{birth date and age|1993|4|11}}`. Extiendo `fetch-peleas.mjs` para capturarlo en la misma pasada — ya visito esas páginas. Pasa de 26 a ~190.
+Ambos salen del infobox de Wikipedia, capturados en la misma pasada del scraper de peleas.
 
-**País para la bandera.** Hoy `from` está roto: 154 rankeados sin dato, y los que tienen mezclan países con ciudades (*"Safford, Arizona, EE.UU."*) y nomenclaturas (*"USA"* vs *"EE.UU."*). Wikipedia tiene `birth_place` confiable (`[[Hakha]], Chin State, Myanmar`) — el último segmento es el país. Lo normalizo a ISO-3166 para poder pintar banderas.
+**Edad:** de 26 a **194 de 195**. `birth_date` viene en formato `{{birth date and age|1993|4|11}}`, consistente.
 
-**Caso que necesita tu criterio:** hay peleadores con doble nacionalidad. Dern nació en Phoenix pero pelea como brasileña-americana; Joshua Van es birmano y americano. Voy a usar `birth_place` por defecto y dejar un override para que corrijas los que quieras.
+**País:** de 41 (y roto) a **194 de 195**. La resolución tiene cuatro niveles de precedencia en `src/lib/paises.ts`:
+
+| Nivel | Fuente | Cuántos resuelve |
+|---|---|---|
+| 1 | Override a mano en `peleadores-editorial.json` | 1 |
+| 2 | `birth_place` de Wikipedia | 180 |
+| 3 | Demónimo de `nationality` | 7 |
+| 4 | Campo `from` de UFC.com, validado | 2 |
+
+**La regla que importa: devuelve `null` antes que adivinar.** Una bandera equivocada en una carta que la gente comparte es peor que no mostrar bandera. Los cuatro problemas que traía la data cruda quedaron cubiertos:
+
+- Estados que ya no existen (*Soviet Union*, *Czechoslovakia*, *FR Yugoslavia* — 9 peleadores nacidos antes de 1991) → resuelven por demónimo
+- Paréntesis sin cerrar del wikitext (*"Russia)"*, *"Kyrgyzstan)"*)
+- Subdivisiones (*"South Australia"* → Australia)
+- Ciudades cuando el `birth_place` no trae país (Evloev) → override a mano
+
+La bandera es emoji, no assets: escala sola y renderiza en todas partes. Las naciones del Reino Unido usan secuencias de tags (🏴󠁧󠁢󠁥󠁮󠁧󠁿) en lugar de indicadores regionales.
+
+**Sin resolver:** Daria Zhelezniakova. No tiene página de Wikipedia y `from` está vacío, así que no le invento nacionalidad. Si sabés cuál es, poné `"pais": "XX"` en su entrada.
+
+**Doble nacionalidad:** usa `birth_place` por defecto (Dern → 🇺🇸 por Phoenix, Van → 🇲🇲 por Hakha). Si querés que compita bajo la otra bandera, el override manda.
 
 ---
 
@@ -109,35 +129,37 @@ npm run audit:peleadores
 
 ---
 
-## 4. Decisiones que necesito de ti
+## 4. Decisiones tomadas (25 jul)
 
-1. **Desbloqueo.** El blueprint original propone: visitar ficha → carta común; acertar pick en quiniela → carta del ganador; cartelera estelar perfecta → carta especial del evento. ¿Lo mantenemos así? Ya está el store compartido para soportarlo.
+1. **Desbloqueo — confirmado como estaba.** Visitar ficha → carta común; acertar pick en la quiniela → carta del peleador que ganó; cartelera estelar perfecta → carta especial del evento. El store de la quiniela ya expone `getCartasDesbloqueadas()` y `desbloquearCarta()`, y la página de quiniela ya llama a `desbloquearCarta()` por cada ganador acertado. La mecánica está a medio camino construida.
 
-2. **Cartas del roster común.** ¿Existen aunque no tengan `arma` (con el bloque omitido), o solo se generan las de rankeados?
+2. **Solo rankeados tienen carta.** 195 cartas, no 4.565. Consecuencias buenas: el `arma` faltante deja de ser un agujero de 4.537 y pasa a ser de 167; la rareza "común" desaparece del catálogo (todos los rankeados son rara o mejor); y `getStaticPaths` filtra por `conRanking: true`.
 
-3. **`/cartas/{slug}/` indexable.** El blueprint dice que sí, para generar la OG image. Eso son ~195 páginas nuevas con poco texto propio. Mi recomendación: **noindex al principio**, la OG image funciona igual porque se sirve desde el `<meta>` de la ficha del peleador, que ya está indexada. Así no metemos thin content antes de saber si el producto se usa.
+   Efecto secundario a tener en cuenta: cuando un peleador cae del top 15 el lunes, su carta desaparece. Si alguien la tenía desbloqueada, la colección le va a mostrar un hueco. Lo resuelvo guardando en el store el slug **y** la rareza al momento de desbloquear, así la carta sobrevive a la caída del ranking.
 
-4. **Doble nacionalidad** — ¿bandera de nacimiento o de con quién compite? (Dern: EE.UU. o Brasil).
+3. **`/cartas/{slug}/` va noindex.** La OG image se sirve desde el `<meta property="og:image">` de la ficha del peleador, que ya está indexada — el compartir funciona igual sin exponer 195 páginas de poco texto. Si el producto muestra uso, se revisa.
+
+4. **Doble nacionalidad:** `birth_place` por defecto, override cuando quieras cambiarlo.
 
 ---
 
 ## 5. Qué construyo cuando tengas las armas
 
-En este orden:
-
-1. **Scraper extendido** — edad + país normalizado (no depende de ti, lo puedo hacer ya)
-2. **`CartaPeleador.astro`** — las 4 variantes de rareza, diferenciadas por marco y badge, mismo layout
+1. ~~**Scraper extendido** — edad + país~~ ✅ hecho
+2. **`CartaPeleador.astro`** — 3 variantes de rareza (legendaria/épica/rara; común queda fuera al ser solo rankeados), diferenciadas por marco y badge, mismo layout
 3. **Export a PNG** — canvas, misma técnica que ya funciona en el comparador
 4. **OG image por peleador** — cuando alguien comparte la ficha, aparece la carta
-5. **`/cartas/`** — colección del usuario, sobre el store de la quiniela
+5. **`/cartas/`** — colección, sobre el store de la quiniela, guardando rareza al desbloquear
 6. **Compartir nativo** en móvil
 
 **Restricciones que no se negocian:** sin pagos, sin aleatoriedad, sin loot boxes — es colección por mérito. Y las siluetas son siempre el SVG paramétrico, nunca fotos de peleadores ni frames de transmisión.
+
+Puedo construir 2, 3 y 4 **ya**, con las 28 armas que existen: las cartas sin `arma` simplemente omiten el bloque. Así ves el producto funcionando y escribís sobre algo concreto en vez de a ciegas.
 
 ---
 
 ## Resumen
 
-Todo el cimiento está listo. **El único bloqueo real son 42 frases** (3 campeones + 39 del top 5) de máximo 40 caracteres cada una.
+Edad y país resueltos. **El único bloqueo es el `arma`: 42 frases** (3 campeones + 39 del top 5) de máximo 40 caracteres cada una.
 
-Edad y país los resuelvo yo con el scraper que ya existe.
+Y ni siquiera bloquea empezar — puedo montar el renderizador con las 28 que ya existen.

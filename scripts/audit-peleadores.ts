@@ -134,11 +134,28 @@ if (armaSinRevisar.length) {
   );
 }
 
+// ── Campos de la carta ───────────────────────────────────────────────
 const sinNacimiento = rankeados.filter(p => !p.nacimiento);
+const sinBandera = rankeados.filter(p => !p.pais.iso);
+const conEdad = rankeados.length - sinNacimiento.length;
+const conBandera = rankeados.length - sinBandera.length;
+
+console.log(
+  `  ✓ carta: edad ${conEdad}/${rankeados.length} · bandera ${conBandera}/${rankeados.length}`
+);
+
 if (sinNacimiento.length) {
   avisos.push(
-    `${sinNacimiento.length} de ${rankeados.length} rankeados sin fecha de nacimiento.\n` +
-    `      La carta omite el campo EDAD para estos.`
+    `${sinNacimiento.length} rankeado(s) sin fecha de nacimiento — la carta omite EDAD:\n` +
+    lista(sinNacimiento, 6)
+  );
+}
+if (sinBandera.length) {
+  avisos.push(
+    `${sinBandera.length} rankeado(s) sin país resuelto — la carta omite la bandera.\n` +
+    `      Se prefiere omitirla antes que mostrar una equivocada. Para forzar\n` +
+    `      uno, poné "pais": "RU" en src/data/peleadores-editorial.json:\n` +
+    lista(sinBandera, 6)
   );
 }
 

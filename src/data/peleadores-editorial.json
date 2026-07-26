@@ -3,7 +3,8 @@
     "proposito": "Campos editoriales que NO se pueden scrapear. Todo lo demas (altura, alcance, peso, record, ranking, stance) sale de fighters.json, que se refresca semanalmente desde UFC.com.",
     "arma": "Frase corta con la voz de Quimbara, max 40 caracteres. Es lo que diferencia la carta de una ficha de Wikipedia.",
     "armaRevisada": "false = viene del seed inicial, falta reescribirla con tu voz. Corre npm run audit:peleadores para listar las pendientes.",
-    "nacimiento": "ISO date. Solo para calcular edad en la carta. null = desconocido, la carta omite el campo."
+    "nacimiento": "ISO date. OPCIONAL: el scraper de Wikipedia ya lo llena para 190 de 191 rankeados. Poner solo para corregir.",
+    "pais": "OPCIONAL. Codigo ISO-3166 alpha-2 (RU, BR, US) o nombre en ingles. Gana sobre lo scrapeado. Poner solo cuando la resolucion automatica falla o cuando el peleador tiene doble nacionalidad y queres elegir con cual compite. Ver src/lib/paises.ts para el orden de precedencia."
   },
   "peleadores": {
     "max-holloway": {
@@ -69,7 +70,8 @@
     "movsar-evloev": {
       "arma": "Invicto porque nadie sabe como pararlo",
       "armaRevisada": false,
-      "nacimiento": "1994-02-06"
+      "nacimiento": "1994-02-06",
+      "pais": "RU"
     },
     "navajo-stirling": {
       "arma": "City Kickboxing con hambre de prospecto",
