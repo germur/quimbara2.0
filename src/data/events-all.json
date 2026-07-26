@@ -871,7 +871,7 @@
     "f1img": "/fighters/magomed-ankalaev.png",
     "f2": "Khalil Rountree Jr.",
     "f2img": "/fighters/khalil-rountree-jr.png",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Magomed Ankalaev",
@@ -1354,7 +1354,49 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2026-09-05",
+    "name": "UFC Fight Night",
+    "main": "Michael Page vs. Nursulton Ruziboev",
+    "loc": "Paris, France",
+    "date": "2026-09-05",
+    "dateLabel": "5 sept 2026",
+    "f1": "Michael Page",
+    "f1img": "",
+    "f2": "Nursulton Ruziboev",
+    "f2img": "",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Michael Page",
+        "f1Id": "michael-page",
+        "f2": "Nursulton Ruziboev",
+        "f2Id": "nursulton-ruziboev",
+        "weightClass": "Middleweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Kurtis Campbell",
+        "f1Id": "kurtis-campbell",
+        "f2": "Trevor Peek",
+        "f2Id": "trevor-peek",
+        "weightClass": "Featherweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Mário Pinto",
+        "f1Id": "mario-pinto",
+        "f2": "Ryan Spann",
+        "f2Id": "ryan-spann",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 2
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-288-2026-09-12",
@@ -1402,6 +1444,19 @@
     "loc": "Edmonton, Alberta, Canada",
     "date": "2026-10-17",
     "dateLabel": "17 oct 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
+  },
+  {
+    "slug": "ufc-333-2026-10-24",
+    "name": "UFC 333",
+    "main": "TBD",
+    "loc": "Abu Dhabi, United Arab Emirates",
+    "date": "2026-10-24",
+    "dateLabel": "24 oct 2026",
     "f1": "TBD",
     "f1img": "",
     "f2": "TBD",

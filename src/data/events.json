@@ -1,103 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-07-25",
-    "name": "UFC Fight Night",
-    "main": "Magomed Ankalaev vs. Khalil Rountree Jr.",
-    "loc": "Abu Dhabi, United Arab Emirates",
-    "date": "2026-07-25",
-    "dateLabel": "25 jul 2026",
-    "f1": "Magomed Ankalaev",
-    "f1img": "/fighters/magomed-ankalaev.png",
-    "f2": "Khalil Rountree Jr.",
-    "f2img": "/fighters/khalil-rountree-jr.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Magomed Ankalaev",
-        "f1Id": "magomed-ankalaev",
-        "f2": "Khalil Rountree Jr.",
-        "f2Id": "khalil-rountree-jr",
-        "weightClass": "Light Heavyweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Umar Nurmagomedov",
-        "f1Id": "umar-nurmagomedov",
-        "f2": "David Martínez",
-        "f2Id": "david-martinez",
-        "weightClass": "Bantamweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      },
-      {
-        "f1": "Rizvan Kuniev",
-        "f1Id": "rizvan-kuniev",
-        "f2": "Tyrell Fortune",
-        "f2Id": "tyrell-fortune",
-        "weightClass": "Heavyweight",
-        "bout": "maincard",
-        "order": 2
-      },
-      {
-        "f1": "Valter Walker",
-        "f1Id": "valter-walker",
-        "f2": "Thomas Petersen",
-        "f2Id": "thomas-petersen",
-        "weightClass": "Heavyweight",
-        "bout": "maincard",
-        "order": 3
-      },
-      {
-        "f1": "Magomed Tuchalov",
-        "f1Id": "magomed-tuchalov",
-        "f2": "Brendson Ribeiro",
-        "f2Id": "brendson-ribeiro",
-        "weightClass": "Light Heavyweight",
-        "bout": "maincard",
-        "order": 4
-      },
-      {
-        "f1": "Steve Erceg",
-        "f1Id": "steve-erceg",
-        "f2": "Ramazan Temirov",
-        "f2Id": "ramazan-temirov",
-        "weightClass": "Flyweight",
-        "bout": "maincard",
-        "order": 5
-      },
-      {
-        "f1": "Islam Dulatov",
-        "f1Id": "islam-dulatov",
-        "f2": "Wellington Turman",
-        "f2Id": "wellington-turman",
-        "weightClass": "Welterweight",
-        "bout": "maincard",
-        "order": 6
-      },
-      {
-        "f1": "Ismael Bonfim",
-        "f1Id": "ismael-bonfim",
-        "f2": "Axel Sola",
-        "f2Id": "axel-sola",
-        "weightClass": "Lightweight",
-        "bout": "maincard",
-        "order": 7
-      },
-      {
-        "f1": "Uran Satybaldiev",
-        "f1Id": "uran-satybaldiev",
-        "f2": "Dustin Jacoby",
-        "f2Id": "dustin-jacoby",
-        "weightClass": "Light Heavyweight",
-        "bout": "maincard",
-        "order": 8
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-08-01",
     "name": "UFC Fight Night",
     "main": "Uroš Medić vs. Daniel Rodriguez",
@@ -165,8 +67,8 @@
         "order": 5
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-08-08",
@@ -189,6 +91,41 @@
         "weightClass": "Lightweight",
         "bout": "Main Event",
         "order": 0
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-330-2026-08-15",
+    "name": "UFC 330",
+    "main": "Islam Makhachev vs. Ian Machado Garry",
+    "loc": "Philadelphia, Pennsylvania, U.S.",
+    "date": "2026-08-15",
+    "dateLabel": "15 ago 2026",
+    "f1": "Islam Makhachev",
+    "f1img": "/fighters/islam-makhachev.png",
+    "f2": "Ian Machado Garry",
+    "f2img": "/fighters/ian-machado-garry.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Islam Makhachev",
+        "f1Id": "islam-makhachev",
+        "f2": "Ian Machado Garry",
+        "f2Id": "ian-machado-garry",
+        "weightClass": "Welterweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Mackenzie Dern",
+        "f1Id": "mackenzie-dern",
+        "f2": "Gillian Robertson",
+        "f2Id": "gillian-robertson",
+        "weightClass": "Women's Strawweight",
+        "bout": "Co-Main Event",
+        "order": 1
       }
     ],
     "bg": "#7B1FA2",
