@@ -1,0 +1,168 @@
+---
+/**
+ * /cartas/{slug}/ — carta individual.
+ *
+ * noindex por decisión: son 195 páginas de poco texto propio, y la OG image
+ * se sirve desde el <meta> de la ficha del peleador, que ya está indexada.
+ * El compartir funciona igual sin exponer thin content.
+ *
+ * Solo rankeados tienen carta (195, no 4.565).
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CartaPeleador from '../../components/CartaPeleador.astro';
+import { getPeleadores, getPeleador } from '../../lib/peleadores';
+import { ESTILO } from '../../lib/carta';
+
+export async function getStaticPaths() {
+  // Solo rankeados: campeón + top 15 de cada división
+  return getPeleadores({ conRanking: true }).map(p => ({
+    params: { slug: p.slug },
+    props: { p },
+  }));
+}
+
+const { p } = Astro.props;
+const PX = 'clamp(16px,4vw,60px)';
+const est = ESTILO[p.rareza];
+---
+
+<BaseLayout
+  title={`Carta de ${p.nombre} — Quimbara`}
+  description={`Carta coleccionable de ${p.nombre}${p.arma ? `: ${p.arma}` : ''}.`}
+  noIndex={true}
+>
+  <div style={`background:#0A0A0B; min-height:70vh; padding: 40px ${PX} 60px;`}>
+    <div style="max-width:900px; margin:0 auto;">
+
+      <a href={`/peleadores/${p.slug}/`}
+         class="text-gray-500 text-[10px] uppercase tracking-[0.2em] hover:text-[#F2D928] transition-colors"
+         style="font-family:var(--font-mono);">← Ficha de {p.nombre}</a>
+
+      <div class="flex flex-col md:flex-row gap-10 items-start mt-6">
+
+        {/* La carta */}
+        <div id="carta-wrap" class="mx-auto md:mx-0" style="flex-shrink:0;">
+          <CartaPeleador peleador={p} ancho={400} />
+        </div>
+
+        {/* Info y acciones */}
+        <div class="flex-1 w-full">
+          <div class="flex items-center gap-2 mb-3">
+            <span style={`display:inline-block; width:8px; height:8px; background:${est.acento};`}></span>
+            <span class="text-[10px] uppercase tracking-[0.22em]"
+                  style={`font-family:var(--font-mono); color:${est.acento};`}>
+              {est.label}
+            </span>
+          </div>
+
+          <h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4.5vw,2.8rem);line-height:1;color:#F4F2EC;margin:0;">
+            {p.nombre}
+          </h1>
+
+          <p class="text-gray-500 text-xs mt-3" style="font-family:var(--font-mono);">
+            {p.divisionLabel} · {p.ranking === 'C' ? 'Campeón' : `#${p.ranking}`}
+            {p.pais.nombre && ` · ${p.pais.bandera ?? ''} ${p.pais.nombre}`}
+          </p>
+
+          {p.arma ? (
+            <p class="mt-6 text-lg leading-snug"
+               style="font-family:var(--font-serif); font-style:italic; font-weight:600; color:#F4F2EC;">
+              &#8220;{p.arma}&#8221;
+            </p>
+          ) : (
+            <p class="mt-6 text-sm text-gray-500" style="font-family:var(--font-sans);">
+              Esta carta todavía no tiene su frase. El bloque se omite hasta que se escriba.
+            </p>
+          )}
+
+          <div class="flex flex-wrap gap-3 mt-8">
+            <button id="btn-png"
+                    class="px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.15em] rounded-sm transition-colors"
+                    style="font-family:var(--font-mono); background:#F2D928; color:#0A0A0B;">
+              Descargar PNG
+            </button>
+            <button id="btn-compartir"
+                    class="hidden px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.15em] rounded-sm border transition-colors"
+                    style="font-family:var(--font-mono); border-color:rgba(244,242,236,0.3); color:#F4F2EC;">
+              Compartir
+            </button>
+          </div>
+
+          <p class="text-[10px] text-gray-600 mt-4" style="font-family:var(--font-mono);">
+            La rareza sale del ranking oficial y se recalcula cada lunes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script define:vars={{ slug: p.slug, nombre: p.nombre }}>
+    const wrap = document.getElementById('carta-wrap');
+    const svg = wrap?.querySelector('svg');
+    const btnPng = document.getElementById('btn-png');
+    const btnShare = document.getElementById('btn-compartir');
+
+    /**
+     * SVG → PNG a 2x. Las webfonts sí están disponibles acá (a diferencia
+     * del rasterizado del build), así que el PNG del cliente sale con la
+     * tipografía real.
+     */
+    const generarBlob = () => new Promise((resolve, reject) => {
+      const clon = svg.cloneNode(true);
+      clon.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      const ESCALA = 2;
+      const w = 400, h = 600;
+      clon.setAttribute('width', String(w));
+      clon.setAttribute('height', String(h));
+
+      const blob = new Blob([new XMLSerializer().serializeToString(clon)], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = w * ESCALA;
+        canvas.height = h * ESCALA;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#0A0A0B';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+        canvas.toBlob(b => b ? resolve(b) : reject(new Error('toBlob vacío')), 'image/png');
+      };
+      img.onerror = e => { URL.revokeObjectURL(url); reject(e); };
+      img.src = url;
+    });
+
+    btnPng?.addEventListener('click', async () => {
+      const original = btnPng.textContent;
+      btnPng.textContent = 'Generando…';
+      try {
+        const blob = await generarBlob();
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `quimbara-carta-${slug}.png`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+        btnPng.textContent = original;
+      } catch (err) {
+        console.error('Export de carta falló:', err);
+        btnPng.textContent = 'Error, reintenta';
+        setTimeout(() => { btnPng.textContent = original; }, 2000);
+      }
+    });
+
+    // Compartir nativo solo si el navegador puede compartir archivos
+    if (navigator.canShare?.({ files: [new File([''], 'x.png', { type: 'image/png' })] })) {
+      btnShare?.classList.remove('hidden');
+      btnShare?.addEventListener('click', async () => {
+        try {
+          const blob = await generarBlob();
+          const file = new File([blob], `quimbara-carta-${slug}.png`, { type: 'image/png' });
+          await navigator.share({ files: [file], title: `${nombre} — Quimbara` });
+        } catch (err) {
+          if (err?.name !== 'AbortError') console.error('Compartir falló:', err);
+        }
+      });
+    }
+  </script>
+</BaseLayout>

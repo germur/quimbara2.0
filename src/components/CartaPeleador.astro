@@ -1,0 +1,32 @@
+---
+/**
+ * CartaPeleador.astro — envoltorio delgado sobre cartaSvg().
+ *
+ * Todo el markup vive en src/lib/carta.ts como función pura, porque la misma
+ * carta tiene que salir por tres caminos: inline acá, PNG del cliente, y OG
+ * image rasterizada con sharp en el build. Duplicar el layout en un
+ * componente Astro habría hecho que los tres se desincronizaran.
+ */
+import { cartaSvg, datosCartaDesde, CARTA } from '../lib/carta';
+import type { Peleador } from '../lib/peleadores';
+
+interface Props {
+  peleador: Peleador;
+  /** Ancho de render. El viewBox escala solo. */
+  ancho?: number;
+  class?: string;
+}
+
+const { peleador, ancho = CARTA.ancho, class: className = '' } = Astro.props;
+
+const svg = cartaSvg(datosCartaDesde(peleador));
+const alto = Math.round((ancho / CARTA.ancho) * CARTA.alto);
+
+// El SVG viene con width/height de diseño; se ajustan al ancho pedido
+const svgAjustado = svg
+  .replace(/width="\d+"/, `width="${ancho}"`)
+  .replace(/height="\d+"/, `height="${alto}"`)
+  .replace('<svg ', `<svg class="${className}" `);
+---
+
+<Fragment set:html={svgAjustado} />

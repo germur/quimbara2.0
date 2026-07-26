@@ -37,6 +37,17 @@ const { fighter: f } = Astro.props as { fighter: typeof FIGHTERS[0] & FighterEnr
 // Versión derivada (métrico, ape index, rareza) para el comparador embebido.
 // null si el peleador no es comparable — entonces el módulo no se renderiza.
 const peleadorDerivado = getPeleador(f.slug);
+
+/**
+ * Los rankeados tienen carta, y su OG image ES la carta: cuando alguien
+ * comparte esta ficha en WhatsApp o Twitter aparece la carta del peleador.
+ * Es la razón por la que /cartas/{slug}/ puede ir noindex sin perder nada.
+ * Los no rankeados caen a su foto.
+ */
+const tieneCarta = peleadorDerivado?.ranking != null;
+const ogCarta = tieneCarta
+  ? `/og/cartas/${f.slug}.png`
+  : (f.img || '/default-og.jpg');
 const PX = 'clamp(16px,4vw,60px)';
 
 // ─── Helpers de conversión (imperial → métrico) para long-tail físico ───
@@ -227,7 +238,7 @@ const metaDescription = f.metaDescription
   title={metaTitle}
   description={metaDescription}
   canonicalUrl={canonicalUrl}
-  ogImage={f.img || '/default-og.jpg'}
+  ogImage={ogCarta}
   schema={fighterSchema}
   noIndex={!isIndexable(f)}
 >
@@ -345,6 +356,27 @@ const metaDescription = f.metaDescription
         ))}
       </div>
     </section>
+  )}
+
+  <!-- ── Enlace a la carta ── -->
+  {tieneCarta && (
+    <div style={`max-width:1400px; margin:0 auto; padding: 0 ${PX};`}>
+      <a href={`/cartas/${f.slug}/`}
+         class="group flex items-center justify-between gap-4 rounded-xl px-5 py-4 mt-8 transition-transform hover:-translate-y-0.5"
+         style="background:#0A0A0B;">
+        <div>
+          <div class="text-[9px] font-black uppercase tracking-[0.22em] text-[#F2D928]"
+               style="font-family:var(--font-mono);">
+            Carta {peleadorDerivado!.rareza}
+          </div>
+          <div class="text-base font-black text-[#F4F2EC] leading-tight mt-1"
+               style="font-family:var(--font-display);">
+            Descargá la carta de {f.name}
+          </div>
+        </div>
+        <span class="text-xl font-black text-[#F2D928] flex-shrink-0 transition-transform group-hover:translate-x-1">→</span>
+      </a>
+    </div>
   )}
 
   <!-- ── Comparador embebido ──

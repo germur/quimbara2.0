@@ -20,7 +20,8 @@
     "audit:peleadores": "npx tsx scripts/audit-peleadores.ts",
     "gen:redirects": "node scripts/gen-redirects-comparador.mjs",
     "test:puntaje": "npx tsx scripts/test-puntaje.ts",
-    "data:peleas": "node scripts/fetch-peleas.mjs"
+    "data:peleas": "node scripts/fetch-peleas.mjs",
+    "gen:og": "npx tsx scripts/gen-og-cartas.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",

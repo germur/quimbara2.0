@@ -103,7 +103,16 @@ export function calcularSilueta({
 
   const brazoW = h * (0.030 + 0.022 * w);
   const manoY = top + h * 0.495;
-  const brazoX = sh - brazoW * 0.22;
+  /**
+   * Los brazos se apoyan en el BORDE del torso, no dentro.
+   *
+   * El mock original los metía hacia adentro (sh − brazoW*0.22), lo que en un
+   * peso pesado —donde la corpulencia ensancha mucho el torso— los hacía
+   * desaparecer y la figura quedaba como un bloque. Se nota sobre todo en la
+   * carta a 400px. Esto no toca ninguna medida: la estatura sigue siendo el
+   * alto de la figura y el alcance sigue siendo la barra horizontal.
+   */
+  const brazoX = sh + brazoW * 0.12;
   const brazoOut = h * 0.014;
   const codoY = (shY + manoY) / 2;
 

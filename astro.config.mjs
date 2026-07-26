@@ -79,6 +79,7 @@ export default defineConfig({
           '/projects',
           '/lab/',       // herramientas internas de desarrollo
           '/quiniela',   // producto de retención, no contenido para Google
+          '/cartas',     // la OG image se sirve desde la ficha, que sí indexa
         ];
         if (noIndexPaths.some(p => page.includes(p))) return false;
 
