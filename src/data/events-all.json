@@ -1344,19 +1344,6 @@
     "status": "completed"
   },
   {
-    "slug": "ufc-fight-night-287-2026-09-05",
-    "name": "UFC Fight Night 287",
-    "main": "TBD",
-    "loc": "Paris, France",
-    "date": "2026-09-05",
-    "dateLabel": "5 sept 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": "",
-    "status": "completed"
-  },
-  {
     "slug": "ufc-fight-night-2026-09-05",
     "name": "UFC Fight Night",
     "main": "Michael Page vs. Nursulton Ruziboev",
@@ -1367,7 +1354,7 @@
     "f1img": "",
     "f2": "Nursulton Ruziboev",
     "f2img": "",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Michael Page",
@@ -1397,6 +1384,19 @@
         "order": 2
       }
     ]
+  },
+  {
+    "slug": "ufc-fight-night-287-2026-09-05",
+    "name": "UFC Fight Night 287",
+    "main": "TBD",
+    "loc": "Paris, France",
+    "date": "2026-09-05",
+    "dateLabel": "5 sept 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
   },
   {
     "slug": "ufc-fight-night-288-2026-09-12",
