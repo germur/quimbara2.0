@@ -1344,6 +1344,19 @@
     "status": "completed"
   },
   {
+    "slug": "ufc-fight-night-287-2026-09-05",
+    "name": "UFC Fight Night 287",
+    "main": "TBD",
+    "loc": "Paris, France",
+    "date": "2026-09-05",
+    "dateLabel": "5 sept 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "completed"
+  },
+  {
     "slug": "ufc-fight-night-2026-09-05",
     "name": "UFC Fight Night",
     "main": "Michael Page vs. Nursulton Ruziboev",
@@ -1354,7 +1367,7 @@
     "f1img": "",
     "f2": "Nursulton Ruziboev",
     "f2img": "",
-    "status": "completed",
+    "status": "upcoming",
     "fightCard": [
       {
         "f1": "Michael Page",
@@ -1386,19 +1399,6 @@
     ]
   },
   {
-    "slug": "ufc-fight-night-287-2026-09-05",
-    "name": "UFC Fight Night 287",
-    "main": "TBD",
-    "loc": "Paris, France",
-    "date": "2026-09-05",
-    "dateLabel": "5 sept 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": "",
-    "status": "upcoming"
-  },
-  {
     "slug": "ufc-fight-night-288-2026-09-12",
     "name": "UFC Fight Night 288",
     "main": "TBD",
@@ -1428,7 +1428,7 @@
     "slug": "ufc-fight-night-289-2026-09-26",
     "name": "UFC Fight Night 289",
     "main": "TBD",
-    "loc": "Las Vegas, Nevada, U.S.",
+    "loc": "",
     "date": "2026-09-26",
     "dateLabel": "26 sept 2026",
     "f1": "TBD",
@@ -1438,8 +1438,34 @@
     "status": "upcoming"
   },
   {
+    "slug": "ufc-fight-night-290-2026-10-10",
+    "name": "UFC Fight Night 290",
+    "main": "TBD",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-10-10",
+    "dateLabel": "10 oct 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
+  },
+  {
     "slug": "ufc-fight-night-290-2026-10-17",
     "name": "UFC Fight Night 290",
+    "main": "TBD",
+    "loc": "Edmonton, Alberta, Canada",
+    "date": "2026-10-17",
+    "dateLabel": "17 oct 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-291-2026-10-17",
+    "name": "UFC Fight Night 291",
     "main": "TBD",
     "loc": "Edmonton, Alberta, Canada",
     "date": "2026-10-17",
