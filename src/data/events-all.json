@@ -1474,7 +1474,31 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2026-10-17",
+    "name": "UFC Fight Night",
+    "main": "Joaquin Buckley vs. Mike Malott",
+    "loc": "Edmonton, Alberta, Canada",
+    "date": "2026-10-17",
+    "dateLabel": "17 oct 2026",
+    "f1": "Joaquin Buckley",
+    "f1img": "/fighters/joaquin-buckley.png",
+    "f2": "Mike Malott",
+    "f2img": "/fighters/mike-malott.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Joaquin Buckley",
+        "f1Id": "joaquin-buckley",
+        "f2": "Mike Malott",
+        "f2Id": "mike-malott",
+        "weightClass": "Welterweight",
+        "bout": "Main Event",
+        "order": 0
+      }
+    ]
   },
   {
     "slug": "ufc-333-2026-10-24",

@@ -14576,7 +14576,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "11"
   },
   {
     "slug": "calen-born",
@@ -25235,7 +25235,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "melquizael-costa",
@@ -34933,7 +34933,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "11"
   },
   {
     "slug": "tom-erikson",
@@ -46515,7 +46515,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9"
+    "rank": "10"
   },
   {
     "slug": "gugun-gusman",
@@ -55112,8 +55112,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "rank": "10"
+    ]
   },
   {
     "slug": "justin-james",
@@ -56865,8 +56864,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "rank": "14"
+    ]
   },
   {
     "slug": "donte-johnson",
@@ -66539,7 +66537,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "bevon-lewis",
@@ -91316,7 +91314,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "10"
   },
   {
     "slug": "markus-perez",
@@ -91948,7 +91946,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "10"
+    "rank": "11"
   },
   {
     "slug": "andre-petroski",
@@ -96219,7 +96217,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "hussain-rasouli",
@@ -97270,7 +97268,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "9"
   },
   {
     "slug": "alex-reyes",
@@ -115007,7 +115005,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "rama-supandhi",
@@ -117201,7 +117199,7 @@
     "name": "Ramazan Temirov",
     "nick": "Temurlan",
     "div": "Flyweight",
-    "rec": "2-0-0",
+    "rec": "20-3-0",
     "ufcRec": "3-0-0",
     "from": "",
     "img": "",
@@ -117228,7 +117226,9 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "13",
+    "recScope": "pro"
   },
   {
     "slug": "taneisha-tennant",
@@ -120198,7 +120198,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "raphael-uchegbu",
@@ -123783,7 +123783,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "13"
+    "rank": "10"
   },
   {
     "slug": "julius-walker",
@@ -132690,6 +132690,40 @@
     "weight": "135 lbs",
     "reach": "",
     "stance": "Orthodox",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "alexis-apodaca",
+    "name": "Alexis Apodaca",
+    "nick": "",
+    "div": "",
+    "rec": "0-0-0",
+    "ufcRec": "0-0-0",
+    "from": "",
+    "img": "",
+    "height": "",
+    "weight": "135 lbs",
+    "reach": "",
+    "stance": "",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "salahdine-parnasse",
+    "name": "Salahdine Parnasse",
+    "nick": "",
+    "div": "",
+    "rec": "0-0-0",
+    "ufcRec": "0-0-0",
+    "from": "",
+    "img": "",
+    "height": "",
+    "weight": "155 lbs",
+    "reach": "",
+    "stance": "",
     "team": "",
     "form": [],
     "formTypes": []
