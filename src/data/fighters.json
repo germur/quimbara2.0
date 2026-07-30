@@ -117200,6 +117200,7 @@
     "nick": "Temurlan",
     "div": "Flyweight",
     "rec": "20-3-0",
+    "recScope": "pro",
     "ufcRec": "3-0-0",
     "from": "",
     "img": "",
@@ -117227,8 +117228,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
-    "recScope": "pro"
+    "rank": "13"
   },
   {
     "slug": "taneisha-tennant",
