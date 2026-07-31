@@ -11,7 +11,7 @@
  * El orden visual se invierte con ?a={slug}, que no se indexa.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import SiluetaPeleador from '../../components/SiluetaPeleador.astro';
+import ComparadorFiguras from '../../components/ComparadorFiguras.astro';
 import {
   getParesPublicados,
   getPar,
@@ -39,10 +39,6 @@ const canonical = `https://quimbara.org/comparar/${par.slug}/`;
 
 const divisionSlug = divSlugs[a.division] ?? '';
 const fmtApe = (n: number | null) => (n === null ? '—' : `${n > 0 ? '+' : ''}${n}`);
-
-// Altura del contenedor de siluetas: IDÉNTICA para las dos.
-// Cambiar esto por valores distintos rompe la comparación a escala real.
-const ALTO_SILUETA = 420;
 
 const schema = JSON.stringify([
   {
@@ -108,33 +104,27 @@ const schema = JSON.stringify([
         Siluetas dibujadas a escala real compartida · guías cada 20 cm
       </p>
 
-      {/* Las dos siluetas. MISMA altura de contenedor = escala comparable. */}
-      <div id="comparador-figuras" class="flex items-end justify-center gap-4 sm:gap-10 mt-6">
-        {[a, b].map((p, i) => (
-          <div class="flex flex-col items-center gap-3 flex-1" style="max-width:280px;">
-            <div style={`height:${ALTO_SILUETA}px; width:100%; display:flex; align-items:flex-end;`}>
-              <SiluetaPeleador
-                alturaCm={p.fisico.altura_cm!}
-                envergaduraCm={p.fisico.alcance_cm ?? undefined}
-                pesoKg={p.fisico.peso_kg ?? undefined}
-                nombre={p.nombre}
-                marca={i === 0 ? 'punta' : 'barra'}
-                mostrarGuias={i === 0}
-              />
+      {/* Las dos figuras en UN solo SVG: la grilla y los marcadores de
+          estatura cruzan ambas, que es lo que hace visible la diferencia. */}
+      <div id="comparador-figuras" class="mt-6">
+        <ComparadorFiguras a={a} b={b} />
+      </div>
+
+      {/* Identificación bajo cada figura */}
+      <div class="flex justify-center gap-4 sm:gap-10 mt-4" style="max-width:760px; margin-inline:auto;">
+        {[a, b].map(p => (
+          <div class="text-center border-t pt-3 flex-1" style="border-color:rgba(244,242,236,0.14); max-width:280px;">
+            <a href={`/peleadores/${p.slug}/`}
+               class="block text-[#F4F2EC] uppercase leading-tight hover:text-[#F2D928] transition-colors"
+               style="font-family:var(--font-display);font-weight:900;font-size:clamp(0.95rem,2.2vw,1.35rem);">
+              {p.nombre}
+            </a>
+            <div class="text-[10px] tabular-nums text-gray-500 mt-1.5" style="font-family:var(--font-mono);">
+              {p.fisico.altura_cm} cm · {p.fisico.alcance_cm} cm · {p.fisico.peso_kg} kg
             </div>
-            <div class="text-center border-t pt-3 w-full" style="border-color:rgba(244,242,236,0.14);">
-              <a href={`/peleadores/${p.slug}/`}
-                 class="block text-[#F4F2EC] uppercase leading-tight hover:text-[#F2D928] transition-colors"
-                 style="font-family:var(--font-display);font-weight:900;font-size:clamp(0.95rem,2.2vw,1.35rem);">
-                {p.nombre}
-              </a>
-              <div class="text-[10px] tabular-nums text-gray-500 mt-1.5" style="font-family:var(--font-mono);">
-                {p.fisico.altura_cm} cm · {p.fisico.alcance_cm} cm · {p.fisico.peso_kg} kg
-              </div>
-              <div class="text-[10px] text-[#F2D928] mt-1" style="font-family:var(--font-mono);">
-                {p.ranking === 'C' ? 'Campeón' : p.ranking !== null ? `#${p.ranking}` : '—'}
-                <span class="text-gray-600"> · ape {fmtApe(p.fisico.ape_index)}</span>
-              </div>
+            <div class="text-[10px] text-[#F2D928] mt-1" style="font-family:var(--font-mono);">
+              {p.ranking === 'C' ? 'Campeón' : p.ranking !== null ? `#${p.ranking}` : '—'}
+              <span class="text-gray-600"> · ape {fmtApe(p.fisico.ape_index)}</span>
             </div>
           </div>
         ))}
@@ -274,8 +264,8 @@ const schema = JSON.stringify([
       const original = btn.textContent;
       btn.textContent = 'Generando…';
       try {
-        const svgs = [...document.querySelectorAll('#comparador-figuras svg')];
-        if (svgs.length < 2) throw new Error('siluetas no encontradas');
+        const svg = document.querySelector('#comparador-figuras svg');
+        if (!svg) throw new Error('figuras no encontradas');
 
         const W = 1200, H = 630;
         const canvas = document.createElement('canvas');
@@ -285,48 +275,35 @@ const schema = JSON.stringify([
         ctx.fillStyle = '#0A0A0B';
         ctx.fillRect(0, 0, W, H);
 
-        // Rasterizar cada silueta manteniendo su escala relativa
-        const figuraH = 400, baseY = 500;
-        await Promise.all(svgs.map((svg, i) => new Promise((res, rej) => {
+        /**
+         * Ahora las dos figuras viven en un solo SVG con la grilla compartida,
+         * así que se rasteriza entero: la comparación se exporta con la misma
+         * referencia visual que se ve en pantalla.
+         */
+        await new Promise((res, rej) => {
           const clone = svg.cloneNode(true);
           clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-          clone.setAttribute('width', '300');
-          clone.setAttribute('height', String(figuraH));
-          // quitar textos: las fuentes no cargan dentro de un SVG rasterizado
-          clone.querySelectorAll('text, title').forEach(n => n.remove());
+          const anchoImg = 1000, altoImg = Math.round(anchoImg * (252 / 520));
+          clone.setAttribute('width', String(anchoImg));
+          clone.setAttribute('height', String(altoImg));
           const blob = new Blob([new XMLSerializer().serializeToString(clone)], { type: 'image/svg+xml' });
           const url = URL.createObjectURL(blob);
           const img = new Image();
           img.onload = () => {
-            ctx.drawImage(img, i === 0 ? 210 : 690, baseY - figuraH, 300, figuraH);
+            ctx.drawImage(img, (W - anchoImg) / 2, 150, anchoImg, altoImg);
             URL.revokeObjectURL(url);
             res();
           };
           img.onerror = e => { URL.revokeObjectURL(url); rej(e); };
           img.src = url;
-        })));
+        });
 
-        // Texto
+        // Nombres bajo cada figura
         ctx.textAlign = 'center';
         ctx.fillStyle = '#F4F2EC';
-        ctx.font = '900 34px "Big Shoulders Display", Impact, sans-serif';
-        ctx.fillText(nombreA.toUpperCase(), 360, 552);
-        ctx.fillText(nombreB.toUpperCase(), 840, 552);
-
-        ctx.fillStyle = '#F2D928';
-        ctx.font = '600 15px "JetBrains Mono", monospace';
-        ctx.fillText('VS', 600, 300);
-
-        // Datos bajo cada nombre
-        ctx.fillStyle = '#8a8b8f';
-        ctx.font = '500 15px "JetBrains Mono", monospace';
-        const datos = el => {
-           const t = el.querySelector('title')?.textContent ?? '';
-           const m = t.match(/(\d+) cm de estatura, (\d+) cm de alcance, (\d+) kg/);
-           return m ? `${m[1]} cm · ${m[2]} cm · ${m[3]} kg` : '';
-        };
-        ctx.fillText(datos(svgs[0]), 360, 578);
-        ctx.fillText(datos(svgs[1]), 840, 578);
+        ctx.font = '900 32px "Big Shoulders Display", Impact, sans-serif';
+        ctx.fillText(nombreA.toUpperCase(), 375, 610);
+        ctx.fillText(nombreB.toUpperCase(), 765, 610);
 
         // Cabecera + marca de agua
         ctx.textAlign = 'left';

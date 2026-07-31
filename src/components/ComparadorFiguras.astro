@@ -1,0 +1,162 @@
+---
+/**
+ * ComparadorFiguras.astro — las dos siluetas en UN SOLO SVG.
+ *
+ * ─── POR QUÉ UN SVG Y NO DOS ─────────────────────────────────────────
+ * Antes eran dos <svg> lado a lado. La escala era correcta —medido: 1.2814
+ * vs 1.2847 px/cm— pero era ILEGIBLE: 13 cm de diferencia sobre una figura
+ * de 245px son 16px, y las guías de 20 cm se dibujaban solo en la figura
+ * izquierda, dentro de su propio sistema de coordenadas. El ojo no tenía
+ * ninguna referencia común, así que dos peleadores con 13 cm de diferencia
+ * parecían iguales.
+ *
+ * Con un solo SVG la grilla cruza las dos figuras, los marcadores de altura
+ * se extienden de lado a lado, y la diferencia se anota explícitamente. La
+ * escala compartida deja de ser una promesa y pasa a verse.
+ */
+import { calcularSilueta, SUELO } from '../lib/silueta';
+import type { Peleador } from '../lib/peleadores';
+
+interface Props {
+  a: Peleador;
+  b: Peleador;
+  acento?: string;
+}
+const { a, b, acento = '#F2D928' } = Astro.props;
+
+// ─── Geometría del lienzo ────────────────────────────────────────────
+const W = 540;
+/**
+ * El margen izquierdo tiene que alojar DOS cosas sin que se pisen ni se
+ * salgan del viewBox: las etiquetas de la grilla (ancladas al final en x=56)
+ * y el corchete que anota la diferencia de estatura (centrado en x=20).
+ * Si esto se achica, la anotación se sale del lienzo y el export a PNG la
+ * recorta —aunque en pantalla se siga viendo por overflow:visible—.
+ */
+const MARGEN_IZQ = 64;
+const X_ETIQUETA_GUIA = MARGEN_IZQ - 8;
+const X_DELTA = 20;
+const ALTO = 252;
+const cx = [MARGEN_IZQ + 116, MARGEN_IZQ + 326];  // centros de cada figura
+
+const sil = [a, b].map((p, i) =>
+  calcularSilueta({
+    alturaCm: p.fisico.altura_cm!,
+    envergaduraCm: p.fisico.alcance_cm ?? undefined,
+    pesoKg: p.fisico.peso_kg ?? undefined,
+    // Codificación redundante para daltonismo: continua vs segmentada
+    marca: i === 0 ? 'punta' : 'barra',
+  })
+);
+
+// Tope de la cabeza = suelo − estatura. Es la línea que hay que comparar.
+const topeY = [a, b].map(p => SUELO - (p.fisico.altura_cm ?? 0));
+
+const dh = (a.fisico.altura_cm ?? 0) - (b.fisico.altura_cm ?? 0);
+const masAlto = dh === 0 ? null : dh > 0 ? 0 : 1;
+
+const guias: number[] = [];
+for (let cm = 20; cm <= 200; cm += 20) guias.push(cm);
+
+const COLOR_FIG = '#F4F2EC';
+const COLOR_GUIA = 'rgba(244,242,236,0.16)';
+---
+
+<svg
+  viewBox={`0 0 ${W} ${ALTO}`}
+  width="100%"
+  role="img"
+  aria-label={`${a.nombre} (${a.fisico.altura_cm} cm) y ${b.nombre} (${b.fisico.altura_cm} cm) dibujados a la misma escala`}
+  style="display:block; max-width:760px; margin-inline:auto; overflow:visible;"
+>
+  {/* ── Grilla compartida: cruza las DOS figuras ── */}
+  <g>
+    {guias.map(cm => {
+      const y = SUELO - cm;
+      const mayor = cm % 40 === 0;
+      return (
+        <>
+          <line x1={MARGEN_IZQ - 6} x2={W - 6} y1={y} y2={y}
+                stroke={COLOR_GUIA} stroke-width={mayor ? 0.7 : 0.4}
+                stroke-dasharray={mayor ? 'none' : '2 4'} />
+          <text x={X_ETIQUETA_GUIA} y={y + 2.6} text-anchor="end"
+                fill="rgba(244,242,236,0.42)"
+                style="font: 600 7px var(--font-mono), monospace; letter-spacing:0.06em;">
+            {cm}
+          </text>
+        </>
+      );
+    })}
+    {/* Suelo */}
+    <line x1={MARGEN_IZQ - 6} x2={W - 6} y1={SUELO} y2={SUELO}
+          stroke="rgba(244,242,236,0.5)" stroke-width="1" />
+  </g>
+
+  {/* ── Marcadores de estatura: la línea de cada cabeza cruza el lienzo ── */}
+  {[0, 1].map(i => (
+    <>
+      <line x1={MARGEN_IZQ - 6} x2={W - 6} y1={topeY[i]} y2={topeY[i]}
+            stroke={acento} stroke-width="0.9" opacity="0.85"
+            stroke-dasharray={i === 0 ? 'none' : '5 3'} />
+      <text x={W - 8} y={topeY[i] - 4} text-anchor="end" fill={acento}
+            style="font: 700 8px var(--font-mono), monospace; letter-spacing:0.1em;">
+        {(i === 0 ? a : b).fisico.altura_cm} cm
+      </text>
+    </>
+  ))}
+
+  {/* ── Diferencia de estatura, anotada entre las dos líneas ── */}
+  {masAlto !== null && (
+    <g>
+      <line x1={X_DELTA} x2={X_DELTA} y1={topeY[0]} y2={topeY[1]}
+            stroke={acento} stroke-width="1.4" />
+      {[topeY[0], topeY[1]].map(y => (
+        <line x1={X_DELTA - 6} x2={X_DELTA + 6} y1={y} y2={y}
+              stroke={acento} stroke-width="1.4" />
+      ))}
+      {/* Etiqueta ARRIBA del corchete, centrada: anclarla al costado la
+          empujaba fuera del viewBox y el export la recortaba. */}
+      <text x={X_DELTA} y={Math.min(topeY[0], topeY[1]) - 7}
+            text-anchor="middle" fill={acento}
+            style="font: 700 10px var(--font-mono), monospace; letter-spacing:0.04em;">
+        {Math.abs(dh)} cm
+      </text>
+    </g>
+  )}
+
+  {/* ── Figuras ── */}
+  {[0, 1].map(i => {
+    const s = sil[i];
+    const p = i === 0 ? a : b;
+    return (
+      <g transform={`translate(${cx[i]}, 0)`}>
+        {/* Envergadura */}
+        <line x1={s.spanX1} x2={s.spanX2} y1={s.spanY} y2={s.spanY}
+              stroke={acento} stroke-width={s.spanW} stroke-linecap="butt"
+              stroke-dasharray={s.spanDash} />
+        <line x1={s.spanX1} x2={s.spanX1} y1={s.tickY1} y2={s.tickY2}
+              stroke={acento} stroke-width={s.tickW} stroke-linecap={s.tickCap} />
+        <line x1={s.spanX2} x2={s.spanX2} y1={s.tickY1} y2={s.tickY2}
+              stroke={acento} stroke-width={s.tickW} stroke-linecap={s.tickCap} />
+
+        <g fill={COLOR_FIG} stroke={COLOR_FIG} stroke-linejoin="round" stroke-linecap="round">
+          <path d={s.brazoIzq}  fill="none" stroke-width={s.brazoW} />
+          <path d={s.brazoDer}  fill="none" stroke-width={s.brazoW} />
+          <path d={s.piernaIzq} fill="none" stroke-width={s.piernaW} />
+          <path d={s.piernaDer} fill="none" stroke-width={s.piernaW} />
+          <rect x={s.cuelloX} y={s.cuelloY} width={s.cuelloW} height={s.cuelloH} rx={s.cuelloR} />
+          <path d={s.torso} stroke-width={s.torsoSuavizado} />
+          <ellipse cx="0" cy={s.cabezaCy} rx={s.cabezaRx} ry={s.cabezaRy} stroke-width="0" />
+          <ellipse cx={s.pieIzqX} cy={s.pieY} rx={s.pieRx} ry={s.pieRy} stroke-width="0" />
+          <ellipse cx={s.pieDerX} cy={s.pieY} rx={s.pieRx} ry={s.pieRy} stroke-width="0" />
+        </g>
+
+        {/* Alcance, bajo cada figura */}
+        <text x="0" y={SUELO + 14} text-anchor="middle" fill="rgba(244,242,236,0.5)"
+              style="font: 600 7.5px var(--font-mono), monospace; letter-spacing:0.1em;">
+          ALC {p.fisico.alcance_cm} CM
+        </text>
+      </g>
+    );
+  })}
+</svg>
