@@ -53,6 +53,15 @@ jobs:
       # HTML y el parser se rompió, la auditoría falla y el workflow se marca
       # en rojo. Los datos igual se commitean (continue-on-error) para poder
       # inspeccionar qué llegó, pero queda el aviso de que algo se rompió.
+      # Las cartas se regeneran DESPUÉS de refrescar rankings. La rareza se
+      # calcula al vuelo en la página, pero la OG image es un PNG pregenerado:
+      # sin esto, un peleador que sube de #6 a #4 mostraría "épica" en la web
+      # y "rara" en la imagen que se comparte, que es la que circula.
+      # El PNG es determinista, así que solo los que cambiaron generan diff.
+      - name: Regenerar cartas (OG images)
+        run: npm run gen:og
+        continue-on-error: true
+
       - name: Auditar base de peleadores
         run: npm run audit:peleadores
         continue-on-error: true
@@ -66,7 +75,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore(data): actualización automática de eventos UFC'
-          file_pattern: 'src/data/*.json public/fighters/*'
+          file_pattern: 'src/data/*.json public/fighters/* public/og/cartas/*'
           commit_user_name: 'Quimbara Bot'
           commit_user_email: 'bot@quimbara.local'
 
