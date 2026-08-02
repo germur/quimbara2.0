@@ -1,34 +1,34 @@
 [
   {
-    "w": "Ramazonbek Temirov",
-    "l": "Steve Erceg",
-    "method": "KO (Punch)",
+    "w": "Navajo Stirling",
+    "l": "Jan Blachowicz",
+    "method": "TKO (Elbows and Punches)",
     "round": 1,
-    "time": "4:21",
-    "event": "UFC Fight Night 282 - Ankalaev vs. Guskov"
+    "time": "2:56",
+    "event": "UFC Fight Night 283 - Medic vs. Rodriguez"
   },
   {
-    "w": "Magomed Zaynukov",
-    "l": "Damian Rzepecki",
+    "w": "Aleksandar Rakic",
+    "l": "Marcin Tybura",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 282 - Ankalaev vs. Guskov"
+    "event": "UFC Fight Night 283 - Medic vs. Rodriguez"
   },
   {
-    "w": "Rizvan Kuniev",
-    "l": "Tyrell Fortune",
-    "method": "TKO (Knees)",
-    "round": 3,
-    "time": "1:12",
-    "event": "UFC Fight Night 282 - Ankalaev vs. Guskov"
+    "w": "Robert Valentin",
+    "l": "Dusko Todorovic",
+    "method": "Submission (Guillotine Choke)",
+    "round": 1,
+    "time": "4:14",
+    "event": "UFC Fight Night 283 - Medic vs. Rodriguez"
   },
   {
-    "w": "Abubakar Vagaev",
-    "l": "Saygid Izagakhmaev",
-    "method": "Decision (Unanimous)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC Fight Night 282 - Ankalaev vs. Guskov"
+    "w": "Gilbert Urbina",
+    "l": "Vlastislav Cepo",
+    "method": "TKO (Elbows and Punches)",
+    "round": 1,
+    "time": "1:01",
+    "event": "UFC Fight Night 283 - Medic vs. Rodriguez"
   }
 ]

@@ -1,76 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-08-01",
-    "name": "UFC Fight Night",
-    "main": "Uroš Medić vs. Daniel Rodriguez",
-    "loc": "Belgrade, Serbia",
-    "date": "2026-08-01",
-    "dateLabel": "1 ago 2026",
-    "f1": "Uroš Medić",
-    "f1img": "/fighters/uros-medic.png",
-    "f2": "Daniel Rodriguez",
-    "f2img": "/fighters/daniel-rodriguez.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Uroš Medić",
-        "f1Id": "uros-medic",
-        "f2": "Daniel Rodriguez",
-        "f2Id": "daniel-rodriguez",
-        "weightClass": "Welterweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Ante Delija",
-        "f1Id": "ante-delija",
-        "f2": "Johnny Walker",
-        "f2Id": "johnny-walker",
-        "weightClass": "Heavyweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      },
-      {
-        "f1": "Aleksandar Rakić",
-        "f1Id": "aleksandar-rakic",
-        "f2": "Marcin Tybura",
-        "f2Id": "marcin-tybura",
-        "weightClass": "Heavyweight",
-        "bout": "maincard",
-        "order": 2
-      },
-      {
-        "f1": "Duško Todorović",
-        "f1Id": "dusko-todorovic",
-        "f2": "Robert Valentin",
-        "f2Id": "robert-valentin",
-        "weightClass": "Middleweight",
-        "bout": "maincard",
-        "order": 3
-      },
-      {
-        "f1": "Vlasto Čepo",
-        "f1Id": "vlasto-cepo",
-        "f2": "Gilbert Urbina",
-        "f2Id": "gilbert-urbina",
-        "weightClass": "Middleweight",
-        "bout": "maincard",
-        "order": 4
-      },
-      {
-        "f1": "Jovan Leka",
-        "f1Id": "jovan-leka",
-        "f2": "Max Gimenis",
-        "f2Id": "max-gimenis",
-        "weightClass": "Heavyweight",
-        "bout": "maincard",
-        "order": 5
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-08-08",
     "name": "UFC Fight Night",
     "main": "Mateusz Gamrot vs. Quillan Salkilld",
@@ -93,8 +22,8 @@
         "order": 0
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-330-2026-08-15",
@@ -126,6 +55,32 @@
         "weightClass": "Women's Strawweight",
         "bout": "Co-Main Event",
         "order": 1
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-08-22",
+    "name": "UFC Fight Night",
+    "main": "Anthony Hernandez vs. Gregory Rodrigues",
+    "loc": "Sacramento, California, U.S.",
+    "date": "2026-08-22",
+    "dateLabel": "22 ago 2026",
+    "f1": "Anthony Hernandez",
+    "f1img": "/fighters/anthony-hernandez.png",
+    "f2": "Gregory Rodrigues",
+    "f2img": "/fighters/gregory-rodrigues.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Anthony Hernandez",
+        "f1Id": "anthony-hernandez",
+        "f2": "Gregory Rodrigues",
+        "f2Id": "gregory-rodrigues",
+        "weightClass": "Middleweight",
+        "bout": "Main Event",
+        "order": 0
       }
     ],
     "bg": "#7B1FA2",
