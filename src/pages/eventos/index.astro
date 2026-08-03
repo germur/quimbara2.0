@@ -1,15 +1,25 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EVENTS from '../../data/events-all.json';
+// @ts-ignore — módulo JS compartido con scripts/apply-event-overrides.mjs
+import { dedupeEventos } from '../../lib/eventos.mjs';
 
 const PX = 'clamp(16px,4vw,60px)';
 const today = new Date().toISOString().slice(0, 10);
 
 // Separar próximos y pasados
-type EventEntry = typeof EVENTS[0] & { status?: string };
-const allEvents = EVENTS as EventEntry[];
-const upcoming = allEvents.filter(e => e.date >= today || e.status === 'upcoming');
-const past = allEvents.filter(e => e.date < today && e.status !== 'upcoming').reverse(); // más reciente primero
+type EventEntry = typeof EVENTS[0] & { status?: string; fightCard?: unknown[] };
+
+// Duplicados de Wikipedia/Sherdog: criterio único en src/lib/eventos.mjs,
+// compartido con el script que genera los 3 próximos de la home.
+const allEvents = dedupeEventos(EVENTS as EventEntry[]) as EventEntry[];
+
+// Manda la FECHA, punto. El `status` no participa en la decisión porque llega
+// sucio por los dos lados: overrides manuales con 'upcoming' fijo resucitaban
+// eventos ya celebrados (Casa Blanca, 7 semanas en "Próximos"), y el scraper
+// marca 'completed' eventos que aún no han ocurrido (UFC 332, octubre).
+const upcoming = allEvents.filter(e => e.date >= today);
+const past = allEvents.filter(e => e.date < today).reverse(); // más reciente primero
 
 // Agrupar próximos por mes
 const byMonth: Record<string, typeof EVENTS> = {};

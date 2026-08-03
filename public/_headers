@@ -1,0 +1,34 @@
+# ============================================================
+# Cache-Control explícito — Netlify sirve este archivo tal cual.
+#
+# Contexto: en agosto de 2026 la home (/) se quedó servida desde una caché
+# intermedia con un HTML de ~27 de mayo (mostraba el evento de la Casa Blanca
+# como próximo). El resto del sitio estaba fresco. Sin cabeceras propias, la
+# capa de CDN de arriba decide por su cuenta cuánto cachear el HTML.
+#
+# Regla: el HTML SIEMPRE se revalida (el contenido cambia a diario con el
+# pipeline de datos). Los assets con hash en el nombre son inmutables.
+# ============================================================
+
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Assets con hash en el nombre: cambian de URL al cambiar de contenido,
+# así que se pueden cachear para siempre.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Imágenes y OG cards: se sobrescriben con el mismo nombre desde el pipeline,
+# así que TTL corto + revalidación en vez de inmutable.
+/fighters/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/og/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Feeds y sitemap: los consumen bots, deben ver los cambios del día.
+/rss.xml
+  Cache-Control: public, max-age=0, must-revalidate
+
+/sitemap-index.xml
+  Cache-Control: public, max-age=0, must-revalidate

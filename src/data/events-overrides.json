@@ -1,5 +1,5 @@
 {
-  "_comment": "Overrides manuales para eventos. Se mergean DESPUÉS de fetch-ufc-data.ts.",
+  "_comment": "Overrides manuales para eventos. Se mergean DESPUÉS de fetch-ufc-data.ts. NO pongas 'status' aquí: apply-event-overrides.mjs lo deriva de la fecha, si no el evento se queda clavado en 'Próximos' para siempre.",
   "events": [
     {
       "slug": "ufc-freedom-250",
@@ -12,7 +12,6 @@
       "f1img": "/fighters/ilia-topuria.png",
       "f2": "Gaethje",
       "f2img": "/fighters/justin-gaethje.png",
-      "status": "upcoming",
       "isSpecial": true,
       "fightCard": [
         {
