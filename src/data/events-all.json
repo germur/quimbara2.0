@@ -1409,6 +1409,19 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2026-09-12",
+    "name": "UFC Fight Night",
+    "main": "Rodriguez vs. Silva",
+    "loc": "Glendale, Arizona, U.S.",
+    "date": "2026-09-12",
+    "dateLabel": "12 sept 2026",
+    "f1": "Rodriguez",
+    "f1img": "/fighters/yair-rodriguez.png",
+    "f2": "Silva",
+    "f2img": "/fighters/mayra-bueno-silva.png",
     "status": "upcoming"
   },
   {
