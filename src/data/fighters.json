@@ -9898,7 +9898,8 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "15"
   },
   {
     "slug": "renan-barao",
@@ -28300,7 +28301,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "jason-day",
@@ -34702,6 +34703,7 @@
     "nick": "",
     "div": "Welterweight",
     "rec": "7-1-0",
+    "recScope": "pro",
     "ufcRec": "0-2-0",
     "from": "",
     "img": "/fighters/oliver-enkamp.png",
@@ -34723,8 +34725,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "alex-enlund",
@@ -41247,8 +41248,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "fernie-garcia",
@@ -51482,7 +51482,7 @@
     "name": "Kevin Holland",
     "nick": "Trailblazer",
     "div": "Welterweight",
-    "rec": "16-12-0",
+    "rec": "29-15-0",
     "ufcRec": "16-12-0",
     "from": "",
     "img": "",
@@ -51519,7 +51519,9 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "roger-hollett",
@@ -70544,7 +70546,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "13"
   },
   {
     "slug": "shara-magomedov",
@@ -81961,7 +81963,7 @@
     "name": "Tofiq Musayev",
     "nick": "",
     "div": "Lightweight",
-    "rec": "1-1-0",
+    "rec": "24-6-0",
     "ufcRec": "2-1-0",
     "from": "",
     "img": "",
@@ -81988,7 +81990,9 @@
         "outcome": "L",
         "winType": "SUB"
       }
-    ]
+    ],
+    "rank": "14",
+    "recScope": "pro"
   },
   {
     "slug": "nicholas-musoke",
@@ -102158,7 +102162,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "casey-ryan",
