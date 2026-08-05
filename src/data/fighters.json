@@ -1001,7 +1001,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "paulo-costa",
@@ -2089,7 +2089,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "9"
+    "rank": "8"
   },
   {
     "slug": "alexandre-pantoja",
@@ -2272,7 +2272,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "8"
+    "rank": "9"
   },
   {
     "slug": "tom-aaron",
@@ -34259,7 +34259,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "oban-elliott",
@@ -34941,7 +34941,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "tom-erikson",
@@ -46527,7 +46527,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "11"
   },
   {
     "slug": "gugun-gusman",
@@ -51483,6 +51483,7 @@
     "nick": "Trailblazer",
     "div": "Welterweight",
     "rec": "29-15-0",
+    "recScope": "pro",
     "ufcRec": "16-12-0",
     "from": "",
     "img": "",
@@ -51520,8 +51521,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
-    "recScope": "pro"
+    "rank": "15"
   },
   {
     "slug": "roger-hollett",
@@ -62625,7 +62625,8 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ]
+    ],
+    "rank": "15"
   },
   {
     "slug": "mariusz-ksiazkiewicz",
@@ -66558,7 +66559,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "bevon-lewis",
@@ -71364,7 +71365,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "regina-malpica-rivera",
@@ -75802,7 +75803,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "12"
   },
   {
     "slug": "todd-medina",
@@ -81964,6 +81965,7 @@
     "nick": "",
     "div": "Lightweight",
     "rec": "24-6-0",
+    "recScope": "pro",
     "ufcRec": "2-1-0",
     "from": "",
     "img": "",
@@ -81991,8 +81993,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "14",
-    "recScope": "pro"
+    "rank": "14"
   },
   {
     "slug": "nicholas-musoke",
@@ -89394,7 +89395,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "willie-parks",
@@ -91354,7 +91355,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "11"
   },
   {
     "slug": "markus-perez",
@@ -91514,7 +91515,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "anthony-perosh",
@@ -95744,7 +95745,7 @@
     "slug": "aleksandar-rakic",
     "name": "Aleksandar Rakic",
     "nick": "Rocket",
-    "div": "Light Heavyweight",
+    "div": "Heavyweight",
     "rec": "15-6-0",
     "recScope": "pro",
     "ufcRec": "7-5-0",
@@ -95784,7 +95785,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13"
+    "rank": "11"
   },
   {
     "slug": "jessica-rakoczy",
@@ -97320,7 +97321,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9"
+    "rank": "10"
   },
   {
     "slug": "alex-reyes",
@@ -101427,7 +101428,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "5"
+    "rank": "4"
   },
   {
     "slug": "ronda-rousey",
@@ -113955,7 +113956,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15"
+    "rank": "5"
   },
   {
     "slug": "dan-stittgen",
@@ -117280,7 +117281,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13"
+    "rank": "10"
   },
   {
     "slug": "taneisha-tennant",
@@ -120250,7 +120251,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13"
+    "rank": "14"
   },
   {
     "slug": "raphael-uchegbu",
@@ -120410,7 +120411,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "13"
+    "rank": "14"
   },
   {
     "slug": "gasan-umalatov",
@@ -123770,7 +123771,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "brogan-walker",

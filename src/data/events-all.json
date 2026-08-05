@@ -1414,15 +1414,98 @@
   {
     "slug": "ufc-fight-night-2026-09-12",
     "name": "UFC Fight Night",
-    "main": "Rodriguez vs. Silva",
+    "main": "Yair Rodríguez vs. Jean Silva",
     "loc": "Glendale, Arizona, U.S.",
     "date": "2026-09-12",
     "dateLabel": "12 sept 2026",
-    "f1": "Rodriguez",
+    "f1": "Yair Rodríguez",
     "f1img": "/fighters/yair-rodriguez.png",
-    "f2": "Silva",
-    "f2img": "/fighters/mayra-bueno-silva.png",
-    "status": "upcoming"
+    "f2": "Jean Silva",
+    "f2img": "/fighters/jean-silva.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Yair Rodríguez",
+        "f1Id": "yair-rodriguez",
+        "f2": "Jean Silva",
+        "f2Id": "jean-silva",
+        "weightClass": "Featherweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Waldo Cortes-Acosta",
+        "f1Id": "waldo-cortes-acosta",
+        "f2": "Curtis Blaydes",
+        "f2Id": "curtis-blaydes",
+        "weightClass": "Heavyweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Manon Fiorot",
+        "f1Id": "manon-fiorot",
+        "f2": "Alexa Grasso",
+        "f2Id": "alexa-grasso",
+        "weightClass": "Women's Flyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Brandon Moreno",
+        "f1Id": "brandon-moreno",
+        "f2": "Joseph Morales",
+        "f2Id": "joseph-morales",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "David Martínez",
+        "f1Id": "david-martinez",
+        "f2": "Dan Ige",
+        "f2Id": "dan-ige",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Ignacio Bahamondes",
+        "f1Id": "ignacio-bahamondes",
+        "f2": "Muslim Salikhov",
+        "f2Id": "muslim-salikhov",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Tim Elliott",
+        "f1Id": "tim-elliott",
+        "f2": "Édgar Cháirez",
+        "f2Id": "edgar-chairez",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 6
+      },
+      {
+        "f1": "Kelvin Gastelum",
+        "f1Id": "kelvin-gastelum",
+        "f2": "Yousri Belgaroui",
+        "f2Id": "yousri-belgaroui",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 7
+      },
+      {
+        "f1": "JJ Aldrich",
+        "f1Id": "jj-aldrich",
+        "f2": "Regina Tarin",
+        "f2Id": "regina-tarin",
+        "weightClass": "Women's Flyweight",
+        "bout": "maincard",
+        "order": 8
+      }
+    ]
   },
   {
     "slug": "ufc-331-2026-09-19",
