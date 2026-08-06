@@ -131761,7 +131761,7 @@
   {
     "slug": "fabrizio-escarrega",
     "name": "Fabrizio Escarrega",
-    "nick": "",
+    "nick": "El Cachorro",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -131952,7 +131952,7 @@
   {
     "slug": "bilal-hasan",
     "name": "Bilal Hasan",
-    "nick": "",
+    "nick": "The IndoNinja",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -132868,6 +132868,23 @@
     "weight": "155 lbs",
     "reach": "",
     "stance": "Southpaw",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "gigi-canuto",
+    "name": "Gigi Canuto",
+    "nick": "Diamond",
+    "div": "",
+    "rec": "0-0-0",
+    "ufcRec": "0-0-0",
+    "from": "",
+    "img": "",
+    "height": "",
+    "weight": "115 lbs",
+    "reach": "",
+    "stance": "Orthodox",
     "team": "",
     "form": [],
     "formTypes": []

@@ -1510,15 +1510,134 @@
   {
     "slug": "ufc-331-2026-09-19",
     "name": "UFC 331",
-    "main": "TBD",
+    "main": "Joshua Van vs. Alexandre Pantoja",
     "loc": "Los Angeles, California, U.S.",
     "date": "2026-09-19",
     "dateLabel": "19 sept 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": "",
-    "status": "upcoming"
+    "f1": "Joshua Van",
+    "f1img": "/fighters/joshua-van.png",
+    "f2": "Alexandre Pantoja",
+    "f2img": "/fighters/alexandre-pantoja.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Joshua Van",
+        "f1Id": "joshua-van",
+        "f2": "Alexandre Pantoja",
+        "f2Id": "alexandre-pantoja",
+        "weightClass": "Flyweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Arman Tsarukyan",
+        "f1Id": "arman-tsarukyan",
+        "f2": "Maurício Ruffy",
+        "f2Id": "mauricio-ruffy",
+        "weightClass": "Lightweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Gable Steveson",
+        "f1Id": "gable-steveson",
+        "f2": "Sean Sharaf",
+        "f2Id": "sean-sharaf",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Tai Tuivasa",
+        "f1Id": "tai-tuivasa",
+        "f2": "Robelis Despaigne",
+        "f2Id": "robelis-despaigne",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Ryan Gandra",
+        "f1Id": "ryan-gandra",
+        "f2": "Osman Diaz",
+        "f2Id": "osman-diaz",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Renato Moicano",
+        "f1Id": "renato-moicano",
+        "f2": "Brian Ortega",
+        "f2Id": "brian-ortega",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Marlon Vera",
+        "f1Id": "marlon-vera",
+        "f2": "Charles Jourdain",
+        "f2Id": "charles-jourdain",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 6
+      },
+      {
+        "f1": "Alonzo Menifield",
+        "f1Id": "alonzo-menifield",
+        "f2": "Iwo Baraniewski",
+        "f2Id": "iwo-baraniewski",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 7
+      },
+      {
+        "f1": "Giga Chikadze",
+        "f1Id": "giga-chikadze",
+        "f2": "Joanderson Brito",
+        "f2Id": "joanderson-brito",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 8
+      },
+      {
+        "f1": "Patrício Pitbull",
+        "f1Id": "patricio-pitbull",
+        "f2": "Choi Doo-ho",
+        "f2Id": "choi-doo-ho",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 9
+      },
+      {
+        "f1": "Casey O'Neill",
+        "f1Id": "casey-oneill",
+        "f2": "Eduarda Moura",
+        "f2Id": "eduarda-moura",
+        "weightClass": "Women's Flyweight",
+        "bout": "maincard",
+        "order": 10
+      },
+      {
+        "f1": "Edmen Shahbazyan",
+        "f1Id": "edmen-shahbazyan",
+        "f2": "Brunno Ferreira",
+        "f2Id": "brunno-ferreira",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 11
+      },
+      {
+        "f1": "Michael Aswell Jr.",
+        "f1Id": "michael-aswell-jr",
+        "f2": "Yoo Joo-sang",
+        "f2Id": "yoo-joo-sang",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 12
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-289-2026-09-26",
