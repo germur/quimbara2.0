@@ -3208,7 +3208,7 @@
     "div": "Flyweight",
     "rec": "12-4-0",
     "recScope": "pro",
-    "ufcRec": "4-3-0",
+    "ufcRec": "5-3-0",
     "from": "",
     "img": "/fighters/jesus-aguilar.png",
     "height": "5' 4\"",
@@ -19202,7 +19202,7 @@
     "div": "Lightweight",
     "rec": "9-3-0",
     "recScope": "pro",
-    "ufcRec": "2-1-0",
+    "ufcRec": "3-1-0",
     "from": "",
     "img": "/fighters/charlie-campbell.png",
     "height": "6' 0\"",
@@ -19212,6 +19212,7 @@
     "team": "",
     "form": [
       "L",
+      "W",
       "W",
       "W"
     ],
@@ -19223,6 +19224,10 @@
       {
         "outcome": "W",
         "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
       },
       {
         "outcome": "W",
@@ -24695,7 +24700,7 @@
     "div": "Flyweight",
     "rec": "13-3-0",
     "recScope": "pro",
-    "ufcRec": "3-0-0",
+    "ufcRec": "4-0-0",
     "from": "",
     "img": "/fighters/alden-coria.png",
     "height": "5' 8\"",
@@ -24704,6 +24709,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "W",
       "W",
       "W",
       "W"
@@ -24716,6 +24722,10 @@
       {
         "outcome": "W",
         "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
       },
       {
         "outcome": "W",
@@ -24958,7 +24968,7 @@
     "div": "Women's Flyweight",
     "rec": "12-4-0",
     "recScope": "pro",
-    "ufcRec": "6-3-0",
+    "ufcRec": "7-3-0",
     "from": "",
     "img": "/fighters/tracy-cortez.png",
     "height": "5' 5\"",
@@ -25199,7 +25209,7 @@
     "div": "Flyweight",
     "rec": "17-5-0",
     "recScope": "pro",
-    "ufcRec": "5-3-0",
+    "ufcRec": "5-4-0",
     "from": "",
     "img": "/fighters/alessandro-costa.png",
     "height": "5' 4\"",
@@ -27571,7 +27581,7 @@
     "div": "Middleweight",
     "rec": "11-7-0",
     "recScope": "pro",
-    "ufcRec": "0-4-0",
+    "ufcRec": "0-5-0",
     "from": "",
     "img": "/fighters/jose-daniel-medina.png",
     "height": "6' 0\"",
@@ -27580,6 +27590,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "L",
       "L",
       "L",
       "L",
@@ -27601,6 +27612,10 @@
       {
         "outcome": "L",
         "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "SUB"
       }
     ]
   },
@@ -29342,7 +29357,7 @@
     "div": "Welterweight",
     "rec": "18-4-0",
     "recScope": "pro",
-    "ufcRec": "8-2-0",
+    "ufcRec": "9-2-0",
     "from": "",
     "img": "/fighters/jack-della-maddalena.png",
     "height": "5' 11\"",
@@ -31273,7 +31288,7 @@
     "div": "Welterweight",
     "rec": "15-2-0",
     "recScope": "pro",
-    "ufcRec": "3-0-0",
+    "ufcRec": "4-0-0",
     "from": "",
     "img": "/fighters/daniil-donchenko.png",
     "height": "5' 11\"",
@@ -31282,6 +31297,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "W",
       "W",
       "W",
       "W"
@@ -31294,6 +31310,10 @@
       {
         "outcome": "W",
         "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
       },
       {
         "outcome": "W",
@@ -37107,7 +37127,7 @@
     "nick": "",
     "div": "Lightweight",
     "rec": "10-7-0",
-    "ufcRec": "10-7-0",
+    "ufcRec": "10-8-0",
     "from": "",
     "img": "",
     "height": "5' 9\"",
@@ -38555,7 +38575,7 @@
     "nick": "",
     "div": "Bantamweight",
     "rec": "12-9-0",
-    "ufcRec": "12-9-0",
+    "ufcRec": "12-10-0",
     "from": "",
     "img": "",
     "height": "5' 8\"",
@@ -39500,7 +39520,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "2-4-0",
-    "ufcRec": "2-4-0",
+    "ufcRec": "2-5-0",
     "from": "",
     "img": "",
     "height": "6' 4\"",
@@ -41212,7 +41232,7 @@
     "div": "Lightweight",
     "rec": "19-4-0",
     "recScope": "pro",
-    "ufcRec": "7-4-0",
+    "ufcRec": "8-4-0",
     "from": "",
     "img": "",
     "height": "5' 7\"",
@@ -41426,7 +41446,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "14-11-0",
-    "ufcRec": "14-11-0",
+    "ufcRec": "15-11-0",
     "from": "",
     "img": "",
     "height": "5' 9\"",
@@ -41934,7 +41954,7 @@
     "nick": "The Spartan",
     "div": "Lightweight",
     "rec": "6-8-0",
-    "ufcRec": "6-8-0",
+    "ufcRec": "6-9-0",
     "from": "",
     "img": "",
     "height": "5' 10\"",
@@ -42748,7 +42768,7 @@
     "div": "Women's Strawweight",
     "rec": "14-6-0",
     "recScope": "pro",
-    "ufcRec": "9-6-0",
+    "ufcRec": "10-6-0",
     "from": "",
     "img": "/fighters/loopy-godinez.png",
     "height": "5' 2\"",
@@ -43875,7 +43895,7 @@
     "nick": "Flash",
     "div": "Lightweight",
     "rec": "9-8-0",
-    "ufcRec": "9-8-0",
+    "ufcRec": "9-9-0",
     "from": "",
     "img": "",
     "height": "5' 9\"",
@@ -44983,7 +45003,7 @@
     "div": "Women's Flyweight",
     "rec": "17-5-1",
     "recScope": "pro",
-    "ufcRec": "9-5-1",
+    "ufcRec": "9-5-2",
     "from": "",
     "img": "/fighters/alexa-grasso.png",
     "height": "5' 5\"",
@@ -46445,7 +46465,7 @@
     "nick": "Grim",
     "div": "Bantamweight",
     "rec": "1-3-0",
-    "ufcRec": "1-4-0",
+    "ufcRec": "1-5-0",
     "from": "",
     "img": "",
     "height": "5' 5\"",
@@ -50092,7 +50112,7 @@
     "nick": "El Gran Chango",
     "div": "Lightweight",
     "rec": "10-8-0",
-    "ufcRec": "10-8-0",
+    "ufcRec": "11-8-0",
     "from": "",
     "img": "",
     "height": "5' 9\"",
@@ -51484,7 +51504,7 @@
     "div": "Welterweight",
     "rec": "29-15-0",
     "recScope": "pro",
-    "ufcRec": "16-12-0",
+    "ufcRec": "16-13-0",
     "from": "",
     "img": "",
     "height": "6' 3\"",
@@ -55480,7 +55500,7 @@
     "div": "Women's Flyweight",
     "rec": "15-4-0",
     "recScope": "pro",
-    "ufcRec": "9-3-0",
+    "ufcRec": "9-4-0",
     "from": "",
     "img": "",
     "height": "5' 7\"",
@@ -61601,7 +61621,7 @@
     "nick": "Thunder",
     "div": "Women's Strawweight",
     "rec": "2-1-0",
-    "ufcRec": "2-1-0",
+    "ufcRec": "3-1-0",
     "from": "",
     "img": "",
     "height": "5' 3\"",
@@ -61612,11 +61632,16 @@
     "form": [
       "L",
       "W",
+      "W",
       "W"
     ],
     "formTypes": [
       {
         "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
         "winType": "UD"
       },
       {
@@ -62070,7 +62095,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "7-5-0",
-    "ufcRec": "7-5-0",
+    "ufcRec": "8-5-0",
     "from": "",
     "img": "",
     "height": "6' 0\"",
@@ -64938,7 +64963,7 @@
     "nick": "Bang",
     "div": "Bantamweight",
     "rec": "1-3-0",
-    "ufcRec": "1-3-0",
+    "ufcRec": "1-4-0",
     "from": "",
     "img": "",
     "height": "5' 7\"",
@@ -64949,6 +64974,7 @@
     "form": [
       "L",
       "W",
+      "L",
       "L",
       "L"
     ],
@@ -64968,6 +64994,10 @@
       {
         "outcome": "L",
         "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
       }
     ]
   },
@@ -65842,7 +65872,7 @@
     "div": "Women's Strawweight",
     "rec": "15-6-1",
     "recScope": "pro",
-    "ufcRec": "9-6-0",
+    "ufcRec": "9-7-0",
     "from": "",
     "img": "/fighters/amanda-lemos.png",
     "height": "5' 4\"",
@@ -68115,7 +68145,7 @@
     "div": "Featherweight",
     "rec": "28-8-0",
     "recScope": "pro",
-    "ufcRec": "7-3-0",
+    "ufcRec": "8-3-0",
     "from": "",
     "img": "/fighters/diego-lopes.png",
     "height": "5' 11\"",
@@ -69022,7 +69052,7 @@
     "nick": "BorderBoy",
     "div": "Bantamweight",
     "rec": "2-0-0",
-    "ufcRec": "2-1-0",
+    "ufcRec": "3-1-0",
     "from": "",
     "img": "",
     "height": "5' 9\"",
@@ -69032,6 +69062,7 @@
     "team": "",
     "form": [
       "L",
+      "W",
       "W",
       "W"
     ],
@@ -69043,6 +69074,10 @@
       {
         "outcome": "W",
         "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
       },
       {
         "outcome": "W",
@@ -71606,7 +71641,7 @@
     "nick": "The Sawed-Off Savage",
     "div": "Women's Strawweight",
     "rec": "0-2-0",
-    "ufcRec": "0-2-0",
+    "ufcRec": "0-3-0",
     "from": "",
     "img": "",
     "height": "5' 0\"",
@@ -71616,9 +71651,14 @@
     "team": "",
     "form": [
       "L",
+      "L",
       "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
       {
         "outcome": "L",
         "winType": "UD"
@@ -73100,7 +73140,7 @@
     "div": "Bantamweight",
     "rec": "14-1-0",
     "recScope": "pro",
-    "ufcRec": "3-0-0",
+    "ufcRec": "4-0-0",
     "from": "",
     "img": "/fighters/david-martinez.png",
     "height": "5' 5\"",
@@ -73109,6 +73149,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "W",
       "W",
       "W",
       "W"
@@ -73125,6 +73166,10 @@
       {
         "outcome": "W",
         "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
       }
     ],
     "rank": "8"
@@ -78402,7 +78447,7 @@
     "nick": "",
     "div": "Bantamweight",
     "rec": "0-2-0",
-    "ufcRec": "0-2-0",
+    "ufcRec": "0-3-0",
     "from": "",
     "img": "",
     "height": "5' 10\"",
@@ -78412,9 +78457,14 @@
     "team": "",
     "form": [
       "L",
+      "L",
       "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
       {
         "outcome": "L",
         "winType": "TKO"
@@ -83646,7 +83696,7 @@
     "nick": "The Monster",
     "div": "Lightweight",
     "rec": "5-6-1",
-    "ufcRec": "5-6-1",
+    "ufcRec": "6-6-1",
     "from": "",
     "img": "",
     "height": "5' 11\"",
@@ -88240,7 +88290,7 @@
     "nick": "El Valiente",
     "div": "Featherweight",
     "rec": "2-2-0",
-    "ufcRec": "2-2-0",
+    "ufcRec": "2-3-0",
     "from": "",
     "img": "",
     "height": "6' 1\"",
@@ -88252,7 +88302,8 @@
       "L",
       "W",
       "L",
-      "W"
+      "W",
+      "L"
     ],
     "formTypes": [
       {
@@ -88270,6 +88321,10 @@
       {
         "outcome": "W",
         "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
       }
     ]
   },
@@ -91110,7 +91165,7 @@
     "nick": "Golden Girl",
     "div": "Women's Bantamweight",
     "rec": "1-1-0",
-    "ufcRec": "1-1-0",
+    "ufcRec": "1-2-0",
     "from": "",
     "img": "",
     "height": "5' 8\"",
@@ -91120,12 +91175,17 @@
     "team": "",
     "form": [
       "W",
+      "L",
       "L"
     ],
     "formTypes": [
       {
         "outcome": "W",
         "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "SD"
       },
       {
         "outcome": "L",
@@ -94724,7 +94784,7 @@
     "nick": "Prince of Peru",
     "div": "Lightweight",
     "rec": "5-4-0",
-    "ufcRec": "5-4-0",
+    "ufcRec": "5-5-0",
     "from": "",
     "img": "",
     "height": "5' 10\"",
@@ -96704,7 +96764,7 @@
     "nick": "",
     "div": "Women's Strawweight",
     "rec": "4-5-0",
-    "ufcRec": "4-5-0",
+    "ufcRec": "4-6-0",
     "from": "",
     "img": "",
     "height": "5' 3\"",
@@ -97105,7 +97165,7 @@
     "nick": "Monster",
     "div": "Women's Bantamweight",
     "rec": "2-2-0",
-    "ufcRec": "2-2-0",
+    "ufcRec": "3-2-0",
     "from": "",
     "img": "",
     "height": "5' 8\"",
@@ -97117,6 +97177,7 @@
       "L",
       "W",
       "L",
+      "W",
       "W"
     ],
     "formTypes": [
@@ -97131,6 +97192,10 @@
       {
         "outcome": "L",
         "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
       },
       {
         "outcome": "W",
@@ -97329,7 +97394,7 @@
     "nick": "The Executioner",
     "div": "Lightweight",
     "rec": "0-3-0",
-    "ufcRec": "0-3-0",
+    "ufcRec": "0-4-0",
     "from": "",
     "img": "",
     "height": "5' 11\"",
@@ -97340,12 +97405,17 @@
     "form": [
       "L",
       "L",
+      "L",
       "L"
     ],
     "formTypes": [
       {
         "outcome": "L",
         "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
       },
       {
         "outcome": "L",
@@ -101073,7 +101143,7 @@
     "div": "Bantamweight",
     "rec": "13-1-0",
     "recScope": "pro",
-    "ufcRec": "6-1-0",
+    "ufcRec": "7-1-0",
     "from": "",
     "img": "/fighters/raul-rosas-jr.png",
     "height": "5' 9\"",
@@ -107353,7 +107423,7 @@
     "nick": "",
     "div": "Ultimate Fighter 33 Welterweight Tournament",
     "rec": "0-1-0",
-    "ufcRec": "0-1-0",
+    "ufcRec": "0-2-0",
     "from": "",
     "img": "",
     "height": "5' 9\"",
@@ -107362,9 +107432,14 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "L",
       "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
       {
         "outcome": "L",
         "winType": "TKO"
@@ -107851,7 +107926,7 @@
     "div": "Women's Flyweight",
     "rec": "26-4-1",
     "recScope": "pro",
-    "ufcRec": "15-3-1",
+    "ufcRec": "15-3-2",
     "from": "",
     "img": "/fighters/valentina-shevchenko.png",
     "height": "5' 5\"",
@@ -108731,7 +108806,7 @@
     "div": "Featherweight",
     "rec": "17-3-0",
     "recScope": "pro",
-    "ufcRec": "6-1-0",
+    "ufcRec": "6-2-0",
     "from": "",
     "img": "/fighters/jean-silva.png",
     "height": "5' 7\"",
@@ -109078,7 +109153,7 @@
     "nick": "Netto BJJ",
     "div": "Lightweight",
     "rec": "7-5-0",
-    "ufcRec": "7-5-0",
+    "ufcRec": "8-5-0",
     "from": "",
     "img": "",
     "height": "5' 8\"",
@@ -114083,7 +114158,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "3-7-0",
-    "ufcRec": "3-7-0",
+    "ufcRec": "3-8-0",
     "from": "",
     "img": "",
     "height": "6' 0\"",
@@ -114725,7 +114800,7 @@
     "div": "Women's Strawweight",
     "rec": "13-1-0",
     "recScope": "pro",
-    "ufcRec": "9-1-0",
+    "ufcRec": "10-1-0",
     "from": "",
     "img": "/fighters/tatiana-suarez.png",
     "height": "5' 5\"",
@@ -118400,7 +118475,7 @@
     "nick": "Thunder",
     "div": "Middleweight",
     "rec": "4-6-0",
-    "ufcRec": "4-7-0",
+    "ufcRec": "5-7-0",
     "from": "",
     "img": "",
     "height": "6' 1\"",
@@ -129590,7 +129665,7 @@
     "nick": "Golden Boy",
     "div": "Lightweight",
     "rec": "3-4-0",
-    "ufcRec": "3-4-0",
+    "ufcRec": "4-4-0",
     "from": "",
     "img": "",
     "height": "6' 1\"",
@@ -132910,6 +132985,23 @@
     "slug": "ozzy-martin",
     "name": "Ozzy Martin",
     "nick": "Toro",
+    "div": "",
+    "rec": "0-0-0",
+    "ufcRec": "0-0-0",
+    "from": "",
+    "img": "",
+    "height": "",
+    "weight": "170 lbs",
+    "reach": "",
+    "stance": "",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "cameron-nelson",
+    "name": "Cameron Nelson",
+    "nick": "",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
