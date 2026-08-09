@@ -1,34 +1,34 @@
 [
   {
-    "w": "Navajo Stirling",
-    "l": "Jan Blachowicz",
-    "method": "TKO (Elbows and Punches)",
-    "round": 1,
-    "time": "2:56",
-    "event": "UFC Fight Night 283 - Medic vs. Rodriguez"
-  },
-  {
-    "w": "Aleksandar Rakic",
-    "l": "Marcin Tybura",
+    "w": "Diego Ferreira",
+    "l": "Billy Quarantillo",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 283 - Medic vs. Rodriguez"
+    "event": "UFC Fight Night 284 - Gamrot vs. Salkilld"
   },
   {
-    "w": "Robert Valentin",
-    "l": "Dusko Todorovic",
-    "method": "Submission (Guillotine Choke)",
+    "w": "Yadier Del Valle",
+    "l": "Darren Elkins",
+    "method": "TKO (Punch)",
     "round": 1,
-    "time": "4:14",
-    "event": "UFC Fight Night 283 - Medic vs. Rodriguez"
+    "time": "0:35",
+    "event": "UFC Fight Night 284 - Gamrot vs. Salkilld"
   },
   {
-    "w": "Gilbert Urbina",
-    "l": "Vlastislav Cepo",
-    "method": "TKO (Elbows and Punches)",
-    "round": 1,
-    "time": "1:01",
-    "event": "UFC Fight Night 283 - Medic vs. Rodriguez"
+    "w": "Alexia Thainara",
+    "l": "Amanda Lemos",
+    "method": "Decision (Unanimous)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC Fight Night 284 - Gamrot vs. Salkilld"
+  },
+  {
+    "w": "Ty Cole Miller",
+    "l": "Billy Goff",
+    "method": "TKO (Punches)",
+    "round": 3,
+    "time": "0:15",
+    "event": "UFC Fight Night 284 - Gamrot vs. Salkilld"
   }
 ]

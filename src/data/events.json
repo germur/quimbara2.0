@@ -1,31 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-08-08",
-    "name": "UFC Fight Night",
-    "main": "Mateusz Gamrot vs. Quillan Salkilld",
-    "loc": "Las Vegas, Nevada, U.S.",
-    "date": "2026-08-08",
-    "dateLabel": "8 ago 2026",
-    "f1": "Mateusz Gamrot",
-    "f1img": "/fighters/mateusz-gamrot.png",
-    "f2": "Quillan Salkilld",
-    "f2img": "/fighters/quillan-salkilld.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Mateusz Gamrot",
-        "f1Id": "mateusz-gamrot",
-        "f2": "Quillan Salkilld",
-        "f2Id": "quillan-salkilld",
-        "weightClass": "Lightweight",
-        "bout": "Main Event",
-        "order": 0
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-330-2026-08-15",
     "name": "UFC 330",
     "main": "Islam Makhachev vs. Ian Machado Garry",
@@ -57,8 +31,8 @@
         "order": 1
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-08-22",
@@ -81,6 +55,68 @@
         "weightClass": "Middleweight",
         "bout": "Main Event",
         "order": 0
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-08-29",
+    "name": "UFC Fight Night",
+    "main": "Umar Nurmagomedov vs. Song Yadong",
+    "loc": "Shanghai, China",
+    "date": "2026-08-29",
+    "dateLabel": "29 ago 2026",
+    "f1": "Umar Nurmagomedov",
+    "f1img": "/fighters/umar-nurmagomedov.png",
+    "f2": "Song Yadong",
+    "f2img": "/fighters/song-yadong.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Umar Nurmagomedov",
+        "f1Id": "umar-nurmagomedov",
+        "f2": "Song Yadong",
+        "f2Id": "song-yadong",
+        "weightClass": "Bantamweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Yan Xiaonan",
+        "f1Id": "yan-xiaonan",
+        "f2": "Denise Gomes",
+        "f2Id": "denise-gomes",
+        "weightClass": "Women's Strawweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Su Mudaerji",
+        "f1Id": "su-mudaerji",
+        "f2": "Alex Perez",
+        "f2Id": "alex-perez",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Rei Tsuruya",
+        "f1Id": "rei-tsuruya",
+        "f2": "Kevin Borjas",
+        "f2Id": "kevin-borjas",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Liu Ce",
+        "f1Id": "liu-ce",
+        "f2": "Junior Tafa",
+        "f2Id": "junior-tafa",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 4
       }
     ],
     "bg": "#7B1FA2",
