@@ -9,6 +9,10 @@ import TableOfContents from '../../components/TableOfContents.astro';
 import RelatedEntities from '../../components/RelatedEntities.astro';
 import KeyTakeaways from '../../components/KeyTakeaways.astro';
 import RoundProgress from '../../components/RoundProgress.astro';
+import FIGHTERS from '../../data/fighters.json';
+import EVENTS from '../../data/events-all.json';
+// @ts-ignore — identidad de entidad compartida
+import { refOrganizacion, refAutor, autor as autorEntidad, refPeleador, refEvento } from '../../lib/entidades.mjs';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -43,17 +47,44 @@ const catColor = categoryColors[category] || '#F2D928';
 const catSlug = categorySlug[category] ?? category;
 const heroGradient = `linear-gradient(to top, rgba(0,0,0,.82) 0%, ${catColor}55 100%)`;
 
+// ─── El grafo del frontmatter, publicado ────────────────────────────────────
+// `fighters` y `relatedEvents` son aristas declaradas a mano con slugs
+// canónicos: "este artículo trata sobre estas entidades". Hasta ahora se
+// quedaban en el frontmatter y no llegaban al HTML, así que ningún motor podía
+// saber de quién habla el texto salvo adivinándolo por el título.
+//
+// Convención schema.org: `about` = de lo que trata de verdad (protagonistas),
+// `mentions` = lo que se nombra de pasada. Los primeros dos peleadores del
+// array son los protagonistas; el resto, menciones.
+const nombrePorSlug = new Map((FIGHTERS as any[]).map(f => [f.slug, f.name]));
+const eventoPorSlug = new Map((EVENTS as any[]).map(e => [e.slug, e.name]));
+
+const protagonistas = fighters.slice(0, 2);
+const secundarios   = fighters.slice(2);
+
+const about = [
+  ...protagonistas.map((s: string) => refPeleador(s, nombrePorSlug.get(s))),
+  ...relatedEvents.map((s: string) => refEvento(s, eventoPorSlug.get(s))),
+];
+const mentions = secundarios.map((s: string) => refPeleador(s, nombrePorSlug.get(s)));
+
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "@id": `${canonicalUrl}#articulo`,
   "headline": title,
   "description": description,
   "abstract": takeaways.length > 0 ? takeaways.join(' ') : description,
-  "author": { "@type": "Person", "name": author, "url": new URL("/", Astro.url.origin).href },
-  "publisher": { "@type": "Organization", "name": "Quimbara", "logo": { "@type": "ImageObject", "url": new URL("/favicon.svg", Astro.url.origin).href } },
+  "author": refAutor(),
+  "publisher": refOrganizacion(),
   "datePublished": pubDate.toISOString(),
+  "dateModified": pubDate.toISOString(),
   "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
   "image": image ? new URL(image, Astro.url.origin).href : undefined,
+  "inLanguage": "es",
+  "articleSection": category,
+  ...(about.length > 0 ? { about } : {}),
+  ...(mentions.length > 0 ? { mentions } : {}),
   ...(takeaways.length > 0 ? { "keywords": tags.join(', ') } : {})
 };
 
@@ -67,7 +98,11 @@ const breadcrumbSchema = {
   ]
 };
 
-const combinedSchema = `[${JSON.stringify(articleSchema)}, ${JSON.stringify(breadcrumbSchema)}]`;
+// El autor se declara entero una vez por página para que la entidad exista,
+// no solo se referencie por @id.
+const autorSchema = { "@context": "https://schema.org", ...autorEntidad };
+
+const combinedSchema = `[${JSON.stringify(articleSchema)}, ${JSON.stringify(breadcrumbSchema)}, ${JSON.stringify(autorSchema)}]`;
 
 const PX = "clamp(16px,4vw,60px)";
 ---

@@ -9,6 +9,9 @@ import FIGHTERS from '../../data/fighters.json';
 import { getCollection } from 'astro:content';
 // @ts-ignore — módulo JS compartido con astro.config.mjs y scripts/
 import { isIndexable } from '../../lib/indexable.mjs';
+// @ts-ignore — identidad de entidad compartida
+import { refOrganizacion, ID } from '../../lib/entidades.mjs';
+import { divLabels, isFemale } from '../../data/divisions';
 
 // Campos opcionales de contenido enriquecido (densificación SEO)
 type FighterEnriched = {
@@ -73,22 +76,46 @@ const weightKg  = f.weight ? lbsToKg(f.weight)    : null;
 // ─── Estado: campeón / ranqueado / no ranqueado ───
 const isChampion = f.rank === 'C';
 const isRanked   = !!f.rank && f.rank !== 'C';
-const roleLabel  = (isChampion ? `Campeón UFC ${f.div}`
-                 : isRanked   ? `#${f.rank} UFC ${f.div}`
-                 : `Peleador UFC ${f.div}`).trim(); // .trim(): hay fighters sin división en el CSV
+// División en español y género correcto. El chunker (scripts/rag-chunk.mjs)
+// destapó dos frases rotas que salían en el HTML público:
+//   · 67 fichas indexables sin división → "es peleador de UFC ." (frase muerta)
+//   · 118 peleadoras descritas como "peleador" en divisiones Women's
+// Un dato mal redactado se cita mal, y una cita errónea daña más que la ausencia.
+const esFemenina = isFemale(f.div ?? '');
+const divEs      = f.div ? (divLabels[f.div] ?? f.div) : '';
+const sustantivo = esFemenina ? 'Peleadora' : 'Peleador';
+const campeonLbl = esFemenina ? 'Campeona' : 'Campeón';
+
+const roleLabel = (isChampion ? `${campeonLbl} UFC ${divEs}`
+                 : isRanked   ? `#${f.rank} UFC ${divEs}`
+                 : `${sustantivo} UFC ${divEs}`).replace(/\s+/g, ' ').trim();
 
 // Buscar artículos relacionados: nombre o apellido del peleador en título o descripción
 const allPosts = await getCollection('blog');
 allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
+// ─── Emparejamiento artículo ↔ peleador ─────────────────────────────────────
+// Antes esto buscaba el apellido dentro del título con includes(): con "Silva"
+// o "Rodriguez" daba falsos positivos, y un peleador analizado en el cuerpo
+// pero ausente del título no aparecía nunca.
+//
+// El dato bueno ya existía: cada post declara `fighters: [slugs]` en su
+// frontmatter. Esa es la arista real del grafo, escrita a mano y con slug
+// canónico. Se usa primero; el texto solo como red de seguridad para posts
+// antiguos que aún no declaran el campo.
+const declarados = allPosts.filter(p => (p.data.fighters ?? []).includes(f.slug));
+
 const lastName  = f.name.split(' ').slice(-1)[0].toLowerCase();
 const firstName = f.name.split(' ')[0].toLowerCase();
 const nick      = f.nick?.toLowerCase() ?? '';
 
-const related = allPosts.filter(p => {
+const porTexto = allPosts.filter(p => {
+  if ((p.data.fighters ?? []).length > 0) return false; // ya declara grafo: respetarlo
   const haystack = `${p.data.title} ${p.data.description ?? ''}`.toLowerCase();
   return haystack.includes(lastName) || haystack.includes(firstName) || (nick && haystack.includes(nick));
 });
+
+const related = [...declarados, ...porTexto];
 
 // Si hay relacionados los usamos; si no, los 3 más recientes como fallback
 const hasRelated  = related.length > 0;
@@ -132,9 +159,16 @@ const siteUrl = 'https://quimbara.org';
 const canonicalUrl = `${siteUrl}/peleadores/${f.slug}/`;
 
 // Schema Person (tripleta semántica: peleador → récord, división, nacionalidad)
+//
+// El @id es la clave del grafo: refPeleador() en src/lib/entidades.mjs genera
+// este MISMO identificador cuando un artículo declara al peleador en su
+// frontmatter. Al coincidir, el `about` del post y esta ficha dejan de ser dos
+// menciones sueltas y pasan a ser la misma entidad vista desde dos páginas.
+// Si cambias este @id, rompes esa unión.
 const personSchema: any = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${canonicalUrl}#persona`,
   "name": f.name,
   "alternateName": f.nick || undefined,
   "url": canonicalUrl,
@@ -154,9 +188,26 @@ const personSchema: any = {
     "url": "https://www.ufc.com"
   },
   "description": `${f.name}${f.nick ? ` "${f.nick}"` : ''} es ${isChampion ? 'el actual ' : 'un '}${roleLabel.toLowerCase()} con récord de ${f.rec}. ${f.from ? `De ${f.from}.` : ''} ${f.stance ? `Guardia ${f.stance}.` : ''} ${f.team ? `Equipo: ${f.team}.` : ''}`.trim(),
-  "knowsAbout": ["MMA", "UFC", f.div, "Artes Marciales Mixtas"]
+  "knowsAbout": ["MMA", "UFC", divEs || undefined, f.div || undefined, "Artes Marciales Mixtas"].filter(Boolean)
 };
 if (isChampion) personSchema.award = `Campeón UFC ${f.div}`;
+
+// ProfilePage: declara que esta URL es la ficha canónica de esa persona y
+// CUÁNDO se actualizó. El pipeline refresca récords y rankings a diario, pero
+// sin dateModified no había forma de saberlo desde fuera — y en un nicho donde
+// el ranking cambia cada semana, la frescura decide a quién se cita.
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${canonicalUrl}#pagina`,
+  "url": canonicalUrl,
+  "name": `${f.name}${f.nick ? ` "${f.nick}"` : ''} — ${roleLabel}`,
+  "inLanguage": "es",
+  "dateModified": new Date().toISOString(),
+  "mainEntity": { "@id": `${canonicalUrl}#persona` },
+  "publisher": refOrganizacion(),
+  "isPartOf": { "@id": ID.web },
+};
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -211,7 +262,7 @@ const faqSchema = faqToShow.length > 0 ? {
   }))
 } : null;
 
-const schemas = [personSchema, breadcrumbSchema, faqSchema].filter(Boolean);
+const schemas = [personSchema, profilePageSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 const fighterSchema = JSON.stringify(schemas);
 
 // ─── Title/meta formula (override por-fighter o auto) ───
@@ -452,7 +503,8 @@ const metaDescription = f.metaDescription
           {heightCm && (<><strong> {heightCm} cm ({f.height})</strong> de estatura</>)}
           {reachCm && (<>{heightCm ? ' y tiene un alcance de ' : ' tiene un alcance de '}<strong>{reachCm} cm ({f.reach})</strong></>)}.
           {f.stance && (<> Pelea en guardia <strong>{f.stance}</strong>.</>)}
-          {f.weight && (<> Compite en la división <strong>UFC {f.div}</strong> con un peso de combate de <strong>{weightKg ? `${weightKg} kg (${f.weight})` : f.weight}</strong>.</>)}
+          {f.weight && divEs && (<> Compite en la división <strong>UFC {divEs}</strong> con un peso de combate de <strong>{weightKg ? `${weightKg} kg (${f.weight})` : f.weight}</strong>.</>)}
+          {f.weight && !divEs && (<> Su peso de combate es de <strong>{weightKg ? `${weightKg} kg (${f.weight})` : f.weight}</strong>.</>)}
         </p>
         <table class="mt-4">
           <tbody>
@@ -460,7 +512,7 @@ const metaDescription = f.metaDescription
             {reachCm && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">Alcance</th><td>{reachCm} cm ({f.reach})</td></tr>)}
             {weightKg && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">Peso de combate</th><td>{weightKg} kg ({f.weight})</td></tr>)}
             {f.stance && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">Guardia</th><td>{f.stance}</td></tr>)}
-            {f.div && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">División</th><td>UFC {f.div}</td></tr>)}
+            {divEs && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">División</th><td>UFC {divEs}</td></tr>)}
           </tbody>
         </table>
       </div>

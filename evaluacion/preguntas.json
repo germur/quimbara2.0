@@ -1,0 +1,67 @@
+{
+  "_readme": "Set de evaluación de Quimbara. Doble uso: (1) medir si el RAG interno devuelve el chunk correcto — automático, `npm run rag:eval`; (2) medir si los LLM públicos citan a Quimbara — manual, se pasan a ChatGPT/Perplexity/Gemini una vez al mes y se anota el resultado. Sin línea base no hay forma de saber si algo funciona. `espera` es el prefijo del id de chunk que debería salir el primero.",
+  "_medicion_manual": {
+    "como": "Pasar cada pregunta a ChatGPT, Perplexity, Gemini y Google AI Mode. Anotar: ¿aparece quimbara.org? ¿qué URL? ¿qué competidores salen? ¿el dato es correcto?",
+    "cadencia": "Mensual, mismo día del mes",
+    "metricas": ["tasa de citación", "cuota de voz", "exactitud del dato citado", "nº de URLs distintas citadas"]
+  },
+  "preguntas": [
+    { "id": 1,  "q": "¿Cuánto mide Max Holloway?", "tipo": "biometrica", "espera": "peleador:max-holloway" },
+    { "id": 2,  "q": "estatura de Justin Gaethje", "tipo": "biometrica", "espera": "peleador:justin-gaethje" },
+    { "id": 3,  "q": "¿Cuál es el alcance de Petr Yan?", "tipo": "biometrica", "espera": "peleador:petr-yan" },
+    { "id": 4,  "q": "cuanto pesa Tom Aspinall", "tipo": "biometrica", "espera": "peleador:tom-aspinall" },
+    { "id": 5,  "q": "altura de Khamzat Chimaev", "tipo": "biometrica", "espera": "peleador:khamzat-chimaev" },
+    { "id": 6,  "q": "¿Cuánto mide Joshua Van?", "tipo": "biometrica", "espera": "peleador:joshua-van" },
+    { "id": 7,  "q": "envergadura de Sean Strickland", "tipo": "biometrica", "espera": "peleador:sean-strickland" },
+    { "id": 8,  "q": "¿Qué guardia usa Ilia Topuria?", "tipo": "biometrica", "espera": "peleador:ilia-topuria" },
+    { "id": 9,  "q": "de donde es Valentina Shevchenko", "tipo": "biometrica", "espera": "peleador:valentina-shevchenko" },
+    { "id": 10, "q": "¿Cuánto mide Derrick Lewis?", "tipo": "biometrica", "espera": "peleador:derrick-lewis" },
+
+    { "id": 11, "q": "¿Cuál es el récord de Ilia Topuria?", "tipo": "record", "espera": "peleador:ilia-topuria:record" },
+    { "id": 12, "q": "victorias y derrotas de Max Holloway", "tipo": "record", "espera": "peleador:max-holloway:record" },
+    { "id": 13, "q": "palmarés de Alexander Volkanovski", "tipo": "record", "espera": "peleador:alexander-volkanovski:record" },
+    { "id": 14, "q": "¿Cuántas peleas ha ganado Tom Aspinall?", "tipo": "record", "espera": "peleador:tom-aspinall:record" },
+    { "id": 15, "q": "últimas peleas de Sean O'Malley", "tipo": "record", "espera": "peleador:sean-omalley" },
+
+    { "id": 16, "q": "¿Quién es el campeón de peso pesado de UFC?", "tipo": "entidad", "espera": "peleador:tom-aspinall" },
+    { "id": 17, "q": "campeona de peso mosca femenino UFC", "tipo": "entidad", "espera": "peleador:valentina-shevchenko" },
+    { "id": 18, "q": "¿Quién tiene el cinturón de peso ligero?", "tipo": "entidad", "espera": "peleador:" },
+    { "id": 19, "q": "campeón de peso pluma UFC", "tipo": "entidad", "espera": "peleador:alexander-volkanovski" },
+    { "id": 20, "q": "quien es el campeon de peso gallo", "tipo": "entidad", "espera": "peleador:petr-yan" },
+
+    { "id": 21, "q": "cartelera UFC 331", "tipo": "evento", "espera": "evento:ufc-331" },
+    { "id": 22, "q": "¿Cuándo es UFC 330?", "tipo": "evento", "espera": "evento:ufc-330" },
+    { "id": 23, "q": "¿Quién pelea en UFC 332?", "tipo": "evento", "espera": "evento:ufc-332" },
+    { "id": 24, "q": "próximos eventos UFC", "tipo": "evento", "espera": "evento:" },
+    { "id": 25, "q": "UFC 333 fecha y lugar", "tipo": "evento", "espera": "evento:ufc-333" },
+    { "id": 26, "q": "pelea principal UFC 330", "tipo": "evento", "espera": "evento:ufc-330" },
+    { "id": 27, "q": "evento UFC en Shanghai", "tipo": "evento", "espera": "evento:" },
+    { "id": 28, "q": "UFC agosto 2026 calendario", "tipo": "evento", "espera": "evento:" },
+
+    { "id": 29, "q": "¿Por qué perdió Ilia Topuria contra Justin Gaethje?", "tipo": "analisis", "espera": "post:ilia-no-mas-topuria-gaethje" },
+    { "id": 30, "q": "análisis Topuria vs Gaethje Casa Blanca", "tipo": "analisis", "espera": "post:ilia-no-mas-topuria-gaethje" },
+    { "id": 31, "q": "cómo ganó Prates a Della Maddalena", "tipo": "analisis", "espera": "post:pesadilla-prates-jdm" },
+    { "id": 32, "q": "guardia larga de Strickland contra Chimaev", "tipo": "analisis", "espera": "post:analisis-strickland-chimaev" },
+    { "id": 33, "q": "philly shell MMA", "tipo": "analisis", "espera": "post:analisis-strickland-chimaev" },
+    { "id": 34, "q": "por qué Evloev es kriptonita para Volkanovski", "tipo": "analisis", "espera": "post:ecuacion-del-octagono" },
+    { "id": 35, "q": "TKO y el matchmaking de UFC", "tipo": "analisis", "espera": "post:frialdad-del-algoritmo" },
+    { "id": 36, "q": "estilos de pelea en UFC arquetipos", "tipo": "analisis", "espera": "post:arquetipos-estilos-pelea-ufc" },
+    { "id": 37, "q": "estadísticas de golpes significativos Topuria Gaethje", "tipo": "analisis", "espera": "post:ilia-no-mas-topuria-gaethje" },
+
+    { "id": 38, "q": "¿Quién tiene más alcance, Chimaev o Strickland?", "tipo": "comparativa", "espera": "peleador:" },
+    { "id": 39, "q": "Topuria vs Gaethje comparación física", "tipo": "comparativa", "espera": "" },
+    { "id": 40, "q": "quién es más alto Holloway o Gaethje", "tipo": "comparativa", "espera": "peleador:" },
+
+    { "id": 41, "q": "el campeón hawaiano de UFC", "tipo": "semantica", "espera": "peleador:max-holloway" },
+    { "id": 42, "q": "peleador georgiano invicto", "tipo": "semantica", "espera": "peleador:ilia-topuria" },
+    { "id": 43, "q": "peso pesado británico campeón", "tipo": "semantica", "espera": "peleador:tom-aspinall" },
+    { "id": 44, "q": "luchadora brasileña de jiu jitsu en UFC", "tipo": "semantica", "espera": "peleador:mackenzie-dern" },
+    { "id": 45, "q": "el ruso número uno del peso gallo", "tipo": "semantica", "espera": "peleador:petr-yan" },
+
+    { "id": 46, "q": "peleadores colombianos en UFC", "tipo": "nicho", "espera": "" },
+    { "id": 47, "q": "peleadores mexicanos UFC 2026", "tipo": "nicho", "espera": "" },
+    { "id": 48, "q": "peleadores españoles en UFC", "tipo": "nicho", "espera": "" },
+    { "id": 49, "q": "mejores peleadores latinos de MMA", "tipo": "nicho", "espera": "" },
+    { "id": 50, "q": "división de peso ligero UFC ranking", "tipo": "nicho", "espera": "" }
+  ]
+}

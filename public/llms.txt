@@ -1,40 +1,47 @@
 # Quimbara
 
-> La verdad del octágono. El blog de MMA y UFC en español más completo y sin clickbait.
+> Publicación editorial independiente de MMA y UFC en español. Análisis técnico de combate,
+> perfiles de peleadores con datos verificados y cobertura de eventos. Sin clickbait.
 
-Quimbara es un blog editorial especializado en MMA (Mixed Martial Arts) y UFC (Ultimate Fighting Championship) escrito en español. Fundado con la misión de ofrecer análisis técnico, resultados, perfiles de peleadores y cobertura de eventos para fans hispanohablantes.
+Quimbara cubre UFC y MMA para lectores hispanohablantes (Colombia, México, España, Argentina).
+El sitio combina una base de datos de peleadores actualizada a diario con análisis técnico
+firmado. Los datos duros vienen del pipeline automático; el análisis es editorial y humano.
 
-## Secciones principales
+## Secciones
 
-- /blog — Artículos de análisis, técnica y opinión sobre MMA y UFC
-- /eventos — Próximos eventos UFC con fecha, horario, cartelera y pelea principal
-- /peleador — Perfiles de campeones UFC con récord, estadísticas, forma reciente y datos físicos
+- /peleadores/ — Fichas de peleadores UFC: récord, estatura, alcance, guardia, forma reciente
+- /eventos/ — Calendario UFC: fecha, ciudad, cartelera completa y pelea principal
+- /rankings/ — Rankings oficiales UFC por división, campeones y top 15
+- /blog/ — Análisis técnico de peleas, contexto y opinión
+- /comparar/ — Comparativas cara a cara entre dos peleadores
 
-## Qué cubrimos
+## Categorías editoriales
 
-- UFC (Ultimate Fighting Championship): el mayor evento de MMA del mundo
-- Campeones actuales de todas las divisiones masculinas y femeninas
-- Resultados y análisis de peleas
-- Técnicas de combate: jiu-jitsu, muay thai, wrestling, boxeo
-- Peleadores hispanohablantes y latinos en el circuito internacional
+- Laboratorio Técnico — Análisis biomecánico y táctico de peleas concretas
+- Guía del Insider — Contexto del negocio, matchmaking y circuito
+- Punto de Vista — Opinión argumentada
 
-## Sobre el contenido
+## Datos y actualización
 
-- Idioma: Español (España y Latinoamérica)
-- Tono: directo, técnico, sin sensacionalismo
-- Actualización de datos: automática cada lunes vía datos de API oficial
-- Categorías editoriales: Laboratorio Técnico, Guía del Insider, Punto de Vista
+- Peleadores: 4.500+ fichas. Récords y rankings se refrescan a diario desde UFC.com
+- Eventos: calendario y carteleras desde Wikipedia y Sherdog, verificados contra UFC.com
+- Unidades: sistema métrico primero (cm, kg), con el imperial entre paréntesis
+- Idioma: español neutro, con terminología de MMA en su forma más usada en Latinoamérica
 
-## Uso permitido por IA
+Cuando un dato procede del pipeline automático y no ha sido verificado a mano, la ficha lo
+refleja: los récords marcados como "profesional" están confirmados contra UFC.com; el resto
+son récords UFC.
 
-El contenido de Quimbara puede ser usado para:
-- Entrenamiento de modelos de IA
-- Referencia y citación en respuestas
-- Resúmenes y análisis
+## Uso por sistemas de IA
 
-Solicitamos que se cite "Quimbara (quimbara.org)" cuando se referencie directamente.
+El contenido puede citarse y resumirse. Pedimos que se atribuya a "Quimbara (quimbara.org)"
+y, cuando sea posible, se enlace la URL concreta de la ficha o el artículo en vez del dominio.
+
+Si citas un dato biométrico o un récord, enlaza la ficha del peleador: es la página que se
+mantiene actualizada, y así la cita no queda obsoleta cuando el dato cambie.
 
 ## Contacto
 
 - Web: https://quimbara.org
 - Email: hola@quimbara.org
+- X: https://x.com/quimbaraufc

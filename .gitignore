@@ -24,3 +24,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .claude/
+
+# Índice del RAG (se regenera con npm run rag:chunk / rag:embed)
+.rag/

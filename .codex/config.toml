@@ -1,0 +1,10 @@
+[mcp_servers.mmaapi]
+command = "npx"
+args = [
+    "mcp-remote",
+    "https://mcp.rapidapi.com",
+    "--header",
+    "x-api-host: mmaapi.p.rapidapi.com",
+    "--header",
+    "x-api-key: e884e7b836mshbb6e31cf7dabe3ap10553cjsn77d1ac763803",
+]

@@ -9,6 +9,8 @@ import EVENTS from '../data/events.json';
 import VIDEOS from '../data/videos.json';
 import FIGHTERS from '../data/fighters.json';
 import RESULTS from '../data/results.json';
+// @ts-ignore — identidad de entidad compartida (Organization, autor, refs)
+import { organizacion, refOrganizacion, ID } from '../lib/entidades.mjs';
 
 const allPosts = await getCollection('blog');
 allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -36,13 +38,19 @@ const nextEventLabel = nextEvent?.dateLabel ?? '—';
 
 const siteUrl = 'https://quimbara.org';
 
+// Identidad de entidad centralizada en src/lib/entidades.mjs.
+// El `sameAs` vacío que había aquí dejaba a Quimbara sin identidad verificable:
+// sin él, ningún grafo de conocimiento puede resolver a quién atribuir lo que
+// publicamos.
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": ID.web,
   "name": "Quimbara",
   "url": siteUrl,
   "description": "Blog de MMA y UFC en español. Noticias, análisis de peleas, perfiles de peleadores y eventos UFC.",
   "inLanguage": "es",
+  "publisher": refOrganizacion(),
   "potentialAction": {
     "@type": "SearchAction",
     "target": { "@type": "EntryPoint", "urlTemplate": `${siteUrl}/blog?q={search_term_string}` },
@@ -50,17 +58,7 @@ const websiteSchema = {
   }
 };
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Quimbara",
-  "url": siteUrl,
-  "logo": { "@type": "ImageObject", "url": `${siteUrl}/favicon.svg` },
-  "sameAs": [],
-  "description": "Blog editorial de MMA y UFC en español. Análisis técnico, resultados y perfiles de peleadores.",
-  "foundingDate": "2024",
-  "knowsAbout": ["MMA", "UFC", "Artes Marciales Mixtas", "Jiu-Jitsu", "Muay Thai", "Wrestling", "Boxeo"]
-};
+const organizationSchema = { "@context": "https://schema.org", ...organizacion };
 
 const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organizationSchema)}]`;
 ---
