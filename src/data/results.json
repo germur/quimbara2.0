@@ -1,34 +1,34 @@
 [
   {
-    "w": "Diego Ferreira",
-    "l": "Billy Quarantillo",
+    "w": "Mackenzie Dern",
+    "l": "Gillian Robertson",
     "method": "Decision (Unanimous)",
-    "round": 3,
+    "round": 5,
     "time": "5:00",
-    "event": "UFC Fight Night 284 - Gamrot vs. Salkilld"
+    "event": "UFC 330 - Makhachev vs. Garry"
   },
   {
-    "w": "Yadier Del Valle",
-    "l": "Darren Elkins",
-    "method": "TKO (Punch)",
+    "w": "Jalin Turner",
+    "l": "Kaue Fernandes",
+    "method": "KO (Punches)",
     "round": 1,
-    "time": "0:35",
-    "event": "UFC Fight Night 284 - Gamrot vs. Salkilld"
+    "time": "0:39",
+    "event": "UFC 330 - Makhachev vs. Garry"
   },
   {
-    "w": "Alexia Thainara",
-    "l": "Amanda Lemos",
-    "method": "Decision (Unanimous)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC Fight Night 284 - Gamrot vs. Salkilld"
+    "w": "Dustin Stoltzfus",
+    "l": "Mansur Abdul-Malik",
+    "method": "Submission (Rear-Naked Choke)",
+    "round": 2,
+    "time": "4:25",
+    "event": "UFC 330 - Makhachev vs. Garry"
   },
   {
-    "w": "Ty Cole Miller",
-    "l": "Billy Goff",
+    "w": "Esteban Ribovics",
+    "l": "Edson Barboza",
     "method": "TKO (Punches)",
-    "round": 3,
-    "time": "0:15",
-    "event": "UFC Fight Night 284 - Gamrot vs. Salkilld"
+    "round": 2,
+    "time": "1:32",
+    "event": "UFC 330 - Makhachev vs. Garry"
   }
 ]

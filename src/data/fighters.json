@@ -19550,7 +19550,7 @@
     "name": "Luiz Cane",
     "nick": "Banha",
     "div": "Middleweight",
-    "rec": "0-0-0",
+    "rec": "4-5-0",
     "ufcRec": "4-5-0",
     "from": "",
     "img": "/fighters/luiz-cane.png",
@@ -19587,8 +19587,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "recScope": "pro"
+    ]
   },
   {
     "slug": "guido-cannetti",
@@ -21903,6 +21902,7 @@
     "nick": "",
     "div": "",
     "rec": "15-2-0",
+    "recScope": "pro",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/eduardo-chapolin.png",
@@ -21912,8 +21912,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [],
-    "formTypes": [],
-    "recScope": "pro"
+    "formTypes": []
   },
   {
     "slug": "donnie-chappell",
@@ -29736,7 +29735,7 @@
     "name": "Mackenzie Dern",
     "nick": "",
     "div": "Women's Strawweight",
-    "rec": "16-5-0",
+    "rec": "17-5-0",
     "recScope": "pro",
     "ufcRec": "11-5-0",
     "from": "",
@@ -69785,7 +69784,7 @@
     "name": "Ian Machado Garry",
     "nick": "The Future",
     "div": "Welterweight",
-    "rec": "17-1-0",
+    "rec": "17-2-0",
     "recScope": "pro",
     "ufcRec": "10-1-0",
     "from": "",
@@ -99353,7 +99352,7 @@
     "name": "Gillian Robertson",
     "nick": "The Savage",
     "div": "Women's Strawweight",
-    "rec": "17-8-0",
+    "rec": "17-9-0",
     "recScope": "pro",
     "ufcRec": "14-6-0",
     "from": "",

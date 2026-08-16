@@ -1099,7 +1099,7 @@
     "f1img": "/fighters/islam-makhachev.png",
     "f2": "Ian Machado Garry",
     "f2img": "/fighters/ian-machado-garry.png",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Islam Makhachev",
@@ -1748,6 +1748,32 @@
     "loc": "Abu Dhabi, United Arab Emirates",
     "date": "2026-10-24",
     "dateLabel": "24 oct 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
+  },
+  {
+    "slug": "ufc-fight-night-292-2026-10-31",
+    "name": "UFC Fight Night 292",
+    "main": "TBD",
+    "loc": "",
+    "date": "2026-10-31",
+    "dateLabel": "31 oct 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
+  },
+  {
+    "slug": "ufc-fight-night-293-2026-11-07",
+    "name": "UFC Fight Night 293",
+    "main": "TBD",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-11-07",
+    "dateLabel": "7 nov 2026",
     "f1": "TBD",
     "f1img": "",
     "f2": "TBD",

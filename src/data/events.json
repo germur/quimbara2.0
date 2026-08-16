@@ -1,40 +1,5 @@
 [
   {
-    "slug": "ufc-330-2026-08-15",
-    "name": "UFC 330",
-    "main": "Islam Makhachev vs. Ian Machado Garry",
-    "loc": "Philadelphia, Pennsylvania, U.S.",
-    "date": "2026-08-15",
-    "dateLabel": "15 ago 2026",
-    "f1": "Islam Makhachev",
-    "f1img": "/fighters/islam-makhachev.png",
-    "f2": "Ian Machado Garry",
-    "f2img": "/fighters/ian-machado-garry.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Islam Makhachev",
-        "f1Id": "islam-makhachev",
-        "f2": "Ian Machado Garry",
-        "f2Id": "ian-machado-garry",
-        "weightClass": "Welterweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Mackenzie Dern",
-        "f1Id": "mackenzie-dern",
-        "f2": "Gillian Robertson",
-        "f2Id": "gillian-robertson",
-        "weightClass": "Women's Strawweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-08-22",
     "name": "UFC Fight Night",
     "main": "Anthony Hernandez vs. Gregory Rodrigues",
@@ -57,8 +22,8 @@
         "order": 0
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-08-29",
@@ -117,6 +82,50 @@
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
         "order": 4
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-09-05",
+    "name": "UFC Fight Night",
+    "main": "Michael Page vs. Nursulton Ruziboev",
+    "loc": "Paris, France",
+    "date": "2026-09-05",
+    "dateLabel": "5 sept 2026",
+    "f1": "Michael Page",
+    "f1img": "",
+    "f2": "Nursulton Ruziboev",
+    "f2img": "",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Michael Page",
+        "f1Id": "michael-page",
+        "f2": "Nursulton Ruziboev",
+        "f2Id": "nursulton-ruziboev",
+        "weightClass": "Middleweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Kurtis Campbell",
+        "f1Id": "kurtis-campbell",
+        "f2": "Trevor Peek",
+        "f2Id": "trevor-peek",
+        "weightClass": "Featherweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Mário Pinto",
+        "f1Id": "mario-pinto",
+        "f2": "Ryan Spann",
+        "f2Id": "ryan-spann",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 2
       }
     ],
     "bg": "#7B1FA2",
