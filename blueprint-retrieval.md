@@ -425,13 +425,37 @@ Lo que más mueve por lo poco que cuesta.
 
 **Entregable:** código + una página nueva. **Tiempo:** ~5 h.
 
-### Fase 2-bis — Rescatar las 80 fichas que Google rechazó (PRIORIDAD 1)
+### Fase 2-bis — Concentrar antes de escribir (PRIORIDAD 1)
 
-*Añadida el 15 de agosto. Adelanta a todo lo demás.*
+*Añadida el 15 de agosto. Revisada el 16 tras medir.*
 
-Google rastreó 80 fichas indexables — campeón de peso mosca incluido — y decidió no indexarlas.
-Es contenido fino, y el arreglo no es de metadatos sino de sustancia. Por ficha hacen falta unos
-cuantos cientos de palabras que no estén en Wikipedia:
+La primera versión de esta fase decía "escribir contenido para las 80 fichas rechazadas". Al
+mirar los datos antes de escribir, apareció algo que lo cambia:
+
+**Joshua Van, campeón de peso mosca, ya tenía 743 palabras propias desde el 23 de mayo. Google
+lo rastreó el 26 de julio y aun así lo dejó fuera del índice.** El contenido estaba y no bastó.
+
+Lo que sí explica el rechazo es la dilución. El criterio de indexabilidad era "rankeado **o con
+foto**", y eso daba 776 fichas indexables cuando el sitio entero tiene 745 páginas indexadas. Su
+rendimiento en tres meses:
+
+| Tipo de ficha | Páginas | Impresiones | Clics |
+|---|---|---|---|
+| Rankeadas | 174 | 38.168 | 9 |
+| **Solo por tener foto** | **343** | **7.979** | **0** |
+
+Cero clics en tres meses, ocupando presupuesto de índice y repartiendo la autoridad del dominio
+entre 776 páginas casi idénticas. Tener foto no es señal de relevancia.
+
+**Hecho:** `isIndexable` pasa a ser *rankeado (campeón o top-15) **o** con texto propio
+redactado*. De 776 a 194 fichas, conservando los 11 campeones y los 183 del top 15. Las 582
+restantes siguen accesibles a usuarios y a crawlers de IA, pero con `noindex, follow`.
+
+Es reversible y el coste medido en tráfico es exactamente cero clics.
+
+**Después de eso**, y solo después, tiene sentido escribir. Empezar por 3 campeones, medir a las
+tres semanas si entran al índice, y decidir con ese dato si se invierte en los 6 restantes. Por
+ficha hacen falta unos cuantos cientos de palabras que no estén en Wikipedia:
 
 1. **Contexto de la última pelea**: contra quién, cómo terminó, qué significó.
 2. **Qué hace distinto a este peleador**: dos o tres frases de estilo real, no genéricas.

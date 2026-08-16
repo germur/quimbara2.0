@@ -67,6 +67,16 @@ const add = (id, tipo, url, titulo, texto, meta = {}) => {
 // Cada ficha da 1-2 chunks. El biométrico es el que responde el 70% de las
 // impresiones reales de GSC ("cuánto mide X", "alcance de X").
 const fighters = load('fighters.json');
+// El contenido propio (bio, estilo, trayectoria, FAQ) vive en los overrides, no
+// en fighters.json. Sin esto el troceado solo veía la plantilla de datos y daba
+// por finas fichas que sí tienen texto redactado — justo las que interesa medir.
+const overrides = load('fighters-overrides.json');
+const enriquecido = f => overrides[f.name] ?? overrides[f.slug] ?? {};
+
+// OJO: aquí NO se usa isIndexable() a propósito. Ese criterio decide qué ve
+// GOOGLE; este decide qué encuentra el BUSCADOR INTERNO, y son cosas distintas.
+// Un peleador sin ranking sigue mereciendo aparecer cuando un visitante escribe
+// su nombre en la lupa, aunque su ficha esté en noindex.
 const indexables = fighters.filter(
   f => f.rank === 'C' || (!isNaN(Number(f.rank)) && Number(f.rank) <= 15) || f.img
 );
@@ -112,6 +122,20 @@ for (const f of indexables) {
       Array.isArray(f.form) && f.form.length ? `Sus últimas ${f.form.length} peleas: ${f.form.join('-')} (de más reciente a más antigua).` : '',
     ].filter(Boolean).join(' ');
     add(`peleador:${f.slug}:record`, 'peleador', url, `${f.name} — récord`, rec, { slug: f.slug, division: f.div });
+  }
+
+  // ── Contenido redactado a mano ──
+  // Es lo único que distingue de verdad una ficha de otra: los datos los tiene
+  // todo el mundo, esto no. Se trocea aparte para que compita por sí solo.
+  const ov = enriquecido(f);
+  const limpiar = s => String(s).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+
+  if (ov.bio) add(`peleador:${f.slug}:bio`, 'peleador-editorial', url, `¿Quién es ${f.name}?`, limpiar(ov.bio), { slug: f.slug, division: f.div });
+  if (ov.trayectoria) add(`peleador:${f.slug}:trayectoria`, 'peleador-editorial', url, `Trayectoria de ${f.name}`, limpiar(ov.trayectoria), { slug: f.slug, division: f.div });
+  if (ov.style?.striking) add(`peleador:${f.slug}:striking`, 'peleador-editorial', url, `Striking de ${f.name}`, limpiar(ov.style.striking), { slug: f.slug, division: f.div });
+  if (ov.style?.grappling) add(`peleador:${f.slug}:grappling`, 'peleador-editorial', url, `Grappling de ${f.name}`, limpiar(ov.style.grappling), { slug: f.slug, division: f.div });
+  for (const [i, qa] of (ov.faq ?? []).entries()) {
+    add(`peleador:${f.slug}:faq:${i}`, 'peleador-editorial', url, qa.q, `${qa.q} ${limpiar(qa.a)}`, { slug: f.slug, division: f.div });
   }
 }
 

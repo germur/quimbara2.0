@@ -1,0 +1,141 @@
+---
+/**
+ * Horarios del evento por país, con detección automática de zona horaria.
+ *
+ * REGLA DE ORO DE ESTE COMPONENTE: la tabla de países se renderiza en HTML
+ * estático. El JavaScript solo AÑADE por encima (destacar el país del visitante
+ * y permitir elegir otro). Si las horas vivieran dentro del JS, desaparecerían
+ * del HTML y con ellas la posibilidad de que Google las indexe o un LLM las
+ * cite — que es justo lo que buscamos con estas páginas.
+ *
+ * Por qué merece la pena: "¿a qué hora es UFC 330 en Colombia?" es de las pocas
+ * búsquedas del nicho que produce clic, porque la respuesta depende de quién
+ * pregunta y porque después de saber la hora todavía queda por ver la cartelera.
+ */
+interface Props {
+  nombreEvento: string;
+  fechaLabel: string;
+  horaET: string;
+  confirmada: boolean;
+  startDateISO: string;
+  horarios: { pais: string; bandera: string; hora: string; dia: string; diaSiguiente: boolean }[];
+  peleaPrincipal?: string | null;
+}
+
+const { nombreEvento, fechaLabel, horaET, confirmada, startDateISO, horarios, peleaPrincipal } = Astro.props;
+
+// Zonas para el desplegable. Coinciden con las de src/lib/horarios.mjs.
+const ZONAS = [
+  { pais: 'España', zona: 'Europe/Madrid' },
+  { pais: 'México', zona: 'America/Mexico_City' },
+  { pais: 'Colombia', zona: 'America/Bogota' },
+  { pais: 'Argentina', zona: 'America/Argentina/Buenos_Aires' },
+  { pais: 'Perú', zona: 'America/Lima' },
+  { pais: 'Chile', zona: 'America/Santiago' },
+  { pais: 'Estados Unidos (ET)', zona: 'America/New_York' },
+  { pais: 'Estados Unidos (PT)', zona: 'America/Los_Angeles' },
+  { pais: 'Uruguay', zona: 'America/Montevideo' },
+  { pais: 'Venezuela', zona: 'America/Caracas' },
+  { pais: 'Ecuador', zona: 'America/Guayaquil' },
+  { pais: 'Bolivia', zona: 'America/La_Paz' },
+  { pais: 'Paraguay', zona: 'America/Asuncion' },
+  { pais: 'Costa Rica', zona: 'America/Costa_Rica' },
+  { pais: 'Guatemala', zona: 'America/Guatemala' },
+  { pais: 'Rep. Dominicana', zona: 'America/Santo_Domingo' },
+];
+---
+
+<section class="horarios-evento">
+  <h2 class="text-2xl md:text-3xl mb-2 text-[#111]" style="font-family:var(--font-display);">
+    ¿A qué hora es {nombreEvento}?
+  </h2>
+
+  <p class="text-gray-600 mb-5" style="font-family:var(--font-sans);">
+    La cartelera estelar de <strong>{nombreEvento}</strong>{peleaPrincipal ? ` (${peleaPrincipal})` : ''} empieza
+    a las <strong>{horaET} ET</strong> del {fechaLabel}. Estos son los horarios equivalentes:
+  </p>
+
+  <!-- Caja de "tu hora": la rellena el JS. Oculta si no hay JS, porque sin él
+       no hay nada que detectar y la tabla de abajo ya responde la pregunta. -->
+  <div id="mi-horario" hidden
+       class="mb-4 rounded-xl border-2 border-[#F2D928] bg-[#FFFDF0] px-5 py-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+    <div>
+      <div class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1" style="font-family:var(--font-sans);">
+        En tu zona horaria
+      </div>
+      <div class="flex items-baseline gap-3">
+        <span id="mi-hora" class="text-[#111] font-black text-3xl leading-none" style="font-family:var(--font-display);"></span>
+        <span id="mi-dia" class="text-sm text-gray-500" style="font-family:var(--font-sans);"></span>
+      </div>
+    </div>
+    <label class="ml-auto text-xs text-gray-500" style="font-family:var(--font-sans);">
+      <span class="block mb-1">Ver en otro país</span>
+      <select id="selector-pais"
+              class="border border-gray-300 rounded-md px-3 py-1.5 text-sm text-[#111] bg-white">
+        <option value="">Detectado automáticamente</option>
+        {ZONAS.map(z => <option value={z.zona}>{z.pais}</option>)}
+      </select>
+    </label>
+  </div>
+
+  <!-- Tabla estática: esto es lo que ve Google y lo que puede citar un LLM. -->
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-px bg-gray-100 rounded-xl overflow-hidden border border-gray-100">
+    {horarios.map(({ pais, bandera, hora, dia, diaSiguiente }) => (
+      <div class="bg-white px-5 py-4">
+        <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1" style="font-family:var(--font-sans);">
+          <span aria-hidden="true">{bandera}</span> {pais}
+        </div>
+        <div class="text-[#111] font-black text-2xl leading-tight" style="font-family:var(--font-display);">{hora}</div>
+        <div class="text-[11px] text-gray-400 mt-0.5" style="font-family:var(--font-sans);">
+          {dia}{diaSiguiente ? ' · madrugada' : ''}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <p class="text-[11px] text-gray-400 mt-3" style="font-family:var(--font-sans);">
+    {confirmada
+      ? 'Horario confirmado por UFC. Las prelims empiezan unas 2 h antes.'
+      : 'Horario habitual para este tipo de evento — UFC suele confirmarlo unas semanas antes. Las prelims empiezan unas 2 h antes.'}
+  </p>
+</section>
+
+<script define:vars={{ startDateISO }}>
+  (() => {
+    const caja = document.getElementById('mi-horario');
+    const elHora = document.getElementById('mi-hora');
+    const elDia = document.getElementById('mi-dia');
+    const selector = document.getElementById('selector-pais');
+    if (!caja || !elHora || !elDia || !selector) return;
+
+    const instante = new Date(startDateISO);
+    if (isNaN(instante.getTime())) return;
+
+    const pintar = (zona) => {
+      try {
+        const hora = new Intl.DateTimeFormat('es-ES', {
+          timeZone: zona, hour: '2-digit', minute: '2-digit', hour12: false,
+        }).format(instante);
+        const dia = new Intl.DateTimeFormat('es-ES', {
+          timeZone: zona, weekday: 'long', day: 'numeric', month: 'long',
+        }).format(instante);
+
+        // Etiqueta legible de la zona: "America/Bogota" → "Bogota"
+        const nombreZona = zona.split('/').pop().replace(/_/g, ' ');
+        elHora.textContent = hora;
+        elDia.textContent = `${dia} · ${nombreZona}`;
+        caja.hidden = false;
+      } catch {
+        // Zona desconocida en este navegador: la tabla estática sigue ahí.
+        caja.hidden = true;
+      }
+    };
+
+    const zonaDetectada = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    pintar(zonaDetectada);
+
+    selector.addEventListener('change', (e) => {
+      pintar(e.target.value || zonaDetectada);
+    });
+  })();
+</script>

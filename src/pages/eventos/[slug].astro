@@ -4,6 +4,9 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import EVENTS_RAW from '../../data/events-all.json';
 import { getCollection } from 'astro:content';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+// @ts-ignore — conversión de horarios por país (ver src/lib/horarios.mjs)
+import { horariosDeEvento } from '../../lib/horarios.mjs';
+import HorariosEvento from '../../components/HorariosEvento.astro';
 
 type FightCardEntry = { f1: string; f1Id: string; f2: string; f2Id: string; weightClass: string; bout: string; order: number };
 type EventFull = typeof EVENTS_RAW[0] & { f1: string; f2: string; f1img: string; f2img: string; fightCard?: FightCardEntry[]; status?: 'upcoming' | 'completed' };
@@ -24,6 +27,9 @@ const eventNum = event.name.replace('UFC ', '').replace('Fight Night', 'FN');
 // La quiniela solo existe si UFC ya anunció la cartelera: sin peleas no hay
 // nada que picar. La página es noindex (producto de retención, no contenido).
 const tieneQuiniela = Array.isArray(event.fightCard) && event.fightCard.length > 0;
+
+// Horarios por país: la sección que el title llevaba prometiendo sin existir.
+const { confirmada: horaConfirmada, horaET, horarios, startDateISO } = horariosDeEvento(event as any);
 
 const f1 = event.f1 ?? (event.main !== 'TBD' ? event.main.split(' vs. ')[0]?.trim() : 'TBD');
 const f2 = event.f2 ?? (event.main !== 'TBD' ? event.main.split(' vs. ')[1]?.trim() : 'TBD');
@@ -82,7 +88,10 @@ const eventSchema = {
   "@type": "SportsEvent",
   "name": event.name + (hasFight ? `: ${f1} vs. ${f2}` : ''),
   "url": canonicalUrl,
-  "startDate": event.date,
+  // Con hora, no solo fecha: es lo que Google necesita para los rich results
+  // de eventos. Si el horario no está confirmado se deja la fecha a secas
+  // antes que publicar una hora estimada como si fuera oficial.
+  "startDate": horaConfirmada ? startDateISO : event.date,
   "location": {
     "@type": "Place",
     "name": event.loc || "Por confirmar",
@@ -109,7 +118,42 @@ const breadcrumbSchema = {
   ]
 };
 
-const eventSchemaStr = `[${JSON.stringify(eventSchema)}, ${JSON.stringify(breadcrumbSchema)}]`;
+// FAQ de horarios: ataca la búsqueda tal y como la escribe la gente
+// ("¿a qué hora es UFC 330 en Colombia?"). Es una pregunta que un knowledge
+// panel no puede responder, porque la respuesta depende del país de quien
+// pregunta — de ahí que sea de las pocas de este nicho que sí generan clic.
+const faqHorarios = !isCompleted ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    ...horarios.map(h => ({
+      "@type": "Question",
+      "name": `¿A qué hora es ${event.name} en ${h.pais}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `La cartelera estelar de ${event.name} empieza a las ${h.hora} de ${h.pais} (${h.dia})${h.diaSiguiente ? ', ya de madrugada' : ''}. Las prelims comienzan unas 2 horas antes.`
+      }
+    })),
+    ...(hasFight ? [{
+      "@type": "Question",
+      "name": `¿Quién pelea en ${event.name}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `La pelea principal de ${event.name} es ${f1} vs. ${f2}, el ${event.dateLabel} en ${event.loc}.`
+      }
+    }] : []),
+    {
+      "@type": "Question",
+      "name": `¿Dónde ver ${event.name}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `${event.name} se puede ver por ${isPPV ? 'PPV en ESPN+ y Movistar Plus+, con las prelims en' : ''} UFC Fight Pass y ESPN/ESPN+ según el país.`
+      }
+    }
+  ]
+} : null;
+
+const eventSchemaStr = `[${[eventSchema, breadcrumbSchema, faqHorarios].filter(Boolean).map(s => JSON.stringify(s)).join(', ')}]`;
 
 // Meta optimizado — diferenciado para eventos pasados vs futuros
 // Estrategia SEO: priorizar CTR con título descriptivo + KWs comerciales
@@ -286,6 +330,21 @@ const metaDescription = isCompleted
       </div>
     )}
   </div>
+
+  <!-- ── Horarios por país (tabla estática + detección de zona en cliente) ── -->
+  {!isCompleted && (
+    <div style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
+      <HorariosEvento
+        nombreEvento={event.name}
+        fechaLabel={event.dateLabel}
+        horaET={horaET}
+        confirmada={horaConfirmada}
+        startDateISO={startDateISO}
+        horarios={horarios}
+        peleaPrincipal={hasFight ? `${f1} vs. ${f2}` : null}
+      />
+    </div>
+  )}
 
   <!-- ── Cómo ver ── -->
   <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
