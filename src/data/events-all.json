@@ -1744,15 +1744,62 @@
   {
     "slug": "ufc-333-2026-10-24",
     "name": "UFC 333",
-    "main": "TBD",
+    "main": "Alexander Volkanovski vs. Movsar Evloev",
     "loc": "Abu Dhabi, United Arab Emirates",
     "date": "2026-10-24",
     "dateLabel": "24 oct 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": "",
-    "status": "upcoming"
+    "f1": "Alexander Volkanovski",
+    "f1img": "/fighters/alexander-volkanovski.png",
+    "f2": "Movsar Evloev",
+    "f2img": "/fighters/movsar-evloev.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Alexander Volkanovski",
+        "f1Id": "alexander-volkanovski",
+        "f2": "Movsar Evloev",
+        "f2Id": "movsar-evloev",
+        "weightClass": "Featherweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Petr Yan",
+        "f1Id": "petr-yan",
+        "f2": "Merab Dvalishvili",
+        "f2Id": "merab-dvalishvili",
+        "weightClass": "Bantamweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Lone'er Kavanagh",
+        "f1Id": "loneer-kavanagh",
+        "f2": "Ramazan Temirov",
+        "f2Id": "ramazan-temirov",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Azamat Murzakanov",
+        "f1Id": "azamat-murzakanov",
+        "f2": "Dominick Reyes",
+        "f2Id": "dominick-reyes",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Grant Dawson",
+        "f1Id": "grant-dawson",
+        "f2": "Nurullo Aliev",
+        "f2Id": "nurullo-aliev",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 4
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-292-2026-10-31",

@@ -185,7 +185,7 @@
     "div": "Welterweight",
     "rec": "28-1-0",
     "recScope": "pro",
-    "ufcRec": "17-1-0",
+    "ufcRec": "18-1-0",
     "from": "Russia",
     "img": "/fighters/islam-makhachev.png",
     "height": "5' 10\"",
@@ -207,6 +207,10 @@
       },
       {
         "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
         "winType": "SUB"
       },
       {
@@ -216,10 +220,6 @@
       {
         "outcome": "W",
         "winType": "TKO"
-      },
-      {
-        "outcome": "W",
-        "winType": "UD"
       }
     ],
     "rank": "C"
@@ -2446,7 +2446,7 @@
     "div": "Middleweight",
     "rec": "9-1-1",
     "recScope": "pro",
-    "ufcRec": "3-1-1",
+    "ufcRec": "3-2-1",
     "from": "",
     "img": "/fighters/mansur-abdul-malik.png",
     "height": "6' 2\"",
@@ -2456,12 +2456,16 @@
     "team": "",
     "form": [
       "L",
+      "L",
       "W",
       "D",
-      "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      },
       {
         "outcome": "L",
         "winType": "TKO"
@@ -2473,10 +2477,6 @@
       {
         "outcome": "D",
         "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
       },
       {
         "outcome": "W",
@@ -5626,7 +5626,7 @@
     "div": "Welterweight",
     "rec": "23-4-0",
     "recScope": "pro",
-    "ufcRec": "8-3-0",
+    "ufcRec": "8-4-0",
     "from": "",
     "img": "/fighters/joel-alvarez.png",
     "height": "6' 3\"",
@@ -5636,12 +5636,16 @@
     "team": "",
     "form": [
       "L",
-      "W",
+      "L",
       "W",
       "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
       {
         "outcome": "L",
         "winType": "SUB"
@@ -5657,10 +5661,6 @@
       {
         "outcome": "W",
         "winType": "TKO"
-      },
-      {
-        "outcome": "W",
-        "winType": "SUB"
       }
     ]
   },
@@ -10153,7 +10153,7 @@
     "div": "Lightweight",
     "rec": "24-14-0",
     "recScope": "pro",
-    "ufcRec": "18-14-0",
+    "ufcRec": "18-15-0",
     "from": "",
     "img": "/fighters/edson-barboza.png",
     "height": "5' 11\"",
@@ -10165,7 +10165,7 @@
       "L",
       "L",
       "L",
-      "W",
+      "L",
       "W"
     ],
     "formTypes": [
@@ -10175,6 +10175,10 @@
       },
       {
         "outcome": "L",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
         "winType": "UD"
       },
       {
@@ -10184,10 +10188,6 @@
       {
         "outcome": "W",
         "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
       }
     ]
   },
@@ -15366,7 +15366,7 @@
     "div": "Welterweight",
     "rec": "13-6-0",
     "recScope": "pro",
-    "ufcRec": "5-4-0",
+    "ufcRec": "5-5-0",
     "from": "",
     "img": "/fighters/ramiz-brahimaj.png",
     "height": "5' 10\"",
@@ -15376,12 +15376,16 @@
     "team": "",
     "form": [
       "L",
+      "L",
       "W",
       "W",
-      "W",
-      "L"
+      "W"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
       {
         "outcome": "L",
         "winType": "UD"
@@ -15397,10 +15401,6 @@
       {
         "outcome": "W",
         "winType": "TKO"
-      },
-      {
-        "outcome": "L",
-        "winType": "UD"
       }
     ]
   },
@@ -21900,10 +21900,10 @@
     "slug": "eduardo-chapolin",
     "name": "Eduardo Chapolin",
     "nick": "",
-    "div": "",
+    "div": "Catch Weight",
     "rec": "15-2-0",
     "recScope": "pro",
-    "ufcRec": "0-0-0",
+    "ufcRec": "0-1-0",
     "from": "",
     "img": "/fighters/eduardo-chapolin.png",
     "height": "5' 7\"",
@@ -21911,8 +21911,15 @@
     "reach": "67\"",
     "stance": "Orthodox",
     "team": "",
-    "form": [],
-    "formTypes": []
+    "form": [
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      }
+    ]
   },
   {
     "slug": "donnie-chappell",
@@ -29737,7 +29744,7 @@
     "div": "Women's Strawweight",
     "rec": "17-5-0",
     "recScope": "pro",
-    "ufcRec": "11-5-0",
+    "ufcRec": "12-5-0",
     "from": "",
     "img": "/fighters/mackenzie-dern.png",
     "height": "5' 4\"",
@@ -29749,10 +29756,14 @@
       "W",
       "W",
       "W",
-      "L",
+      "W",
       "L"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -29768,10 +29779,6 @@
       {
         "outcome": "L",
         "winType": "UD"
-      },
-      {
-        "outcome": "L",
-        "winType": "TKO"
       }
     ],
     "rank": "C"
@@ -36972,7 +36979,7 @@
     "nick": "",
     "div": "Lightweight",
     "rec": "3-1-0",
-    "ufcRec": "3-1-0",
+    "ufcRec": "3-2-0",
     "from": "",
     "img": "",
     "height": "5' 9\"",
@@ -36981,12 +36988,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "L",
       "W",
       "W",
       "W",
       "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
       {
         "outcome": "W",
         "winType": "TKO"
@@ -37050,9 +37062,9 @@
     "slug": "lucas-fernando",
     "name": "Lucas Fernando",
     "nick": "",
-    "div": "",
-    "rec": "0-0-0",
-    "ufcRec": "0-0-0",
+    "div": "Light Heavyweight",
+    "rec": "1-0-0",
+    "ufcRec": "1-0-0",
     "from": "",
     "img": "",
     "height": "6' 3\"",
@@ -37060,8 +37072,15 @@
     "reach": "80\"",
     "stance": "",
     "team": "",
-    "form": [],
-    "formTypes": []
+    "form": [
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      }
+    ]
   },
   {
     "slug": "alexandre-ferreira",
@@ -44022,7 +44041,7 @@
     "nick": "Mr. Vicious",
     "div": "Middleweight",
     "rec": "3-4-0",
-    "ufcRec": "3-4-0",
+    "ufcRec": "4-4-0",
     "from": "",
     "img": "",
     "height": "6' 0\"",
@@ -44032,12 +44051,16 @@
     "team": "",
     "form": [
       "W",
-      "L",
-      "L",
       "W",
+      "L",
+      "L",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "SUB"
@@ -44049,10 +44072,6 @@
       {
         "outcome": "L",
         "winType": "TKO"
-      },
-      {
-        "outcome": "W",
-        "winType": "SUB"
       },
       {
         "outcome": "W",
@@ -56881,10 +56900,10 @@
     "slug": "charles-johnson",
     "name": "Charles Johnson",
     "nick": "InnerG",
-    "div": "Flyweight",
+    "div": "Catch Weight",
     "rec": "19-9-0",
     "recScope": "pro",
-    "ufcRec": "8-7-0",
+    "ufcRec": "9-7-0",
     "from": "",
     "img": "",
     "height": "5' 9\"",
@@ -56893,13 +56912,17 @@
     "stance": "Switch",
     "team": "",
     "form": [
-      "L",
       "W",
       "L",
       "W",
-      "L"
+      "L",
+      "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
       {
         "outcome": "L",
         "winType": "SUB"
@@ -56915,10 +56938,6 @@
       {
         "outcome": "W",
         "winType": "TKO"
-      },
-      {
-        "outcome": "L",
-        "winType": "UD"
       }
     ]
   },
@@ -56928,7 +56947,7 @@
     "nick": "Lock Jaw",
     "div": "Middleweight",
     "rec": "2-0-0",
-    "ufcRec": "2-0-0",
+    "ufcRec": "3-0-0",
     "from": "",
     "img": "",
     "height": "5' 8\"",
@@ -56938,9 +56957,14 @@
     "team": "",
     "form": [
       "W",
+      "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
       {
         "outcome": "W",
         "winType": "SD"
@@ -69179,7 +69203,7 @@
     "nick": "The Silent Assassin",
     "div": "Middleweight",
     "rec": "17-8-0",
-    "ufcRec": "17-8-0",
+    "ufcRec": "17-9-0",
     "from": "",
     "img": "",
     "height": "5' 11\"",
@@ -69188,13 +69212,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "L",
       "W",
       "L",
       "L",
-      "W",
-      "L"
+      "W"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "SUB"
@@ -69210,10 +69238,6 @@
       {
         "outcome": "W",
         "winType": "SUB"
-      },
-      {
-        "outcome": "L",
-        "winType": "TKO"
       }
     ]
   },
@@ -69786,7 +69810,7 @@
     "div": "Welterweight",
     "rec": "17-2-0",
     "recScope": "pro",
-    "ufcRec": "10-1-0",
+    "ufcRec": "10-2-0",
     "from": "",
     "img": "/fighters/ian-machado-garry.png",
     "height": "6' 3\"",
@@ -69795,13 +69819,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "L",
       "W",
       "W",
       "L",
-      "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -69817,10 +69845,6 @@
       {
         "outcome": "W",
         "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "SD"
       }
     ],
     "rank": "1"
@@ -70415,7 +70439,7 @@
     "nick": "The Haitian Sensation",
     "div": "Welterweight",
     "rec": "24-13-0",
-    "ufcRec": "24-13-0",
+    "ufcRec": "25-13-0",
     "from": "",
     "img": "",
     "height": "6' 3\"",
@@ -70424,27 +70448,27 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "W",
       "L",
       "W",
       "W",
-      "L",
       "L"
     ],
     "formTypes": [
-      {
-        "outcome": "L",
-        "winType": "SUB"
-      },
-      {
-        "outcome": "W",
-        "winType": "SUB"
-      },
       {
         "outcome": "W",
         "winType": "TKO"
       },
       {
         "outcome": "L",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
         "winType": "TKO"
       },
       {
@@ -74471,7 +74495,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "2-2-0",
-    "ufcRec": "2-2-0",
+    "ufcRec": "2-3-0",
     "from": "",
     "img": "",
     "height": "6' 0\"",
@@ -74480,12 +74504,17 @@
     "stance": "Southpaw",
     "team": "",
     "form": [
+      "L",
       "W",
       "L",
       "W",
       "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -84681,7 +84710,7 @@
     "nick": "Bang Bang",
     "div": "Welterweight",
     "rec": "5-5-0",
-    "ufcRec": "5-5-0",
+    "ufcRec": "6-5-0",
     "from": "",
     "img": "",
     "height": "6' 3\"",
@@ -84690,13 +84719,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
-      "L",
-      "L",
       "W",
+      "L",
+      "L",
       "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
       {
         "outcome": "L",
         "winType": "UD"
@@ -84712,10 +84745,6 @@
       {
         "outcome": "W",
         "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "SD"
       }
     ]
   },
@@ -87475,7 +87504,7 @@
     "nick": "",
     "div": "Welterweight",
     "rec": "5-1-0",
-    "ufcRec": "5-1-0",
+    "ufcRec": "5-2-0",
     "from": "",
     "img": "",
     "height": "5' 10\"",
@@ -87484,13 +87513,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
-      "W",
-      "W",
-      "W",
       "L",
-      "W"
+      "W",
+      "W",
+      "W",
+      "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -87506,10 +87539,6 @@
       {
         "outcome": "L",
         "winType": "SD"
-      },
-      {
-        "outcome": "W",
-        "winType": "UD"
       }
     ]
   },
@@ -97815,7 +97844,7 @@
     "nick": "El Gringo",
     "div": "Lightweight",
     "rec": "4-3-0",
-    "ufcRec": "4-3-0",
+    "ufcRec": "5-3-0",
     "from": "",
     "img": "",
     "height": "5' 10\"",
@@ -97824,13 +97853,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
-      "L",
       "W",
       "L",
       "W",
+      "L",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
       {
         "outcome": "L",
         "winType": "SUB"
@@ -97846,10 +97879,6 @@
       {
         "outcome": "W",
         "winType": "SD"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
       }
     ]
   },
@@ -99354,7 +99383,7 @@
     "div": "Women's Strawweight",
     "rec": "17-9-0",
     "recScope": "pro",
-    "ufcRec": "14-6-0",
+    "ufcRec": "14-7-0",
     "from": "",
     "img": "/fighters/gillian-robertson.png",
     "height": "5' 5\"",
@@ -99363,7 +99392,7 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
-      "W",
+      "L",
       "W",
       "W",
       "W",
@@ -99371,15 +99400,7 @@
     ],
     "formTypes": [
       {
-        "outcome": "W",
-        "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
-      },
-      {
-        "outcome": "W",
+        "outcome": "L",
         "winType": "UD"
       },
       {
@@ -99389,6 +99410,14 @@
       {
         "outcome": "W",
         "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
       }
     ],
     "rank": "5"
@@ -114217,7 +114246,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "3-7-0",
-    "ufcRec": "3-8-0",
+    "ufcRec": "4-8-0",
     "from": "",
     "img": "",
     "height": "6' 0\"",
@@ -114226,32 +114255,32 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "W",
       "L",
       "L",
       "W",
-      "L",
-      "W"
+      "L"
     ],
     "formTypes": [
       {
-        "outcome": "L",
-        "winType": "UD"
-      },
-      {
-        "outcome": "L",
-        "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
-      },
-      {
-        "outcome": "L",
-        "winType": "TKO"
-      },
-      {
         "outcome": "W",
         "winType": "SUB"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
       }
     ]
   },
@@ -118503,7 +118532,7 @@
     "nick": "Bipolar",
     "div": "Light Heavyweight",
     "rec": "0-1-0",
-    "ufcRec": "0-1-0",
+    "ufcRec": "0-2-0",
     "from": "",
     "img": "",
     "height": "6' 2\"",
@@ -118512,9 +118541,14 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "L",
       "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
       {
         "outcome": "L",
         "winType": "UD"
@@ -120296,7 +120330,7 @@
     "nick": "The Tarantula",
     "div": "Lightweight",
     "rec": "8-6-0",
-    "ufcRec": "8-6-0",
+    "ufcRec": "9-6-0",
     "from": "",
     "img": "",
     "height": "6' 3\"",
@@ -120306,12 +120340,16 @@
     "team": "",
     "form": [
       "W",
-      "L",
-      "L",
       "W",
-      "L"
+      "L",
+      "L",
+      "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
       {
         "outcome": "W",
         "winType": "TKO"
@@ -120327,10 +120365,6 @@
       {
         "outcome": "W",
         "winType": "TKO"
-      },
-      {
-        "outcome": "L",
-        "winType": "SD"
       }
     ]
   },
@@ -125409,7 +125443,7 @@
     "nick": "",
     "div": "Welterweight",
     "rec": "5-2-0",
-    "ufcRec": "5-2-0",
+    "ufcRec": "6-2-0",
     "from": "",
     "img": "",
     "height": "5' 9\"",
@@ -125419,12 +125453,16 @@
     "team": "",
     "form": [
       "W",
-      "L",
-      "L",
       "W",
+      "L",
+      "L",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -125440,10 +125478,6 @@
       {
         "outcome": "W",
         "winType": "SD"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
       }
     ]
   },
