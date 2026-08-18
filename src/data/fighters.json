@@ -25258,7 +25258,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "melquizael-costa",
@@ -56900,8 +56900,8 @@
     "slug": "charles-johnson",
     "name": "Charles Johnson",
     "nick": "InnerG",
-    "div": "Catch Weight",
-    "rec": "19-9-0",
+    "div": "Flyweight",
+    "rec": "20-9-0",
     "recScope": "pro",
     "ufcRec": "9-7-0",
     "from": "",
@@ -56939,7 +56939,8 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "14"
   },
   {
     "slug": "donte-johnson",
