@@ -29,7 +29,13 @@ const eventNum = event.name.replace('UFC ', '').replace('Fight Night', 'FN');
 const tieneQuiniela = Array.isArray(event.fightCard) && event.fightCard.length > 0;
 
 // Horarios por país: la sección que el title llevaba prometiendo sin existir.
-const { confirmada: horaConfirmada, horaET, horarios, startDateISO } = horariosDeEvento(event as any);
+// Devuelve null si el evento no trae fecha usable — un dato sucio del scraper
+// no puede tumbar el build de todo el sitio.
+const datosHora = horariosDeEvento(event as any);
+const horaConfirmada = datosHora?.confirmada ?? false;
+const horaET = datosHora?.horaET ?? null;
+const horarios = datosHora?.horarios ?? [];
+const startDateISO = datosHora?.startDateISO ?? null;
 
 const f1 = event.f1 ?? (event.main !== 'TBD' ? event.main.split(' vs. ')[0]?.trim() : 'TBD');
 const f2 = event.f2 ?? (event.main !== 'TBD' ? event.main.split(' vs. ')[1]?.trim() : 'TBD');
@@ -122,7 +128,7 @@ const breadcrumbSchema = {
 // ("¿a qué hora es UFC 330 en Colombia?"). Es una pregunta que un knowledge
 // panel no puede responder, porque la respuesta depende del país de quien
 // pregunta — de ahí que sea de las pocas de este nicho que sí generan clic.
-const faqHorarios = !isCompleted ? {
+const faqHorarios = (!isCompleted && datosHora) ? {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
@@ -332,7 +338,7 @@ const metaDescription = isCompleted
   </div>
 
   <!-- ── Horarios por país (tabla estática + detección de zona en cliente) ── -->
-  {!isCompleted && (
+  {!isCompleted && datosHora && (
     <div style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
       <HorariosEvento
         nombreEvento={event.name}

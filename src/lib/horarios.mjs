@@ -116,19 +116,41 @@ export function horariosPorPais(fechaISO, horaET) {
   });
 }
 
+/** ¿Es una fecha utilizable? El pipeline puede traer "", "TBD" o nada. */
+export function fechaValida(fecha) {
+  if (typeof fecha !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(fecha)) return false;
+  const t = Date.parse(`${fecha}T00:00:00Z`);
+  return Number.isFinite(t);
+}
+
 /**
  * Todo lo necesario para pintar la sección de horarios de un evento.
- * @param {{name?:string, loc?:string, date:string, horaET?:string}} evento
+ *
+ * Devuelve `null` si el evento no tiene una fecha usable. Esto NO es
+ * paranoia: los eventos vienen de scrapers de Wikipedia y Sherdog, y un solo
+ * evento con la fecha vacía haría que esta función lanzara "Invalid time
+ * value" durante el build — tumbando la generación entera del sitio por una
+ * fila mala. En un sitio estático, un dato sucio no debe poder impedir el
+ * despliegue: la sección simplemente no se pinta.
+ *
+ * @param {{name?:string, loc?:string, date?:string, horaET?:string}} evento
  */
 export function horariosDeEvento(evento) {
+  if (!evento || !fechaValida(evento.date)) return null;
+
   const confirmada = Boolean(evento.horaET);
   const horaET = evento.horaET ?? horaETEstimada(evento);
-  return {
-    confirmada,
-    horaET,
-    horarios: horariosPorPais(evento.date, horaET),
-    // startDate con hora para el schema SportsEvent: Google lo usa para los
-    // rich results de eventos, y con solo la fecha se pierde esa precisión.
-    startDateISO: instanteDesdeET(evento.date, horaET).toISOString(),
-  };
+
+  try {
+    return {
+      confirmada,
+      horaET,
+      horarios: horariosPorPais(evento.date, horaET),
+      // startDate con hora para el schema SportsEvent: Google lo usa para los
+      // rich results de eventos, y con solo la fecha se pierde esa precisión.
+      startDateISO: instanteDesdeET(evento.date, horaET).toISOString(),
+    };
+  } catch {
+    return null;
+  }
 }

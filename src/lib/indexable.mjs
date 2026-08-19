@@ -35,12 +35,6 @@
  * Si el criterio cambia, se cambia SOLO aquí — nunca dupliques esta lógica.
  */
 
-import { createRequire } from 'node:module';
-
-const require_ = createRequire(import.meta.url);
-/** @type {Record<string, any>} */
-const OVERRIDES = require_('../data/fighters-overrides.json');
-
 /** @param {{ rank?: string }} f */
 export const isRanked = (f) =>
   f?.rank === 'C' ||
@@ -49,13 +43,17 @@ export const isRanked = (f) =>
 /**
  * ¿Tiene la ficha texto redactado a mano? Es lo único que la distingue de las
  * otras 4.500: los datos los tiene cualquiera, el criterio editorial no.
- * @param {{ slug?: string, name?: string }} f
+ *
+ * Se lee del propio objeto fighter porque fetch-ufc-data.ts ya fusiona
+ * fighters-overrides.json dentro de fighters.json. Leer el JSON de overrides
+ * aquí, además de redundante, obligaba a un createRequire que Vite tiene que
+ * empaquetar cuando este módulo se importa desde una página — y eso rompía el
+ * build.
+ *
+ * @param {{ bio?: string, trayectoria?: string, style?: object, faq?: unknown[] }} f
  */
-export const tieneContenidoPropio = (f) => {
-  const ov = OVERRIDES[f?.name] ?? OVERRIDES[f?.slug] ?? null;
-  if (!ov) return false;
-  return Boolean(ov.bio || ov.trayectoria || ov.style || (ov.faq && ov.faq.length));
-};
+export const tieneContenidoPropio = (f) =>
+  Boolean(f?.bio || f?.trayectoria || f?.style || (f?.faq && f.faq.length));
 
-/** @param {{ rank?: string, img?: string, slug?: string, name?: string }} f */
+/** @param {{ rank?: string, img?: string, bio?: string, style?: object }} f */
 export const isIndexable = (f) => isRanked(f) || tieneContenidoPropio(f);
