@@ -83,9 +83,13 @@ jobs:
       - name: Esperar deploy de Netlify
         run: sleep 90
 
-      - name: Build local para generar sitemap fresco
+      # SIN continue-on-error a propósito. Lo tenía, y por eso un build roto
+      # estuvo tres días sin que nadie se enterara: Netlify fallaba en silencio
+      # y seguía sirviendo el deploy viejo, mientras el workflow salía en verde.
+      # Si el build no pasa aquí, tampoco pasa en Netlify y el sitio se queda
+      # congelado — eso tiene que salir en rojo.
+      - name: Build (si falla aquí, Netlify tampoco puede desplegar)
         run: npm run build
-        continue-on-error: true
 
       - name: Notificar IndexNow (Bing/Yandex/Seznam/Naver)
         run: npm run indexnow
