@@ -70439,6 +70439,7 @@
     "nick": "The Haitian Sensation",
     "div": "Welterweight",
     "rec": "32-15-0",
+    "recScope": "pro",
     "ufcRec": "25-13-0",
     "from": "",
     "img": "",
@@ -70476,8 +70477,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
-    "recScope": "pro"
+    "rank": "15"
   },
   {
     "slug": "raimond-magomedaliev",
@@ -92796,7 +92796,7 @@
   {
     "slug": "mario-piazzon",
     "name": "Mario Piazzon",
-    "nick": "",
+    "nick": "The Shark",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -132171,7 +132171,7 @@
   {
     "slug": "ronald-humphrey",
     "name": "Ronald Humphrey",
-    "nick": "",
+    "nick": "The Career Ender",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -132304,7 +132304,7 @@
   {
     "slug": "liu-ce",
     "name": "Liu Ce",
-    "nick": "",
+    "nick": "The Oriental Dragon",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -132355,7 +132355,7 @@
   {
     "slug": "yilizhati-maimaitijiang",
     "name": "Yilizhati Maimaitijiang",
-    "nick": "",
+    "nick": "The Taranchi",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -132614,7 +132614,7 @@
   {
     "slug": "carlos-petruzella",
     "name": "Carlos Petruzella",
-    "nick": "Tito",
+    "nick": "El Tito",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -133456,6 +133456,40 @@
     "img": "",
     "height": "",
     "weight": "145 lbs",
+    "reach": "",
+    "stance": "",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "douglas-da-lapa",
+    "name": "Douglas Da Lapa",
+    "nick": "Robozinho",
+    "div": "",
+    "rec": "0-0-0",
+    "ufcRec": "0-0-0",
+    "from": "",
+    "img": "",
+    "height": "",
+    "weight": "185 lbs",
+    "reach": "",
+    "stance": "",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "francesco-nuzzi",
+    "name": "Francesco Nuzzi",
+    "nick": "Berserker",
+    "div": "",
+    "rec": "0-0-0",
+    "ufcRec": "0-0-0",
+    "from": "",
+    "img": "",
+    "height": "",
+    "weight": "135 lbs",
     "reach": "",
     "stance": "",
     "team": "",
