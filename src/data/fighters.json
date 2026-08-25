@@ -4309,7 +4309,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "jim-alers",
@@ -9903,8 +9903,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "renan-barao",
@@ -16161,8 +16160,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "kaik-brito",
@@ -34661,7 +34659,7 @@
     "name": "Jamall Emmers",
     "nick": "Pretty Boy",
     "div": "Featherweight",
-    "rec": "22-8-0",
+    "rec": "23-8-0",
     "recScope": "pro",
     "ufcRec": "6-4-0",
     "from": "",
@@ -34699,7 +34697,8 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "14"
   },
   {
     "slug": "marius-enache",
@@ -57919,7 +57918,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "louis-jourdain",
@@ -58101,7 +58100,7 @@
     "name": "Carli Judice",
     "nick": "Crispy",
     "div": "Women's Flyweight",
-    "rec": "3-1-0",
+    "rec": "7-2-0",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "",
@@ -58138,7 +58137,9 @@
         "outcome": "L",
         "winType": "SD"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "steve-judson",
@@ -92167,7 +92168,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "8"
   },
   {
     "slug": "andre-petroski",
@@ -93565,7 +93566,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "gaetano-pirrello",
