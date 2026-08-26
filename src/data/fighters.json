@@ -542,7 +542,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "7"
+    "rank": "6"
   },
   {
     "slug": "sergei-pavlovich",
@@ -2909,7 +2909,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "8"
+    "rank": "9"
   },
   {
     "slug": "sam-adkins",
@@ -4223,7 +4223,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "irina-alekseeva",
@@ -4797,7 +4797,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "leon-aliu",
@@ -19681,7 +19681,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "jose-canseco",
@@ -28959,7 +28959,7 @@
     "slug": "reinier-de-ridder",
     "name": "Reinier de Ridder",
     "nick": "RdR",
-    "div": "Middleweight",
+    "div": "Light Heavyweight",
     "rec": "22-4-0",
     "recScope": "pro",
     "ufcRec": "5-2-0",
@@ -29372,7 +29372,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9"
+    "rank": "10"
   },
   {
     "slug": "jack-della-maddalena",
@@ -31143,7 +31143,7 @@
     "slug": "roman-dolidze",
     "name": "Roman Dolidze",
     "nick": "",
-    "div": "Middleweight",
+    "div": "Light Heavyweight",
     "rec": "15-6-0",
     "recScope": "pro",
     "ufcRec": "9-6-0",
@@ -31182,8 +31182,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "cameron-dollar",
@@ -36989,7 +36988,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "kaue-fernandes",
@@ -50253,7 +50252,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "6"
+    "rank": "8"
   },
   {
     "slug": "nohelin-hernandez",
@@ -58101,6 +58100,7 @@
     "nick": "Crispy",
     "div": "Women's Flyweight",
     "rec": "7-2-0",
+    "recScope": "pro",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "",
@@ -58138,8 +58138,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "15",
-    "recScope": "pro"
+    "rank": "15"
   },
   {
     "slug": "steve-judson",
@@ -62973,7 +62972,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "8"
+    "rank": "7"
   },
   {
     "slug": "keigo-kunihara",
@@ -66661,7 +66660,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "bevon-lewis",
@@ -84312,7 +84311,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "14"
+    "rank": "13"
   },
   {
     "slug": "mike-nickels",
@@ -91696,7 +91695,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "11"
   },
   {
     "slug": "anthony-perosh",
@@ -95196,7 +95195,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7"
+    "rank": "6"
   },
   {
     "slug": "mike-pyle",
@@ -95966,7 +95965,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "13"
   },
   {
     "slug": "jessica-rakoczy",
@@ -99856,7 +99855,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "7"
   },
   {
     "slug": "kleydson-rodrigues",
@@ -113095,7 +113094,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "6"
+    "rank": "9"
   },
   {
     "slug": "daniel-spohn",
@@ -120472,7 +120471,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "raphael-uchegbu",

@@ -1399,6 +1399,19 @@
     ]
   },
   {
+    "slug": "ufc-fight-night-288-2026-09-12",
+    "name": "UFC Fight Night 288",
+    "main": "TBD",
+    "loc": "Glendale, Arizona, U.S.",
+    "date": "2026-09-12",
+    "dateLabel": "12 sept 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "completed"
+  },
+  {
     "slug": "ufc-fight-night-2026-09-12",
     "name": "UFC Fight Night",
     "main": "Yair Rodríguez vs. Jean Silva",
@@ -1409,7 +1422,7 @@
     "f1img": "/fighters/yair-rodriguez.png",
     "f2": "Jean Silva",
     "f2img": "/fighters/jean-silva.png",
-    "status": "completed",
+    "status": "upcoming",
     "fightCard": [
       {
         "f1": "Yair Rodríguez",
@@ -1493,19 +1506,6 @@
         "order": 8
       }
     ]
-  },
-  {
-    "slug": "ufc-fight-night-288-2026-09-12",
-    "name": "UFC Fight Night 288",
-    "main": "TBD",
-    "loc": "Glendale, Arizona, U.S.",
-    "date": "2026-09-12",
-    "dateLabel": "12 sept 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": "",
-    "status": "upcoming"
   },
   {
     "slug": "ufc-331-2026-09-19",
