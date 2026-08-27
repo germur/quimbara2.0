@@ -1849,7 +1849,31 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2026-11-07",
+    "name": "UFC Fight Night",
+    "main": "Gabriel Bonfim vs. Sean Brady",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-11-07",
+    "dateLabel": "7 nov 2026",
+    "f1": "Gabriel Bonfim",
+    "f1img": "/fighters/gabriel-bonfim.png",
+    "f2": "Sean Brady",
+    "f2img": "/fighters/sean-brady.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Gabriel Bonfim",
+        "f1Id": "gabriel-bonfim",
+        "f2": "Sean Brady",
+        "f2Id": "sean-brady",
+        "weightClass": "Welterweight",
+        "bout": "Main Event",
+        "order": 0
+      }
+    ]
   },
   {
     "slug": "ufc-334-2026-11-14",
