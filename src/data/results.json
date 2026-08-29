@@ -1,34 +1,34 @@
 [
   {
-    "w": "Vitor Petrino",
-    "l": "Serghei Spivac",
-    "method": "Decision (Unanimous)",
+    "w": "Maimaitijiang Yilizhati",
+    "l": "Treston Vines",
+    "method": "Draw (Split)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 285 - Hernandez vs. Rodrigues"
+    "event": "UFC - Road to UFC Season 5: Shanghai Semifinals"
   },
   {
-    "w": "Reinier de Ridder",
-    "l": "Roman Dolidze",
-    "method": "TKO (Punches)",
-    "round": 1,
-    "time": "4:01",
-    "event": "UFC Fight Night 285 - Hernandez vs. Rodrigues"
-  },
-  {
-    "w": "MarQuel Mederos",
-    "l": "Mason Jones",
-    "method": "TKO (Elbows and Punches)",
+    "w": "George Mangos",
+    "l": "Ailinuer Ahejiang",
+    "method": "Submission (Rear-Naked Choke)",
     "round": 2,
-    "time": "2:07",
-    "event": "UFC Fight Night 285 - Hernandez vs. Rodrigues"
+    "time": "2:03",
+    "event": "UFC - Road to UFC Season 5: Shanghai Semifinals"
   },
   {
-    "w": "Carli Judice",
-    "l": "Jeisla Chaves",
-    "method": "TKO (Front Kick to the Body and Punches)",
-    "round": 1,
-    "time": "1:39",
-    "event": "UFC Fight Night 285 - Hernandez vs. Rodrigues"
+    "w": "Rabindra Dhant",
+    "l": "Kasib Murdoch",
+    "method": "Decision (Split)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC - Road to UFC Season 5: Shanghai Semifinals"
+  },
+  {
+    "w": "Bo Meng",
+    "l": "Machi Fukuda",
+    "method": "Decision (Split)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC - Road to UFC Season 5: Shanghai Semifinals"
   }
 ]
