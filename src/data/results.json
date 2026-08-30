@@ -1,34 +1,34 @@
 [
   {
-    "w": "Maimaitijiang Yilizhati",
-    "l": "Treston Vines",
-    "method": "Draw (Split)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC - Road to UFC Season 5: Shanghai Semifinals"
+    "w": "Denise Gomes",
+    "l": "Xiaonan Yan",
+    "method": "KO (Elbow and Punches)",
+    "round": 1,
+    "time": "4:49",
+    "event": "UFC Fight Night 286 - Nurmagomedov vs. Song"
   },
   {
-    "w": "George Mangos",
-    "l": "Ailinuer Ahejiang",
-    "method": "Submission (Rear-Naked Choke)",
+    "w": "Kai Asakura",
+    "l": "Qileng Aori",
+    "method": "TKO (Head Kick and Punches)",
     "round": 2,
-    "time": "2:03",
-    "event": "UFC - Road to UFC Season 5: Shanghai Semifinals"
+    "time": "0:34",
+    "event": "UFC Fight Night 286 - Nurmagomedov vs. Song"
   },
   {
-    "w": "Rabindra Dhant",
-    "l": "Kasib Murdoch",
-    "method": "Decision (Split)",
+    "w": "Su Mudaerji",
+    "l": "Alex Perez",
+    "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC - Road to UFC Season 5: Shanghai Semifinals"
+    "event": "UFC Fight Night 286 - Nurmagomedov vs. Song"
   },
   {
-    "w": "Bo Meng",
-    "l": "Machi Fukuda",
-    "method": "Decision (Split)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC - Road to UFC Season 5: Shanghai Semifinals"
+    "w": "Ce Liu",
+    "l": "Levi Rodrigues",
+    "method": "KO (Punch)",
+    "round": 1,
+    "time": "4:26",
+    "event": "UFC Fight Night 286 - Nurmagomedov vs. Song"
   }
 ]
