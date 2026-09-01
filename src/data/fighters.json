@@ -14597,8 +14597,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "rank": "11"
+    ]
   },
   {
     "slug": "calen-born",
@@ -115285,7 +115284,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "13"
+    "rank": "11"
   },
   {
     "slug": "rama-supandhi",
@@ -119790,7 +119789,7 @@
     "name": "Rei Tsuruya",
     "nick": "",
     "div": "Flyweight",
-    "rec": "11-1-0",
+    "rec": "12-1-0",
     "recScope": "pro",
     "ufcRec": "3-1-0",
     "from": "",
@@ -119823,7 +119822,8 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "13"
   },
   {
     "slug": "chris-tuchscherer",
