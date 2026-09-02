@@ -120,16 +120,46 @@ export function refPeleador(slug, nombre) {
 }
 
 /**
- * Convierte un slug de evento en una referencia de entidad SportsEvent.
+ * Convierte un evento en una referencia de entidad SportsEvent.
+ *
+ * OJO — esto NO puede devolver un nodo pelado con name+url. Google valida
+ * CUALQUIER nodo tipado como Event que aparezca en la página, esté anidado
+ * donde esté (`about`, `mentions`, `@graph`...), y exige `startDate` y
+ * `location`. La versión anterior emitía solo name+url y por eso Search
+ * Console reportaba "Missing field location / startDate" en los posts que
+ * declaran `relatedEvents` — no en las fichas de evento, que sí los llevan.
+ *
+ * Los datos salen de events-all.json en build, la misma fuente que alimenta
+ * /eventos/<slug>/, así que la referencia no puede desincronizarse de la
+ * ficha canónica.
+ *
+ * Si el evento no está en el dataset devolvemos null y el nodo desaparece:
+ * sin fecha no hay Event válido, y un slug que no existe apunta además a un
+ * 404. Antes se inventaba el nombre con slugANombre() y se publicaba igual.
+ *
  * @param {string} slug
- * @param {string} [nombre]
+ * @param {{name?:string,date?:string,loc?:string,status?:string}} [evento]
+ *   registro de events-all.json
+ * @returns {object|null}
  */
-export function refEvento(slug, nombre) {
+export function refEvento(slug, evento) {
+  if (!evento?.date || !evento?.loc) return null;
   return {
     '@type': 'SportsEvent',
     '@id': `${SITE_URL}/eventos/${slug}/#evento`,
-    name: nombre || slugANombre(slug),
+    name: evento.name || slugANombre(slug),
     url: `${SITE_URL}/eventos/${slug}/`,
+    startDate: evento.date,
+    location: {
+      '@type': 'Place',
+      name: evento.loc,
+      address: { '@type': 'PostalAddress', addressLocality: evento.loc },
+    },
+    sport: 'Mixed Martial Arts',
+    eventStatus:
+      evento.status === 'completed'
+        ? 'https://schema.org/EventCompleted'
+        : 'https://schema.org/EventScheduled',
   };
 }
 

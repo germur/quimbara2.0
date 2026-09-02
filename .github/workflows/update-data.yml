@@ -94,3 +94,15 @@ jobs:
       - name: Notificar IndexNow (Bing/Yandex/Seznam/Naver)
         run: npm run indexnow
         continue-on-error: true
+
+      # Va DESPUÉS de IndexNow a propósito: un schema roto no justifica dejar
+      # de avisar a los buscadores de que hay datos nuevos, pero sí tiene que
+      # salir en rojo. Sin continue-on-error.
+      #
+      # Existe porque un nodo SportsEvent incompleto dentro del `about` de tres
+      # posts estuvo publicado hasta que Search Console avisó, semanas después.
+      # Los datos de eventos cambian solos cada día: si un evento pierde `loc`
+      # o `date` en el scrape, esto lo caza el mismo día y no en el correo de
+      # Google del mes que viene.
+      - name: Auditar datos estructurados (rich results)
+        run: npm run audit:schema

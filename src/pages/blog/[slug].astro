@@ -57,14 +57,19 @@ const heroGradient = `linear-gradient(to top, rgba(0,0,0,.82) 0%, ${catColor}55 
 // `mentions` = lo que se nombra de pasada. Los primeros dos peleadores del
 // array son los protagonistas; el resto, menciones.
 const nombrePorSlug = new Map((FIGHTERS as any[]).map(f => [f.slug, f.name]));
-const eventoPorSlug = new Map((EVENTS as any[]).map(e => [e.slug, e.name]));
+// El registro completo, no solo el nombre: refEvento() necesita date y loc
+// para emitir un SportsEvent válido (Google los exige en cualquier nodo Event
+// de la página, no solo en la ficha del evento).
+const eventoPorSlug = new Map((EVENTS as any[]).map(e => [e.slug, e]));
 
 const protagonistas = fighters.slice(0, 2);
 const secundarios   = fighters.slice(2);
 
+// refEvento devuelve null si el slug no está en events-all.json: sin fecha no
+// hay Event válido, y ese slug apunta además a una URL que no existe.
 const about = [
   ...protagonistas.map((s: string) => refPeleador(s, nombrePorSlug.get(s))),
-  ...relatedEvents.map((s: string) => refEvento(s, eventoPorSlug.get(s))),
+  ...relatedEvents.map((s: string) => refEvento(s, eventoPorSlug.get(s))).filter(Boolean),
 ];
 const mentions = secundarios.map((s: string) => refPeleador(s, nombrePorSlug.get(s)));
 
