@@ -6589,7 +6589,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9"
+    "rank": "10"
   },
   {
     "slug": "viscardi-andrade",
@@ -11352,7 +11352,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "4"
+    "rank": "5"
   },
   {
     "slug": "chris-beal",
@@ -34328,7 +34328,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "oban-elliott",
@@ -35011,7 +35011,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "tom-erikson",
@@ -42874,7 +42874,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7"
+    "rank": "8"
   },
   {
     "slug": "jason-godsey",
@@ -43129,7 +43129,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "14"
+    "rank": "7"
   },
   {
     "slug": "sergio-gomez",
@@ -51005,7 +51005,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13"
+    "rank": "14"
   },
   {
     "slug": "tyler-hill",
@@ -56973,7 +56973,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "donte-johnson",
@@ -65996,7 +65996,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "giacomo-lemos",
@@ -85866,7 +85866,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "3"
+    "rank": "4"
   },
   {
     "slug": "adilet-nurmatov",
@@ -91556,7 +91556,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "15"
   },
   {
     "slug": "markus-perez",
@@ -97777,7 +97777,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "vitor-ribeiro",
@@ -98047,7 +98047,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "10"
+    "rank": "11"
   },
   {
     "slug": "matt-ricehouse",
@@ -99478,7 +99478,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "5"
+    "rank": "4"
   },
   {
     "slug": "chad-robichaux",
@@ -104270,7 +104270,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "5"
+    "rank": "6"
   },
   {
     "slug": "hugo-sandoval",
@@ -111762,7 +111762,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6"
+    "rank": "3"
   },
   {
     "slug": "youngjae-song",
@@ -115284,7 +115284,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "11"
+    "rank": "13"
   },
   {
     "slug": "rama-supandhi",
@@ -115703,8 +115703,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "bentley-syler",
@@ -117813,7 +117812,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "8"
+    "rank": "9"
   },
   {
     "slug": "brandon-thatch",
@@ -128399,7 +128398,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "4"
+    "rank": "5"
   },
   {
     "slug": "yan-qihui",
@@ -133815,6 +133814,40 @@
     "img": "",
     "height": "",
     "weight": "170 lbs",
+    "reach": "",
+    "stance": "",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "pavel-andrusca",
+    "name": "Pavel Andrusca",
+    "nick": "",
+    "div": "",
+    "rec": "0-0-0",
+    "ufcRec": "0-0-0",
+    "from": "",
+    "img": "",
+    "height": "",
+    "weight": "145 lbs",
+    "reach": "",
+    "stance": "Orthodox",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "christian-natividad",
+    "name": "Christian Natividad",
+    "nick": "The Hawaiian Punch",
+    "div": "",
+    "rec": "0-0-0",
+    "ufcRec": "0-0-0",
+    "from": "",
+    "img": "",
+    "height": "",
+    "weight": "125 lbs",
     "reach": "",
     "stance": "",
     "team": "",

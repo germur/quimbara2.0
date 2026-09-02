@@ -1713,7 +1713,31 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2026-10-10",
+    "name": "UFC Fight Night",
+    "main": "Brendan Allen vs. Christian Leroy Duncan",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-10-10",
+    "dateLabel": "10 oct 2026",
+    "f1": "Brendan Allen",
+    "f1img": "/fighters/brendan-allen.png",
+    "f2": "Christian Leroy Duncan",
+    "f2img": "/fighters/christian-leroy-duncan.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Brendan Allen",
+        "f1Id": "brendan-allen",
+        "f2": "Christian Leroy Duncan",
+        "f2Id": "christian-leroy-duncan",
+        "weightClass": "Middleweight",
+        "bout": "Main Event",
+        "order": 0
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-290-2026-10-17",
