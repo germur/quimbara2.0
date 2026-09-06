@@ -1,49 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-09-05",
-    "name": "UFC Fight Night",
-    "main": "Michael Page vs. Nursulton Ruziboev",
-    "loc": "Paris, France",
-    "date": "2026-09-05",
-    "dateLabel": "5 sept 2026",
-    "f1": "Michael Page",
-    "f1img": "",
-    "f2": "Nursulton Ruziboev",
-    "f2img": "",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Michael Page",
-        "f1Id": "michael-page",
-        "f2": "Nursulton Ruziboev",
-        "f2Id": "nursulton-ruziboev",
-        "weightClass": "Middleweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Kurtis Campbell",
-        "f1Id": "kurtis-campbell",
-        "f2": "Trevor Peek",
-        "f2Id": "trevor-peek",
-        "weightClass": "Featherweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      },
-      {
-        "f1": "Mário Pinto",
-        "f1Id": "mario-pinto",
-        "f2": "Ryan Spann",
-        "f2Id": "ryan-spann",
-        "weightClass": "Heavyweight",
-        "bout": "maincard",
-        "order": 2
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-09-12",
     "name": "UFC Fight Night",
     "main": "Yair Rodríguez vs. Jean Silva",
@@ -138,8 +94,8 @@
         "order": 8
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-331-2026-09-19",
@@ -270,6 +226,32 @@
         "weightClass": "Featherweight",
         "bout": "maincard",
         "order": 12
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-09-26",
+    "name": "UFC Fight Night",
+    "main": "Raul Rosas Jr. vs. Raoni Barcelos",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-09-26",
+    "dateLabel": "26 sept 2026",
+    "f1": "Raul Rosas Jr.",
+    "f1img": "/fighters/raul-rosas-jr.png",
+    "f2": "Raoni Barcelos",
+    "f2img": "/fighters/raoni-barcelos.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Raul Rosas Jr.",
+        "f1Id": "raul-rosas-jr",
+        "f2": "Raoni Barcelos",
+        "f2Id": "raoni-barcelos",
+        "weightClass": "Bantamweight",
+        "bout": "Main Event",
+        "order": 0
       }
     ],
     "bg": "#7B1FA2",

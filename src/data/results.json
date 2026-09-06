@@ -1,34 +1,34 @@
 [
   {
-    "w": "Denise Gomes",
-    "l": "Xiaonan Yan",
-    "method": "KO (Elbow and Punches)",
+    "w": "Axel Sola",
+    "l": "Fares Ziam",
+    "method": "KO (Punch)",
     "round": 1,
-    "time": "4:49",
-    "event": "UFC Fight Night 286 - Nurmagomedov vs. Song"
+    "time": "1:40",
+    "event": "UFC Fight Night 287 - Hooker vs. Parnasse"
   },
   {
-    "w": "Kai Asakura",
-    "l": "Qileng Aori",
-    "method": "TKO (Head Kick and Punches)",
-    "round": 2,
-    "time": "0:34",
-    "event": "UFC Fight Night 286 - Nurmagomedov vs. Song"
-  },
-  {
-    "w": "Su Mudaerji",
-    "l": "Alex Perez",
+    "w": "Michael Page",
+    "l": "Nursulton Ruziboev",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 286 - Nurmagomedov vs. Song"
+    "event": "UFC Fight Night 287 - Hooker vs. Parnasse"
   },
   {
-    "w": "Ce Liu",
-    "l": "Levi Rodrigues",
-    "method": "KO (Punch)",
-    "round": 1,
-    "time": "4:26",
-    "event": "UFC Fight Night 286 - Nurmagomedov vs. Song"
+    "w": "Daniil Donchenko",
+    "l": "Punahele Soriano",
+    "method": "Decision (Unanimous)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC Fight Night 287 - Hooker vs. Parnasse"
+  },
+  {
+    "w": "Kurtis Campbell",
+    "l": "Trevor Peek",
+    "method": "Submission (Rear-Naked Choke)",
+    "round": 3,
+    "time": "3:07",
+    "event": "UFC Fight Night 287 - Hooker vs. Parnasse"
   }
 ]

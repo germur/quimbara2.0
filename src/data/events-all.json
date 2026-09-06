@@ -1367,7 +1367,7 @@
     "f1img": "",
     "f2": "Nursulton Ruziboev",
     "f2img": "",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Michael Page",
@@ -1679,15 +1679,125 @@
   {
     "slug": "ufc-332-2026-10-03",
     "name": "UFC 332",
-    "main": "TBD",
+    "main": "Natália Silva vs. Wang Cong",
     "loc": "Salt Lake City, Utah, U.S.",
     "date": "2026-10-03",
     "dateLabel": "3 oct 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": "",
-    "status": "upcoming"
+    "f1": "Natália Silva",
+    "f1img": "/fighters/natalia-silva.png",
+    "f2": "Wang Cong",
+    "f2img": "/fighters/wang-cong.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Natália Silva",
+        "f1Id": "natalia-silva",
+        "f2": "Wang Cong",
+        "f2Id": "wang-cong",
+        "weightClass": "Women's Flyweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Deiveson Figueiredo",
+        "f1Id": "deiveson-figueiredo",
+        "f2": "Payton Talbott",
+        "f2Id": "payton-talbott",
+        "weightClass": "Bantamweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Khaos Williams",
+        "f1Id": "khaos-williams",
+        "f2": "Roberto Soldić",
+        "f2Id": "roberto-soldic",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Ateba Gautier",
+        "f1Id": "ateba-gautier",
+        "f2": "Roman Kopylov",
+        "f2Id": "roman-kopylov",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Imanol Rodríguez",
+        "f1Id": "imanol-rodriguez",
+        "f2": "Alden Coria",
+        "f2Id": "alden-coria",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Damian Pinas",
+        "f1Id": "damian-pinas",
+        "f2": "Andrey Pulyaev",
+        "f2Id": "andrey-pulyaev",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Marcus McGhee",
+        "f1Id": "marcus-mcghee",
+        "f2": "Bernardo Sopaj",
+        "f2Id": "bernardo-sopaj",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 6
+      },
+      {
+        "f1": "King Green",
+        "f1Id": "king-green",
+        "f2": "Esteban Ribovics",
+        "f2Id": "esteban-ribovics",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 7
+      },
+      {
+        "f1": "Johnny Walker",
+        "f1Id": "johnny-walker",
+        "f2": "Mick Parkin",
+        "f2Id": "mick-parkin",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 8
+      },
+      {
+        "f1": "Rafael dos Anjos",
+        "f1Id": "rafael-dos-anjos",
+        "f2": "Alexander Hernandez",
+        "f2Id": "alexander-hernandez",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 9
+      },
+      {
+        "f1": "Marvin Vettori",
+        "f1Id": "marvin-vettori",
+        "f2": "Ismail Naurdiev",
+        "f2Id": "ismail-naurdiev",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 10
+      },
+      {
+        "f1": "Court McGee",
+        "f1Id": "court-mcgee",
+        "f2": "Eric Nolan",
+        "f2Id": "eric-nolan",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 11
+      }
+    ]
   },
   {
     "slug": "ufc-332-2026-10-10",
