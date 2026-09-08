@@ -1498,7 +1498,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "mateusz-gamrot",
@@ -1544,7 +1544,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "9"
+    "rank": "11"
   },
   {
     "slug": "max-holloway",
@@ -4797,7 +4797,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "leon-aliu",
@@ -28351,7 +28351,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "jason-day",
@@ -38262,7 +38262,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "10"
   },
   {
     "slug": "colin-fletcher",
@@ -41359,7 +41359,8 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "15"
   },
   {
     "slug": "fernie-garcia",
@@ -41785,7 +41786,7 @@
     "name": "Shamil Gaziev",
     "nick": "",
     "div": "Heavyweight",
-    "rec": "3-3-0",
+    "rec": "15-3-0",
     "ufcRec": "4-3-0",
     "from": "",
     "img": "",
@@ -41822,7 +41823,9 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "charlene-gellner",
@@ -43151,7 +43154,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "7"
+    "rank": "4"
   },
   {
     "slug": "sergio-gomez",
@@ -52271,7 +52274,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "10"
+    "rank": "13"
   },
   {
     "slug": "chase-hooper",
@@ -61544,7 +61547,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6"
+    "rank": "7"
   },
   {
     "slug": "felix-klinkhammer",
@@ -66703,7 +66706,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "bevon-lewis",
@@ -70713,14 +70716,14 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "12"
   },
   {
     "slug": "shara-magomedov",
     "name": "Shara Magomedov",
     "nick": "Bullet",
     "div": "Middleweight",
-    "rec": "5-1-0",
+    "rec": "17-1-0",
     "ufcRec": "6-1-0",
     "from": "",
     "img": "",
@@ -70757,7 +70760,9 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "murtazali-magomedov",
@@ -82208,7 +82213,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "14"
+    "rank": "13"
   },
   {
     "slug": "nicholas-musoke",
@@ -84371,7 +84376,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "13"
+    "rank": "14"
   },
   {
     "slug": "mike-nickels",
@@ -85137,7 +85142,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13"
+    "rank": "14"
   },
   {
     "slug": "eric-nolan",
@@ -91755,7 +91760,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "anthony-perosh",
@@ -93630,7 +93635,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "14"
   },
   {
     "slug": "gaetano-pirrello",
@@ -96030,7 +96035,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13"
+    "rank": "15"
   },
   {
     "slug": "jessica-rakoczy",
@@ -99522,7 +99527,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "4"
+    "rank": "5"
   },
   {
     "slug": "chad-robichaux",
@@ -102417,8 +102422,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "casey-ryan",
@@ -112815,8 +112819,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "ron-sparks",
@@ -119274,8 +119277,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "justice-torres",
@@ -120550,8 +120552,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "raphael-uchegbu",
@@ -127435,8 +127436,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "rank": "8"
+    ]
   },
   {
     "slug": "val-woodburn",
@@ -128452,7 +128452,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "5"
+    "rank": "6"
   },
   {
     "slug": "yan-qihui",
@@ -130265,7 +130265,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13"
+    "rank": "14"
   },
   {
     "slug": "yao-zhikui",
@@ -133174,7 +133174,7 @@
     "name": "Salahdine Parnasse",
     "nick": "Lion of Atlas",
     "div": "Lightweight",
-    "rec": "1-0-0",
+    "rec": "24-2-0",
     "ufcRec": "1-0-0",
     "from": "",
     "img": "",
@@ -133191,7 +133191,9 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "9",
+    "recScope": "pro"
   },
   {
     "slug": "jessie-rosas",
@@ -133907,7 +133909,7 @@
     "name": "Pavel Andrusca",
     "nick": "",
     "div": "Featherweight",
-    "rec": "1-0-0",
+    "rec": "9-0-0",
     "ufcRec": "1-0-0",
     "from": "",
     "img": "",
@@ -133924,7 +133926,9 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "8",
+    "recScope": "pro"
   },
   {
     "slug": "christian-natividad",
