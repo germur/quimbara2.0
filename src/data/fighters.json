@@ -33815,7 +33815,7 @@
     "name": "Joselyne Edwards",
     "nick": "La Pantera",
     "div": "Women's Bantamweight",
-    "rec": "18-6-0",
+    "rec": "13-2-0",
     "recScope": "pro",
     "ufcRec": "9-4-0",
     "from": "",
@@ -41787,6 +41787,7 @@
     "nick": "",
     "div": "Heavyweight",
     "rec": "15-3-0",
+    "recScope": "pro",
     "ufcRec": "4-3-0",
     "from": "",
     "img": "",
@@ -41824,8 +41825,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
-    "recScope": "pro"
+    "rank": "15"
   },
   {
     "slug": "charlene-gellner",
@@ -70724,6 +70724,7 @@
     "nick": "Bullet",
     "div": "Middleweight",
     "rec": "17-1-0",
+    "recScope": "pro",
     "ufcRec": "6-1-0",
     "from": "",
     "img": "",
@@ -70761,8 +70762,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
-    "recScope": "pro"
+    "rank": "15"
   },
   {
     "slug": "murtazali-magomedov",
@@ -133175,6 +133175,7 @@
     "nick": "Lion of Atlas",
     "div": "Lightweight",
     "rec": "24-2-0",
+    "recScope": "pro",
     "ufcRec": "1-0-0",
     "from": "",
     "img": "",
@@ -133192,8 +133193,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9",
-    "recScope": "pro"
+    "rank": "9"
   },
   {
     "slug": "jessie-rosas",
@@ -133910,6 +133910,7 @@
     "nick": "",
     "div": "Featherweight",
     "rec": "9-0-0",
+    "recScope": "pro",
     "ufcRec": "1-0-0",
     "from": "",
     "img": "",
@@ -133927,8 +133928,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8",
-    "recScope": "pro"
+    "rank": "8"
   },
   {
     "slug": "christian-natividad",
