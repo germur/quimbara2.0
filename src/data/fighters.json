@@ -101032,7 +101032,7 @@
   {
     "slug": "rongzhu",
     "name": "Rongzhu",
-    "nick": "",
+    "nick": "The Yama King",
     "div": "Lightweight",
     "rec": "3-3-0",
     "ufcRec": "3-3-0",
@@ -132238,7 +132238,7 @@
   {
     "slug": "hugo-guillon",
     "name": "Hugo Guillon",
-    "nick": "",
+    "nick": "The White Walker",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -132753,7 +132753,7 @@
   {
     "slug": "mayton-perea",
     "name": "Mayton Perea",
-    "nick": "Lion",
+    "nick": "The Lion",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -133960,6 +133960,23 @@
     "weight": "170 lbs",
     "reach": "",
     "stance": "",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "ednilson-santos",
+    "name": "Ednilson Santos",
+    "nick": "Cai Cai",
+    "div": "",
+    "rec": "0-0-0",
+    "ufcRec": "0-0-0",
+    "from": "",
+    "img": "",
+    "height": "",
+    "weight": "155 lbs",
+    "reach": "",
+    "stance": "Orthodox",
     "team": "",
     "form": [],
     "formTypes": []
