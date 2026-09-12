@@ -1324,7 +1324,7 @@
   {
     "slug": "arman-tsarukyan",
     "name": "Arman Tsarukyan",
-    "nick": "Ahalkalakets",
+    "nick": "Batman",
     "div": "Lightweight",
     "rec": "23-3-0",
     "recScope": "pro",
@@ -133977,6 +133977,23 @@
     "weight": "155 lbs",
     "reach": "",
     "stance": "Orthodox",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "lucas-armand",
+    "name": "Lucas Armand",
+    "nick": "Do or Die",
+    "div": "",
+    "rec": "0-0-0",
+    "ufcRec": "0-0-0",
+    "from": "",
+    "img": "",
+    "height": "",
+    "weight": "264 lbs",
+    "reach": "",
+    "stance": "",
     "team": "",
     "form": [],
     "formTypes": []
