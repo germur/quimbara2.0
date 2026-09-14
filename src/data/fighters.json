@@ -1,38 +1,38 @@
 [
   {
-    "slug": "tom-aspinall",
-    "name": "Tom Aspinall",
-    "nick": "Lion",
+    "slug": "ciryl-gane",
+    "name": "Ciryl Gane",
+    "nick": "Bon Gamin",
     "div": "Heavyweight",
-    "rec": "15-3-0",
+    "rec": "14-2-0",
     "recScope": "pro",
-    "ufcRec": "8-1-0",
-    "from": "England",
-    "img": "/fighters/tom-aspinall.png",
-    "height": "6' 5\"",
-    "weight": "256 lbs",
-    "reach": "78\"",
+    "ufcRec": "11-2-0",
+    "from": "France",
+    "img": "/fighters/ciryl-gane.png",
+    "height": "6' 4\"",
+    "weight": "245 lbs",
+    "reach": "81\"",
     "stance": "Orthodox",
-    "team": "Kaobon",
+    "team": "",
     "form": [
-      "NC",
       "W",
+      "NC",
       "W",
       "W",
       "L"
     ],
     "formTypes": [
       {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
         "outcome": "NC",
         "winType": "UD"
       },
       {
         "outcome": "W",
-        "winType": "TKO"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
+        "winType": "SD"
       },
       {
         "outcome": "W",
@@ -40,51 +40,10 @@
       },
       {
         "outcome": "L",
-        "winType": "TKO"
+        "winType": "SUB"
       }
     ],
-    "rank": "C",
-    "metaTitle": "Tom Aspinall \"Lion\" · Campeón UFC Heavyweight · Récord, Estilo y Próxima Pelea",
-    "metaDescription": "Perfil de Tom Aspinall, Campeón UFC Heavyweight de Inglaterra. Récord 15-3-1, velocidad atípica para Heavyweight, jiu-jitsu negro. Estatura 6' 5\" (196 cm). Análisis en español.",
-    "bio": "<p><strong>Tom Aspinall \"Lion\"</strong> es el actual <strong>Campeón UFC Heavyweight</strong> y, para muchos analistas, el peleador más completo que ha producido el peso pesado británico en la historia. Inglés de nacimiento, Aspinall combina un perfil físico atípico — <strong>1.96 m de estatura, 1.98 m de alcance</strong>, pero con velocidad de manos comparable a la de un Welterweight — con un jiu-jitsu de cinturón negro y una mentalidad de finalización en cada combate.</p>\n<p>Su récord actual es de <strong>15 victorias, 3 derrotas y 1 sin contesto</strong>, con <strong>la inmensa mayoría de sus peleas terminadas en el primer round</strong>. Es famoso por finalizar a rivales de élite en menos de 4 minutos, una métrica históricamente reservada para los grandes destructores del peso pesado: Cain Velasquez, Stipe Miocic, Francis Ngannou.</p>\n<p>Entrena en <strong>Kaobon Gym (Liverpool)</strong>, el gimnasio histórico de su padre Andy Aspinall — uno de los pioneros del MMA en Reino Unido. Esta herencia familiar le dio acceso a entrenamiento de clase mundial desde la adolescencia, y explica parte de la madurez técnica que muestra a sus 32 años.</p>",
-    "style": {
-      "striking": "<p>El striking de Aspinall es <strong>extraordinariamente rápido para un Heavyweight</strong>. Trabaja con jab largo desde Orthodox, recto de derecha que conecta con regularidad, y combinaciones de 3-4 golpes que se ejecutan en menos de un segundo. Tiene poder real — más del 80% de sus victorias UFC han sido por KO/TKO — pero su mayor virtud no es el poder bruto, sino la <strong>velocidad de mano y el timing</strong>.</p>\n<p>Su patada baja también es elite: usa kicks al muslo y al hígado para romper el ritmo del rival antes de cerrar distancia. La parte vulnerable de su striking es la <strong>defensa cuando intercambia</strong>: deja el mentón ligeramente expuesto y ha caído en peleas anteriores ante golpes que un Heavyweight normal no le hubiera lanzado a tiempo.</p>",
-      "grappling": "<p>Aspinall tiene <strong>cinturón negro de Brazilian Jiu-Jitsu</strong>, un nivel poco común entre Heavyweights de UFC. Su grappling es ofensivo y completo: triangle chokes desde la guardia, rear-naked chokes después de takedowns, kimuras y armbars en transiciones. <strong>Tiene más finalizaciones por sumisión en UFC Heavyweight que cualquier otro peleador activo</strong>.</p>\n<p>En takedowns ofensivos es funcional pero no de élite — su preferencia es romper al rival en stand-up. Defensivamente lee bien las entradas y rara vez termina abajo contra wrestlers. Pero si la pelea va al suelo, su jiu-jitsu se convierte en la mayor amenaza del peso pesado actual.</p>",
-      "fortalezas": [
-        "Velocidad de manos atípica para Heavyweight — la más rápida de la división",
-        "Cinturón negro BJJ — récord de sumisiones entre Heavyweights activos",
-        "Mentalidad de finalización — la mayoría de sus peleas terminan en round 1",
-        "Combinación poder + velocidad + grappling — perfil completo único"
-      ],
-      "vulnerabilidades": [
-        "Defensa de striking en intercambios largos (cayó por KO ante Curtis Blaydes)",
-        "Lesión de rodilla en 2022 — historial reciente de problemas físicos",
-        "Cardio aún no probado en peleas de 5 rounds completos (la mayoría terminan en R1)"
-      ]
-    },
-    "trayectoria": "<p>Tom Aspinall debutó en UFC en 2020 después de un récord regional perfecto en circuitos británicos. Sus primeras 5 victorias UFC terminaron en el primer round contra rivales del top 25 del peso pesado, lo que lo catapultó rápidamente a la conversación titular.</p>\n<p>Su único tropiezo fue en julio de 2022, cuando una lesión de rodilla en los primeros segundos contra <strong>Curtis Blaydes</strong> lo forzó a abandonar (TKO oficial). Volvió un año después y finalizó a Marcin Tybura, Andrei Arlovski y Sergei Pavlovich, todos en el primer round.</p>\n<p>Ganó el <strong>cinturón interino UFC Heavyweight</strong> en noviembre de 2023 al finalizar a Sergei Pavlovich. En 2024-2025 fue elevado a <strong>Campeón Indiscutido Heavyweight</strong> tras el retiro de Jon Jones, consolidándose como el nuevo rostro del peso pesado de UFC. Su próxima defensa titular está en negociación, con candidatos como Ciryl Gane y Curtis Blaydes (revancha) en primera línea.</p>",
-    "faq": [
-      {
-        "q": "¿Quién es el campeón de UFC Heavyweight?",
-        "a": "El actual <strong>Campeón UFC Heavyweight</strong> es <strong>Tom Aspinall</strong>, peleador inglés. Fue elevado a Campeón Indiscutido tras el retiro de Jon Jones y mantiene el cinturón hasta hoy."
-      },
-      {
-        "q": "¿Cuánto mide Tom Aspinall?",
-        "a": "Tom Aspinall mide <strong>6 pies 5 pulgadas (196 cm)</strong> de estatura, con un alcance de brazos de <strong>78 pulgadas (198 cm)</strong>. Compite en UFC Heavyweight con peso de combate de 256 libras (116 kg)."
-      },
-      {
-        "q": "¿De dónde es Tom Aspinall?",
-        "a": "Tom Aspinall es de <strong>Atherton, Inglaterra</strong>, en el área metropolitana de Manchester. Entrena en <strong>Kaobon Gym (Liverpool)</strong>, el gimnasio fundado por su padre Andy Aspinall, pionero del MMA británico."
-      },
-      {
-        "q": "¿Cuál es el récord de Tom Aspinall en UFC?",
-        "a": "Su récord profesional es de <strong>15 victorias, 3 derrotas y 1 sin contesto</strong>. La mayoría de sus victorias UFC fueron por finalización en el primer round, marca extraordinaria para el peso pesado."
-      },
-      {
-        "q": "¿Cuándo es la próxima pelea de Tom Aspinall?",
-        "a": "La próxima defensa titular está en negociación con UFC. Los candidatos en primera línea son <strong>Ciryl Gane</strong> y una revancha contra <strong>Curtis Blaydes</strong>. Sigue la cobertura en Quimbara para confirmaciones."
-      }
-    ]
+    "rank": "1"
   },
   {
     "slug": "carlos-ulberg",
@@ -505,7 +464,7 @@
     "div": "Heavyweight",
     "rec": "20-6-0",
     "recScope": "pro",
-    "ufcRec": "14-6-0",
+    "ufcRec": "15-6-0",
     "from": "USA",
     "img": "/fighters/curtis-blaydes.png",
     "height": "6' 4\"",
@@ -514,13 +473,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
-      "L",
       "W",
       "L",
       "W",
-      "L"
+      "L",
+      "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
       {
         "outcome": "L",
         "winType": "UD"
@@ -535,10 +498,6 @@
       },
       {
         "outcome": "W",
-        "winType": "TKO"
-      },
-      {
-        "outcome": "L",
         "winType": "TKO"
       }
     ],
@@ -589,52 +548,6 @@
       }
     ],
     "rank": "3"
-  },
-  {
-    "slug": "ciryl-gane",
-    "name": "Ciryl Gane",
-    "nick": "Bon Gamin",
-    "div": "Heavyweight",
-    "rec": "14-2-0",
-    "recScope": "pro",
-    "ufcRec": "11-2-0",
-    "from": "France",
-    "img": "/fighters/ciryl-gane.png",
-    "height": "6' 4\"",
-    "weight": "245 lbs",
-    "reach": "81\"",
-    "stance": "Orthodox",
-    "team": "",
-    "form": [
-      "W",
-      "NC",
-      "W",
-      "W",
-      "L"
-    ],
-    "formTypes": [
-      {
-        "outcome": "W",
-        "winType": "TKO"
-      },
-      {
-        "outcome": "NC",
-        "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "SD"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
-      },
-      {
-        "outcome": "L",
-        "winType": "SUB"
-      }
-    ],
-    "rank": "1"
   },
   {
     "slug": "alexander-volkov",
@@ -2052,7 +1965,7 @@
     "div": "Flyweight",
     "rec": "24-10-2",
     "recScope": "pro",
-    "ufcRec": "11-7-2",
+    "ufcRec": "12-7-2",
     "from": "Mexico",
     "img": "/fighters/brandon-moreno.png",
     "height": "5' 7\"",
@@ -2061,13 +1974,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "W",
       "L",
       "L",
       "W",
-      "W",
-      "L"
+      "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
       {
         "outcome": "L",
         "winType": "UD"
@@ -2083,10 +2000,6 @@
       {
         "outcome": "W",
         "winType": "UD"
-      },
-      {
-        "outcome": "L",
-        "winType": "SD"
       }
     ],
     "rank": "8"
@@ -4186,7 +4099,7 @@
     "div": "Women's Flyweight",
     "rec": "15-8-0",
     "recScope": "pro",
-    "ufcRec": "11-6-0",
+    "ufcRec": "11-7-0",
     "from": "",
     "img": "/fighters/jj-aldrich.png",
     "height": "5' 5\"",
@@ -4195,13 +4108,17 @@
     "stance": "Southpaw",
     "team": "",
     "form": [
+      "L",
       "W",
       "W",
       "L",
-      "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -4217,10 +4134,6 @@
       {
         "outcome": "W",
         "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
       }
     ],
     "rank": "15"
@@ -8316,6 +8229,93 @@
     ]
   },
   {
+    "slug": "tom-aspinall",
+    "name": "Tom Aspinall",
+    "nick": "Lion",
+    "div": "Heavyweight",
+    "rec": "15-3-0",
+    "recScope": "pro",
+    "ufcRec": "8-1-0",
+    "from": "England",
+    "img": "/fighters/tom-aspinall.png",
+    "height": "6' 5\"",
+    "weight": "256 lbs",
+    "reach": "78\"",
+    "stance": "Orthodox",
+    "team": "Kaobon",
+    "form": [
+      "NC",
+      "W",
+      "W",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "NC",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      }
+    ],
+    "metaTitle": "Tom Aspinall \"Lion\" · Campeón UFC Heavyweight · Récord, Estilo y Próxima Pelea",
+    "metaDescription": "Perfil de Tom Aspinall, Campeón UFC Heavyweight de Inglaterra. Récord 15-3-1, velocidad atípica para Heavyweight, jiu-jitsu negro. Estatura 6' 5\" (196 cm). Análisis en español.",
+    "bio": "<p><strong>Tom Aspinall \"Lion\"</strong> es el actual <strong>Campeón UFC Heavyweight</strong> y, para muchos analistas, el peleador más completo que ha producido el peso pesado británico en la historia. Inglés de nacimiento, Aspinall combina un perfil físico atípico — <strong>1.96 m de estatura, 1.98 m de alcance</strong>, pero con velocidad de manos comparable a la de un Welterweight — con un jiu-jitsu de cinturón negro y una mentalidad de finalización en cada combate.</p>\n<p>Su récord actual es de <strong>15 victorias, 3 derrotas y 1 sin contesto</strong>, con <strong>la inmensa mayoría de sus peleas terminadas en el primer round</strong>. Es famoso por finalizar a rivales de élite en menos de 4 minutos, una métrica históricamente reservada para los grandes destructores del peso pesado: Cain Velasquez, Stipe Miocic, Francis Ngannou.</p>\n<p>Entrena en <strong>Kaobon Gym (Liverpool)</strong>, el gimnasio histórico de su padre Andy Aspinall — uno de los pioneros del MMA en Reino Unido. Esta herencia familiar le dio acceso a entrenamiento de clase mundial desde la adolescencia, y explica parte de la madurez técnica que muestra a sus 32 años.</p>",
+    "style": {
+      "striking": "<p>El striking de Aspinall es <strong>extraordinariamente rápido para un Heavyweight</strong>. Trabaja con jab largo desde Orthodox, recto de derecha que conecta con regularidad, y combinaciones de 3-4 golpes que se ejecutan en menos de un segundo. Tiene poder real — más del 80% de sus victorias UFC han sido por KO/TKO — pero su mayor virtud no es el poder bruto, sino la <strong>velocidad de mano y el timing</strong>.</p>\n<p>Su patada baja también es elite: usa kicks al muslo y al hígado para romper el ritmo del rival antes de cerrar distancia. La parte vulnerable de su striking es la <strong>defensa cuando intercambia</strong>: deja el mentón ligeramente expuesto y ha caído en peleas anteriores ante golpes que un Heavyweight normal no le hubiera lanzado a tiempo.</p>",
+      "grappling": "<p>Aspinall tiene <strong>cinturón negro de Brazilian Jiu-Jitsu</strong>, un nivel poco común entre Heavyweights de UFC. Su grappling es ofensivo y completo: triangle chokes desde la guardia, rear-naked chokes después de takedowns, kimuras y armbars en transiciones. <strong>Tiene más finalizaciones por sumisión en UFC Heavyweight que cualquier otro peleador activo</strong>.</p>\n<p>En takedowns ofensivos es funcional pero no de élite — su preferencia es romper al rival en stand-up. Defensivamente lee bien las entradas y rara vez termina abajo contra wrestlers. Pero si la pelea va al suelo, su jiu-jitsu se convierte en la mayor amenaza del peso pesado actual.</p>",
+      "fortalezas": [
+        "Velocidad de manos atípica para Heavyweight — la más rápida de la división",
+        "Cinturón negro BJJ — récord de sumisiones entre Heavyweights activos",
+        "Mentalidad de finalización — la mayoría de sus peleas terminan en round 1",
+        "Combinación poder + velocidad + grappling — perfil completo único"
+      ],
+      "vulnerabilidades": [
+        "Defensa de striking en intercambios largos (cayó por KO ante Curtis Blaydes)",
+        "Lesión de rodilla en 2022 — historial reciente de problemas físicos",
+        "Cardio aún no probado en peleas de 5 rounds completos (la mayoría terminan en R1)"
+      ]
+    },
+    "trayectoria": "<p>Tom Aspinall debutó en UFC en 2020 después de un récord regional perfecto en circuitos británicos. Sus primeras 5 victorias UFC terminaron en el primer round contra rivales del top 25 del peso pesado, lo que lo catapultó rápidamente a la conversación titular.</p>\n<p>Su único tropiezo fue en julio de 2022, cuando una lesión de rodilla en los primeros segundos contra <strong>Curtis Blaydes</strong> lo forzó a abandonar (TKO oficial). Volvió un año después y finalizó a Marcin Tybura, Andrei Arlovski y Sergei Pavlovich, todos en el primer round.</p>\n<p>Ganó el <strong>cinturón interino UFC Heavyweight</strong> en noviembre de 2023 al finalizar a Sergei Pavlovich. En 2024-2025 fue elevado a <strong>Campeón Indiscutido Heavyweight</strong> tras el retiro de Jon Jones, consolidándose como el nuevo rostro del peso pesado de UFC. Su próxima defensa titular está en negociación, con candidatos como Ciryl Gane y Curtis Blaydes (revancha) en primera línea.</p>",
+    "faq": [
+      {
+        "q": "¿Quién es el campeón de UFC Heavyweight?",
+        "a": "El actual <strong>Campeón UFC Heavyweight</strong> es <strong>Tom Aspinall</strong>, peleador inglés. Fue elevado a Campeón Indiscutido tras el retiro de Jon Jones y mantiene el cinturón hasta hoy."
+      },
+      {
+        "q": "¿Cuánto mide Tom Aspinall?",
+        "a": "Tom Aspinall mide <strong>6 pies 5 pulgadas (196 cm)</strong> de estatura, con un alcance de brazos de <strong>78 pulgadas (198 cm)</strong>. Compite en UFC Heavyweight con peso de combate de 256 libras (116 kg)."
+      },
+      {
+        "q": "¿De dónde es Tom Aspinall?",
+        "a": "Tom Aspinall es de <strong>Atherton, Inglaterra</strong>, en el área metropolitana de Manchester. Entrena en <strong>Kaobon Gym (Liverpool)</strong>, el gimnasio fundado por su padre Andy Aspinall, pionero del MMA británico."
+      },
+      {
+        "q": "¿Cuál es el récord de Tom Aspinall en UFC?",
+        "a": "Su récord profesional es de <strong>15 victorias, 3 derrotas y 1 sin contesto</strong>. La mayoría de sus victorias UFC fueron por finalización en el primer round, marca extraordinaria para el peso pesado."
+      },
+      {
+        "q": "¿Cuándo es la próxima pelea de Tom Aspinall?",
+        "a": "La próxima defensa titular está en negociación con UFC. Los candidatos en primera línea son <strong>Ciryl Gane</strong> y una revancha contra <strong>Curtis Blaydes</strong>. Sigue la cobertura en Quimbara para confirmaciones."
+      }
+    ],
+    "rank": "C"
+  },
+  {
     "slug": "steven-asplund",
     "name": "Steven Asplund",
     "nick": "Concrete",
@@ -9425,10 +9425,10 @@
     "slug": "ignacio-bahamondes",
     "name": "Ignacio Bahamondes",
     "nick": "La Jaula",
-    "div": "Lightweight",
+    "div": "Welterweight",
     "rec": "17-7-0",
     "recScope": "pro",
-    "ufcRec": "6-4-0",
+    "ufcRec": "7-4-0",
     "from": "",
     "img": "/fighters/ignacio-bahamondes.png",
     "height": "6' 3\"",
@@ -9437,13 +9437,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
-      "L",
-      "L",
       "W",
+      "L",
+      "L",
       "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
       {
         "outcome": "L",
         "winType": "UD"
@@ -9455,10 +9459,6 @@
       {
         "outcome": "W",
         "winType": "SUB"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
       },
       {
         "outcome": "W",
@@ -11891,7 +11891,7 @@
     "div": "Middleweight",
     "rec": "9-3-0",
     "recScope": "pro",
-    "ufcRec": "2-0-0",
+    "ufcRec": "3-0-0",
     "from": "",
     "img": "/fighters/yousri-belgaroui.png",
     "height": "6' 5\"",
@@ -11901,9 +11901,14 @@
     "team": "",
     "form": [
       "W",
+      "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
       {
         "outcome": "W",
         "winType": "TKO"
@@ -21709,10 +21714,10 @@
     "slug": "edgar-chairez",
     "name": "Edgar Chairez",
     "nick": "Puro Chicali",
-    "div": "Flyweight",
+    "div": "Catch Weight",
     "rec": "14-6-0",
     "recScope": "pro",
-    "ufcRec": "4-2-0",
+    "ufcRec": "4-3-0",
     "from": "",
     "img": "/fighters/edgar-chairez.png",
     "height": "5' 7\"",
@@ -21721,13 +21726,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
-      "W",
-      "W",
-      "W",
       "L",
-      "W"
+      "W",
+      "W",
+      "W",
+      "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "SUB"
@@ -21743,10 +21752,6 @@
       {
         "outcome": "L",
         "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "SUB"
       }
     ]
   },
@@ -29316,7 +29321,7 @@
     "div": "Featherweight",
     "rec": "12-2-0",
     "recScope": "pro",
-    "ufcRec": "4-1-0",
+    "ufcRec": "4-2-0",
     "from": "",
     "img": "/fighters/jose-delgado.png",
     "height": "5' 11\"",
@@ -29325,13 +29330,17 @@
     "stance": "Switch",
     "team": "",
     "form": [
+      "L",
       "W",
       "W",
       "L",
-      "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -29343,10 +29352,6 @@
       {
         "outcome": "L",
         "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
       },
       {
         "outcome": "W",
@@ -34308,7 +34313,7 @@
     "div": "Flyweight",
     "rec": "23-14-1",
     "recScope": "pro",
-    "ufcRec": "10-12-0",
+    "ufcRec": "11-12-0",
     "from": "",
     "img": "/fighters/tim-elliott.png",
     "height": "5' 7\"",
@@ -34317,14 +34322,18 @@
     "stance": "Southpaw",
     "team": "",
     "form": [
+      "W",
       "L",
       "W",
       "W",
-      "L",
-      "W"
+      "L"
     ],
     "formTypes": [
       {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
         "outcome": "L",
         "winType": "UD"
       },
@@ -34339,10 +34348,6 @@
       {
         "outcome": "L",
         "winType": "SUB"
-      },
-      {
-        "outcome": "W",
-        "winType": "UD"
       }
     ],
     "rank": "12"
@@ -38001,7 +38006,7 @@
     "div": "Women's Flyweight",
     "rec": "13-3-0",
     "recScope": "pro",
-    "ufcRec": "8-1-0",
+    "ufcRec": "8-2-0",
     "from": "",
     "img": "/fighters/manon-fiorot.png",
     "height": "5' 7\"",
@@ -38010,23 +38015,23 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
-      "W",
       "L",
       "W",
+      "L",
       "W",
       "W"
     ],
     "formTypes": [
-      {
-        "outcome": "W",
-        "winType": "TKO"
-      },
       {
         "outcome": "L",
         "winType": "UD"
       },
       {
         "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
         "winType": "UD"
       },
       {
@@ -40967,7 +40972,7 @@
     "nick": "",
     "div": "Lightweight",
     "rec": "1-0-0",
-    "ufcRec": "1-0-0",
+    "ufcRec": "2-0-0",
     "from": "",
     "img": "",
     "height": "5' 11\"",
@@ -40976,9 +40981,14 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
+      "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
       {
         "outcome": "W",
         "winType": "TKO"
@@ -41323,7 +41333,7 @@
     "div": "Lightweight",
     "rec": "19-5-0",
     "recScope": "pro",
-    "ufcRec": "8-4-0",
+    "ufcRec": "8-5-0",
     "from": "",
     "img": "",
     "height": "5' 7\"",
@@ -41332,13 +41342,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
-      "W",
-      "W",
-      "W",
       "L",
-      "W"
+      "W",
+      "W",
+      "W",
+      "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -41354,10 +41368,6 @@
       {
         "outcome": "L",
         "winType": "TKO"
-      },
-      {
-        "outcome": "W",
-        "winType": "UD"
       }
     ],
     "rank": "15"
@@ -45102,7 +45112,7 @@
     "div": "Women's Flyweight",
     "rec": "18-5-1",
     "recScope": "pro",
-    "ufcRec": "9-5-2",
+    "ufcRec": "10-5-2",
     "from": "",
     "img": "/fighters/alexa-grasso.png",
     "height": "5' 5\"",
@@ -45112,12 +45122,16 @@
     "team": "",
     "form": [
       "W",
+      "W",
       "L",
       "L",
-      "D",
-      "W"
+      "D"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "TKO"
@@ -45133,10 +45147,6 @@
       {
         "outcome": "D",
         "winType": "SD"
-      },
-      {
-        "outcome": "W",
-        "winType": "SUB"
       }
     ],
     "rank": "3"
@@ -53711,9 +53721,9 @@
     "slug": "dan-ige",
     "name": "Dan Ige",
     "nick": "100 Grand",
-    "div": "Featherweight",
+    "div": "Bantamweight",
     "rec": "11-10-0",
-    "ufcRec": "11-10-0",
+    "ufcRec": "11-11-0",
     "from": "",
     "img": "",
     "height": "5' 7\"",
@@ -53724,11 +53734,15 @@
     "form": [
       "L",
       "L",
-      "W",
       "L",
+      "W",
       "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
       {
         "outcome": "L",
         "winType": "TKO"
@@ -53740,10 +53754,6 @@
       {
         "outcome": "W",
         "winType": "TKO"
-      },
-      {
-        "outcome": "L",
-        "winType": "UD"
       },
       {
         "outcome": "L",
@@ -61572,7 +61582,7 @@
     "nick": "",
     "div": "Lightweight",
     "rec": "10-3-0",
-    "ufcRec": "10-3-0",
+    "ufcRec": "10-4-0",
     "from": "",
     "img": "",
     "height": "5' 9\"",
@@ -61581,13 +61591,17 @@
     "stance": "Orthodox",
     "team": "",
     "form": [
-      "W",
       "L",
       "W",
+      "L",
       "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -61603,10 +61617,6 @@
       {
         "outcome": "W",
         "winType": "TKO"
-      },
-      {
-        "outcome": "W",
-        "winType": "UD"
       }
     ]
   },
@@ -73276,7 +73286,7 @@
     "div": "Bantamweight",
     "rec": "15-1-0",
     "recScope": "pro",
-    "ufcRec": "4-0-0",
+    "ufcRec": "5-0-0",
     "from": "",
     "img": "/fighters/david-martinez.png",
     "height": "5' 5\"",
@@ -73288,9 +73298,14 @@
       "W",
       "W",
       "W",
+      "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -75652,7 +75667,7 @@
     "nick": "Gun",
     "div": "Featherweight",
     "rec": "1-0-0",
-    "ufcRec": "2-0-0",
+    "ufcRec": "3-0-0",
     "from": "",
     "img": "",
     "height": "6' 0\"",
@@ -75662,9 +75677,14 @@
     "team": "",
     "form": [
       "W",
+      "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "TKO"
@@ -80122,7 +80142,7 @@
     "div": "Flyweight",
     "rec": "15-2-0",
     "recScope": "pro",
-    "ufcRec": "3-2-0",
+    "ufcRec": "3-3-0",
     "from": "",
     "img": "",
     "height": "5' 6\"",
@@ -80131,13 +80151,17 @@
     "stance": "Switch",
     "team": "",
     "form": [
+      "L",
       "W",
       "W",
       "L",
-      "L",
-      "W"
+      "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "SD"
+      },
       {
         "outcome": "W",
         "winType": "SUB"
@@ -80153,10 +80177,6 @@
       {
         "outcome": "L",
         "winType": "TKO"
-      },
-      {
-        "outcome": "W",
-        "winType": "SUB"
       }
     ]
   },
@@ -95905,7 +95925,7 @@
     "nick": "Freaky",
     "div": "Featherweight",
     "rec": "2-0-0",
-    "ufcRec": "2-0-0",
+    "ufcRec": "2-1-0",
     "from": "",
     "img": "",
     "height": "",
@@ -95914,10 +95934,15 @@
     "stance": "",
     "team": "",
     "form": [
+      "L",
       "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "TKO"
@@ -101035,7 +101060,7 @@
     "nick": "The Yama King",
     "div": "Lightweight",
     "rec": "3-3-0",
-    "ufcRec": "3-3-0",
+    "ufcRec": "4-3-0",
     "from": "",
     "img": "",
     "height": "5' 9\"",
@@ -101046,11 +101071,15 @@
     "form": [
       "W",
       "W",
+      "W",
       "L",
-      "L",
-      "W"
+      "L"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -101066,10 +101095,6 @@
       {
         "outcome": "L",
         "winType": "SUB"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
       }
     ]
   },
@@ -103470,7 +103495,7 @@
     "div": "Welterweight",
     "rec": "22-6-0",
     "recScope": "pro",
-    "ufcRec": "9-5-0",
+    "ufcRec": "9-6-0",
     "from": "",
     "img": "/fighters/muslim-salikhov.png",
     "height": "5' 11\"",
@@ -103480,12 +103505,16 @@
     "team": "",
     "form": [
       "L",
+      "L",
       "W",
       "W",
-      "W",
-      "L"
+      "W"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "UD"
+      },
       {
         "outcome": "L",
         "winType": "TKO"
@@ -103501,10 +103530,6 @@
       {
         "outcome": "W",
         "winType": "SD"
-      },
-      {
-        "outcome": "L",
-        "winType": "TKO"
       }
     ]
   },
@@ -105285,7 +105310,7 @@
     "nick": "Shakur",
     "div": "Middleweight",
     "rec": "1-2-0",
-    "ufcRec": "1-2-0",
+    "ufcRec": "1-3-0",
     "from": "",
     "img": "",
     "height": "6' 0\"",
@@ -105295,10 +105320,15 @@
     "team": "",
     "form": [
       "L",
+      "L",
       "W",
       "L"
     ],
     "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      },
       {
         "outcome": "L",
         "winType": "SUB"
@@ -109000,7 +109030,7 @@
     "div": "Featherweight",
     "rec": "18-3-0",
     "recScope": "pro",
-    "ufcRec": "6-2-0",
+    "ufcRec": "7-2-0",
     "from": "",
     "img": "/fighters/jean-silva.png",
     "height": "5' 7\"",
@@ -109010,12 +109040,16 @@
     "team": "",
     "form": [
       "W",
-      "L",
       "W",
+      "L",
       "W",
       "W"
     ],
     "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
       {
         "outcome": "W",
         "winType": "UD"
@@ -109027,10 +109061,6 @@
       {
         "outcome": "W",
         "winType": "SUB"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
       },
       {
         "outcome": "W",
@@ -133199,9 +133229,9 @@
     "slug": "jessie-rosas",
     "name": "Jessie Rosas",
     "nick": "Tachidito",
-    "div": "",
-    "rec": "0-0-0",
-    "ufcRec": "0-0-0",
+    "div": "Featherweight",
+    "rec": "0-1-0",
+    "ufcRec": "0-1-0",
     "from": "",
     "img": "",
     "height": "",
@@ -133209,8 +133239,15 @@
     "reach": "",
     "stance": "",
     "team": "",
-    "form": [],
-    "formTypes": []
+    "form": [
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "L",
+        "winType": "TKO"
+      }
+    ]
   },
   {
     "slug": "richie-miranda",
