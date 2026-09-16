@@ -1970,7 +1970,49 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2026-10-31",
+    "name": "UFC Fight Night",
+    "main": "Renato Moicano vs. Tom Nolan",
+    "loc": "",
+    "date": "2026-10-31",
+    "dateLabel": "31 oct 2026",
+    "f1": "Renato Moicano",
+    "f1img": "/fighters/renato-moicano.png",
+    "f2": "Tom Nolan",
+    "f2img": "/fighters/tom-nolan.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Renato Moicano",
+        "f1Id": "renato-moicano",
+        "f2": "Tom Nolan",
+        "f2Id": "tom-nolan",
+        "weightClass": "Lightweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Lucia Szabová",
+        "f1Id": "lucia-szabova",
+        "f2": "Tainara Lisboa",
+        "f2Id": "tainara-lisboa",
+        "weightClass": "Women's Bantamweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Nick Klein",
+        "f1Id": "nick-klein",
+        "f2": "Joseph Kropschot",
+        "f2Id": "joseph-kropschot",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 2
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-293-2026-11-07",

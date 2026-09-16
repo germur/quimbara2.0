@@ -501,7 +501,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "6"
+    "rank": "5"
   },
   {
     "slug": "sergei-pavlovich",
@@ -1595,7 +1595,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "5"
+    "rank": "6"
   },
   {
     "slug": "arnold-allen",
@@ -4135,8 +4135,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "irina-alekseeva",
@@ -25000,7 +24999,7 @@
     "team": "",
     "form": [],
     "formTypes": [],
-    "rank": "5"
+    "rank": "6"
   },
   {
     "slug": "tracy-cortez",
@@ -34351,7 +34350,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "oban-elliott",
@@ -35034,7 +35033,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "tom-erikson",
@@ -38044,7 +38043,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "2"
+    "rank": "3"
   },
   {
     "slug": "luiz-firmino",
@@ -45149,7 +45148,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "3"
+    "rank": "2"
   },
   {
     "slug": "tony-gravely",
@@ -109067,7 +109066,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "6"
+    "rank": "5"
   },
   {
     "slug": "edson-silva",
@@ -120484,6 +120483,7 @@
     "nick": "The Tarantula",
     "div": "Lightweight",
     "rec": "16-9-0",
+    "recScope": "pro",
     "ufcRec": "9-6-0",
     "from": "",
     "img": "",
@@ -120521,8 +120521,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
-    "recScope": "pro"
+    "rank": "15"
   },
   {
     "slug": "austin-tweedy",
