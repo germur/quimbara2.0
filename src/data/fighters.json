@@ -1,51 +1,5 @@
 [
   {
-    "slug": "ciryl-gane",
-    "name": "Ciryl Gane",
-    "nick": "Bon Gamin",
-    "div": "Heavyweight",
-    "rec": "14-2-0",
-    "recScope": "pro",
-    "ufcRec": "11-2-0",
-    "from": "France",
-    "img": "/fighters/ciryl-gane.png",
-    "height": "6' 4\"",
-    "weight": "245 lbs",
-    "reach": "81\"",
-    "stance": "Orthodox",
-    "team": "",
-    "form": [
-      "W",
-      "NC",
-      "W",
-      "W",
-      "L"
-    ],
-    "formTypes": [
-      {
-        "outcome": "W",
-        "winType": "TKO"
-      },
-      {
-        "outcome": "NC",
-        "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "SD"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
-      },
-      {
-        "outcome": "L",
-        "winType": "SUB"
-      }
-    ],
-    "rank": "1"
-  },
-  {
     "slug": "carlos-ulberg",
     "name": "Carlos Ulberg",
     "nick": "Black Jag",
@@ -413,6 +367,42 @@
     ]
   },
   {
+    "slug": "kayla-harrison",
+    "name": "Kayla Harrison",
+    "nick": "",
+    "div": "Women's Bantamweight",
+    "rec": "19-1-0",
+    "recScope": "pro",
+    "ufcRec": "3-0-0",
+    "from": "",
+    "img": "/fighters/kayla-harrison.png",
+    "height": "5' 8\"",
+    "weight": "135 lbs",
+    "reach": "66\"",
+    "stance": "Southpaw",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      }
+    ],
+    "rank": "C"
+  },
+  {
     "slug": "jon-jones",
     "name": "Jon Jones",
     "nick": "Bones",
@@ -548,6 +538,52 @@
       }
     ],
     "rank": "3"
+  },
+  {
+    "slug": "ciryl-gane",
+    "name": "Ciryl Gane",
+    "nick": "Bon Gamin",
+    "div": "Heavyweight",
+    "rec": "14-2-0",
+    "recScope": "pro",
+    "ufcRec": "11-2-0",
+    "from": "France",
+    "img": "/fighters/ciryl-gane.png",
+    "height": "6' 4\"",
+    "weight": "245 lbs",
+    "reach": "81\"",
+    "stance": "Orthodox",
+    "team": "",
+    "form": [
+      "W",
+      "NC",
+      "W",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "NC",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      }
+    ],
+    "rank": "1"
   },
   {
     "slug": "alexander-volkov",
@@ -34895,7 +34931,7 @@
     "rec": "0-3-0",
     "ufcRec": "0-3-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/andy-enz.png",
     "height": "6' 3\"",
     "weight": "185 lbs",
     "reach": "78\"",
@@ -48529,42 +48565,6 @@
         "winType": "UD"
       }
     ]
-  },
-  {
-    "slug": "kayla-harrison",
-    "name": "Kayla Harrison",
-    "nick": "",
-    "div": "Women's Bantamweight",
-    "rec": "19-1-0",
-    "recScope": "pro",
-    "ufcRec": "3-0-0",
-    "from": "",
-    "img": "/fighters/kayla-harrison.png",
-    "height": "5' 8\"",
-    "weight": "135 lbs",
-    "reach": "66\"",
-    "stance": "Southpaw",
-    "team": "",
-    "form": [
-      "W",
-      "W",
-      "W"
-    ],
-    "formTypes": [
-      {
-        "outcome": "W",
-        "winType": "SUB"
-      },
-      {
-        "outcome": "W",
-        "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "SUB"
-      }
-    ],
-    "rank": "C"
   },
   {
     "slug": "collin-hart",
