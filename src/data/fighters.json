@@ -1,5 +1,51 @@
 [
   {
+    "slug": "ciryl-gane",
+    "name": "Ciryl Gane",
+    "nick": "Bon Gamin",
+    "div": "Heavyweight",
+    "rec": "14-2-0",
+    "recScope": "pro",
+    "ufcRec": "11-2-0",
+    "from": "France",
+    "img": "/fighters/ciryl-gane.png",
+    "height": "6' 4\"",
+    "weight": "245 lbs",
+    "reach": "81\"",
+    "stance": "Orthodox",
+    "team": "",
+    "form": [
+      "W",
+      "NC",
+      "W",
+      "W",
+      "L"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "NC",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SD"
+      },
+      {
+        "outcome": "W",
+        "winType": "TKO"
+      },
+      {
+        "outcome": "L",
+        "winType": "SUB"
+      }
+    ],
+    "rank": "1"
+  },
+  {
     "slug": "carlos-ulberg",
     "name": "Carlos Ulberg",
     "nick": "Black Jag",
@@ -367,42 +413,6 @@
     ]
   },
   {
-    "slug": "kayla-harrison",
-    "name": "Kayla Harrison",
-    "nick": "",
-    "div": "Women's Bantamweight",
-    "rec": "19-1-0",
-    "recScope": "pro",
-    "ufcRec": "3-0-0",
-    "from": "",
-    "img": "/fighters/kayla-harrison.png",
-    "height": "5' 8\"",
-    "weight": "135 lbs",
-    "reach": "66\"",
-    "stance": "Southpaw",
-    "team": "",
-    "form": [
-      "W",
-      "W",
-      "W"
-    ],
-    "formTypes": [
-      {
-        "outcome": "W",
-        "winType": "SUB"
-      },
-      {
-        "outcome": "W",
-        "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "SUB"
-      }
-    ],
-    "rank": "C"
-  },
-  {
     "slug": "jon-jones",
     "name": "Jon Jones",
     "nick": "Bones",
@@ -538,52 +548,6 @@
       }
     ],
     "rank": "3"
-  },
-  {
-    "slug": "ciryl-gane",
-    "name": "Ciryl Gane",
-    "nick": "Bon Gamin",
-    "div": "Heavyweight",
-    "rec": "14-2-0",
-    "recScope": "pro",
-    "ufcRec": "11-2-0",
-    "from": "France",
-    "img": "/fighters/ciryl-gane.png",
-    "height": "6' 4\"",
-    "weight": "245 lbs",
-    "reach": "81\"",
-    "stance": "Orthodox",
-    "team": "",
-    "form": [
-      "W",
-      "NC",
-      "W",
-      "W",
-      "L"
-    ],
-    "formTypes": [
-      {
-        "outcome": "W",
-        "winType": "TKO"
-      },
-      {
-        "outcome": "NC",
-        "winType": "UD"
-      },
-      {
-        "outcome": "W",
-        "winType": "SD"
-      },
-      {
-        "outcome": "W",
-        "winType": "TKO"
-      },
-      {
-        "outcome": "L",
-        "winType": "SUB"
-      }
-    ],
-    "rank": "1"
   },
   {
     "slug": "alexander-volkov",
@@ -1275,7 +1239,7 @@
     "name": "Arman Tsarukyan",
     "nick": "Batman",
     "div": "Lightweight",
-    "rec": "23-3-0",
+    "rec": "24-3-0",
     "recScope": "pro",
     "ufcRec": "10-2-0",
     "from": "Armenia",
@@ -1862,7 +1826,7 @@
     "name": "Marlon Vera",
     "nick": "Chito",
     "div": "Bantamweight",
-    "rec": "23-12-1",
+    "rec": "24-12-1",
     "recScope": "pro",
     "ufcRec": "15-11-0",
     "from": "Ecuador",
@@ -16173,7 +16137,7 @@
     "name": "Joanderson Brito",
     "nick": "Tubarao",
     "div": "Featherweight",
-    "rec": "19-5-1",
+    "rec": "20-5-1",
     "recScope": "pro",
     "ufcRec": "7-3-0",
     "from": "",
@@ -48567,6 +48531,42 @@
     ]
   },
   {
+    "slug": "kayla-harrison",
+    "name": "Kayla Harrison",
+    "nick": "",
+    "div": "Women's Bantamweight",
+    "rec": "19-1-0",
+    "recScope": "pro",
+    "ufcRec": "3-0-0",
+    "from": "",
+    "img": "/fighters/kayla-harrison.png",
+    "height": "5' 8\"",
+    "weight": "135 lbs",
+    "reach": "66\"",
+    "stance": "Southpaw",
+    "team": "",
+    "form": [
+      "W",
+      "W",
+      "W"
+    ],
+    "formTypes": [
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      },
+      {
+        "outcome": "W",
+        "winType": "UD"
+      },
+      {
+        "outcome": "W",
+        "winType": "SUB"
+      }
+    ],
+    "rank": "C"
+  },
+  {
     "slug": "collin-hart",
     "name": "Collin Hart",
     "nick": "",
@@ -57928,7 +57928,7 @@
     "name": "Charles Jourdain",
     "nick": "Air",
     "div": "Bantamweight",
-    "rec": "18-8-1",
+    "rec": "18-9-1",
     "recScope": "pro",
     "ufcRec": "9-7-1",
     "from": "",
@@ -76676,7 +76676,7 @@
     "name": "Alonzo Menifield",
     "nick": "Atomic",
     "div": "Light Heavyweight",
-    "rec": "18-6-1",
+    "rec": "19-6-1",
     "recScope": "pro",
     "ufcRec": "11-6-1",
     "from": "",
@@ -81032,7 +81032,7 @@
     "name": "Eduarda Moura",
     "nick": "Ronda",
     "div": "Women's Flyweight",
-    "rec": "12-2-0",
+    "rec": "12-3-0",
     "recScope": "pro",
     "ufcRec": "3-2-0",
     "from": "",
@@ -86189,7 +86189,7 @@
     "name": "Casey O'Neill",
     "nick": "King",
     "div": "Women's Flyweight",
-    "rec": "11-2-0",
+    "rec": "12-2-0",
     "recScope": "pro",
     "ufcRec": "6-2-0",
     "from": "",
@@ -102170,7 +102170,7 @@
     "name": "Mauricio Ruffy",
     "nick": "",
     "div": "Lightweight",
-    "rec": "14-2-0",
+    "rec": "14-3-0",
     "recScope": "pro",
     "ufcRec": "5-1-0",
     "from": "",
