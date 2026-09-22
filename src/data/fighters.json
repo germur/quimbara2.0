@@ -43,7 +43,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "1"
+    "rank": "C"
   },
   {
     "slug": "carlos-ulberg",
@@ -1457,7 +1457,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "11"
+    "rank": "10"
   },
   {
     "slug": "max-holloway",
@@ -1549,7 +1549,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11"
+    "rank": "13"
   },
   {
     "slug": "yair-rodriguez",
@@ -8312,7 +8312,7 @@
         "a": "La próxima defensa titular está en negociación con UFC. Los candidatos en primera línea son <strong>Ciryl Gane</strong> y una revancha contra <strong>Curtis Blaydes</strong>. Sigue la cobertura en Quimbara para confirmaciones."
       }
     ],
-    "rank": "C"
+    "rank": "1"
   },
   {
     "slug": "steven-asplund",
@@ -16181,7 +16181,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "15"
+    "rank": "11"
   },
   {
     "slug": "kaik-brito",
@@ -25337,7 +25337,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "vitor-costa",
@@ -34750,7 +34750,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "marius-enache",
@@ -38282,7 +38282,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "11"
   },
   {
     "slug": "colin-fletcher",
@@ -57986,8 +57986,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "rank": "12"
+    ]
   },
   {
     "slug": "louis-jourdain",
@@ -87586,7 +87585,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "charlie-ontiveros",
@@ -93161,7 +93160,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "fabiola-pidroni",
@@ -102229,7 +102228,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "7"
+    "rank": "8"
   },
   {
     "slug": "eddie-ruiz",
@@ -103630,7 +103629,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8"
+    "rank": "7"
   },
   {
     "slug": "sean-salmon",
@@ -107711,7 +107710,7 @@
     "name": "Edmen Shahbazyan",
     "nick": "The Golden Boy",
     "div": "Middleweight",
-    "rec": "16-6-0",
+    "rec": "17-6-0",
     "recScope": "pro",
     "ufcRec": "10-6-0",
     "from": "",
@@ -107749,7 +107748,8 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "14"
   },
   {
     "slug": "leon-shahbazyan",
