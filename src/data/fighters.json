@@ -1237,7 +1237,7 @@
   {
     "slug": "arman-tsarukyan",
     "name": "Arman Tsarukyan",
-    "nick": "Batman",
+    "nick": "The Batman",
     "div": "Lightweight",
     "rec": "24-3-0",
     "recScope": "pro",
@@ -83389,7 +83389,7 @@
   {
     "slug": "ismail-naurdiev",
     "name": "Ismail Naurdiev",
-    "nick": "",
+    "nick": "Berzdog",
     "div": "Middleweight",
     "rec": "4-3-0",
     "ufcRec": "4-3-0",
@@ -132887,7 +132887,7 @@
   {
     "slug": "emilio-quissua",
     "name": "Emilio Quissua",
-    "nick": "Rixa",
+    "nick": "Sniper",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -133517,7 +133517,7 @@
   {
     "slug": "loai-abushaar",
     "name": "Loai Abushaar",
-    "nick": "",
+    "nick": "Savage Bull",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -133602,7 +133602,7 @@
   {
     "slug": "ian-escuza",
     "name": "Ian Escuza",
-    "nick": "El Especimen",
+    "nick": "The Specimen",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -133861,7 +133861,7 @@
   {
     "slug": "melissa-amaya",
     "name": "Melissa Amaya",
-    "nick": "La Mamba",
+    "nick": "Mamba",
     "div": "",
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
@@ -134065,6 +134065,23 @@
     "img": "",
     "height": "",
     "weight": "264 lbs",
+    "reach": "",
+    "stance": "",
+    "team": "",
+    "form": [],
+    "formTypes": []
+  },
+  {
+    "slug": "preston-la-grange",
+    "name": "Preston La Grange",
+    "nick": "One Shot",
+    "div": "",
+    "rec": "0-0-0",
+    "ufcRec": "0-0-0",
+    "from": "",
+    "img": "",
+    "height": "",
+    "weight": "185 lbs",
     "reach": "",
     "stance": "",
     "team": "",
