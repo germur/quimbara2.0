@@ -1,31 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-09-26",
-    "name": "UFC Fight Night",
-    "main": "Raul Rosas Jr. vs. Raoni Barcelos",
-    "loc": "Las Vegas, Nevada, U.S.",
-    "date": "2026-09-26",
-    "dateLabel": "26 sept 2026",
-    "f1": "Raul Rosas Jr.",
-    "f1img": "/fighters/raul-rosas-jr.png",
-    "f2": "Raoni Barcelos",
-    "f2img": "/fighters/raoni-barcelos.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Raul Rosas Jr.",
-        "f1Id": "raul-rosas-jr",
-        "f2": "Raoni Barcelos",
-        "f2Id": "raoni-barcelos",
-        "weightClass": "Bantamweight",
-        "bout": "Main Event",
-        "order": 0
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-332-2026-10-03",
     "name": "UFC 332",
     "main": "Natália Silva vs. Wang Cong",
@@ -147,8 +121,8 @@
         "order": 11
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-10-10",
@@ -169,6 +143,32 @@
         "f2": "Christian Leroy Duncan",
         "f2Id": "christian-leroy-duncan",
         "weightClass": "Middleweight",
+        "bout": "Main Event",
+        "order": 0
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-10-17",
+    "name": "UFC Fight Night",
+    "main": "Joaquin Buckley vs. Mike Malott",
+    "loc": "Edmonton, Alberta, Canada",
+    "date": "2026-10-17",
+    "dateLabel": "17 oct 2026",
+    "f1": "Joaquin Buckley",
+    "f1img": "/fighters/joaquin-buckley.png",
+    "f2": "Mike Malott",
+    "f2img": "/fighters/mike-malott.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Joaquin Buckley",
+        "f1Id": "joaquin-buckley",
+        "f2": "Mike Malott",
+        "f2Id": "mike-malott",
+        "weightClass": "Welterweight",
         "bout": "Main Event",
         "order": 0
       }

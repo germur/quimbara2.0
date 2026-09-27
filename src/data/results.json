@@ -1,34 +1,34 @@
 [
   {
-    "w": "Arman Tsarukyan",
-    "l": "Mauricio Ruffy",
-    "method": "KO (Elbow)",
-    "round": 1,
-    "time": "4:56",
-    "event": "UFC 331 - Van vs. Pantoja 2"
-  },
-  {
-    "w": "Patricio Freire",
-    "l": "Doo Ho Choi",
-    "method": "TKO (Punches and Elbows)",
-    "round": 1,
-    "time": "3:28",
-    "event": "UFC 331 - Van vs. Pantoja 2"
-  },
-  {
-    "w": "Sean Sharaf",
-    "l": "Gable Steveson",
-    "method": "KO (Punch)",
-    "round": 1,
-    "time": "0:12",
-    "event": "UFC 331 - Van vs. Pantoja 2"
-  },
-  {
-    "w": "Alonzo Menifield",
-    "l": "Iwo Baraniewski",
-    "method": "Decision (Split)",
+    "w": "Ailin Perez",
+    "l": "Norma Dumont",
+    "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC 331 - Van vs. Pantoja 2"
+    "event": "UFC Fight Night 289 - Rosas Jr. vs. Barcelos"
+  },
+  {
+    "w": "Luis Hernandez",
+    "l": "Sedriques Dumas",
+    "method": "Submission (Guillotine Choke)",
+    "round": 1,
+    "time": "0:57",
+    "event": "UFC Fight Night 289 - Rosas Jr. vs. Barcelos"
+  },
+  {
+    "w": "Ilimbek Akylbek Uulu",
+    "l": "Mehemmedali Osmanli",
+    "method": "Disqualification (Illegal Knee)",
+    "round": 1,
+    "time": "2:19",
+    "event": "UFC Fight Night 289 - Rosas Jr. vs. Barcelos"
+  },
+  {
+    "w": "Valesca Machado",
+    "l": "Melissa Amaya",
+    "method": "TKO (Punches)",
+    "round": 2,
+    "time": "3:19",
+    "event": "UFC Fight Night 289 - Rosas Jr. vs. Barcelos"
   }
 ]
