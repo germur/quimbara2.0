@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import EditorialImage from './EditorialImage.astro';
 
 interface Props {
   article: CollectionEntry<'blog'>;
@@ -29,8 +30,9 @@ const heroSideGradient = `linear-gradient(to top, ${catColor}dd 0%, ${catColor}6
   <a href={`/blog/${article.id}/`} class="block group cursor-pointer" style="animation: fadeUp .5s ease both;">
     <div class="relative rounded-md overflow-hidden" style="height: 180px;">
       {image ? (
-        <img
+        <EditorialImage
           src={image}
+          sizes="(min-width: 1280px) 320px, (min-width: 1024px) 30vw, (min-width: 768px) 46vw, 92vw"
           alt={title}
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
@@ -67,7 +69,8 @@ const heroSideGradient = `linear-gradient(to top, ${catColor}dd 0%, ${catColor}6
   <a href={`/blog/${article.id}/`} class="block group relative rounded-md overflow-hidden cursor-pointer h-full"
      style="animation: fadeUp .5s ease both;">
     {image ? (
-      <img src={image} alt={title}
+      <EditorialImage src={image} alt={title}
+           sizes="(min-width: 1400px) 750px, (min-width: 900px) 54vw, 92vw"
            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
            loading="eager" />
     ) : (
@@ -98,7 +101,8 @@ const heroSideGradient = `linear-gradient(to top, ${catColor}dd 0%, ${catColor}6
   <a href={`/blog/${article.id}/`} class="block group relative rounded-md overflow-hidden cursor-pointer h-full"
      style="animation: fadeUp .5s ease both .1s;">
     {image ? (
-      <img src={image} alt={title}
+      <EditorialImage src={image} alt={title}
+           sizes="(min-width: 1400px) 540px, (min-width: 900px) 38vw, 92vw"
            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
            loading="eager" />
     ) : (
