@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EditorialImage from '../../components/EditorialImage.astro';
 import Tag from '../../components/Tag.astro';
 import TacticalSlider from '../../components/TacticalSlider.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
@@ -127,7 +128,7 @@ const PX = "clamp(16px,4vw,60px)";
   <!-- Hero: imagen full-width con gradiente de color de categoría -->
   <div class="relative w-full overflow-hidden" style="aspect-ratio: 16/9; max-height: 80vh; min-height: 280px;">
     {image ? (
-      <img src={image} alt={`Portada de ${title}`}
+      <EditorialImage src={image} alt={`Portada de ${title}`} sizes="100vw" fetchpriority="high"
            class="w-full h-full object-cover" loading="eager" />
     ) : (
       <div class="absolute inset-0 bg-gray-800"></div>

@@ -6,6 +6,9 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "images:editorial": "node scripts/optimize-editorial-images.mjs",
+    "predev": "npm run images:editorial",
+    "prebuild": "npm run images:editorial",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -44,6 +47,7 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
+    "sharp": "^0.34.5",
     "@anthropic-ai/sdk": "^0.88.0",
     "@huggingface/transformers": "^4.2.0",
     "cheerio": "^1.2.0",

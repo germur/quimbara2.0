@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import manifest from '../data/editorial-images.generated.json';
+
+interface Props extends HTMLAttributes<'img'> {
+  src: string;
+  alt: string;
+  sizes: string;
+}
+
+const { src, alt, sizes, loading = 'lazy', decoding = 'async', ...attributes } = Astro.props;
+const optimized = (manifest as Record<string, {
+  src: string; width: number; height: number; srcset: string;
+}>)[src];
+---
+
+<img
+  {...attributes}
+  src={optimized?.src ?? src}
+  srcset={optimized?.srcset}
+  width={optimized?.width ?? attributes.width}
+  height={optimized?.height ?? attributes.height}
+  sizes={optimized ? sizes : undefined}
+  alt={alt}
+  loading={loading}
+  decoding={decoding}
+/>
