@@ -41859,7 +41859,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "charlene-gellner",
@@ -55210,7 +55210,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "12"
   },
   {
     "slug": "eric-jacob",
@@ -78631,7 +78631,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "maurice-mitchell",
@@ -89682,8 +89682,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "rank": "14"
+    ]
   },
   {
     "slug": "willie-parks",
