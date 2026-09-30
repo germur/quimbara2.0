@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import '../styles/fonts.css';
+import displayFont from '@fontsource-variable/big-shoulders-display/files/big-shoulders-display-latin-wght-normal.woff2?url';
+import bodyFont from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import NextEventWidget from '../components/NextEventWidget.astro';
@@ -81,10 +84,8 @@ const siteTitle = (title === "Quimbara" || /[—\-]\s*Quimbara\s*$/i.test(title)
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.site ?? Astro.url.origin).href} />
 
-    <!-- Google Fonts: Big Shoulders Display + Manrope + Newsreader + JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;700&family=Newsreader:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet" />
+    <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
 
     <!-- Schema.org JSON-LD -->
     {schema && <script type="application/ld+json" set:html={schema} />}
