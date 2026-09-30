@@ -2185,7 +2185,103 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2026-11-21",
+    "name": "UFC Fight Night",
+    "main": "Jiří Procházka vs. Navajo Stirling",
+    "loc": "Al Rayyan, Qatar",
+    "date": "2026-11-21",
+    "dateLabel": "21 nov 2026",
+    "f1": "Jiří Procházka",
+    "f1img": "/fighters/jiri-prochazka.png",
+    "f2": "Navajo Stirling",
+    "f2img": "",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Jiří Procházka",
+        "f1Id": "jiri-prochazka",
+        "f2": "Navajo Stirling",
+        "f2Id": "navajo-stirling",
+        "weightClass": "Light Heavyweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Aljamain Sterling",
+        "f1Id": "aljamain-sterling",
+        "f2": "Kevin Vallejos",
+        "f2Id": "kevin-vallejos",
+        "weightClass": "Featherweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Dan Hooker",
+        "f1Id": "dan-hooker",
+        "f2": "Brian Ortega",
+        "f2Id": "brian-ortega",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Jared Cannonier",
+        "f1Id": "jared-cannonier",
+        "f2": "Ikram Aliskerov",
+        "f2Id": "ikram-aliskerov",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Shamil Gaziev",
+        "f1Id": "shamil-gaziev",
+        "f2": "Tallison Teixeira",
+        "f2Id": "tallison-teixeira",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Jake Matthews",
+        "f1Id": "jake-matthews",
+        "f2": "Tahir Abdullayev",
+        "f2Id": "tahir-abdullayev",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Aleksandre Topuria",
+        "f1Id": "aleksandre-topuria",
+        "f2": "Santiago Luna",
+        "f2Id": "santiago-luna",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 6
+      },
+      {
+        "f1": "Asu Almabayev",
+        "f1Id": "asu-almabayev",
+        "f2": "Kyoji Horiguchi",
+        "f2Id": "kyoji-horiguchi",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 7
+      },
+      {
+        "f1": "Amir Albazi",
+        "f1Id": "amir-albazi",
+        "f2": "Alessandro Costa",
+        "f2Id": "alessandro-costa",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 8
+      }
+    ]
   },
   {
     "slug": "ufc-335-2026-12-12",
