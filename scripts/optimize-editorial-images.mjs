@@ -4,6 +4,7 @@ import { dirname, extname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import sharp from 'sharp';
+import { tacticalImages } from '../src/lib/tactical-images.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const publicDir = resolve(root, 'public');
@@ -11,13 +12,17 @@ const outputDir = resolve(publicDir, 'images/editorial');
 const contentDir = resolve(root, 'src/content/blog');
 const widths = [480, 800, 1200, 1600, 1920];
 const quality = 82;
-const sources = new Set();
+const sources = new Set(tacticalImages);
 
 for (const file of (await readdir(contentDir)).sort()) {
   if (!/\.mdx?$/.test(file)) continue;
-  const { data } = matter(await readFile(resolve(contentDir, file), 'utf8'));
+  const { data, content } = matter(await readFile(resolve(contentDir, file), 'utf8'));
   if (typeof data.image === 'string' && data.image.startsWith('/images/')) {
     sources.add(data.image);
+  }
+  // EditorialImage in MDX uses literal local paths, so authors need no registry.
+  for (const match of content.matchAll(/<EditorialImage\b[^>]*\bsrc=["'](\/images\/[^"']+)["']/g)) {
+    sources.add(match[1]);
   }
 }
 
