@@ -1687,7 +1687,7 @@
     "f1img": "/fighters/natalia-silva.png",
     "f2": "Wang Cong",
     "f2img": "/fighters/wang-cong.png",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Natália Silva",
@@ -2286,14 +2286,14 @@
   {
     "slug": "ufc-335-2026-12-12",
     "name": "UFC 335",
-    "main": "TBD",
+    "main": "Oliveira vs. Lopes",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-12-12",
     "dateLabel": "12 dic 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": "",
+    "f1": "Oliveira",
+    "f1img": "/fighters/charles-oliveira.png",
+    "f2": "Lopes",
+    "f2img": "/fighters/diego-lopes.png",
     "status": "upcoming"
   },
   {

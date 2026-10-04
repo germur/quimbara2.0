@@ -1,34 +1,34 @@
 [
   {
-    "w": "Ailin Perez",
-    "l": "Norma Dumont",
+    "w": "Payton Talbott",
+    "l": "Deiveson Figueiredo",
+    "method": "TKO (Punches)",
+    "round": 1,
+    "time": "2:09",
+    "event": "UFC 332 - Silva vs. Wang"
+  },
+  {
+    "w": "Esteban Ribovics",
+    "l": "King Green",
+    "method": "TKO (Punches)",
+    "round": 1,
+    "time": "4:08",
+    "event": "UFC 332 - Silva vs. Wang"
+  },
+  {
+    "w": "Roberto Soldic",
+    "l": "Kalinn Williams",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 289 - Rosas Jr. vs. Barcelos"
+    "event": "UFC 332 - Silva vs. Wang"
   },
   {
-    "w": "Luis Hernandez",
-    "l": "Sedriques Dumas",
-    "method": "Submission (Guillotine Choke)",
+    "w": "Roman Kopylov",
+    "l": "Ateba Abega Gautier",
+    "method": "KO (Punches)",
     "round": 1,
-    "time": "0:57",
-    "event": "UFC Fight Night 289 - Rosas Jr. vs. Barcelos"
-  },
-  {
-    "w": "Ilimbek Akylbek Uulu",
-    "l": "Mehemmedali Osmanli",
-    "method": "Disqualification (Illegal Knee)",
-    "round": 1,
-    "time": "2:19",
-    "event": "UFC Fight Night 289 - Rosas Jr. vs. Barcelos"
-  },
-  {
-    "w": "Valesca Machado",
-    "l": "Melissa Amaya",
-    "method": "TKO (Punches)",
-    "round": 2,
-    "time": "3:19",
-    "event": "UFC Fight Night 289 - Rosas Jr. vs. Barcelos"
+    "time": "3:12",
+    "event": "UFC 332 - Silva vs. Wang"
   }
 ]
