@@ -730,8 +730,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "rank": "7"
+    ]
   },
   {
     "slug": "magomed-ankalaev",
@@ -914,7 +913,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "paulo-costa",
@@ -1865,7 +1864,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "10"
+    "rank": "11"
   },
   {
     "slug": "aljamain-sterling",
@@ -10248,7 +10247,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "daniel-barez",
@@ -21357,7 +21356,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "9"
+    "rank": "8"
   },
   {
     "slug": "igor-cavalcanti",
@@ -22359,7 +22358,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "8"
+    "rank": "9"
   },
   {
     "slug": "michael-chiesa",
@@ -26049,7 +26048,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "kevin-croom",
@@ -29035,7 +29034,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "8"
+    "rank": "14"
   },
   {
     "slug": "crezio-de-souza",
@@ -37603,7 +37602,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9"
+    "rank": "12"
   },
   {
     "slug": "francisco-figueiredo",
@@ -46684,7 +46683,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "10"
   },
   {
     "slug": "gugun-gusman",
@@ -55684,7 +55683,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "7"
+    "rank": "6"
   },
   {
     "slug": "louis-jauregui",
@@ -62259,6 +62258,7 @@
     "nick": "",
     "div": "Middleweight",
     "rec": "16-5-0",
+    "recScope": "pro",
     "ufcRec": "9-5-0",
     "from": "",
     "img": "",
@@ -62296,8 +62296,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14",
-    "recScope": "pro"
+    "rank": "14"
   },
   {
     "slug": "bruno-korea",
@@ -73362,7 +73361,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8"
+    "rank": "9"
   },
   {
     "slug": "wagner-da-conceicao-martins",
@@ -75208,7 +75207,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "ryan-mcgillivray",
@@ -76755,7 +76754,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "14"
+    "rank": "12"
   },
   {
     "slug": "ivan-menjivar",
@@ -82207,7 +82206,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8"
+    "rank": "7"
   },
   {
     "slug": "josias-musasa",
@@ -91122,7 +91121,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "3"
+    "rank": "4"
   },
   {
     "slug": "tecia-pennington",
@@ -93703,7 +93702,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "gaetano-pirrello",
@@ -96113,7 +96112,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "jessica-rakoczy",
@@ -97654,7 +97653,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "8"
   },
   {
     "slug": "alex-reyes",
@@ -98029,6 +98028,7 @@
     "nick": "El Gringo",
     "div": "Lightweight",
     "rec": "17-3-0",
+    "recScope": "pro",
     "ufcRec": "6-3-0",
     "from": "",
     "img": "",
@@ -98066,8 +98066,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "15",
-    "recScope": "pro"
+    "rank": "15"
   },
   {
     "slug": "mike-ricci",
@@ -101463,7 +101462,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "11"
+    "rank": "10"
   },
   {
     "slug": "hilarie-rose",
@@ -108261,7 +108260,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "C"
+    "rank": "1"
   },
   {
     "slug": "antonina-shevchenko",
@@ -109675,7 +109674,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "1"
+    "rank": "C"
   },
   {
     "slug": "jansey-silva",
@@ -116617,7 +116616,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "7"
   },
   {
     "slug": "nordine-taleb",
@@ -117034,8 +117033,7 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ],
-    "rank": "14"
+    ]
   },
   {
     "slug": "aaron-tau",
@@ -124142,7 +124140,7 @@
     "slug": "johnny-walker",
     "name": "Johnny Walker",
     "nick": "",
-    "div": "Light Heavyweight",
+    "div": "Heavyweight",
     "rec": "23-10-0",
     "recScope": "pro",
     "ufcRec": "9-7-0",
@@ -124182,7 +124180,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "brogan-walker",
@@ -129717,7 +129715,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7"
+    "rank": "8"
   },
   {
     "slug": "joao-zaiden",
@@ -130381,7 +130379,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "yao-zhikui",
@@ -133226,6 +133224,7 @@
     "nick": "Bow Down",
     "div": "Heavyweight",
     "rec": "9-0-0",
+    "recScope": "pro",
     "ufcRec": "2-0-0",
     "from": "",
     "img": "",
@@ -133248,8 +133247,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "15",
-    "recScope": "pro"
+    "rank": "15"
   },
   {
     "slug": "hailai-wushamo",

@@ -2286,15 +2286,44 @@
   {
     "slug": "ufc-335-2026-12-12",
     "name": "UFC 335",
-    "main": "Oliveira vs. Lopes",
+    "main": "Charles Oliveira vs. Diego Lopes",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2026-12-12",
     "dateLabel": "12 dic 2026",
-    "f1": "Oliveira",
+    "f1": "Charles Oliveira",
     "f1img": "/fighters/charles-oliveira.png",
-    "f2": "Lopes",
+    "f2": "Diego Lopes",
     "f2img": "/fighters/diego-lopes.png",
-    "status": "upcoming"
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Charles Oliveira",
+        "f1Id": "charles-oliveira",
+        "f2": "Diego Lopes",
+        "f2Id": "diego-lopes",
+        "weightClass": "Lightweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Sergei Pavlovich",
+        "f1Id": "sergei-pavlovich",
+        "f2": "Alex Pereira",
+        "f2Id": "alex-pereira",
+        "weightClass": "Heavyweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Joe Pyfer",
+        "f1Id": "joe-pyfer",
+        "f2": "Bo Nickal",
+        "f2Id": "bo-nickal",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 2
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-295-2027-02-07",
