@@ -2284,6 +2284,19 @@
     ]
   },
   {
+    "slug": "ufc-fight-night-295-2026-11-28",
+    "name": "UFC Fight Night 295",
+    "main": "TBD",
+    "loc": "Riyadh, Saudi Arabia",
+    "date": "2026-11-28",
+    "dateLabel": "28 nov 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
+  },
+  {
     "slug": "ufc-335-2026-12-12",
     "name": "UFC 335",
     "main": "Charles Oliveira vs. Diego Lopes",
@@ -2328,6 +2341,19 @@
   {
     "slug": "ufc-fight-night-295-2027-02-07",
     "name": "UFC Fight Night 295",
+    "main": "TBD",
+    "loc": "Sydney, Australia",
+    "date": "2027-02-07",
+    "dateLabel": "7 feb 2027",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-296-2027-02-07",
+    "name": "UFC Fight Night 296",
     "main": "TBD",
     "loc": "Sydney, Australia",
     "date": "2027-02-07",
