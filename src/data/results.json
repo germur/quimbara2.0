@@ -1,34 +1,34 @@
 [
   {
-    "w": "Payton Talbott",
-    "l": "Deiveson Figueiredo",
-    "method": "TKO (Punches)",
-    "round": 1,
-    "time": "2:09",
-    "event": "UFC 332 - Silva vs. Wang"
-  },
-  {
-    "w": "Esteban Ribovics",
-    "l": "King Green",
-    "method": "TKO (Punches)",
-    "round": 1,
-    "time": "4:08",
-    "event": "UFC 332 - Silva vs. Wang"
-  },
-  {
-    "w": "Roberto Soldic",
-    "l": "Kalinn Williams",
+    "w": "Jai Herbert",
+    "l": "Matheus Camilo",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC 332 - Silva vs. Wang"
+    "event": "UFC Fight Night 290 - Allen vs. Duncan"
   },
   {
-    "w": "Roman Kopylov",
-    "l": "Ateba Abega Gautier",
-    "method": "KO (Punches)",
-    "round": 1,
-    "time": "3:12",
-    "event": "UFC 332 - Silva vs. Wang"
+    "w": "Lupita Godinez",
+    "l": "Ketlen Souza",
+    "method": "Decision (Unanimous)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC Fight Night 290 - Allen vs. Duncan"
+  },
+  {
+    "w": "Andre Fili",
+    "l": "Kai Kamaka III",
+    "method": "KO (Head Kick)",
+    "round": 2,
+    "time": "0:22",
+    "event": "UFC Fight Night 290 - Allen vs. Duncan"
+  },
+  {
+    "w": "Otari Tanzilovi",
+    "l": "Malcolm Wellmaker",
+    "method": "TKO (Head Kick and Punches)",
+    "round": 2,
+    "time": "2:39",
+    "event": "UFC Fight Night 290 - Allen vs. Duncan"
   }
 ]
