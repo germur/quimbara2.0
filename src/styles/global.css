@@ -136,8 +136,6 @@
 .qb-wordmark > span {
   display: inline-block;
   transform: translateY(var(--dy, 0));
-  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
 }
 
 /* Static fallback — used when JS hasn't initialized yet OR reduced motion is requested */
@@ -152,4 +150,23 @@
 
 @media (prefers-reduced-motion: reduce) {
   .qb-wordmark > span { transition: none !important; }
+}
+
+/* Decorative wordmarks animate on the compositor only while visible. */
+@keyframes qb-wordmark-wave {
+  0%, 100% { transform: translate3d(0, -8%, 0); }
+  50% { transform: translate3d(0, 8%, 0); }
+}
+.qb-animated > span { animation: qb-wordmark-wave 4.5s ease-in-out infinite; }
+.qb-animated > span:nth-child(2) { animation-delay: -0.39s; }
+.qb-animated > span:nth-child(3) { animation-delay: -0.79s; }
+.qb-animated > span:nth-child(4) { animation-delay: -1.18s; }
+.qb-animated > span:nth-child(5) { animation-delay: -1.57s; }
+.qb-animated > span:nth-child(6) { animation-delay: -1.96s; }
+.qb-animated > span:nth-child(7) { animation-delay: -2.36s; }
+.qb-animated > span:nth-child(8) { animation-delay: -2.75s; }
+.qb-paused > span { animation-play-state: paused; }
+.qb-animated:not(.qb-paused) > span { will-change: transform; }
+@media (prefers-reduced-motion: reduce) {
+  .qb-animated > span { animation: none; }
 }
