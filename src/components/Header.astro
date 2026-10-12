@@ -109,8 +109,8 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
     <div class="flex items-center gap-2">
       <!-- Search button (lupita) -->
       <button id="search-toggle"
-              class="p-2 text-gray-300 hover:text-[#F2D928] transition-colors duration-200"
-              aria-label="Buscar peleadores">
+              class="p-3 text-gray-300 hover:text-[#F2D928] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-[#F2D928]"
+              aria-label="Buscar peleadores" aria-haspopup="dialog" aria-controls="search-overlay">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="7"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -162,18 +162,20 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
 </header>
 
 <!-- Search overlay -->
-<div id="search-overlay" class="fixed inset-0 z-[60] hidden"
+<dialog id="search-overlay" aria-labelledby="search-title" class="fixed inset-0 m-0 w-full max-w-none h-dvh max-h-none p-0 border-0 text-white"
      style="background: rgba(10,10,10,0.96); backdrop-filter: blur(8px);">
   <div style="max-width:880px; margin:0 auto; padding: clamp(60px,10vh,120px) clamp(16px,4vw,40px) 40px;">
+    <h2 id="search-title" class="sr-only">Buscar peleadores</h2>
+    <label for="search-input" class="sr-only">Nombre o apodo del peleador</label>
     <div class="flex items-center gap-3 pb-4 border-b-2 border-[#F2D928]">
       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F2D928" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="7"></circle>
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
       </svg>
-      <input id="search-input" type="text" autocomplete="off" placeholder="Busca un peleador… (Ilia Topuria, Conor, Lazy Boy)"
-             class="flex-1 bg-transparent text-white text-xl md:text-2xl placeholder:text-gray-500 outline-none"
+      <input id="search-input" type="text" autocomplete="off" autofocus aria-describedby="search-hint" placeholder="Busca un peleador… (Ilia Topuria, Conor, Lazy Boy)"
+             class="flex-1 min-w-0 bg-transparent text-white text-xl md:text-2xl placeholder:text-gray-400 focus-visible:outline-2 focus-visible:outline-[#F2D928] focus-visible:outline-offset-4"
              style="font-family: var(--font-sans);" />
-      <button id="search-close" class="p-2 text-gray-400 hover:text-white" aria-label="Cerrar búsqueda">
+      <button id="search-close" class="p-3 text-gray-400 hover:text-white focus-visible:outline-2 focus-visible:outline-[#F2D928]" aria-label="Cerrar búsqueda">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -181,16 +183,18 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
       </button>
     </div>
 
-    <p id="search-hint" class="text-gray-500 text-xs uppercase tracking-widest mt-4" style="font-family:var(--font-sans);">
+    <p id="search-hint" role="status" aria-live="polite" aria-atomic="true" class="text-gray-400 text-xs uppercase tracking-widest mt-4" style="font-family:var(--font-sans);">
       Escribe al menos 2 letras para buscar
     </p>
 
+    <button id="search-retry" type="button" hidden class="mt-4 px-4 py-3 border border-[#F2D928] rounded text-[#F2D928] focus-visible:outline-2 focus-visible:outline-[#F2D928]">Volver a intentar</button>
     <ul id="search-results" class="mt-4 max-h-[60vh] overflow-y-auto divide-y divide-white/5"
         style="font-family:var(--font-sans);"></ul>
   </div>
-</div>
+</dialog>
 
 <script>
+  import { initFighterSearch } from '../lib/fighter-search.mjs';
   const header = document.getElementById('site-header') as HTMLElement;
   const toggle = document.getElementById('mobile-toggle') as HTMLButtonElement;
   const menu = document.getElementById('mobile-menu') as HTMLElement;
@@ -235,80 +239,5 @@ const femaleDivs = divOrder.filter(d => isFemale(d));
     btn.addEventListener('click', () => pelMenu.classList.contains('hidden') ? show() : hide());
   }
 
-  // ============ SEARCH OVERLAY ============
-  const overlay = document.getElementById('search-overlay') as HTMLElement;
-  const searchBtn = document.getElementById('search-toggle') as HTMLButtonElement;
-  const closeBtn = document.getElementById('search-close') as HTMLButtonElement;
-  const input = document.getElementById('search-input') as HTMLInputElement;
-  const results = document.getElementById('search-results') as HTMLUListElement;
-  const hint = document.getElementById('search-hint') as HTMLElement;
-
-  let index: Array<{slug:string;name:string;nick:string;div:string;img:string;rank:string}> | null = null;
-  let indexLoading = false;
-
-  const loadIndex = async () => {
-    if (index || indexLoading) return;
-    indexLoading = true;
-    try {
-      const r = await fetch('/fighters-index.json');
-      index = await r.json();
-    } catch (e) { console.error('Search index load failed', e); }
-    indexLoading = false;
-  };
-
-  const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-
-  const render = (q: string) => {
-    if (!index) { results.innerHTML = ''; return; }
-    const nq = norm(q.trim());
-    if (nq.length < 2) {
-      hint.textContent = 'Escribe al menos 2 letras para buscar';
-      results.innerHTML = '';
-      return;
-    }
-    const matches = index
-      .filter(f => norm(f.name).includes(nq) || norm(f.nick).includes(nq))
-      .slice(0, 20);
-    hint.textContent = matches.length ? `${matches.length} resultado${matches.length===1?'':'s'}` : 'Sin resultados';
-    results.innerHTML = matches.map(f => `
-      <li>
-        <a href="/peleadores/${f.slug}/" class="flex items-center gap-4 py-3 px-2 hover:bg-white/5 transition-colors">
-          <div class="w-12 h-12 rounded-full overflow-hidden bg-white/5 flex-shrink-0 border border-white/10">
-            <img src="${f.img}" alt="${f.name}" loading="lazy" class="w-full h-full object-cover" onerror="this.style.display='none'">
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="text-white text-sm font-semibold truncate">${f.name}${f.nick ? ` <span class='text-gray-500 font-normal'>"${f.nick}"</span>` : ''}</div>
-            <div class="text-gray-500 text-xs uppercase tracking-wider truncate">${f.div || ''}</div>
-          </div>
-          ${f.rank ? `<span class="text-[10px] font-black bg-[#F2D928] text-black px-2 py-0.5 rounded uppercase tracking-wider">${f.rank === 'C' ? 'Campeón' : '#' + f.rank}</span>` : ''}
-        </a>
-      </li>
-    `).join('');
-  };
-
-  const openSearch = async () => {
-    overlay.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    await loadIndex();
-    setTimeout(() => input.focus(), 50);
-  };
-  const closeSearch = () => {
-    overlay.classList.add('hidden');
-    document.body.style.overflow = '';
-    input.value = '';
-    results.innerHTML = '';
-    hint.textContent = 'Escribe al menos 2 letras para buscar';
-  };
-
-  searchBtn.addEventListener('click', openSearch);
-  closeBtn.addEventListener('click', closeSearch);
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeSearch(); });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !overlay.classList.contains('hidden')) closeSearch();
-    if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) {
-      e.preventDefault();
-      overlay.classList.contains('hidden') ? openSearch() : closeSearch();
-    }
-  });
-  input.addEventListener('input', () => render(input.value));
+  initFighterSearch();
 </script>

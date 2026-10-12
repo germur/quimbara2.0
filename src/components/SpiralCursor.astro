@@ -13,8 +13,10 @@
 ---
 
 <div id="rc-cursor" aria-hidden="true">
-  <div id="rc-pill">
-    <span id="rc-time">5:00</span>
+  <div id="rc-pill-position">
+    <div id="rc-pill">
+      <span id="rc-time">5:00</span>
+    </div>
   </div>
   <div id="rc-dot"></div>
 </div>
@@ -37,6 +39,13 @@
     display: none;
   }
   #rc-cursor.visible { display: block; }
+
+  #rc-pill-position {
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform;
+  }
 
   #rc-pill {
     position: absolute;
@@ -102,79 +111,7 @@
   }
 </style>
 
-<script is:inline>
-  (() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const fine   = window.matchMedia('(pointer: fine)').matches;
-    if (reduce || !fine) return;
-
-    const root = document.getElementById('rc-cursor');
-    const pill = document.getElementById('rc-pill');
-    const dot  = document.getElementById('rc-dot');
-    const time = document.getElementById('rc-time');
-    if (!root || !pill || !dot || !time) return;
-
-    document.documentElement.classList.add('rc-on');
-    root.classList.add('visible');
-
-    // Position state
-    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    let px = mx, py = my; // pill lerps
-
-    let hovering = false;
-
-    const onMove = (e) => { mx = e.clientX; my = e.clientY; };
-    const onDown = () => root.classList.add('click');
-    const onUp   = () => root.classList.remove('click');
-
-    // What triggers "championship round" mode
-    const HOVER_SEL = 'a, button, [role="button"], [data-cursor], input[type="submit"], .qb-wordmark, label[for], summary';
-
-    const onOver = (e) => {
-      const target = e.target;
-      if (target && target.closest && target.closest(HOVER_SEL)) {
-        if (!hovering) {
-          hovering = true;
-          root.classList.add('hover');
-          time.textContent = '0:30'; // last 30 seconds — fight is about to end
-        }
-      }
-    };
-    const onOut = (e) => {
-      const target = e.target;
-      if (target && target.closest && target.closest(HOVER_SEL)) {
-        const to = e.relatedTarget;
-        if (!to || !to.closest || !to.closest(HOVER_SEL)) {
-          hovering = false;
-          root.classList.remove('hover');
-          time.textContent = '5:00'; // full round
-        }
-      }
-    };
-
-    window.addEventListener('mousemove',   onMove,  { passive: true });
-    window.addEventListener('mousedown',   onDown,  { passive: true });
-    window.addEventListener('mouseup',     onUp,    { passive: true });
-    document.addEventListener('mouseover', onOver,  { passive: true });
-    document.addEventListener('mouseout',  onOut,   { passive: true });
-
-    document.addEventListener('mouseleave', () => { root.style.opacity = '0'; });
-    document.addEventListener('mouseenter', () => { root.style.opacity = '1'; });
-
-    const tick = () => {
-      // Dot follows cursor 1:1
-      dot.style.transform = `translate3d(${mx}px, ${my}px, 0) translate3d(-50%, -50%, 0)`;
-
-      // Pill lerps for inertial feel + offset down-right so it doesn't cover what you're pointing at
-      px += (mx - px) * 0.20;
-      py += (my - py) * 0.20;
-      const offX = 16, offY = 16;
-      // Apply translate only via inline; the scale & extra translate come from CSS class transforms
-      pill.style.left = `${px + offX}px`;
-      pill.style.top  = `${py + offY}px`;
-
-      requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  })();
+<script>
+  import { initRoundCursor } from '../lib/round-cursor.mjs';
+  initRoundCursor();
 </script>
