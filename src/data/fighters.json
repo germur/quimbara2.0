@@ -21932,7 +21932,8 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "15"
   },
   {
     "slug": "eduardo-chapolin",
@@ -24210,7 +24211,7 @@
     "rec": "0-0-0",
     "ufcRec": "0-0-0",
     "from": "",
-    "img": "",
+    "img": "/fighters/roque-conceicao.png",
     "height": "",
     "weight": "125 lbs",
     "reach": "",
@@ -78656,7 +78657,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "maurice-mitchell",
@@ -91431,7 +91432,7 @@
     "name": "Alice Pereira",
     "nick": "Golden Girl",
     "div": "Women's Bantamweight",
-    "rec": "1-1-0",
+    "rec": "8-1-0",
     "ufcRec": "2-2-0",
     "from": "",
     "img": "",
@@ -91463,7 +91464,9 @@
         "outcome": "L",
         "winType": "SD"
       }
-    ]
+    ],
+    "rank": "12",
+    "recScope": "pro"
   },
   {
     "slug": "rolando-perez",
@@ -100479,7 +100482,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "8"
+    "rank": "9"
   },
   {
     "slug": "christian-rodriguez",
