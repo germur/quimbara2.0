@@ -1,34 +1,34 @@
 [
   {
-    "w": "Jai Herbert",
-    "l": "Matheus Camilo",
+    "w": "Jasmine Jasudavicius",
+    "l": "Erin Blanchfield",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 290 - Allen vs. Duncan"
+    "event": "UFC Fight Night 291 - Buckley vs. Malott"
   },
   {
-    "w": "Lupita Godinez",
-    "l": "Ketlen Souza",
-    "method": "Decision (Unanimous)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC Fight Night 290 - Allen vs. Duncan"
+    "w": "Cristian Perez",
+    "l": "Kyle Nelson",
+    "method": "KO (Punches)",
+    "round": 1,
+    "time": "0:27",
+    "event": "UFC Fight Night 291 - Buckley vs. Malott"
   },
   {
-    "w": "Andre Fili",
-    "l": "Kai Kamaka III",
-    "method": "KO (Head Kick)",
+    "w": "Marc-Andre Barriault",
+    "l": "Kyle Daukaus",
+    "method": "TKO (Elbows)",
+    "round": 1,
+    "time": "4:28",
+    "event": "UFC Fight Night 291 - Buckley vs. Malott"
+  },
+  {
+    "w": "Timothy Cuamba",
+    "l": "Louis Jourdain",
+    "method": "Submission (Neck Crank)",
     "round": 2,
-    "time": "0:22",
-    "event": "UFC Fight Night 290 - Allen vs. Duncan"
-  },
-  {
-    "w": "Otari Tanzilovi",
-    "l": "Malcolm Wellmaker",
-    "method": "TKO (Head Kick and Punches)",
-    "round": 2,
-    "time": "2:39",
-    "event": "UFC Fight Night 290 - Allen vs. Duncan"
+    "time": "2:48",
+    "event": "UFC Fight Night 291 - Buckley vs. Malott"
   }
 ]

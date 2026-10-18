@@ -1886,7 +1886,7 @@
     "f1img": "/fighters/joaquin-buckley.png",
     "f2": "Mike Malott",
     "f2img": "/fighters/mike-malott.png",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Joaquin Buckley",
@@ -2350,6 +2350,19 @@
         "order": 2
       }
     ]
+  },
+  {
+    "slug": "ufc-336-2027-01-30",
+    "name": "UFC 336",
+    "main": "TBD",
+    "loc": "Toronto, Ontario, Canada",
+    "date": "2027-01-30",
+    "dateLabel": "30 ene 2027",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
   },
   {
     "slug": "ufc-fight-night-295-2027-02-07",

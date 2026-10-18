@@ -1,31 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-10-17",
-    "name": "UFC Fight Night",
-    "main": "Joaquin Buckley vs. Mike Malott",
-    "loc": "Edmonton, Alberta, Canada",
-    "date": "2026-10-17",
-    "dateLabel": "17 oct 2026",
-    "f1": "Joaquin Buckley",
-    "f1img": "/fighters/joaquin-buckley.png",
-    "f2": "Mike Malott",
-    "f2img": "/fighters/mike-malott.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Joaquin Buckley",
-        "f1Id": "joaquin-buckley",
-        "f2": "Mike Malott",
-        "f2Id": "mike-malott",
-        "weightClass": "Welterweight",
-        "bout": "Main Event",
-        "order": 0
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-333-2026-10-24",
     "name": "UFC 333",
     "main": "Alexander Volkanovski vs. Movsar Evloev",
@@ -84,8 +58,8 @@
         "order": 4
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-10-31",
@@ -126,6 +100,32 @@
         "weightClass": "Middleweight",
         "bout": "maincard",
         "order": 2
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-11-07",
+    "name": "UFC Fight Night",
+    "main": "Gabriel Bonfim vs. Sean Brady",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-11-07",
+    "dateLabel": "7 nov 2026",
+    "f1": "Gabriel Bonfim",
+    "f1img": "/fighters/gabriel-bonfim.png",
+    "f2": "Sean Brady",
+    "f2img": "/fighters/sean-brady.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Gabriel Bonfim",
+        "f1Id": "gabriel-bonfim",
+        "f2": "Sean Brady",
+        "f2Id": "sean-brady",
+        "weightClass": "Welterweight",
+        "bout": "Main Event",
+        "order": 0
       }
     ],
     "bg": "#7B1FA2",
