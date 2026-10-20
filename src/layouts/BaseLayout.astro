@@ -43,6 +43,14 @@ const siteTitle = (title === "Quimbara" || /[—\-]\s*Quimbara\s*$/i.test(title)
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Tag Manager: GA4 y Clarity se administran en Calvo Creativo / quimbara.org. -->
+    <script is:inline>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-TQMWKD2C');
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0A0A0B" />
@@ -54,14 +62,6 @@ const siteTitle = (title === "Quimbara" || /[—\-]\s*Quimbara\s*$/i.test(title)
     <meta name="impact-site-verification" value="72b035a0-5ffa-43b1-a490-a60754f4d6b0" />
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9760938521576702" crossorigin="anonymous"></script>
-    <!-- Google Analytics 4 (cargado en Web Worker via Partytown — no bloquea main thread) -->
-    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-R7860CSDRW"></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-R7860CSDRW');
-    </script>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <meta name="robots" content={noIndex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
@@ -91,6 +91,8 @@ const siteTitle = (title === "Quimbara" || /[—\-]\s*Quimbara\s*$/i.test(title)
     {schema && <script type="application/ld+json" set:html={schema} />}
   </head>
   <body class="bg-[var(--color-paper)] text-[var(--color-ink)] min-h-screen flex flex-col selection:bg-[var(--color-acid)]/20 selection:text-[var(--color-ink)]">
+    <!-- Google Tag Manager (noscript): mantener al inicio del body para verificación. -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQMWKD2C" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
     <slot name="progress-bar" />
     <Header />
     <!-- pt-16 = altura del header fijo -->

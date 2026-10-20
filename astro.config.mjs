@@ -9,8 +9,6 @@ import sitemap from '@astrojs/sitemap';
 
 import mdx from '@astrojs/mdx';
 
-import partytown from '@astrojs/partytown';
-
 // Criterio único de indexabilidad (compartido con [slug].astro y listados)
 import { isIndexable } from './src/lib/indexable.mjs';
 
@@ -100,9 +98,6 @@ export default defineConfig({
       // Sitemap con últimas modificaciones
       lastmod: new Date(),
     }),
-    mdx(),
-    partytown({
-      config: { forward: ['dataLayer.push'] }
-    })
+    mdx()
   ]
 });
