@@ -4220,7 +4220,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "14"
+    "rank": "13"
   },
   {
     "slug": "jim-alers",
@@ -6137,8 +6137,7 @@
         "outcome": "W",
         "winType": "SUB"
       }
-    ],
-    "rank": "13"
+    ]
   },
   {
     "slug": "bertrand-amoussou",
@@ -10019,7 +10018,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "6"
+    "rank": "7"
   },
   {
     "slug": "bryan-barberena",
@@ -10247,7 +10246,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "daniel-barez",
@@ -11049,8 +11048,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "rank": "13"
+    ]
   },
   {
     "slug": "austin-bashi",
@@ -13581,7 +13579,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "4"
+    "rank": "5"
   },
   {
     "slug": "maximo-blanco",
@@ -17343,7 +17341,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "12"
   },
   {
     "slug": "martin-buday",
@@ -21933,7 +21931,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "eduardo-chapolin",
@@ -26066,7 +26064,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "kevin-croom",
@@ -32775,7 +32773,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "5"
+    "rank": "4"
   },
   {
     "slug": "chris-duncan",
@@ -37073,7 +37071,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "kaue-fernandes",
@@ -53311,7 +53309,7 @@
     "name": "Sam Hughes",
     "nick": "Sampage",
     "div": "Women's Strawweight",
-    "rec": "6-6-0",
+    "rec": "11-7-0",
     "ufcRec": "6-6-0",
     "from": "",
     "img": "",
@@ -53348,7 +53346,9 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "15",
+    "recScope": "pro"
   },
   {
     "slug": "victor-hugo",
@@ -55241,7 +55241,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "eric-jacob",
@@ -55711,7 +55711,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6"
+    "rank": "4"
   },
   {
     "slug": "louis-jauregui",
@@ -66799,7 +66799,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "bevon-lewis",
@@ -71629,7 +71629,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13"
+    "rank": "10"
   },
   {
     "slug": "regina-malpica-rivera",
@@ -73406,7 +73406,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "9"
+    "rank": "8"
   },
   {
     "slug": "wagner-da-conceicao-martins",
@@ -75252,7 +75252,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "13"
   },
   {
     "slug": "ryan-mcgillivray",
@@ -78681,7 +78681,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "maurice-mitchell",
@@ -83089,7 +83089,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "5"
+    "rank": "6"
   },
   {
     "slug": "yasuhito-namekawa",
@@ -91171,7 +91171,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "4"
+    "rank": "5"
   },
   {
     "slug": "tecia-pennington",
@@ -91495,7 +91495,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "12"
+    "rank": "15"
   },
   {
     "slug": "rolando-perez",
@@ -129804,7 +129804,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8"
+    "rank": "9"
   },
   {
     "slug": "joao-zaiden",
@@ -130472,8 +130472,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "yao-zhikui",
