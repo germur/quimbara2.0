@@ -53310,6 +53310,7 @@
     "nick": "Sampage",
     "div": "Women's Strawweight",
     "rec": "11-7-0",
+    "recScope": "pro",
     "ufcRec": "6-6-0",
     "from": "",
     "img": "",
@@ -53347,8 +53348,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
-    "recScope": "pro"
+    "rank": "15"
   },
   {
     "slug": "victor-hugo",
