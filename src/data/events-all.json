@@ -1910,7 +1910,7 @@
     "f1img": "/fighters/alexander-volkanovski.png",
     "f2": "Movsar Evloev",
     "f2img": "/fighters/movsar-evloev.png",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Alexander Volkanovski",
@@ -2352,17 +2352,50 @@
     ]
   },
   {
-    "slug": "ufc-336-2027-01-30",
-    "name": "UFC 336",
+    "slug": "ufc-fight-night-296-2027-01-16",
+    "name": "UFC Fight Night 296",
     "main": "TBD",
-    "loc": "Toronto, Ontario, Canada",
-    "date": "2027-01-30",
-    "dateLabel": "30 ene 2027",
+    "loc": "Dallas, Texas, U.S.",
+    "date": "2027-01-16",
+    "dateLabel": "16 ene 2027",
     "f1": "TBD",
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
     "status": "upcoming"
+  },
+  {
+    "slug": "ufc-336-2027-01-30",
+    "name": "UFC 336",
+    "main": "Joshua Van vs. Manel Kape",
+    "loc": "Toronto, Ontario, Canada",
+    "date": "2027-01-30",
+    "dateLabel": "30 ene 2027",
+    "f1": "Joshua Van",
+    "f1img": "/fighters/joshua-van.png",
+    "f2": "Manel Kape",
+    "f2img": "/fighters/manel-kape.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Joshua Van",
+        "f1Id": "joshua-van",
+        "f2": "Manel Kape",
+        "f2Id": "manel-kape",
+        "weightClass": "Flyweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Carlos Prates",
+        "f1Id": "carlos-prates",
+        "f2": "Michael Morales",
+        "f2Id": "michael-morales",
+        "weightClass": "Welterweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-295-2027-02-07",
@@ -2380,6 +2413,19 @@
   {
     "slug": "ufc-fight-night-296-2027-02-07",
     "name": "UFC Fight Night 296",
+    "main": "TBD",
+    "loc": "Sydney, Australia",
+    "date": "2027-02-07",
+    "dateLabel": "7 feb 2027",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-297-2027-02-07",
+    "name": "UFC Fight Night 297",
     "main": "TBD",
     "loc": "Sydney, Australia",
     "date": "2027-02-07",

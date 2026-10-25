@@ -1,67 +1,5 @@
 [
   {
-    "slug": "ufc-333-2026-10-24",
-    "name": "UFC 333",
-    "main": "Alexander Volkanovski vs. Movsar Evloev",
-    "loc": "Abu Dhabi, United Arab Emirates",
-    "date": "2026-10-24",
-    "dateLabel": "24 oct 2026",
-    "f1": "Alexander Volkanovski",
-    "f1img": "/fighters/alexander-volkanovski.png",
-    "f2": "Movsar Evloev",
-    "f2img": "/fighters/movsar-evloev.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Alexander Volkanovski",
-        "f1Id": "alexander-volkanovski",
-        "f2": "Movsar Evloev",
-        "f2Id": "movsar-evloev",
-        "weightClass": "Featherweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Petr Yan",
-        "f1Id": "petr-yan",
-        "f2": "Merab Dvalishvili",
-        "f2Id": "merab-dvalishvili",
-        "weightClass": "Bantamweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      },
-      {
-        "f1": "Lone'er Kavanagh",
-        "f1Id": "loneer-kavanagh",
-        "f2": "Ramazan Temirov",
-        "f2Id": "ramazan-temirov",
-        "weightClass": "Flyweight",
-        "bout": "maincard",
-        "order": 2
-      },
-      {
-        "f1": "Azamat Murzakanov",
-        "f1Id": "azamat-murzakanov",
-        "f2": "Dominick Reyes",
-        "f2Id": "dominick-reyes",
-        "weightClass": "Light Heavyweight",
-        "bout": "maincard",
-        "order": 3
-      },
-      {
-        "f1": "Grant Dawson",
-        "f1Id": "grant-dawson",
-        "f2": "Nurullo Aliev",
-        "f2Id": "nurullo-aliev",
-        "weightClass": "Lightweight",
-        "bout": "maincard",
-        "order": 4
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-10-31",
     "name": "UFC Fight Night",
     "main": "Renato Moicano vs. Tom Nolan",
@@ -102,8 +40,8 @@
         "order": 2
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-11-07",
@@ -126,6 +64,131 @@
         "weightClass": "Welterweight",
         "bout": "Main Event",
         "order": 0
+      }
+    ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-334-2026-11-14",
+    "name": "UFC 334",
+    "main": "Ciryl Gane vs. Josh Hokit",
+    "loc": "New York City, New York, U.S.",
+    "date": "2026-11-14",
+    "dateLabel": "14 nov 2026",
+    "f1": "Ciryl Gane",
+    "f1img": "/fighters/ciryl-gane.png",
+    "f2": "Josh Hokit",
+    "f2img": "/fighters/josh-hokit.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Ciryl Gane",
+        "f1Id": "ciryl-gane",
+        "f2": "Josh Hokit",
+        "f2Id": "josh-hokit",
+        "weightClass": "Heavyweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Kayla Harrison",
+        "f1Id": "kayla-harrison",
+        "f2": "Amanda Nunes",
+        "f2Id": "amanda-nunes",
+        "weightClass": "Women's Bantamweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Caio Borralho",
+        "f1Id": "caio-borralho",
+        "f2": "Yousri Belgaroui",
+        "f2Id": "yousri-belgaroui",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Uroš Medić",
+        "f1Id": "uros-medic",
+        "f2": "Kevin Holland",
+        "f2Id": "kevin-holland",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Bilal Hasan",
+        "f1Id": "bilal-hasan",
+        "f2": "Luis Gurule",
+        "f2Id": "luis-gurule",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Drew Dober",
+        "f1Id": "drew-dober",
+        "f2": "Chris Duncan",
+        "f2Id": "chris-duncan",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Stephen Thompson",
+        "f1Id": "stephen-thompson",
+        "f2": "Charles Radtke",
+        "f2Id": "charles-radtke",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 6
+      },
+      {
+        "f1": "Donte Johnson",
+        "f1Id": "donte-johnson",
+        "f2": "Baisangur Susurkaev",
+        "f2Id": "baisangur-susurkaev",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 7
+      },
+      {
+        "f1": "Jim Miller",
+        "f1Id": "jim-miller",
+        "f2": "Terrance McKinney",
+        "f2Id": "terrance-mckinney",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 8
+      },
+      {
+        "f1": "Macy Chiasson",
+        "f1Id": "macy-chiasson",
+        "f2": "Beatriz Mesquita",
+        "f2Id": "beatriz-mesquita",
+        "weightClass": "Women's Bantamweight",
+        "bout": "maincard",
+        "order": 9
+      },
+      {
+        "f1": "Adrian Yañez",
+        "f1Id": "adrian-yanez",
+        "f2": "Juan Díaz",
+        "f2Id": "juan-diaz",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 10
+      },
+      {
+        "f1": "Nazim Sadykhov",
+        "f1Id": "nazim-sadykhov",
+        "f2": "Jefferson Nascimento",
+        "f2Id": "jefferson-nascimento",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 11
       }
     ],
     "bg": "#7B1FA2",

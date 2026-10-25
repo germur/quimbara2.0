@@ -1,34 +1,34 @@
 [
   {
-    "w": "Jasmine Jasudavicius",
-    "l": "Erin Blanchfield",
+    "w": "Petr Yan",
+    "l": "Merab Dvalishvili",
+    "method": "Decision (Unanimous)",
+    "round": 5,
+    "time": "5:00",
+    "event": "UFC 333 - Volkanovski vs. Evloev"
+  },
+  {
+    "w": "Lone'er Kavanagh",
+    "l": "Ramazonbek Temirov",
+    "method": "TKO (Punches)",
+    "round": 1,
+    "time": "4:28",
+    "event": "UFC 333 - Volkanovski vs. Evloev"
+  },
+  {
+    "w": "Alexander Volkov",
+    "l": "Rizvan Kuniev",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 291 - Buckley vs. Malott"
+    "event": "UFC 333 - Volkanovski vs. Evloev"
   },
   {
-    "w": "Cristian Perez",
-    "l": "Kyle Nelson",
-    "method": "KO (Punches)",
+    "w": "Aaron Pico",
+    "l": "Losene Keita",
+    "method": "TKO (Punches)",
     "round": 1,
-    "time": "0:27",
-    "event": "UFC Fight Night 291 - Buckley vs. Malott"
-  },
-  {
-    "w": "Marc-Andre Barriault",
-    "l": "Kyle Daukaus",
-    "method": "TKO (Punches and Elbows)",
-    "round": 1,
-    "time": "4:28",
-    "event": "UFC Fight Night 291 - Buckley vs. Malott"
-  },
-  {
-    "w": "Timothy Cuamba",
-    "l": "Louis Jourdain",
-    "method": "Submission (Neck Crank)",
-    "round": 2,
-    "time": "2:48",
-    "event": "UFC Fight Night 291 - Buckley vs. Malott"
+    "time": "1:14",
+    "event": "UFC 333 - Volkanovski vs. Evloev"
   }
 ]
