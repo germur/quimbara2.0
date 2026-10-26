@@ -2365,6 +2365,19 @@
     "status": "upcoming"
   },
   {
+    "slug": "ufc-fight-night-297-2027-01-23",
+    "name": "UFC Fight Night 297",
+    "main": "TBD",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2027-01-23",
+    "dateLabel": "23 ene 2027",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
+  },
+  {
     "slug": "ufc-336-2027-01-30",
     "name": "UFC 336",
     "main": "Joshua Van vs. Manel Kape",
@@ -2426,6 +2439,19 @@
   {
     "slug": "ufc-fight-night-297-2027-02-07",
     "name": "UFC Fight Night 297",
+    "main": "TBD",
+    "loc": "Sydney, Australia",
+    "date": "2027-02-07",
+    "dateLabel": "7 feb 2027",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-298-2027-02-07",
+    "name": "UFC Fight Night 298",
     "main": "TBD",
     "loc": "Sydney, Australia",
     "date": "2027-02-07",
