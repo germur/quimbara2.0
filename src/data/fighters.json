@@ -4220,7 +4220,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "13"
+    "rank": "14"
   },
   {
     "slug": "jim-alers",
@@ -16183,7 +16183,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "kaik-brito",
@@ -17637,7 +17637,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "lee-kwan-bum",
@@ -28396,7 +28396,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "11"
   },
   {
     "slug": "jason-day",
@@ -53357,8 +53357,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "victor-hugo",
@@ -69099,7 +69098,7 @@
     "name": "Iasmin Lucindo",
     "nick": "",
     "div": "Women's Strawweight",
-    "rec": "5-2-0",
+    "rec": "19-6-0",
     "ufcRec": "6-2-0",
     "from": "",
     "img": "",
@@ -69136,7 +69135,9 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "7",
+    "recScope": "pro"
   },
   {
     "slug": "duane-ludwig",
@@ -100543,7 +100544,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "9"
+    "rank": "10"
   },
   {
     "slug": "christian-rodriguez",
@@ -128406,7 +128407,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "15"
+    "rank": "13"
   },
   {
     "slug": "alexander-yakovlev",
