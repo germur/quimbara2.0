@@ -69099,6 +69099,7 @@
     "nick": "",
     "div": "Women's Strawweight",
     "rec": "19-6-0",
+    "recScope": "pro",
     "ufcRec": "6-2-0",
     "from": "",
     "img": "",
@@ -69136,8 +69137,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7",
-    "recScope": "pro"
+    "rank": "7"
   },
   {
     "slug": "duane-ludwig",
@@ -93245,7 +93245,7 @@
     "name": "Aaron Pico",
     "nick": "",
     "div": "Featherweight",
-    "rec": "14-5-0",
+    "rec": "15-5-0",
     "recScope": "pro",
     "ufcRec": "2-1-0",
     "from": "",
