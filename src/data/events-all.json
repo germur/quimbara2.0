@@ -2015,19 +2015,6 @@
     ]
   },
   {
-    "slug": "ufc-fight-night-293-2026-11-07",
-    "name": "UFC Fight Night 293",
-    "main": "TBD",
-    "loc": "Las Vegas, Nevada, U.S.",
-    "date": "2026-11-07",
-    "dateLabel": "7 nov 2026",
-    "f1": "TBD",
-    "f1img": "",
-    "f2": "TBD",
-    "f2img": "",
-    "status": "completed"
-  },
-  {
     "slug": "ufc-fight-night-2026-11-07",
     "name": "UFC Fight Night",
     "main": "Gabriel Bonfim vs. Sean Brady",
@@ -2038,7 +2025,7 @@
     "f1img": "/fighters/gabriel-bonfim.png",
     "f2": "Sean Brady",
     "f2img": "/fighters/sean-brady.png",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Gabriel Bonfim",
@@ -2050,6 +2037,19 @@
         "order": 0
       }
     ]
+  },
+  {
+    "slug": "ufc-fight-night-293-2026-11-07",
+    "name": "UFC Fight Night 293",
+    "main": "TBD",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2026-11-07",
+    "dateLabel": "7 nov 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
   },
   {
     "slug": "ufc-334-2026-11-14",
