@@ -2375,7 +2375,7 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
   },
   {
     "slug": "ufc-336-2027-01-30",
@@ -2437,8 +2437,8 @@
     "status": "completed"
   },
   {
-    "slug": "ufc-fight-night-297-2027-02-07",
-    "name": "UFC Fight Night 297",
+    "slug": "ufc-fight-night-298-2027-02-07",
+    "name": "UFC Fight Night 298",
     "main": "TBD",
     "loc": "Sydney, Australia",
     "date": "2027-02-07",
@@ -2450,8 +2450,8 @@
     "status": "completed"
   },
   {
-    "slug": "ufc-fight-night-298-2027-02-07",
-    "name": "UFC Fight Night 298",
+    "slug": "ufc-fight-night-297-2027-02-07",
+    "name": "UFC Fight Night 297",
     "main": "TBD",
     "loc": "Sydney, Australia",
     "date": "2027-02-07",
