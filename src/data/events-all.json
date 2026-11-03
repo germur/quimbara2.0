@@ -2460,6 +2460,39 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2027-02-07",
+    "name": "UFC Fight Night",
+    "main": "Quillan Salkilld vs. Benoît Saint Denis",
+    "loc": "Sydney, Australia",
+    "date": "2027-02-07",
+    "dateLabel": "7 feb 2027",
+    "f1": "Quillan Salkilld",
+    "f1img": "/fighters/quillan-salkilld.png",
+    "f2": "Benoît Saint Denis",
+    "f2img": "/fighters/benoit-saint-denis.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Quillan Salkilld",
+        "f1Id": "quillan-salkilld",
+        "f2": "Benoît Saint Denis",
+        "f2Id": "benoit-saint-denis",
+        "weightClass": "Lightweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Bogdan Guskov",
+        "f1Id": "bogdan-guskov",
+        "f2": "Robert Whittaker",
+        "f2Id": "robert-whittaker",
+        "weightClass": "Light Heavyweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      }
+    ]
   }
 ]

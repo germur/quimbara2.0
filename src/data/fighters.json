@@ -1409,8 +1409,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "mateusz-gamrot",
@@ -4219,8 +4218,7 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ],
-    "rank": "14"
+    ]
   },
   {
     "slug": "jim-alers",
@@ -17346,7 +17344,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "martin-buday",
@@ -19725,7 +19723,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "jose-canseco",
@@ -28396,7 +28394,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "15"
   },
   {
     "slug": "jason-day",
@@ -46719,7 +46717,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "8"
   },
   {
     "slug": "gugun-gusman",
@@ -51723,7 +51721,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "roger-hollett",
@@ -53357,7 +53355,8 @@
         "outcome": "L",
         "winType": "UD"
       }
-    ]
+    ],
+    "rank": "15"
   },
   {
     "slug": "victor-hugo",
@@ -69157,7 +69156,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7"
+    "rank": "8"
   },
   {
     "slug": "duane-ludwig",
@@ -70691,8 +70690,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "raimond-magomedaliev",
@@ -70850,7 +70848,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "shara-magomedov",
@@ -71670,7 +71668,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "10"
+    "rank": "9"
   },
   {
     "slug": "regina-malpica-rivera",
@@ -76840,7 +76838,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "ivan-menjivar",
@@ -82292,7 +82290,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "7"
+    "rank": "10"
   },
   {
     "slug": "josias-musasa",
@@ -82357,7 +82355,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "nicholas-musoke",
@@ -97763,7 +97761,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "8"
+    "rank": "7"
   },
   {
     "slug": "alex-reyes",
@@ -100564,7 +100562,7 @@
         "winType": "DQ"
       }
     ],
-    "rank": "10"
+    "rank": "7"
   },
   {
     "slug": "christian-rodriguez",
@@ -111419,7 +111417,7 @@
     "name": "Jacobe Smith",
     "nick": "Cobe",
     "div": "Welterweight",
-    "rec": "3-0-0",
+    "rec": "14-0-0",
     "ufcRec": "5-0-0",
     "from": "",
     "img": "",
@@ -111456,7 +111454,9 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "14",
+    "recScope": "pro"
   },
   {
     "slug": "walter-smith-cotito",
@@ -128437,7 +128437,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "alexander-yakovlev",
