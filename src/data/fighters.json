@@ -1409,7 +1409,8 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ]
+    ],
+    "rank": "15"
   },
   {
     "slug": "mateusz-gamrot",
@@ -6502,7 +6503,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "11"
   },
   {
     "slug": "viscardi-andrade",
@@ -28394,7 +28395,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "11"
   },
   {
     "slug": "jason-day",
@@ -37079,7 +37080,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "kaue-fernandes",
@@ -52355,7 +52356,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "13"
+    "rank": "14"
   },
   {
     "slug": "chase-hooper",
@@ -85289,7 +85290,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "13"
   },
   {
     "slug": "eric-nolan",
@@ -98283,7 +98284,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11"
+    "rank": "10"
   },
   {
     "slug": "matt-ricehouse",
@@ -105275,7 +105276,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "6"
+    "rank": "7"
   },
   {
     "slug": "taila-santos",
@@ -105482,7 +105483,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7"
+    "rank": "5"
   },
   {
     "slug": "djorden-santos",
@@ -111418,6 +111419,7 @@
     "nick": "Cobe",
     "div": "Welterweight",
     "rec": "14-0-0",
+    "recScope": "pro",
     "ufcRec": "5-0-0",
     "from": "",
     "img": "",
@@ -111455,8 +111457,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14",
-    "recScope": "pro"
+    "rank": "14"
   },
   {
     "slug": "walter-smith-cotito",
