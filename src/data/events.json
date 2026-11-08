@@ -1,31 +1,5 @@
 [
   {
-    "slug": "ufc-fight-night-2026-11-07",
-    "name": "UFC Fight Night",
-    "main": "Gabriel Bonfim vs. Sean Brady",
-    "loc": "Las Vegas, Nevada, U.S.",
-    "date": "2026-11-07",
-    "dateLabel": "7 nov 2026",
-    "f1": "Gabriel Bonfim",
-    "f1img": "/fighters/gabriel-bonfim.png",
-    "f2": "Sean Brady",
-    "f2img": "/fighters/sean-brady.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Gabriel Bonfim",
-        "f1Id": "gabriel-bonfim",
-        "f2": "Sean Brady",
-        "f2Id": "sean-brady",
-        "weightClass": "Welterweight",
-        "bout": "Main Event",
-        "order": 0
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-334-2026-11-14",
     "name": "UFC 334",
     "main": "Ciryl Gane vs. Josh Hokit",
@@ -147,8 +121,8 @@
         "order": 11
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-2026-11-21",
@@ -245,6 +219,21 @@
         "order": 8
       }
     ],
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-295-2026-11-28",
+    "name": "UFC Fight Night 295",
+    "main": "TBD",
+    "loc": "Riyadh, Saudi Arabia",
+    "date": "2026-11-28",
+    "dateLabel": "28 nov 2026",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "completed",
     "bg": "#7B1FA2",
     "color": "#fff"
   }
