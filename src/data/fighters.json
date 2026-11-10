@@ -913,7 +913,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11"
+    "rank": "10"
   },
   {
     "slug": "paulo-costa",
@@ -1409,8 +1409,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "mateusz-gamrot",
@@ -1594,7 +1593,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "6"
+    "rank": "7"
   },
   {
     "slug": "arnold-allen",
@@ -1640,7 +1639,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7"
+    "rank": "6"
   },
   {
     "slug": "josh-emmett",
@@ -6503,7 +6502,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "viscardi-andrade",
@@ -16187,7 +16186,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "kaik-brito",
@@ -21952,7 +21951,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "eduardo-chapolin",
@@ -22383,7 +22382,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "9"
+    "rank": "10"
   },
   {
     "slug": "michael-chiesa",
@@ -25046,7 +25045,7 @@
     "team": "",
     "form": [],
     "formTypes": [],
-    "rank": "6"
+    "rank": "8"
   },
   {
     "slug": "tracy-cortez",
@@ -28407,7 +28406,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11"
+    "rank": "15"
   },
   {
     "slug": "jason-day",
@@ -29449,7 +29448,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "11"
   },
   {
     "slug": "jack-della-maddalena",
@@ -33925,7 +33924,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "2"
+    "rank": "1"
   },
   {
     "slug": "tom-egan",
@@ -34806,7 +34805,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "marius-enache",
@@ -51139,7 +51138,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "tyler-hill",
@@ -57109,7 +57108,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "donte-johnson",
@@ -61679,7 +61678,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7"
+    "rank": "6"
   },
   {
     "slug": "felix-klinkhammer",
@@ -63172,7 +63171,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "7"
+    "rank": "6"
   },
   {
     "slug": "keigo-kunihara",
@@ -66190,7 +66189,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "giacomo-lemos",
@@ -66870,7 +66869,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12"
+    "rank": "14"
   },
   {
     "slug": "bevon-lewis",
@@ -76184,7 +76183,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "11"
   },
   {
     "slug": "todd-medina",
@@ -79115,7 +79114,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "15"
+    "rank": "12"
   },
   {
     "slug": "tatsuya-mizuno",
@@ -79312,7 +79311,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "13"
   },
   {
     "slug": "thiago-moises",
@@ -82333,7 +82332,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10"
+    "rank": "9"
   },
   {
     "slug": "josias-musasa",
@@ -85337,7 +85336,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "eric-nolan",
@@ -91263,7 +91262,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "5"
+    "rank": "7"
   },
   {
     "slug": "tecia-pennington",
@@ -91587,7 +91586,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "15"
+    "rank": "14"
   },
   {
     "slug": "rolando-perez",
@@ -91810,8 +91809,7 @@
         "outcome": "L",
         "winType": "TKO"
       }
-    ],
-    "rank": "15"
+    ]
   },
   {
     "slug": "markus-perez",
@@ -92450,7 +92448,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "8"
+    "rank": "9"
   },
   {
     "slug": "andre-petroski",
@@ -93863,7 +93861,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15"
+    "rank": "10"
   },
   {
     "slug": "gaetano-pirrello",
@@ -96273,7 +96271,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "jessica-rakoczy",
@@ -100620,7 +100618,7 @@
         "winType": "DQ"
       }
     ],
-    "rank": "7"
+    "rank": "14"
   },
   {
     "slug": "christian-rodriguez",
@@ -101565,7 +101563,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "10"
+    "rank": "9"
   },
   {
     "slug": "jacob-rosales",
@@ -105333,7 +105331,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "7"
+    "rank": "6"
   },
   {
     "slug": "taila-santos",
@@ -113468,7 +113466,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "9"
+    "rank": "10"
   },
   {
     "slug": "daniel-spohn",
@@ -115642,7 +115640,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "13"
+    "rank": "12"
   },
   {
     "slug": "rama-supandhi",
@@ -121033,7 +121031,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "14"
+    "rank": "15"
   },
   {
     "slug": "gasan-umalatov",
@@ -121405,7 +121403,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9"
+    "rank": "10"
   },
   {
     "slug": "mohammed-usman",
@@ -124393,7 +124391,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12"
+    "rank": "7"
   },
   {
     "slug": "brogan-walker",
@@ -124473,7 +124471,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "julius-walker",
@@ -128789,7 +128787,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "6"
+    "rank": "7"
   },
   {
     "slug": "yan-qihui",
@@ -131105,7 +131103,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "11"
+    "rank": "12"
   },
   {
     "slug": "lance-gibson-jr",
@@ -134389,8 +134387,7 @@
         "outcome": "W",
         "winType": "UD"
       }
-    ],
-    "rank": "8"
+    ]
   },
   {
     "slug": "christian-natividad",

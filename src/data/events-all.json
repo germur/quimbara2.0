@@ -2312,15 +2312,125 @@
   {
     "slug": "ufc-fight-night-2026-12-05",
     "name": "UFC Fight Night",
-    "main": "Adesanya vs. Magomedov",
+    "main": "Israel Adesanya vs. Sharabutdin Magomedov",
     "loc": "Riyadh, Saudi Arabia",
     "date": "2026-12-05",
     "dateLabel": "5 dic 2026",
-    "f1": "Adesanya",
+    "f1": "Israel Adesanya",
     "f1img": "/fighters/israel-adesanya.png",
-    "f2": "Magomedov",
+    "f2": "Sharabutdin Magomedov",
     "f2img": "",
-    "status": "upcoming"
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Israel Adesanya",
+        "f1Id": "israel-adesanya",
+        "f2": "Sharabutdin Magomedov",
+        "f2Id": "sharabutdin-magomedov",
+        "weightClass": "Middleweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Ian Machado Garry",
+        "f1Id": "ian-machado-garry",
+        "f2": "Yaroslav Amosov",
+        "f2Id": "yaroslav-amosov",
+        "weightClass": "Welterweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Serghei Spivac",
+        "f1Id": "serghei-spivac",
+        "f2": "Mário Pinto",
+        "f2Id": "mario-pinto",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Levan Chokheli",
+        "f1Id": "levan-chokheli",
+        "f2": "Islam Dulatov",
+        "f2Id": "islam-dulatov",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Mairon Santos",
+        "f1Id": "mairon-santos",
+        "f2": "Akbar Abdullaev",
+        "f2Id": "akbar-abdullaev",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Magomed Tuchalov",
+        "f1Id": "magomed-tuchalov",
+        "f2": "Ion Cuțelaba",
+        "f2Id": "ion-cutelaba",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Bruno Gustavo da Silva",
+        "f1Id": "bruno-gustavo-da-silva",
+        "f2": "Jafel Filho",
+        "f2Id": "jafel-filho",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 6
+      },
+      {
+        "f1": "Uran Satybaldiev",
+        "f1Id": "uran-satybaldiev",
+        "f2": "Ivan Gnizditskiy",
+        "f2Id": "ivan-gnizditskiy",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 7
+      },
+      {
+        "f1": "Marco Tulio",
+        "f1Id": "marco-tulio",
+        "f2": "Park Jun-yong",
+        "f2Id": "park-jun-yong",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 8
+      },
+      {
+        "f1": "Pavel Andrusca",
+        "f1Id": "pavel-andrusca",
+        "f2": "Mehemmedeli Osmanli",
+        "f2Id": "mehemmedeli-osmanli",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 9
+      },
+      {
+        "f1": "Modestino Rodrigues",
+        "f1Id": "modestino-rodrigues",
+        "f2": "Matthieu Letho Duclos",
+        "f2Id": "matthieu-letho-duclos",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 10
+      },
+      {
+        "f1": "Abdul Hussein",
+        "f1Id": "abdul-hussein",
+        "f2": "Hecher Sosa",
+        "f2Id": "hecher-sosa",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 11
+      }
+    ]
   },
   {
     "slug": "ufc-335-2026-12-12",
