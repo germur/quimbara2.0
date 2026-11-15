@@ -1,130 +1,5 @@
 [
   {
-    "slug": "ufc-334-2026-11-14",
-    "name": "UFC 334",
-    "main": "Ciryl Gane vs. Josh Hokit",
-    "loc": "New York City, New York, U.S.",
-    "date": "2026-11-14",
-    "dateLabel": "14 nov 2026",
-    "f1": "Ciryl Gane",
-    "f1img": "/fighters/ciryl-gane.png",
-    "f2": "Josh Hokit",
-    "f2img": "/fighters/josh-hokit.png",
-    "status": "upcoming",
-    "fightCard": [
-      {
-        "f1": "Ciryl Gane",
-        "f1Id": "ciryl-gane",
-        "f2": "Josh Hokit",
-        "f2Id": "josh-hokit",
-        "weightClass": "Heavyweight",
-        "bout": "Main Event",
-        "order": 0
-      },
-      {
-        "f1": "Kayla Harrison",
-        "f1Id": "kayla-harrison",
-        "f2": "Amanda Nunes",
-        "f2Id": "amanda-nunes",
-        "weightClass": "Women's Bantamweight",
-        "bout": "Co-Main Event",
-        "order": 1
-      },
-      {
-        "f1": "Caio Borralho",
-        "f1Id": "caio-borralho",
-        "f2": "Yousri Belgaroui",
-        "f2Id": "yousri-belgaroui",
-        "weightClass": "Middleweight",
-        "bout": "maincard",
-        "order": 2
-      },
-      {
-        "f1": "Uroš Medić",
-        "f1Id": "uros-medic",
-        "f2": "Kevin Holland",
-        "f2Id": "kevin-holland",
-        "weightClass": "Welterweight",
-        "bout": "maincard",
-        "order": 3
-      },
-      {
-        "f1": "Bilal Hasan",
-        "f1Id": "bilal-hasan",
-        "f2": "Luis Gurule",
-        "f2Id": "luis-gurule",
-        "weightClass": "Flyweight",
-        "bout": "maincard",
-        "order": 4
-      },
-      {
-        "f1": "Drew Dober",
-        "f1Id": "drew-dober",
-        "f2": "Chris Duncan",
-        "f2Id": "chris-duncan",
-        "weightClass": "Lightweight",
-        "bout": "maincard",
-        "order": 5
-      },
-      {
-        "f1": "Stephen Thompson",
-        "f1Id": "stephen-thompson",
-        "f2": "Charles Radtke",
-        "f2Id": "charles-radtke",
-        "weightClass": "Welterweight",
-        "bout": "maincard",
-        "order": 6
-      },
-      {
-        "f1": "Donte Johnson",
-        "f1Id": "donte-johnson",
-        "f2": "Baisangur Susurkaev",
-        "f2Id": "baisangur-susurkaev",
-        "weightClass": "Middleweight",
-        "bout": "maincard",
-        "order": 7
-      },
-      {
-        "f1": "Jim Miller",
-        "f1Id": "jim-miller",
-        "f2": "Terrance McKinney",
-        "f2Id": "terrance-mckinney",
-        "weightClass": "Lightweight",
-        "bout": "maincard",
-        "order": 8
-      },
-      {
-        "f1": "Macy Chiasson",
-        "f1Id": "macy-chiasson",
-        "f2": "Beatriz Mesquita",
-        "f2Id": "beatriz-mesquita",
-        "weightClass": "Women's Bantamweight",
-        "bout": "maincard",
-        "order": 9
-      },
-      {
-        "f1": "Adrian Yañez",
-        "f1Id": "adrian-yanez",
-        "f2": "Juan Díaz",
-        "f2Id": "juan-diaz",
-        "weightClass": "Bantamweight",
-        "bout": "maincard",
-        "order": 10
-      },
-      {
-        "f1": "Nazim Sadykhov",
-        "f1Id": "nazim-sadykhov",
-        "f2": "Jefferson Nascimento",
-        "f2Id": "jefferson-nascimento",
-        "weightClass": "Lightweight",
-        "bout": "maincard",
-        "order": 11
-      }
-    ],
-    "bg": "#FFD600",
-    "color": "#111"
-  },
-  {
     "slug": "ufc-fight-night-2026-11-21",
     "name": "UFC Fight Night",
     "main": "Jiří Procházka vs. Navajo Stirling",
@@ -219,8 +94,8 @@
         "order": 8
       }
     ],
-    "bg": "#E53935",
-    "color": "#fff"
+    "bg": "#FFD600",
+    "color": "#111"
   },
   {
     "slug": "ufc-fight-night-295-2026-11-28",
@@ -234,6 +109,131 @@
     "f2": "TBD",
     "f2img": "",
     "status": "completed",
+    "bg": "#E53935",
+    "color": "#fff"
+  },
+  {
+    "slug": "ufc-fight-night-2026-12-05",
+    "name": "UFC Fight Night",
+    "main": "Israel Adesanya vs. Sharabutdin Magomedov",
+    "loc": "Riyadh, Saudi Arabia",
+    "date": "2026-12-05",
+    "dateLabel": "5 dic 2026",
+    "f1": "Israel Adesanya",
+    "f1img": "/fighters/israel-adesanya.png",
+    "f2": "Sharabutdin Magomedov",
+    "f2img": "",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Israel Adesanya",
+        "f1Id": "israel-adesanya",
+        "f2": "Sharabutdin Magomedov",
+        "f2Id": "sharabutdin-magomedov",
+        "weightClass": "Middleweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Ian Machado Garry",
+        "f1Id": "ian-machado-garry",
+        "f2": "Yaroslav Amosov",
+        "f2Id": "yaroslav-amosov",
+        "weightClass": "Welterweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Serghei Spivac",
+        "f1Id": "serghei-spivac",
+        "f2": "Mário Pinto",
+        "f2Id": "mario-pinto",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Levan Chokheli",
+        "f1Id": "levan-chokheli",
+        "f2": "Islam Dulatov",
+        "f2Id": "islam-dulatov",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 3
+      },
+      {
+        "f1": "Mairon Santos",
+        "f1Id": "mairon-santos",
+        "f2": "Akbar Abdullaev",
+        "f2Id": "akbar-abdullaev",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 4
+      },
+      {
+        "f1": "Magomed Tuchalov",
+        "f1Id": "magomed-tuchalov",
+        "f2": "Ion Cuțelaba",
+        "f2Id": "ion-cutelaba",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 5
+      },
+      {
+        "f1": "Bruno Gustavo da Silva",
+        "f1Id": "bruno-gustavo-da-silva",
+        "f2": "Jafel Filho",
+        "f2Id": "jafel-filho",
+        "weightClass": "Flyweight",
+        "bout": "maincard",
+        "order": 6
+      },
+      {
+        "f1": "Uran Satybaldiev",
+        "f1Id": "uran-satybaldiev",
+        "f2": "Ivan Gnizditskiy",
+        "f2Id": "ivan-gnizditskiy",
+        "weightClass": "Light Heavyweight",
+        "bout": "maincard",
+        "order": 7
+      },
+      {
+        "f1": "Marco Tulio",
+        "f1Id": "marco-tulio",
+        "f2": "Park Jun-yong",
+        "f2Id": "park-jun-yong",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 8
+      },
+      {
+        "f1": "Pavel Andrusca",
+        "f1Id": "pavel-andrusca",
+        "f2": "Mehemmedeli Osmanli",
+        "f2Id": "mehemmedeli-osmanli",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 9
+      },
+      {
+        "f1": "Modestino Rodrigues",
+        "f1Id": "modestino-rodrigues",
+        "f2": "Matthieu Letho Duclos",
+        "f2Id": "matthieu-letho-duclos",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 10
+      },
+      {
+        "f1": "Abdul Hussein",
+        "f1Id": "abdul-hussein",
+        "f2": "Hecher Sosa",
+        "f2Id": "hecher-sosa",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 11
+      }
+    ],
     "bg": "#7B1FA2",
     "color": "#fff"
   }

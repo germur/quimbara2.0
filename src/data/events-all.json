@@ -2062,7 +2062,7 @@
     "f1img": "/fighters/ciryl-gane.png",
     "f2": "Josh Hokit",
     "f2img": "/fighters/josh-hokit.png",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Ciryl Gane",
@@ -2485,7 +2485,49 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2027-01-16",
+    "name": "UFC Fight Night",
+    "main": "Yair Rodríguez vs. Steve Garcia",
+    "loc": "Dallas, Texas, U.S.",
+    "date": "2027-01-16",
+    "dateLabel": "16 ene 2027",
+    "f1": "Yair Rodríguez",
+    "f1img": "/fighters/yair-rodriguez.png",
+    "f2": "Steve Garcia",
+    "f2img": "/fighters/steve-garcia.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Yair Rodríguez",
+        "f1Id": "yair-rodriguez",
+        "f2": "Steve Garcia",
+        "f2Id": "steve-garcia",
+        "weightClass": "Featherweight",
+        "bout": "Main Event",
+        "order": 0
+      },
+      {
+        "f1": "Daniel Rodriguez",
+        "f1Id": "daniel-rodriguez",
+        "f2": "Roberto Soldić",
+        "f2Id": "roberto-soldic",
+        "weightClass": "Welterweight",
+        "bout": "Co-Main Event",
+        "order": 1
+      },
+      {
+        "f1": "Chidi Njokuani",
+        "f1Id": "chidi-njokuani",
+        "f2": "Ignacio Bahamondes",
+        "f2Id": "ignacio-bahamondes",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 2
+      }
+    ]
   },
   {
     "slug": "ufc-fight-night-297-2027-01-23",
@@ -2498,7 +2540,31 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "completed"
+  },
+  {
+    "slug": "ufc-fight-night-2027-01-23",
+    "name": "UFC Fight Night",
+    "main": "Gabriel Bonfim vs. Sean Brady",
+    "loc": "Las Vegas, Nevada, U.S.",
+    "date": "2027-01-23",
+    "dateLabel": "23 ene 2027",
+    "f1": "Gabriel Bonfim",
+    "f1img": "/fighters/gabriel-bonfim.png",
+    "f2": "Sean Brady",
+    "f2img": "/fighters/sean-brady.png",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Gabriel Bonfim",
+        "f1Id": "gabriel-bonfim",
+        "f2": "Sean Brady",
+        "f2Id": "sean-brady",
+        "weightClass": "Welterweight",
+        "bout": "Main Event",
+        "order": 0
+      }
+    ]
   },
   {
     "slug": "ufc-336-2027-01-30",
@@ -2617,5 +2683,42 @@
         "order": 1
       }
     ]
+  },
+  {
+    "slug": "ufc-fight-night-2027-02-13",
+    "name": "UFC Fight Night",
+    "main": "Joe Pyfer vs. Bo Nickal",
+    "loc": "Cleveland, Ohio, U.S.",
+    "date": "2027-02-13",
+    "dateLabel": "13 feb 2027",
+    "f1": "Joe Pyfer",
+    "f1img": "/fighters/joe-pyfer.png",
+    "f2": "Bo Nickal",
+    "f2img": "",
+    "status": "upcoming",
+    "fightCard": [
+      {
+        "f1": "Joe Pyfer",
+        "f1Id": "joe-pyfer",
+        "f2": "Bo Nickal",
+        "f2Id": "bo-nickal",
+        "weightClass": "Middleweight",
+        "bout": "Main Event",
+        "order": 0
+      }
+    ]
+  },
+  {
+    "slug": "ufc-337-2027-02-20",
+    "name": "UFC 337",
+    "main": "TBD",
+    "loc": "Orlando, Florida, U.S.",
+    "date": "2027-02-20",
+    "dateLabel": "20 feb 2027",
+    "f1": "TBD",
+    "f1img": "",
+    "f2": "TBD",
+    "f2img": "",
+    "status": "upcoming"
   }
 ]

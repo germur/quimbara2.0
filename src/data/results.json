@@ -1,34 +1,34 @@
 [
   {
-    "w": "Tatiana Suarez",
-    "l": "Virna Jandiroba",
+    "w": "Kayla Harrison",
+    "l": "Amanda Nunes",
+    "method": "Submission (Rear-Naked Choke)",
+    "round": 4,
+    "time": "1:29",
+    "event": "UFC 334 - Gane vs. Hokit"
+  },
+  {
+    "w": "Caio Borralho",
+    "l": "Yousri Belgaroui",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 293 - Cortes-Acosta vs. Walker"
+    "event": "UFC 334 - Gane vs. Hokit"
   },
   {
-    "w": "Elijah Smith",
-    "l": "Davey Grant",
-    "method": "KO (Punches)",
-    "round": 1,
-    "time": "1:00",
-    "event": "UFC Fight Night 293 - Cortes-Acosta vs. Walker"
-  },
-  {
-    "w": "Lucas Fernando",
-    "l": "Billy Elekana",
-    "method": "Decision (Unanimous)",
+    "w": "Uros Medic",
+    "l": "Kevin Holland",
+    "method": "Draw (Majority)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC Fight Night 293 - Cortes-Acosta vs. Walker"
+    "event": "UFC 334 - Gane vs. Hokit"
   },
   {
-    "w": "Nina Nikolija Milosevic",
-    "l": "Priscila Cachoeira",
-    "method": "TKO (Elbows and Punches)",
-    "round": 2,
-    "time": "3:40",
-    "event": "UFC Fight Night 293 - Cortes-Acosta vs. Walker"
+    "w": "Luis Gurule",
+    "l": "Bilal Hasan",
+    "method": "Decision (Split)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC 334 - Gane vs. Hokit"
   }
 ]
