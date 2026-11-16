@@ -1,3 +1,5 @@
+import matter from 'gray-matter';
+import {canonicalEvents,eventPath} from '../src/lib/event-routing.mjs';
 // scripts/rag-chunk.mjs
 //
 // Trocea el contenido de Quimbara en chunks listos para embeddings.
@@ -71,7 +73,7 @@ const fighters = load('fighters.json');
 // en fighters.json. Sin esto el troceado solo veía la plantilla de datos y daba
 // por finas fichas que sí tienen texto redactado — justo las que interesa medir.
 const overrides = load('fighters-overrides.json');
-const enriquecido = f => overrides[f.name] ?? overrides[f.slug] ?? {};
+const enriquecido = f => overrides[f.slug] ?? (!f.identityAmbiguousName||f.slug===f.name.toLowerCase().replaceAll(' ','-')?overrides[f.name]:{}) ?? {};
 
 // OJO: aquí NO se usa isIndexable() a propósito. Ese criterio decide qué ve
 // GOOGLE; este decide qué encuentra el BUSCADOR INTERNO, y son cosas distintas.
@@ -111,13 +113,13 @@ for (const f of indexables) {
 
   // Chunk de récord: repite el nombre a propósito. Redundante al leer, esencial
   // al recuperar, porque este fragmento viaja solo.
-  if (f.rec && f.rec !== '—') {
+  if (f.rec && f.rec !== '—'&&!f.recordUnavailable) {
     const [v, d, e] = f.rec.split('-').map(Number);
     const total = v + d + (e || 0);
     const pct = total ? Math.round((v / total) * 100) : 0;
     const rec = [
       `El récord de ${f.name} es de ${v} victorias, ${d} derrotas${e ? ` y ${e} empates` : ''} (${f.rec}),`,
-      `con un ${pct}% de victorias en ${total} peleas profesionales.`,
+      `con un ${pct}% de victorias en ${total} peleas ${f.recScope==='pro'?'profesionales':'registradas en UFC'}.`,
       f.ufcRec && f.ufcRec !== f.rec ? `Su récord dentro de UFC es ${f.ufcRec}.` : '',
       Array.isArray(f.form) && f.form.length ? `Sus últimas ${f.form.length} peleas: ${f.form.join('-')} (de más reciente a más antigua).` : '',
     ].filter(Boolean).join(' ');
@@ -141,11 +143,11 @@ for (const f of indexables) {
 
 // ── 2. Eventos ─────────────────────────────────────────────────────────────
 const eventos = load('events-all.json');
-for (const e of eventos) {
-  const url = `${SITE}/eventos/${e.slug}/`;
+for (const e of canonicalEvents(eventos).filter(e=>e.main!=='TBD')) {
+  const url = `${SITE}${eventPath(e.slug)}`;
   const cartel = (e.fightCard || []).slice(0, 6).map(b => `${b.f1} vs. ${b.f2}${b.weightClass ? ` (${b.weightClass})` : ''}`);
   const texto = [
-    `${e.name} se celebra el ${e.dateLabel || e.date}${e.loc ? ` en ${e.loc}` : ''}.`,
+    `${e.name} ${e.date<new Date().toISOString().slice(0,10)?'tenía como fecha registrada':'está anunciado para'} el ${e.dateLabel || e.date}${e.loc ? ` en ${e.loc}` : ''}.`,
     e.main && e.main !== 'TBD' ? `La pelea principal es ${e.main}.` : 'La pelea principal aún no está confirmada.',
     cartel.length ? `Cartelera: ${cartel.join('; ')}.` : '',
   ].filter(Boolean).join(' ');
@@ -159,23 +161,13 @@ for (const e of eventos) {
 if (existsSync(BLOG)) {
   for (const file of readdirSync(BLOG).filter(f => /\.mdx?$/.test(f))) {
     const raw = readFileSync(join(BLOG, file), 'utf8');
-    const m = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-    if (!m) continue;
-    const [, fm, cuerpo] = m;
-    const slug = file.replace(/\.mdx?$/, '');
-    const url = `${SITE}/blog/${slug}/`;
-    const titulo = (fm.match(/^title:\s*"?(.+?)"?\s*$/m) || [])[1] || slug;
-
-    // Takeaways: bloque YAML de líneas "  - "...". El lookahead ingenuo
-    // (?=\n\w|$) fallaba cuando el bloque cerraba el frontmatter, y se perdían
-    // los mejores chunks del sitio. Se captura la lista completa por indentación.
-    const tkBlock = fm.match(/^takeaways:[ \t]*\n((?:[ \t]+-[ \t].*(?:\n|$))+)/m);
-    if (tkBlock) {
-      const items = [...tkBlock[1].matchAll(/^[ \t]*-[ \t]*"?(.+?)"?[ \t]*$/gm)].map(x => x[1]);
-      items.forEach((t, i) =>
-        add(`post:${slug}:takeaway:${i}`, 'takeaway', url, `${titulo} — clave ${i + 1}`, t, { slug })
-      );
-    }
+    const {data,content}=matter(raw);
+    const cuerpo=content.replaceAll('\r\n','\n');
+    if(data.draft)continue;
+    const slug=file.replace(/\.mdx?$/,'');
+    const url=SITE+'/blog/'+slug+'/';
+    const titulo=data.title??slug;
+    for(const [i,text] of (Array.isArray(data.takeaways)?data.takeaways:[]).entries())add('post:'+slug+':takeaway:'+i,'takeaway',url,titulo+' — clave '+(i+1),String(text),{slug});
 
     // Secciones por H2. Se limpia MDX (JSX, imágenes, enlaces) para dejar prosa.
     const limpio = cuerpo

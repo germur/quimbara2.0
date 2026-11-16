@@ -1,6 +1,8 @@
+import {joinFighterSources} from "./lib/fighter-identity.mjs";
+import {preserveRecordScope} from "./lib/record-sanity.mjs";
 import {safeWriteJson} from "./lib/datasets.mjs";
 import {recordHealth} from "./lib/health.mjs";
-import {createFighterMedia} from "../src/lib/fighter-media.mjs";
+import {createFighterMedia,resolveBoutPerson,resolveEventPerson} from "../src/lib/fighter-media.mjs";
 import {expandAnnouncedNames} from "../src/lib/event-data.mjs";
 /**
  * Pipeline de datos UFC para Quimbara — SIN APIs de pago.
@@ -33,7 +35,7 @@ import {expandAnnouncedNames} from "../src/lib/event-data.mjs";
  */
 import { writeFileSync, readFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath,pathToFileURL } from 'node:url';
 import * as cheerio from 'cheerio';
 import { parse } from 'csv-parse/sync';
 
@@ -215,6 +217,7 @@ type FormEntry = { outcome: string; winType: string };
 
 type Fighter = {
   slug: string; name: string; nick: string; div: string;
+  ufcStatsId?:string;ufcStatsUrl?:string;ufcProfileUrl?:string;ufcStatsIncomplete?:boolean;recordUnavailable?:boolean;rankCheckedAt?:string;identityAmbiguousName?:boolean;birthDate?:string;
   /** Récord pro completo (canónico, viene de UFC.com vía scripts/fix-records.mjs) */
   rec: string;
   /** 'pro' cuando fix-records.mjs confirmó `rec` contra UFC.com — la UI/meta lo usa para etiquetar bien */
@@ -270,57 +273,15 @@ type FightRecord = {
   weightClass: string;
 };
 
-type CsvData = {
-  tottByName: Map<string, Record<string, string>>;
-  detailsByName: Map<string, Record<string, string>>;
-  fightsByFighter: Map<string, FightRecord[]>;
-};
-
-let csvCache: CsvData | null = null;
-
-async function loadCsvData(): Promise<CsvData> {
-  if (csvCache) return csvCache;
-
-  console.log('📥 Downloading CSVs from Greco1899/scrape_ufc_stats...');
-  const [tottCsv, detailsCsv, fightsCsv, eventsCsv] = await Promise.all([
-    downloadCsv(CSV_SOURCES.tott),
-    downloadCsv(CSV_SOURCES.details),
-    downloadCsv(CSV_SOURCES.fights),
-    downloadCsv(CSV_SOURCES.events),
-  ]);
-
-  const tott    = parse(tottCsv,    { columns: true, skip_empty_lines: true, relax_quotes: true }) as Record<string, string>[];
-  const details = parse(detailsCsv, { columns: true, skip_empty_lines: true, relax_quotes: true }) as Record<string, string>[];
-  const fights  = parse(fightsCsv,  { columns: true, skip_empty_lines: true, relax_quotes: true }) as Record<string, string>[];
-  const events  = parse(eventsCsv,  { columns: true, skip_empty_lines: true, relax_quotes: true }) as Record<string, string>[];
-
-  console.log(`📊 Loaded: ${tott.length} profiles, ${details.length} details, ${fights.length} fights, ${events.length} events`);
-
-  // Index: FIGHTER name → tott row
-  const tottByName = new Map<string, Record<string, string>>();
-  for (const t of tott) {
-    const name = t.FIGHTER?.trim();
-    if (name) tottByName.set(name, t);
-  }
-
-  // Index: full name → details row (nickname)
-  const detailsByName = new Map<string, Record<string, string>>();
-  for (const d of details) {
-    const fullName = `${d.FIRST} ${d.LAST}`.trim();
-    detailsByName.set(fullName, d);
-  }
-
-  // Index: event name → date
-  const eventDates = new Map<string, string>();
-  for (const e of events) {
-    if (e.EVENT && e.DATE) {
-      const d = new Date(e.DATE);
-      if (!isNaN(d.getTime())) {
-        eventDates.set(e.EVENT.trim(), d.toISOString().split('T')[0]);
-      }
-    }
-  }
-
+type CsvData = { profiles:any[];tottByName:Map<string,Record<string,string>>;detailsByName:Map<string,Record<string,string>>;fightsByFighter:Map<string,FightRecord[]>;unresolved:Map<string,number> };
+let csvCache:CsvData|null=null;
+async function loadCsvData():Promise<CsvData>{
+ if(csvCache)return csvCache;
+ const [tottCsv,detailsCsv,fightsCsv,eventsCsv]=await Promise.all(Object.values(CSV_SOURCES).map(downloadCsv));
+ const options={columns:true,skip_empty_lines:true,relax_quotes:true};
+ const tott=parse(tottCsv,options),details=parse(detailsCsv,options),fights=parse(fightsCsv,options),events=parse(eventsCsv,options);
+ const eventDates=new Map<string,string>();
+ for(const event of events){const date=new Date(event.DATE);if(event.EVENT&&Number.isFinite(date.getTime()))eventDates.set(event.EVENT.trim(),date.toISOString().slice(0,10));}
   // ─── Guard de frescura ────────────────────────────────────────────────────
   // TODA la base (fighters, peleas, form, ufcRec) depende de los CSVs de
   // Greco1899/scrape_ufc_stats. Si ese repo deja de actualizarse, los datos se
@@ -341,276 +302,66 @@ async function loadCsvData(): Promise<CsvData> {
     console.log(`✓ Frescura CSV OK: último evento ${newestEvent} (hace ${staleDays} días)`);
   }
 
-  // Index: fighter name → array of fights (sorted by date desc)
-  const fightsByFighter = new Map<string, FightRecord[]>();
 
-  for (const fight of fights) {
-    const bout = fight.BOUT;
-    if (!bout) continue;
-    const parts = bout.split(/\s+vs\.?\s+/);
-    if (parts.length !== 2) continue;
-    const a = parts[0].trim();
-    const b = parts[1].trim();
-    const eventName = fight.EVENT?.trim() ?? '';
-    const date = eventDates.get(eventName) || '';
-    const outcome = fight.OUTCOME || '';
-    const [firstRes, secondRes] = outcome.split('/');
-
-    for (const [name, isFirst] of [[a, true], [b, false]] as [string, boolean][]) {
-      const res = isFirst ? firstRes : secondRes;
-      let result: string;
-      if (res === 'W') result = 'W';
-      else if (res === 'L') result = 'L';
-      else if (res === 'NC') result = 'NC';
-      else result = 'D';
-
-      if (!fightsByFighter.has(name)) fightsByFighter.set(name, []);
-      fightsByFighter.get(name)!.push({
-        result,
-        method: (fight.METHOD || '').replace(/\s+/g, ' ').trim(),
-        opponent: isFirst ? b : a,
-        date,
-        weightClass: fight.WEIGHTCLASS?.trim() || '',
-      });
-    }
-  }
-
-  // Sort by date descending
-  for (const fs of fightsByFighter.values()) {
-    fs.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-  }
-
-  csvCache = { tottByName, detailsByName, fightsByFighter };
-  return csvCache;
+ const identityPath=join(DATA_DIR,'fighter-identities.json');
+ const registry=existsSync(identityPath)?JSON.parse(readFileSync(identityPath,'utf8')):{profiles:{},fights:{}};
+ const joined=joinFighterSources(tott,details,fights,eventDates,registry);
+ csvCache={profiles:joined.profiles,tottByName:new Map(joined.profiles.map(p=>[p.id,p.tott])),detailsByName:new Map(joined.profiles.filter(p=>p.detail).map(p=>[p.id,p.detail])),fightsByFighter:joined.history,unresolved:joined.unresolved};
+ return csvCache;
 }
 
 // ─── FIGHTERS ───────────────────────────────────────────────────────────────
 
-function buildFighter(
-  name: string,
-  csv: CsvData,
-  fallback: Map<string, Fighter>,
-  rankValue?: string,
-): Fighter {
-  const slug = slugify(name);
-  const prev = fallback.get(slug);
-  const tott = csv.tottByName.get(name);
-  const detail = csv.detailsByName.get(name);
-  const allFights = csv.fightsByFighter.get(name) || [];
-
-  // ⚠ Record: los CSVs de Greco1899 SOLO contienen peleas UFC, no el récord pro completo.
-  // Para el récord pro real usamos UFC.com → scripts/fix-records.mjs (corre después).
-  // Aquí guardamos:
-  //   - ufcRec: lo que sí podemos calcular (peleas UFC contadas en CSV) — informacional
-  //   - rec:    preservamos el previo si existe (fix-records.mjs es la fuente canónica);
-  //             si no hay previo (fighter nuevo), usamos ufcRec como semilla temporal
-  let wins = 0, losses = 0, draws = 0;
-  for (const f of allFights) {
-    if (f.result === 'W') wins++;
-    else if (f.result === 'L') losses++;
-    else if (f.result === 'D') draws++;
-  }
-  const ufcRec = `${wins}-${losses}-${draws}`;
-  const rec = prev?.rec && prev.rec !== '0-0-0' ? prev.rec : ufcRec;
-  // recScope solo se conserva si `rec` se preservó del previo (si rec se
-  // regeneró desde el CSV, vuelve a ser solo-UFC y la marca 'pro' ya no aplica)
-  const recScope = rec === prev?.rec ? prev?.recScope : undefined;
-
-  // Division from most recent fight
-  const div = allFights.length > 0
-    ? formatDivision(allFights[0].weightClass)
-    : prev?.div ?? '';
-
-  // Nickname: CSV first, then fallback
-  const nick = detail?.NICKNAME?.trim() || prev?.nick || '';
-
-  // Recent form (last 5 fights, already sorted desc)
-  const recentFights = allFights.slice(0, 5);
-  const form = recentFights.map(f => f.result);
-  const formTypes: FormEntry[] = recentFights.map(f => ({
-    outcome: f.result,
-    winType: parseWinType(f.method),
-  }));
-
-  // Image: check existing files
-  let img = '';
-  if (existsSync(join(IMG_DIR, `${slug}.png`))) img = `/fighters/${slug}.png`;
-  else if (existsSync(join(IMG_DIR, `${slug}.jpg`))) img = `/fighters/${slug}.jpg`;
-  else if (prev?.img) img = prev.img;
-
-  const fighter: Fighter = {
-    slug,
-    name,
-    nick,
-    div,
-    rec,
-    ...(recScope ? { recScope, recordCheckedAt:prev?.recordCheckedAt, recordSourceUrl:prev?.recordSourceUrl } : {}),
-    ufcRec,
-    from: prev?.from ?? '',
-    img,
-    ...(prev?.photoSource?{photoSource:prev.photoSource}:{}),
-    ...(prev?.photoAliases?{photoAliases:prev.photoAliases}:{}),
-    height: tott ? formatHeight(tott.HEIGHT) : prev?.height ?? '',
-    weight: tott ? formatWeight(tott.WEIGHT) : prev?.weight ?? '',
-    reach:  tott ? formatReach(tott.REACH)   : prev?.reach  ?? '',
-    stance: (tott?.STANCE && tott.STANCE !== '--') ? tott.STANCE : prev?.stance ?? '',
-    team:   prev?.team ?? '',
-    form,
-    formTypes,
-  };
-
-  // rank: only add if provided (omit property entirely if not ranked)
-  if (rankValue) {
-    fighter.rank = rankValue;
-  }
-
-  return fighter;
+export function buildFighter(profile:any,csv:CsvData,fallback:Map<string,Fighter>):Fighter {
+ const {name,id,binding}=profile,byId=[...fallback.values()].find(f=>f.ufcStatsId===id),slug=byId?.slug??profile.slug,prev=byId??fallback.get(slug),tott=profile.tott,detail=profile.detail;
+ const allFights=csv.fightsByFighter.get(id)??[],partial=Boolean(csv.unresolved.get(id));
+ const wins=allFights.filter(f=>f.result==='W').length,losses=allFights.filter(f=>f.result==='L').length,draws=allFights.filter(f=>f.result==='D').length;
+ const mixedLegacy=profile.ambiguous&&!prev?.ufcStatsId;
+ const ufcRec=partial?undefined:wins+'-'+losses+'-'+draws;
+ const oldProfessional=!mixedLegacy&&prev?.recScope==='pro';
+ const rec=binding?.record??(oldProfessional?prev.rec:ufcRec??'0-0-0');
+ const recScope=binding?.record||oldProfessional?'pro':partial?'unknown':'ufc';
+ const pounds=parseFloat(tott.WEIGHT);
+ const weightDiv=({125:'Flyweight',135:'Bantamweight',145:'Featherweight',155:'Lightweight',170:'Welterweight',185:'Middleweight',205:'Light Heavyweight',265:'Heavyweight'} as Record<number,string>)[pounds]??'';
+ const div=prev?.rank?prev.div:allFights.length?formatDivision(allFights[0].weightClass):weightDiv||prev?.div||'';
+ const photoSafe=!profile.ambiguous||prev?.ufcStatsId===id&&prev?.photoSource?.profileUrl===binding?.ufcProfileUrl||Boolean(binding?.ufcProfileUrl&&(prev?.photoSource?.profileUrl===binding.ufcProfileUrl||!prev?.photoSource&&binding.ufcProfileUrl.split('/').at(-1)===slug));
+ let img=photoSafe?prev?.img??'':'';
+ if(photoSafe)for(const ext of ['webp','png','jpg'])if(existsSync(join(IMG_DIR,slug+'.'+ext))){img='/fighters/'+slug+'.'+ext;break;}
+ return {
+  slug,name,ufcStatsId:id,ufcStatsUrl:tott.URL,
+  ...(profile.ambiguous?{identityAmbiguousName:true}:{}),
+  ...(Number.isFinite(Date.parse(tott.DOB))?{birthDate:new Date(tott.DOB).toISOString().slice(0,10)}:{}),
+  ...(binding?.ufcProfileUrl||prev?.ufcProfileUrl?{ufcProfileUrl:binding?.ufcProfileUrl??prev.ufcProfileUrl}:{}),
+  ...(partial?{ufcStatsIncomplete:true}:{}),...(partial&&recScope!=='pro'?{recordUnavailable:true}:{}),
+  ...(prev?.rank?{rank:prev.rank,rankCheckedAt:prev.rankCheckedAt}:{}),
+  nick:detail?.NICKNAME?.trim()||(!mixedLegacy?prev?.nick:'')||'',div,rec,recScope,ufcRec,
+  ...(!mixedLegacy?Object.fromEntries(['recordAttemptedAt','recordRetryAfter','recordCheckedAt','recordSourceUrl'].filter(k=>prev?.[k]).map(k=>[k,prev[k]])):{}),
+  ...(recScope==='ufc'&&prev?.recordConflict?{recordConflict:prev.recordConflict}:{}),
+  ...(recScope==='pro'?{recordSourceUrl:binding?.record?binding.ufcProfileUrl:prev?.recordSourceUrl,recordCheckedAt:binding?.record?binding.checkedAt:prev?.recordCheckedAt}:{}),
+  from:prev?.from??'',img,...(photoSafe&&prev?.photoSource?{photoSource:prev.photoSource}:{}),...(photoSafe&&prev?.photoAliases?{photoAliases:prev.photoAliases}:{}),
+  height:formatHeight(tott.HEIGHT),weight:formatWeight(tott.WEIGHT),reach:formatReach(tott.REACH),stance:tott.STANCE==='--'?'':tott.STANCE??'',team:prev?.team??'',
+  form:allFights.slice(0,5).map(f=>f.result),formTypes:allFights.slice(0,5).map(f=>({outcome:f.result,winType:parseWinType(f.method)}))
+ } as Fighter;
 }
 
-// Top 5 contenders by division (seeds — updated from UFC rankings)
-const CONTENDER_SEEDS: { name: string; div: string; rank: number }[] = [
-  { name: 'Jon Jones',           div: 'Heavyweight',       rank: 1 },
-  { name: 'Curtis Blaydes',      div: 'Heavyweight',       rank: 2 },
-  { name: 'Sergei Pavlovich',    div: 'Heavyweight',       rank: 3 },
-  { name: 'Ciryl Gane',          div: 'Heavyweight',       rank: 4 },
-  { name: 'Alexander Volkov',    div: 'Heavyweight',       rank: 5 },
-  { name: 'Alex Pereira',        div: 'Light Heavyweight', rank: 1 },
-  { name: 'Jiri Prochazka',      div: 'Light Heavyweight', rank: 2 },
-  { name: 'Jamahal Hill',        div: 'Light Heavyweight', rank: 3 },
-  { name: 'Magomed Ankalaev',    div: 'Light Heavyweight', rank: 4 },
-  { name: 'Jan Blachowicz',      div: 'Light Heavyweight', rank: 5 },
-  { name: 'Sean Strickland',     div: 'Middleweight',      rank: 1 },
-  { name: 'Dricus Du Plessis',   div: 'Middleweight',      rank: 2 },
-  { name: 'Robert Whittaker',    div: 'Middleweight',      rank: 3 },
-  { name: 'Paulo Costa',         div: 'Middleweight',      rank: 4 },
-  { name: 'Marvin Vettori',      div: 'Middleweight',      rank: 5 },
-  { name: 'Shavkat Rakhmonov',   div: 'Welterweight',      rank: 1 },
-  { name: 'Belal Muhammad',      div: 'Welterweight',      rank: 2 },
-  { name: 'Leon Edwards',        div: 'Welterweight',      rank: 3 },
-  { name: 'Colby Covington',     div: 'Welterweight',      rank: 4 },
-  { name: 'Gilbert Burns',       div: 'Welterweight',      rank: 5 },
-  { name: 'Arman Tsarukyan',     div: 'Lightweight',       rank: 1 },
-  { name: 'Justin Gaethje',      div: 'Lightweight',       rank: 2 },
-  { name: 'Charles Oliveira',    div: 'Lightweight',       rank: 3 },
-  { name: 'Beneil Dariush',      div: 'Lightweight',       rank: 4 },
-  { name: 'Mateusz Gamrot',      div: 'Lightweight',       rank: 5 },
-  { name: 'Max Holloway',        div: 'Featherweight',     rank: 1 },
-  { name: 'Brian Ortega',        div: 'Featherweight',     rank: 2 },
-  { name: 'Yair Rodriguez',      div: 'Featherweight',     rank: 3 },
-  { name: 'Arnold Allen',        div: 'Featherweight',     rank: 4 },
-  { name: 'Josh Emmett',         div: 'Featherweight',     rank: 5 },
-  { name: "Sean O'Malley",       div: 'Bantamweight',      rank: 1 },
-  { name: 'Merab Dvalishvili',   div: 'Bantamweight',      rank: 2 },
-  { name: 'Marlon Vera',         div: 'Bantamweight',      rank: 3 },
-  { name: 'Aljamain Sterling',   div: 'Bantamweight',      rank: 4 },
-  { name: 'Dominick Cruz',       div: 'Bantamweight',      rank: 5 },
-  { name: 'Brandon Moreno',      div: 'Flyweight',         rank: 1 },
-  { name: 'Alexandre Pantoja',   div: 'Flyweight',         rank: 2 },
-  { name: 'Matheus Nicolau',     div: 'Flyweight',         rank: 3 },
-  { name: 'Brandon Royval',      div: 'Flyweight',         rank: 4 },
-  { name: 'Amir Albazi',         div: 'Flyweight',         rank: 5 },
-];
-
-async function fetchFighters() {
-  // 1. Load existing data for fallback (from, team, img, nick, etc.)
-  const existing: Fighter[] = readJson<Fighter>('fighters.json');
-  const fallback = new Map<string, Fighter>(existing.map(f => [f.slug, f]));
-
-  // 2. Load overrides (key can be name OR slug)
-  const overridesPath = join(DATA_DIR, 'fighters-overrides.json');
-  const overridesRaw: Record<string, Partial<Fighter>> = existsSync(overridesPath)
-    ? JSON.parse(readFileSync(overridesPath, 'utf8'))
-    : {};
-
-  // 3. Load CSV data
-  const csv = await loadCsvData();
-
-  // 4. Get champions from Wikipedia
-  const $ = await fetchHtml('https://en.wikipedia.org/wiki/UFC_champions');
-  const championNames: { name: string; div: string }[] = [];
-
-  const DIV_MAP: Record<string, string> = {
-    'Heavyweight': 'Heavyweight',
-    'Light Heavyweight': 'Light Heavyweight',
-    'Middleweight': 'Middleweight',
-    'Welterweight': 'Welterweight',
-    'Lightweight': 'Lightweight',
-    'Featherweight': 'Featherweight',
-    'Bantamweight': 'Bantamweight',
-    'Flyweight': 'Flyweight',
-    "Women's Strawweight": "Strawweight (F)",
-    "Women's Flyweight": "Flyweight (F)",
-    "Women's Bantamweight": "Bantamweight (F)",
-    "Women's Featherweight": "Featherweight (F)",
-  };
-
-  $('table.wikitable').each((_, table) => {
-    const col = colIndexMap($, $(table));
-    const iDiv  = Math.max(col('division'), col('weight'), 0);
-    const iName = Math.max(col('champion'), col('fighter'), 1);
-
-    $(table).find('tr').slice(1).each((_, tr) => {
-      const cells = $(tr).find('td, th');
-      if (cells.length < 4 || championNames.length >= 8) return;
-      const divRaw  = clean($(cells[iDiv]).text());
-      const nameCell = $(cells[iName]);
-      const nameRaw  = clean(nameCell.find('a').first().text() || nameCell.text());
-      if (!nameRaw || /vacant/i.test(nameRaw)) return;
-      championNames.push({ name: nameRaw, div: DIV_MAP[divRaw] ?? divRaw });
-    });
-  });
-
-  if (!championNames.length) throw new Error('Fighters: 0 campeones en Wikipedia');
-
-  // 5. Build fighters
-  const allFighters: Fighter[] = [];
-
-  for (const { name, div } of championNames) {
-    console.log(`   [C] ${name}`);
-    const f = buildFighter(name, csv, fallback, 'C');
-    if (!f.div) f.div = div;
-    allFighters.push(f);
-  }
-
-  const championSlugs = new Set(allFighters.map(f => f.slug));
-  for (const { name, div, rank } of CONTENDER_SEEDS) {
-    const s = slugify(name);
-    if (championSlugs.has(s)) {
-      console.log(`   [#${rank}] ${name} (${div}) — skip (ya es campeón)`);
-      continue;
-    }
-    console.log(`   [#${rank}] ${name} (${div})`);
-    const f = buildFighter(name, csv, fallback, String(rank));
-    if (!f.div) f.div = div;
-    allFighters.push(f);
-  }
-
-  // 6. Add ALL remaining fighters from CSV
-  const addedSlugs = new Set(allFighters.map(f => f.slug));
-  let csvCount = 0;
-  for (const name of csv.tottByName.keys()) {
-    const slug = slugify(name);
-    if (addedSlugs.has(slug)) continue;
-    allFighters.push(buildFighter(name, csv, fallback));
-    addedSlugs.add(slug);
-    csvCount++;
-  }
-  console.log(`   + ${csvCount} fighters del CSV (roster completo)`);
-
-  // 7. Apply overrides LAST (wins over CSV and fallback)
-  let overrideCount = 0;
-  for (const f of allFighters) {
-    const ov = overridesRaw[f.name] ?? overridesRaw[f.slug];
-    if (ov && typeof ov === 'object') {
-      Object.assign(f, ov);
-      overrideCount++;
-      console.log(`   ★ override: ${f.name} → ${Object.keys(ov).join(', ')}`);
-    }
-  }
-  if (overrideCount) console.log(`   → ${overrideCount} override(s) applied`);
-
-  writeJson('fighters.json', allFighters);
-  console.log(`✓ fighters.json (${championNames.length} campeones + ${CONTENDER_SEEDS.length} contenders + ${csvCount} CSV = ${allFighters.length} total)`);
+async function fetchFighters(){
+ const existing:Fighter[]=readJson<Fighter>('fighters.json'),fallback=new Map(existing.map(f=>[f.slug,f]));
+ const csv=await loadCsvData();
+ const overridesPath=join(DATA_DIR,'fighters-overrides.json');
+ const overrides=existsSync(overridesPath)?JSON.parse(readFileSync(overridesPath,'utf8')):{};
+ const all=csv.profiles.map(profile=>{
+  const fighter=buildFighter(profile,csv,fallback);
+  const ov=overrides[fighter.slug]??(!profile.ambiguous||fighter.slug===slugify(profile.name)?overrides[fighter.name]:undefined);
+  if(ov)Object.assign(fighter,ov);
+  preserveRecordScope(fighter);
+  return fighter;
+ });
+ const slugs=new Set(all.map(f=>f.slug));
+ if(slugs.size!==all.length)throw new Error('Duplicate public athlete slug; publication blocked');
+ // Official profiles added by rankings survive CSV lag without invented bouts.
+ for(const previous of existing)if(!slugs.has(previous.slug)&&!previous.ufcStatsId)all.push(previous);
+ writeJson('fighters.json',all);
+ console.log('Athletes keyed by UFCStats ID:',all.length,'; ambiguous histories pending verification:',csv.unresolved.size);
 }
 
 // ─── EVENTS (Wikipedia) ─────────────────────────────────────────────────────
@@ -842,6 +593,11 @@ function assignEventPhotos() {
   const extraPath=join(DATA_DIR,'fighter-media-extra.json');
   const extraMedia=existsSync(extraPath)?JSON.parse(readFileSync(extraPath,'utf8')):[];
   const mediaFor=createFighterMedia([...fighters,...extraMedia],photosOnDisk);
+  const mediaPeople=[...fighters,...extraMedia];
+  for(const event of allEvts)for(const fight of event.fightCard??[])for(const side of ['f1','f2'] as const){
+   const person=resolveBoutPerson(fight[side],(fight as any)[side+'StatsId']??fight[side+'Id'],fight.weightClass,mediaPeople);
+   if(person){fight[side+'Id']=person.slug;if(person.ufcStatsId)(fight as any)[side+'StatsId']=person.ufcStatsId;}
+  }
   const findPhoto=(name:string):string=>mediaFor(name).photo;
 
   let matched = 0, unmatched = 0;
@@ -850,7 +606,7 @@ function assignEventPhotos() {
     for (const side of ['f1', 'f2'] as const) {
       const name = expandAnnouncedNames(e)[side];
       const imgKey = `${side}img` as 'f1img' | 'f2img';
-      const photo = findPhoto(name);
+      const photo = resolveEventPerson(e,side,mediaPeople)?.img??'';
       if (photo && existsSync(join(IMG_DIR, photo.replace('/fighters/', '')))) {
         e[imgKey] = photo;
         matched++;
@@ -908,4 +664,4 @@ async function main() {
   console.log('\n✓ Todo actualizado.');
 }
 
-main().catch(err => { console.error(err); process.exit(1); });
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)main().catch(err => { console.error(err); process.exit(1); });

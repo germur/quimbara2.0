@@ -1,7 +1,7 @@
 import {readFileSync,existsSync,readdirSync} from 'node:fs';
 import {join} from 'node:path';
 import sharp from 'sharp';
-import {resolvePerson} from '../src/lib/fighter-media.mjs';
+import {resolvePerson,resolveBoutPerson} from '../src/lib/fighter-media.mjs';
 import {publisherPlaceholder,publisherPlaceholderURL} from './lib/photo-validation.mjs';
 import {resolvePhotoSource} from './lib/photo-sources.mjs';
 const read=file=>JSON.parse(readFileSync(file,'utf8'));
@@ -47,7 +47,7 @@ if(process.argv.includes('--dist')){
 const missing=[];
 for(const e of events)for(const f of e.fightCard??[])for(const side of ['f1','f2']){
  if(!f[side]||f[side]==='TBD')continue;
- const person=resolvePerson(f[side],people,{surname:true});
+ const person=resolveBoutPerson(f[side],f[side+'StatsId']??f[side+'Id'],f.weightClass,people);
  if(!person?.img)missing.push({event:e.slug,name:f[side]});
 }
 console.log(JSON.stringify({checkedAssets:refs.size,renderedPages,errors,rankedWithoutPhoto:fighters.filter(f=>f.rank&&!f.img).map(f=>f.slug),eventHeroesWithoutPhoto:events.filter(e=>e.main!=='TBD'&&(!e.f1img||!e.f2img)).map(e=>e.slug),eventNamesWithoutPhoto:[...new Set(missing.map(f=>f.name))],fightersWithPhoto:fighters.filter(f=>f.img).length,mediaOnlyWithPhoto:extras.filter(f=>f.img).length},null,2));

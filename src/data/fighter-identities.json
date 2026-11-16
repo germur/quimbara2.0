@@ -1,0 +1,332 @@
+{
+  "profiles": {
+    "c8661e204c66f325": {
+      "name": "Mike Davis",
+      "sourceUrl": "http://ufcstats.com/fighter-details/c8661e204c66f325",
+      "slug": "mike-davis-c8661e20"
+    },
+    "fb3e61720be4690c": {
+      "name": "Mike Davis",
+      "sourceUrl": "http://ufcstats.com/fighter-details/fb3e61720be4690c",
+      "slug": "mike-davis",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/maiku-teihisu",
+      "record": "12-4-0",
+      "checkedAt": "2026-11-16T22:09:18.558Z"
+    },
+    "daff32bc96d1eabf": {
+      "name": "Anthony Figueroa",
+      "sourceUrl": "http://ufcstats.com/fighter-details/daff32bc96d1eabf",
+      "slug": "anthony-figueroa-daff32bc"
+    },
+    "35e3a24591f4e2cd": {
+      "name": "Anthony Figueroa",
+      "sourceUrl": "http://ufcstats.com/fighter-details/35e3a24591f4e2cd",
+      "slug": "anthony-figueroa"
+    },
+    "0778f94eb5d588a5": {
+      "name": "Joey Gomez",
+      "sourceUrl": "http://ufcstats.com/fighter-details/0778f94eb5d588a5",
+      "slug": "joey-gomez-1986",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/joey-gomez",
+      "record": "6-2-0",
+      "checkedAt": "2026-11-16T22:09:18.558Z"
+    },
+    "3a28e1e641366308": {
+      "name": "Joey Gomez",
+      "sourceUrl": "http://ufcstats.com/fighter-details/3a28e1e641366308",
+      "slug": "joey-gomez"
+    },
+    "3641a0d117e9bc6c": {
+      "name": "Tony Johnson",
+      "sourceUrl": "http://ufcstats.com/fighter-details/3641a0d117e9bc6c",
+      "slug": "tony-johnson",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/tony-johnson",
+      "record": "7-2-0",
+      "checkedAt": "2026-11-16T22:09:18.558Z"
+    },
+    "a45bab49951a45cd": {
+      "name": "Tony Johnson",
+      "sourceUrl": "http://ufcstats.com/fighter-details/a45bab49951a45cd",
+      "slug": "tony-johnson-a45bab49"
+    },
+    "d52ef694108f8235": {
+      "name": "Michael McDonald",
+      "sourceUrl": "http://ufcstats.com/fighter-details/d52ef694108f8235",
+      "slug": "michael-mcdonald-1965"
+    },
+    "d0314416a7f26527": {
+      "name": "Michael McDonald",
+      "sourceUrl": "http://ufcstats.com/fighter-details/d0314416a7f26527",
+      "slug": "michael-mcdonald",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/michael-mcdonald",
+      "record": "17-4-0",
+      "checkedAt": "2026-11-16T22:09:18.558Z"
+    },
+    "6f81399074fcdbba": {
+      "name": "Anthony Romero",
+      "sourceUrl": "http://ufcstats.com/fighter-details/6f81399074fcdbba",
+      "slug": "anthony-romero-1997"
+    },
+    "4419acb81e6f0ea4": {
+      "name": "Anthony Romero",
+      "sourceUrl": "http://ufcstats.com/fighter-details/4419acb81e6f0ea4",
+      "slug": "anthony-romero",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/anthony-romero-0",
+      "record": "7-3-0",
+      "checkedAt": "2026-11-16T22:09:18.558Z"
+    },
+    "9211aae062b799d6": {
+      "name": "Jean Silva",
+      "sourceUrl": "http://ufcstats.com/fighter-details/9211aae062b799d6",
+      "slug": "jean-silva-1977"
+    },
+    "52ef95b5860fb28c": {
+      "name": "Jean Silva",
+      "sourceUrl": "http://ufcstats.com/fighter-details/52ef95b5860fb28c",
+      "slug": "jean-silva",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/jean-silva",
+      "record": "18-3-0",
+      "checkedAt": "2026-11-16T22:09:18.558Z"
+    },
+    "294aa73dbf37d281": {
+      "name": "Bruno Silva",
+      "sourceUrl": "http://ufcstats.com/fighter-details/294aa73dbf37d281",
+      "slug": "bruno-silva",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/bruno-silva",
+      "record": "15-9-2",
+      "checkedAt": "2026-11-16T22:09:18.558Z"
+    },
+    "12ebd7d157e91701": {
+      "name": "Bruno Silva",
+      "sourceUrl": "http://ufcstats.com/fighter-details/12ebd7d157e91701",
+      "slug": "bruno-silva-blindado",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/bruno-silva-blindado",
+      "record": "23-13-0",
+      "checkedAt": "2026-11-16T22:09:18.558Z"
+    },
+    "de277a4abcfeea46": {
+      "name": "Victor Valenzuela",
+      "sourceUrl": "http://ufcstats.com/fighter-details/de277a4abcfeea46",
+      "slug": "victor-valenzuela-de277a4a"
+    },
+    "078695e385ec2f57": {
+      "name": "Victor Valenzuela",
+      "sourceUrl": "http://ufcstats.com/fighter-details/078695e385ec2f57",
+      "slug": "victor-valenzuela",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/victor-valenzuela-0",
+      "record": "14-4-0",
+      "checkedAt": "2026-11-16T22:09:18.558Z"
+    }
+  },
+  "fights": {
+    "http://ufcstats.com/fight-details/3859314324918eeb": [
+      null,
+      "fb3e61720be4690c"
+    ],
+    "http://ufcstats.com/fight-details/7f33fbdc35afd721": [
+      null,
+      "fb3e61720be4690c"
+    ],
+    "http://ufcstats.com/fight-details/775788423f5eeb99": [
+      null,
+      "fb3e61720be4690c"
+    ],
+    "http://ufcstats.com/fight-details/4f20f3ada1489823": [
+      null,
+      "fb3e61720be4690c"
+    ],
+    "http://ufcstats.com/fight-details/330506571d2778b1": [
+      "fb3e61720be4690c",
+      null
+    ],
+    "http://ufcstats.com/fight-details/031e6624f96aceb8": [
+      "fb3e61720be4690c",
+      null
+    ],
+    "http://ufcstats.com/fight-details/6a0217099efee13f": [
+      "fb3e61720be4690c",
+      null
+    ],
+    "http://ufcstats.com/fight-details/c2bcdcc472228768": [
+      null,
+      "fb3e61720be4690c"
+    ],
+    "http://ufcstats.com/fight-details/08c6b88ac22717ed": [
+      "d0314416a7f26527",
+      null
+    ],
+    "http://ufcstats.com/fight-details/a19d619f1b9bee7b": [
+      "d0314416a7f26527",
+      null
+    ],
+    "http://ufcstats.com/fight-details/00566b4d89565373": [
+      null,
+      "d0314416a7f26527"
+    ],
+    "http://ufcstats.com/fight-details/3dbf17b9946d26db": [
+      null,
+      "d0314416a7f26527"
+    ],
+    "http://ufcstats.com/fight-details/33a93002fef6c89d": [
+      null,
+      "d0314416a7f26527"
+    ],
+    "http://ufcstats.com/fight-details/556952a9520d0ae0": [
+      "d0314416a7f26527",
+      null
+    ],
+    "http://ufcstats.com/fight-details/c67473192bda50d8": [
+      "d0314416a7f26527",
+      null
+    ],
+    "http://ufcstats.com/fight-details/041f9b7dd3542fa6": [
+      null,
+      "4419acb81e6f0ea4"
+    ],
+    "http://ufcstats.com/fight-details/034c04e480d87b8f": [
+      "52ef95b5860fb28c",
+      null
+    ],
+    "http://ufcstats.com/fight-details/836a188a90e479a5": [
+      null,
+      "52ef95b5860fb28c"
+    ],
+    "http://ufcstats.com/fight-details/de1a3734be60e6a1": [
+      null,
+      "52ef95b5860fb28c"
+    ],
+    "http://ufcstats.com/fight-details/8c540eb4afe8c43e": [
+      null,
+      "52ef95b5860fb28c"
+    ],
+    "http://ufcstats.com/fight-details/8ef7723b6a8b45e1": [
+      "52ef95b5860fb28c",
+      null
+    ],
+    "http://ufcstats.com/fight-details/54de03e04f571735": [
+      null,
+      "52ef95b5860fb28c"
+    ],
+    "http://ufcstats.com/fight-details/2b7883b304b3df1c": [
+      null,
+      "52ef95b5860fb28c"
+    ],
+    "http://ufcstats.com/fight-details/0494ebcee93e717b": [
+      null,
+      "52ef95b5860fb28c"
+    ],
+    "http://ufcstats.com/fight-details/20d74ed23d3e9b3a": [
+      "294aa73dbf37d281",
+      null
+    ],
+    "http://ufcstats.com/fight-details/fc9168fd102e2e66": [
+      null,
+      "294aa73dbf37d281"
+    ],
+    "http://ufcstats.com/fight-details/668a44403a130043": [
+      "294aa73dbf37d281",
+      null
+    ],
+    "http://ufcstats.com/fight-details/b6a87389bdc36a00": [
+      "294aa73dbf37d281",
+      null
+    ],
+    "http://ufcstats.com/fight-details/94541dd979e0b4bd": [
+      null,
+      "294aa73dbf37d281"
+    ],
+    "http://ufcstats.com/fight-details/c3af2b6ab1262fef": [
+      null,
+      "294aa73dbf37d281"
+    ],
+    "http://ufcstats.com/fight-details/b381dc272b32ce03": [
+      "294aa73dbf37d281",
+      null
+    ],
+    "http://ufcstats.com/fight-details/55bf7f19a132e0fc": [
+      "294aa73dbf37d281",
+      null
+    ],
+    "http://ufcstats.com/fight-details/dbb5d682a2d7f584": [
+      "294aa73dbf37d281",
+      null
+    ],
+    "http://ufcstats.com/fight-details/1a2d13834696c4ab": [
+      "294aa73dbf37d281",
+      null
+    ],
+    "http://ufcstats.com/fight-details/57ff0eb2351979c4": [
+      null,
+      "294aa73dbf37d281"
+    ],
+    "http://ufcstats.com/fight-details/6ecfa439ef900bcc": [
+      null,
+      "12ebd7d157e91701"
+    ],
+    "http://ufcstats.com/fight-details/bde635a4f345bc3e": [
+      null,
+      "12ebd7d157e91701"
+    ],
+    "http://ufcstats.com/fight-details/77992b8727382373": [
+      null,
+      "12ebd7d157e91701"
+    ],
+    "http://ufcstats.com/fight-details/539732694ab2c8d6": [
+      null,
+      "12ebd7d157e91701"
+    ],
+    "http://ufcstats.com/fight-details/9124740fe7816d70": [
+      null,
+      "12ebd7d157e91701"
+    ],
+    "http://ufcstats.com/fight-details/d00d5ef4ae0ac01b": [
+      null,
+      "12ebd7d157e91701"
+    ],
+    "http://ufcstats.com/fight-details/38b6ef176439c39b": [
+      "12ebd7d157e91701",
+      null
+    ],
+    "http://ufcstats.com/fight-details/226884e46a10865d": [
+      null,
+      "12ebd7d157e91701"
+    ],
+    "http://ufcstats.com/fight-details/fefa96b6d939ffea": [
+      null,
+      "12ebd7d157e91701"
+    ],
+    "http://ufcstats.com/fight-details/bb1ac382e0277b3f": [
+      null,
+      "12ebd7d157e91701"
+    ],
+    "http://ufcstats.com/fight-details/1a635a5e4551e7d5": [
+      null,
+      "294aa73dbf37d281"
+    ],
+    "http://ufcstats.com/fight-details/2e7f8d0ad385876d": [
+      null,
+      "078695e385ec2f57"
+    ],
+    "http://ufcstats.com/fight-details/187681b2843174b5": [
+      null,
+      "0778f94eb5d588a5"
+    ],
+    "http://ufcstats.com/fight-details/18cdc16fc7ab7ce1": [
+      null,
+      "0778f94eb5d588a5"
+    ],
+    "http://ufcstats.com/fight-details/8e41d022b55277ae": [
+      null,
+      "d0314416a7f26527"
+    ],
+    "http://ufcstats.com/fight-details/52f77a9f9eb66ab7": [
+      "d0314416a7f26527",
+      null
+    ],
+    "http://ufcstats.com/fight-details/9039762cb9f4abdb": [
+      null,
+      "12ebd7d157e91701"
+    ]
+  },
+  "checkedAt": "2026-11-16T22:09:18.558Z"
+}

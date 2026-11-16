@@ -49,16 +49,16 @@
         "f2Id": "brian-ortega"
       },
       {
-        "f1": "Asu Almabayev",
-        "f2": "Kyoji Horiguchi",
+        "f1": "Kyoji Horiguchi",
+        "f2": "Asu Almabayev",
         "sourceFightId": "401927855",
         "weightClass": "Flyweight",
         "bout": "maincard",
         "order": 3,
         "sourceStartUTC": "2026-11-21T18:00Z",
         "segmentInferred": true,
-        "f1Id": "asu-almabayev",
-        "f2Id": "kyoji-horiguchi"
+        "f1Id": "kyoji-horiguchi",
+        "f2Id": "asu-almabayev"
       },
       {
         "f1": "Jared Cannonier",
@@ -128,7 +128,9 @@
         "bout": "prelim",
         "order": 9,
         "sourceStartUTC": "2026-11-21T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "nikolas-motta",
+        "f2Id": "dom-mar-fan"
       },
       {
         "f1": "Diyar Nurgozhay",
@@ -138,7 +140,9 @@
         "bout": "prelim",
         "order": 10,
         "sourceStartUTC": "2026-11-21T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "diyar-nurgozhay",
+        "f2Id": "alik-lorenz"
       }
     ],
     "cardHistory": [
@@ -150,10 +154,19 @@
           "Nikolas Motta vs. Dom Mar Fan"
         ],
         "removed": []
+      },
+      {
+        "checkedAt": "2026-11-16T21:55:34.610Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
+        "added": [
+          "Nikolas Motta vs. Dom Mar Fan",
+          "Diyar Nurgozhay vs. Alik Lorenz"
+        ],
+        "removed": []
       }
     ],
     "espnEventId": "600061665",
-    "cardCheckedAt": "2026-11-16T15:42:26.350Z",
+    "cardCheckedAt": "2026-11-16T22:06:06.946Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -162,7 +175,7 @@
     "country": "Qatar",
     "programmingStartUTC": "2026-11-21T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
-    "scheduleCheckedAt": "2026-11-16T15:42:26.350Z",
+    "scheduleCheckedAt": "2026-11-16T22:06:06.946Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061665/league/ufc",
     "bg": "#FFD600",
     "color": "#111"
@@ -190,7 +203,7 @@
         "sourceStartUTC": "2026-12-05T18:00Z",
         "segmentInferred": true,
         "f1Id": "israel-adesanya",
-        "f2Id": "sharabutdin-magomedov"
+        "f2Id": "shara-magomedov"
       },
       {
         "f1": "Ian Machado Garry",
@@ -260,7 +273,9 @@
         "bout": "prelim",
         "order": 6,
         "sourceStartUTC": "2026-12-05T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "bruno-silva",
+        "f2Id": "jafel-filho"
       },
       {
         "f1": "Uran Satybaldiev",
@@ -282,7 +297,9 @@
         "bout": "prelim",
         "order": 8,
         "sourceStartUTC": "2026-12-05T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "junyong-park",
+        "f2Id": "marco-tulio"
       },
       {
         "f1": "Pavel Andrusca",
@@ -322,7 +339,7 @@
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-16T15:42:26.547Z",
+    "cardCheckedAt": "2026-11-16T22:06:07.062Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -331,6 +348,18 @@
         "added": [
           "JunYong Park vs. Marco Tulio",
           "Bruno Silva vs. Jafel Filho"
+        ],
+        "removed": [
+          "Bruno Gustavo da Silva vs. Jafel Filho",
+          "Marco Tulio vs. Park Jun-yong"
+        ]
+      },
+      {
+        "checkedAt": "2026-11-16T21:55:34.735Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
+        "added": [
+          "Bruno Silva vs. Jafel Filho",
+          "JunYong Park vs. Marco Tulio"
         ],
         "removed": [
           "Bruno Gustavo da Silva vs. Jafel Filho",
@@ -345,7 +374,7 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-16T15:42:26.547Z",
+    "scheduleCheckedAt": "2026-11-16T22:06:07.062Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc",
     "bg": "#E53935",
     "color": "#fff"
@@ -395,7 +424,9 @@
         "bout": "maincard",
         "order": 2,
         "sourceStartUTC": "2026-12-13T02:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "brandon-moreno",
+        "f2Id": "charles-johnson"
       },
       {
         "f1": "Maycee Barber",
@@ -405,17 +436,21 @@
         "bout": "maincard",
         "order": 3,
         "sourceStartUTC": "2026-12-13T00:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "maycee-barber",
+        "f2Id": "carli-judice"
       },
       {
-        "f1": "Junior Tafa",
-        "f2": "Quentin Pasley",
+        "f1": "Quentin Pasley",
+        "f2": "Junior Tafa",
         "sourceFightId": "401930356",
         "weightClass": "Light Heavyweight",
         "bout": "prelim",
         "order": 4,
         "sourceStartUTC": "2026-12-12T22:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "quentin-pasley",
+        "f2Id": "junior-tafa"
       }
     ],
     "cardHistory": [
@@ -430,10 +465,18 @@
         "removed": [
           "Joe Pyfer vs. Bo Nickal"
         ]
+      },
+      {
+        "checkedAt": "2026-11-16T21:55:34.848Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
+        "added": [
+          "Maycee Barber vs. Carli Judice"
+        ],
+        "removed": []
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-16T15:42:26.602Z",
+    "cardCheckedAt": "2026-11-16T22:06:07.173Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -442,7 +485,7 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-16T15:42:26.602Z",
+    "scheduleCheckedAt": "2026-11-16T22:06:07.173Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc",
     "bg": "#7B1FA2",
     "color": "#fff"
