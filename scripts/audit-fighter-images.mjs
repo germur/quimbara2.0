@@ -2,12 +2,19 @@ import {readFileSync,existsSync,readdirSync} from 'node:fs';
 import {join} from 'node:path';
 import sharp from 'sharp';
 import {resolvePerson} from '../src/lib/fighter-media.mjs';
-import {publisherPlaceholder} from './lib/photo-validation.mjs';
+import {publisherPlaceholder,publisherPlaceholderURL} from './lib/photo-validation.mjs';
+import {resolvePhotoSource} from './lib/photo-sources.mjs';
 const read=file=>JSON.parse(readFileSync(file,'utf8'));
 const fighters=read('src/data/fighters.json'),extras=read('src/data/fighter-media-extra.json'),events=read('src/data/events-all.json'),people=[...fighters,...extras];
 const refs=new Set(people.map(f=>f.img).filter(Boolean));
 for(const e of events)for(const side of ['f1','f2'])if(e[side+'img'])refs.add(e[side+'img']);
 const errors=[];
+const sources=[...read('src/data/fighter-photo-sources.json').athletes,...read('src/data/fighter-photo-overrides.json')];
+for(const person of people)if(person.img&&person.photoSource){
+ if(publisherPlaceholderURL(person.photoSource.imageUrl))errors.push({path:person.img,error:'Publisher silhouette URL'});
+ const snapshot=person.photoSource.athleteName?[{name:person.photoSource.athleteName,slug:person.photoSource.athleteSlug,profileUrl:person.photoSource.profileUrl,images:[person.photoSource.imageUrl,...(person.photoSource.sourceImages??[])]}]:sources;
+ if(resolvePhotoSource(person,snapshot)?.profileUrl!==person.photoSource.profileUrl)errors.push({path:person.img,error:'Photo source does not preserve this athlete identity'});
+}
 const paths=[...refs];let cursor=0;
 await Promise.all(Array.from({length:8},async()=>{
  while(cursor<paths.length){const path=paths[cursor++];

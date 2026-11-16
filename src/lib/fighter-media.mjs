@@ -1,7 +1,12 @@
-import {normalizeName,sameFighterName} from './event-data.mjs';
+import {normalizeName} from './event-data.mjs';
 import verifiedAliases from '../data/fighter-photo-aliases.json' with {type:'json'};
 export const nameSlug=name=>String(name??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/['’]/g,'').replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-');
 const tokens=name=>String(name??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[^a-z0-9]+/).filter(w=>w&&!['jr','ii','iii'].includes(w)).sort().join('|');
+export function sameMediaName(a,b){
+ if(normalizeName(a)===normalizeName(b)||tokens(a)===tokens(b))return true;
+ const words=String(a??'').split(/[\s-]+/).filter(Boolean);
+ return words.some((_,i)=>normalizeName([...words.slice(i),...words.slice(0,i)].join(''))===normalizeName(b));
+}
 const indexes=new WeakMap();
 export const invalidatePersonIndex=people=>indexes.delete(people);
 function indexPeople(people){
@@ -33,8 +38,6 @@ export function resolvePerson(name,people,{surname=false}={}){
  if(ordered.length)return unique(ordered);
  const rotated=[...(index.rotated.get(normalizeName(name))??[])];
  if(rotated.length)return unique(rotated);
- const aliases=[...(index.last.get(normalizeName(String(name).trim().split(/\s+/).at(-1)))??[])].filter(p=>sameFighterName(p.name,name));
- if(aliases.length)return unique(aliases);
  if(surname){
   const slug=nameSlug(name);
   return unique([...(index.partial.get(slug)??[])]);

@@ -221,7 +221,7 @@ type Fighter = {
   recScope?: string;
   recordCheckedAt?: string;
   recordSourceUrl?: string;
-  photoSource?: {profileUrl:string;imageUrl:string;checkedAt:string};
+  photoSource?: {profileUrl:string;imageUrl:string;checkedAt:string;athleteName?:string;athleteSlug?:string;provider?:string;sourceImages?:string[]};
   photoAliases?: string[];
   /** Récord UFC-only calculado desde los CSVs de Greco1899 (informacional) */
   ufcRec?: string;

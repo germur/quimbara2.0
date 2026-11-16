@@ -4,11 +4,11 @@ Revisión del 16 de noviembre de 2026. Se conservan los borradores y cambios pen
 
 ## Resultado
 
-Antes había 815 fichas con una referencia de imagen entre 4.620 registros. La reparación deja 2.551 fichas con foto y dos participantes adicionales con medios propios, sin inventar sus estadísticas ni crear perfiles deportivos.
+Antes había 815 fichas con una referencia de imagen entre 4.620 registros. La reparación deja 2.541 fichas con foto y tres participantes adicionales con medios propios, sin inventar sus estadísticas ni crear perfiles deportivos.
 
 La auditoría de archivos encuentra cero referencias rotas, cero rankeados sin foto, cero protagonistas de eventos anunciados sin foto y cero nombres identificados de las carteleras guardadas sin foto. La cobertura comprende los 193 rankeados de nuestra base y las 324 variantes de nombre presentes en esas carteleras; no se cuentan los participantes TBD.
 
-Esto no significa que exista un retrato oficial de cada registro histórico: 2.069 fichas siguen sin imagen compatible disponible en la fuente indexada y conservan sus iniciales.
+Esto no significa que exista un retrato oficial de cada registro histórico: 2.079 fichas siguen sin imagen compatible disponible en la fuente indexada y conservan sus iniciales.
 
 ## Causas y correcciones
 
@@ -28,3 +28,5 @@ La tarea diaria sigue ejecutando data:images. La cola amplía paulatinamente la 
 audit:images comprueba los archivos reales. Con --dist revisa además las imágenes locales de todas las páginas construidas y las referencias del índice del buscador. La tarea diaria ejecuta esta auditoría antes del commit que dispara la publicación.
 
 Las pruebas incluyen variantes de nombre, apellidos ambiguos, archivos ausentes, sufijos y exclusión de sustitutos genéricos. Continúan aprobadas las pruebas de datos, la migración de quinielas y los 27 casos de puntaje.
+
+La revisión final añadió comprobaciones de identidad completa para distinguir a Antonio Rodrigo de Antonio Rogerio Nogueira y a Min Soo de MinWoo Kim. También se excluyen URLs con silhouette. Las variantes no verificadas conservan iniciales. Gnizditskiy utiliza un retrato de su perfil oficial de ONE Championship mientras UFC solo publica una silueta. La identidad del atleta y el proveedor quedan guardados junto al retrato. Las pruebas de datos son ahora 12.

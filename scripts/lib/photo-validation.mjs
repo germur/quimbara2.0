@@ -6,3 +6,4 @@ const silhouettes=new Set([
  'f34feb040e96c95eb33d10acb35e67448ce2d3010c1614bde4ef37be15eed1f7',
 ]);
 export const publisherPlaceholder=bytes=>silhouettes.has(createHash('sha256').update(bytes).digest('hex'));
+export const publisherPlaceholderURL=url=>/no-profile|placeholder|default|shadow|coming.?soon|silhouette/i.test(url??'');
