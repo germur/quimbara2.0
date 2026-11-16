@@ -420,21 +420,20 @@ const metaDescription = isCompleted
     <div class="rounded-xl bg-gray-50 p-6 md:p-8 prose prose-sm max-w-none" style="font-family:var(--font-sans); color:#444; line-height:1.7;">
       {isCompleted && hasFight ? (
         <p>
-          <strong style="font-family:var(--font-display);color:#111;">{event.name}</strong> se celebró el <strong>{event.dateLabel}</strong> en <strong>{event.loc}</strong>.
+          <strong style="font-family:var(--font-display);color:#111;">{event.name}</strong> tenía como fecha registrada el <strong>{event.dateLabel}</strong> en <strong>{event.loc}</strong>.
           La pelea principal enfrentó a <strong>{f1}</strong> contra <strong>{f2}</strong>
           {isPPV ? ' en una noche de PPV.' : ' en un Fight Night.'}
           {' '}Consulta la cartelera anunciada y los artículos relacionados en Quimbara.
         </p>
       ) : hasFight ? (
         <p>
-          <strong style="font-family:var(--font-display);color:#111;">{event.name}</strong> se celebrará el <strong>{event.dateLabel}</strong> en <strong>{event.loc}</strong>.
-          La pelea principal del evento enfrenta a <strong>{f1}</strong> contra <strong>{f2}</strong> en lo que promete ser
-          {isPPV ? ' una noche de PPV de primer nivel.' : ' un emocionante Fight Night.'}
+          <strong style="font-family:var(--font-display);color:#111;">{event.name}</strong> está anunciado para el <strong>{event.dateLabel}</strong> en <strong>{event.loc}</strong>.
+          La pelea principal del evento enfrenta a <strong>{f1}</strong> contra <strong>{f2}</strong> en la cartelera anunciada.
           {' '}Consulta las fuentes y los análisis relacionados disponibles en Quimbara.
         </p>
       ) : (
         <p>
-          <strong style="font-family:var(--font-display);color:#111;">{event.name}</strong> está programado para el <strong>{event.dateLabel}</strong>
+          <strong style="font-family:var(--font-display);color:#111;">{event.name}</strong> tiene como fecha registrada el <strong>{event.dateLabel}</strong>
           en <strong>{event.loc}</strong>. Esta ficha se conserva como referencia, sin cartelera vigente comprobada. No debe interpretarse como confirmación de que el evento se celebrará.
           Las carteleras pueden cambiar. Consulta las fuentes y la política de actualización antes de planificar cómo seguir el evento.
         </p>
