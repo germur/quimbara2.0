@@ -4,11 +4,18 @@ import {buildRegistry} from './sync-event-urls.mjs';
 import {eventStatus,schemaStatus,validDate,validTime,cardChanges,imageQueue} from '../src/lib/event-data.mjs';
 import {horariosDeEvento,instanteDesdeET} from '../src/lib/horarios.mjs';
 import {matchesProviderFight,rankingCoverageValid} from '../src/lib/event-data.mjs';
-import {preserveFightCorners,fightKey} from '../src/lib/event-data.mjs';
+import {preserveFightCorners,fightKey,expandAnnouncedNames} from '../src/lib/event-data.mjs';
 import {safeWriteJson} from './lib/datasets.mjs';
 import {mkdtempSync,readFileSync,unlinkSync,rmdirSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
+test('abbreviated calendar names require a unique saved pair and respect explicit replacements',()=>{
+ const fightCard=[{f1:'Israel Adesanya',f2:'Sharabutdin Magomedov'}];
+ assert.deepEqual(expandAnnouncedNames({f1:'Adesanya',f2:'Magomedov',fightCard}),fightCard[0]);
+ assert.deepEqual(expandAnnouncedNames({f1:'Israel Adesanya',f2:'Abus Magomedov',fightCard}),{f1:'Israel Adesanya',f2:'Abus Magomedov'});
+ assert.deepEqual(expandAnnouncedNames({f1:'Other Fighter',f2:'Magomedov',fightCard}),{f1:'Other Fighter',f2:'Magomedov'});
+ assert.deepEqual(expandAnnouncedNames({f1:'Adesanya',f2:'Magomedov',fightCard:[...fightCard,{f1:'Israel Adesanya',f2:'Abus Magomedov'}]}),{f1:'Adesanya',f2:'Magomedov'});
+});
 
 test('empty and collapsed replacements cannot overwrite the last valid dataset',()=>{
   const dir=mkdtempSync(join(tmpdir(),'quimbara-guard-')),path=join(dir,'data.json');

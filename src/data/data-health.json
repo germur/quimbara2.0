@@ -1,12 +1,12 @@
 {
   "event-details": {
-    "lastAttempt": "2026-11-16T15:27:53.251Z",
-    "ok": false,
+    "lastAttempt": "2026-11-16T15:34:36.097Z",
+    "ok": true,
     "detail": {
-      "updated": 2,
-      "failed": 1
+      "updated": 3,
+      "failed": 0
     },
-    "lastSuccessfulFetch": "2026-11-16T15:15:28.110Z"
+    "lastSuccessfulFetch": "2026-11-16T15:34:36.097Z"
   },
   "Events": {
     "lastAttempt": "2026-11-16T15:24:27.516Z",
@@ -66,15 +66,15 @@
     "lastSuccessfulFetch": "2026-11-16T14:49:55.983Z"
   },
   "images": {
-    "lastAttempt": "2026-11-16T15:27:56.381Z",
+    "lastAttempt": "2026-11-16T15:33:30.146Z",
     "ok": true,
     "detail": {
-      "attempted": 2,
-      "downloaded": 2,
+      "attempted": 0,
+      "downloaded": 0,
       "failed": 0,
       "pendingRetries": 2
     },
-    "lastSuccessfulFetch": "2026-11-16T15:27:56.381Z"
+    "lastSuccessfulFetch": "2026-11-16T15:33:30.146Z"
   },
   "records": {
     "lastAttempt": "2026-11-16T15:27:52.807Z",

@@ -46,7 +46,7 @@ Se integran las correcciones editoriales pendientes de esta conversación: pági
 
 ## Validación y límites
 
-- Ocho pruebas de protección de datasets, orientación de esquinas, identidad, aliases, reprogramación, estados, horarios, cobertura y cola de imágenes.
+- Nueve pruebas de protección de datasets, nombres abreviados, orientación de esquinas, identidad, aliases, reprogramación, estados, horarios, cobertura y cola de imágenes.
 - Prueba de migración de picks: lectura antigua, borrado explícito y cierre.
 - Los 27 casos existentes del puntaje continúan pasando.
 - Auditoría del artefacto: redirecciones, canonical, sitemap, fechas, estados y rutas de quiniela.

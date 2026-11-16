@@ -1,7 +1,7 @@
 // ESPN is a supplementary, attributed source. Match the announced main fight;
 // never replace an event just because it shares a calendar date.
 import {readFileSync,writeFileSync} from 'node:fs';
-import {normalizeName,fightKey,cardChanges,validDate,matchesProviderFight,preserveFightCorners} from '../src/lib/event-data.mjs';
+import {normalizeName,fightKey,cardChanges,validDate,matchesProviderFight,preserveFightCorners,expandAnnouncedNames,sameFighterName} from '../src/lib/event-data.mjs';
 import {canonicalEvents} from '../src/lib/event-routing.mjs';
 import {fetchBounded} from './lib/fetch.mjs';
 import {recordHealth} from './lib/health.mjs';
@@ -12,7 +12,12 @@ const fullName=name=>{const exact=fighters.find(f=>normalizeName(f.name)===norma
 const today=new Date().toISOString().slice(0,10);
 let failed=0,updated=0;
 for(const event of canonicalEvents(events).filter(e=>validDate(e.date)&&e.date>=today&&Date.parse(e.date)-Date.now()<60*86400000&&e.main!=='TBD')) {
+  Object.assign(event,expandAnnouncedNames(event));
   event.f1=fullName(event.f1);event.f2=fullName(event.f2);event.main=event.f1+' vs. '+event.f2;
+  for(const corner of ['f1','f2']){
+    const matches=fighters.filter(f=>sameFighterName(f.name,event[corner]));
+    event[corner+'img']=matches.length===1?matches[0].img:'';
+  }
   const url='https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates='+event.date.replaceAll('-','');
   try {
     const data=await(await fetchBounded(url)).json();
