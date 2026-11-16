@@ -127,7 +127,7 @@ const nextDiv = curIdx < pool.length - 1 ? pool[curIdx + 1] : null;
         )}
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 pt-6 border-t border-gray-100">
           <div>
-            <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1" style="font-family:var(--font-sans);">Récord</div>
+            <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1" style="font-family:var(--font-sans);">{champ.recScope==='pro'?'Récord profesional':'Récord UFC'}</div>
             <div class="text-[#111] font-black text-3xl" style="font-family:var(--font-display);">{champ.rec}</div>
           </div>
           <div>
@@ -275,7 +275,7 @@ const nextDiv = curIdx < pool.length - 1 ? pool[curIdx + 1] : null;
         "name": `¿Quién es el campeón de ${label.toLowerCase()} de UFC?`,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": `El actual campeón de ${label.toLowerCase()} de UFC es ${champ.name}${champ.nick ? ` "${champ.nick}"` : ''} con récord profesional de ${champ.rec}.`
+          "text": `El actual campeón de ${label.toLowerCase()} de UFC es ${champ.name}${champ.nick ? ` "${champ.nick}"` : ''} con récord ${champ.recScope==='pro'?'profesional':'en UFC'} de ${champ.rec}.`
         }
       },
       {

@@ -79,7 +79,9 @@ export interface Peleador {
   };
 
   record: {
-    /** Récord profesional completo, ej. "17-1-0" */
+    /** Alcance atribuido por la fuente del récord. */
+    scope?: 'pro' | 'ufc' | 'unknown';
+    /** Récord con el alcance declarado, ej. "17-1-0" */
     texto: string | null;
     victorias: number | null;
     derrotas: number | null;
@@ -269,7 +271,7 @@ function derivar(f: RawFighter): Peleador {
       postura: (f as any).stance || null,
     },
 
-    record: parseRecord((f as any).rec),
+    record: {...parseRecord((f as any).rec),scope:(f as any).recScope==='pro'?'pro':(f as any).recScope==='unknown'?'unknown':'ufc'},
     forma: ((f as any).formTypes ?? []) as Array<{ outcome: string; winType: string }>,
 
     arma: ed.arma,
