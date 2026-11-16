@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Tommy Gantt",
+    "slug": "thomas-gantt",
+    "img": "/fighters/thomas-gantt.webp",
+    "photoSource": {
+      "profileUrl": "https://www.ufc.com/athlete/thomas-gantt",
+      "imageUrl": "https://ufc.com/images/styles/event_fight_card_upper_body_of_standing_athlete/s3/2026-09/GANTT_TOMMY_R_09-12.png?itok=Oib17HL7",
+      "checkedAt": "2026-11-16T16:45:04.722Z"
+    }
+  },
+  {
+    "name": "Tyrell Fortune",
+    "slug": "tyrell-fortune",
+    "img": "/fighters/tyrell-fortune.webp",
+    "photoSource": {
+      "profileUrl": "https://www.ufc.com/athlete/tyrell-fortune",
+      "imageUrl": "https://ufc.com/images/styles/event_fight_card_upper_body_of_standing_athlete/s3/2026-07/FORTUNE_TYRELL_R_07-25.png?itok=KQxOynQi",
+      "checkedAt": "2026-11-16T16:45:05.728Z"
+    }
+  }
+]

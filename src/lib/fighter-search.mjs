@@ -43,7 +43,7 @@ export function initFighterSearch() {
         image.src = fighter.img;
         image.alt = '';
         image.loading = 'lazy';
-        image.className = 'w-full h-full object-cover';
+        image.className = 'w-full h-full object-cover object-top';
         image.addEventListener('error', () => image.remove(), { once: true });
         avatar.append(image);
       }

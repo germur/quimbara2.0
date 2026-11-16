@@ -1,47 +1,103 @@
 import {readFileSync,writeFileSync,existsSync} from 'node:fs';
 import {load} from 'cheerio';
-import {imageQueue,normalizeName} from '../src/lib/event-data.mjs';
+import sharp from 'sharp';
+import {resolvePerson,invalidatePersonIndex} from '../src/lib/fighter-media.mjs';
+import {expandAnnouncedNames} from '../src/lib/event-data.mjs';
 import {fetchBounded} from './lib/fetch.mjs';
 import {recordHealth} from './lib/health.mjs';
+import {publisherPlaceholder} from './lib/photo-validation.mjs';
+import {syncPhotoSources} from './sync-photo-sources.mjs';
 const read=(p,f)=>existsSync(p)?JSON.parse(readFileSync(p,'utf8')):f;
 const fighters=read('src/data/fighters.json',[]),events=read('src/data/events-all.json',[]);
 const failures=read('src/data/image-failures.json',{});
-// Recover references to existing assets before contacting the upstream.
-for(const f of fighters)for(const ext of ['png','jpg','webp'])
-  if(!f.img&&existsSync(`public/fighters/${f.slug}.${ext}`))f.img=`/fighters/${f.slug}.${ext}`;
-const batch=imageQueue(fighters,events,failures).slice(0,50);
-let downloaded=0,failed=0,attempted=0;
-for(const f of batch) {
-  attempted++;
-  try {
-    const html=await(await fetchBounded(`https://www.ufc.com/athlete/${f.slug}`,{headers:{'User-Agent':'Mozilla/5.0'}})).text();
-    const $=load(html);
-    const src=$('img').toArray().map(e=>$(e).attr('src')).find(s=>s?.includes('athlete_bio_full_body'))??$('meta[property="og:image"]').attr('content');
-    if(!src)throw new Error('Image not published');
-    const url=new URL(src,'https://www.ufc.com').href;
-    const response=await fetchBounded(url);
-    const type=response.headers.get('content-type')??'';
-    if(!type.startsWith('image/'))throw new Error('Non-image content');
-    const bytes=Buffer.from(await response.arrayBuffer());
-    if(bytes.length<1000)throw new Error('Empty or invalid image');
-    const ext=type.includes('png')?'png':type.includes('webp')?'webp':'jpg';
-    writeFileSync(`public/fighters/${f.slug}.${ext}`,bytes);
-    f.img=`/fighters/${f.slug}.${ext}`;delete failures[f.slug];downloaded++;
-  }catch(error){
-    failed++;
-    failures[f.slug]={error:error.message,lastAttempt:new Date().toISOString(),retryAfter:new Date(Date.now()+(/HTTP 404|Image not published/.test(error.message)?7*86400000:3600000)).toISOString()};
-    console.error(f.slug,error.message);
-    if(downloaded===0&&failed>=3&&/HTTP 403|HTTP 429/.test(error.message))break;
-  }
-  await new Promise(resolve=>setTimeout(resolve,1100));
+const sources=await syncPhotoSources();
+const validPath=path=>typeof path==='string'&&path.startsWith('/fighters/')&&!path.includes('..')&&existsSync('public'+path)&&!publisherPlaceholder(readFileSync('public'+path));
+for(const f of fighters){
+ if(f.img&&!validPath(f.img))f.img='';
+ for(const ext of ['png','jpg','webp'])if(!f.img&&validPath(`/fighters/${f.slug}.${ext}`))f.img=`/fighters/${f.slug}.${ext}`;
 }
+// Media-only athletes must not create invented sporting profiles or records.
+const addAlias=(person,name)=>{if(name!==person.name)person.photoAliases=[...new Set([...(person.photoAliases??[]),name])];};
+const extras=read('src/data/fighter-media-extra.json',[]).filter(extra=>{
+ const existing=fighters.find(f=>f.slug===extra.slug);
+ if(existing){addAlias(existing,extra.name);return false;}return true;
+});
+for(const f of extras){
+ if(f.img&&!validPath(f.img))f.img='';
+ for(const ext of ['png','jpg','webp'])if(!f.img&&validPath(`/fighters/${f.slug}.${ext}`))f.img=`/fighters/${f.slug}.${ext}`;
+}
+const people=[...fighters,...extras];
+for(const event of events)for(const name of [event.f1,event.f2,...(event.fightCard??[]).flatMap(f=>[f.f1,f.f2])]){
+ if(!name||name==='TBD'||resolvePerson(name,people,{surname:true}))continue;
+ const source=resolvePerson(name,sources.athletes);
+ if(source){
+  const existing=people.find(p=>p.slug===source.slug);
+  if(existing){addAlias(existing,name);addAlias(existing,source.name);invalidatePersonIndex(people);}
+  else{const extra={name:source.name,slug:source.slug,img:''};extras.push(extra);people.push(extra);}
+ }
+}
+const eventPeople=new Set(events.flatMap(e=>[e.f1,e.f2,...(e.fightCard??[]).flatMap(f=>[f.f1,f.f2])]).map(n=>resolvePerson(n,people,{surname:true})?.slug).filter(Boolean));
+const upcoming=new Set(events.filter(e=>e.date>=new Date().toISOString().slice(0,10)).flatMap(e=>[e.f1,e.f2,...(e.fightCard??[]).flatMap(f=>[f.f1,f.f2])]).map(n=>resolvePerson(n,people,{surname:true})?.slug).filter(Boolean));
+const limit=Number(process.argv.find(a=>a.startsWith('--limit='))?.split('=')[1]??50);
+if(!Number.isInteger(limit)||limit<1||limit>5000)throw new Error('Image batch limit must be between 1 and 5000');
+const retry=process.argv.includes('--retry');
+const batch=people.filter(f=>/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(f.slug)&&!f.img&&(retry||!failures[f.slug]?.retryAfter||Date.parse(failures[f.slug].retryAfter)<=Date.now()))
+ .map(f=>({f,source:sources.athletes.find(s=>s.slug===f.slug)??resolvePerson(f.name,sources.athletes)}))
+ .filter(({f,source})=>source?.images.length||f.rank||upcoming.has(f.slug))
+ .sort((a,b)=>Number(upcoming.has(b.f.slug))-Number(upcoming.has(a.f.slug))||Number(Boolean(b.f.rank))-Number(Boolean(a.f.rank))||Number(eventPeople.has(b.f.slug))-Number(eventPeople.has(a.f.slug))).slice(0,limit);
+let downloaded=0,failed=0,attempted=0,blocked=false;
+async function download({f,source}){
+ attempted++;
+ try{
+  let urls=source?.images??[],profileUrl=source?.profileUrl??`https://www.ufc.com/athlete/${f.slug}`;
+  if(!urls.length||f.rank||upcoming.has(f.slug)){
+   const html=await(await fetchBounded(profileUrl,{headers:{'User-Agent':'Mozilla/5.0'}})).text();
+   const $=load(html);
+   const full=$('img').toArray().map(e=>$(e).attr('src')).filter(s=>s&&/athlete_bio_full_body|event_fight_card_upper_body/.test(s));
+   urls=[...new Set([...full.map(s=>new URL(s,profileUrl).href),...urls])];
+  }
+  if(!urls.length)throw new Error('Official profile has no athlete photograph');
+  let lastError;
+  for(const url of urls){
+   try{
+    if(/no-profile|placeholder|default|shadow|coming.?soon/i.test(url))throw new Error('Publisher silhouette is not an athlete photograph');
+    if(!/^https:\/\/(?:[a-z0-9-]+\.)?ufc\.com\//i.test(url))throw new Error('Unexpected photo host');
+    const response=await fetchBounded(url),type=response.headers.get('content-type')??'';
+    if(!type.startsWith('image/'))throw new Error('Non-image content');
+    const bytes=Buffer.from(await response.arrayBuffer()),metadata=await sharp(bytes).metadata();
+    if(publisherPlaceholder(bytes))throw new Error('Publisher silhouette is not an athlete photograph');
+    if(bytes.length<1000||metadata.width<64||metadata.height<64)throw new Error('Invalid photograph dimensions');
+    const ext='webp';
+    const output=await sharp(bytes).resize({width:800,height:1200,fit:'inside',withoutEnlargement:true}).webp({quality:88}).toBuffer();
+    writeFileSync(`public/fighters/${f.slug}.${ext}`,output);
+    f.img=`/fighters/${f.slug}.${ext}`;
+    f.photoSource={profileUrl,imageUrl:url,checkedAt:new Date().toISOString()};
+    delete failures[f.slug];downloaded++;console.log('Downloaded',f.slug);return;
+   }catch(error){lastError=error;if(/HTTP 403|HTTP 429/.test(error.message))throw error;}
+  }
+  throw lastError;
+ }catch(error){
+  failed++;failures[f.slug]={error:error.message,lastAttempt:new Date().toISOString(),retryAfter:new Date(Date.now()+7*86400000).toISOString()};
+  if(/HTTP 403|HTTP 429/.test(error.message))blocked=true;
+  console.error(f.slug,error.message);
+ }
+}
+let cursor=0;
+await Promise.all(Array.from({length:3},async()=>{
+ while(cursor<batch.length&&!blocked){const task=batch[cursor++];await download(task);await new Promise(r=>setTimeout(r,250));}
+}));
+for(const f of people)if(f.img)delete failures[f.slug];
 writeFileSync('src/data/fighters.json',JSON.stringify(fighters,null,2)+'\n');
+writeFileSync('src/data/fighter-media-extra.json',JSON.stringify(extras,null,2)+'\n');
 writeFileSync('src/data/image-failures.json',JSON.stringify(failures,null,2)+'\n');
-const photos=new Map(fighters.filter(f=>f.img).map(f=>[normalizeName(f.name),f.img]));
 for(const file of ['src/data/events-all.json','src/data/events.json']){
- const list=read(file,[]);for(const e of list){e.f1img=photos.get(normalizeName(e.f1))??e.f1img??'';e.f2img=photos.get(normalizeName(e.f2))??e.f2img??'';}
+ const list=read(file,[]);
+ for(const e of list){
+  const names=expandAnnouncedNames(e);
+  for(const side of ['f1','f2'])e[side+'img']=resolvePerson(names[side],people,{surname:true})?.img??'';
+ }
  writeFileSync(file,JSON.stringify(list,null,2)+'\n');
 }
-recordHealth('images',failed===0,{attempted,downloaded,failed,pendingRetries:Object.keys(failures).length});
+recordHealth('images',failed===0,{attempted,downloaded,failed,pendingRetries:Object.keys(failures).length,directoryProfiles:sources.athletes.length,remaining:people.filter(f=>!f.img).length});
 console.log({attempted,downloaded,failed,pendingRetries:Object.keys(failures).length});
 if(failed)process.exitCode=1;

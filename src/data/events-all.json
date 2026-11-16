@@ -637,7 +637,7 @@
     "f1": "Rafael Fiziev",
     "f1img": "/fighters/rafael-fiziev.png",
     "f2": "Manuel Torres",
-    "f2img": "",
+    "f2img": "/fighters/manuel-torres.webp",
     "status": "completed",
     "fightCard": [
       {
@@ -1364,9 +1364,9 @@
     "date": "2026-09-05",
     "dateLabel": "5 sept 2026",
     "f1": "Michael Page",
-    "f1img": "",
+    "f1img": "/fighters/michael-page.webp",
     "f2": "Nursulton Ruziboev",
-    "f2img": "",
+    "f2img": "/fighters/nursulton-ruziboev.webp",
     "status": "completed",
     "fightCard": [
       {

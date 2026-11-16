@@ -318,7 +318,7 @@ const metaDescription = f.metaDescription
           <div class="rounded-2xl overflow-hidden border-4 border-[#F2D928] flex items-center justify-center bg-gray-800"
                style="width:clamp(90px,15vw,140px);height:clamp(90px,15vw,140px);">
             {f.img ? (
-              <img src={f.img} alt={f.name} class="w-full h-full object-cover" />
+              <img src={f.img} alt={f.name} class="w-full h-full object-cover object-top" />
             ) : (
               <span class="text-white font-black select-none"
                     style="font-family:var(--font-display);font-size:clamp(28px,5vw,48px);">{initials}</span>
