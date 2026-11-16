@@ -1,3 +1,5 @@
+import {rankingCoverageValid} from "../src/lib/event-data.mjs";
+import {recordHealth} from "./lib/health.mjs";
 // scripts/fetch-rankings.mjs
 // Scrapea rankings oficiales UFC.com → actualiza rank de fighters.json
 // Fuente única de verdad para campeones y top 15 por división.
@@ -50,6 +52,7 @@ function slugify(name) {
 async function fetchRankings() {
   console.log('🏆 Fetching UFC.com rankings…');
   const res = await fetch('https://www.ufc.com/rankings', {
+    signal: AbortSignal.timeout(20000),
     headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36' },
     redirect: 'follow',
   });
@@ -104,6 +107,7 @@ async function main() {
   const fightersPath = join(DATA_DIR, 'fighters.json');
   const fighters = JSON.parse(readFileSync(fightersPath, 'utf8'));
 
+  if (!rankingCoverageValid(rankBySlug.size,new Set(divBySlug.values()).size,fighters.filter(f=>f.rank).length)) throw new Error('Ranking coverage collapse: previous data retained');
   let updated = 0, demoted = 0, divFixed = 0;
 
   for (const f of fighters) {
@@ -121,9 +125,10 @@ async function main() {
   }
 
   writeFileSync(fightersPath, JSON.stringify(fighters, null, 2) + '\n');
+  recordHealth('rankings',true,{count:rankBySlug.size});
   console.log(`✓ ${updated} ranks asignados/actualizados`);
   console.log(`✓ ${demoted} ranks removidos (ya no en top 15)`);
   console.log(`✓ ${divFixed} divisiones corregidas`);
 }
 
-main().catch(e => { console.error('❌', e); process.exit(1); });
+main().catch(e => { recordHealth('rankings',false,{error:e.message}); console.error('❌', e); process.exit(1); });

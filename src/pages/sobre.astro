@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_URL, ID, organizacion, autor, REDES } from '../lib/entidades.mjs';
+
+const schema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'AboutPage', '@id': `${SITE_URL}/sobre/#pagina`, url: `${SITE_URL}/sobre/`,
+      name: 'Sobre Quimbara: autor y política editorial', inLanguage: 'es',
+      about: [{ '@id': ID.organizacion }, { '@id': ID.autor }],
+      publisher: { '@id': ID.organizacion } },
+    organizacion,
+    autor,
+  ],
+});
+---
+
+<BaseLayout title="Sobre Quimbara: autor y política editorial"
+  description="Quién escribe en Quimbara, cómo distinguimos datos y análisis de MMA, qué fuentes utilizamos y cómo comunicar una corrección."
+  canonicalUrl={`${SITE_URL}/sobre/`} schema={schema}>
+  <article class="about-page">
+    <header>
+      <span class="eyebrow">El criterio detrás del análisis</span>
+      <h1>Sobre Quimbara</h1>
+      <p class="intro">Entender la pelea, más allá del resultado.</p>
+      <p>Quimbara es una publicación independiente de MMA y UFC en español. Explicamos la táctica de los combates y conectamos nuestros análisis con perfiles de peleadores, rankings y eventos. No somos el sitio oficial de UFC ni hablamos en nombre de la organización.</p>
+    </header>
+
+    <nav aria-label="En esta página">
+      <a href="#autor">Autor</a><a href="#criterio">Criterio editorial</a><a href="#fuentes">Fuentes</a><a href="#correcciones">Correcciones</a><a href="#seguir">Seguir Quimbara</a>
+    </nav>
+
+    <section id="autor">
+      <h2>Quién escribe</h2>
+      <p><strong>Roger Murillo</strong> firma los análisis del blog de Quimbara. Su trabajo en esta publicación se centra en explicar los estilos de combate, las decisiones tácticas y el contexto de UFC.</p>
+      <p>Puedes consultar sus textos en el <a href="/blog/">archivo de artículos</a>. La firma identifica al responsable del análisis; los datos de las fichas se recopilan mediante un proceso automático y no deben confundirse con una revisión personal de cada registro.</p>
+    </section>
+
+    <section id="criterio">
+      <h2>Qué publicamos y cómo leerlo</h2>
+      <p><strong>Laboratorio Técnico</strong> desarrolla lecturas tácticas de combates. <strong>Guía del Insider</strong> explica estilos y contexto del circuito. <strong>Punto de Vista</strong> reúne opinión argumentada.</p>
+      <p>Distinguimos los datos comprobables de la interpretación editorial. Un análisis propone una explicación del combate; un pronóstico plantea una posibilidad y no garantiza un resultado. Los perfiles, rankings y calendarios son recursos de consulta, no declaraciones oficiales de UFC.</p>
+      <p>Cuando un contenido contiene publicidad o enlaces de afiliación, deben identificarse como tales. Su presencia no convierte un pronóstico en una recomendación de apuesta ni asegura un resultado deportivo.</p>
+    </section>
+
+    <section id="fuentes">
+      <h2>Fuentes y límites de los datos</h2>
+      <ul>
+        <li><strong>Estadísticas y medidas:</strong> archivos públicos de <a href="https://github.com/Greco1899/scrape_ufc_stats">Greco1899/scrape_ufc_stats</a>, basados en UFCStats. Algunos campos se completan con información conservada o aportes editoriales.</li>
+        <li><strong>Récord profesional:</strong> consultas automáticas a las fichas de atletas de UFC.com cuando se obtiene un registro utilizable. La etiqueta «Récord UFC» se limita a combates dentro de esa organización.</li>
+        <li><strong>Rankings:</strong> <a href="https://www.ufc.com/rankings">clasificación publicada por UFC</a>. Reproducirla no convierte a Quimbara en un medio oficial ni en el autor de esa clasificación.</li>
+        <li><strong>Eventos y resultados:</strong> calendario y carteleras contrastados con Wikipedia y ESPN, resultados recientes de <a href="https://www.sherdog.com/organizations/Ultimate-Fighting-Championship-UFC-2/recent-events/1">Sherdog</a> y ajustes editoriales. Para confirmar cambios de programación, consulta <a href="https://www.ufc.com/events">los anuncios de UFC</a>.</li>
+      </ul>
+      <p>La recopilación automática puede fallar o conservar información anterior. No implica revisión humana de cada dato ni actualización en tiempo real. Si no hay una fecha de comprobación individual registrada, no la sustituimos por la fecha en que se publicó una nueva versión del sitio.</p>
+      <p>En los artículos distinguimos publicación y actualización sustancial cuando esta última está registrada. Una corrección del contenido debe reflejarse en su fecha de actualización; un cambio de diseño no significa que el análisis haya sido revisado.</p>
+      <p>Las carteleras pueden cambiar. Un horario de inicio corresponde a una parte del evento y no asegura la hora exacta de un combate individual. Los datos desconocidos o sin confirmación deben tratarse como pendientes.</p>
+    </section>
+
+    <section id="correcciones">
+      <h2>Cómo comunicar una corrección</h2>
+      <p>Si encuentras un dato incorrecto, envía la URL, el dato que consideras erróneo y una fuente que permita contrastarlo a través de <a href={REDES.x}>nuestro perfil de X</a> o <a href={REDES.instagram}>Instagram</a>. Eso permite distinguir una corrección factual de una diferencia de criterio sobre el análisis.</p>
+      <p>Las correcciones sustanciales de un artículo deben indicar qué cambió y su fecha. Los datos de consulta también pueden cambiar al incorporarse una nueva extracción automática; esa extracción no acredita una revisión editorial individual.</p>
+    </section>
+
+    <section id="seguir">
+      <h2>Seguir Quimbara</h2>
+      <p>Consulta el <a href="/blog/">blog</a>, añade el <a href="/rss.xml">feed RSS</a> a tu lector o visita los perfiles enlazados de <a href={REDES.x}>X</a>, <a href={REDES.instagram}>Instagram</a> y <a href={REDES.youtube}>YouTube</a>.</p>
+      <p>Las condiciones de uso del contenido se recogen en el <a href="/aviso-legal/">aviso legal</a>.</p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .about-page { max-width:900px; margin:0 auto; padding:60px clamp(20px,5vw,60px) 40px; }
+  .eyebrow { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; }
+  h1 { font-size:clamp(3rem,9vw,6rem); line-height:1; margin:16px 0 24px; }
+  .intro { font-family:var(--font-serif); font-size:clamp(1.4rem,4vw,2rem); color:var(--color-ink); }
+  p, li { line-height:1.85; color:var(--color-graphite); font-size:1rem; }
+  p { margin:16px 0; }
+  nav { display:flex; flex-wrap:wrap; gap:12px 24px; border-block:1px solid var(--color-bone); padding:20px 0; margin:32px 0; font-size:.875rem; }
+  nav a { display:inline-flex; align-items:center; min-height:44px; min-width:44px; }
+  section { padding-top:24px; scroll-margin-top:90px; }
+  h2 { font-size:clamp(1.8rem,5vw,2.4rem); line-height:1.1; margin:12px 0; }
+  ul { list-style:disc; padding-left:24px; }
+  li { margin:12px 0; }
+  a { color:var(--color-ink); text-decoration:underline; text-underline-offset:4px; overflow-wrap:anywhere; }
+  a:hover { color:var(--color-graphite); }
+  a:focus-visible { outline:2px solid var(--color-ink); outline-offset:4px; }
+</style>

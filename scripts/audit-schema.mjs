@@ -101,15 +101,22 @@ for (const file of htmls(DIST)) {
     }
     for (const n of nodos(data)) {
       const tipos = [].concat(n['@type'] ?? []);
+      // Autor, política editorial y cualquier otra entidad también necesitan
+      // destinos existentes; el schema puede parsear y aun así apuntar a un 404.
+      for (const campo of ['url', 'publishingPrinciples']) {
+        if (urlRota(n[campo])) {
+          anota(`${tipos.join('+') || 'Nodo'} con ${campo} que no existe`, pagina, n[campo]);
+        }
+      }
       if (!tipos.some(t => TIPOS_EVENTO.has(t))) continue;
       eventos++;
+      const statuses=['EventScheduled','EventCancelled','EventPostponed','EventRescheduled','EventMovedOnline'].map(v=>'https://schema.org/'+v);
+      if(n.eventStatus&&!statuses.includes(n.eventStatus))anota('Estado Event no válido',pagina,n.eventStatus);
+
 
       const falta = OBLIGATORIOS.filter(c => !n[c]);
       if (falta.length) {
         anota(`${tipos.join('+')} sin ${falta.join(', ')}`, pagina, n.name ?? n['@id'] ?? '?');
-      }
-      if (urlRota(n.url)) {
-        anota(`${tipos.join('+')} apuntando a una URL que no existe`, pagina, n.url);
       }
     }
   }
@@ -118,7 +125,7 @@ for (const file of htmls(DIST)) {
 console.log(`Auditadas ${paginas} páginas · ${bloques} bloques JSON-LD · ${eventos} nodos Event`);
 
 if (problemas.size === 0) {
-  console.log('OK — todos los nodos Event llevan name, startDate y location, y sus URLs existen.');
+  console.log('OK — nodos Event completos y destinos internos url/publishingPrinciples existentes.');
   process.exit(0);
 }
 

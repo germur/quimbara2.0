@@ -1,3 +1,4 @@
+import {validDate,validTime} from "./event-data.mjs";
 /**
  * Horarios de eventos UFC por país hispanohablante.
  *
@@ -120,7 +121,7 @@ export function horariosPorPais(fechaISO, horaET) {
 export function fechaValida(fecha) {
   if (typeof fecha !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(fecha)) return false;
   const t = Date.parse(`${fecha}T00:00:00Z`);
-  return Number.isFinite(t);
+  return validDate(fecha);
 }
 
 /**
@@ -138,19 +139,15 @@ export function fechaValida(fecha) {
 export function horariosDeEvento(evento) {
   if (!evento || !fechaValida(evento.date)) return null;
 
-  const confirmada = Boolean(evento.horaET);
-  const horaET = evento.horaET ?? horaETEstimada(evento);
-
+  const sourced=Boolean(evento.scheduleSourceUrl && evento.scheduleCheckedAt);
+  if (!sourced || (!evento.programmingStartUTC && !validTime(evento.horaET))) return null;
   try {
-    return {
-      confirmada,
-      horaET,
-      horarios: horariosPorPais(evento.date, horaET),
-      // startDate con hora para el schema SportsEvent: Google lo usa para los
-      // rich results de eventos, y con solo la fecha se pierde esa precisión.
-      startDateISO: instanteDesdeET(evento.date, horaET).toISOString(),
-    };
-  } catch {
-    return null;
-  }
+    const instant=evento.programmingStartUTC?new Date(evento.programmingStartUTC):instanteDesdeET(evento.date,evento.horaET);
+    if(!Number.isFinite(instant.getTime()) || Math.abs(instant.getTime()-Date.parse(evento.date+'T00:00:00Z'))>2*86400000)return null;
+    const fmt=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'});
+    const parts=Object.fromEntries(fmt.formatToParts(instant).map(x=>[x.type,x.value]));
+    const dateET=parts.year+'-'+parts.month+'-'+parts.day;
+    const timeET=new Intl.DateTimeFormat('es-ES',{timeZone:'America/New_York',hour:'2-digit',minute:'2-digit',hour12:false}).format(instant);
+    return {confirmada:false,horaET:timeET,horarios:horariosPorPais(dateET,timeET),startDateISO:instant.toISOString(),sourceUrl:evento.scheduleSourceUrl};
+  }catch{return null;}
 }

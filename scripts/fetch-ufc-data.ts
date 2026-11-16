@@ -1,3 +1,4 @@
+import {recordHealth} from "./lib/health.mjs";
 /**
  * Pipeline de datos UFC para Quimbara — SIN APIs de pago.
  *
@@ -93,13 +94,11 @@ function writeJson(filename: string, data: unknown) {
       if (Array.isArray(prev) && prev.length > 0) {
         if (data.length === 0) {
           console.error(`⛔ ${filename}: lo nuevo está VACÍO (antes: ${prev.length} filas). Se conserva el archivo anterior. (FORCE_WRITE=1 para forzar)`);
-          process.exitCode = 1;
-          return;
+          throw new Error('Unsafe dataset replacement rejected');
         }
         if (data.length < prev.length * 0.5) {
           console.error(`⛔ ${filename}: caída drástica ${prev.length} → ${data.length} filas. Se conserva el archivo anterior. (FORCE_WRITE=1 para forzar)`);
-          process.exitCode = 1;
-          return;
+          throw new Error('Unsafe dataset replacement rejected');
         }
       }
     } catch { /* anterior corrupto/ilegible → escribir normal */ }
@@ -109,7 +108,7 @@ function writeJson(filename: string, data: unknown) {
 }
 
 async function fetchHtml(url: string, extraHeaders?: Record<string, string>): Promise<cheerio.CheerioAPI> {
-  const res = await fetch(url, { headers: { ...HEADERS, ...extraHeaders } });
+  const res = await fetch(url, { signal: AbortSignal.timeout(20000), headers: { ...HEADERS, ...extraHeaders } });
   if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
   return cheerio.load(await res.text());
 }
@@ -122,7 +121,7 @@ const WIKI_API = 'https://en.wikipedia.org/w/api.php';
 
 async function wikiApi(params: Record<string, string>): Promise<any> {
   const qs = new URLSearchParams({ format: 'json', formatversion: '2', ...params });
-  const res = await fetch(`${WIKI_API}?${qs}`, { headers: HEADERS });
+  const res = await fetch(`${WIKI_API}?${qs}`, { signal: AbortSignal.timeout(20000), headers: HEADERS });
   if (!res.ok) throw new Error(`Wikipedia API → HTTP ${res.status}`);
   return res.json();
 }
@@ -175,7 +174,7 @@ function colIndexMap($: cheerio.CheerioAPI, table: cheerio.Cheerio<cheerio.AnyNo
 
 async function downloadCsv(url: string): Promise<string> {
   console.log(`  ⬇  ${url.split('/').pop()}`);
-  const res = await fetch(url, { headers: HEADERS });
+  const res = await fetch(url, { signal: AbortSignal.timeout(20000), headers: HEADERS });
   if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
   return res.text();
 }
@@ -235,6 +234,8 @@ type Fighter = {
   rec: string;
   /** 'pro' cuando fix-records.mjs confirmó `rec` contra UFC.com — la UI/meta lo usa para etiquetar bien */
   recScope?: string;
+  recordCheckedAt?: string;
+  recordSourceUrl?: string;
   /** Récord UFC-only calculado desde los CSVs de Greco1899 (informacional) */
   ufcRec?: string;
   from: string; img: string;
@@ -456,7 +457,7 @@ function buildFighter(
     nick,
     div,
     rec,
-    ...(recScope ? { recScope } : {}),
+    ...(recScope ? { recScope, recordCheckedAt:prev?.recordCheckedAt, recordSourceUrl:prev?.recordSourceUrl } : {}),
     ufcRec,
     from: prev?.from ?? '',
     img,
@@ -679,13 +680,14 @@ async function fetchEvents() {
   for (const e of parsed) {
     if (e.main === 'TBD') continue;
     const prev = existingMap[e.slug];
+    if (prev) Object.assign(e, { ...prev, ...e });
     if (prev?.fightCard?.length) e.fightCard = prev.fightCard;
     if (prev?.espnEventId) e.espnEventId = prev.espnEventId;
   }
 
   const pastEvents = existing
     .filter(e => !parsedSlugs.has(e.slug))
-    .map(e => ({ ...e, status: 'completed' as const }));
+    .map(e => ({ ...e, status: e.date < today ? 'completed' as const : 'unconfirmed' as const }));
 
   const allEvents = [...pastEvents, ...parsed];
   allEvents.sort((a, b) => a.date.localeCompare(b.date));
@@ -755,13 +757,8 @@ async function fetchFightCards() {
   for (const event of events) {
     if (event.main === 'TBD') continue;
 
-    if (event.fightCard?.length) {
-      const mainFight = event.fightCard.find(f => f.order === 0) ?? event.fightCard[0];
-      if (mainFight && event.f1 !== mainFight.f1) {
-        event.f1 = mainFight.f1;
-        event.f2 = mainFight.f2;
-        event.main = `${mainFight.f1} vs. ${mainFight.f2}`;
-      }
+    if (event.date < new Date().toISOString().slice(0,10)) continue;
+    if (event.fightCard?.length && (event as any).cardCheckedAt && Date.now()-Date.parse((event as any).cardCheckedAt)<6*3600000) {
       console.log(`   · (cached) ${event.name}: ${event.fightCard.length} peleas`);
       continue;
     }
@@ -769,6 +766,8 @@ async function fetchFightCards() {
     const card = await scrapeFightCard(event);
     if (card.length) {
       event.fightCard = card;
+      (event as any).cardCheckedAt=new Date().toISOString();
+      (event as any).cardSource="Wikipedia";
       const mainFight = card.find(f => f.order === 0) ?? card[0];
       if (mainFight) {
         event.f1 = mainFight.f1;
@@ -935,9 +934,11 @@ async function main() {
     try {
       console.log(`\n── ${name} ──`);
       await fn();
+      recordHealth(name,true, { completedAt:new Date().toISOString() });
     } catch (err) {
       console.error(`✗ ${name} falló:`, (err as Error).message);
       failed++;
+      recordHealth(name,false,{error:String((err as Error).message)});
     }
   }
 

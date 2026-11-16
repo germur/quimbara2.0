@@ -1,108 +1,64 @@
 name: Update UFC data
-
 on:
   schedule:
-    # Diario a las 12:00 UTC. Cubre cualquier evento (sáb/dom) al día siguiente,
-    # capturando el pico de búsqueda post-pelea. Antes era solo los lunes y la
-    # data quedaba desactualizada hasta una semana tras cada evento.
     - cron: '0 12 * * *'
-  workflow_dispatch:  # disparo manual inmediato (Actions → Run workflow) tras un evento grande
-
+  workflow_dispatch:
 permissions:
   contents: write
-
+concurrency:
+  group: ufc-data-refresh
+  cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'
-
-      - name: Install deps
-        run: npm ci
-
-      # Si los CSVs de Greco vienen viejos, el guard de frescura aborta este paso.
-      # No debe tumbar el job: rankings y records (UFC.com) siguen siendo válidos.
-      - name: Fetch UFC data (Greco1899 CSVs + Wikipedia + Sherdog)
+          cache: npm
+      - run: npm ci
+      - run: npm run test:data && npm run test:puntaje
+      # Each ingestion preserves the last usable data on source failure.
+      # The final step reports any tolerated failure; green cannot hide it.
+      - id: base
         run: npm run data:update
         continue-on-error: true
-
-      - name: Update official UFC.com rankings (champions + top 15)
+      - id: rankings
         run: npm run data:rankings
         continue-on-error: true
-
-      - name: Arreglar récords pro reales desde UFC.com
+      - id: records
         run: npm run data:records
         continue-on-error: true
-
-      - name: Apply event overrides (Casa Blanca, etc.)
-        run: npm run data:overrides
+      - id: details
+        run: npm run data:details
         continue-on-error: true
-
-      - name: Download missing fighter images (UFC.com)
+      - run: npm run data:overrides
+      - id: history
+        run: npm run data:peleas -- --limite=50
+        continue-on-error: true
+      - id: images
         run: npm run data:images
         continue-on-error: true
-
-      # Corre DESPUÉS del pipeline y ANTES del commit: si UFC.com cambió el
-      # HTML y el parser se rompió, la auditoría falla y el workflow se marca
-      # en rojo. Los datos igual se commitean (continue-on-error) para poder
-      # inspeccionar qué llegó, pero queda el aviso de que algo se rompió.
-      # Las cartas se regeneran DESPUÉS de refrescar rankings. La rareza se
-      # calcula al vuelo en la página, pero la OG image es un PNG pregenerado:
-      # sin esto, un peleador que sube de #6 a #4 mostraría "épica" en la web
-      # y "rara" en la imagen que se comparte, que es la que circula.
-      # El PNG es determinista, así que solo los que cambiaron generan diff.
-      - name: Regenerar cartas (OG images)
-        run: npm run gen:og
-        continue-on-error: true
-
-      - name: Auditar base de peleadores
-        run: npm run audit:peleadores
-        continue-on-error: true
-
-      # El motor de puntaje decide puntajes de usuarios: un cambio que lo rompa
-      # se traduce en disputas. Esto NO lleva continue-on-error a propósito.
-      - name: Test del motor de puntaje
-        run: npm run test:puntaje
-
-      - name: Commit changes (si los hay)
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - run: npm run gen:og
+      # Validate the candidate BEFORE committing data that triggers Netlify.
+      - run: npm run audit:peleadores
+      - run: npm run build
+      - run: npm run audit:schema && npm run audit:events
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore(data): actualización automática de eventos UFC'
-          file_pattern: 'src/data/*.json public/fighters/* public/og/cartas/*'
-          commit_user_name: 'Quimbara Bot'
-          commit_user_email: 'bot@quimbara.local'
-
-      # Espera 90s para que Netlify deployee el commit antes de hacer ping a IndexNow
-      - name: Esperar deploy de Netlify
-        run: sleep 90
-
-      # SIN continue-on-error a propósito. Lo tenía, y por eso un build roto
-      # estuvo tres días sin que nadie se enterara: Netlify fallaba en silencio
-      # y seguía sirviendo el deploy viejo, mientras el workflow salía en verde.
-      # Si el build no pasa aquí, tampoco pasa en Netlify y el sitio se queda
-      # congelado — eso tiene que salir en rojo.
-      - name: Build (si falla aquí, Netlify tampoco puede desplegar)
-        run: npm run build
-
-      - name: Notificar IndexNow (Bing/Yandex/Seznam/Naver)
-        run: npm run indexnow
-        continue-on-error: true
-
-      # Va DESPUÉS de IndexNow a propósito: un schema roto no justifica dejar
-      # de avisar a los buscadores de que hay datos nuevos, pero sí tiene que
-      # salir en rojo. Sin continue-on-error.
-      #
-      # Existe porque un nodo SportsEvent incompleto dentro del `about` de tres
-      # posts estuvo publicado hasta que Search Console avisó, semanas después.
-      # Los datos de eventos cambian solos cada día: si un evento pierde `loc`
-      # o `date` en el scrape, esto lo caza el mismo día y no en el correo de
-      # Google del mes que viene.
-      - name: Auditar datos estructurados (rich results)
-        run: npm run audit:schema
+          commit_message: 'chore(data): actualización validada de UFC'
+          file_pattern: 'src/data/*.json public/fighters/* public/og/cartas/* public/_redirects'
+          commit_user_name: Quimbara Bot
+          commit_user_email: bot@quimbara.local
+      - name: Verify production deployment
+        run: node scripts/verify-deploy.mjs "$(git rev-parse HEAD)"
+      - run: npm run indexnow
+      - name: Report source failures
+        if: always()
+        env:
+          OUTCOMES: ${{ toJSON(steps) }}
+        run: |
+          node --input-type=module -e 'import fs from "node:fs";const h=JSON.parse(fs.readFileSync("src/data/data-health.json","utf8"));fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,"## Data-source health\n\n"+Object.entries(h).map(([k,v])=>"- "+k+": "+(v.ok?"OK":"degraded")+"; "+JSON.stringify(v.detail)).join("\n"));if(h.images?.detail?.pendingRetries)console.log("::warning::Athlete images awaiting retry: "+h.images.detail.pendingRetries);'
+          node --input-type=module -e 'const steps=JSON.parse(process.env.OUTCOMES); const failed=Object.entries(steps).filter(([,v])=>v.outcome==="failure"); if(failed.length){console.error("Source failures:",failed.map(([k])=>k).join(", "));process.exit(1)}'

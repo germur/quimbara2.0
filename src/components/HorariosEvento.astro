@@ -17,12 +17,13 @@ interface Props {
   fechaLabel: string;
   horaET: string;
   confirmada: boolean;
+  sourceUrl: string;
   startDateISO: string;
   horarios: { pais: string; bandera: string; hora: string; dia: string; diaSiguiente: boolean }[];
   peleaPrincipal?: string | null;
 }
 
-const { nombreEvento, fechaLabel, horaET, confirmada, startDateISO, horarios, peleaPrincipal } = Astro.props;
+const { nombreEvento, fechaLabel, horaET, confirmada, startDateISO, horarios, peleaPrincipal, sourceUrl } = Astro.props;
 
 // Zonas para el desplegable. Coinciden con las de src/lib/horarios.mjs.
 const ZONAS = [
@@ -51,8 +52,8 @@ const ZONAS = [
   </h2>
 
   <p class="text-gray-600 mb-5" style="font-family:var(--font-sans);">
-    La cartelera estelar de <strong>{nombreEvento}</strong>{peleaPrincipal ? ` (${peleaPrincipal})` : ''} empieza
-    a las <strong>{horaET} ET</strong> del {fechaLabel}. Estos son los horarios equivalentes:
+    El inicio de la programación de <strong>{nombreEvento}</strong> empieza
+    a las <strong>{horaET} ET</strong>, según la fuente enlazada. Estos son los horarios equivalentes:
   </p>
 
   <!-- Caja de "tu hora": la rellena el JS. Oculta si no hay JS, porque sin él
@@ -94,9 +95,7 @@ const ZONAS = [
   </div>
 
   <p class="text-[11px] text-gray-400 mt-3" style="font-family:var(--font-sans);">
-    {confirmada
-      ? 'Horario confirmado por UFC. Las prelims empiezan unas 2 h antes.'
-      : 'Horario habitual para este tipo de evento — UFC suele confirmarlo unas semanas antes. Las prelims empiezan unas 2 h antes.'}
+    Horario publicado por la fuente, sujeto a cambios. No es la hora exacta de cada combate. <a href={sourceUrl} class="underline">Consultar fuente</a>
   </p>
 </section>
 

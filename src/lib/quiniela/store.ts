@@ -1,3 +1,4 @@
+import {eventIdentity,eventAliases} from "../event-routing.mjs";
 /**
  * store.ts — persistencia de la quiniela.
  *
@@ -62,22 +63,26 @@ function escribir(clave: string, valor: unknown): void {
 
 export class LocalStorageStore implements QuinielaStore {
   async getPicks(eventoSlug: string): Promise<PicksEvento> {
-    return leer<PicksEvento>(K.picks(eventoSlug), {});
+    for(const alias of eventAliases(eventoSlug)){
+      const picks=leer<PicksEvento|undefined>(K.picks(alias),undefined);
+      if(picks!==undefined)return picks;
+    }
+    return {};
   }
 
   async savePicks(eventoSlug: string, picks: PicksEvento): Promise<void> {
     if (await this.estanCerrados(eventoSlug)) {
       throw new PicksCerradosError(eventoSlug);
     }
-    escribir(K.picks(eventoSlug), picks);
+    escribir(K.picks(eventIdentity(eventoSlug)), picks);
   }
 
   async cerrarPicks(eventoSlug: string): Promise<void> {
-    escribir(K.cerrado(eventoSlug), { cerrado: true, en: new Date().toISOString() });
+    escribir(K.cerrado(eventIdentity(eventoSlug)), { cerrado: true, en: new Date().toISOString() });
   }
 
   async estanCerrados(eventoSlug: string): Promise<boolean> {
-    return leer<{ cerrado?: boolean }>(K.cerrado(eventoSlug), {}).cerrado === true;
+    return eventAliases(eventoSlug).some(alias=>leer<{ cerrado?: boolean }>(K.cerrado(alias), {}).cerrado === true);
   }
 
   async getHistorial(): Promise<EntradaHistorial[]> {

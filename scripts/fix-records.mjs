@@ -14,7 +14,8 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import https from 'node:https';
+import {fetchBounded} from './lib/fetch.mjs';
+import {recordHealth} from './lib/health.mjs';
 import { isIndexable } from '../src/lib/indexable.mjs';
 
 const __dir = dirname(fileURLToPath(import.meta.url));
@@ -23,22 +24,13 @@ const FIGHTERS_PATH = join(__dir, '..', 'src', 'data', 'fighters.json');
 const SLEEP_MS = 1000;          // gentle de verdad (Cloudflare)
 const MISSING_THRESHOLD = 0.20; // >20% no encontrados -> exit 2
 
-function fetch(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' } }, res => {
-      if ([301, 302, 307, 308].includes(res.statusCode)) return fetch(res.headers.location).then(resolve, reject);
-      let d = '';
-      res.on('data', c => d += c);
-      res.on('end', () => resolve({ status: res.statusCode, body: d }));
-    }).on('error', reject);
-  });
-}
 
 async function getUfcRecord(slug) {
   try {
-    const r = await fetch(`https://www.ufc.com/athlete/${slug}`);
+    const r = await fetchBounded(`https://www.ufc.com/athlete/${slug}`,{headers:{'User-Agent':'Mozilla/5.0'}});
+    const body=await r.text();
     if (r.status !== 200) return null;
-    const m = r.body.match(/<p class="hero-profile__division-body">\s*([0-9]+-[0-9]+-[0-9]+)/);
+    const m = body.match(/<p class="hero-profile__division-body">\s*([0-9]+-[0-9]+-[0-9]+)/);
     return m ? m[1] : null;
   } catch { return null; }
 }
@@ -72,6 +64,8 @@ async function main() {
       } else {
         unchanged++;
       }
+      orig.recordCheckedAt=new Date().toISOString();
+      orig.recordSourceUrl=`https://www.ufc.com/athlete/${f.slug}`;
       orig.recScope = 'pro'; // confirmado: rec es el récord pro completo
     }
     await sleep(SLEEP_MS);
@@ -85,6 +79,7 @@ async function main() {
   console.log(`   = Sin cambios (confirmados pro): ${unchanged}`);
   console.log(`   X No encontrados en UFC.com: ${missing} (${(missingPct * 100).toFixed(1)}%)`);
 
+  recordHealth('records',missingPct<=MISSING_THRESHOLD,{fixed,unchanged,missing});
   if (missingPct > MISSING_THRESHOLD) {
     console.error(`\nERROR: ${(missingPct * 100).toFixed(1)}% de fallos supera el umbral del ${MISSING_THRESHOLD * 100}%.`);
     console.error('   Posibles causas: bloqueo de Cloudflare, cambio de layout en UFC.com, o red caída.');

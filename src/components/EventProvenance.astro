@@ -1,0 +1,27 @@
+---
+interface Props { event: Record<string, any> }
+const {event}=Astro.props;
+const checked=Number.isFinite(Date.parse(event.cardCheckedAt))?event.cardCheckedAt:null;
+const history=Array.isArray(event.cardHistory)?event.cardHistory.slice(-3).reverse():[];
+const dateLabel=(date:string)=>new Intl.DateTimeFormat('es-CO',{timeZone:'America/Bogota',dateStyle:'long',timeStyle:'short'}).format(new Date(date));
+---
+<section class="event-provenance" aria-label="Comprobación de la cartelera">
+  <h2>Última comprobación y cambios</h2>
+  {checked ? <p>Cartelera consultada el <time datetime={checked}>{dateLabel(checked)}</time> (Bogotá). {event.cardSourceUrl && <a href={event.cardSourcePage || event.cardSourceUrl}>Consultar fuente: {event.cardSource || 'datos del evento'}</a>}</p>
+    : <p>La fecha de comprobación de esta cartelera no está registrada.</p>}
+  {event.cardFetchError && <p><strong>La última actualización no pudo completarse.</strong> Se conserva la cartelera anterior; comprueba los anuncios del organizador.</p>}
+  <p>Las peleas, el orden y la distribución por cartelera pueden cambiar. El inicio de la programación no fija la hora de cada combate.</p>
+  {history.map(change=><details>
+    <summary>Cambios registrados el {String(change.checkedAt).slice(0,10)}</summary>
+    {(change.added??[]).map(name=><p>Añadido: {name}</p>)}
+    {(change.removed??[]).map(name=><p>Retirado de esta fuente: {name}</p>)}
+  </details>)}
+</section>
+<style>
+  .event-provenance { max-width:1400px; margin:0 auto; padding:40px clamp(16px,4vw,60px); }
+  h2 { font-size:1.75rem; margin-bottom:16px; }
+  p { color:var(--color-graphite); line-height:1.8; margin:12px 0; }
+  a { text-decoration:underline; text-underline-offset:4px; }
+  a:focus-visible, summary:focus-visible { outline:2px solid var(--color-ink); outline-offset:4px; }
+  summary { cursor:pointer; padding:12px 0; }
+</style>

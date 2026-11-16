@@ -1,4 +1,5 @@
 ---
+import { eventPath, eventSlug, canonicalEvents } from "../lib/event-routing.mjs";
 import events from '../data/events.json';
 
 // Triplicamos para el bucle infinito del marquee
@@ -8,7 +9,7 @@ const tickerItems = [...events, ...events, ...events];
 <div class="bg-[#111] text-white overflow-hidden whitespace-nowrap" style="padding: 10px 0;">
   <div class="inline-flex" style="animation: marquee 30s linear infinite;">
     {tickerItems.map((e) => (
-      <a href={`/eventos/${e.slug}`} class="inline-flex items-center gap-2 mr-14 text-xs hover:opacity-80 transition-opacity" style="font-family: var(--font-sans); letter-spacing: 0.05em; text-decoration:none; color:inherit;">
+      <a href={eventPath(e.slug)} class="inline-flex items-center gap-2 mr-14 text-xs hover:opacity-80 transition-opacity" style="font-family: var(--font-sans); letter-spacing: 0.05em; text-decoration:none; color:inherit;">
         <span class="px-2 py-[2px] text-white text-[11px] font-bold rounded-sm" style="background: #F2D928;">
           {e.name}
         </span>

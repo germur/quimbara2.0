@@ -33,22 +33,13 @@ function saveJson(file, data) {
 function applyOverrides(list, overrides, today) {
   const map = new Map(list.map(e => [e.slug, e]));
   for (const ov of overrides) {
-    // El status SIEMPRE se deriva de la fecha, nunca del override. Si se deja
-    // fijar a mano, un evento pasado (ej. Casa Blanca) se queda clavado en
-    // "Próximos" para siempre porque este script lo reaplica cada día.
-    if ('status' in ov) delete ov.status;
-    ov.status = (ov.date || '') < today ? 'completed' : 'upcoming';
-    // Eliminar TODOS los eventos con la misma fecha (el override los reemplaza)
-    for (const [slug, e] of map) {
-      if (e.date === ov.date && slug !== ov.slug) {
-        map.delete(slug);
-      }
-    }
+    const override = { ...ov, status: ov.date < today ? 'completed' : 'upcoming' };
+    // Never delete other events merely because they share a date.
     // Si ya existe por slug → merge; si no → agregar
     if (map.has(ov.slug)) {
-      map.set(ov.slug, { ...map.get(ov.slug), ...ov });
+      map.set(ov.slug, { ...map.get(ov.slug), ...override });
     } else {
-      map.set(ov.slug, ov);
+      map.set(ov.slug, override);
     }
   }
   return Array.from(map.values());
@@ -78,7 +69,7 @@ function main() {
   const upcoming = dedupeEventos(mergedAll)
     // Solo la fecha decide (igual que en /eventos/): el scraper marca
     // 'completed' eventos futuros, y ese filtro los borraba de la home.
-    .filter(e => (e.date || '') >= today)
+    .filter(e => (e.date || '') >= today && e.status !== 'unconfirmed' && e.main !== 'TBD')
     .sort((a, b) => (a.date || '').localeCompare(b.date || ''))
     .slice(0, 3)
     .map((e, i) => ({ ...e, ...PALETTES[i % PALETTES.length] }));

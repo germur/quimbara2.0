@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {LocalStorageStore,PicksCerradosError} from '../src/lib/quiniela/store';
+const values=new Map<string,string>();
+Object.defineProperty(globalThis,'localStorage',{value:{getItem:(k:string)=>values.get(k)??null,setItem:(k:string,v:string)=>values.set(k,v)},configurable:true});
+const old='ufc-fight-night-294-2026-11-21',id='ufc-fight-night-2026-11-21';
+const picks={fight:{ganador:'A',metodo:'KO',round:1}};
+values.set('quimbara.quiniela.v1.picks.'+old,JSON.stringify(picks));
+const store=new LocalStorageStore();
+assert.deepEqual(await store.getPicks(id),picks);
+await store.savePicks(id,{});assert.deepEqual(await store.getPicks(id),{});
+values.set('quimbara.quiniela.v1.cerrado.'+old,JSON.stringify({cerrado:true}));
+assert.equal(await store.estanCerrados(id),true);
+await assert.rejects(()=>store.savePicks(id,{}),PicksCerradosError);
+console.log('OK: legacy picks restored, explicit clearing preserved, sealed aliases stay sealed.');

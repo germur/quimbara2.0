@@ -1,3 +1,5 @@
+import {eventPath} from "./event-routing.mjs";
+import {schemaStatus} from "./event-data.mjs";
 /**
  * Identidad de entidad de Quimbara — fuente ÚNICA de verdad.
  *
@@ -6,15 +8,8 @@
  *   - src/pages/blog/[slug].astro      → publisher, author, about, mentions
  *   - src/pages/peleadores/[slug].astro→ publisher y relaciones
  *
- * Por qué existe: los motores de respuesta (AI Overviews, ChatGPT, Perplexity)
- * no razonan sobre cadenas de texto sino sobre ENTIDADES — cosas del mundo con
- * identidad estable y atributos. La cadena que acaba en una citación es:
- *
- *     entidad reconocida → grafo de conocimiento → respuesta atribuida
- *
- * Si "Quimbara" no está resuelta como entidad, no hay a quién atribuir lo que
- * publicamos. `sameAs` es lo que ata esta web a los perfiles que ya existen y
- * convierte un dominio anónimo en una entidad verificable. Estaba vacío.
+ * Centraliza nombres, perfiles y referencias entre páginas. La coherencia
+ * facilita interpretar el sitio; no garantiza reconocimiento ni citas en IA.
  *
  * Regla: los @id son URIs estables y NO deben cambiar. Un @id que cambia rompe
  * la identidad acumulada, igual que cambiar una URL sin redirect.
@@ -30,18 +25,15 @@ export const ID = {
 };
 
 /**
- * Perfiles oficiales. `sameAs` es la señal más barata y directa de identidad:
- * "esta entidad y estos perfiles son la misma cosa".
- *
- * OJO — inconsistencia detectada: el footer enlaza x.com/quimbaraufc pero el
- * meta twitter:site de BaseLayout dice @quimbara_mma. Para un grafo de
- * conocimiento eso son dos entidades distintas. Hay que unificar al handle real.
+ * Perfiles enlazados por el proyecto. Footer y metadatos usan esta misma fuente.
  */
-export const PERFILES = [
-  'https://x.com/quimbaraufc',
-  'https://instagram.com/quimbaraufc',
-  'https://youtube.com/@quimbara',
-];
+export const REDES = {
+  x: 'https://x.com/quimbaraufc',
+  instagram: 'https://instagram.com/quimbaraufc',
+  youtube: 'https://youtube.com/@quimbara',
+};
+export const PERFILES = Object.values(REDES);
+export const TWITTER_SITE = `@${new URL(REDES.x).pathname.slice(1)}`;
 
 /** Temas sobre los que la publicación tiene autoridad declarada. */
 export const TEMAS = [
@@ -70,26 +62,21 @@ export const organizacion = {
   image: `${SITE_URL}/default-og.jpg`,
   sameAs: PERFILES,
   description:
-    'Publicación editorial independiente de MMA y UFC en español. Análisis técnico de combate, perfiles de peleadores con datos verificados, cobertura de eventos y rankings oficiales actualizados a diario.',
-  foundingDate: '2024',
+    'Publicación editorial independiente de MMA y UFC en español. Análisis técnico de combate, perfiles de peleadores, cobertura de eventos y consulta de rankings.',
   knowsAbout: TEMAS,
   inLanguage: 'es',
-  publishingPrinciples: `${SITE_URL}/sobre/`,
+  publishingPrinciples: `${SITE_URL}/sobre/#criterio`,
 };
 
 /**
  * El autor como entidad propia, no como cadena de texto.
- * Un artículo firmado por una entidad con trayectoria pesa más que uno firmado
- * por un string suelto: es la parte de E-E-A-T que los modelos sí pueden leer.
- *
- * TODO Roger: añade aquí tus perfiles públicos (LinkedIn, X personal) en
- * `sameAs`. Es lo que conecta tu nombre con tu historial fuera del sitio.
+ * No añadir credenciales o perfiles personales sin comprobar su identidad.
  */
 export const autor = {
   '@type': 'Person',
   '@id': ID.autor,
   name: 'Roger Murillo',
-  url: `${SITE_URL}/sobre/`,
+  url: `${SITE_URL}/sobre/#autor`,
   knowsAbout: TEMAS,
   worksFor: { '@id': ID.organizacion },
   sameAs: [],
@@ -146,9 +133,9 @@ export function refEvento(slug, evento) {
   if (!evento?.date || !evento?.loc) return null;
   return {
     '@type': 'SportsEvent',
-    '@id': `${SITE_URL}/eventos/${slug}/#evento`,
+    '@id': `${SITE_URL}${eventPath(slug)}#evento`,
     name: evento.name || slugANombre(slug),
-    url: `${SITE_URL}/eventos/${slug}/`,
+    url: `${SITE_URL}${eventPath(slug)}`,
     startDate: evento.date,
     location: {
       '@type': 'Place',
@@ -156,10 +143,7 @@ export function refEvento(slug, evento) {
       address: { '@type': 'PostalAddress', addressLocality: evento.loc },
     },
     sport: 'Mixed Martial Arts',
-    eventStatus:
-      evento.status === 'completed'
-        ? 'https://schema.org/EventCompleted'
-        : 'https://schema.org/EventScheduled',
+    eventStatus: schemaStatus(evento),
   };
 }
 

@@ -1,0 +1,47 @@
+---
+interface Props {
+  kind: 'fighter' | 'rankings' | 'event';
+  professionalRecord?: boolean;
+}
+const { kind, professionalRecord = false } = Astro.props;
+---
+
+<section aria-label="Fuentes y actualización" class="data-sources">
+  <div>
+    <h2>Fuentes y actualización</h2>
+    {kind === 'fighter' ? (
+      <p>
+        La base de estadísticas y medidas utiliza los <a href="https://github.com/Greco1899/scrape_ufc_stats">datos públicos de Greco1899 sobre UFCStats</a>.
+        {' '}{professionalRecord
+          ? 'El récord profesional está identificado como tal porque se obtuvo de UFC.com mediante una consulta automática; no implica revisión manual ni actualización en tiempo real.'
+          : 'El récord etiquetado como UFC corresponde a combates de esa organización y no debe interpretarse como el récord profesional completo.'}
+        {' '}Los rankings se consultan en <a href="https://www.ufc.com/rankings">UFC.com</a>; las fichas también pueden incluir aportes editoriales.
+      </p>
+    ) : kind === 'rankings' ? (
+      <p>
+        Fuente de la clasificación: <a href="https://www.ufc.com/rankings">rankings publicados por UFC</a>.
+        {' '}La recopilación es automática y puede sufrir retrasos o errores. Esta página no confirma la fecha de la última clasificación emitida por UFC.
+      </p>
+    ) : (
+      <p>
+        El calendario y las carteleras se contrastan con Wikipedia y ESPN y los resultados recientes de <a href="https://www.sherdog.com/organizations/Ultimate-Fighting-Championship-UFC-2/recent-events/1">Sherdog</a>, con ajustes editoriales cuando corresponde.
+        {' '}Comprueba los anuncios del organizador en <a href="https://www.ufc.com/events">UFC.com</a>: las peleas, sedes y horarios pueden cambiar. El inicio de una cartelera no fija la hora exacta de cada combate.
+      </p>
+    )}
+    <p>
+      No hay una fecha de comprobación individual registrada para todos los datos de esta página.
+      {' '}Una actualización automática no equivale a verificación humana.
+      {' '}<a href="/sobre/#fuentes">Cómo trabajamos con las fuentes</a> · <a href="/sobre/#correcciones">Comunicar una corrección</a>.
+    </p>
+  </div>
+</section>
+
+<style>
+  .data-sources { max-width:1400px; margin:0 auto; padding:20px clamp(16px,4vw,60px) 50px; }
+  .data-sources > div { border-top:1px solid var(--color-bone); padding-top:24px; }
+  h2 { font-size:1.5rem; margin-bottom:12px; }
+  p { max-width:85ch; font-size:.875rem; line-height:1.8; color:var(--color-graphite); margin-top:10px; }
+  a { text-decoration:underline; text-underline-offset:3px; }
+  a:hover { color:var(--color-ink); }
+  a:focus-visible { outline:2px solid var(--color-ink); outline-offset:4px; }
+</style>

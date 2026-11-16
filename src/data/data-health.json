@@ -1,0 +1,78 @@
+{
+  "event-details": {
+    "lastAttempt": "2026-11-16T14:51:58.758Z",
+    "ok": true,
+    "detail": {
+      "updated": 3,
+      "failed": 0
+    },
+    "lastSuccessfulFetch": "2026-11-16T14:51:58.758Z"
+  },
+  "Events": {
+    "lastAttempt": "2026-11-16T14:42:06.162Z",
+    "ok": true,
+    "detail": {
+      "completedAt": "2026-11-16T14:42:06.161Z"
+    },
+    "lastSuccessfulFetch": "2026-11-16T14:42:06.162Z"
+  },
+  "Fight Cards": {
+    "lastAttempt": "2026-11-16T14:42:12.544Z",
+    "ok": true,
+    "detail": {
+      "completedAt": "2026-11-16T14:42:12.543Z"
+    },
+    "lastSuccessfulFetch": "2026-11-16T14:42:12.544Z"
+  },
+  "Fighters": {
+    "lastAttempt": "2026-11-16T14:42:14.294Z",
+    "ok": true,
+    "detail": {
+      "completedAt": "2026-11-16T14:42:14.293Z"
+    },
+    "lastSuccessfulFetch": "2026-11-16T14:42:14.294Z"
+  },
+  "Results": {
+    "lastAttempt": "2026-11-16T14:42:15.130Z",
+    "ok": true,
+    "detail": {
+      "completedAt": "2026-11-16T14:42:15.129Z"
+    },
+    "lastSuccessfulFetch": "2026-11-16T14:42:15.130Z"
+  },
+  "Event Photos": {
+    "lastAttempt": "2026-11-16T14:42:15.174Z",
+    "ok": true,
+    "detail": {
+      "completedAt": "2026-11-16T14:42:15.173Z"
+    },
+    "lastSuccessfulFetch": "2026-11-16T14:42:15.174Z"
+  },
+  "rankings": {
+    "lastAttempt": "2026-11-16T14:43:36.403Z",
+    "ok": true,
+    "detail": {
+      "count": 198
+    },
+    "lastSuccessfulFetch": "2026-11-16T14:43:36.403Z"
+  },
+  "fight-history": {
+    "lastAttempt": "2026-11-16T14:49:55.983Z",
+    "ok": true,
+    "detail": {
+      "updated": 143,
+      "errors": 0
+    },
+    "lastSuccessfulFetch": "2026-11-16T14:49:55.983Z"
+  },
+  "images": {
+    "lastAttempt": "2026-11-16T15:00:29.985Z",
+    "ok": false,
+    "detail": {
+      "attempted": 4,
+      "downloaded": 3,
+      "failed": 1,
+      "pendingRetries": 2
+    }
+  }
+}

@@ -39,12 +39,14 @@ async function submit(urls) {
     };
     const res = await fetch(ENDPOINT, {
       method: 'POST',
+      signal: AbortSignal.timeout(20000),
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       body: JSON.stringify(body),
     });
     const text = await res.text().catch(() => '');
     console.log(`  Batch ${i + 1}/${batches.length} (${batch.length} URLs) → ${res.status} ${res.statusText} ${text ? '· ' + text.slice(0, 200) : ''}`);
     if (![200, 202].includes(res.status)) {
+      process.exitCode=1;
       console.error('  ⚠  IndexNow respondió error. Status detail:');
       console.error(`     200 OK / 202 Accepted = bien
      400 Bad Request = JSON inválido

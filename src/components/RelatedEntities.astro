@@ -1,4 +1,5 @@
 ---
+import { eventPath, eventSlug, canonicalEvents } from "../lib/event-routing.mjs";
 // RelatedEntities — vincula automáticamente artículos con fichas de peleadores y eventos
 // Uso en blog/[slug].astro:
 //   <RelatedEntities fighters={["evloev", "volkanovski"]} events={["ufc-314"]} />
@@ -75,7 +76,7 @@ const catColor: Record<string, string> = {
 
       <!-- Eventos -->
       {matchedEvents.map((e: any) => (
-        <a href={`/eventos/${e.slug}/`}
+        <a href={eventPath(e.slug)}
            class="group flex items-center gap-4 rounded-lg border border-gray-200 bg-white hover:border-[#111] hover:shadow-md transition-all duration-200"
            style="padding:14px 16px;text-decoration:none;">
           <!-- Icono -->
