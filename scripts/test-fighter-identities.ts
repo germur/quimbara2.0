@@ -30,6 +30,8 @@ test('ranking importer reads only the visible current block and refuses missing 
  const regional=html.replace('/athlete/champ-0','https://ufc.com/athlete/champ-0').replace('/athlete/champ-1','https://www.ufcespanol.com/athlete/champ-1/');
  assert.equal(parseOfficialRankings(regional)[0].ufcProfileUrl,'https://www.ufc.com/athlete/champ-0');
  assert.equal(parseOfficialRankings(regional)[16].ufcProfileUrl,'https://www.ufc.com/athlete/champ-1');
+ assert.equal(parseOfficialRankings(html.replace('/athlete/champ-0','/index%2ephp/athlete/champ-0'))[0].ufcProfileUrl,'https://www.ufc.com/athlete/champ-0');
+ assert.equal(parseOfficialRankings(html.replace('/athlete/champ-0','/index.php/athlete/champ-0'))[0].ufcProfileUrl,'https://www.ufc.com/athlete/champ-0');
  assert.throws(()=>parseOfficialRankings(html.replace('/athlete/champ-0','https://example.com/athlete/champ-0')),/Invalid official athlete URL/);
  assert.throws(()=>parseOfficialRankings(html.replace('view-display-id-block_1','other')),/block not found/);
 });
