@@ -1,21 +1,30 @@
 export const normalizeName = s => String(s??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'');
 export const fightKey = f => [normalizeName(f.f1),normalizeName(f.f2)].sort().join('|');
+export function expandAnnouncedNames(event) {
+  const own=[event.f1,event.f2];
+  const compatible=(short,full)=>normalizeName(short)===normalizeName(full)||
+    (String(short).trim().split(/\s+/).length===1&&normalizeName(full).endsWith(normalizeName(short))&&normalizeName(short).length>=4);
+  const pairs=(event.fightCard??[]).flatMap(f=>[[f.f1,f.f2],[f.f2,f.f1]])
+    .filter(pair=>pair.every((name,i)=>compatible(own[i],name)));
+  if(pairs.length!==1)return {f1:event.f1,f2:event.f2};
+  return {f1:pairs[0][0],f2:pairs[0][1]};
+}
 export function preserveFightCorners(incoming,previous) {
   const old=previous.find(f=>fightKey(f)===fightKey(incoming));
   return old?{...incoming,f1:old.f1,f2:old.f2,
     ...(old.f1Id?{f1Id:old.f1Id}:{}),...(old.f2Id?{f2Id:old.f2Id}:{})}:incoming;
 }
-export function matchesProviderFight(competition,event) {
-  const source=competition.competitors?.map(x=>x.athlete?.displayName)??[];
-  const own=[event.f1,event.f2];
-  const person=(a,b)=>{
+export function sameFighterName(a,b) {
     if(normalizeName(a)===normalizeName(b))return true;
     const x=String(a).split(/\s+/),y=String(b).split(/\s+/);
     if(x.length<2||y.length<2)return false;
     const firstA=normalizeName(x[0]),firstB=normalizeName(y[0]);
     return normalizeName(x.at(-1))===normalizeName(y.at(-1))&&Math.min(firstA.length,firstB.length)>=3&&(firstA.startsWith(firstB)||firstB.startsWith(firstA));
-  };
-  return source.length===2&&[source,[...source].reverse()].some(pair=>pair.every((name,i)=>person(name,own[i])));
+}
+export function matchesProviderFight(competition,event) {
+  const source=competition.competitors?.map(x=>x.athlete?.displayName)??[];
+  const own=[event.f1,event.f2];
+  return source.length===2&&[source,[...source].reverse()].some(pair=>pair.every((name,i)=>sameFighterName(name,own[i])));
 }
 export function rankingCoverageValid(count,divisions,previous) {
   return count>=100&&divisions>=8&&count>=previous*0.75;
