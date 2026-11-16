@@ -66,15 +66,18 @@
     "lastSuccessfulFetch": "2026-11-16T14:49:55.983Z"
   },
   "images": {
-    "lastAttempt": "2026-11-16T15:42:27.074Z",
+    "lastAttempt": "2026-11-16T17:26:32.416Z",
     "ok": true,
     "detail": {
       "attempted": 0,
       "downloaded": 0,
       "failed": 0,
-      "pendingRetries": 2
+      "unavailable": 0,
+      "pendingRetries": 0,
+      "directoryProfiles": 3238,
+      "remaining": 2079
     },
-    "lastSuccessfulFetch": "2026-11-16T15:42:27.074Z"
+    "lastSuccessfulFetch": "2026-11-16T17:26:32.416Z"
   },
   "records": {
     "lastAttempt": "2026-11-16T15:42:26.002Z",

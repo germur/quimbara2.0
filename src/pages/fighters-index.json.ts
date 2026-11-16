@@ -4,22 +4,21 @@ import type { APIRoute } from 'astro';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import fighters from '../data/fighters.json';
+import {isRanked} from '../lib/indexable.mjs';
 
 export const GET: APIRoute = () => {
-  const imgDir = join(process.cwd(), 'public', 'fighters');
+  const hasPhoto=(f:any)=>typeof f.img==='string'&&f.img.startsWith('/fighters/')&&!f.img.includes('..')&&existsSync(join(process.cwd(),'public',f.img));
 
   const list = (fighters as any[])
     .filter((f) => {
-      const ranked = f.rank === 'C' || (!isNaN(Number(f.rank)) && Number(f.rank) <= 15);
-      const hasImg = existsSync(join(imgDir, `${f.slug}.png`)) || existsSync(join(imgDir, `${f.slug}.jpg`));
-      return ranked || hasImg;
+      return isRanked(f) || hasPhoto(f);
     })
     .map((f) => ({
       slug: f.slug,
       name: f.name,
       nick: f.nick || '',
       div: f.div || '',
-      img: f.img || `/fighters/${f.slug}.png`,
+      img: hasPhoto(f)?f.img:'',
       rank: f.rank || '',
     }));
 

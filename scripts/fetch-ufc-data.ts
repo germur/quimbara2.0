@@ -1,5 +1,7 @@
 import {safeWriteJson} from "./lib/datasets.mjs";
 import {recordHealth} from "./lib/health.mjs";
+import {createFighterMedia} from "../src/lib/fighter-media.mjs";
+import {expandAnnouncedNames} from "../src/lib/event-data.mjs";
 /**
  * Pipeline de datos UFC para Quimbara — SIN APIs de pago.
  *
@@ -219,6 +221,8 @@ type Fighter = {
   recScope?: string;
   recordCheckedAt?: string;
   recordSourceUrl?: string;
+  photoSource?: {profileUrl:string;imageUrl:string;checkedAt:string;athleteName?:string;athleteSlug?:string;provider?:string;sourceImages?:string[]};
+  photoAliases?: string[];
   /** Récord UFC-only calculado desde los CSVs de Greco1899 (informacional) */
   ufcRec?: string;
   from: string; img: string;
@@ -444,6 +448,8 @@ function buildFighter(
     ufcRec,
     from: prev?.from ?? '',
     img,
+    ...(prev?.photoSource?{photoSource:prev.photoSource}:{}),
+    ...(prev?.photoAliases?{photoAliases:prev.photoAliases}:{}),
     height: tott ? formatHeight(tott.HEIGHT) : prev?.height ?? '',
     weight: tott ? formatWeight(tott.WEIGHT) : prev?.weight ?? '',
     reach:  tott ? formatReach(tott.REACH)   : prev?.reach  ?? '',
@@ -833,46 +839,16 @@ function assignEventPhotos() {
     }
   }
 
-  const findPhoto = (name: string): string => {
-    if (!name || name === 'TBD') return '';
-    const nameSlug = slugify(name);
-
-    // Exact match in fighters.json
-    const exact = fightersBySlug.get(nameSlug);
-    if (exact?.img) return exact.img;
-
-    // Exact match on disk
-    if (photosOnDisk.has(nameSlug)) return photosOnDisk.get(nameSlug)!;
-
-    // Partial match: "Song" → "song-yadong" (prefix/suffix) — fighters.json
-    for (const [slug, f] of fightersBySlug) {
-      if (!f.img) continue;
-      if (slug.startsWith(nameSlug + '-') || slug.endsWith('-' + nameSlug)) return f.img;
-    }
-
-    // Partial match on disk
-    for (const [slug, img] of photosOnDisk) {
-      if (slug.startsWith(nameSlug + '-') || slug.endsWith('-' + nameSlug)) return img;
-    }
-
-    // Last name match with first initial
-    const nameLower = name.toLowerCase();
-    const lastName = nameLower.split(' ').slice(-1)[0];
-    const firstInit = nameLower[0];
-    for (const f of fighters) {
-      if (!f.img) continue;
-      const fn = f.name.toLowerCase();
-      if (fn.split(' ').slice(-1)[0] === lastName && fn[0] === firstInit) return f.img;
-    }
-
-    return '';
-  };
+  const extraPath=join(DATA_DIR,'fighter-media-extra.json');
+  const extraMedia=existsSync(extraPath)?JSON.parse(readFileSync(extraPath,'utf8')):[];
+  const mediaFor=createFighterMedia([...fighters,...extraMedia],photosOnDisk);
+  const findPhoto=(name:string):string=>mediaFor(name).photo;
 
   let matched = 0, unmatched = 0;
   for (const e of allEvts) {
     if (e.main === 'TBD') continue;
     for (const side of ['f1', 'f2'] as const) {
-      const name = e[side];
+      const name = expandAnnouncedNames(e)[side];
       const imgKey = `${side}img` as 'f1img' | 'f2img';
       const photo = findPhoto(name);
       if (photo && existsSync(join(IMG_DIR, photo.replace('/fighters/', '')))) {

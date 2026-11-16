@@ -54,29 +54,20 @@ const slugify = (name: string) => name.toLowerCase().normalize('NFD').replace(/[
 
 import { readdirSync } from 'node:fs';
 import FIGHTERS_RAW from '../../data/fighters.json';
+import MEDIA_EXTRA from '../../data/fighter-media-extra.json';
+import {createFighterMedia} from '../../lib/fighter-media.mjs';
 const photoFiles = readdirSync('public/fighters').filter(f => /\.(png|jpg|webp)$/i.test(f));
 const photoPaths = new Map(photoFiles.map(f=>[f.replace(/\.(png|jpg|webp)$/i,''),'/fighters/'+f]));
-const allPhotos = new Set(photoPaths.keys());
+const fighterMedia=createFighterMedia([...FIGHTERS_RAW,...MEDIA_EXTRA],photoPaths);
 const fighterSlugs = new Set((FIGHTERS_RAW as any[]).map((f: any) => f.slug));
 
 function fighterUrl(name: string): string {
-  if (!name || name === 'TBD') return '';
-  const slug = slugify(name);
-  if (fighterSlugs.has(slug)) return `/peleadores/${slug}/`;
-  for (const s of fighterSlugs) {
-    if (s.startsWith(slug + '-') || s.endsWith('-' + slug)) return `/peleadores/${s}/`;
-  }
-  return '';
+  const fighter=fighterMedia(name).fighter;
+  return fighter&&fighterSlugs.has(fighter.slug)?`/peleadores/${fighter.slug}/`:'';
 }
 
 function fighterPhoto(name: string): string {
-  if (!name || name === 'TBD') return '';
-  const slug = slugify(name);
-  if (allPhotos.has(slug)) return photoPaths.get(slug) || '';
-  for (const p of allPhotos) {
-    if (p.startsWith(slug + '-') || p.endsWith('-' + slug)) return photoPaths.get(p) || '';
-  }
-  return '';
+  return fighterMedia(name).photo;
 }
 
 // Otros eventos próximos (excluir el actual)

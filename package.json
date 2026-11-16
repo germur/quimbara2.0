@@ -32,8 +32,9 @@
     "rag:embed": "npx tsx scripts/rag-embed.mjs",
     "rag:tune": "npx tsx scripts/rag-tune.mjs",
     "data:details": "node scripts/fetch-event-details.mjs",
-    "test:data": "node --test scripts/test-event-data.mjs && tsx scripts/test-quiniela-migration.ts",
-    "audit:events": "node scripts/audit-event-urls.mjs"
+    "test:data": "node --test scripts/test-event-data.mjs scripts/test-fighter-media.mjs && tsx scripts/test-quiniela-migration.ts",
+    "audit:events": "node scripts/audit-event-urls.mjs",
+    "audit:images": "node scripts/audit-fighter-images.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",
