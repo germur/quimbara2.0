@@ -2185,7 +2185,7 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "unconfirmed"
   },
   {
     "slug": "ufc-fight-night-2026-11-21",
@@ -2341,7 +2341,7 @@
       }
     ],
     "espnEventId": "600061665",
-    "cardCheckedAt": "2026-11-16T15:15:27.886Z",
+    "cardCheckedAt": "2026-11-16T15:27:53.110Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -2350,7 +2350,7 @@
     "country": "Qatar",
     "programmingStartUTC": "2026-11-21T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
-    "scheduleCheckedAt": "2026-11-16T15:15:27.886Z",
+    "scheduleCheckedAt": "2026-11-16T15:27:53.110Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061665/league/ufc"
   },
   {
@@ -2364,7 +2364,7 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "unconfirmed"
   },
   {
     "slug": "ufc-fight-night-295-2026-12-05",
@@ -2377,19 +2377,19 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "unconfirmed"
   },
   {
     "slug": "ufc-fight-night-2026-12-05",
     "name": "UFC Fight Night",
-    "main": "Israel Adesanya vs. Sharabutdin Magomedov",
+    "main": "Israel Adesanya vs. Magomedov",
     "loc": "Riyadh, Saudi Arabia",
     "date": "2026-12-05",
     "dateLabel": "5 dic 2026",
     "f1": "Israel Adesanya",
     "f1img": "/fighters/israel-adesanya.png",
-    "f2": "Sharabutdin Magomedov",
-    "f2img": "",
+    "f2": "Magomedov",
+    "f2img": "/fighters/abus-magomedov.png",
     "status": "upcoming",
     "fightCard": [
       {
@@ -2533,7 +2533,7 @@
         "f2Id": "hecher-sosa"
       }
     ],
-    "cardFetchError": null,
+    "cardFetchError": "No matching main fight; previous card retained",
     "cardCheckedAt": "2026-11-16T15:15:28.008Z",
     "cardSource": "ESPN",
     "cardHistory": [
@@ -2643,7 +2643,7 @@
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-16T15:15:28.105Z",
+    "cardCheckedAt": "2026-11-16T15:27:53.250Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -2652,7 +2652,7 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-16T15:15:28.105Z",
+    "scheduleCheckedAt": "2026-11-16T15:27:53.250Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc"
   },
   {
@@ -2666,18 +2666,18 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "unconfirmed"
   },
   {
     "slug": "ufc-fight-night-2027-01-16",
     "name": "UFC Fight Night",
-    "main": "Yair Rodríguez vs. Steve Garcia",
+    "main": "Rodríguez vs. Garcia",
     "loc": "Dallas, Texas, U.S.",
     "date": "2027-01-16",
     "dateLabel": "16 ene 2027",
-    "f1": "Yair Rodríguez",
+    "f1": "Rodríguez",
     "f1img": "/fighters/yair-rodriguez.png",
-    "f2": "Steve Garcia",
+    "f2": "Garcia",
     "f2img": "/fighters/steve-garcia.png",
     "status": "upcoming",
     "fightCard": [
@@ -2723,18 +2723,18 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "unconfirmed"
   },
   {
     "slug": "ufc-fight-night-2027-01-23",
     "name": "UFC Fight Night",
-    "main": "Gabriel Bonfim vs. Sean Brady",
+    "main": "Bonfim vs. Brady",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2027-01-23",
     "dateLabel": "23 ene 2027",
-    "f1": "Gabriel Bonfim",
+    "f1": "Bonfim",
     "f1img": "/fighters/gabriel-bonfim.png",
-    "f2": "Sean Brady",
+    "f2": "Brady",
     "f2img": "/fighters/sean-brady.png",
     "status": "upcoming",
     "fightCard": [
@@ -2754,13 +2754,13 @@
   {
     "slug": "ufc-336-2027-01-30",
     "name": "UFC 336",
-    "main": "Joshua Van vs. Manel Kape",
+    "main": "Van vs. Kape",
     "loc": "Toronto, Ontario, Canada",
     "date": "2027-01-30",
     "dateLabel": "30 ene 2027",
-    "f1": "Joshua Van",
+    "f1": "Van",
     "f1img": "/fighters/joshua-van.png",
-    "f2": "Manel Kape",
+    "f2": "Kape",
     "f2img": "/fighters/manel-kape.png",
     "status": "upcoming",
     "fightCard": [
@@ -2797,7 +2797,7 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "unconfirmed"
   },
   {
     "slug": "ufc-fight-night-296-2027-02-07",
@@ -2810,7 +2810,7 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "unconfirmed"
   },
   {
     "slug": "ufc-fight-night-298-2027-02-07",
@@ -2823,7 +2823,7 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "unconfirmed"
   },
   {
     "slug": "ufc-fight-night-297-2027-02-07",
@@ -2836,18 +2836,18 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "upcoming"
+    "status": "unconfirmed"
   },
   {
     "slug": "ufc-fight-night-2027-02-07",
     "name": "UFC Fight Night",
-    "main": "Salkilld vs. Saint Denis",
+    "main": "Quillan Salkilld vs. Benoît Saint Denis",
     "loc": "Sydney, Australia",
     "date": "2027-02-07",
     "dateLabel": "7 feb 2027",
-    "f1": "Salkilld",
+    "f1": "Quillan Salkilld",
     "f1img": "/fighters/quillan-salkilld.png",
-    "f2": "Saint Denis",
+    "f2": "Benoît Saint Denis",
     "f2img": "/fighters/benoit-saint-denis.png",
     "status": "upcoming",
     "fightCard": [
@@ -2868,20 +2868,40 @@
         "weightClass": "Light Heavyweight",
         "bout": "Co-Main Event",
         "order": 1
+      },
+      {
+        "f1": "Marwan Rahiki",
+        "f1Id": "marwan-rahiki",
+        "f2": "Yoo Joo-sang",
+        "f2Id": "yoo-joo-sang",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 2
+      },
+      {
+        "f1": "Kaan Ofli",
+        "f1Id": "kaan-ofli",
+        "f2": "Joanderson Brito",
+        "f2Id": "joanderson-brito",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 3
       }
-    ]
+    ],
+    "cardCheckedAt": "2026-11-16T15:24:27.832Z",
+    "cardSource": "Wikipedia"
   },
   {
     "slug": "ufc-fight-night-2027-02-13",
     "name": "UFC Fight Night",
-    "main": "Pyfer vs. Nickal",
+    "main": "Joe Pyfer vs. Bo Nickal",
     "loc": "Cleveland, Ohio, U.S.",
     "date": "2027-02-13",
     "dateLabel": "13 feb 2027",
-    "f1": "Pyfer",
+    "f1": "Joe Pyfer",
     "f1img": "/fighters/joe-pyfer.png",
-    "f2": "Nickal",
-    "f2img": "",
+    "f2": "Bo Nickal",
+    "f2img": "/fighters/bo-nickal.png",
     "status": "upcoming",
     "fightCard": [
       {
@@ -2893,7 +2913,9 @@
         "bout": "Main Event",
         "order": 0
       }
-    ]
+    ],
+    "cardCheckedAt": "2026-11-16T15:24:28.997Z",
+    "cardSource": "Wikipedia"
   },
   {
     "slug": "ufc-337-2027-02-20",
