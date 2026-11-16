@@ -50,7 +50,9 @@ export function parseOfficialRankings(html){
   for(const {link,rank} of links){
    const name=link.text().trim(),href=link.attr('href');
    if(!name||!href||rank!=='C'&&!/^(?:[1-9]|1[0-5])$/.test(rank))throw new Error('Invalid ranking row');
-   const url=new URL(href,'https://www.ufc.com');if(url.hostname!=='www.ufc.com'||!url.pathname.startsWith('/athlete/'))throw new Error('Invalid official athlete URL');
+   const linked=new URL(href,'https://www.ufc.com');
+   if(!['https:','http:'].includes(linked.protocol)||!['www.ufc.com','ufc.com','www.ufcespanol.com','ufcespanol.com'].includes(linked.hostname)||!linked.pathname.startsWith('/athlete/'))throw new Error('Invalid official athlete URL for '+name+': '+href);
+   const url=new URL(linked.pathname.replace(/\/+$/,''),'https://www.ufc.com');
    const key=div+'|'+url.pathname;if(keys.has(key))throw new Error('Duplicate athlete in division');keys.add(key);
    entries.push({name,rank,div,ufcProfileUrl:url.href,sourceSlug:url.pathname.split('/').filter(Boolean).at(-1)});
   }

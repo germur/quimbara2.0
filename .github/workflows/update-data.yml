@@ -30,7 +30,6 @@ jobs:
         continue-on-error: true
       - id: rankings
         run: npm run data:rankings
-        continue-on-error: true
       - id: records
         run: npm run data:records
         continue-on-error: true

@@ -27,6 +27,10 @@ test('ranking importer reads only the visible current block and refuses missing 
  const group=(div:string,i:number)=>`<div class="view-grouping"><div class="view-grouping-header">${div}</div><div class="rankings--athlete--champion"><h5><a href="/athlete/champ-${i}">Champ ${i}</a></h5></div><table><tbody>${Array.from({length:15},(_,n)=>`<tr><td>${n+1}</td><td><a href="/athlete/f-${i}-${n}">F ${i} ${n}</a></td></tr>`).join('')}</tbody></table></div>`;
  const html='<div class="view-display-id-block_1">'+divisions.map(group).join('')+'</div><div class="view-display-id-meta_rankings">'+group('Peso mosca',99)+'</div>';
  const entries=parseOfficialRankings(html);assert.equal(entries.length,176);assert.ok(entries.every(e=>!e.name.includes('99')));
+ const regional=html.replace('/athlete/champ-0','https://ufc.com/athlete/champ-0').replace('/athlete/champ-1','https://www.ufcespanol.com/athlete/champ-1/');
+ assert.equal(parseOfficialRankings(regional)[0].ufcProfileUrl,'https://www.ufc.com/athlete/champ-0');
+ assert.equal(parseOfficialRankings(regional)[16].ufcProfileUrl,'https://www.ufc.com/athlete/champ-1');
+ assert.throws(()=>parseOfficialRankings(html.replace('/athlete/champ-0','https://example.com/athlete/champ-0')),/Invalid official athlete URL/);
  assert.throws(()=>parseOfficialRankings(html.replace('view-display-id-block_1','other')),/block not found/);
 });
 test('contradictory professional totals retain the verified UFC scope',()=>{
