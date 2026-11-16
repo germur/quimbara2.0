@@ -1,7 +1,7 @@
 // ESPN is a supplementary, attributed source. Match the announced main fight;
 // never replace an event just because it shares a calendar date.
 import {readFileSync,writeFileSync} from 'node:fs';
-import {normalizeName,fightKey,cardChanges,validDate,matchesProviderFight} from '../src/lib/event-data.mjs';
+import {normalizeName,fightKey,cardChanges,validDate,matchesProviderFight,preserveFightCorners} from '../src/lib/event-data.mjs';
 import {canonicalEvents} from '../src/lib/event-routing.mjs';
 import {fetchBounded} from './lib/fetch.mjs';
 import {recordHealth} from './lib/health.mjs';
@@ -30,9 +30,9 @@ for(const event of canonicalEvents(events).filter(e=>validDate(e.date)&&e.date>=
       const id=fightKey({f1:names[0],f2:names[1]});
       const isMain=matchesProviderFight(c,event);
       // Preserve the site's announced main-fight orientation.
-      return {f1:isMain?event.f1:names[0],f2:isMain?event.f2:names[1],sourceFightId:String(c.id),
+      return preserveFightCorners({f1:isMain?event.f1:names[0],f2:isMain?event.f2:names[1],sourceFightId:String(c.id),
         weightClass:c.type?.abbreviation??'',bout:isMain?'Main Event':hasSegments&&c.date===first?'prelim':'maincard',order:0,
-        sourceStartUTC:c.date,segmentInferred:true};
+        sourceStartUTC:c.date,segmentInferred:true}, event.fightCard??[]);
     }).sort((a,b)=>Number(b.bout==='Main Event')-Number(a.bout==='Main Event')||String(b.sourceStartUTC).localeCompare(String(a.sourceStartUTC)));
     fights.forEach((f,i)=>f.order=i);
     if(new Set(fights.map(fightKey)).size!==fights.length)throw new Error('Duplicate fight IDs');

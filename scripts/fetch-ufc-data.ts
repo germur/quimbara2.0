@@ -1,3 +1,4 @@
+import {safeWriteJson} from "./lib/datasets.mjs";
 import {recordHealth} from "./lib/health.mjs";
 /**
  * Pipeline de datos UFC para Quimbara — SIN APIs de pago.
@@ -85,26 +86,8 @@ function readJson<T>(filename: string): T[] {
  * anterior y avisamos. Evita perder events.json/results.json en silencio cuando
  * un scraper revienta. Override consciente: FORCE_WRITE=1.
  */
-function writeJson(filename: string, data: unknown) {
-  const p = join(DATA_DIR, filename);
-
-  if (process.env.FORCE_WRITE !== '1' && Array.isArray(data) && existsSync(p)) {
-    try {
-      const prev = JSON.parse(readFileSync(p, 'utf8'));
-      if (Array.isArray(prev) && prev.length > 0) {
-        if (data.length === 0) {
-          console.error(`⛔ ${filename}: lo nuevo está VACÍO (antes: ${prev.length} filas). Se conserva el archivo anterior. (FORCE_WRITE=1 para forzar)`);
-          throw new Error('Unsafe dataset replacement rejected');
-        }
-        if (data.length < prev.length * 0.5) {
-          console.error(`⛔ ${filename}: caída drástica ${prev.length} → ${data.length} filas. Se conserva el archivo anterior. (FORCE_WRITE=1 para forzar)`);
-          throw new Error('Unsafe dataset replacement rejected');
-        }
-      }
-    } catch { /* anterior corrupto/ilegible → escribir normal */ }
-  }
-
-  writeFileSync(p, JSON.stringify(data, null, 2) + '\n', 'utf8');
+function writeJson(filename: string,data: unknown) {
+  safeWriteJson(join(DATA_DIR,filename),data,{force:process.env.FORCE_WRITE==='1'});
 }
 
 async function fetchHtml(url: string, extraHeaders?: Record<string, string>): Promise<cheerio.CheerioAPI> {

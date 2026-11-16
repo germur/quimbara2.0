@@ -4,6 +4,31 @@ import {buildRegistry} from './sync-event-urls.mjs';
 import {eventStatus,schemaStatus,validDate,validTime,cardChanges,imageQueue} from '../src/lib/event-data.mjs';
 import {horariosDeEvento,instanteDesdeET} from '../src/lib/horarios.mjs';
 import {matchesProviderFight,rankingCoverageValid} from '../src/lib/event-data.mjs';
+import {preserveFightCorners,fightKey} from '../src/lib/event-data.mjs';
+import {safeWriteJson} from './lib/datasets.mjs';
+import {mkdtempSync,readFileSync,unlinkSync,rmdirSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+
+test('empty and collapsed replacements cannot overwrite the last valid dataset',()=>{
+  const dir=mkdtempSync(join(tmpdir(),'quimbara-guard-')),path=join(dir,'data.json');
+  try{
+    safeWriteJson(path,[1,2,3,4]);const before=readFileSync(path,'utf8');
+    assert.throws(()=>safeWriteJson(path,[]),/rejected/);
+    assert.equal(readFileSync(path,'utf8'),before);
+    assert.throws(()=>safeWriteJson(path,[1]),/rejected/);
+    assert.equal(readFileSync(path,'utf8'),before);
+  }finally{unlinkSync(path);rmdirSync(dir);}
+});
+test('provider order never changes the meaning of an existing f1 pick',()=>{
+  const previous=[{f1:'Dan Hooker',f2:'Brian Ortega'},{f1:'Asu Almabayev',f2:'Kyoji Horiguchi'}];
+  for(const old of previous){
+    const incoming={f1:old.f2,f2:old.f1,sourceFightId:'provider-id'};
+    const next=preserveFightCorners(incoming,previous);
+    assert.equal(next.f1,old.f1);assert.equal(next.f2,old.f2);
+    assert.equal(fightKey(next),fightKey(old));
+  }
+});
 
 test('provider aliases cannot match a different fighter just through a shared surname',()=>{
   const competition=(a,b)=>({competitors:[{athlete:{displayName:a}},{athlete:{displayName:b}}]});

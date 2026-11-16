@@ -40,13 +40,13 @@ Antes de enviar IndexNow se verifica que producción sirva el SHA esperado. La t
 
 ## Quinielas y cambios pendientes
 
-La URL de la quiniela cambia, pero el ID de almacenamiento permanece. La lectura recupera picks de aliases antiguos y respeta sus cierres. Un guardado vacío explícito no resucita picks anteriores. No se cambia el motor de puntaje.
+La URL de la quiniela cambia, pero el ID de almacenamiento permanece. La lectura recupera picks de aliases antiguos y respeta sus cierres. Un guardado vacío explícito no resucita picks anteriores. No se cambia el motor de puntaje. La ingesta conserva también la orientación f1/f2 de cada pelea ya conocida: un pronóstico por esquina no puede convertirse en un voto por el rival porque el proveedor invierta su listado.
 
 Se integran las correcciones editoriales pendientes de esta conversación: página de autor/política, fuentes visibles, perfil social coherente y eliminación de fechas artificiales de compilación. El checkout original con otros borradores, analítica y overrides locales queda intacto; esta entrega se preparó en un worktree sobre la rama remota actual.
 
 ## Validación y límites
 
-- Seis pruebas de identidad, aliases, reprogramación, estados, horarios, cobertura y cola de imágenes.
+- Ocho pruebas de protección de datasets, orientación de esquinas, identidad, aliases, reprogramación, estados, horarios, cobertura y cola de imágenes.
 - Prueba de migración de picks: lectura antigua, borrado explícito y cierre.
 - Los 27 casos existentes del puntaje continúan pasando.
 - Auditoría del artefacto: redirecciones, canonical, sitemap, fechas, estados y rutas de quiniela.

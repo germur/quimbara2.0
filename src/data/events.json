@@ -13,14 +13,16 @@
     "status": "upcoming",
     "fightCard": [
       {
-        "f1": "Jiri Prochazka",
+        "f1": "Jiří Procházka",
         "f2": "Navajo Stirling",
         "sourceFightId": "401922277",
         "weightClass": "Light Heavyweight",
         "bout": "Main Event",
         "order": 0,
         "sourceStartUTC": "2026-11-21T18:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "jiri-prochazka",
+        "f2Id": "navajo-stirling"
       },
       {
         "f1": "Aljamain Sterling",
@@ -30,27 +32,33 @@
         "bout": "maincard",
         "order": 1,
         "sourceStartUTC": "2026-11-21T18:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "aljamain-sterling",
+        "f2Id": "kevin-vallejos"
       },
       {
-        "f1": "Brian Ortega",
-        "f2": "Dan Hooker",
+        "f1": "Dan Hooker",
+        "f2": "Brian Ortega",
         "sourceFightId": "401922278",
         "weightClass": "Lightweight",
         "bout": "maincard",
         "order": 2,
         "sourceStartUTC": "2026-11-21T18:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "dan-hooker",
+        "f2Id": "brian-ortega"
       },
       {
-        "f1": "Kyoji Horiguchi",
-        "f2": "Asu Almabayev",
+        "f1": "Asu Almabayev",
+        "f2": "Kyoji Horiguchi",
         "sourceFightId": "401927855",
         "weightClass": "Flyweight",
         "bout": "maincard",
         "order": 3,
         "sourceStartUTC": "2026-11-21T18:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "asu-almabayev",
+        "f2Id": "kyoji-horiguchi"
       },
       {
         "f1": "Jared Cannonier",
@@ -60,7 +68,9 @@
         "bout": "maincard",
         "order": 4,
         "sourceStartUTC": "2026-11-21T18:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "jared-cannonier",
+        "f2Id": "ikram-aliskerov"
       },
       {
         "f1": "Aleksandre Topuria",
@@ -70,7 +80,9 @@
         "bout": "maincard",
         "order": 5,
         "sourceStartUTC": "2026-11-21T18:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "aleksandre-topuria",
+        "f2Id": "santiago-luna"
       },
       {
         "f1": "Shamil Gaziev",
@@ -80,7 +92,9 @@
         "bout": "prelim",
         "order": 6,
         "sourceStartUTC": "2026-11-21T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "shamil-gaziev",
+        "f2Id": "tallison-teixeira"
       },
       {
         "f1": "Amir Albazi",
@@ -90,7 +104,9 @@
         "bout": "prelim",
         "order": 7,
         "sourceStartUTC": "2026-11-21T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "amir-albazi",
+        "f2Id": "alessandro-costa"
       },
       {
         "f1": "Jake Matthews",
@@ -100,7 +116,9 @@
         "bout": "prelim",
         "order": 8,
         "sourceStartUTC": "2026-11-21T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "jake-matthews",
+        "f2Id": "tahir-abdullayev"
       },
       {
         "f1": "Nikolas Motta",
@@ -135,7 +153,7 @@
       }
     ],
     "espnEventId": "600061665",
-    "cardCheckedAt": "2026-11-16T14:51:58.568Z",
+    "cardCheckedAt": "2026-11-16T15:15:27.886Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -144,7 +162,7 @@
     "country": "Qatar",
     "programmingStartUTC": "2026-11-21T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
-    "scheduleCheckedAt": "2026-11-16T14:51:58.568Z",
+    "scheduleCheckedAt": "2026-11-16T15:15:27.886Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061665/league/ufc",
     "bg": "#FFD600",
     "color": "#111"
@@ -170,27 +188,33 @@
         "bout": "Main Event",
         "order": 0,
         "sourceStartUTC": "2026-12-05T18:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "israel-adesanya",
+        "f2Id": "sharabutdin-magomedov"
       },
       {
-        "f1": "Yaroslav Amosov",
-        "f2": "Ian Machado Garry",
+        "f1": "Ian Machado Garry",
+        "f2": "Yaroslav Amosov",
         "sourceFightId": "401933596",
         "weightClass": "Welterweight",
         "bout": "maincard",
         "order": 1,
         "sourceStartUTC": "2026-12-05T18:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "ian-machado-garry",
+        "f2Id": "yaroslav-amosov"
       },
       {
         "f1": "Serghei Spivac",
-        "f2": "Mario Pinto",
+        "f2": "Mário Pinto",
         "sourceFightId": "401933597",
         "weightClass": "Heavyweight",
         "bout": "maincard",
         "order": 2,
         "sourceStartUTC": "2026-12-05T18:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "serghei-spivac",
+        "f2Id": "mario-pinto"
       },
       {
         "f1": "Levan Chokheli",
@@ -200,7 +224,9 @@
         "bout": "prelim",
         "order": 3,
         "sourceStartUTC": "2026-12-05T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "levan-chokheli",
+        "f2Id": "islam-dulatov"
       },
       {
         "f1": "Mairon Santos",
@@ -210,17 +236,21 @@
         "bout": "prelim",
         "order": 4,
         "sourceStartUTC": "2026-12-05T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "mairon-santos",
+        "f2Id": "akbar-abdullaev"
       },
       {
-        "f1": "Ion Cutelaba",
-        "f2": "Magomed Tuchalov",
+        "f1": "Magomed Tuchalov",
+        "f2": "Ion Cuțelaba",
         "sourceFightId": "401933600",
         "weightClass": "Light Heavyweight",
         "bout": "prelim",
         "order": 5,
         "sourceStartUTC": "2026-12-05T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "magomed-tuchalov",
+        "f2Id": "ion-cutelaba"
       },
       {
         "f1": "Bruno Silva",
@@ -240,7 +270,9 @@
         "bout": "prelim",
         "order": 7,
         "sourceStartUTC": "2026-12-05T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "uran-satybaldiev",
+        "f2Id": "ivan-gnizditskiy"
       },
       {
         "f1": "JunYong Park",
@@ -253,24 +285,28 @@
         "segmentInferred": true
       },
       {
-        "f1": "Mehemmedeli Osmanli",
-        "f2": "Pavel Andrusca",
+        "f1": "Pavel Andrusca",
+        "f2": "Mehemmedeli Osmanli",
         "sourceFightId": "401933604",
         "weightClass": "Bantamweight",
         "bout": "prelim",
         "order": 9,
         "sourceStartUTC": "2026-12-05T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "pavel-andrusca",
+        "f2Id": "mehemmedeli-osmanli"
       },
       {
-        "f1": "Matthieu Letho Duclos",
-        "f2": "Modestino Rodrigues",
+        "f1": "Modestino Rodrigues",
+        "f2": "Matthieu Letho Duclos",
         "sourceFightId": "401933605",
         "weightClass": "Middleweight",
         "bout": "prelim",
         "order": 10,
         "sourceStartUTC": "2026-12-05T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "modestino-rodrigues",
+        "f2Id": "matthieu-letho-duclos"
       },
       {
         "f1": "Abdul Hussein",
@@ -280,11 +316,13 @@
         "bout": "prelim",
         "order": 11,
         "sourceStartUTC": "2026-12-05T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "abdul-hussein",
+        "f2Id": "hecher-sosa"
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-16T14:51:58.663Z",
+    "cardCheckedAt": "2026-11-16T15:15:28.008Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -307,7 +345,7 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-16T14:51:58.663Z",
+    "scheduleCheckedAt": "2026-11-16T15:15:28.008Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc",
     "bg": "#E53935",
     "color": "#fff"
@@ -333,7 +371,9 @@
         "bout": "Main Event",
         "order": 0,
         "sourceStartUTC": "2026-12-13T02:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "charles-oliveira",
+        "f2Id": "diego-lopes"
       },
       {
         "f1": "Sergei Pavlovich",
@@ -343,7 +383,9 @@
         "bout": "maincard",
         "order": 1,
         "sourceStartUTC": "2026-12-13T02:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "sergei-pavlovich",
+        "f2Id": "alex-pereira"
       },
       {
         "f1": "Brandon Moreno",
@@ -391,7 +433,7 @@
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-16T14:51:58.756Z",
+    "cardCheckedAt": "2026-11-16T15:15:28.105Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -400,7 +442,7 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-16T14:51:58.756Z",
+    "scheduleCheckedAt": "2026-11-16T15:15:28.105Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc",
     "bg": "#7B1FA2",
     "color": "#fff"

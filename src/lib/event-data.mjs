@@ -1,5 +1,10 @@
 export const normalizeName = s => String(s??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'');
 export const fightKey = f => [normalizeName(f.f1),normalizeName(f.f2)].sort().join('|');
+export function preserveFightCorners(incoming,previous) {
+  const old=previous.find(f=>fightKey(f)===fightKey(incoming));
+  return old?{...incoming,f1:old.f1,f2:old.f2,
+    ...(old.f1Id?{f1Id:old.f1Id}:{}),...(old.f2Id?{f2Id:old.f2Id}:{})}:incoming;
+}
 export function matchesProviderFight(competition,event) {
   const source=competition.competitors?.map(x=>x.athlete?.displayName)??[];
   const own=[event.f1,event.f2];
