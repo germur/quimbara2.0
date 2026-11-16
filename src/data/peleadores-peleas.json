@@ -6,7 +6,7 @@
     "importancia": "INFERIDA, no publicada por Wikipedia: titulo si las notas mencionan campeonato, main-event si el apellido aparece en el nombre del evento, main-card por defecto. El campo importanciaInferida lo marca.",
     "orden": "peleas[] va en orden cronologico ascendente (la mas antigua primero)."
   },
-  "actualizado": "2026-11-16T22:11:02.352Z",
+  "actualizado": "2026-11-16T22:35:03.889Z",
   "peleadores": {
     "charles-oliveira": {
       "wikipedia": "Charles_Oliveira",

@@ -166,7 +166,7 @@
       }
     ],
     "espnEventId": "600061665",
-    "cardCheckedAt": "2026-11-16T22:06:06.946Z",
+    "cardCheckedAt": "2026-11-16T22:34:38.907Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -175,7 +175,7 @@
     "country": "Qatar",
     "programmingStartUTC": "2026-11-21T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
-    "scheduleCheckedAt": "2026-11-16T22:06:06.946Z",
+    "scheduleCheckedAt": "2026-11-16T22:34:38.907Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061665/league/ufc",
     "bg": "#FFD600",
     "color": "#111"
@@ -339,7 +339,7 @@
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-16T22:06:07.062Z",
+    "cardCheckedAt": "2026-11-16T22:34:38.991Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -374,7 +374,7 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-16T22:06:07.062Z",
+    "scheduleCheckedAt": "2026-11-16T22:34:38.991Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc",
     "bg": "#E53935",
     "color": "#fff"
@@ -476,7 +476,7 @@
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-16T22:06:07.173Z",
+    "cardCheckedAt": "2026-11-16T22:34:39.075Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -485,7 +485,7 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-16T22:06:07.173Z",
+    "scheduleCheckedAt": "2026-11-16T22:34:39.075Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc",
     "bg": "#7B1FA2",
     "color": "#fff"
