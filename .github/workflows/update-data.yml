@@ -20,6 +20,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run test:data && npm run test:puntaje
+      - id: identities
+        run: npm run data:identities
+        continue-on-error: true
       # Each ingestion preserves the last usable data on source failure.
       # The final step reports any tolerated failure; green cannot hide it.
       - id: base
@@ -41,15 +44,32 @@ jobs:
       - id: images
         run: npm run data:images
         continue-on-error: true
+      - name: Verify ingestion before publishing
+        env:
+          OUTCOMES: ${{ toJSON(steps) }}
+        run: node scripts/verify-ingestion.mjs
+      - uses: actions/cache@v4
+        with:
+          path: .rag/model-cache
+          key: semantic-model-minilm-fp32-v1
+      - uses: actions/cache@v4
+        with:
+          path: |
+            .rag/vector-cache.json
+            .rag/preguntas-vec.json
+          key: semantic-vectors-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: semantic-vectors-v1-
+      - name: Refresh semantic search
+        run: node scripts/sync-event-urls.mjs && npm run rag:chunk -- --write && npm run rag:embed -- --publicar && npm run audit:search && npm run rag:eval
       - run: npm run gen:og
       # Validate the candidate BEFORE committing data that triggers Netlify.
-      - run: npm run audit:peleadores
+      - run: npm run audit:peleadores && npm run audit:identities
       - run: npm run build
       - run: npm run audit:schema && npm run audit:events && npm run audit:images -- --dist
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore(data): actualización validada de UFC'
-          file_pattern: 'src/data/*.json public/fighters/* public/og/cartas/* public/_redirects'
+          file_pattern: 'src/data/*.json public/fighters/* public/og/cartas/* public/_redirects public/buscador/indice.json'
           commit_user_name: Quimbara Bot
           commit_user_email: bot@quimbara.local
       - name: Verify production deployment

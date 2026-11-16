@@ -13,19 +13,6 @@
     }
   },
   {
-    "name": "Tyrell Fortune",
-    "slug": "tyrell-fortune",
-    "img": "/fighters/tyrell-fortune.webp",
-    "photoSource": {
-      "profileUrl": "https://www.ufc.com/athlete/tyrell-fortune",
-      "imageUrl": "https://ufc.com/images/styles/event_fight_card_upper_body_of_standing_athlete/s3/2026-07/FORTUNE_TYRELL_R_07-25.png?itok=KQxOynQi",
-      "checkedAt": "2026-11-16T16:45:05.728Z",
-      "athleteName": "Tyrell Fortune",
-      "athleteSlug": "tyrell-fortune",
-      "provider": "UFC"
-    }
-  },
-  {
     "name": "Matthieu Duclos",
     "slug": "matthieu-letho-duclos",
     "img": "/fighters/matthieu-letho-duclos.webp",

@@ -1,7 +1,7 @@
 import {readFileSync,writeFileSync,existsSync} from 'node:fs';
 import {load} from 'cheerio';
 import sharp from 'sharp';
-import {resolvePerson,invalidatePersonIndex} from '../src/lib/fighter-media.mjs';
+import {resolvePerson,invalidatePersonIndex,resolveEventPerson} from '../src/lib/fighter-media.mjs';
 import {expandAnnouncedNames} from '../src/lib/event-data.mjs';
 import {fetchBounded} from './lib/fetch.mjs';
 import {recordHealth} from './lib/health.mjs';
@@ -16,8 +16,9 @@ const directoryProfiles=sources.athletes.length;
 sources.athletes=[...sources.athletes,...read('src/data/fighter-photo-overrides.json',[])];
 const validPath=path=>typeof path==='string'&&path.startsWith('/fighters/')&&!path.includes('..')&&existsSync('public'+path)&&!publisherPlaceholder(readFileSync('public'+path));
 for(const f of fighters){
+ if(f.identityAmbiguousName&&!f.ufcProfileUrl){f.img='';delete f.photoSource;continue;}
  if(f.img&&!validPath(f.img))f.img='';
- for(const ext of ['png','jpg','webp'])if(!f.img&&validPath(`/fighters/${f.slug}.${ext}`))f.img=`/fighters/${f.slug}.${ext}`;
+ for(const ext of ['png','jpg','webp'])if(!f.img&&!f.identityAmbiguousName&&validPath(`/fighters/${f.slug}.${ext}`))f.img=`/fighters/${f.slug}.${ext}`;
 }
 // Media-only athletes must not create invented sporting profiles or records.
 const addAlias=(person,name)=>{if(name!==person.name)person.photoAliases=[...new Set([...(person.photoAliases??[]),name])];};
@@ -100,7 +101,7 @@ for(const file of ['src/data/events-all.json','src/data/events.json']){
  const list=read(file,[]);
  for(const e of list){
   const names=expandAnnouncedNames(e);
-  for(const side of ['f1','f2'])e[side+'img']=resolvePerson(names[side],people,{surname:true})?.img??'';
+  for(const side of ['f1','f2'])e[side+'img']=resolveEventPerson(e,side,people)?.img??'';
  }
  writeFileSync(file,JSON.stringify(list,null,2)+'\n');
 }

@@ -61,13 +61,13 @@ const photoPaths = new Map(photoFiles.map(f=>[f.replace(/\.(png|jpg|webp)$/i,'')
 const fighterMedia=createFighterMedia([...FIGHTERS_RAW,...MEDIA_EXTRA],photoPaths);
 const fighterSlugs = new Set((FIGHTERS_RAW as any[]).map((f: any) => f.slug));
 
-function fighterUrl(name: string): string {
-  const fighter=fighterMedia(name).fighter;
+function fighterUrl(name: string,id='',division=''): string {
+  const fighter=fighterMedia(name,id,division).fighter;
   return fighter&&fighterSlugs.has(fighter.slug)?`/peleadores/${fighter.slug}/`:'';
 }
 
-function fighterPhoto(name: string): string {
-  return fighterMedia(name).photo;
+function fighterPhoto(name: string,id='',division=''): string {
+  return fighterMedia(name,id,division).photo;
 }
 
 // Otros eventos próximos (excluir el actual)
@@ -338,12 +338,12 @@ const metaDescription = isCompleted
         {event.fightCard.map((fight, i) => {
           const isMain = fight.bout === 'Main Event' || i === 0;
           const isCoMain = fight.bout === 'Co-Main Event';
-          const f1Photo = fighterPhoto(fight.f1);
-          const f2Photo = fighterPhoto(fight.f2);
+          const f1Photo = fighterPhoto(fight.f1,fight.f1Id,fight.weightClass);
+          const f2Photo = fighterPhoto(fight.f2,fight.f2Id,fight.weightClass);
           const f1Init = initials(fight.f1);
           const f2Init = initials(fight.f2);
-          const f1Url = fighterUrl(fight.f1);
-          const f2Url = fighterUrl(fight.f2);
+          const f1Url = fighterUrl(fight.f1,fight.f1Id,fight.weightClass);
+          const f2Url = fighterUrl(fight.f2,fight.f2Id,fight.weightClass);
           return (
             <div class={`rounded-2xl overflow-hidden ${isMain ? 'border-2 border-[#F2D928]' : 'border border-gray-200'}`}>
               {/* Weight class header */}

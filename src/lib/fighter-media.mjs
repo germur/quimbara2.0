@@ -1,4 +1,4 @@
-import {normalizeName} from './event-data.mjs';
+import {normalizeName,expandAnnouncedNames} from './event-data.mjs';
 import verifiedAliases from '../data/fighter-photo-aliases.json' with {type:'json'};
 export const nameSlug=name=>String(name??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/['’]/g,'').replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-');
 const tokens=name=>String(name??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[^a-z0-9]+/).filter(w=>w&&!['jr','ii','iii'].includes(w)).sort().join('|');
@@ -46,10 +46,25 @@ export function resolvePerson(name,people,{surname=false}={}){
 }
 export function createFighterMedia(fighters,photoPaths){
  const cache=new Map(),validPaths=new Set(photoPaths.values());
- return name=>{
-  if(cache.has(name))return cache.get(name);
-  const fighter=resolvePerson(name,fighters,{surname:true});
-  const photo=fighter?.img&&validPaths.has(fighter.img)?fighter.img:photoPaths.get(fighter?.slug??nameSlug(name))??'';
-  const value={fighter,photo};cache.set(name,value);return value;
+ return (name,id='',division='')=>{
+  const key=name+'|'+id+'|'+division;
+  if(cache.has(key))return cache.get(key);
+  const fighter=resolveBoutPerson(name,id,division,fighters);
+  const photo=fighter?.img&&validPaths.has(fighter.img)?fighter.img:fighter?.identityAmbiguousName?'':photoPaths.get(fighter?.slug??nameSlug(name))??'';
+  const value={fighter,photo};cache.set(key,value);return value;
  };
+}
+export function resolveBoutPerson(name,id,division,people){
+ const exact=resolvePerson(name,people,{surname:true});
+ if(exact)return exact;
+ const candidates=people.filter(p=>sameMediaName(p.name,name));
+ const inDivision=candidates.filter(p=>division&&String(division).toLowerCase().includes(String(p.div).toLowerCase())&&p.div);
+ if(inDivision.length===1)return inDivision[0];
+ const identified=candidates.filter(p=>id&&(p.slug===id||p.ufcStatsId===id));
+ return identified.length===1?identified[0]:null;
+}
+export function resolveEventPerson(event,side,people){
+ const names=expandAnnouncedNames(event),card=(event.fightCard??[]).find(f=>f.bout==='Main Event')??event.fightCard?.[0];
+ const cardSide=card&&sameMediaName(names[side],card.f1)?'f1':card&&sameMediaName(names[side],card.f2)?'f2':null;
+ return resolveBoutPerson(names[side],cardSide?card[cardSide+'StatsId']??card[cardSide+'Id']:'',cardSide?card.weightClass:'',people);
 }

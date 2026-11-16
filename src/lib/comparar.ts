@@ -217,9 +217,10 @@ export function generarTextoComparativo(a: Peleador, b: Peleador): string[] {
   }
 
   if (a.record.texto && b.record.texto) {
-    p3.push(`Los récords profesionales son ${a.record.texto} para ${A} y ${b.record.texto} para ${B}.`);
+    const scope=(p:Peleador)=>p.record.scope==='pro'?'profesional':p.record.scope==='ufc'?'en UFC':'registrado';
+    p3.push(`El récord ${scope(a)} de ${A} es ${a.record.texto}; el ${scope(b)} de ${B} es ${b.record.texto}.`);
 
-    const invictos = [a, b].filter(p => p.record.derrotas === 0);
+    const invictos = [a, b].filter(p => p.record.scope==='pro'&&p.record.derrotas === 0);
     if (invictos.length === 1) {
       p3.push(`${nombreCorto(invictos[0])} llega invicto.`);
     } else if (invictos.length === 2) {

@@ -18,7 +18,7 @@
     "data:overrides": "node scripts/apply-event-overrides.mjs",
     "data:images": "node scripts/download-images.mjs",
     "data:records": "node scripts/fix-records.mjs",
-    "data:all": "npm run data:update && npm run data:rankings && npm run data:records && npm run data:details && npm run data:peleas && npm run data:overrides && npm run data:images",
+    "data:all": "npm run data:identities && npm run data:update && npm run data:rankings && npm run data:records && npm run data:details && npm run data:peleas && npm run data:overrides && npm run data:images && node scripts/sync-event-urls.mjs && npm run audit:identities",
     "indexnow": "node scripts/indexnow-submit.mjs",
     "audit:peleadores": "npx tsx scripts/audit-peleadores.ts",
     "audit:schema": "node scripts/audit-schema.mjs dist",
@@ -32,9 +32,12 @@
     "rag:embed": "npx tsx scripts/rag-embed.mjs",
     "rag:tune": "npx tsx scripts/rag-tune.mjs",
     "data:details": "node scripts/fetch-event-details.mjs",
-    "test:data": "node --test scripts/test-event-data.mjs scripts/test-fighter-media.mjs && tsx scripts/test-quiniela-migration.ts",
+    "test:data": "node --test scripts/test-event-data.mjs scripts/test-fighter-media.mjs scripts/test-editorial-tools.mjs && tsx scripts/test-quiniela-migration.ts && tsx --test scripts/test-fighter-identities.ts",
     "audit:events": "node scripts/audit-event-urls.mjs",
-    "audit:images": "node scripts/audit-fighter-images.mjs"
+    "audit:images": "node scripts/audit-fighter-images.mjs",
+    "data:identities": "node scripts/sync-fighter-identities.mjs",
+    "audit:identities": "node scripts/audit-fighter-identities.mjs",
+    "audit:search": "node scripts/audit-search-index.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",

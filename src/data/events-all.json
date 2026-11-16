@@ -13,120 +13,146 @@
     "fightCard": [
       {
         "f1": "Khamzat Chimaev",
-        "f1Id": "",
+        "f1Id": "khamzat-chimaev",
         "f2": "Sean Strickland",
-        "f2Id": "",
+        "f2Id": "sean-strickland",
         "weightClass": "Middleweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "767755fd74662dbf",
+        "f2StatsId": "0d8011111be000b2"
       },
       {
         "f1": "Joshua Van",
-        "f1Id": "",
+        "f1Id": "joshua-van",
         "f2": "Tatsuro Taira",
-        "f2Id": "",
+        "f2Id": "tatsuro-taira",
         "weightClass": "Flyweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "17e97649403ba428",
+        "f2StatsId": "4461d7e47375a895"
       },
       {
         "f1": "Alexander Volkov",
-        "f1Id": "",
+        "f1Id": "alexander-volkov",
         "f2": "Waldo Cortes-Acosta",
-        "f2Id": "",
+        "f2Id": "waldo-cortes-acosta",
         "weightClass": "Heavyweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "279566840aa55bf2",
+        "f2StatsId": "fc08099550072fe4"
       },
       {
         "f1": "Sean Brady",
-        "f1Id": "",
+        "f1Id": "sean-brady",
         "f2": "Joaquin Buckley",
-        "f2Id": "",
+        "f2Id": "joaquin-buckley",
         "weightClass": "Welterweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "45f7cb591c3ab00b",
+        "f2StatsId": "b9437600497350f3"
       },
       {
         "f1": "King Green",
-        "f1Id": "",
+        "f1Id": "king-green",
         "f2": "Jeremy Stephens",
-        "f2Id": "",
+        "f2Id": "jeremy-stephens",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "887961364be5ceb3",
+        "f2StatsId": "18968f97ad34f15c"
       },
       {
         "f1": "Ateba Gautier",
-        "f1Id": "",
+        "f1Id": "ateba-gautier",
         "f2": "Osman Diaz",
-        "f2Id": "",
+        "f2Id": "ozzy-diaz",
         "weightClass": "Middleweight",
         "bout": "prelim",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "2f815ed5f8278ba6",
+        "f2StatsId": "6967153c7edb4d87"
       },
       {
         "f1": "Joel Álvarez",
-        "f1Id": "",
+        "f1Id": "joel-alvarez",
         "f2": "Yaroslav Amosov",
-        "f2Id": "",
+        "f2Id": "yaroslav-amosov",
         "weightClass": "Welterweight",
         "bout": "prelim",
-        "order": 6
+        "order": 6,
+        "f1StatsId": "58bbef3770bb2dfc",
+        "f2StatsId": "f139d6836efd43dd"
       },
       {
         "f1": "Grant Dawson",
-        "f1Id": "",
+        "f1Id": "grant-dawson",
         "f2": "Mateusz Rębecki",
-        "f2Id": "",
+        "f2Id": "mateusz-rebecki",
         "weightClass": "Lightweight",
         "bout": "prelim",
-        "order": 7
+        "order": 7,
+        "f1StatsId": "99bd51917728c25d",
+        "f2StatsId": "849c5d9979df5357"
       },
       {
         "f1": "Jim Miller",
-        "f1Id": "",
+        "f1Id": "jim-miller",
         "f2": "Jared Gordon",
-        "f2Id": "",
+        "f2Id": "jared-gordon",
         "weightClass": "Lightweight",
         "bout": "prelim",
-        "order": 8
+        "order": 8,
+        "f1StatsId": "d1941565abf50b16",
+        "f2StatsId": "7026eca45f65377b"
       },
       {
         "f1": "Roman Kopylov",
-        "f1Id": "",
+        "f1Id": "roman-kopylov",
         "f2": "Marco Tulio",
-        "f2Id": "",
+        "f2Id": "marco-tulio",
         "weightClass": "Middleweight",
         "bout": "early_prelim",
-        "order": 9
+        "order": 9,
+        "f1StatsId": "9d83f6da776ff7d6",
+        "f2StatsId": "9384e71bca6c409d"
       },
       {
         "f1": "Pat Sabatini",
-        "f1Id": "",
+        "f1Id": "pat-sabatini",
         "f2": "William Gomis",
-        "f2Id": "",
+        "f2Id": "william-gomis",
         "weightClass": "Featherweight",
         "bout": "early_prelim",
-        "order": 10
+        "order": 10,
+        "f1StatsId": "b8bbdeff718dbb7d",
+        "f2StatsId": "e1d40e8782d80bc2"
       },
       {
         "f1": "Baisangur Susurkaev",
-        "f1Id": "",
+        "f1Id": "baisangur-susurkaev",
         "f2": "Djorden Santos",
-        "f2Id": "",
+        "f2Id": "djorden-santos",
         "weightClass": "Middleweight",
         "bout": "early_prelim",
-        "order": 11
+        "order": 11,
+        "f1StatsId": "d1feea7a4bdcd503",
+        "f2StatsId": "312f7d7b2b2f7de4"
       },
       {
         "f1": "Clayton Carpenter",
-        "f1Id": "",
+        "f1Id": "clayton-carpenter",
         "f2": "Jose Ochoa",
-        "f2Id": "",
+        "f2Id": "jose-ochoa",
         "weightClass": "Flyweight",
         "bout": "early_prelim",
-        "order": 12
+        "order": 12,
+        "f1StatsId": "b62d5280966b2460",
+        "f2StatsId": "88be62d6c1e6dadb"
       }
     ],
     "status": "completed"
@@ -145,120 +171,145 @@
     "fightCard": [
       {
         "f1": "Arnold Allen",
-        "f1Id": "",
+        "f1Id": "arnold-allen",
         "f2": "Melquizael Costa",
-        "f2Id": "",
+        "f2Id": "melquizael-costa",
         "weightClass": "Featherweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "040a74bb0a465c54",
+        "f2StatsId": "20bccc9bb4ceb23e"
       },
       {
         "f1": "Choi Doo-ho",
-        "f1Id": "",
+        "f1Id": "dooho-choi",
         "f2": "Daniel Santos",
-        "f2Id": "",
+        "f2Id": "daniel-santos",
         "weightClass": "Featherweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "e93b04e308913c2e",
+        "f2StatsId": "b67d6bacc68d4c92"
       },
       {
         "f1": "Malcolm Wellmaker",
-        "f1Id": "",
+        "f1Id": "malcolm-wellmaker",
         "f2": "Juan Díaz",
-        "f2Id": "",
+        "f2Id": "juan-diaz",
         "weightClass": "Bantamweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "2e45d08b3f2f02c8",
+        "f2StatsId": "74939a16c7b56f33"
       },
       {
         "f1": "Modestas Bukauskas",
-        "f1Id": "",
+        "f1Id": "modestas-bukauskas",
         "f2": "Rodolfo Bellato",
-        "f2Id": "",
+        "f2Id": "rodolfo-bellato",
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "476fe566d2df676e",
+        "f2StatsId": "69898645d600abdb"
       },
       {
         "f1": "Timothy Cuamba",
-        "f1Id": "",
+        "f1Id": "timmy-cuamba",
         "f2": "Bernardo Sopaj",
-        "f2Id": "",
+        "f2Id": "benardo-sopaj",
         "weightClass": "Bantamweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "0e46690e55a8df75",
+        "f2StatsId": "b6c37948cb226e8c"
       },
       {
         "f1": "Jeremiah Wells",
-        "f1Id": "",
+        "f1Id": "jeremiah-wells",
         "f2": "Nicolas Dalby",
-        "f2Id": "",
+        "f2Id": "nicolas-dalby",
         "weightClass": "Welterweight",
         "bout": "prelim",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "d66a46de8d705353",
+        "f2StatsId": "9d19d9e4aa2662e8"
       },
       {
         "f1": "Tuco Tokkos",
-        "f1Id": "",
+        "f1Id": "tuco-tokkos",
         "f2": "Ivan Erslan",
-        "f2Id": "",
+        "f2Id": "ivan-erslan",
         "weightClass": "Light Heavyweight",
         "bout": "prelim",
-        "order": 6
+        "order": 6,
+        "f1StatsId": "3e8118c1ab52f211",
+        "f2StatsId": "64ad3e3b0efa30bb"
       },
       {
         "f1": "Trey Ogden",
-        "f1Id": "",
+        "f1Id": "trey-ogden",
         "f2": "Thomas Gantt",
-        "f2Id": "",
+        "f2Id": "thomas-gantt",
         "weightClass": "Lightweight",
         "bout": "prelim",
-        "order": 7
+        "order": 7,
+        "f1StatsId": "cfc3e7bb44685289"
       },
       {
         "f1": "Ketlen Vieira",
-        "f1Id": "",
+        "f1Id": "ketlen-vieira",
         "f2": "Jacqueline Cavalcanti",
-        "f2Id": "",
+        "f2Id": "jacqueline-cavalcanti",
         "weightClass": "Women's Bantamweight",
         "bout": "prelim",
-        "order": 8
+        "order": 8,
+        "f1StatsId": "b9706f80d005036c",
+        "f2StatsId": "e3964ece586e0635"
       },
       {
         "f1": "Cody Brundage",
-        "f1Id": "",
+        "f1Id": "cody-brundage",
         "f2": "Andre Petroski",
-        "f2Id": "",
+        "f2Id": "andre-petroski",
         "weightClass": "Middleweight",
         "bout": "prelim",
-        "order": 9
+        "order": 9,
+        "f1StatsId": "f14f644d41ade29f",
+        "f2StatsId": "5f61780fe5e9b6d0"
       },
       {
         "f1": "Alice Ardelean",
-        "f1Id": "",
+        "f1Id": "alice-ardelean",
         "f2": "Polyana Viana",
-        "f2Id": "",
+        "f2Id": "polyana-viana",
         "weightClass": "Women's Strawweight",
         "bout": "prelim",
-        "order": 10
+        "order": 10,
+        "f1StatsId": "87f8699fdcc2c404",
+        "f2StatsId": "9673a497a9da119a"
       },
       {
         "f1": "Daniel Barez",
-        "f1Id": "",
+        "f1Id": "daniel-barez",
         "f2": "Luis Gurule",
-        "f2Id": "",
+        "f2Id": "luis-gurule",
         "weightClass": "Flyweight",
         "bout": "prelim",
-        "order": 11
+        "order": 11,
+        "f1StatsId": "e8fe9c15d348e778",
+        "f2StatsId": "29162be25ebef5f0"
       },
       {
         "f1": "Shauna Bannon",
-        "f1Id": "",
+        "f1Id": "shauna-bannon",
         "f2": "Nicolle Caliari",
-        "f2Id": "",
+        "f2Id": "nicolle-caliari",
         "weightClass": "Women's Strawweight",
         "bout": "prelim",
-        "order": 12
+        "order": 12,
+        "f1StatsId": "9c442aaf149ea982",
+        "f2StatsId": "fc0a4053eb8a3a59"
       }
     ],
     "status": "completed"
@@ -278,111 +329,135 @@
     "fightCard": [
       {
         "f1": "Song Yadong",
-        "f1Id": "",
+        "f1Id": "song-yadong",
         "f2": "Deiveson Figueiredo",
-        "f2Id": "",
+        "f2Id": "deiveson-figueiredo",
         "weightClass": "Bantamweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "efb96bf3e9ada36f",
+        "f2StatsId": "aa72b0f831d0bfe5"
       },
       {
         "f1": "Zhang Mingyang",
-        "f1Id": "",
+        "f1Id": "zhang-mingyang",
         "f2": "Alonzo Menifield",
-        "f2Id": "",
+        "f2Id": "alonzo-menifield",
         "weightClass": "Light Heavyweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "8a65fd9ba31fd3f7",
+        "f2StatsId": "a495f599e787614f"
       },
       {
         "f1": "Sergei Pavlovich",
-        "f1Id": "",
+        "f1Id": "sergei-pavlovich",
         "f2": "Tallison Teixeira",
-        "f2Id": "",
+        "f2Id": "tallison-teixeira",
         "weightClass": "Heavyweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "f14cf73e51b29254",
+        "f2StatsId": "17923f676f100e16"
       },
       {
         "f1": "Kai Asakura",
-        "f1Id": "",
+        "f1Id": "kai-asakura",
         "f2": "Cameron Smotherman",
-        "f2Id": "",
+        "f2Id": "cameron-smotherman",
         "weightClass": "Bantamweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "d33da8a3d82bdb62",
+        "f2StatsId": "5c84f673b7bb7c15"
       },
       {
         "f1": "Zhu Kangjie",
-        "f1Id": "",
+        "f1Id": "zhu-kangjie",
         "f2": "Ramon Taveras",
-        "f2Id": "",
+        "f2Id": "ramon-taveras",
         "weightClass": "Featherweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "6f4ec5aa3eced219",
+        "f2StatsId": "c5ccd878231c5407"
       },
       {
         "f1": "Alex Perez",
-        "f1Id": "",
+        "f1Id": "alex-perez",
         "f2": "Su Mudaerji",
-        "f2Id": "",
+        "f2Id": "sumudaerji",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "ab2b4ff41d6ebe0f",
+        "f2StatsId": "3cf18e01cb6cbde3"
       },
       {
         "f1": "Muslim Salikhov",
-        "f1Id": "",
+        "f1Id": "muslim-salikhov",
         "f2": "Jake Matthews",
-        "f2Id": "",
+        "f2Id": "jake-matthews",
         "weightClass": "Welterweight",
         "bout": "prelim",
-        "order": 6
+        "order": 6,
+        "f1StatsId": "447f9858ae78f921",
+        "f2StatsId": "a845f0735bc67405"
       },
       {
         "f1": "Lee Yi-sak",
-        "f1Id": "",
+        "f1Id": "yi-sak-lee",
         "f2": "Luis Felipe Dias",
-        "f2Id": "",
+        "f2Id": "luis-felipe-dias",
         "weightClass": "Middleweight",
         "bout": "prelim",
-        "order": 7
+        "order": 7,
+        "f1StatsId": "e6666480a830f764",
+        "f2StatsId": "33a86e839ad202d8"
       },
       {
         "f1": "Aori Qileng",
-        "f1Id": "",
+        "f1Id": "aoriqileng",
         "f2": "Cody Haddon",
-        "f2Id": "",
+        "f2Id": "cody-haddon",
         "weightClass": "Bantamweight",
         "bout": "prelim",
-        "order": 8
+        "order": 8,
+        "f1StatsId": "7d420039bbfe7c1a",
+        "f2StatsId": "8e6654e9f0461b8f"
       },
       {
         "f1": "Rei Tsuruya",
-        "f1Id": "",
+        "f1Id": "rei-tsuruya",
         "f2": "Jesús Santos Aguilar",
-        "f2Id": "",
+        "f2Id": "jesus-aguilar",
         "weightClass": "Flyweight",
         "bout": "prelim",
-        "order": 9
+        "order": 9,
+        "f1StatsId": "2f43a3e82661fa99",
+        "f2StatsId": "c051c2e12d692b8a"
       },
       {
         "f1": "Angela Hill",
-        "f1Id": "",
+        "f1Id": "angela-hill",
         "f2": "Xiong Jingnan",
-        "f2Id": "",
+        "f2Id": "xiong-jingnan",
         "weightClass": "Women's Strawweight",
         "bout": "prelim",
-        "order": 10
+        "order": 10,
+        "f1StatsId": "f0feeb2192937424",
+        "f2StatsId": "2cdb479a0ef0ee1d"
       },
       {
         "f1": "Loma Lookboonmee",
-        "f1Id": "",
+        "f1Id": "loma-lookboonmee",
         "f2": "Jaqueline Amorim",
-        "f2Id": "",
+        "f2Id": "jaqueline-amorim",
         "weightClass": "Women's Strawweight",
         "bout": "prelim",
-        "order": 11
+        "order": 11,
+        "f1StatsId": "4e30e4250cb08b61",
+        "f2StatsId": "bc7d1ad49fcb2d08"
       }
     ]
   },
@@ -401,102 +476,124 @@
     "fightCard": [
       {
         "f1": "Belal Muhammad",
-        "f1Id": "",
+        "f1Id": "belal-muhammad",
         "f2": "Gabriel Bonfim",
-        "f2Id": "",
+        "f2Id": "gabriel-bonfim",
         "weightClass": "Welterweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "b1b0729d27936f2f",
+        "f2StatsId": "01641ba5df0c69b0"
       },
       {
         "f1": "Brendan Allen",
-        "f1Id": "",
+        "f1Id": "brendan-allen",
         "f2": "Edmen Shahbazyan",
-        "f2Id": "",
+        "f2Id": "edmen-shahbazyan",
         "weightClass": "Middleweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "2f181c0467965b98",
+        "f2StatsId": "4144798612ef96e5"
       },
       {
         "f1": "Bryce Mitchell",
-        "f1Id": "",
+        "f1Id": "bryce-mitchell",
         "f2": "Victor Henry",
-        "f2Id": "",
+        "f2Id": "victor-henry",
         "weightClass": "Bantamweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "d9c6f19f958643e9",
+        "f2StatsId": "eb8d8c2a95cfccb8"
       },
       {
         "f1": "Iwo Baraniewski",
-        "f1Id": "",
+        "f1Id": "iwo-baraniewski",
         "f2": "Billy Elekana",
-        "f2Id": "",
+        "f2Id": "billy-elekana",
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "1c23ec2f1b71be40",
+        "f2StatsId": "07a74004d964c7f4"
       },
       {
         "f1": "Imanol Rodríguez",
-        "f1Id": "",
+        "f1Id": "imanol-rodriguez",
         "f2": "Matt Schnell",
-        "f2Id": "",
+        "f2Id": "matt-schnell",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "6e8349a0a0476d60",
+        "f2StatsId": "67c1d46f4ed16f9e"
       },
       {
         "f1": "Bruno Gustavo da Silva",
-        "f1Id": "",
+        "f1Id": "bruno-silva",
         "f2": "Édgar Cháirez",
-        "f2Id": "",
+        "f2Id": "edgar-chairez",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "294aa73dbf37d281",
+        "f2StatsId": "5ef94841c4bc3f86"
       },
       {
         "f1": "Jordan Leavitt",
-        "f1Id": "",
+        "f1Id": "jordan-leavitt",
         "f2": "Joanderson Brito",
-        "f2Id": "",
+        "f2Id": "joanderson-brito",
         "weightClass": "Featherweight",
         "bout": "maincard",
-        "order": 6
+        "order": 6,
+        "f1StatsId": "ac026518a9b4dc0f",
+        "f2StatsId": "791c8437b341fba5"
       },
       {
         "f1": "Farès Ziam",
-        "f1Id": "",
+        "f1Id": "fares-ziam",
         "f2": "Tom Nolan",
-        "f2Id": "",
+        "f2Id": "tom-nolan",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 7
+        "order": 7,
+        "f1StatsId": "1e4f273069fb9e85",
+        "f2StatsId": "6c3b2525436cf5d4"
       },
       {
         "f1": "Ketlen Souza",
-        "f1Id": "",
+        "f1Id": "ketlen-souza",
         "f2": "Ariane Carnelossi",
-        "f2Id": "",
+        "f2Id": "ariane-carnelossi",
         "weightClass": "Women's Strawweight",
         "bout": "maincard",
-        "order": 8
+        "order": 8,
+        "f1StatsId": "8bd4200561c77a62",
+        "f2StatsId": "c0d5c0c95c59050b"
       },
       {
         "f1": "Priscila Cachoeira",
-        "f1Id": "",
+        "f1Id": "priscila-cachoeira",
         "f2": "Chelsea Chandler",
-        "f2Id": "",
+        "f2Id": "chelsea-chandler",
         "weightClass": "Women's Bantamweight",
         "bout": "maincard",
-        "order": 9
+        "order": 9,
+        "f1StatsId": "b1e5bcaad32a3cac",
+        "f2StatsId": "af9efbfd63d39734"
       },
       {
         "f1": "Jeisla Chaves",
-        "f1Id": "",
+        "f1Id": "jeisla-chaves",
         "f2": "Yuneisy Duben",
-        "f2Id": "",
+        "f2Id": "yuneisy-duben",
         "weightClass": "Women's Flyweight",
         "bout": "maincard",
-        "order": 10
+        "order": 10,
+        "f1StatsId": "8061a3136026a673",
+        "f2StatsId": "c3d2b9bcb4cead6b"
       }
     ]
   },
@@ -573,57 +670,69 @@
     "fightCard": [
       {
         "f1": "Manel Kape",
-        "f1Id": "",
+        "f1Id": "manel-kape",
         "f2": "Kyoji Horiguchi",
-        "f2Id": "",
+        "f2Id": "kyoji-horiguchi",
         "weightClass": "Flyweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "5d1b7e3dd9e11074",
+        "f2StatsId": "98aa60cf58071fd6"
       },
       {
         "f1": "Ion Cuțelaba",
-        "f1Id": "",
+        "f1Id": "ion-cutelaba",
         "f2": "Navajo Stirling",
-        "f2Id": "",
+        "f2Id": "navajo-stirling",
         "weightClass": "Light Heavyweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "cd13728ae1151f46",
+        "f2StatsId": "b4b496ec2197ee3e"
       },
       {
         "f1": "André Lima",
-        "f1Id": "",
+        "f1Id": "andre-lima",
         "f2": "Kevin Borjas",
-        "f2Id": "",
+        "f2Id": "kevin-borjas",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "b1f21ce050035d58",
+        "f2StatsId": "34b96d52db1d26e6"
       },
       {
         "f1": "Hyder Amil",
-        "f1Id": "",
+        "f1Id": "hyder-amil",
         "f2": "Christian Rodriguez",
-        "f2Id": "",
+        "f2Id": "christian-rodriguez",
         "weightClass": "Featherweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "41cc71cbf210e0fe",
+        "f2StatsId": "5ec591b78349ba7e"
       },
       {
         "f1": "Beatriz Mesquita",
-        "f1Id": "",
+        "f1Id": "bia-mesquita",
         "f2": "Melissa Mullins",
-        "f2Id": "",
+        "f2Id": "melissa-mullins",
         "weightClass": "Women's Bantamweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "eff9074bc066f0f2",
+        "f2StatsId": "bd532e9a2b93870c"
       },
       {
         "f1": "Allan Nascimento",
-        "f1Id": "",
+        "f1Id": "allan-nascimento",
         "f2": "Mitch Raposo",
-        "f2Id": "",
+        "f2Id": "mitch-raposo",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "253076a23d03dcd0",
+        "f2StatsId": "0be6776db31d98ec"
       }
     ]
   },
@@ -642,21 +751,25 @@
     "fightCard": [
       {
         "f1": "Rafael Fiziev",
-        "f1Id": "",
+        "f1Id": "rafael-fiziev",
         "f2": "Manuel Torres",
-        "f2Id": "",
+        "f2Id": "manuel-torres",
         "weightClass": "Lightweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "c814b4c899793af6",
+        "f2StatsId": "2e7878927067fdca"
       },
       {
         "f1": "Sharabutdin Magomedov",
-        "f1Id": "",
+        "f1Id": "shara-magomedov",
         "f2": "Michel Pereira",
-        "f2Id": "",
+        "f2Id": "michel-pereira",
         "weightClass": "Middleweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "06734ca9d88dec3a",
+        "f2StatsId": "595db60957de51d3"
       }
     ]
   },
@@ -675,84 +788,102 @@
     "fightCard": [
       {
         "f1": "Conor McGregor",
-        "f1Id": "",
+        "f1Id": "conor-mcgregor",
         "f2": "Max Holloway",
-        "f2Id": "",
+        "f2Id": "max-holloway",
         "weightClass": "Welterweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "f4c49976c75c5ab2",
+        "f2StatsId": "150ff4cc642270b9"
       },
       {
         "f1": "Paddy Pimblett",
-        "f1Id": "",
+        "f1Id": "paddy-pimblett",
         "f2": "Benoît Saint Denis",
-        "f2Id": "",
+        "f2Id": "benoit-saint-denis",
         "weightClass": "Lightweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "7826923b47f8d72a",
+        "f2StatsId": "c2299ec916bc7c56"
       },
       {
         "f1": "Cody Garbrandt",
-        "f1Id": "",
+        "f1Id": "cody-garbrandt",
         "f2": "Adrian Yañez",
-        "f2Id": "",
+        "f2Id": "adrian-yanez",
         "weightClass": "Bantamweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "d8c7c61b176e3994",
+        "f2StatsId": "0232cabbc30a2372"
       },
       {
         "f1": "Robert Whittaker",
-        "f1Id": "",
+        "f1Id": "robert-whittaker",
         "f2": "Nikita Krylov",
-        "f2Id": "",
+        "f2Id": "nikita-krylov",
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "e1147d3d2dabe1ce",
+        "f2StatsId": "1091d4d957141094"
       },
       {
         "f1": "Brandon Royval",
-        "f1Id": "",
+        "f1Id": "brandon-royval",
         "f2": "Lone'er Kavanagh",
-        "f2Id": "",
+        "f2Id": "loneer-kavanagh",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "6e15f63b6c2e2c15",
+        "f2StatsId": "bb2c3c3a466224af"
       },
       {
         "f1": "Tracy Cortez",
-        "f1Id": "",
+        "f1Id": "tracy-cortez",
         "f2": "Wang Cong",
-        "f2Id": "",
+        "f2Id": "wang-cong",
         "weightClass": "Women's Flyweight",
         "bout": "maincard",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "68d4a891e5cf2029",
+        "f2StatsId": "2997e7fe3c9d3d4a"
       },
       {
         "f1": "Damian Pinas",
-        "f1Id": "",
+        "f1Id": "damian-pinas",
         "f2": "César Almeida",
-        "f2Id": "",
+        "f2Id": "cesar-almeida",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 6
+        "order": 6,
+        "f1StatsId": "fdd22e895a70e4a8",
+        "f2StatsId": "64d47ef881a437a4"
       },
       {
         "f1": "Luke Riley",
-        "f1Id": "",
+        "f1Id": "luke-riley",
         "f2": "Kai Kamaka III",
-        "f2Id": "",
+        "f2Id": "kai-kamaka",
         "weightClass": "Featherweight",
         "bout": "maincard",
-        "order": 7
+        "order": 7,
+        "f1StatsId": "b1de86d835638319",
+        "f2StatsId": "eee0ef3e2b14816b"
       },
       {
         "f1": "Ode' Osbourne",
-        "f1Id": "",
+        "f1Id": "ode-osbourne",
         "f2": "Cody Durden",
-        "f2Id": "",
+        "f2Id": "cody-durden",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 8
+        "order": 8,
+        "f1StatsId": "6d68c1afe954f121",
+        "f2StatsId": "7f6ed67d3ed3c036"
       }
     ]
   },
@@ -789,7 +920,9 @@
         "f2Id": "kamaru-usman",
         "weightClass": "Middleweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "0d7b51c9d2649a6e",
+        "f2StatsId": "f1b2aa7853d1ed6e"
       },
       {
         "f1": "Jared Cannonier",
@@ -798,7 +931,9 @@
         "f2Id": "christian-leroy-duncan",
         "weightClass": "Middleweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "13a0275fa13c4d26",
+        "f2StatsId": "a93f94c923c3a9cb"
       },
       {
         "f1": "Kevin Holland",
@@ -807,7 +942,9 @@
         "f2Id": "jacobe-smith",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "3a46b268013afede",
+        "f2StatsId": "85497ffd934ecf7e"
       },
       {
         "f1": "Alden Coria",
@@ -816,7 +953,9 @@
         "f2Id": "stewart-nicoll",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "5e9ca8dd7d783a75",
+        "f2StatsId": "2bd98ab77a8daa75"
       },
       {
         "f1": "Brad Tavares",
@@ -825,7 +964,9 @@
         "f2Id": "marc-andre-barriault",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "0c6d9ea8306c029e",
+        "f2StatsId": "8e9eb3fc86db0f7d"
       },
       {
         "f1": "Chase Hooper",
@@ -834,7 +975,9 @@
         "f2Id": "mitch-ramirez",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "971246648e162f0d",
+        "f2StatsId": "e99eb0ef25885de5"
       },
       {
         "f1": "Veronica Hardy",
@@ -843,7 +986,9 @@
         "f2Id": "dione-barbosa",
         "weightClass": "Women's Flyweight",
         "bout": "maincard",
-        "order": 6
+        "order": 6,
+        "f1StatsId": "4798e823ada58fe9",
+        "f2StatsId": "27b388f0aab49780"
       }
     ]
   },
@@ -880,7 +1025,9 @@
         "f2Id": "khalil-rountree-jr",
         "weightClass": "Light Heavyweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "d802174b0c0c1f4e",
+        "f2StatsId": "749f572d1d3161fb"
       },
       {
         "f1": "Umar Nurmagomedov",
@@ -889,7 +1036,9 @@
         "f2Id": "david-martinez",
         "weightClass": "Bantamweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "2b6fc1c02736833d",
+        "f2StatsId": "9a97acbfd5a08bfa"
       },
       {
         "f1": "Rizvan Kuniev",
@@ -898,7 +1047,8 @@
         "f2Id": "tyrell-fortune",
         "weightClass": "Heavyweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "739fd4fbb5d862f4"
       },
       {
         "f1": "Valter Walker",
@@ -907,7 +1057,9 @@
         "f2Id": "thomas-petersen",
         "weightClass": "Heavyweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "f5779a2303ed76ec",
+        "f2StatsId": "764d39074a352e33"
       },
       {
         "f1": "Magomed Tuchalov",
@@ -916,7 +1068,9 @@
         "f2Id": "brendson-ribeiro",
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "bc5a51159ec2fdf2",
+        "f2StatsId": "49edd0d90f60fb7d"
       },
       {
         "f1": "Steve Erceg",
@@ -925,7 +1079,9 @@
         "f2Id": "ramazan-temirov",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "32ab52e5de93092d",
+        "f2StatsId": "7d0a1968b38ca439"
       },
       {
         "f1": "Islam Dulatov",
@@ -934,7 +1090,9 @@
         "f2Id": "wellington-turman",
         "weightClass": "Welterweight",
         "bout": "maincard",
-        "order": 6
+        "order": 6,
+        "f1StatsId": "e803242fb2e41112",
+        "f2StatsId": "4dcfb28c011c11b2"
       },
       {
         "f1": "Ismael Bonfim",
@@ -943,7 +1101,9 @@
         "f2Id": "axel-sola",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 7
+        "order": 7,
+        "f1StatsId": "eb393afdbe3293d5",
+        "f2StatsId": "1d2d98ddd05b38fb"
       },
       {
         "f1": "Uran Satybaldiev",
@@ -952,7 +1112,9 @@
         "f2Id": "dustin-jacoby",
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
-        "order": 8
+        "order": 8,
+        "f1StatsId": "02f484417a6fa69d",
+        "f2StatsId": "e4277e87a789d687"
       }
     ]
   },
@@ -1002,7 +1164,9 @@
         "f2Id": "daniel-rodriguez",
         "weightClass": "Welterweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "681399317dbf4701",
+        "f2StatsId": "8a1f3b5c526cd6e6"
       },
       {
         "f1": "Ante Delija",
@@ -1011,7 +1175,9 @@
         "f2Id": "johnny-walker",
         "weightClass": "Heavyweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "7d8435c56043b0ae",
+        "f2StatsId": "c21f26bbde777573"
       },
       {
         "f1": "Aleksandar Rakić",
@@ -1020,7 +1186,9 @@
         "f2Id": "marcin-tybura",
         "weightClass": "Heavyweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "333b9e5c723ac873",
+        "f2StatsId": "c9cf753cfdf77fc2"
       },
       {
         "f1": "Duško Todorović",
@@ -1029,7 +1197,9 @@
         "f2Id": "robert-valentin",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "866fd7b1a6c90e7f",
+        "f2StatsId": "0cd0456d6029cec2"
       },
       {
         "f1": "Vlasto Čepo",
@@ -1038,7 +1208,9 @@
         "f2Id": "gilbert-urbina",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "025c1ee70b2cedf4",
+        "f2StatsId": "b12fb759e02378de"
       },
       {
         "f1": "Jovan Leka",
@@ -1047,7 +1219,9 @@
         "f2Id": "max-gimenis",
         "weightClass": "Heavyweight",
         "bout": "maincard",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "182a73d5b4e57871",
+        "f2StatsId": "6a311920edd73c85"
       }
     ]
   },
@@ -1084,7 +1258,9 @@
         "f2Id": "quillan-salkilld",
         "weightClass": "Lightweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "72db2a14ffa73ece",
+        "f2StatsId": "17734443a833cdf7"
       }
     ]
   },
@@ -1108,7 +1284,9 @@
         "f2Id": "ian-machado-garry",
         "weightClass": "Welterweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "275aca31f61ba28c",
+        "f2StatsId": "442c9011034ae1fd"
       },
       {
         "f1": "Mackenzie Dern",
@@ -1117,7 +1295,9 @@
         "f2Id": "gillian-robertson",
         "weightClass": "Women's Strawweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "7447e9f28508106a",
+        "f2StatsId": "38c7f72747f4f712"
       }
     ]
   },
@@ -1154,7 +1334,9 @@
         "f2Id": "gregory-rodrigues",
         "weightClass": "Middleweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "093e1f5bb73850be",
+        "f2StatsId": "d1c65d2cf2925ddd"
       }
     ]
   },
@@ -1217,7 +1399,9 @@
         "f2Id": "song-yadong",
         "weightClass": "Bantamweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "2b6fc1c02736833d",
+        "f2StatsId": "efb96bf3e9ada36f"
       },
       {
         "f1": "Yan Xiaonan",
@@ -1226,16 +1410,20 @@
         "f2Id": "denise-gomes",
         "weightClass": "Women's Strawweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "c41d426cc7326d1b",
+        "f2StatsId": "cffb87059e645bd1"
       },
       {
         "f1": "Su Mudaerji",
-        "f1Id": "su-mudaerji",
+        "f1Id": "sumudaerji",
         "f2": "Alex Perez",
         "f2Id": "alex-perez",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "3cf18e01cb6cbde3",
+        "f2StatsId": "ab2b4ff41d6ebe0f"
       },
       {
         "f1": "Rei Tsuruya",
@@ -1244,7 +1432,9 @@
         "f2Id": "kevin-borjas",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "2f43a3e82661fa99",
+        "f2StatsId": "34b96d52db1d26e6"
       },
       {
         "f1": "Liu Ce",
@@ -1253,7 +1443,9 @@
         "f2Id": "junior-tafa",
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "a9936818d709e2d7",
+        "f2StatsId": "c15fa95b9a12fde4"
       }
     ]
   },
@@ -1290,7 +1482,9 @@
         "f2Id": "song-yadong",
         "weightClass": "Bantamweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "2b6fc1c02736833d",
+        "f2StatsId": "efb96bf3e9ada36f"
       },
       {
         "f1": "Yan Xiaonan",
@@ -1299,16 +1493,20 @@
         "f2Id": "denise-gomes",
         "weightClass": "Women's Strawweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "c41d426cc7326d1b",
+        "f2StatsId": "cffb87059e645bd1"
       },
       {
         "f1": "Su Mudaerji",
-        "f1Id": "su-mudaerji",
+        "f1Id": "sumudaerji",
         "f2": "Alex Perez",
         "f2Id": "alex-perez",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "3cf18e01cb6cbde3",
+        "f2StatsId": "ab2b4ff41d6ebe0f"
       },
       {
         "f1": "Rei Tsuruya",
@@ -1317,7 +1515,9 @@
         "f2Id": "kevin-borjas",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "2f43a3e82661fa99",
+        "f2StatsId": "34b96d52db1d26e6"
       },
       {
         "f1": "Liu Ce",
@@ -1326,7 +1526,9 @@
         "f2Id": "junior-tafa",
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "a9936818d709e2d7",
+        "f2StatsId": "c15fa95b9a12fde4"
       }
     ]
   },
@@ -1376,7 +1578,9 @@
         "f2Id": "nursulton-ruziboev",
         "weightClass": "Middleweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "a67d071163962af8",
+        "f2StatsId": "49d2a08964c5eb11"
       },
       {
         "f1": "Kurtis Campbell",
@@ -1385,7 +1589,9 @@
         "f2Id": "trevor-peek",
         "weightClass": "Featherweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "9d51798e61f2e0c7",
+        "f2StatsId": "0bc697c5936a2d0a"
       },
       {
         "f1": "Mário Pinto",
@@ -1394,7 +1600,9 @@
         "f2Id": "ryan-spann",
         "weightClass": "Heavyweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "39d309957c5c210d",
+        "f2StatsId": "a67f5afa8d6a1b80"
       }
     ]
   },
@@ -1431,7 +1639,9 @@
         "f2Id": "jean-silva",
         "weightClass": "Featherweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "cbf5e6f231b55443",
+        "f2StatsId": "52ef95b5860fb28c"
       },
       {
         "f1": "Waldo Cortes-Acosta",
@@ -1440,7 +1650,9 @@
         "f2Id": "curtis-blaydes",
         "weightClass": "Heavyweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "fc08099550072fe4",
+        "f2StatsId": "fa6796c55d6c5440"
       },
       {
         "f1": "Manon Fiorot",
@@ -1449,7 +1661,9 @@
         "f2Id": "alexa-grasso",
         "weightClass": "Women's Flyweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "34ff304266360297",
+        "f2StatsId": "e8b731feff72294b"
       },
       {
         "f1": "Brandon Moreno",
@@ -1458,7 +1672,9 @@
         "f2Id": "joseph-morales",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "792be9a24df82ed6",
+        "f2StatsId": "2fe9032955c2e013"
       },
       {
         "f1": "David Martínez",
@@ -1467,7 +1683,9 @@
         "f2Id": "dan-ige",
         "weightClass": "Bantamweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "9a97acbfd5a08bfa",
+        "f2StatsId": "82a5152216251682"
       },
       {
         "f1": "Ignacio Bahamondes",
@@ -1476,7 +1694,9 @@
         "f2Id": "muslim-salikhov",
         "weightClass": "Welterweight",
         "bout": "maincard",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "e4a47b07044ddd72",
+        "f2StatsId": "447f9858ae78f921"
       },
       {
         "f1": "Tim Elliott",
@@ -1485,7 +1705,9 @@
         "f2Id": "edgar-chairez",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 6
+        "order": 6,
+        "f1StatsId": "c96d9178c9ed9e62",
+        "f2StatsId": "5ef94841c4bc3f86"
       },
       {
         "f1": "Kelvin Gastelum",
@@ -1494,16 +1716,20 @@
         "f2Id": "yousri-belgaroui",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 7
+        "order": 7,
+        "f1StatsId": "8c0580d4fff106c1",
+        "f2StatsId": "7674b836ce0698a0"
       },
       {
         "f1": "JJ Aldrich",
         "f1Id": "jj-aldrich",
         "f2": "Regina Tarin",
-        "f2Id": "regina-tarin",
+        "f2Id": "regina-malpica-rivera",
         "weightClass": "Women's Flyweight",
         "bout": "maincard",
-        "order": 8
+        "order": 8,
+        "f1StatsId": "6fd953151d981979",
+        "f2StatsId": "9f5609dba6584ab2"
       }
     ]
   },
@@ -1527,7 +1753,9 @@
         "f2Id": "alexandre-pantoja",
         "weightClass": "Flyweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "17e97649403ba428",
+        "f2StatsId": "a0f0004aadf10b71"
       },
       {
         "f1": "Arman Tsarukyan",
@@ -1536,7 +1764,9 @@
         "f2Id": "mauricio-ruffy",
         "weightClass": "Lightweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "eae48ff31db420c2",
+        "f2StatsId": "9c393e836a852f30"
       },
       {
         "f1": "Gable Steveson",
@@ -1545,7 +1775,9 @@
         "f2Id": "sean-sharaf",
         "weightClass": "Heavyweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "f7e856a73c96048e",
+        "f2StatsId": "0f3a990526c5e706"
       },
       {
         "f1": "Tai Tuivasa",
@@ -1554,16 +1786,20 @@
         "f2Id": "robelis-despaigne",
         "weightClass": "Heavyweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "c62fbc117d57b943",
+        "f2StatsId": "140567899d98978a"
       },
       {
         "f1": "Ryan Gandra",
         "f1Id": "ryan-gandra",
         "f2": "Osman Diaz",
-        "f2Id": "osman-diaz",
+        "f2Id": "ozzy-diaz",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "e463ce0a2ca474f4",
+        "f2StatsId": "6967153c7edb4d87"
       },
       {
         "f1": "Renato Moicano",
@@ -1572,7 +1808,9 @@
         "f2Id": "brian-ortega",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "b6452706b373eea1",
+        "f2StatsId": "def8166ff24bd237"
       },
       {
         "f1": "Marlon Vera",
@@ -1581,7 +1819,9 @@
         "f2Id": "charles-jourdain",
         "weightClass": "Bantamweight",
         "bout": "maincard",
-        "order": 6
+        "order": 6,
+        "f1StatsId": "7c7332319c14094c",
+        "f2StatsId": "f1d64ae34e088832"
       },
       {
         "f1": "Alonzo Menifield",
@@ -1590,7 +1830,9 @@
         "f2Id": "iwo-baraniewski",
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
-        "order": 7
+        "order": 7,
+        "f1StatsId": "a495f599e787614f",
+        "f2StatsId": "1c23ec2f1b71be40"
       },
       {
         "f1": "Giga Chikadze",
@@ -1599,16 +1841,20 @@
         "f2Id": "joanderson-brito",
         "weightClass": "Featherweight",
         "bout": "maincard",
-        "order": 8
+        "order": 8,
+        "f1StatsId": "9560ff14eb3129f7",
+        "f2StatsId": "791c8437b341fba5"
       },
       {
         "f1": "Patrício Pitbull",
-        "f1Id": "patricio-pitbull",
+        "f1Id": "patricio-freire",
         "f2": "Choi Doo-ho",
-        "f2Id": "choi-doo-ho",
+        "f2Id": "dooho-choi",
         "weightClass": "Featherweight",
         "bout": "maincard",
-        "order": 9
+        "order": 9,
+        "f1StatsId": "98a58c26c5b1ed17",
+        "f2StatsId": "e93b04e308913c2e"
       },
       {
         "f1": "Casey O'Neill",
@@ -1617,7 +1863,9 @@
         "f2Id": "eduarda-moura",
         "weightClass": "Women's Flyweight",
         "bout": "maincard",
-        "order": 10
+        "order": 10,
+        "f1StatsId": "04835018f90b118c",
+        "f2StatsId": "de594b35c45c2e9a"
       },
       {
         "f1": "Edmen Shahbazyan",
@@ -1626,16 +1874,20 @@
         "f2Id": "brunno-ferreira",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 11
+        "order": 11,
+        "f1StatsId": "4144798612ef96e5",
+        "f2StatsId": "1e719d4b676dc19a"
       },
       {
         "f1": "Michael Aswell Jr.",
-        "f1Id": "michael-aswell-jr",
+        "f1Id": "michael-aswell",
         "f2": "Yoo Joo-sang",
-        "f2Id": "yoo-joo-sang",
+        "f2Id": "joosang-yoo",
         "weightClass": "Featherweight",
         "bout": "maincard",
-        "order": 12
+        "order": 12,
+        "f1StatsId": "01c9e4013afce141",
+        "f2StatsId": "a44020ea2e8cd026"
       }
     ]
   },
@@ -1672,7 +1924,9 @@
         "f2Id": "raoni-barcelos",
         "weightClass": "Bantamweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "fe2babf95de24fb1",
+        "f2StatsId": "b9f28e7045fdfce7"
       }
     ]
   },
@@ -1696,7 +1950,9 @@
         "f2Id": "wang-cong",
         "weightClass": "Women's Flyweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "262d32ebda89efc4",
+        "f2StatsId": "2997e7fe3c9d3d4a"
       },
       {
         "f1": "Deiveson Figueiredo",
@@ -1705,7 +1961,9 @@
         "f2Id": "payton-talbott",
         "weightClass": "Bantamweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "aa72b0f831d0bfe5",
+        "f2StatsId": "6e743a33d56bdaa4"
       },
       {
         "f1": "Khaos Williams",
@@ -1714,7 +1972,9 @@
         "f2Id": "roberto-soldic",
         "weightClass": "Welterweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "2558ae2e5671e318",
+        "f2StatsId": "5a229cbd9cdd28ca"
       },
       {
         "f1": "Ateba Gautier",
@@ -1723,7 +1983,9 @@
         "f2Id": "roman-kopylov",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "2f815ed5f8278ba6",
+        "f2StatsId": "9d83f6da776ff7d6"
       },
       {
         "f1": "Imanol Rodríguez",
@@ -1732,7 +1994,9 @@
         "f2Id": "alden-coria",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "6e8349a0a0476d60",
+        "f2StatsId": "5e9ca8dd7d783a75"
       },
       {
         "f1": "Damian Pinas",
@@ -1741,16 +2005,20 @@
         "f2Id": "andrey-pulyaev",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "fdd22e895a70e4a8",
+        "f2StatsId": "22e07d3da1aa3475"
       },
       {
         "f1": "Marcus McGhee",
         "f1Id": "marcus-mcghee",
         "f2": "Bernardo Sopaj",
-        "f2Id": "bernardo-sopaj",
+        "f2Id": "benardo-sopaj",
         "weightClass": "Bantamweight",
         "bout": "maincard",
-        "order": 6
+        "order": 6,
+        "f1StatsId": "c0ac37a4a1133da9",
+        "f2StatsId": "b6c37948cb226e8c"
       },
       {
         "f1": "King Green",
@@ -1759,7 +2027,9 @@
         "f2Id": "esteban-ribovics",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 7
+        "order": 7,
+        "f1StatsId": "887961364be5ceb3",
+        "f2StatsId": "323d4ca260dfa0ba"
       },
       {
         "f1": "Johnny Walker",
@@ -1768,7 +2038,9 @@
         "f2Id": "mick-parkin",
         "weightClass": "Heavyweight",
         "bout": "maincard",
-        "order": 8
+        "order": 8,
+        "f1StatsId": "c21f26bbde777573",
+        "f2StatsId": "0d5cc0170c1a7e71"
       },
       {
         "f1": "Rafael dos Anjos",
@@ -1777,7 +2049,9 @@
         "f2Id": "alexander-hernandez",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 9
+        "order": 9,
+        "f1StatsId": "6a2f7c151031653d",
+        "f2StatsId": "262a7d06203657e6"
       },
       {
         "f1": "Marvin Vettori",
@@ -1786,7 +2060,9 @@
         "f2Id": "ismail-naurdiev",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 10
+        "order": 10,
+        "f1StatsId": "7acbb0972e75281a",
+        "f2StatsId": "6a96ad1bc34fb113"
       },
       {
         "f1": "Court McGee",
@@ -1795,7 +2071,9 @@
         "f2Id": "eric-nolan",
         "weightClass": "Welterweight",
         "bout": "maincard",
-        "order": 11
+        "order": 11,
+        "f1StatsId": "523fa774700d7d3f",
+        "f2StatsId": "64b12fe31be7560c"
       }
     ]
   },
@@ -1845,7 +2123,9 @@
         "f2Id": "christian-leroy-duncan",
         "weightClass": "Middleweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "2f181c0467965b98",
+        "f2StatsId": "a93f94c923c3a9cb"
       }
     ]
   },
@@ -1895,7 +2175,9 @@
         "f2Id": "mike-malott",
         "weightClass": "Welterweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "b9437600497350f3",
+        "f2StatsId": "dd6103dd7127db1d"
       }
     ]
   },
@@ -1919,7 +2201,9 @@
         "f2Id": "movsar-evloev",
         "weightClass": "Featherweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "e1248941344b3288",
+        "f2StatsId": "76e2870ffafbe38f"
       },
       {
         "f1": "Petr Yan",
@@ -1928,7 +2212,9 @@
         "f2Id": "merab-dvalishvili",
         "weightClass": "Bantamweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "d661ce4da776fc20",
+        "f2StatsId": "c03520b5c88ed6b4"
       },
       {
         "f1": "Lone'er Kavanagh",
@@ -1937,7 +2223,9 @@
         "f2Id": "ramazan-temirov",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "bb2c3c3a466224af",
+        "f2StatsId": "7d0a1968b38ca439"
       },
       {
         "f1": "Azamat Murzakanov",
@@ -1946,7 +2234,9 @@
         "f2Id": "dominick-reyes",
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "e90a2f22417af68e",
+        "f2StatsId": "2e19380f34871c6a"
       },
       {
         "f1": "Grant Dawson",
@@ -1955,7 +2245,9 @@
         "f2Id": "nurullo-aliev",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "99bd51917728c25d",
+        "f2StatsId": "ca28cdf526d6b6e9"
       }
     ]
   },
@@ -1992,7 +2284,9 @@
         "f2Id": "tom-nolan",
         "weightClass": "Lightweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "b6452706b373eea1",
+        "f2StatsId": "6c3b2525436cf5d4"
       },
       {
         "f1": "Lucia Szabová",
@@ -2001,7 +2295,9 @@
         "f2Id": "tainara-lisboa",
         "weightClass": "Women's Bantamweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "184f6ec4ee712e9f",
+        "f2StatsId": "2c5f5749569eef66"
       },
       {
         "f1": "Nick Klein",
@@ -2010,7 +2306,9 @@
         "f2Id": "joseph-kropschot",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "7eaa5e31c2dd86aa",
+        "f2StatsId": "8a81a0707350c4a8"
       }
     ]
   },
@@ -2047,7 +2345,9 @@
         "f2Id": "sean-brady",
         "weightClass": "Welterweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "01641ba5df0c69b0",
+        "f2StatsId": "45f7cb591c3ab00b"
       }
     ]
   },
@@ -2071,7 +2371,9 @@
         "f2Id": "josh-hokit",
         "weightClass": "Heavyweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "787bb1f087ccff8a",
+        "f2StatsId": "955da1675ad58a50"
       },
       {
         "f1": "Kayla Harrison",
@@ -2080,7 +2382,9 @@
         "f2Id": "amanda-nunes",
         "weightClass": "Women's Bantamweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "1af1170ed937cba7",
+        "f2StatsId": "80fa8218c99f9c58"
       },
       {
         "f1": "Caio Borralho",
@@ -2089,7 +2393,9 @@
         "f2Id": "yousri-belgaroui",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "4126a78111c0855a",
+        "f2StatsId": "7674b836ce0698a0"
       },
       {
         "f1": "Uroš Medić",
@@ -2098,7 +2404,9 @@
         "f2Id": "kevin-holland",
         "weightClass": "Welterweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "681399317dbf4701",
+        "f2StatsId": "3a46b268013afede"
       },
       {
         "f1": "Bilal Hasan",
@@ -2107,7 +2415,9 @@
         "f2Id": "luis-gurule",
         "weightClass": "Flyweight",
         "bout": "maincard",
-        "order": 4
+        "order": 4,
+        "f1StatsId": "5182316da3c1d891",
+        "f2StatsId": "29162be25ebef5f0"
       },
       {
         "f1": "Drew Dober",
@@ -2116,7 +2426,9 @@
         "f2Id": "chris-duncan",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 5
+        "order": 5,
+        "f1StatsId": "519e4fe37ce9ff75",
+        "f2StatsId": "fd406a32a6fb3a29"
       },
       {
         "f1": "Stephen Thompson",
@@ -2125,7 +2437,9 @@
         "f2Id": "charles-radtke",
         "weightClass": "Welterweight",
         "bout": "maincard",
-        "order": 6
+        "order": 6,
+        "f1StatsId": "4a28cb716c19157a",
+        "f2StatsId": "feedf3053472fe56"
       },
       {
         "f1": "Donte Johnson",
@@ -2134,7 +2448,9 @@
         "f2Id": "baisangur-susurkaev",
         "weightClass": "Middleweight",
         "bout": "maincard",
-        "order": 7
+        "order": 7,
+        "f1StatsId": "ad5cb64af10fc946",
+        "f2StatsId": "d1feea7a4bdcd503"
       },
       {
         "f1": "Jim Miller",
@@ -2143,16 +2459,20 @@
         "f2Id": "terrance-mckinney",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 8
+        "order": 8,
+        "f1StatsId": "d1941565abf50b16",
+        "f2StatsId": "809bd1a871491508"
       },
       {
         "f1": "Macy Chiasson",
         "f1Id": "macy-chiasson",
         "f2": "Beatriz Mesquita",
-        "f2Id": "beatriz-mesquita",
+        "f2Id": "bia-mesquita",
         "weightClass": "Women's Bantamweight",
         "bout": "maincard",
-        "order": 9
+        "order": 9,
+        "f1StatsId": "9cdd2da1a9104a0b",
+        "f2StatsId": "eff9074bc066f0f2"
       },
       {
         "f1": "Adrian Yañez",
@@ -2161,7 +2481,9 @@
         "f2Id": "juan-diaz",
         "weightClass": "Bantamweight",
         "bout": "maincard",
-        "order": 10
+        "order": 10,
+        "f1StatsId": "0232cabbc30a2372",
+        "f2StatsId": "74939a16c7b56f33"
       },
       {
         "f1": "Nazim Sadykhov",
@@ -2170,7 +2492,9 @@
         "f2Id": "jefferson-nascimento",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 11
+        "order": 11,
+        "f1StatsId": "ff62013d2fce6d13",
+        "f2StatsId": "4b85abc5abbe657c"
       }
     ]
   },
@@ -2316,7 +2640,9 @@
         "bout": "prelim",
         "order": 9,
         "sourceStartUTC": "2026-11-21T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "nikolas-motta",
+        "f2Id": "dom-mar-fan"
       },
       {
         "f1": "Diyar Nurgozhay",
@@ -2326,7 +2652,9 @@
         "bout": "prelim",
         "order": 10,
         "sourceStartUTC": "2026-11-21T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "diyar-nurgozhay",
+        "f2Id": "alik-lorenz"
       }
     ],
     "cardHistory": [
@@ -2340,7 +2668,7 @@
         "removed": []
       },
       {
-        "checkedAt": "2026-11-16T21:44:18.531Z",
+        "checkedAt": "2026-11-16T21:55:34.610Z",
         "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
         "added": [
           "Nikolas Motta vs. Dom Mar Fan",
@@ -2350,7 +2678,7 @@
       }
     ],
     "espnEventId": "600061665",
-    "cardCheckedAt": "2026-11-16T21:44:18.531Z",
+    "cardCheckedAt": "2026-11-16T22:06:06.946Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -2359,7 +2687,7 @@
     "country": "Qatar",
     "programmingStartUTC": "2026-11-21T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
-    "scheduleCheckedAt": "2026-11-16T21:44:18.531Z",
+    "scheduleCheckedAt": "2026-11-16T22:06:06.946Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061665/league/ufc"
   },
   {
@@ -2411,7 +2739,7 @@
         "sourceStartUTC": "2026-12-05T18:00Z",
         "segmentInferred": true,
         "f1Id": "israel-adesanya",
-        "f2Id": "sharabutdin-magomedov"
+        "f2Id": "shara-magomedov"
       },
       {
         "f1": "Ian Machado Garry",
@@ -2481,7 +2809,9 @@
         "bout": "prelim",
         "order": 6,
         "sourceStartUTC": "2026-12-05T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "bruno-silva",
+        "f2Id": "jafel-filho"
       },
       {
         "f1": "Uran Satybaldiev",
@@ -2503,7 +2833,9 @@
         "bout": "prelim",
         "order": 8,
         "sourceStartUTC": "2026-12-05T15:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "junyong-park",
+        "f2Id": "marco-tulio"
       },
       {
         "f1": "Pavel Andrusca",
@@ -2543,7 +2875,7 @@
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-16T21:44:18.638Z",
+    "cardCheckedAt": "2026-11-16T22:06:07.062Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -2559,7 +2891,7 @@
         ]
       },
       {
-        "checkedAt": "2026-11-16T21:44:18.638Z",
+        "checkedAt": "2026-11-16T21:55:34.735Z",
         "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
         "added": [
           "Bruno Silva vs. Jafel Filho",
@@ -2578,7 +2910,7 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-16T21:44:18.638Z",
+    "scheduleCheckedAt": "2026-11-16T22:06:07.062Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc"
   },
   {
@@ -2638,7 +2970,9 @@
         "bout": "maincard",
         "order": 3,
         "sourceStartUTC": "2026-12-13T00:00Z",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "maycee-barber",
+        "f2Id": "carli-judice"
       },
       {
         "f1": "Quentin Pasley",
@@ -2667,7 +3001,7 @@
         ]
       },
       {
-        "checkedAt": "2026-11-16T21:44:18.758Z",
+        "checkedAt": "2026-11-16T21:55:34.848Z",
         "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
         "added": [
           "Maycee Barber vs. Carli Judice"
@@ -2676,7 +3010,7 @@
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-16T21:44:18.758Z",
+    "cardCheckedAt": "2026-11-16T22:06:07.173Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -2685,7 +3019,7 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-16T21:44:18.758Z",
+    "scheduleCheckedAt": "2026-11-16T22:06:07.173Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc"
   },
   {
@@ -2704,13 +3038,13 @@
   {
     "slug": "ufc-fight-night-2027-01-16",
     "name": "UFC Fight Night",
-    "main": "Yair Rodríguez vs. Steve Garcia",
+    "main": "Rodríguez vs. Garcia",
     "loc": "Dallas, Texas, U.S.",
     "date": "2027-01-16",
     "dateLabel": "16 ene 2027",
-    "f1": "Yair Rodríguez",
+    "f1": "Rodríguez",
     "f1img": "/fighters/yair-rodriguez.png",
-    "f2": "Steve Garcia",
+    "f2": "Garcia",
     "f2img": "/fighters/steve-garcia.png",
     "status": "upcoming",
     "fightCard": [
@@ -2721,7 +3055,9 @@
         "f2Id": "steve-garcia",
         "weightClass": "Featherweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "cbf5e6f231b55443",
+        "f2StatsId": "97cf1a2c7c5e7889"
       },
       {
         "f1": "Daniel Rodriguez",
@@ -2730,7 +3066,9 @@
         "f2Id": "roberto-soldic",
         "weightClass": "Welterweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "8a1f3b5c526cd6e6",
+        "f2StatsId": "5a229cbd9cdd28ca"
       },
       {
         "f1": "Chidi Njokuani",
@@ -2739,10 +3077,12 @@
         "f2Id": "ignacio-bahamondes",
         "weightClass": "Welterweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "c68c68efaa5ca6ef",
+        "f2StatsId": "e4a47b07044ddd72"
       }
     ],
-    "cardCheckedAt": "2026-11-16T21:42:34.374Z",
+    "cardCheckedAt": "2026-11-16T21:43:23.245Z",
     "cardSource": "Wikipedia"
   },
   {
@@ -2778,10 +3118,12 @@
         "f2Id": "sean-brady",
         "weightClass": "Welterweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "01641ba5df0c69b0",
+        "f2StatsId": "45f7cb591c3ab00b"
       }
     ],
-    "cardCheckedAt": "2026-11-16T14:42:08.757Z",
+    "cardCheckedAt": "2026-11-16T21:48:42.908Z",
     "cardSource": "Wikipedia"
   },
   {
@@ -2804,7 +3146,9 @@
         "f2Id": "manel-kape",
         "weightClass": "Flyweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "17e97649403ba428",
+        "f2StatsId": "5d1b7e3dd9e11074"
       },
       {
         "f1": "Carlos Prates",
@@ -2813,10 +3157,12 @@
         "f2Id": "michael-morales",
         "weightClass": "Welterweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "7ee0fd831c0fe7c3",
+        "f2StatsId": "c32aeb1a59e6272d"
       }
     ],
-    "cardCheckedAt": "2026-11-16T14:42:09.838Z",
+    "cardCheckedAt": "2026-11-16T21:48:43.977Z",
     "cardSource": "Wikipedia"
   },
   {
@@ -2891,7 +3237,9 @@
         "f2Id": "benoit-saint-denis",
         "weightClass": "Lightweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "17734443a833cdf7",
+        "f2StatsId": "c2299ec916bc7c56"
       },
       {
         "f1": "Bogdan Guskov",
@@ -2900,16 +3248,20 @@
         "f2Id": "robert-whittaker",
         "weightClass": "Light Heavyweight",
         "bout": "Co-Main Event",
-        "order": 1
+        "order": 1,
+        "f1StatsId": "ef5dcb10d2bd4b0f",
+        "f2StatsId": "e1147d3d2dabe1ce"
       },
       {
         "f1": "Marwan Rahiki",
         "f1Id": "marwan-rahiki",
         "f2": "Yoo Joo-sang",
-        "f2Id": "yoo-joo-sang",
+        "f2Id": "joosang-yoo",
         "weightClass": "Featherweight",
         "bout": "maincard",
-        "order": 2
+        "order": 2,
+        "f1StatsId": "6eedb757f13b9978",
+        "f2StatsId": "a44020ea2e8cd026"
       },
       {
         "f1": "Kaan Ofli",
@@ -2918,10 +3270,12 @@
         "f2Id": "joanderson-brito",
         "weightClass": "Featherweight",
         "bout": "maincard",
-        "order": 3
+        "order": 3,
+        "f1StatsId": "7facc9c45d792985",
+        "f2StatsId": "791c8437b341fba5"
       }
     ],
-    "cardCheckedAt": "2026-11-16T15:24:27.832Z",
+    "cardCheckedAt": "2026-11-16T21:48:45.084Z",
     "cardSource": "Wikipedia"
   },
   {
@@ -2944,10 +3298,12 @@
         "f2Id": "bo-nickal",
         "weightClass": "Middleweight",
         "bout": "Main Event",
-        "order": 0
+        "order": 0,
+        "f1StatsId": "c1085e1701b13eca",
+        "f2StatsId": "35673bf5204524ee"
       }
     ],
-    "cardCheckedAt": "2026-11-16T15:24:28.997Z",
+    "cardCheckedAt": "2026-11-16T21:48:46.195Z",
     "cardSource": "Wikipedia"
   },
   {

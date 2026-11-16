@@ -1,4 +1,5 @@
 import {recordHealth} from "./lib/health.mjs";
+import {canonicalEvents} from '../src/lib/event-routing.mjs';
 /**
  * fetch-peleas.mjs — historial completo de peleas desde Wikipedia.
  *
@@ -322,10 +323,16 @@ async function buscarPagina(nombre) {
 }
 
 /** Intenta nombre exacto y, si no hay tabla, cae a búsqueda. */
-async function resolver(nombre) {
+async function resolver(fighter) {
+  const nombre=fighter.name;
+  const belongs=wt=>{
+   const dob=parsearBio(wt)?.nacimiento;
+   if(fighter.birthDate&&dob&&fighter.birthDate!==dob)return false;
+   return !fighter.identityAmbiguousName||Boolean(fighter.birthDate&&dob===fighter.birthDate);
+  };
   const candidatos = [nombre.replace(/ /g, '_')];
   let wt = await traerWikitext(candidatos[0]);
-  if (wt && wt.includes('{{MMA record start}}')) {
+  if (wt && wt.includes('{{MMA record start}}')&&belongs(wt)) {
     return { titulo: candidatos[0], wikitext: wt };
   }
 
@@ -333,7 +340,7 @@ async function resolver(nombre) {
   for (const t of await buscarPagina(nombre)) {
     await dormir(PAUSA_MS);
     wt = await traerWikitext(t);
-    if (wt && wt.includes('{{MMA record start}}')) {
+    if (wt && wt.includes('{{MMA record start}}')&&belongs(wt)) {
       return { titulo: t.replace(/ /g, '_'), wikitext: wt };
     }
   }
@@ -346,8 +353,9 @@ const fighters = JSON.parse(readFileSync(RUTA_FIGHTERS, 'utf8'));
 const eventosRaw = JSON.parse(readFileSync(RUTA_EVENTOS, 'utf8'));
 const eventos = Array.isArray(eventosRaw) ? eventosRaw : eventosRaw.events ?? [];
 
-const slugPorNombre = new Map(fighters.map(f => [slugificar(f.name), f.slug]));
-const slugEventoPorNombre = new Map(eventos.map(e => [slugificar(e.name), e.slug]));
+const nameCounts=new Map();for(const f of fighters){const key=slugificar(f.name);nameCounts.set(key,(nameCounts.get(key)??0)+1);}
+const slugPorNombre = new Map(fighters.filter(f=>nameCounts.get(slugificar(f.name))===1).map(f => [slugificar(f.name), f.slug]));
+const canonical=canonicalEvents(eventos);
 
 const salida = existsSync(RUTA_SALIDA)
   ? JSON.parse(readFileSync(RUTA_SALIDA, 'utf8'))
@@ -364,6 +372,15 @@ const salida = existsSync(RUTA_SALIDA)
       sinPagina: [],
     };
 
+// Never retain a previously cached biography that now conflicts with source identity.
+for(const f of fighters){
+ const saved=salida.peleadores[f.slug];if(!saved)continue;
+ const dob=saved.bio?.nacimiento;
+ if(saved.ufcStatsId&&f.ufcStatsId&&saved.ufcStatsId!==f.ufcStatsId||f.birthDate&&dob&&f.birthDate!==dob||f.identityAmbiguousName&&(!dob||dob!==f.birthDate)){
+  salida.revisionIdentidad??={};salida.revisionIdentidad[f.slug]={reason:'Identity or birth date conflicts with the athlete source',expectedBirthDate:f.birthDate,previous:saved};
+  delete salida.peleadores[f.slug];
+ }
+}
 // Selección de objetivos
 let objetivos;
 if (SOLO_SLUG) {
@@ -386,6 +403,7 @@ objetivos = objetivos.slice(0, LIMITE);
 
 console.log(`\nObjetivos: ${objetivos.length} peleador(es)`);
 if (!objetivos.length) {
+  writeFileSync(RUTA_SALIDA,JSON.stringify(salida,null,2)+'\n');
   console.log('Nada que hacer. Usa --force para rehacer los ya guardados.\n');
   process.exit(0);
 }
@@ -395,7 +413,7 @@ let ok = 0, vacios = 0, errores = 0, totalPeleas = 0;
 for (const [i, f] of objetivos.entries()) {
   const prefijo = `[${String(i + 1).padStart(3)}/${objetivos.length}] ${f.name.padEnd(26)}`;
   try {
-    const res = await resolver(f.name);
+    const res = await resolver(f);
     if (!res) {
       console.log(`${prefijo} — sin página`);
       sinPagina.add(f.slug);
@@ -421,8 +439,8 @@ for (const [i, f] of objetivos.entries()) {
       // events-all.json solo guarda una ventana reciente, así que las peleas
       // viejas no van a ligar. Es esperado, no un fallo.
       if (p.evento) {
-        const e = slugEventoPorNombre.get(slugificar(p.evento));
-        if (e) { p.eventoSlug = e; eventosLigados++; }
+        const matches=canonical.filter(e=>e.date===p.fecha&&e.main!=='TBD');
+        if(matches.length===1){p.eventoSlug=matches[0].slug;eventosLigados++;}
       }
     }
 
@@ -446,6 +464,7 @@ for (const [i, f] of objetivos.entries()) {
     const recordWiki = (peleas[peleas.length - 1]?.registro ?? '').replace(/\s*\(\d+\)/, '');
 
     salida.peleadores[f.slug] = {
+      ...(f.ufcStatsId?{ufcStatsId:f.ufcStatsId}:{}),
       wikipedia: res.titulo,
       actualizado: new Date().toISOString(),
       recordWiki,

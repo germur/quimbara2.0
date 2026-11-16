@@ -21,6 +21,10 @@ function indexSources(sources){
  indexes.set(sources,index);return index;
 }
 export function resolvePhotoSource(person,sources){
+ if(person.identityAmbiguousName){
+  if(!person.ufcProfileUrl)return null;
+  sources=sources.filter(source=>source.profileUrl===person.ufcProfileUrl);
+ }
  const index=indexSources(sources),parts=words(person.name);
  const filenameMatches=source=>parts.length>=2&&index.tokens.get(source).some(tokens=>parts.every(word=>tokens.has(word)));
  const names=[person.name,...(person.photoAliases??[])];

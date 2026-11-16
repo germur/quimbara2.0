@@ -1,130 +1,44 @@
-// scripts/rag-embed.mjs
-//
-// Genera los embeddings de los chunks y escribe el índice vectorial.
-//
-//   npm run rag:embed                  → .rag/vectores.json (float32, para evaluar)
-//   npm run rag:embed -- --publicar    → además public/buscador/indice.json (cuantizado int8)
-//
-// POR QUÉ EN LOCAL Y NO CON UNA API
-// El modelo corre en tu máquina con transformers.js: sin API key, sin coste por
-// token, sin enviar el contenido a terceros, y reproducible en CI. Para 1.651
-// chunks tarda un par de minutos. Si algún día el corpus crece mucho o la
-// calidad se queda corta, se cambia por una API de embeddings sin tocar nada
-// más: el resto del pipeline solo espera un array de números por chunk.
-//
-// POR QUÉ ESTE MODELO
-// paraphrase-multilingual-MiniLM-L12-v2 está entrenado en 50 idiomas, incluido
-// el español, con 384 dimensiones. Los modelos que solo saben inglés fallan
-// justo en lo que nos importa: "cuánto mide" ≈ "estatura".
-//
-// NOTA: la primera ejecución descarga el modelo (~120 MB) desde huggingface.co
-// y lo cachea en ~/.cache. Requiere conexión.
-
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
-const PUBLICAR = process.argv.includes('--publicar');
-const MODELO = 'Xenova/paraphrase-multilingual-MiniLM-L12-v2';
-
-const rutaChunks = join(ROOT, '.rag', 'chunks.jsonl');
-if (!existsSync(rutaChunks)) {
-  console.error('✗ Falta .rag/chunks.jsonl — ejecuta antes: npm run rag:chunk -- --write');
-  process.exit(1);
+// Incremental local embeddings: no paid API, stable public index format.
+import fs from 'node:fs';
+import {resolve,join} from 'node:path';
+import {createHash} from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+const ROOT=fileURLToPath(new URL('../',import.meta.url)),dir=join(ROOT,'.rag');
+const MODEL='Xenova/paraphrase-multilingual-MiniLM-L12-v2',VERSION=MODEL+':fp32:v1';
+const read=(file,fallback)=>fs.existsSync(file)?JSON.parse(fs.readFileSync(file)):fallback;
+const chunkFile=join(dir,'chunks.jsonl');
+if(!fs.existsSync(chunkFile))throw new Error('Run npm run rag:chunk -- --write first');
+const chunks=fs.readFileSync(chunkFile,'utf8').trim().split(/\r?\n/).filter(Boolean).map(line=>JSON.parse(line));
+if(!chunks.length||new Set(chunks.map(c=>c.id)).size!==chunks.length)throw new Error('Empty or duplicate semantic chunks');
+fs.mkdirSync(dir,{recursive:true});
+const cacheFile=join(dir,'vector-cache.json'),previous=read(cacheFile,{}),cache=previous.version===VERSION?previous.entries??{}:{};
+const hash=text=>createHash('sha256').update(text).digest('hex');
+const work=chunks.map(c=>({id:c.id,text:(c.titulo??'')+'. '+c.texto})).map(c=>({...c,hash:hash(c.text)}));
+const pending=work.filter(c=>cache[c.id]?.hash!==c.hash||cache[c.id]?.vector?.length!==384);
+const questions=read(join(ROOT,'evaluacion/preguntas.json'),{preguntas:[]}).preguntas;
+const queryFile=join(dir,'preguntas-vec.json'),queries=read(queryFile,{});
+const missingQuestions=queries.version!==VERSION||questions.some(p=>!queries.mapa?.[p.q]);
+console.log('Semantic cache:',chunks.length-pending.length,'reused;',pending.length,'to generate');
+if(pending.length||missingQuestions){
+ const {pipeline,env}=await import('@huggingface/transformers');env.cacheDir=join(dir,'model-cache');
+ const embed=await pipeline('feature-extraction',MODEL,{dtype:'fp32'});
+ for(let i=0;i<pending.length;i+=32){
+  const batch=pending.slice(i,i+32),vectors=(await embed(batch.map(c=>c.text),{pooling:'mean',normalize:true})).tolist();
+  for(let j=0;j<batch.length;j++){if(vectors[j].length!==384||vectors[j].some(n=>!Number.isFinite(n)))throw new Error('Invalid embedding');cache[batch[j].id]={hash:batch[j].hash,vector:vectors[j]};}
+  if(i%512===0)fs.writeFileSync(cacheFile,JSON.stringify({version:VERSION,entries:cache}));
+  console.log(Math.min(i+32,pending.length)+'/'+pending.length,'embedded');
+ }
+ if(missingQuestions&&questions.length){
+  const values=(await embed(questions.map(p=>p.q),{pooling:'mean',normalize:true})).tolist();
+  fs.writeFileSync(queryFile,JSON.stringify({modelo:MODEL,version:VERSION,mapa:Object.fromEntries(questions.map((p,i)=>[p.q,values[i]]))}));
+ }
 }
-
-const chunks = readFileSync(rutaChunks, 'utf8').trim().split('\n').map(l => JSON.parse(l));
-console.log(`· ${chunks.length} chunks a vectorizar con ${MODELO}`);
-
-let pipeline;
-try {
-  ({ pipeline } = await import('@huggingface/transformers'));
-} catch {
-  console.error('\n✗ Falta la dependencia. Instálala con:');
-  console.error('    npm i -D @huggingface/transformers\n');
-  process.exit(1);
-}
-
-console.log('· cargando modelo (la primera vez descarga ~120 MB)…');
-const extraer = await pipeline('feature-extraction', MODELO, { dtype: 'fp32' });
-
-// El texto que se vectoriza incluye el título: da contexto al fragmento y
-// mejora la recuperación cuando el cuerpo es escueto.
-const textos = chunks.map(c => `${c.titulo ?? ''}. ${c.texto}`.trim());
-
-const LOTE = 32;
-const vectores = [];
-const t0 = Date.now();
-
-for (let i = 0; i < textos.length; i += LOTE) {
-  const lote = textos.slice(i, i + LOTE);
-  // pooling 'mean' = promedio de los tokens → un vector por texto.
-  // normalize = vectores de norma 1, así el coseno es un producto escalar.
-  const salida = await extraer(lote, { pooling: 'mean', normalize: true });
-  vectores.push(...salida.tolist());
-
-  const hechos = Math.min(i + LOTE, textos.length);
-  const seg = (Date.now() - t0) / 1000;
-  const eta = (seg / hechos) * (textos.length - hechos);
-  process.stdout.write(`\r  ${hechos}/${textos.length} · ${seg.toFixed(0)}s · faltan ~${eta.toFixed(0)}s   `);
-}
-console.log('\n');
-
-mkdirSync(join(ROOT, '.rag'), { recursive: true });
-writeFileSync(
-  join(ROOT, '.rag', 'vectores.json'),
-  JSON.stringify({ modelo: MODELO, dims: vectores[0].length, ids: chunks.map(c => c.id), vectores })
-);
-console.log(`✓ .rag/vectores.json — ${vectores.length} vectores de ${vectores[0].length} dims`);
-
-// ── Vectores de las preguntas de evaluación ────────────────────────────────
-// Se precalculan aquí para que `npm run rag:eval` no tenga que cargar el
-// modelo: la evaluación pasa a ser instantánea, reproducible y ejecutable en
-// cualquier entorno (incluido CI) sin descargar 120 MB ni depender de `sharp`.
-const rutaPreguntas = join(ROOT, 'evaluacion', 'preguntas.json');
-if (existsSync(rutaPreguntas)) {
-  const { preguntas } = JSON.parse(readFileSync(rutaPreguntas, 'utf8'));
-  const qs = preguntas.map(p => p.q);
-  const salida = await extraer(qs, { pooling: 'mean', normalize: true });
-  const vecs = salida.tolist();
-  const mapa = Object.fromEntries(preguntas.map((p, i) => [p.q, vecs[i]]));
-  writeFileSync(join(ROOT, '.rag', 'preguntas-vec.json'), JSON.stringify({ modelo: MODELO, mapa }));
-  console.log(`✓ .rag/preguntas-vec.json — ${qs.length} preguntas vectorizadas`);
-}
-
-// ── Publicación para el navegador ──────────────────────────────────────────
-// Cuantización a int8: cada dimensión pasa de 4 bytes a 1, dividiendo el peso
-// entre cuatro con una pérdida de precisión despreciable para buscar. Los
-// vectores están normalizados, así que sus valores caen en [-1, 1] y basta
-// escalar por 127.
-if (PUBLICAR) {
-  const cuantizar = v => Array.from(v, x => Math.max(-127, Math.min(127, Math.round(x * 127))));
-
-  const indice = {
-    modelo: MODELO,
-    dims: vectores[0].length,
-    escala: 127,
-    generado: new Date().toISOString(),
-    // Se publica lo mínimo para pintar un resultado: id, url, título y un
-    // extracto. El texto completo ya está en la página de destino.
-    docs: chunks.map((c, i) => ({
-      i: c.id,
-      u: c.url,
-      t: c.titulo,
-      x: c.texto.slice(0, 180),
-      k: c.tipo,
-      v: cuantizar(vectores[i]),
-    })),
-  };
-
-  const dir = join(ROOT, 'public', 'buscador');
-  mkdirSync(dir, { recursive: true });
-  const ruta = join(dir, 'indice.json');
-  writeFileSync(ruta, JSON.stringify(indice));
-
-  const mb = (Buffer.byteLength(JSON.stringify(indice)) / 1024 / 1024).toFixed(2);
-  console.log(`✓ public/buscador/indice.json — ${mb} MB (int8)`);
-  console.log('  Se sirve estático desde Netlify: sin base de datos, sin backend, sin coste.');
+const liveIds=new Set(chunks.map(c=>c.id));for(const id of Object.keys(cache))if(!liveIds.has(id))delete cache[id];
+fs.writeFileSync(cacheFile,JSON.stringify({version:VERSION,entries:cache}));
+const vectors=work.map(c=>cache[c.id].vector);
+fs.writeFileSync(join(dir,'vectores.json'),JSON.stringify({modelo:MODEL,dims:384,ids:chunks.map(c=>c.id),vectores:vectors}));
+if(process.argv.includes('--publicar')){
+ const index={modelo:MODEL,dims:384,escala:127,generado:new Date().toISOString(),sourceHash:hash(fs.readFileSync(chunkFile)),docs:chunks.map((c,i)=>({i:c.id,u:c.url,t:c.titulo,x:c.texto.slice(0,180),k:c.tipo,v:vectors[i].map(x=>Math.max(-127,Math.min(127,Math.round(x*127))))}))};
+ fs.mkdirSync(join(ROOT,'public/buscador'),{recursive:true});fs.writeFileSync(join(ROOT,'public/buscador/indice.json'),JSON.stringify(index));
+ console.log('Published current semantic index:',chunks.length,'documents');
 }
