@@ -2341,7 +2341,7 @@
       }
     ],
     "espnEventId": "600061665",
-    "cardCheckedAt": "2026-11-16T15:34:35.879Z",
+    "cardCheckedAt": "2026-11-16T15:42:26.350Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -2350,7 +2350,7 @@
     "country": "Qatar",
     "programmingStartUTC": "2026-11-21T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
-    "scheduleCheckedAt": "2026-11-16T15:34:35.879Z",
+    "scheduleCheckedAt": "2026-11-16T15:42:26.350Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061665/league/ufc"
   },
   {
@@ -2534,7 +2534,7 @@
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-16T15:34:35.990Z",
+    "cardCheckedAt": "2026-11-16T15:42:26.547Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -2557,7 +2557,7 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-16T15:34:35.990Z",
+    "scheduleCheckedAt": "2026-11-16T15:42:26.547Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc"
   },
   {
@@ -2643,7 +2643,7 @@
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-16T15:34:36.095Z",
+    "cardCheckedAt": "2026-11-16T15:42:26.602Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -2652,7 +2652,7 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-16T15:34:36.095Z",
+    "scheduleCheckedAt": "2026-11-16T15:42:26.602Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc"
   },
   {
@@ -2841,13 +2841,13 @@
   {
     "slug": "ufc-fight-night-2027-02-07",
     "name": "UFC Fight Night",
-    "main": "Quillan Salkilld vs. Benoît Saint Denis",
+    "main": "Salkilld vs. Saint Denis",
     "loc": "Sydney, Australia",
     "date": "2027-02-07",
     "dateLabel": "7 feb 2027",
-    "f1": "Quillan Salkilld",
+    "f1": "Salkilld",
     "f1img": "/fighters/quillan-salkilld.png",
-    "f2": "Benoît Saint Denis",
+    "f2": "Saint Denis",
     "f2img": "/fighters/benoit-saint-denis.png",
     "status": "upcoming",
     "fightCard": [
@@ -2894,13 +2894,13 @@
   {
     "slug": "ufc-fight-night-2027-02-13",
     "name": "UFC Fight Night",
-    "main": "Joe Pyfer vs. Bo Nickal",
+    "main": "Pyfer vs. Nickal",
     "loc": "Cleveland, Ohio, U.S.",
     "date": "2027-02-13",
     "dateLabel": "13 feb 2027",
-    "f1": "Joe Pyfer",
+    "f1": "Pyfer",
     "f1img": "/fighters/joe-pyfer.png",
-    "f2": "Bo Nickal",
+    "f2": "Nickal",
     "f2img": "/fighters/bo-nickal.png",
     "status": "upcoming",
     "fightCard": [

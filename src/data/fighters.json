@@ -6,6 +6,8 @@
     "div": "Heavyweight",
     "rec": "15-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:04.680Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/ciryl-gane",
     "ufcRec": "12-2-0",
     "from": "France",
     "img": "/fighters/ciryl-gane.png",
@@ -43,9 +45,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "C",
-    "recordCheckedAt": "2026-11-16T15:24:36.162Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/ciryl-gane"
+    "rank": "C"
   },
   {
     "slug": "carlos-ulberg",
@@ -54,6 +54,8 @@
     "div": "Light Heavyweight",
     "rec": "15-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:05.694Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/carlos-ulberg",
     "ufcRec": "10-1-0",
     "from": "New Zealand",
     "img": "/fighters/carlos-ulberg.png",
@@ -91,9 +93,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "C",
-    "recordCheckedAt": "2026-11-16T15:24:37.177Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/carlos-ulberg"
+    "rank": "C"
   },
   {
     "slug": "sean-strickland",
@@ -102,6 +102,8 @@
     "div": "Middleweight",
     "rec": "31-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:06.713Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/sean-strickland",
     "ufcRec": "18-7-0",
     "from": "USA",
     "img": "/fighters/sean-strickland.png",
@@ -139,9 +141,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "C",
-    "recordCheckedAt": "2026-11-16T15:24:38.194Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/sean-strickland"
+    "rank": "C"
   },
   {
     "slug": "islam-makhachev",
@@ -150,6 +150,8 @@
     "div": "Welterweight",
     "rec": "29-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:07.729Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/islam-makhachev",
     "ufcRec": "18-1-0",
     "from": "Russia",
     "img": "/fighters/islam-makhachev.png",
@@ -187,9 +189,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "C",
-    "recordCheckedAt": "2026-11-16T15:24:39.210Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/islam-makhachev"
+    "rank": "C"
   },
   {
     "slug": "justin-gaethje",
@@ -198,6 +198,8 @@
     "div": "Lightweight",
     "rec": "28-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:08.744Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/justin-gaethje",
     "ufcRec": "11-5-0",
     "from": "Safford, Arizona, EE.UU.",
     "img": "/fighters/justin-gaethje.png",
@@ -235,9 +237,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "C",
-    "recordCheckedAt": "2026-11-16T15:24:40.225Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/justin-gaethje"
+    "rank": "C"
   },
   {
     "slug": "alexander-volkanovski",
@@ -246,6 +246,8 @@
     "div": "Featherweight",
     "rec": "29-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:09.758Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/alexander-volkanovski",
     "ufcRec": "16-3-0",
     "from": "Australia",
     "img": "/fighters/alexander-volkanovski.png",
@@ -283,9 +285,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "C",
-    "recordCheckedAt": "2026-11-16T15:24:41.242Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/alexander-volkanovski"
+    "rank": "C"
   },
   {
     "slug": "petr-yan",
@@ -294,6 +294,8 @@
     "div": "Bantamweight",
     "rec": "21-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:10.771Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/petr-yan",
     "ufcRec": "13-4-0",
     "from": "Russia",
     "img": "/fighters/petr-yan.png",
@@ -331,9 +333,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "C",
-    "recordCheckedAt": "2026-11-16T15:24:42.256Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/petr-yan"
+    "rank": "C"
   },
   {
     "slug": "joshua-van",
@@ -342,6 +342,8 @@
     "div": "Flyweight",
     "rec": "18-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:11.784Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/joshua-van",
     "ufcRec": "11-1-0",
     "from": "Myanmar",
     "img": "/fighters/joshua-van.png",
@@ -424,9 +426,7 @@
         "q": "¿Cuándo es la próxima defensa titular de Joshua Van?",
         "a": "Su próxima defensa titular está en evaluación del matchmaking de UFC. El #1 contender Brandon Royval y otros top 5 son candidatos. Sigue la cobertura en Quimbara para confirmaciones."
       }
-    ],
-    "recordCheckedAt": "2026-11-16T15:24:43.271Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/joshua-van"
+    ]
   },
   {
     "slug": "jon-jones",
@@ -480,6 +480,8 @@
     "div": "Heavyweight",
     "rec": "20-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:12.800Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/curtis-blaydes",
     "ufcRec": "15-6-0",
     "from": "USA",
     "img": "/fighters/curtis-blaydes.png",
@@ -517,9 +519,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "5",
-    "recordCheckedAt": "2026-11-16T15:24:44.286Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/curtis-blaydes"
+    "rank": "5"
   },
   {
     "slug": "sergei-pavlovich",
@@ -528,6 +528,8 @@
     "div": "Heavyweight",
     "rec": "21-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:13.814Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/sergei-pavlovich",
     "ufcRec": "9-3-0",
     "from": "Russia",
     "img": "/fighters/sergei-pavlovich.png",
@@ -565,9 +567,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "3",
-    "recordCheckedAt": "2026-11-16T15:24:45.302Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/sergei-pavlovich"
+    "rank": "3"
   },
   {
     "slug": "alexander-volkov",
@@ -576,6 +576,8 @@
     "div": "Heavyweight",
     "rec": "41-11-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:14.829Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/alexander-volkov",
     "ufcRec": "15-5-0",
     "from": "Russia",
     "img": "/fighters/alexander-volkov.png",
@@ -613,9 +615,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "2",
-    "recordCheckedAt": "2026-11-16T15:24:46.317Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/alexander-volkov"
+    "rank": "2"
   },
   {
     "slug": "alex-pereira",
@@ -624,6 +624,8 @@
     "div": "Light Heavyweight",
     "rec": "13-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:15.845Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/alex-pereira",
     "ufcRec": "10-3-0",
     "from": "Brazil",
     "img": "/fighters/alex-pereira.png",
@@ -661,9 +663,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "3",
-    "recordCheckedAt": "2026-11-16T15:24:47.331Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/alex-pereira"
+    "rank": "3"
   },
   {
     "slug": "jiri-prochazka",
@@ -672,6 +672,8 @@
     "div": "Light Heavyweight",
     "rec": "32-6-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:16.858Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/jiri-prochazka",
     "ufcRec": "6-3-0",
     "from": "Czechia",
     "img": "/fighters/jiri-prochazka.png",
@@ -709,9 +711,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "2",
-    "recordCheckedAt": "2026-11-16T15:24:48.347Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/jiri-prochazka"
+    "rank": "2"
   },
   {
     "slug": "jamahal-hill",
@@ -765,6 +765,8 @@
     "div": "Light Heavyweight",
     "rec": "22-2-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:17.870Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/magomed-ankalaev",
     "ufcRec": "13-2-1",
     "from": "Russia",
     "img": "/fighters/magomed-ankalaev.png",
@@ -802,9 +804,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "1",
-    "recordCheckedAt": "2026-11-16T15:24:49.359Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/magomed-ankalaev"
+    "rank": "1"
   },
   {
     "slug": "jan-blachowicz",
@@ -858,6 +858,8 @@
     "div": "Middleweight",
     "rec": "24-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:18.882Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/dricus-du-plessis",
     "ufcRec": "10-1-0",
     "from": "South Africa",
     "img": "/fighters/dricus-du-plessis.png",
@@ -895,9 +897,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "2",
-    "recordCheckedAt": "2026-11-16T15:24:50.374Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/dricus-du-plessis"
+    "rank": "2"
   },
   {
     "slug": "robert-whittaker",
@@ -906,6 +906,8 @@
     "div": "Light Heavyweight",
     "rec": "28-9-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:19.895Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/robert-whittaker",
     "ufcRec": "18-7-0",
     "from": "Australia",
     "img": "/fighters/robert-whittaker.png",
@@ -943,9 +945,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:24:51.387Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/robert-whittaker"
+    "rank": "10"
   },
   {
     "slug": "paulo-costa",
@@ -954,6 +954,8 @@
     "div": "Light Heavyweight",
     "rec": "16-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:20.908Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/paulo-costa",
     "ufcRec": "8-4-0",
     "from": "Brazil",
     "img": "/fighters/paulo-costa.png",
@@ -991,9 +993,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6",
-    "recordCheckedAt": "2026-11-16T15:24:52.400Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/paulo-costa"
+    "rank": "6"
   },
   {
     "slug": "marvin-vettori",
@@ -1092,6 +1092,8 @@
     "div": "Welterweight",
     "rec": "24-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:21.923Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/belal-muhammad",
     "ufcRec": "15-6-0",
     "from": "USA",
     "img": "/fighters/belal-muhammad.png",
@@ -1129,9 +1131,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:24:53.416Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/belal-muhammad"
+    "rank": "7"
   },
   {
     "slug": "leon-edwards",
@@ -1140,6 +1140,8 @@
     "div": "Welterweight",
     "rec": "22-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:22.938Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/leon-edwards",
     "ufcRec": "14-5-0",
     "from": "England",
     "img": "/fighters/leon-edwards.png",
@@ -1177,9 +1179,7 @@
         "winType": "MD"
       }
     ],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:24:54.431Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/leon-edwards"
+    "rank": "8"
   },
   {
     "slug": "colby-covington",
@@ -1278,6 +1278,8 @@
     "div": "Lightweight",
     "rec": "24-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:23.952Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/arman-tsarukyan",
     "ufcRec": "11-2-0",
     "from": "Armenia",
     "img": "/fighters/arman-tsarukyan.png",
@@ -1315,9 +1317,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "2",
-    "recordCheckedAt": "2026-11-16T15:24:55.445Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/arman-tsarukyan"
+    "rank": "2"
   },
   {
     "slug": "charles-oliveira",
@@ -1326,6 +1326,8 @@
     "div": "Lightweight",
     "rec": "37-11-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:24.966Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/charles-oliveira",
     "ufcRec": "25-11-0",
     "from": "Brazil",
     "img": "/fighters/charles-oliveira.png",
@@ -1404,9 +1406,7 @@
         "q": "¿Cuándo es la próxima pelea de Charles Oliveira?",
         "a": "Su próxima pelea está en negociación con UFC. El rumor más fuerte apunta a una revancha contra Islam Makhachev o un title eliminator contra el ganador del próximo combate titular. Sigue la cobertura en Quimbara."
       }
-    ],
-    "recordCheckedAt": "2026-11-16T15:24:56.460Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/charles-oliveira"
+    ]
   },
   {
     "slug": "beneil-dariush",
@@ -1460,6 +1460,8 @@
     "div": "Lightweight",
     "rec": "26-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:25.982Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/mateusz-gamrot",
     "ufcRec": "9-5-0",
     "from": "Poland",
     "img": "/fighters/mateusz-gamrot.png",
@@ -1497,9 +1499,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:24:57.475Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/mateusz-gamrot"
+    "rank": "10"
   },
   {
     "slug": "max-holloway",
@@ -1508,6 +1508,8 @@
     "div": "Lightweight",
     "rec": "27-9-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:26.997Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/max-holloway",
     "ufcRec": "24-9-0",
     "from": "USA",
     "img": "/fighters/max-holloway.png",
@@ -1545,9 +1547,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "4",
-    "recordCheckedAt": "2026-11-16T15:24:58.487Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/max-holloway"
+    "rank": "4"
   },
   {
     "slug": "brian-ortega",
@@ -1556,6 +1556,8 @@
     "div": "Featherweight",
     "rec": "16-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:28.011Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/brian-ortega",
     "ufcRec": "8-5-0",
     "from": "USA",
     "img": "/fighters/brian-ortega.png",
@@ -1593,9 +1595,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "13",
-    "recordCheckedAt": "2026-11-16T15:24:59.502Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/brian-ortega"
+    "rank": "13"
   },
   {
     "slug": "yair-rodriguez",
@@ -1604,6 +1604,8 @@
     "div": "Featherweight",
     "rec": "21-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:29.025Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/yair-rodriguez",
     "ufcRec": "11-4-0",
     "from": "Mexico",
     "img": "/fighters/yair-rodriguez.png",
@@ -1641,9 +1643,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:25:00.516Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/yair-rodriguez"
+    "rank": "7"
   },
   {
     "slug": "arnold-allen",
@@ -1652,6 +1652,8 @@
     "div": "Featherweight",
     "rec": "21-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:30.038Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/arnold-allen",
     "ufcRec": "12-3-0",
     "from": "England",
     "img": "/fighters/arnold-allen.png",
@@ -1689,9 +1691,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6",
-    "recordCheckedAt": "2026-11-16T15:25:01.533Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/arnold-allen"
+    "rank": "6"
   },
   {
     "slug": "josh-emmett",
@@ -1745,6 +1745,8 @@
     "div": "Bantamweight",
     "rec": "20-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:31.050Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/sean-omalley",
     "ufcRec": "12-3-0",
     "from": "",
     "img": "/fighters/sean-omalley.png",
@@ -1782,9 +1784,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "2",
-    "recordCheckedAt": "2026-11-16T15:25:02.547Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/sean-omalley"
+    "rank": "2"
   },
   {
     "slug": "merab-dvalishvili",
@@ -1793,6 +1793,8 @@
     "div": "Bantamweight",
     "rec": "21-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:32.062Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/merab-dvalishvili",
     "ufcRec": "14-4-0",
     "from": "Georgia",
     "img": "/fighters/merab-dvalishvili.png",
@@ -1871,9 +1873,7 @@
         "q": "¿Cuál es el récord de Merab Dvalishvili?",
         "a": "Su récord es de <strong>14 victorias y 3 derrotas</strong>. Lleva más de 6 años invicto en UFC — su última derrota fue en 2018. Posee múltiples récords de takedowns por pelea en UFC."
       }
-    ],
-    "recordCheckedAt": "2026-11-16T15:25:03.559Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/merab-dvalishvili"
+    ]
   },
   {
     "slug": "marlon-vera",
@@ -1882,6 +1882,8 @@
     "div": "Bantamweight",
     "rec": "24-12-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:33.074Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/marlon-vera",
     "ufcRec": "16-11-0",
     "from": "Ecuador",
     "img": "/fighters/marlon-vera.png",
@@ -1919,9 +1921,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:25:04.573Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/marlon-vera"
+    "rank": "11"
   },
   {
     "slug": "aljamain-sterling",
@@ -1930,6 +1930,8 @@
     "div": "Featherweight",
     "rec": "26-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:34.088Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/aljamain-sterling",
     "ufcRec": "18-5-0",
     "from": "USA",
     "img": "/fighters/aljamain-sterling.png",
@@ -1967,9 +1969,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "4",
-    "recordCheckedAt": "2026-11-16T15:25:05.591Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/aljamain-sterling"
+    "rank": "4"
   },
   {
     "slug": "dominick-cruz",
@@ -2023,6 +2023,8 @@
     "div": "Flyweight",
     "rec": "24-10-2",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:35.103Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/brandon-moreno",
     "ufcRec": "12-7-2",
     "from": "Mexico",
     "img": "/fighters/brandon-moreno.png",
@@ -2060,9 +2062,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:25:06.606Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/brandon-moreno"
+    "rank": "8"
   },
   {
     "slug": "alexandre-pantoja",
@@ -2071,6 +2071,8 @@
     "div": "Flyweight",
     "rec": "30-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:36.115Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/alexandre-pantoja",
     "ufcRec": "14-5-0",
     "from": "Brazil",
     "img": "/fighters/alexandre-pantoja.png",
@@ -2108,9 +2110,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "1",
-    "recordCheckedAt": "2026-11-16T15:25:07.620Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/alexandre-pantoja"
+    "rank": "1"
   },
   {
     "slug": "matheus-nicolau",
@@ -2164,6 +2164,8 @@
     "div": "Flyweight",
     "rec": "18-9-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:37.126Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/brandon-royval",
     "ufcRec": "8-5-0",
     "from": "USA",
     "img": "/fighters/brandon-royval.png",
@@ -2201,9 +2203,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "3",
-    "recordCheckedAt": "2026-11-16T15:25:08.634Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/brandon-royval"
+    "rank": "3"
   },
   {
     "slug": "amir-albazi",
@@ -2212,6 +2212,8 @@
     "div": "Flyweight",
     "rec": "17-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:38.141Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/amir-albazi",
     "ufcRec": "5-2-0",
     "from": "Iraq",
     "img": "/fighters/amir-albazi.png",
@@ -2249,9 +2251,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "9",
-    "recordCheckedAt": "2026-11-16T15:25:09.667Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/amir-albazi"
+    "rank": "9"
   },
   {
     "slug": "tom-aaron",
@@ -2851,6 +2851,8 @@
     "div": "Middleweight",
     "rec": "24-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:39.160Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/israel-adesanya",
     "ufcRec": "13-6-0",
     "from": "",
     "img": "/fighters/israel-adesanya.png",
@@ -2888,9 +2890,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9",
-    "recordCheckedAt": "2026-11-16T15:25:10.679Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/israel-adesanya"
+    "rank": "9"
   },
   {
     "slug": "sam-adkins",
@@ -4744,6 +4744,8 @@
     "div": "Middleweight",
     "rec": "18-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:40.172Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/ikram-aliskerov",
     "ufcRec": "5-1-0",
     "from": "",
     "img": "/fighters/ikram-aliskerov.png",
@@ -4781,9 +4783,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
-    "recordCheckedAt": "2026-11-16T15:25:11.693Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/ikram-aliskerov"
+    "rank": "13"
   },
   {
     "slug": "leon-aliu",
@@ -4862,6 +4862,8 @@
     "div": "Middleweight",
     "rec": "28-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:41.187Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/brendan-allen",
     "ufcRec": "16-4-0",
     "from": "",
     "img": "/fighters/brendan-allen.png",
@@ -4899,9 +4901,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "4",
-    "recordCheckedAt": "2026-11-16T15:25:12.706Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/brendan-allen"
+    "rank": "4"
   },
   {
     "slug": "daniel-allen",
@@ -4961,6 +4961,8 @@
     "div": "Flyweight",
     "rec": "24-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:42.203Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/asu-almabayev",
     "ufcRec": "7-1-0",
     "from": "",
     "img": "/fighters/asu-almabayev.png",
@@ -4998,9 +5000,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:25:13.718Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/asu-almabayev"
+    "rank": "7"
   },
   {
     "slug": "bekzat-almakhan",
@@ -6541,6 +6541,8 @@
     "div": "Women's Strawweight",
     "rec": "26-15-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:43.218Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/jessica-andrade",
     "ufcRec": "17-13-0",
     "from": "",
     "img": "/fighters/jessica-andrade.png",
@@ -6578,9 +6580,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:25:14.733Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/jessica-andrade"
+    "rank": "12"
   },
   {
     "slug": "viscardi-andrade",
@@ -8313,6 +8313,8 @@
     "div": "Heavyweight",
     "rec": "15-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:44.232Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/tom-aspinall",
     "ufcRec": "8-1-0",
     "from": "England",
     "img": "/fighters/tom-aspinall.png",
@@ -8391,9 +8393,7 @@
         "a": "La próxima defensa titular está en negociación con UFC. Los candidatos en primera línea son <strong>Ciryl Gane</strong> y una revancha contra <strong>Curtis Blaydes</strong>. Sigue la cobertura en Quimbara para confirmaciones."
       }
     ],
-    "rank": "1",
-    "recordCheckedAt": "2026-11-16T15:25:15.747Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/tom-aspinall"
+    "rank": "1"
   },
   {
     "slug": "steven-asplund",
@@ -10064,6 +10064,8 @@
     "div": "Women's Flyweight",
     "rec": "15-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:45.245Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/maycee-barber",
     "ufcRec": "10-3-0",
     "from": "",
     "img": "/fighters/maycee-barber.png",
@@ -10101,9 +10103,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:25:16.761Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/maycee-barber"
+    "rank": "7"
   },
   {
     "slug": "bryan-barberena",
@@ -10294,6 +10294,8 @@
     "div": "Bantamweight",
     "rec": "22-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:46.256Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/raoni-barcelos",
     "ufcRec": "11-5-0",
     "from": "",
     "img": "/fighters/raoni-barcelos.png",
@@ -10331,9 +10333,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:25:17.774Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/raoni-barcelos"
+    "rank": "14"
   },
   {
     "slug": "daniel-barez",
@@ -11408,6 +11408,8 @@
     "div": "Bantamweight",
     "rec": "18-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:47.269Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/mario-bautista",
     "ufcRec": "12-3-0",
     "from": "",
     "img": "/fighters/mario-bautista.png",
@@ -11445,9 +11447,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "5",
-    "recordCheckedAt": "2026-11-16T15:25:18.788Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/mario-bautista"
+    "rank": "5"
   },
   {
     "slug": "chris-beal",
@@ -13641,6 +13641,8 @@
     "div": "Women's Flyweight",
     "rec": "14-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:48.299Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/erin-blanchfield",
     "ufcRec": "8-2-0",
     "from": "",
     "img": "/fighters/erin-blanchfield.png",
@@ -13678,9 +13680,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "5",
-    "recordCheckedAt": "2026-11-16T15:25:19.808Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/erin-blanchfield"
+    "rank": "5"
   },
   {
     "slug": "maximo-blanco",
@@ -14378,6 +14378,8 @@
     "div": "Welterweight",
     "rec": "20-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:49.317Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/gabriel-bonfim",
     "ufcRec": "7-1-0",
     "from": "",
     "img": "/fighters/gabriel-bonfim.png",
@@ -14415,9 +14417,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "5",
-    "recordCheckedAt": "2026-11-16T15:25:20.829Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/gabriel-bonfim"
+    "rank": "5"
   },
   {
     "slug": "ismael-bonfim",
@@ -14733,6 +14733,8 @@
     "div": "Middleweight",
     "rec": "19-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:50.332Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/caio-borralho",
     "ufcRec": "9-1-0",
     "from": "",
     "img": "/fighters/caio-borralho.png",
@@ -14770,9 +14772,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "5",
-    "recordCheckedAt": "2026-11-16T15:25:21.894Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/caio-borralho"
+    "rank": "5"
   },
   {
     "slug": "zachary-borrego",
@@ -15422,6 +15422,8 @@
     "div": "Welterweight",
     "rec": "19-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:51.347Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/sean-brady",
     "ufcRec": "9-2-0",
     "from": "",
     "img": "/fighters/sean-brady.png",
@@ -15459,9 +15461,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "6",
-    "recordCheckedAt": "2026-11-16T15:25:22.912Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/sean-brady"
+    "rank": "6"
   },
   {
     "slug": "ebenezer-fontes-braga",
@@ -16248,6 +16248,8 @@
     "div": "Featherweight",
     "rec": "20-5-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:52.363Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/joanderson-brito",
     "ufcRec": "8-3-0",
     "from": "",
     "img": "/fighters/joanderson-brito.png",
@@ -16285,9 +16287,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:25:23.928Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/joanderson-brito"
+    "rank": "11"
   },
   {
     "slug": "kaik-brito",
@@ -17413,6 +17413,8 @@
     "div": "Welterweight",
     "rec": "21-9-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:53.376Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/joaquin-buckley",
     "ufcRec": "11-7-0",
     "from": "",
     "img": "/fighters/joaquin-buckley.png",
@@ -17450,9 +17452,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
-    "recordCheckedAt": "2026-11-16T15:25:24.945Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/joaquin-buckley"
+    "rank": "13"
   },
   {
     "slug": "martin-buday",
@@ -17706,6 +17706,8 @@
     "div": "Light Heavyweight",
     "rec": "21-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:54.391Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/modestas-bukauskas",
     "ufcRec": "9-5-0",
     "from": "",
     "img": "/fighters/modestas-bukauskas.png",
@@ -17743,9 +17745,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:25:25.959Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/modestas-bukauskas"
+    "rank": "15"
   },
   {
     "slug": "lee-kwan-bum",
@@ -19803,6 +19803,8 @@
     "div": "Middleweight",
     "rec": "18-10-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:55.406Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/jared-cannonier",
     "ufcRec": "11-10-0",
     "from": "",
     "img": "/fighters/jared-cannonier.png",
@@ -19840,9 +19842,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:25:26.972Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/jared-cannonier"
+    "rank": "12"
   },
   {
     "slug": "jose-canseco",
@@ -21449,6 +21449,8 @@
     "div": "Women's Bantamweight",
     "rec": "10-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:56.419Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/jacqueline-cavalcanti",
     "ufcRec": "5-1-0",
     "from": "",
     "img": "/fighters/jacqueline-cavalcanti.png",
@@ -21486,9 +21488,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:25:27.987Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/jacqueline-cavalcanti"
+    "rank": "8"
   },
   {
     "slug": "igor-cavalcanti",
@@ -22023,6 +22023,8 @@
     "div": "Women's Bantamweight",
     "rec": "8-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:57.434Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/chelsea-chandler",
     "ufcRec": "4-3-0",
     "from": "",
     "img": "/fighters/chelsea-chandler.png",
@@ -22060,9 +22062,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:25:29.005Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/chelsea-chandler"
+    "rank": "15"
   },
   {
     "slug": "eduardo-chapolin",
@@ -22456,6 +22456,8 @@
     "div": "Women's Bantamweight",
     "rec": "11-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:58.447Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/macy-chiasson",
     "ufcRec": "8-7-0",
     "from": "",
     "img": "/fighters/macy-chiasson.png",
@@ -22493,9 +22495,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:25:30.069Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/macy-chiasson"
+    "rank": "10"
   },
   {
     "slug": "michael-chiesa",
@@ -22594,6 +22594,8 @@
     "div": "Middleweight",
     "rec": "15-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:39:59.461Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/khamzat-chimaev",
     "ufcRec": "9-1-0",
     "from": "",
     "img": "/fighters/khamzat-chimaev.png",
@@ -22631,9 +22633,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "1",
-    "recordCheckedAt": "2026-11-16T15:25:31.083Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/khamzat-chimaev"
+    "rank": "1"
   },
   {
     "slug": "sako-chivitchian",
@@ -24986,6 +24986,8 @@
     "div": "Women's Bantamweight",
     "rec": "10-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:00.476Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/nora-cornolle",
     "ufcRec": "4-3-0",
     "from": "",
     "img": "/fighters/nora-cornolle.png",
@@ -25023,9 +25025,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "13",
-    "recordCheckedAt": "2026-11-16T15:25:32.098Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/nora-cornolle"
+    "rank": "13"
   },
   {
     "slug": "clint-coronel",
@@ -25152,6 +25152,8 @@
     "div": "Heavyweight",
     "rec": "17-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:01.488Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/waldo-cortes-acosta",
     "ufcRec": "0-0-0",
     "from": "",
     "img": "/fighters/waldo-cortes-acosta.png",
@@ -25162,9 +25164,7 @@
     "team": "",
     "form": [],
     "formTypes": [],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:25:33.128Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/waldo-cortes-acosta"
+    "rank": "8"
   },
   {
     "slug": "tracy-cortez",
@@ -25173,6 +25173,8 @@
     "div": "Women's Flyweight",
     "rec": "12-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:02.501Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/tracy-cortez",
     "ufcRec": "7-3-0",
     "from": "",
     "img": "/fighters/tracy-cortez.png",
@@ -25210,9 +25212,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "9",
-    "recordCheckedAt": "2026-11-16T15:25:34.144Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/tracy-cortez"
+    "rank": "9"
   },
   {
     "slug": "reyes-cortez-jr",
@@ -25461,6 +25461,8 @@
     "div": "Featherweight",
     "rec": "26-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:03.516Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/melquizael-costa",
     "ufcRec": "8-3-0",
     "from": "",
     "img": "/fighters/melquizael-costa.png",
@@ -25498,9 +25500,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:25:35.208Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/melquizael-costa"
+    "rank": "12"
   },
   {
     "slug": "vitor-costa",
@@ -26175,6 +26175,8 @@
     "div": "Women's Bantamweight",
     "rec": "8-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:04.530Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/melissa-croden",
     "ufcRec": "2-2-0",
     "from": "",
     "img": "/fighters/melissa-croden.png",
@@ -26207,9 +26209,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:25:36.223Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/melissa-croden"
+    "rank": "15"
   },
   {
     "slug": "kevin-croom",
@@ -28494,6 +28494,8 @@
     "div": "Lightweight",
     "rec": "25-3-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:05.543Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/grant-dawson",
     "ufcRec": "13-2-1",
     "from": "",
     "img": "/fighters/grant-dawson.png",
@@ -28531,9 +28533,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:25:37.243Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/grant-dawson"
+    "rank": "15"
   },
   {
     "slug": "jason-day",
@@ -29160,6 +29160,8 @@
     "div": "Light Heavyweight",
     "rec": "22-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:06.556Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/reinier-de-ridder",
     "ufcRec": "5-2-0",
     "from": "",
     "img": "/fighters/reinier-de-ridder.png",
@@ -29197,9 +29199,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:25:38.258Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/reinier-de-ridder"
+    "rank": "14"
   },
   {
     "slug": "crezio-de-souza",
@@ -29550,6 +29550,8 @@
     "div": "Heavyweight",
     "rec": "26-8-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:07.571Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/ante-delija",
     "ufcRec": "1-2-0",
     "from": "",
     "img": "/fighters/ante-delija.png",
@@ -29577,9 +29579,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:25:39.271Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/ante-delija"
+    "rank": "11"
   },
   {
     "slug": "jack-della-maddalena",
@@ -29588,6 +29588,8 @@
     "div": "Welterweight",
     "rec": "18-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:08.587Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/jack-della-maddalena",
     "ufcRec": "9-2-0",
     "from": "",
     "img": "/fighters/jack-della-maddalena.png",
@@ -29625,9 +29627,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "4",
-    "recordCheckedAt": "2026-11-16T15:25:40.290Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/jack-della-maddalena"
+    "rank": "4"
   },
   {
     "slug": "roland-delorme",
@@ -29960,6 +29960,8 @@
     "div": "Women's Strawweight",
     "rec": "17-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:09.600Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/mackenzie-dern",
     "ufcRec": "12-5-0",
     "from": "",
     "img": "/fighters/mackenzie-dern.png",
@@ -29997,9 +29999,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "C",
-    "recordCheckedAt": "2026-11-16T15:25:41.309Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/mackenzie-dern"
+    "rank": "C"
   },
   {
     "slug": "booker-derousse",
@@ -32901,6 +32901,8 @@
     "div": "Women's Bantamweight",
     "rec": "13-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:10.614Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/norma-dumont",
     "ufcRec": "9-4-0",
     "from": "",
     "img": "/fighters/norma-dumont.png",
@@ -32938,9 +32940,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "4",
-    "recordCheckedAt": "2026-11-16T15:25:42.323Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/norma-dumont"
+    "rank": "4"
   },
   {
     "slug": "chris-duncan",
@@ -32994,6 +32994,8 @@
     "div": "Middleweight",
     "rec": "15-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:11.626Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/christian-leroy-duncan",
     "ufcRec": "8-3-0",
     "from": "",
     "img": "/fighters/christian-leroy-duncan.png",
@@ -33031,9 +33033,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:25:43.339Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/christian-leroy-duncan"
+    "rank": "10"
   },
   {
     "slug": "evan-dunham",
@@ -34031,6 +34031,8 @@
     "div": "Women's Bantamweight",
     "rec": "18-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:12.640Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/joselyne-edwards",
     "ufcRec": "9-4-0",
     "from": "",
     "img": "/fighters/joselyne-edwards.png",
@@ -34068,9 +34070,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "1",
-    "recordCheckedAt": "2026-11-16T15:25:44.354Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/joselyne-edwards"
+    "rank": "1"
   },
   {
     "slug": "tom-egan",
@@ -34529,6 +34529,8 @@
     "div": "Flyweight",
     "rec": "23-14-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:13.654Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/tim-elliott",
     "ufcRec": "11-12-0",
     "from": "",
     "img": "/fighters/tim-elliott.png",
@@ -34566,9 +34568,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:25:45.368Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/tim-elliott"
+    "rank": "11"
   },
   {
     "slug": "oban-elliott",
@@ -34916,6 +34916,8 @@
     "div": "Featherweight",
     "rec": "23-8-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:14.666Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/jamall-emmers",
     "ufcRec": "6-4-0",
     "from": "",
     "img": "/fighters/jamall-emmers.png",
@@ -34953,9 +34955,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:25:46.383Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/jamall-emmers"
+    "rank": "14"
   },
   {
     "slug": "marius-enache",
@@ -35216,6 +35216,8 @@
     "div": "Flyweight",
     "rec": "14-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:15.684Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/steve-erceg",
     "ufcRec": "5-4-0",
     "from": "",
     "img": "/fighters/steve-erceg.png",
@@ -35253,9 +35255,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:25:47.397Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/steve-erceg"
+    "rank": "12"
   },
   {
     "slug": "tom-erikson",
@@ -36172,6 +36172,8 @@
     "div": "Featherweight",
     "rec": "20-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:16.700Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/movsar-evloev",
     "ufcRec": "10-1-0",
     "from": "",
     "img": "/fighters/movsar-evloev.png",
@@ -36209,9 +36211,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "1",
-    "recordCheckedAt": "2026-11-16T15:25:48.410Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/movsar-evloev"
+    "rank": "1"
   },
   {
     "slug": "andre-ewell",
@@ -37218,6 +37218,8 @@
     "div": "Women's Flyweight",
     "rec": "11-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:17.716Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/gabriella-fernandes",
     "ufcRec": "3-4-0",
     "from": "",
     "img": "/fighters/gabriella-fernandes.png",
@@ -37255,9 +37257,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:25:49.427Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/gabriella-fernandes"
+    "rank": "15"
   },
   {
     "slug": "kaue-fernandes",
@@ -37772,6 +37772,8 @@
     "div": "Bantamweight",
     "rec": "25-8-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:18.731Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/deiveson-figueiredo",
     "ufcRec": "14-8-1",
     "from": "",
     "img": "/fighters/deiveson-figueiredo.png",
@@ -37809,9 +37811,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:25:50.442Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/deiveson-figueiredo"
+    "rank": "12"
   },
   {
     "slug": "francisco-figueiredo",
@@ -38239,6 +38239,8 @@
     "div": "Women's Flyweight",
     "rec": "13-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:19.746Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/manon-fiorot",
     "ufcRec": "8-2-0",
     "from": "",
     "img": "/fighters/manon-fiorot.png",
@@ -38276,9 +38278,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "3",
-    "recordCheckedAt": "2026-11-16T15:25:51.456Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/manon-fiorot"
+    "rank": "3"
   },
   {
     "slug": "luiz-firmino",
@@ -38465,6 +38465,8 @@
     "div": "Lightweight",
     "rec": "14-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:20.766Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/rafael-fiziev",
     "ufcRec": "8-5-0",
     "from": "",
     "img": "/fighters/rafael-fiziev.png",
@@ -38502,9 +38504,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:25:52.472Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/rafael-fiziev"
+    "rank": "11"
   },
   {
     "slug": "colin-fletcher",
@@ -41510,6 +41510,8 @@
     "div": "Featherweight",
     "rec": "19-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:23.148Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/steve-garcia",
     "ufcRec": "8-3-0",
     "from": "",
     "img": "/fighters/steve-garcia.png",
@@ -41547,9 +41549,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:25:53.486Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/steve-garcia"
+    "rank": "10"
   },
   {
     "slug": "elias-garcia",
@@ -43124,6 +43124,8 @@
     "div": "Women's Strawweight",
     "rec": "15-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:24.163Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/loopy-godinez",
     "ufcRec": "11-6-0",
     "from": "",
     "img": "/fighters/loopy-godinez.png",
@@ -43161,9 +43163,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:25:54.500Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/loopy-godinez"
+    "rank": "8"
   },
   {
     "slug": "jason-godsey",
@@ -43381,6 +43381,8 @@
     "div": "Women's Strawweight",
     "rec": "13-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:25.176Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/denise-gomes",
     "ufcRec": "7-2-0",
     "from": "",
     "img": "/fighters/denise-gomes.png",
@@ -43418,9 +43420,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "4",
-    "recordCheckedAt": "2026-11-16T15:25:55.513Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/denise-gomes"
+    "rank": "4"
   },
   {
     "slug": "sergio-gomez",
@@ -45368,6 +45368,8 @@
     "div": "Women's Flyweight",
     "rec": "18-5-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:26.192Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/alexa-grasso",
     "ufcRec": "10-5-2",
     "from": "",
     "img": "/fighters/alexa-grasso.png",
@@ -45405,9 +45407,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "2",
-    "recordCheckedAt": "2026-11-16T15:25:56.527Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/alexa-grasso"
+    "rank": "2"
   },
   {
     "slug": "tony-gravely",
@@ -46877,6 +46877,8 @@
     "div": "Light Heavyweight",
     "rec": "18-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:27.227Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/bogdan-guskov",
     "ufcRec": "4-2-1",
     "from": "",
     "img": "/fighters/bogdan-guskov.png",
@@ -46914,9 +46916,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:25:57.541Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/bogdan-guskov"
+    "rank": "8"
   },
   {
     "slug": "gugun-gusman",
@@ -48803,6 +48803,8 @@
     "div": "Women's Bantamweight",
     "rec": "20-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:28.243Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/kayla-harrison",
     "ufcRec": "4-0-0",
     "from": "",
     "img": "/fighters/kayla-harrison.png",
@@ -48835,9 +48837,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "C",
-    "recordCheckedAt": "2026-11-16T15:25:58.605Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/kayla-harrison"
+    "rank": "C"
   },
   {
     "slug": "collin-hart",
@@ -50538,6 +50538,8 @@
     "div": "Middleweight",
     "rec": "15-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:29.257Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/anthony-hernandez",
     "ufcRec": "9-4-0",
     "from": "",
     "img": "/fighters/anthony-hernandez.png",
@@ -50575,9 +50577,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:25:59.620Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/anthony-hernandez"
+    "rank": "8"
   },
   {
     "slug": "nohelin-hernandez",
@@ -51282,6 +51282,8 @@
     "div": "Women's Strawweight",
     "rec": "19-16-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:30.271Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/angela-hill",
     "ufcRec": "14-16-0",
     "from": "",
     "img": "/fighters/angela-hill.png",
@@ -51319,9 +51321,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:26:00.636Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/angela-hill"
+    "rank": "15"
   },
   {
     "slug": "tyler-hill",
@@ -51763,6 +51763,8 @@
     "div": "Heavyweight",
     "rec": "10-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:31.284Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/josh-hokit",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "/fighters/josh-hokit.png",
@@ -51800,9 +51802,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "4",
-    "recordCheckedAt": "2026-11-16T15:26:01.698Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/josh-hokit"
+    "rank": "4"
   },
   {
     "slug": "andrew-holbrook",
@@ -51901,6 +51901,8 @@
     "div": "Welterweight",
     "rec": "29-15-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:32.297Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/kevin-holland",
     "ufcRec": "16-13-1",
     "from": "",
     "img": "/fighters/kevin-holland.png",
@@ -51938,9 +51940,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:26:02.760Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/kevin-holland"
+    "rank": "15"
   },
   {
     "slug": "roger-hollett",
@@ -52537,6 +52537,8 @@
     "div": "Lightweight",
     "rec": "24-15-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:33.313Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/dan-hooker",
     "ufcRec": "14-11-0",
     "from": "",
     "img": "/fighters/dan-hooker.png",
@@ -52574,9 +52576,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:26:03.774Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/dan-hooker"
+    "rank": "14"
   },
   {
     "slug": "chase-hooper",
@@ -52721,6 +52721,8 @@
     "div": "Flyweight",
     "rec": "36-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:34.325Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/kyoji-horiguchi",
     "ufcRec": "9-2-0",
     "from": "",
     "img": "/fighters/kyoji-horiguchi.png",
@@ -52758,9 +52760,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "5",
-    "recordCheckedAt": "2026-11-16T15:26:04.787Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/kyoji-horiguchi"
+    "rank": "5"
   },
   {
     "slug": "yuma-horiuchi",
@@ -53542,6 +53542,8 @@
     "div": "Women's Strawweight",
     "rec": "11-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:35.342Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/sam-hughes",
     "ufcRec": "6-6-0",
     "from": "",
     "img": "/fighters/sam-hughes.png",
@@ -53579,9 +53581,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:26:05.801Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/sam-hughes"
+    "rank": "15"
   },
   {
     "slug": "victor-hugo",
@@ -54258,6 +54258,8 @@
     "div": "Middleweight",
     "rec": "17-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:36.356Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/nassourdine-imavov",
     "ufcRec": "9-2-0",
     "from": "",
     "img": "/fighters/nassourdine-imavov.png",
@@ -54295,9 +54297,7 @@
         "winType": "MD"
       }
     ],
-    "rank": "3",
-    "recordCheckedAt": "2026-11-16T15:26:06.815Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/nassourdine-imavov"
+    "rank": "3"
   },
   {
     "slug": "brad-imes",
@@ -55439,6 +55439,8 @@
     "div": "Bantamweight",
     "rec": "16-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:37.370Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/montel-jackson",
     "ufcRec": "10-4-0",
     "from": "",
     "img": "/fighters/montel-jackson.png",
@@ -55476,9 +55478,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:26:07.836Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/montel-jackson"
+    "rank": "11"
   },
   {
     "slug": "eric-jacob",
@@ -55607,6 +55607,8 @@
     "div": "Women's Strawweight",
     "rec": "23-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:38.387Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/virna-jandiroba",
     "ufcRec": "9-5-0",
     "from": "",
     "img": "/fighters/virna-jandiroba.png",
@@ -55644,9 +55646,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "3",
-    "recordCheckedAt": "2026-11-16T15:26:08.849Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/virna-jandiroba"
+    "rank": "3"
   },
   {
     "slug": "ryan-janes",
@@ -55913,6 +55913,8 @@
     "div": "Women's Flyweight",
     "rec": "16-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:39.400Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/jasmine-jasudavicius",
     "ufcRec": "10-4-0",
     "from": "",
     "img": "/fighters/jasmine-jasudavicius.png",
@@ -55950,9 +55952,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "4",
-    "recordCheckedAt": "2026-11-16T15:26:09.862Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/jasmine-jasudavicius"
+    "rank": "4"
   },
   {
     "slug": "louis-jauregui",
@@ -57277,6 +57277,8 @@
     "div": "Flyweight",
     "rec": "20-9-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:40.414Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/charles-johnson",
     "ufcRec": "9-7-0",
     "from": "",
     "img": "/fighters/charles-johnson.png",
@@ -57314,9 +57316,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:26:10.877Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/charles-johnson"
+    "rank": "14"
   },
   {
     "slug": "donte-johnson",
@@ -58471,6 +58471,8 @@
     "div": "Women's Flyweight",
     "rec": "7-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:41.428Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/carli-judice",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "/fighters/carli-judice.png",
@@ -58508,9 +58510,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:26:11.889Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/carli-judice"
+    "rank": "15"
   },
   {
     "slug": "steve-judson",
@@ -59331,6 +59331,8 @@
     "div": "Flyweight",
     "rec": "23-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:42.444Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/manel-kape",
     "ufcRec": "8-3-0",
     "from": "",
     "img": "/fighters/manel-kape.png",
@@ -59368,9 +59370,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "2",
-    "recordCheckedAt": "2026-11-16T15:26:12.904Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/manel-kape"
+    "rank": "2"
   },
   {
     "slug": "david-kaplan",
@@ -59822,6 +59822,8 @@
     "div": "Flyweight",
     "rec": "11-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:43.457Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/loneer-kavanagh",
     "ufcRec": "4-2-0",
     "from": "",
     "img": "/fighters/loneer-kavanagh.png",
@@ -59859,9 +59861,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6",
-    "recordCheckedAt": "2026-11-16T15:26:13.920Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/loneer-kavanagh"
+    "rank": "6"
   },
   {
     "slug": "yusuke-kawaguchi",
@@ -61860,6 +61860,8 @@
     "div": "Women's Strawweight",
     "rec": "10-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:44.570Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/fatima-kline",
     "ufcRec": "4-1-0",
     "from": "",
     "img": "/fighters/fatima-kline.png",
@@ -61897,9 +61899,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6",
-    "recordCheckedAt": "2026-11-16T15:26:14.935Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/fatima-kline"
+    "rank": "6"
   },
   {
     "slug": "felix-klinkhammer",
@@ -62575,6 +62575,8 @@
     "div": "Middleweight",
     "rec": "16-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:45.584Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/roman-kopylov",
     "ufcRec": "9-5-0",
     "from": "",
     "img": "/fighters/roman-kopylov.png",
@@ -62612,9 +62614,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:26:15.950Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/roman-kopylov"
+    "rank": "14"
   },
   {
     "slug": "bruno-korea",
@@ -63102,6 +63102,8 @@
     "div": "Light Heavyweight",
     "rec": "31-13-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:46.597Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/nikita-krylov",
     "ufcRec": "12-11-0",
     "from": "",
     "img": "/fighters/nikita-krylov.png",
@@ -63139,9 +63141,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:26:16.968Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/nikita-krylov"
+    "rank": "15"
   },
   {
     "slug": "mariusz-ksiazkiewicz",
@@ -63364,6 +63364,8 @@
     "div": "Heavyweight",
     "rec": "14-4-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:47.611Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/rizvan-kuniev",
     "ufcRec": "2-2-0",
     "from": "",
     "img": "/fighters/rizvan-kuniev.png",
@@ -63396,9 +63398,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "6",
-    "recordCheckedAt": "2026-11-16T15:26:17.981Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/rizvan-kuniev"
+    "rank": "6"
   },
   {
     "slug": "keigo-kunihara",
@@ -66379,6 +66379,8 @@
     "div": "Women's Strawweight",
     "rec": "15-7-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:48.626Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/amanda-lemos",
     "ufcRec": "9-8-0",
     "from": "",
     "img": "/fighters/amanda-lemos.png",
@@ -66416,9 +66418,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:26:18.995Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/amanda-lemos"
+    "rank": "11"
   },
   {
     "slug": "giacomo-lemos",
@@ -67061,6 +67061,8 @@
     "div": "Heavyweight",
     "rec": "29-14-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:49.640Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/derrick-lewis",
     "ufcRec": "20-12-0",
     "from": "",
     "img": "/fighters/derrick-lewis.png",
@@ -67098,9 +67100,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:26:20.025Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/derrick-lewis"
+    "rank": "14"
   },
   {
     "slug": "bevon-lewis",
@@ -68666,6 +68666,8 @@
     "div": "Featherweight",
     "rec": "28-8-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:50.653Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/diego-lopes",
     "ufcRec": "8-3-0",
     "from": "",
     "img": "/fighters/diego-lopes.png",
@@ -68703,9 +68705,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "2",
-    "recordCheckedAt": "2026-11-16T15:26:21.040Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/diego-lopes"
+    "rank": "2"
   },
   {
     "slug": "bruno-lopes",
@@ -69389,6 +69389,8 @@
     "div": "Women's Strawweight",
     "rec": "19-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:51.666Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/iasmin-lucindo",
     "ufcRec": "6-2-0",
     "from": "",
     "img": "/fighters/iasmin-lucindo.png",
@@ -69426,9 +69428,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:26:22.057Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/iasmin-lucindo"
+    "rank": "8"
   },
   {
     "slug": "duane-ludwig",
@@ -70296,6 +70296,8 @@
     "div": "Welterweight",
     "rec": "17-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:52.679Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/ian-machado-garry",
     "ufcRec": "10-2-0",
     "from": "",
     "img": "/fighters/ian-machado-garry.png",
@@ -70333,9 +70335,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "1",
-    "recordCheckedAt": "2026-11-16T15:26:23.069Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/ian-machado-garry"
+    "rank": "1"
   },
   {
     "slug": "lyoto-machida",
@@ -71085,6 +71085,8 @@
     "div": "Middleweight",
     "rec": "30-7-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:53.693Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/abus-magomedov",
     "ufcRec": "6-3-0",
     "from": "",
     "img": "/fighters/abus-magomedov.png",
@@ -71122,9 +71124,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:26:24.085Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/abus-magomedov"
+    "rank": "11"
   },
   {
     "slug": "shara-magomedov",
@@ -71133,6 +71133,8 @@
     "div": "Middleweight",
     "rec": "17-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:54.708Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/shara-magomedov",
     "ufcRec": "6-1-0",
     "from": "",
     "img": "/fighters/shara-magomedov.png",
@@ -71170,9 +71172,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:26:25.099Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/shara-magomedov"
+    "rank": "15"
   },
   {
     "slug": "murtazali-magomedov",
@@ -71914,6 +71914,8 @@
     "div": "Welterweight",
     "rec": "15-2-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:55.722Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/mike-malott",
     "ufcRec": "8-1-0",
     "from": "",
     "img": "/fighters/mike-malott.png",
@@ -71951,9 +71953,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "9",
-    "recordCheckedAt": "2026-11-16T15:26:26.111Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/mike-malott"
+    "rank": "9"
   },
   {
     "slug": "regina-malpica-rivera",
@@ -73693,6 +73693,8 @@
     "div": "Bantamweight",
     "rec": "15-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:56.735Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/david-martinez",
     "ufcRec": "5-0-0",
     "from": "",
     "img": "/fighters/david-martinez.png",
@@ -73730,9 +73732,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:26:27.124Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/david-martinez"
+    "rank": "8"
   },
   {
     "slug": "wagner-da-conceicao-martins",
@@ -74462,6 +74462,8 @@
     "div": "Women's Flyweight",
     "rec": "17-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:57.749Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/miranda-maverick",
     "ufcRec": "8-4-0",
     "from": "",
     "img": "/fighters/miranda-maverick.png",
@@ -74499,9 +74501,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:26:28.141Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/miranda-maverick"
+    "rank": "10"
   },
   {
     "slug": "nick-maximov",
@@ -75543,6 +75543,8 @@
     "div": "Bantamweight",
     "rec": "12-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:58.761Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/marcus-mcghee",
     "ufcRec": "6-1-0",
     "from": "",
     "img": "/fighters/marcus-mcghee.png",
@@ -75580,9 +75582,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
-    "recordCheckedAt": "2026-11-16T15:26:29.155Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/marcus-mcghee"
+    "rank": "13"
   },
   {
     "slug": "ryan-mcgillivray",
@@ -76395,6 +76395,8 @@
     "div": "Welterweight",
     "rec": "14-3-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:40:59.776Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/uros-medic",
     "ufcRec": "8-3-1",
     "from": "",
     "img": "/fighters/uros-medic.png",
@@ -76432,9 +76434,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:26:30.221Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/uros-medic"
+    "rank": "11"
   },
   {
     "slug": "todd-medina",
@@ -77094,6 +77094,8 @@
     "div": "Light Heavyweight",
     "rec": "19-6-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:00.793Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/alonzo-menifield",
     "ufcRec": "12-6-1",
     "from": "",
     "img": "/fighters/alonzo-menifield.png",
@@ -77131,9 +77133,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "13",
-    "recordCheckedAt": "2026-11-16T15:26:31.240Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/alonzo-menifield"
+    "rank": "13"
   },
   {
     "slug": "ivan-menjivar",
@@ -77322,6 +77322,8 @@
     "div": "Women's Bantamweight",
     "rec": "8-0-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:01.812Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/bia-mesquita",
     "ufcRec": "4-0-0",
     "from": "",
     "img": "/fighters/bia-mesquita.png",
@@ -77354,9 +77356,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:26:32.304Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/bia-mesquita"
+    "rank": "11"
   },
   {
     "slug": "jeremiah-metcalf",
@@ -78985,6 +78985,8 @@
     "div": "Bantamweight",
     "rec": "19-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:02.831Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/bryce-mitchell",
     "ufcRec": "10-3-0",
     "from": "",
     "img": "/fighters/bryce-mitchell.png",
@@ -79022,9 +79024,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:26:33.317Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/bryce-mitchell"
+    "rank": "15"
   },
   {
     "slug": "maurice-mitchell",
@@ -79344,6 +79344,8 @@
     "div": "Women's Strawweight",
     "rec": "16-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:03.893Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/mizuki",
     "ufcRec": "3-1-0",
     "from": "",
     "img": "/fighters/mizuki.png",
@@ -79376,9 +79378,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:26:34.385Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/mizuki"
+    "rank": "12"
   },
   {
     "slug": "tatsuya-mizuno",
@@ -79538,6 +79538,8 @@
     "div": "Lightweight",
     "rec": "21-8-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:04.909Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/renato-moicano",
     "ufcRec": "13-8-0",
     "from": "",
     "img": "/fighters/renato-moicano.png",
@@ -79575,9 +79577,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
-    "recordCheckedAt": "2026-11-16T15:26:35.402Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/renato-moicano"
+    "rank": "13"
   },
   {
     "slug": "thiago-moises",
@@ -79902,6 +79902,8 @@
     "div": "Women's Bantamweight",
     "rec": "8-0-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:05.924Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/michelle-montague",
     "ufcRec": "2-0-0",
     "from": "",
     "img": "/fighters/michelle-montague.png",
@@ -79924,9 +79926,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:26:36.417Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/michelle-montague"
+    "rank": "12"
   },
   {
     "slug": "andrew-montanez",
@@ -80707,6 +80707,8 @@
     "div": "Welterweight",
     "rec": "19-0-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:06.938Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/michael-morales",
     "ufcRec": "7-0-0",
     "from": "",
     "img": "/fighters/michael-morales.png",
@@ -80744,9 +80746,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "3",
-    "recordCheckedAt": "2026-11-16T15:26:37.431Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/michael-morales"
+    "rank": "3"
   },
   {
     "slug": "sarah-moras",
@@ -81469,6 +81469,8 @@
     "div": "Women's Flyweight",
     "rec": "12-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:07.957Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/eduarda-moura",
     "ufcRec": "3-3-0",
     "from": "",
     "img": "/fighters/eduarda-moura.png",
@@ -81506,9 +81508,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "13",
-    "recordCheckedAt": "2026-11-16T15:26:38.445Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/eduarda-moura"
+    "rank": "13"
   },
   {
     "slug": "gegard-mousasi",
@@ -82456,6 +82456,8 @@
     "div": "Featherweight",
     "rec": "17-1-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:08.972Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/lerone-murphy",
     "ufcRec": "9-1-1",
     "from": "",
     "img": "/fighters/lerone-murphy.png",
@@ -82493,9 +82495,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "3",
-    "recordCheckedAt": "2026-11-16T15:26:39.460Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/lerone-murphy"
+    "rank": "3"
   },
   {
     "slug": "lee-murray",
@@ -82569,6 +82569,8 @@
     "div": "Light Heavyweight",
     "rec": "16-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:09.986Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/azamat-murzakanov",
     "ufcRec": "6-2-0",
     "from": "",
     "img": "/fighters/azamat-murzakanov.png",
@@ -82606,9 +82608,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9",
-    "recordCheckedAt": "2026-11-16T15:26:40.476Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/azamat-murzakanov"
+    "rank": "9"
   },
   {
     "slug": "josias-musasa",
@@ -82646,6 +82646,8 @@
     "div": "Lightweight",
     "rec": "24-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:11.000Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/tofiq-musayev",
     "ufcRec": "2-1-0",
     "from": "",
     "img": "/fighters/tofiq-musayev.png",
@@ -82673,9 +82675,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:26:41.490Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/tofiq-musayev"
+    "rank": "12"
   },
   {
     "slug": "nicholas-musoke",
@@ -83416,6 +83416,8 @@
     "div": "Women's Flyweight",
     "rec": "15-8-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:12.021Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/rose-namajunas",
     "ufcRec": "12-7-0",
     "from": "",
     "img": "/fighters/rose-namajunas.png",
@@ -83453,9 +83455,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6",
-    "recordCheckedAt": "2026-11-16T15:26:42.515Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/rose-namajunas"
+    "rank": "6"
   },
   {
     "slug": "yasuhito-namekawa",
@@ -84813,6 +84813,8 @@
     "div": "Middleweight",
     "rec": "9-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:13.035Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/bo-nickal",
     "ufcRec": "6-1-0",
     "from": "",
     "img": "/fighters/bo-nickal.png",
@@ -84850,9 +84852,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:26:43.527Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/bo-nickal"
+    "rank": "14"
   },
   {
     "slug": "mike-nickels",
@@ -85581,6 +85581,8 @@
     "div": "Lightweight",
     "rec": "12-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:14.050Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/tom-nolan",
     "ufcRec": "6-1-0",
     "from": "",
     "img": "/fighters/tom-nolan.png",
@@ -85618,9 +85620,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:26:44.542Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/tom-nolan"
+    "rank": "12"
   },
   {
     "slug": "eric-nolan",
@@ -86356,6 +86356,8 @@
     "div": "Bantamweight",
     "rec": "20-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:15.068Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/umar-nurmagomedov",
     "ufcRec": "8-2-0",
     "from": "",
     "img": "/fighters/umar-nurmagomedov.png",
@@ -86393,9 +86395,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "4",
-    "recordCheckedAt": "2026-11-16T15:26:45.556Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/umar-nurmagomedov"
+    "rank": "4"
   },
   {
     "slug": "adilet-nurmatov",
@@ -86657,6 +86657,8 @@
     "div": "Women's Flyweight",
     "rec": "12-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:16.084Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/casey-oneill",
     "ufcRec": "7-2-0",
     "from": "",
     "img": "/fighters/casey-oneill.png",
@@ -86694,9 +86696,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:26:46.574Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/casey-oneill"
+    "rank": "12"
   },
   {
     "slug": "brendan-oreilly",
@@ -87997,6 +87997,8 @@
     "div": "Featherweight",
     "rec": "14-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:17.099Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/david-onama",
     "ufcRec": "6-3-0",
     "from": "",
     "img": "/fighters/david-onama.png",
@@ -88034,9 +88036,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:26:47.591Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/david-onama"
+    "rank": "15"
   },
   {
     "slug": "charlie-ontiveros",
@@ -91172,6 +91172,8 @@
     "div": "Women's Bantamweight",
     "rec": "13-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:18.113Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/julianna-pena",
     "ufcRec": "8-4-0",
     "from": "",
     "img": "/fighters/julianna-pena.png",
@@ -91209,9 +91211,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "1",
-    "recordCheckedAt": "2026-11-16T15:26:48.606Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/julianna-pena"
+    "rank": "1"
   },
   {
     "slug": "luis-pena",
@@ -91517,6 +91517,8 @@
     "div": "Women's Bantamweight",
     "rec": "16-10-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:19.128Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/raquel-pennington",
     "ufcRec": "13-6-0",
     "from": "",
     "img": "/fighters/raquel-pennington.png",
@@ -91554,9 +91556,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:26:49.621Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/raquel-pennington"
+    "rank": "7"
   },
   {
     "slug": "tecia-pennington",
@@ -91848,6 +91848,8 @@
     "div": "Women's Bantamweight",
     "rec": "8-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:20.141Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/alice-pereira",
     "ufcRec": "2-2-0",
     "from": "",
     "img": "/fighters/alice-pereira.png",
@@ -91880,9 +91882,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:26:50.635Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/alice-pereira"
+    "rank": "14"
   },
   {
     "slug": "rolando-perez",
@@ -92158,6 +92158,8 @@
     "div": "Women's Bantamweight",
     "rec": "14-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:21.155Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/ailin-perez",
     "ufcRec": "7-1-0",
     "from": "",
     "img": "/fighters/ailin-perez.png",
@@ -92195,9 +92197,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "3",
-    "recordCheckedAt": "2026-11-16T15:26:51.650Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/ailin-perez"
+    "rank": "3"
   },
   {
     "slug": "cristian-perez",
@@ -92247,6 +92247,8 @@
     "div": "Heavyweight",
     "rec": "7-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:22.169Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/brando-pericic",
     "ufcRec": "3-0-0",
     "from": "",
     "img": "/fighters/brando-pericic.png",
@@ -92274,9 +92276,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
-    "recordCheckedAt": "2026-11-16T15:26:52.664Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/brando-pericic"
+    "rank": "13"
   },
   {
     "slug": "anthony-perosh",
@@ -92711,6 +92711,8 @@
     "div": "Heavyweight",
     "rec": "15-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:23.190Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/vitor-petrino",
     "ufcRec": "8-2-0",
     "from": "",
     "img": "/fighters/vitor-petrino.png",
@@ -92748,9 +92750,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9",
-    "recordCheckedAt": "2026-11-16T15:26:53.677Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/vitor-petrino"
+    "rank": "9"
   },
   {
     "slug": "andre-petroski",
@@ -93618,6 +93618,8 @@
     "div": "Featherweight",
     "rec": "15-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:24.204Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/aaron-pico",
     "ufcRec": "2-1-0",
     "from": "",
     "img": "/fighters/aaron-pico.png",
@@ -93645,9 +93647,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:26:54.689Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/aaron-pico"
+    "rank": "11"
   },
   {
     "slug": "fabiola-pidroni",
@@ -93897,6 +93897,8 @@
     "div": "Lightweight",
     "rec": "24-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:25.219Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/paddy-pimblett",
     "ufcRec": "8-1-0",
     "from": "",
     "img": "/fighters/paddy-pimblett.png",
@@ -93934,9 +93936,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "5",
-    "recordCheckedAt": "2026-11-16T15:26:55.704Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/paddy-pimblett"
+    "rank": "5"
   },
   {
     "slug": "damian-pinas",
@@ -94135,6 +94135,8 @@
     "div": "Heavyweight",
     "rec": "13-0-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:26.237Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/mario-pinto",
     "ufcRec": "4-0-0",
     "from": "",
     "img": "/fighters/mario-pinto.png",
@@ -94167,9 +94169,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:26:56.720Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/mario-pinto"
+    "rank": "10"
   },
   {
     "slug": "gaetano-pirrello",
@@ -95064,6 +95064,8 @@
     "div": "Welterweight",
     "rec": "24-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:27.249Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/carlos-prates",
     "ufcRec": "7-1-0",
     "from": "",
     "img": "/fighters/carlos-prates.png",
@@ -95101,9 +95103,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "2",
-    "recordCheckedAt": "2026-11-16T15:26:57.735Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/carlos-prates"
+    "rank": "2"
   },
   {
     "slug": "michel-prazeres",
@@ -95769,6 +95769,8 @@
     "div": "Middleweight",
     "rec": "16-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:28.261Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/joe-pyfer",
     "ufcRec": "7-1-0",
     "from": "",
     "img": "/fighters/joe-pyfer.png",
@@ -95806,9 +95808,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6",
-    "recordCheckedAt": "2026-11-16T15:26:58.750Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/joe-pyfer"
+    "rank": "6"
   },
   {
     "slug": "mike-pyle",
@@ -96546,6 +96546,8 @@
     "div": "Heavyweight",
     "rec": "15-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:29.278Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/aleksandar-rakic",
     "ufcRec": "7-5-0",
     "from": "",
     "img": "/fighters/aleksandar-rakic.png",
@@ -96583,9 +96585,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:26:59.765Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/aleksandar-rakic"
+    "rank": "15"
   },
   {
     "slug": "jessica-rakoczy",
@@ -97038,6 +97038,8 @@
     "div": "Flyweight",
     "rec": "12-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:30.289Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/mitch-raposo",
     "ufcRec": "3-2-0",
     "from": "",
     "img": "/fighters/mitch-raposo.png",
@@ -97075,9 +97077,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:27:00.780Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/mitch-raposo"
+    "rank": "12"
   },
   {
     "slug": "hussain-rasouli",
@@ -98096,6 +98096,8 @@
     "div": "Light Heavyweight",
     "rec": "17-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:31.302Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/dominick-reyes",
     "ufcRec": "11-5-0",
     "from": "",
     "img": "/fighters/dominick-reyes.png",
@@ -98133,9 +98135,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:27:01.794Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/dominick-reyes"
+    "rank": "7"
   },
   {
     "slug": "alex-reyes",
@@ -98348,6 +98348,8 @@
     "div": "Women's Strawweight",
     "rec": "13-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:32.317Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/amanda-ribas",
     "ufcRec": "7-6-0",
     "from": "",
     "img": "/fighters/amanda-ribas.png",
@@ -98385,9 +98387,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
-    "recordCheckedAt": "2026-11-16T15:27:02.808Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/amanda-ribas"
+    "rank": "13"
   },
   {
     "slug": "vitor-ribeiro",
@@ -98513,6 +98513,8 @@
     "div": "Lightweight",
     "rec": "17-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:33.330Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/esteban-ribovics",
     "ufcRec": "6-3-0",
     "from": "",
     "img": "/fighters/esteban-ribovics.png",
@@ -98550,9 +98552,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:27:03.822Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/esteban-ribovics"
+    "rank": "15"
   },
   {
     "slug": "mike-ricci",
@@ -98624,6 +98624,8 @@
     "div": "Women's Strawweight",
     "rec": "12-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:34.346Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/tabatha-ricci",
     "ufcRec": "7-5-0",
     "from": "",
     "img": "/fighters/tabatha-ricci.png",
@@ -98661,9 +98663,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:27:04.836Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/tabatha-ricci"
+    "rank": "10"
   },
   {
     "slug": "matt-ricehouse",
@@ -100057,6 +100057,8 @@
     "div": "Women's Strawweight",
     "rec": "17-9-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:35.365Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/gillian-robertson",
     "ufcRec": "14-7-0",
     "from": "",
     "img": "/fighters/gillian-robertson.png",
@@ -100094,9 +100096,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "5",
-    "recordCheckedAt": "2026-11-16T15:27:05.852Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/gillian-robertson"
+    "rank": "5"
   },
   {
     "slug": "chad-robichaux",
@@ -100457,6 +100457,8 @@
     "div": "Middleweight",
     "rec": "20-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:36.378Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/gregory-rodrigues",
     "ufcRec": "11-3-0",
     "from": "",
     "img": "/fighters/gregory-rodrigues.png",
@@ -100494,9 +100496,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:27:06.866Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/gregory-rodrigues"
+    "rank": "7"
   },
   {
     "slug": "kleydson-rodrigues",
@@ -100741,6 +100741,8 @@
     "div": "Welterweight",
     "rec": "20-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:39.175Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/daniel-rodriguez",
     "ufcRec": "10-5-0",
     "from": "",
     "img": "/fighters/daniel-rodriguez.png",
@@ -100778,9 +100780,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:27:07.882Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/daniel-rodriguez"
+    "rank": "14"
   },
   {
     "slug": "ray-rodriguez",
@@ -100911,6 +100911,8 @@
     "div": "Women's Strawweight",
     "rec": "13-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:40.191Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/piera-rodriguez",
     "ufcRec": "6-2-0",
     "from": "",
     "img": "/fighters/piera-rodriguez.png",
@@ -100948,9 +100950,7 @@
         "winType": "DQ"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:27:08.896Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/piera-rodriguez"
+    "rank": "14"
   },
   {
     "slug": "christian-rodriguez",
@@ -101037,6 +101037,8 @@
     "div": "Flyweight",
     "rec": "8-0-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:41.202Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/imanol-rodriguez",
     "ufcRec": "2-0-0",
     "from": "",
     "img": "/fighters/imanol-rodriguez.png",
@@ -101059,9 +101061,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "13",
-    "recordCheckedAt": "2026-11-16T15:27:09.910Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/imanol-rodriguez"
+    "rank": "13"
   },
   {
     "slug": "nick-roehrick",
@@ -101860,6 +101860,8 @@
     "div": "Women's Bantamweight",
     "rec": "19-8-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:42.216Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/karol-rosa",
     "ufcRec": "8-5-0",
     "from": "",
     "img": "/fighters/karol-rosa.png",
@@ -101897,9 +101899,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "9",
-    "recordCheckedAt": "2026-11-16T15:27:10.924Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/karol-rosa"
+    "rank": "9"
   },
   {
     "slug": "jacob-rosales",
@@ -101925,6 +101925,8 @@
     "div": "Bantamweight",
     "rec": "13-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:43.230Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/raul-rosas-jr",
     "ufcRec": "8-1-0",
     "from": "",
     "img": "/fighters/raul-rosas-jr.png",
@@ -101962,9 +101964,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:27:11.938Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/raul-rosas-jr"
+    "rank": "10"
   },
   {
     "slug": "hilarie-rose",
@@ -102245,6 +102245,8 @@
     "div": "Light Heavyweight",
     "rec": "15-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:44.243Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/khalil-rountree-jr",
     "ufcRec": "10-7-0",
     "from": "",
     "img": "/fighters/khalil-rountree-jr.png",
@@ -102282,9 +102284,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "4",
-    "recordCheckedAt": "2026-11-16T15:27:12.952Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/khalil-rountree-jr"
+    "rank": "4"
   },
   {
     "slug": "ronda-rousey",
@@ -102749,6 +102749,8 @@
     "div": "Lightweight",
     "rec": "14-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:45.258Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/mauricio-ruffy",
     "ufcRec": "5-2-0",
     "from": "",
     "img": "/fighters/mauricio-ruffy.png",
@@ -102786,9 +102788,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:27:13.967Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/mauricio-ruffy"
+    "rank": "8"
   },
   {
     "slug": "eddie-ruiz",
@@ -103146,6 +103146,8 @@
     "div": "Featherweight",
     "rec": "22-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:46.270Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/pat-sabatini",
     "ufcRec": "9-2-0",
     "from": "",
     "img": "/fighters/pat-sabatini.png",
@@ -103183,9 +103185,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:27:14.982Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/pat-sabatini"
+    "rank": "7"
   },
   {
     "slug": "amir-sadollah",
@@ -103552,6 +103552,8 @@
     "div": "Lightweight",
     "rec": "17-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:47.283Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/benoit-saint-denis",
     "ufcRec": "9-4-0",
     "from": "",
     "img": "/fighters/benoit-saint-denis.png",
@@ -103589,9 +103591,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "6",
-    "recordCheckedAt": "2026-11-16T15:27:15.999Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/benoit-saint-denis"
+    "rank": "6"
   },
   {
     "slug": "ovince-saint-preux",
@@ -104156,6 +104156,8 @@
     "div": "Lightweight",
     "rec": "13-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:48.294Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/quillan-salkilld",
     "ufcRec": "6-0-0",
     "from": "",
     "img": "/fighters/quillan-salkilld.png",
@@ -104193,9 +104195,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:27:17.012Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/quillan-salkilld"
+    "rank": "7"
   },
   {
     "slug": "sean-salmon",
@@ -104897,6 +104897,8 @@
     "div": "Bantamweight",
     "rec": "18-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:49.307Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/cory-sandhagen",
     "ufcRec": "11-6-0",
     "from": "",
     "img": "/fighters/cory-sandhagen.png",
@@ -104934,9 +104936,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "6",
-    "recordCheckedAt": "2026-11-16T15:27:18.026Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/cory-sandhagen"
+    "rank": "6"
   },
   {
     "slug": "hugo-sandoval",
@@ -105651,6 +105651,8 @@
     "div": "Women's Bantamweight",
     "rec": "17-9-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:50.319Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/yana-santos",
     "ufcRec": "7-6-0",
     "from": "",
     "img": "/fighters/yana-santos.png",
@@ -105688,9 +105690,7 @@
         "winType": "SD"
       }
     ],
-    "rank": "6",
-    "recordCheckedAt": "2026-11-16T15:27:19.041Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/yana-santos"
+    "rank": "6"
   },
   {
     "slug": "taila-santos",
@@ -105860,6 +105860,8 @@
     "div": "Women's Bantamweight",
     "rec": "12-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:51.335Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/luana-santos",
     "ufcRec": "7-1-0",
     "from": "",
     "img": "/fighters/luana-santos.png",
@@ -105897,9 +105899,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "5",
-    "recordCheckedAt": "2026-11-16T15:27:20.054Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/luana-santos"
+    "rank": "5"
   },
   {
     "slug": "djorden-santos",
@@ -108296,6 +108296,8 @@
     "div": "Middleweight",
     "rec": "17-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:52.349Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/edmen-shahbazyan",
     "ufcRec": "10-6-0",
     "from": "",
     "img": "/fighters/edmen-shahbazyan.png",
@@ -108333,9 +108335,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:27:21.068Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/edmen-shahbazyan"
+    "rank": "15"
   },
   {
     "slug": "leon-shahbazyan",
@@ -108765,6 +108765,8 @@
     "div": "Women's Flyweight",
     "rec": "26-4-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:53.362Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/valentina-shevchenko",
     "ufcRec": "15-3-2",
     "from": "",
     "img": "/fighters/valentina-shevchenko.png",
@@ -108802,9 +108804,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "1",
-    "recordCheckedAt": "2026-11-16T15:27:22.082Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/valentina-shevchenko"
+    "rank": "1"
   },
   {
     "slug": "antonina-shevchenko",
@@ -109647,6 +109647,8 @@
     "div": "Featherweight",
     "rec": "18-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:54.381Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/jean-silva",
     "ufcRec": "7-2-0",
     "from": "",
     "img": "/fighters/jean-silva.png",
@@ -109684,9 +109686,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "5",
-    "recordCheckedAt": "2026-11-16T15:27:23.100Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/jean-silva"
+    "rank": "5"
   },
   {
     "slug": "edson-silva",
@@ -110183,6 +110183,8 @@
     "div": "Women's Flyweight",
     "rec": "21-5-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:55.395Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/natalia-silva",
     "ufcRec": "9-0-0",
     "from": "",
     "img": "/fighters/natalia-silva.png",
@@ -110220,9 +110222,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "C",
-    "recordCheckedAt": "2026-11-16T15:27:24.114Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/natalia-silva"
+    "rank": "C"
   },
   {
     "slug": "jansey-silva",
@@ -110265,6 +110265,8 @@
     "div": "Women's Flyweight",
     "rec": "20-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:56.408Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/karine-silva",
     "ufcRec": "6-3-0",
     "from": "",
     "img": "/fighters/karine-silva.png",
@@ -110302,9 +110304,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "11",
-    "recordCheckedAt": "2026-11-16T15:27:25.129Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/karine-silva"
+    "rank": "11"
   },
   {
     "slug": "erik-silva",
@@ -111851,6 +111851,8 @@
     "div": "Welterweight",
     "rec": "14-0-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:57.428Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/jacobe-smith",
     "ufcRec": "5-0-0",
     "from": "",
     "img": "/fighters/jacobe-smith.png",
@@ -111888,9 +111890,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:27:26.142Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/jacobe-smith"
+    "rank": "14"
   },
   {
     "slug": "walter-smith-cotito",
@@ -112450,6 +112450,8 @@
     "div": "Bantamweight",
     "rec": "24-9-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:58.441Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/song-yadong",
     "ufcRec": "13-4-1",
     "from": "",
     "img": "/fighters/song-yadong.png",
@@ -112487,9 +112489,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "3",
-    "recordCheckedAt": "2026-11-16T15:27:27.155Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/song-yadong"
+    "rank": "3"
   },
   {
     "slug": "youngjae-song",
@@ -113804,6 +113804,8 @@
     "div": "Heavyweight",
     "rec": "18-7-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:41:59.456Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/serghei-spivac",
     "ufcRec": "9-7-0",
     "from": "",
     "img": "/fighters/serghei-spivac.png",
@@ -113841,9 +113843,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:27:28.169Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/serghei-spivac"
+    "rank": "10"
   },
   {
     "slug": "daniel-spohn",
@@ -114878,6 +114878,8 @@
     "div": "Light Heavyweight",
     "rec": "11-0-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:00.468Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/navajo-stirling",
     "ufcRec": "6-0-0",
     "from": "",
     "img": "/fighters/navajo-stirling.png",
@@ -114915,9 +114917,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "5",
-    "recordCheckedAt": "2026-11-16T15:27:29.181Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/navajo-stirling"
+    "rank": "5"
   },
   {
     "slug": "dan-stittgen",
@@ -115686,6 +115686,8 @@
     "div": "Women's Strawweight",
     "rec": "14-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:01.481Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/tatiana-suarez",
     "ufcRec": "11-1-0",
     "from": "",
     "img": "/fighters/tatiana-suarez.png",
@@ -115723,9 +115725,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "2",
-    "recordCheckedAt": "2026-11-16T15:27:30.194Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/tatiana-suarez"
+    "rank": "2"
   },
   {
     "slug": "masanori-suda",
@@ -116855,6 +116855,8 @@
     "div": "Flyweight",
     "rec": "18-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:04.434Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/tatsuro-taira",
     "ufcRec": "8-2-0",
     "from": "",
     "img": "/fighters/tatsuro-taira.png",
@@ -116892,9 +116894,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "4",
-    "recordCheckedAt": "2026-11-16T15:27:32.257Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/tatsuro-taira"
+    "rank": "4"
   },
   {
     "slug": "mairbek-taisumov",
@@ -117158,6 +117158,8 @@
     "div": "Bantamweight",
     "rec": "12-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:05.451Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/payton-talbott",
     "ufcRec": "6-1-0",
     "from": "",
     "img": "/fighters/payton-talbott.png",
@@ -117195,9 +117197,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:27:33.273Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/payton-talbott"
+    "rank": "7"
   },
   {
     "slug": "nordine-taleb",
@@ -118234,6 +118234,8 @@
     "div": "Flyweight",
     "rec": "20-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:06.463Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/ramazan-temirov",
     "ufcRec": "3-1-0",
     "from": "",
     "img": "/fighters/ramazan-temirov.png",
@@ -118266,9 +118268,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:27:34.286Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/ramazan-temirov"
+    "rank": "10"
   },
   {
     "slug": "taneisha-tennant",
@@ -118537,6 +118537,8 @@
     "div": "Women's Strawweight",
     "rec": "15-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:07.478Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/alexia-thainara",
     "ufcRec": "4-0-0",
     "from": "",
     "img": "/fighters/alexia-thainara.png",
@@ -118569,9 +118571,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "9",
-    "recordCheckedAt": "2026-11-16T15:27:35.302Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/alexia-thainara"
+    "rank": "9"
   },
   {
     "slug": "brandon-thatch",
@@ -119672,6 +119672,8 @@
     "div": "Lightweight",
     "rec": "17-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:08.493Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/ilia-topuria",
     "ufcRec": "9-1-0",
     "from": "Georgia",
     "img": "/fighters/ilia-topuria.png",
@@ -119709,9 +119711,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "1",
-    "recordCheckedAt": "2026-11-16T15:27:36.316Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/ilia-topuria"
+    "rank": "1"
   },
   {
     "slug": "aleksandre-topuria",
@@ -120555,6 +120555,8 @@
     "div": "Flyweight",
     "rec": "12-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:09.507Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/rei-tsuruya",
     "ufcRec": "3-1-0",
     "from": "",
     "img": "/fighters/rei-tsuruya.png",
@@ -120587,9 +120589,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "14",
-    "recordCheckedAt": "2026-11-16T15:27:37.330Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/rei-tsuruya"
+    "rank": "14"
   },
   {
     "slug": "chris-tuchscherer",
@@ -121387,6 +121387,8 @@
     "div": "Flyweight",
     "rec": "17-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:10.521Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/tagir-ulanbekov",
     "ufcRec": "6-2-0",
     "from": "",
     "img": "/fighters/tagir-ulanbekov.png",
@@ -121424,9 +121426,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:27:38.343Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/tagir-ulanbekov"
+    "rank": "15"
   },
   {
     "slug": "gasan-umalatov",
@@ -121761,6 +121761,8 @@
     "div": "Welterweight",
     "rec": "21-5-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:11.535Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/kamaru-usman",
     "ufcRec": "16-4-0",
     "from": "",
     "img": "/fighters/kamaru-usman.png",
@@ -121798,9 +121800,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "10",
-    "recordCheckedAt": "2026-11-16T15:27:39.357Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/kamaru-usman"
+    "rank": "10"
   },
   {
     "slug": "mohammed-usman",
@@ -122210,6 +122210,8 @@
     "div": "Featherweight",
     "rec": "17-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:12.548Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/kevin-vallejos",
     "ufcRec": "4-0-0",
     "from": "",
     "img": "/fighters/kevin-vallejos.png",
@@ -122242,9 +122244,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9",
-    "recordCheckedAt": "2026-11-16T15:27:40.370Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/kevin-vallejos"
+    "rank": "9"
   },
   {
     "slug": "isaac-vallie-flagg",
@@ -124753,6 +124753,8 @@
     "div": "Heavyweight",
     "rec": "24-10-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:13.561Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/johnny-walker",
     "ufcRec": "10-7-0",
     "from": "",
     "img": "/fighters/johnny-walker.png",
@@ -124790,9 +124792,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:27:41.390Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/johnny-walker"
+    "rank": "7"
   },
   {
     "slug": "brogan-walker",
@@ -124835,6 +124835,8 @@
     "div": "Heavyweight",
     "rec": "16-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:14.576Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/valter-walker",
     "ufcRec": "5-1-0",
     "from": "",
     "img": "/fighters/valter-walker.png",
@@ -124872,9 +124874,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:27:42.405Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/valter-walker"
+    "rank": "12"
   },
   {
     "slug": "julius-walker",
@@ -125312,6 +125312,8 @@
     "div": "Women's Flyweight",
     "rec": "10-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:15.592Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/wang-cong",
     "ufcRec": "5-2-0",
     "from": "",
     "img": "/fighters/wang-cong.png",
@@ -125349,9 +125351,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:27:43.418Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/wang-cong"
+    "rank": "8"
   },
   {
     "slug": "joshua-wang-kim",
@@ -129155,6 +129155,8 @@
     "div": "Women's Strawweight",
     "rec": "19-6-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:18.879Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/yan-xiaonan",
     "ufcRec": "9-5-0",
     "from": "",
     "img": "/fighters/yan-xiaonan.png",
@@ -129192,9 +129194,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "7",
-    "recordCheckedAt": "2026-11-16T15:27:45.694Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/yan-xiaonan"
+    "rank": "7"
   },
   {
     "slug": "yan-qihui",
@@ -130316,6 +130316,8 @@
     "div": "Bantamweight",
     "rec": "14-3-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:19.900Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/aiemann-zahabi",
     "ufcRec": "8-3-0",
     "from": "",
     "img": "/fighters/aiemann-zahabi.png",
@@ -130353,9 +130355,7 @@
         "winType": "UD"
       }
     ],
-    "rank": "9",
-    "recordCheckedAt": "2026-11-16T15:27:46.711Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/aiemann-zahabi"
+    "rank": "9"
   },
   {
     "slug": "joao-zaiden",
@@ -130381,6 +130381,8 @@
     "div": "Featherweight",
     "rec": "18-6-1",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:20.922Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/youssef-zalal",
     "ufcRec": "8-4-1",
     "from": "",
     "img": "/fighters/youssef-zalal.png",
@@ -130418,9 +130420,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "8",
-    "recordCheckedAt": "2026-11-16T15:27:47.727Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/youssef-zalal"
+    "rank": "8"
   },
   {
     "slug": "elizeu-zaleski-dos-santos",
@@ -130847,6 +130847,8 @@
     "div": "Women's Strawweight",
     "rec": "26-4-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:21.936Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/zhang-weili",
     "ufcRec": "10-3-0",
     "from": "",
     "img": "/fighters/zhang-weili.png",
@@ -130884,9 +130886,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "1",
-    "recordCheckedAt": "2026-11-16T15:27:48.743Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/zhang-weili"
+    "rank": "1"
   },
   {
     "slug": "zhang-mingyang",
@@ -131494,6 +131494,8 @@
     "div": "Welterweight",
     "rec": "29-1-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:22.952Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/yaroslav-amosov",
     "ufcRec": "2-0-0",
     "from": "",
     "img": "/fighters/yaroslav-amosov.png",
@@ -131516,9 +131518,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "12",
-    "recordCheckedAt": "2026-11-16T15:27:49.760Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/yaroslav-amosov"
+    "rank": "12"
   },
   {
     "slug": "lance-gibson-jr",
@@ -133939,6 +133939,8 @@
     "div": "Heavyweight",
     "rec": "9-0-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:23.965Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/anthony-wint",
     "ufcRec": "2-0-0",
     "from": "",
     "img": "/fighters/anthony-wint.png",
@@ -133961,9 +133963,7 @@
         "winType": "SUB"
       }
     ],
-    "rank": "15",
-    "recordCheckedAt": "2026-11-16T15:27:50.773Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/anthony-wint"
+    "rank": "15"
   },
   {
     "slug": "hailai-wushamo",
@@ -134030,6 +134030,8 @@
     "div": "Lightweight",
     "rec": "24-2-0",
     "recScope": "pro",
+    "recordCheckedAt": "2026-11-16T15:42:24.977Z",
+    "recordSourceUrl": "https://www.ufc.com/athlete/salahdine-parnasse",
     "ufcRec": "1-0-0",
     "from": "",
     "img": "/fighters/salahdine-parnasse.png",
@@ -134047,9 +134049,7 @@
         "winType": "TKO"
       }
     ],
-    "rank": "9",
-    "recordCheckedAt": "2026-11-16T15:27:51.788Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/salahdine-parnasse"
+    "rank": "9"
   },
   {
     "slug": "jessie-rosas",
