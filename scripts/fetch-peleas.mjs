@@ -1,3 +1,4 @@
+import {recordHealth} from "./lib/health.mjs";
 /**
  * fetch-peleas.mjs — historial completo de peleas desde Wikipedia.
  *
@@ -303,7 +304,7 @@ const dormir = ms => new Promise(r => setTimeout(r, ms));
 async function traerWikitext(titulo) {
   const url = 'https://en.wikipedia.org/w/api.php?action=parse&prop=wikitext' +
               `&page=${encodeURIComponent(titulo)}&format=json&formatversion=2&redirects=1`;
-  const r = await fetch(url, { headers: { 'User-Agent': UA } });
+  const r = await fetch(url, { signal: AbortSignal.timeout(20000), headers: { 'User-Agent': UA } });
   if (!r.ok) return null;
   const j = await r.json();
   if (j.error) return null;
@@ -314,7 +315,7 @@ async function buscarPagina(nombre) {
   const url = 'https://en.wikipedia.org/w/api.php?action=query&list=search&srlimit=3' +
               `&srsearch=${encodeURIComponent(nombre + ' mixed martial artist')}` +
               '&format=json&formatversion=2';
-  const r = await fetch(url, { headers: { 'User-Agent': UA } });
+  const r = await fetch(url, { signal: AbortSignal.timeout(20000), headers: { 'User-Agent': UA } });
   if (!r.ok) return [];
   const j = await r.json();
   return (j.query?.search ?? []).map(s => s.title);
@@ -377,7 +378,9 @@ if (SOLO_SLUG) {
 
 const sinPagina = new Set(salida.sinPagina ?? []);
 if (!FORCE) {
-  objetivos = objetivos.filter(f => !salida.peleadores[f.slug] && !sinPagina.has(f.slug));
+  const cutoff=Date.now()-7*86400000;
+  objetivos = objetivos.filter(f => !salida.peleadores[f.slug] || Date.parse(salida.peleadores[f.slug].actualizado??'1970-01-01')<cutoff);
+  objetivos.sort((a,b)=>Date.parse(salida.peleadores[a.slug]?.actualizado??'1970-01-01')-Date.parse(salida.peleadores[b.slug]?.actualizado??'1970-01-01'));
 }
 objetivos = objetivos.slice(0, LIMITE);
 
@@ -476,4 +479,6 @@ console.log(`  sin página      ${vacios}`);
 if (errores) console.log(`  errores         ${errores}`);
 console.log(`  peleas nuevas   ${totalPeleas}`);
 console.log(`  total guardado  ${guardados} peleadores`);
+recordHealth('fight-history',errores===0,{updated:ok,errors:errores});
+if(errores)process.exitCode=1;
 console.log(`\nEscrito en src/data/peleadores-peleas.json\n`);

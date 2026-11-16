@@ -7,6 +7,8 @@ const blogCollection = defineCollection({
     title: z.string().max(100, "El título debe ser corto y directo para SEO."),
     description: z.string().max(160, "La descripción ideal para el snippet de Google."),
     pubDate: z.date(),
+    // Solo para revisiones sustanciales del contenido, no para cada despliegue.
+    updateDate: z.date().optional(),
     
     // EL NÚCLEO DE LA ESTRATEGIA: Silos estrictos
     category: z.enum([
@@ -30,6 +32,9 @@ const blogCollection = defineCollection({
 
     // GEO/AEO: puntos clave para motores generativos (Perplexity, SGE…)
     takeaways: z.array(z.string()).default([]),
+  }).refine(data => !data.updateDate || data.updateDate >= data.pubDate, {
+    message: 'La actualización no puede ser anterior a la publicación.',
+    path: ['updateDate'],
   })
 });
 

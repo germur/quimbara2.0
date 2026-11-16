@@ -1,4 +1,5 @@
 ---
+import { eventPath, eventSlug, canonicalEvents } from "../../../lib/event-routing.mjs";
 /**
  * /eventos/{evento}/quiniela/ — quiniela de predicciones.
  *
@@ -15,7 +16,7 @@ import { PUNTOS, roundsValidos, puntajeMaximo } from '../../../lib/quiniela/punt
 
 export async function getStaticPaths() {
   return getEventosConQuiniela().map(ev => ({
-    params: { slug: ev.slug },
+    params: { slug: eventSlug(ev.slug) },
     props: { ev },
   }));
 }
@@ -63,7 +64,7 @@ const payload = {
   {/* ── Header ── */}
   <div style={`background:#0A0A0B; padding: 36px ${PX} 40px;`}>
     <div style="max-width:900px; margin:0 auto;">
-      <a href={`/eventos/${ev.slug}/`}
+      <a href={eventPath(ev.slug)}
          class="text-gray-500 text-[10px] uppercase tracking-[0.2em] hover:text-[#F2D928] transition-colors"
          style="font-family:var(--font-mono);">← Volver al evento</a>
 

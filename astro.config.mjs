@@ -1,3 +1,4 @@
+import {canonicalEvents,eventPath} from './src/lib/event-routing.mjs';
 // @ts-check
 import { defineConfig } from 'astro/config';
 import { readFileSync } from 'node:fs';
@@ -16,6 +17,8 @@ import { isIndexable } from './src/lib/indexable.mjs';
 const __cfgDir = dirname(fileURLToPath(import.meta.url));
 const fighters = JSON.parse(readFileSync(join(__cfgDir, 'src/data/fighters.json'), 'utf8'));
 const fightersBySlug = new Map(fighters.map(f => [f.slug, f]));
+const eventData=JSON.parse(readFileSync(join(__cfgDir,'src/data/events-all.json'),'utf8'));
+const eventPaths=new Set(canonicalEvents(eventData).filter(e=>e.main&&e.main!=='TBD').map(e=>eventPath(e.slug)));
 
 // https://astro.build/config
 export default defineConfig({
@@ -67,6 +70,8 @@ export default defineConfig({
     sitemap({
       // Excluir páginas con noIndex y rutas legacy
       filter: (page) => {
+        const path=new URL(page).pathname;
+        if(/^\/eventos\/[^/]+\/$/.test(path)&&!eventPaths.has(path))return false;
         const noIndexPaths = [
           '/aviso-legal',
           '/privacidad',
@@ -92,11 +97,8 @@ export default defineConfig({
 
         return true;
       },
-      // Cambiar frecuencia y prioridad para señalizar bien a Google
-      changefreq: 'weekly',
-      priority: 0.7,
-      // Sitemap con últimas modificaciones
-      lastmod: new Date(),
+      // Sin lastmod global: compilar no equivale a modificar cada página.
+      // Añadir fechas por URL solo cuando exista historial fiable del contenido.
     }),
     mdx()
   ]

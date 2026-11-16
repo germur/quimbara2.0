@@ -1,3 +1,4 @@
+import {canonicalEvents,eventIdentity} from "../event-routing.mjs";
 /**
  * cartelera.ts — normaliza la cartelera de un evento para la quiniela.
  *
@@ -20,7 +21,7 @@ import type {
   Segmento,
 } from './tipos';
 
-const eventos: any[] = Array.isArray(EVENTS) ? EVENTS : (EVENTS as any).events ?? [];
+const eventos: any[] = canonicalEvents(Array.isArray(EVENTS) ? EVENTS : (EVENTS as any).events ?? []);
 
 const cfgEventos = (CONFIG as any).eventos as Record<
   string,
@@ -91,11 +92,12 @@ export interface EventoQuiniela {
 }
 
 export function getEventoQuiniela(slug: string): EventoQuiniela | null {
-  const ev = eventos.find(e => e.slug === slug);
+  const ev = eventos.find(e => e.slug === slug || eventIdentity(e.slug)===eventIdentity(slug));
   if (!ev || !Array.isArray(ev.fightCard) || ev.fightCard.length === 0) return null;
 
-  const cfg = cfgEventos[slug] ?? {};
-  const res = cfgResultados[slug] ?? {};
+  const storageId=eventIdentity(slug);
+  const cfg = cfgEventos[storageId] ?? cfgEventos[slug] ?? {};
+  const res = cfgResultados[storageId] ?? cfgResultados[slug] ?? {};
 
   const peleas: PeleaQuiniela[] = ev.fightCard
     .slice()

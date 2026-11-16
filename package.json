@@ -7,8 +7,8 @@
   },
   "scripts": {
     "images:editorial": "node scripts/optimize-editorial-images.mjs",
-    "predev": "npm run images:editorial",
-    "prebuild": "npm run images:editorial",
+    "predev": "node scripts/sync-event-urls.mjs && npm run images:editorial",
+    "prebuild": "node scripts/sync-event-urls.mjs && npm run images:editorial",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -18,7 +18,7 @@
     "data:overrides": "node scripts/apply-event-overrides.mjs",
     "data:images": "node scripts/download-images.mjs",
     "data:records": "node scripts/fix-records.mjs",
-    "data:all": "npm run data:update && npm run data:rankings && npm run data:records && npm run data:peleas && npm run data:overrides && npm run data:images",
+    "data:all": "npm run data:update && npm run data:rankings && npm run data:records && npm run data:details && npm run data:peleas && npm run data:overrides && npm run data:images",
     "indexnow": "node scripts/indexnow-submit.mjs",
     "audit:peleadores": "npx tsx scripts/audit-peleadores.ts",
     "audit:schema": "node scripts/audit-schema.mjs dist",
@@ -30,7 +30,10 @@
     "rag:audit": "npx tsx scripts/rag-chunk.mjs --audit",
     "rag:eval": "npx tsx scripts/rag-eval.mjs",
     "rag:embed": "npx tsx scripts/rag-embed.mjs",
-    "rag:tune": "npx tsx scripts/rag-tune.mjs"
+    "rag:tune": "npx tsx scripts/rag-tune.mjs",
+    "data:details": "node scripts/fetch-event-details.mjs",
+    "test:data": "node --test scripts/test-event-data.mjs && tsx scripts/test-quiniela-migration.ts",
+    "audit:events": "node scripts/audit-event-urls.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",

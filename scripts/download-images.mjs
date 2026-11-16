@@ -1,151 +1,47 @@
-// scripts/download-images.mjs
-// Descarga fotos de fighters desde UFC.com (og:image) — sin API de pago.
-// Lee fighters.json, descarga las que faltan, actualiza el campo img.
-
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import * as cheerio from 'cheerio';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = join(__dirname, '..', 'src', 'data');
-const IMG_DIR = join(__dirname, '..', 'public', 'fighters');
-
-const SLEEP_MS = 1100;
-const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-
-async function findOgImage(slug) {
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';
+import {load} from 'cheerio';
+import {imageQueue,normalizeName} from '../src/lib/event-data.mjs';
+import {fetchBounded} from './lib/fetch.mjs';
+import {recordHealth} from './lib/health.mjs';
+const read=(p,f)=>existsSync(p)?JSON.parse(readFileSync(p,'utf8')):f;
+const fighters=read('src/data/fighters.json',[]),events=read('src/data/events-all.json',[]);
+const failures=read('src/data/image-failures.json',{});
+// Recover references to existing assets before contacting the upstream.
+for(const f of fighters)for(const ext of ['png','jpg','webp'])
+  if(!f.img&&existsSync(`public/fighters/${f.slug}.${ext}`))f.img=`/fighters/${f.slug}.${ext}`;
+const batch=imageQueue(fighters,events,failures).slice(0,50);
+let downloaded=0,failed=0,attempted=0;
+for(const f of batch) {
+  attempted++;
   try {
-    const res = await fetch(`https://www.ufc.com/athlete/${slug}`, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36',
-      },
-      redirect: 'follow',
-    });
-    if (!res.ok) return null;
-    const html = await res.text();
-    const $ = cheerio.load(html);
-
-    // PRIORIDAD: full body en alta resolución (athlete_bio_full_body)
-    // Fallback: og:image (versión recortada de menor calidad)
-    let url = null;
-    $('img').each((_, el) => {
-      const src = $(el).attr('src') || '';
-      if (src.includes('athlete_bio_full_body')) { url = src; return false; }
-    });
-    if (!url) url = $('meta[property="og:image"]').attr('content');
-    if (!url) return null;
-
-    if (url.startsWith('//')) url = 'https:' + url;
-    else if (url.startsWith('/')) url = 'https://www.ufc.com' + url;
-    return url;
-  } catch {
-    return null;
+    const html=await(await fetchBounded(`https://www.ufc.com/athlete/${f.slug}`,{headers:{'User-Agent':'Mozilla/5.0'}})).text();
+    const $=load(html);
+    const src=$('img').toArray().map(e=>$(e).attr('src')).find(s=>s?.includes('athlete_bio_full_body'))??$('meta[property="og:image"]').attr('content');
+    if(!src)throw new Error('Image not published');
+    const url=new URL(src,'https://www.ufc.com').href;
+    const response=await fetchBounded(url);
+    const type=response.headers.get('content-type')??'';
+    if(!type.startsWith('image/'))throw new Error('Non-image content');
+    const bytes=Buffer.from(await response.arrayBuffer());
+    if(bytes.length<1000)throw new Error('Empty or invalid image');
+    const ext=type.includes('png')?'png':type.includes('webp')?'webp':'jpg';
+    writeFileSync(`public/fighters/${f.slug}.${ext}`,bytes);
+    f.img=`/fighters/${f.slug}.${ext}`;delete failures[f.slug];downloaded++;
+  }catch(error){
+    failed++;
+    failures[f.slug]={error:error.message,lastAttempt:new Date().toISOString(),retryAfter:new Date(Date.now()+(/HTTP 404|Image not published/.test(error.message)?7*86400000:3600000)).toISOString()};
+    console.error(f.slug,error.message);
+    if(downloaded===0&&failed>=3&&/HTTP 403|HTTP 429/.test(error.message))break;
   }
+  await new Promise(resolve=>setTimeout(resolve,1100));
 }
-
-async function main() {
-  console.log('🖼  Quimbara image downloader\n');
-
-  if (!existsSync(IMG_DIR)) mkdirSync(IMG_DIR, { recursive: true });
-
-  const fightersPath = join(DATA_DIR, 'fighters.json');
-  if (!existsSync(fightersPath)) {
-    console.log('⚠ fighters.json not found. Run data:update first.');
-    process.exit(1);
-  }
-
-  const fightersRaw = JSON.parse(readFileSync(fightersPath, 'utf8'));
-  const force = process.argv.includes('--force-ranked');
-  // Si --force-ranked, solo procesa los ranqueados y descarga aunque exista
-  const fighters = force
-    ? fightersRaw.filter(f => f.rank === 'C' || (!isNaN(Number(f.rank)) && Number(f.rank) <= 15))
-    : fightersRaw;
-  const knownSlugs = new Set(fighters.map(f => f.slug));
-  if (force) console.log(`🎯 Modo --force-ranked: re-descargando ${fighters.length} ranqueados\n`);
-
-  // Also include main eventers from events that aren't in fighters.json
-  const eventsPath = join(DATA_DIR, 'events.json');
-  if (existsSync(eventsPath)) {
-    const events = JSON.parse(readFileSync(eventsPath, 'utf8'));
-    for (const e of events) {
-      for (const fc of (e.fightCard || [])) {
-        for (const name of [fc.f1, fc.f2].filter(Boolean)) {
-          const slug = name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
-            .replace(/[''']/g, '').replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-');
-          if (slug && slug !== 'tbd' && !knownSlugs.has(slug)) {
-            fighters.push({ slug, name });
-            knownSlugs.add(slug);
-          }
-        }
-      }
-    }
-  }
-
-  const toDownload = force
-    ? fighters.filter(f => !!f.slug)
-    : fighters.filter(f => {
-        if (!f.slug) return false;
-        return !existsSync(join(IMG_DIR, `${f.slug}.png`))
-            && !existsSync(join(IMG_DIR, `${f.slug}.jpg`));
-      });
-
-  console.log(`⬇  ${toDownload.length} to download (${fighters.length - toDownload.length} existing)\n`);
-
-  if (!toDownload.length) {
-    console.log('✅ All images present.\n');
-    return;
-  }
-
-  const batch = toDownload.slice(0, force ? 200 : 500);
-  let success = 0, failed = 0;
-
-  for (let i = 0; i < batch.length; i++) {
-    const f = batch[i];
-    process.stdout.write(`  [${i + 1}/${batch.length}] ${f.slug.padEnd(35)} `);
-
-    const imgUrl = await findOgImage(f.slug);
-    if (!imgUrl) {
-      console.log('✗ (no image)');
-      failed++;
-      await sleep(SLEEP_MS);
-      continue;
-    }
-
-    try {
-      const res = await fetch(imgUrl, {
-        headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36' },
-      });
-      if (!res.ok) { console.log('✗ (download failed)'); failed++; await sleep(SLEEP_MS); continue; }
-      const buffer = Buffer.from(await res.arrayBuffer());
-      if (buffer.length < 1000) { console.log('✗ (too small)'); failed++; await sleep(SLEEP_MS); continue; }
-
-      const ext = imgUrl.includes('.png') ? 'png' : 'jpg';
-      writeFileSync(join(IMG_DIR, `${f.slug}.${ext}`), buffer);
-      f.img = `/fighters/${f.slug}.${ext}`;
-      success++;
-      console.log(`✓ (.${ext})`);
-    } catch {
-      console.log('✗ (error)');
-      failed++;
-    }
-
-    await sleep(SLEEP_MS);
-  }
-
-  if (success > 0) {
-    const all = JSON.parse(readFileSync(fightersPath, 'utf8'));
-    const imgMap = Object.fromEntries(batch.filter(f => f.img).map(f => [f.slug, f.img]));
-    for (const f of all) {
-      if (imgMap[f.slug]) f.img = imgMap[f.slug];
-    }
-    writeFileSync(fightersPath, JSON.stringify(all, null, 2) + '\n', 'utf8');
-  }
-
-  console.log(`\n📊 ${success} downloaded, ${failed} failed`);
-  if (toDownload.length > batch.length) {
-    console.log(`💡 ${toDownload.length - batch.length} more — run again.\n`);
-  }
+writeFileSync('src/data/fighters.json',JSON.stringify(fighters,null,2)+'\n');
+writeFileSync('src/data/image-failures.json',JSON.stringify(failures,null,2)+'\n');
+const photos=new Map(fighters.filter(f=>f.img).map(f=>[normalizeName(f.name),f.img]));
+for(const file of ['src/data/events-all.json','src/data/events.json']){
+ const list=read(file,[]);for(const e of list){e.f1img=photos.get(normalizeName(e.f1))??e.f1img??'';e.f2img=photos.get(normalizeName(e.f2))??e.f2img??'';}
+ writeFileSync(file,JSON.stringify(list,null,2)+'\n');
 }
-
-main().catch(err => { console.error('❌', err); process.exit(1); });
+recordHealth('images',failed===0,{attempted,downloaded,failed,pendingRetries:Object.keys(failures).length});
+console.log({attempted,downloaded,failed,pendingRetries:Object.keys(failures).length});
+if(failed)process.exitCode=1;

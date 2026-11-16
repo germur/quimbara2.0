@@ -1,7 +1,9 @@
 ---
+import { eventPath, eventSlug, canonicalEvents } from "../../lib/event-routing.mjs";
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import RoundProgress from '../../components/RoundProgress.astro';
+import DataSources from '../../components/DataSources.astro';
 import ComparadorEmbebido from '../../components/ComparadorEmbebido.astro';
 import CaminoDelPeleador from '../../components/CaminoDelPeleador.astro';
 import { getPeleador } from '../../lib/peleadores';
@@ -192,10 +194,7 @@ const personSchema: any = {
 };
 if (isChampion) personSchema.award = `Campeón UFC ${f.div}`;
 
-// ProfilePage: declara que esta URL es la ficha canónica de esa persona y
-// CUÁNDO se actualizó. El pipeline refresca récords y rankings a diario, pero
-// sin dateModified no había forma de saberlo desde fuera — y en un nicho donde
-// el ranking cambia cada semana, la frescura decide a quién se cita.
+// No hay fecha de modificación individual registrada: no usar la del build.
 const profilePageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
@@ -203,7 +202,6 @@ const profilePageSchema = {
   "url": canonicalUrl,
   "name": `${f.name}${f.nick ? ` "${f.nick}"` : ''} — ${roleLabel}`,
   "inLanguage": "es",
-  "dateModified": new Date().toISOString(),
   "mainEntity": { "@id": `${canonicalUrl}#persona` },
   "publisher": refOrganizacion(),
   "isPartOf": { "@id": ID.web },
@@ -584,7 +582,7 @@ const metaDescription = f.metaDescription
           <div class="text-gray-400 mb-4">{f.proximaPelea.fecha}</div>
         )}
         {f.proximaPelea.eventSlug && (
-          <a href={`/eventos/${f.proximaPelea.eventSlug}/`}
+          <a href={eventPath(f.proximaPelea.eventSlug)}
              class="inline-block bg-[#F2D928] text-[#111] font-bold text-sm px-5 py-2.5 rounded-md hover:bg-yellow-300 transition-colors">
             Ver cartelera completa →
           </a>
@@ -602,6 +600,8 @@ const metaDescription = f.metaDescription
            style="font-family:var(--font-sans);" set:html={f.trayectoria} />
     </section>
   )}
+
+  <DataSources kind="fighter" professionalRecord={recIsPro} />
 
   <!-- ── FAQ (con FAQPage schema; manual o auto-generada desde datos) ── -->
   {faqToShow.length > 0 && (

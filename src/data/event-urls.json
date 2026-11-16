@@ -1,0 +1,332 @@
+{
+  "version": 1,
+  "events": [
+    {
+      "primarySlug": "ufc-328-2026-05-09",
+      "slug": "ufc-328-chimaev-vs-strickland",
+      "aliases": [
+        "ufc-328-2026-05-09"
+      ],
+      "id": "ufc-328-2026-05-09"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-05-16",
+      "slug": "ufc-fight-night-allen-vs-costa-2026",
+      "aliases": [
+        "ufc-fight-night-2026-05-16"
+      ],
+      "id": "ufc-fight-night-2026-05-16"
+    },
+    {
+      "primarySlug": "ufc-331-2026-09-19",
+      "slug": "ufc-331-van-vs-pantoja",
+      "aliases": [
+        "ufc-331-2026-09-19"
+      ],
+      "id": "ufc-331-2026-09-19"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-05-30",
+      "slug": "ufc-fight-night-yadong-vs-figueiredo-2026",
+      "aliases": [
+        "ufc-fight-night-2026-05-30"
+      ],
+      "id": "ufc-fight-night-2026-05-30"
+    },
+    {
+      "primarySlug": "ufc-332-2026-10-03",
+      "slug": "ufc-332-silva-vs-cong",
+      "aliases": [
+        "ufc-332-2026-10-03"
+      ],
+      "id": "ufc-332-2026-10-03"
+    },
+    {
+      "primarySlug": "ufc-334-2026-11-14",
+      "slug": "ufc-334-gane-vs-hokit",
+      "aliases": [
+        "ufc-334-2026-11-14"
+      ],
+      "id": "ufc-334-2026-11-14"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-12-05",
+      "slug": "ufc-fight-night-adesanya-vs-magomedov-2026",
+      "aliases": [
+        "ufc-fight-night-2026-12-05",
+        "ufc-fight-night-295-2026-12-05"
+      ],
+      "sourceEventId": "600062700",
+      "id": "ufc-fight-night-2026-12-05"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-06-06",
+      "slug": "ufc-fight-night-muhammad-vs-bonfim-2026",
+      "aliases": [
+        "ufc-fight-night-2026-06-06"
+      ],
+      "id": "ufc-fight-night-2026-06-06"
+    },
+    {
+      "primarySlug": "ufc-329-2026-07-11",
+      "slug": "ufc-329-mcgregor-vs-holloway",
+      "aliases": [
+        "ufc-329-2026-07-11"
+      ],
+      "id": "ufc-329-2026-07-11"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-07-25",
+      "slug": "ufc-fight-night-ankalaev-vs-jr-2026",
+      "aliases": [
+        "ufc-fight-night-2026-07-25",
+        "ufc-fight-night-282-2026-07-25"
+      ],
+      "id": "ufc-fight-night-2026-07-25"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-09-12",
+      "slug": "ufc-fight-night-rodriguez-vs-silva-2026",
+      "aliases": [
+        "ufc-fight-night-2026-09-12",
+        "ufc-fight-night-288-2026-09-12"
+      ],
+      "id": "ufc-fight-night-2026-09-12"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-11-21",
+      "slug": "ufc-fight-night-prochazka-vs-stirling-2026",
+      "aliases": [
+        "ufc-fight-night-2026-11-21",
+        "ufc-fight-night-294-2026-11-21"
+      ],
+      "sourceEventId": "600061665",
+      "id": "ufc-fight-night-2026-11-21"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-07-18",
+      "slug": "ufc-fight-night-plessis-vs-usman-2026",
+      "aliases": [
+        "ufc-fight-night-2026-07-18",
+        "ufc-fight-night-281-2026-07-18"
+      ],
+      "id": "ufc-fight-night-2026-07-18"
+    },
+    {
+      "primarySlug": "ufc-freedom-250",
+      "slug": "ufc-freedom-250",
+      "aliases": [
+        "ufc-freedom-250"
+      ],
+      "id": "ufc-freedom-250"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-06-20",
+      "slug": "ufc-fight-night-kape-vs-horiguchi-2026",
+      "aliases": [
+        "ufc-fight-night-2026-06-20"
+      ],
+      "id": "ufc-fight-night-2026-06-20"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-08-01",
+      "slug": "ufc-fight-night-medic-vs-rodriguez-2026",
+      "aliases": [
+        "ufc-fight-night-2026-08-01",
+        "ufc-fight-night-282-2026-08-01",
+        "ufc-fight-night-283-2026-08-01"
+      ],
+      "id": "ufc-fight-night-2026-08-01"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-08-29",
+      "slug": "ufc-fight-night-nurmagomedov-vs-yadong-2026",
+      "aliases": [
+        "ufc-fight-night-2026-08-29",
+        "ufc-fight-night-2026-08-30",
+        "ufc-fight-night-284-2026-08-29",
+        "ufc-fight-night-285-2026-08-29",
+        "ufc-fight-night-286-2026-08-29",
+        "ufc-fight-night-286-2026-08-30"
+      ],
+      "id": "ufc-fight-night-2026-08-29"
+    },
+    {
+      "primarySlug": "ufc-333-2026-10-24",
+      "slug": "ufc-333-volkanovski-vs-evloev",
+      "aliases": [
+        "ufc-333-2026-10-24"
+      ],
+      "id": "ufc-333-2026-10-24"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-09-05",
+      "slug": "ufc-fight-night-page-vs-ruziboev-2026",
+      "aliases": [
+        "ufc-fight-night-2026-09-05",
+        "ufc-fight-night-286-2026-09-05",
+        "ufc-fight-night-287-2026-09-05"
+      ],
+      "id": "ufc-fight-night-2026-09-05"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-10-31",
+      "slug": "ufc-fight-night-moicano-vs-nolan-2026",
+      "aliases": [
+        "ufc-fight-night-2026-10-31",
+        "ufc-fight-night-292-2026-10-31"
+      ],
+      "id": "ufc-fight-night-2026-10-31"
+    },
+    {
+      "primarySlug": "ufc-335-2026-12-12",
+      "slug": "ufc-335-oliveira-vs-lopes",
+      "aliases": [
+        "ufc-335-2026-12-12"
+      ],
+      "sourceEventId": "600061401",
+      "id": "ufc-335-2026-12-12"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2027-01-16",
+      "slug": "ufc-fight-night-rodriguez-vs-garcia-2027",
+      "aliases": [
+        "ufc-fight-night-2027-01-16",
+        "ufc-fight-night-296-2027-01-16"
+      ],
+      "id": "ufc-fight-night-2027-01-16"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-06-27",
+      "slug": "ufc-fight-night-fiziev-vs-torres-2026",
+      "aliases": [
+        "ufc-fight-night-2026-06-27"
+      ],
+      "id": "ufc-fight-night-2026-06-27"
+    },
+    {
+      "primarySlug": "ufc-330-2026-08-15",
+      "slug": "ufc-330-makhachev-vs-garry",
+      "aliases": [
+        "ufc-330-2026-08-15"
+      ],
+      "id": "ufc-330-2026-08-15"
+    },
+    {
+      "primarySlug": "ufc-336-2027-01-30",
+      "slug": "ufc-336-van-vs-kape",
+      "aliases": [
+        "ufc-336-2027-01-30"
+      ],
+      "id": "ufc-336-2027-01-30"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2027-02-07",
+      "slug": "ufc-fight-night-salkilld-vs-denis-2027",
+      "aliases": [
+        "ufc-fight-night-2027-02-07",
+        "ufc-fight-night-295-2027-02-07",
+        "ufc-fight-night-296-2027-02-07",
+        "ufc-fight-night-298-2027-02-07",
+        "ufc-fight-night-297-2027-02-07"
+      ],
+      "id": "ufc-fight-night-2027-02-07"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-08-08",
+      "slug": "ufc-fight-night-gamrot-vs-salkilld-2026",
+      "aliases": [
+        "ufc-fight-night-2026-08-08",
+        "ufc-fight-night-284-2026-08-08"
+      ],
+      "id": "ufc-fight-night-2026-08-08"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-08-22",
+      "slug": "ufc-fight-night-hernandez-vs-rodrigues-2026",
+      "aliases": [
+        "ufc-fight-night-2026-08-22",
+        "ufc-fight-night-285-2026-08-22"
+      ],
+      "id": "ufc-fight-night-2026-08-22"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-09-26",
+      "slug": "ufc-fight-night-jr-vs-barcelos-2026",
+      "aliases": [
+        "ufc-fight-night-2026-09-26",
+        "ufc-fight-night-289-2026-09-26"
+      ],
+      "id": "ufc-fight-night-2026-09-26"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-10-10",
+      "slug": "ufc-fight-night-allen-vs-duncan-2026",
+      "aliases": [
+        "ufc-fight-night-2026-10-10",
+        "ufc-fight-night-290-2026-10-10"
+      ],
+      "id": "ufc-fight-night-2026-10-10"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-10-17",
+      "slug": "ufc-fight-night-buckley-vs-malott-2026",
+      "aliases": [
+        "ufc-fight-night-2026-10-17",
+        "ufc-fight-night-290-2026-10-17",
+        "ufc-fight-night-291-2026-10-17"
+      ],
+      "id": "ufc-fight-night-2026-10-17"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2026-11-07",
+      "slug": "ufc-fight-night-bonfim-vs-brady-2026",
+      "aliases": [
+        "ufc-fight-night-2026-11-07",
+        "ufc-fight-night-293-2026-11-07"
+      ],
+      "id": "ufc-fight-night-2026-11-07"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2027-01-23",
+      "slug": "ufc-fight-night-bonfim-vs-brady-2027",
+      "aliases": [
+        "ufc-fight-night-2027-01-23",
+        "ufc-fight-night-297-2027-01-23"
+      ],
+      "id": "ufc-fight-night-2027-01-23"
+    },
+    {
+      "primarySlug": "ufc-fight-night-2027-02-13",
+      "slug": "ufc-fight-night-pyfer-vs-nickal-2027",
+      "aliases": [
+        "ufc-fight-night-2027-02-13"
+      ],
+      "id": "ufc-fight-night-2027-02-13"
+    },
+    {
+      "primarySlug": "ufc-332-2026-10-10",
+      "slug": "ufc-332-2026-10-10",
+      "aliases": [
+        "ufc-332-2026-10-10"
+      ],
+      "id": "ufc-332-2026-10-10"
+    },
+    {
+      "primarySlug": "ufc-fight-night-295-2026-11-28",
+      "slug": "ufc-fight-night-295-2026-11-28",
+      "aliases": [
+        "ufc-fight-night-295-2026-11-28"
+      ],
+      "id": "ufc-fight-night-295-2026-11-28"
+    },
+    {
+      "primarySlug": "ufc-337-2027-02-20",
+      "slug": "ufc-337-2027-02-20",
+      "aliases": [
+        "ufc-337-2027-02-20"
+      ],
+      "id": "ufc-337-2027-02-20"
+    }
+  ]
+}

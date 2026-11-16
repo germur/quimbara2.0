@@ -1,6 +1,7 @@
 ---
+import { eventPath } from "../lib/event-routing.mjs";
 import events from '../data/events.json';
-const eventsJson = JSON.stringify(events);
+const eventsJson = JSON.stringify(events.map(e=>({...e,href:eventPath(e.slug)})));
 ---
 
 <div id="ufc-widget"
@@ -59,7 +60,7 @@ const eventsJson = JSON.stringify(events);
     const wgLink    = document.getElementById('wg-link') as HTMLAnchorElement | null;
     if (!widget || !header || !body || !chevron) return;
 
-    const events: Array<{ slug: string; name: string; date: string; dateLabel: string; loc: string; main: string }> =
+    const events: Array<{ href: string; slug: string; name: string; date: string; dateLabel: string; loc: string; main: string }> =
       JSON.parse(widget.getAttribute('data-events') ?? '[]');
 
     const now = new Date();
@@ -75,7 +76,7 @@ const eventsJson = JSON.stringify(events);
     document.getElementById('wg-date')!.textContent  = next.dateLabel;
     document.getElementById('wg-location')!.textContent = next.loc;
     document.getElementById('wg-main')!.textContent  = next.main;
-    if (wgLink) wgLink.href = `/eventos/${next.slug}`;
+    if (wgLink) wgLink.href = next.href;
 
     widget.classList.remove('opacity-0', 'pointer-events-none');
 

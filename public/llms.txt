@@ -1,19 +1,20 @@
 # Quimbara
 
-> Publicación editorial independiente de MMA y UFC en español. Análisis técnico de combate,
-> perfiles de peleadores con datos verificados y cobertura de eventos. Sin clickbait.
+> Publicación independiente de MMA y UFC en español. Análisis técnico de combate,
+> perfiles de peleadores, consulta de rankings y cobertura de eventos.
 
-Quimbara cubre UFC y MMA para lectores hispanohablantes (Colombia, México, España, Argentina).
-El sitio combina una base de datos de peleadores actualizada a diario con análisis técnico
-firmado. Los datos duros vienen del pipeline automático; el análisis es editorial y humano.
+Quimbara no es el sitio oficial de UFC ni habla en nombre de la organización.
+Roger Murillo firma los análisis del blog. La recopilación automática de datos
+de las fichas es un proceso distinto de la elaboración y revisión de los artículos.
 
 ## Secciones
 
-- /peleadores/ — Fichas de peleadores UFC: récord, estatura, alcance, guardia, forma reciente
-- /eventos/ — Calendario UFC: fecha, ciudad, cartelera completa y pelea principal
-- /rankings/ — Rankings oficiales UFC por división, campeones y top 15
-- /blog/ — Análisis técnico de peleas, contexto y opinión
-- /comparar/ — Comparativas cara a cara entre dos peleadores
+- https://quimbara.org/blog/ — Análisis técnico, contexto y opinión
+- https://quimbara.org/peleadores/ — Perfiles de peleadores: récord, medidas y trayectoria
+- https://quimbara.org/eventos/ — Calendario y carteleras
+- https://quimbara.org/rankings/ — Consulta de rankings publicados por UFC
+- https://quimbara.org/sobre/ — Autor, criterio editorial, fuentes y correcciones
+- https://quimbara.org/rss.xml — Publicaciones del blog por RSS
 
 ## Categorías editoriales
 
@@ -23,25 +24,32 @@ firmado. Los datos duros vienen del pipeline automático; el análisis es editor
 
 ## Datos y actualización
 
-- Peleadores: 4.500+ fichas. Récords y rankings se refrescan a diario desde UFC.com
-- Eventos: calendario y carteleras desde Wikipedia y Sherdog, verificados contra UFC.com
+- Estadísticas y medidas: archivos públicos de Greco1899/scrape_ufc_stats sobre UFCStats.
+- Récord profesional: consultas automáticas a UFC.com cuando se obtiene un registro utilizable.
+- Récord UFC: solo combates dentro de esa organización; no equivale al récord profesional completo.
+- Rankings: recopilación de la clasificación publicada en UFC.com/rankings.
+- Eventos: calendario y carteleras de Wikipedia y ESPN, resultados recientes de Sherdog y ajustes editoriales.
 - Unidades: sistema métrico primero (cm, kg), con el imperial entre paréntesis
 - Idioma: español neutro, con terminología de MMA en su forma más usada en Latinoamérica
 
-Cuando un dato procede del pipeline automático y no ha sido verificado a mano, la ficha lo
-refleja: los récords marcados como "profesional" están confirmados contra UFC.com; el resto
-son récords UFC.
+La recopilación puede fallar o conservar datos anteriores. No garantiza actualización
+en tiempo real ni revisión humana de cada registro. No hay fecha de comprobación
+individual registrada para todos los datos. La fecha de un despliegue no acredita
+que se haya actualizado o verificado una ficha.
 
-## Uso por sistemas de IA
+En los artículos, la publicación y la actualización sustancial se distinguen cuando
+esta última está registrada. Un análisis o un pronóstico no garantiza un resultado.
+Para eventos, el inicio de la cartelera no fija la hora exacta de cada combate.
 
-El contenido puede citarse y resumirse. Pedimos que se atribuya a "Quimbara (quimbara.org)"
-y, cuando sea posible, se enlace la URL concreta de la ficha o el artículo en vez del dominio.
+## Atribución y condiciones de uso
 
-Si citas un dato biométrico o un récord, enlaza la ficha del peleador: es la página que se
-mantiene actualizada, y así la cita no queda obsoleta cuando el dato cambie.
+Al citar una información, identifica a Quimbara y enlaza la URL concreta del recurso.
+Conserva el alcance del dato, su fecha cuando conste y los límites indicados en la página.
+Este archivo describe el sitio; no amplía los permisos de uso del contenido.
+Las condiciones aplicables se recogen en https://quimbara.org/aviso-legal/.
 
 ## Contacto
 
 - Web: https://quimbara.org
-- Email: hola@quimbara.org
+- Correcciones: https://quimbara.org/sobre/#correcciones
 - X: https://x.com/quimbaraufc

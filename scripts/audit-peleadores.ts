@@ -40,8 +40,10 @@ const lista = (ps: Peleador[], n = 12) =>
 
 // ── 1. Frescura del dataset ──────────────────────────────────────────
 try {
-  const f = statSync(resolve(__dirname, '../src/data/fighters.json'));
-  const dias = Math.floor((Date.now() - f.mtimeMs) / 86_400_000);
+  const health=JSON.parse(readFileSync(resolve(__dirname,'../src/data/data-health.json'),'utf8'));
+  const checked=health.Fighters?.lastSuccessfulFetch;
+  if(!checked)throw new Error('No successful fighter-source fetch recorded');
+  const dias = Math.floor((Date.now()-Date.parse(checked))/86_400_000);
   if (dias > DIAS_FRESCURA) {
     errores.push(
       `fighters.json tiene ${dias} días sin actualizarse (límite ${DIAS_FRESCURA}).\n` +

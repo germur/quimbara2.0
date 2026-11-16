@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, description, author, pubDate, image, category, tags,
+const { title, description, author, pubDate, updateDate, image, category, tags,
         fighters = [], relatedEvents = [], takeaways = [] } = post.data;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site || Astro.url.origin).href;
@@ -84,7 +84,7 @@ const articleSchema = {
   "author": refAutor(),
   "publisher": refOrganizacion(),
   "datePublished": pubDate.toISOString(),
-  "dateModified": pubDate.toISOString(),
+  ...(updateDate ? { dateModified: updateDate.toISOString() } : {}),
   "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
   "image": image ? new URL(image, Astro.url.origin).href : undefined,
   "inLanguage": "es",
@@ -120,6 +120,7 @@ const PX = "clamp(16px,4vw,60px)";
   ogType="article"
   ogImage={image}
   publishDate={pubDate}
+  updateDate={updateDate}
   schema={combinedSchema}
 >
   <!-- Round counter — scroll progress estilo fight card MMA -->
@@ -159,9 +160,10 @@ const PX = "clamp(16px,4vw,60px)";
       </h1>
       <div class="flex flex-wrap items-center gap-3 mt-4 text-white/60 text-xs uppercase tracking-widest"
            style="font-family:var(--font-sans);">
-        <time datetime={pubDate.toISOString()}>{publishDateStr}</time>
+        <span>Publicado <time datetime={pubDate.toISOString()}>{publishDateStr}</time></span>
+        {updateDate && <span>· Actualizado <time datetime={updateDate.toISOString()}>{dtf.format(updateDate)}</time></span>}
         <span class="text-white/30">·</span>
-        <span class="text-white/90 font-bold">{author}</span>
+        <a href={autorEntidad.url} rel="author" class="text-white/90 font-bold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-[#F2D928]">{author}</a>
       </div>
     </div>
   </div>
