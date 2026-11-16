@@ -5,6 +5,8 @@ import {buildFighter} from './fetch-ufc-data.ts';
 import {parseOfficialRankings} from './fetch-rankings.mjs';
 import {failedIngestions} from './verify-ingestion.mjs';
 import {preserveRecordScope} from './lib/record-sanity.mjs';
+import {getPeleador} from '../src/lib/peleadores.ts';
+import {generarTextoComparativo} from '../src/lib/comparar.ts';
 const a='1111111111111111',b='2222222222222222';
 const rows=[{FIGHTER:'Bruno Silva',HEIGHT:`5' 4"`,WEIGHT:'125 lbs.',REACH:'65"',STANCE:'Orthodox',DOB:'Mar 16, 1990',URL:'http://ufcstats.com/fighter-details/'+a},{FIGHTER:'Bruno Silva',HEIGHT:`6' 0"`,WEIGHT:'185 lbs.',REACH:'74"',STANCE:'Orthodox',DOB:'Jul 13, 1989',URL:'http://ufcstats.com/fighter-details/'+b}];
 test('same-name athletes retain separate identities, measures, corners and results',()=>{
@@ -36,4 +38,10 @@ test('a provider name change preserves the published URL through the immutable I
  const previous=new Map([['published-name',{slug:'published-name',name:'Old Name',ufcStatsId:a,rec:'8-2-0',recScope:'pro',recordCheckedAt:'2026-11-16'}]]);
  const f=buildFighter(data.profiles[0],{...data,fightsByFighter:data.history} as any,previous as any);
  assert.equal(f.slug,'published-name');assert.equal(f.rec,'8-2-0');assert.equal(f.recordCheckedAt,'2026-11-16');
+});
+test('comparison prose does not promote a UFC subset to an unbeaten professional record',()=>{
+ const a=structuredClone(getPeleador('ilia-topuria')!),b=structuredClone(getPeleador('max-holloway')!);
+ assert.ok(a&&b);a.record={texto:'5-0-0',victorias:5,derrotas:0,empates:0,scope:'ufc'};b.record={texto:'20-5-0',victorias:20,derrotas:5,empates:0,scope:'pro'};
+ const text=generarTextoComparativo(a,b).join(' ');
+ assert.match(text,/récord en UFC/);assert.doesNotMatch(text,/llega invicto|Ninguno de los dos conoce la derrota/);
 });
