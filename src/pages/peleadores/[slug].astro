@@ -601,7 +601,7 @@ const metaDescription = f.metaDescription
     </section>
   )}
 
-  <DataSources kind="fighter" professionalRecord={recIsPro} />
+  <DataSources kind="fighter" professionalRecord={recIsPro} recordSourceUrl={(f as any).recordSourceUrl} recordCheckedAt={(f as any).recordCheckedAt} />
 
   <!-- ── FAQ (con FAQPage schema; manual o auto-generada desde datos) ── -->
   {faqToShow.length > 0 && (

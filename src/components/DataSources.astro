@@ -2,8 +2,12 @@
 interface Props {
   kind: 'fighter' | 'rankings' | 'event';
   professionalRecord?: boolean;
+  recordSourceUrl?: string;
+  recordCheckedAt?: string;
 }
-const { kind, professionalRecord = false } = Astro.props;
+const { kind, professionalRecord = false, recordSourceUrl, recordCheckedAt } = Astro.props;
+const recordDate = recordCheckedAt && Number.isFinite(Date.parse(recordCheckedAt))
+  ? new Intl.DateTimeFormat('es-CO',{day:'numeric',month:'long',year:'numeric',timeZone:'America/Bogota'}).format(new Date(recordCheckedAt)) : null;
 ---
 
 <section aria-label="Fuentes y actualización" class="data-sources">
@@ -28,6 +32,7 @@ const { kind, professionalRecord = false } = Astro.props;
         {' '}Comprueba los anuncios del organizador en <a href="https://www.ufc.com/events">UFC.com</a>: las peleas, sedes y horarios pueden cambiar. El inicio de una cartelera no fija la hora exacta de cada combate.
       </p>
     )}
+    {kind === 'fighter' && recordSourceUrl && <p>Fuente del récord: <a href={recordSourceUrl} target="_blank" rel="noopener noreferrer">{professionalRecord ? 'UFC' : 'UFCStats'}</a>{recordDate && ` · Consultado el ${recordDate}`}. Esta fecha corresponde al récord, no a todos los datos de la ficha.</p>}
     <p>
       No hay una fecha de comprobación individual registrada para todos los datos de esta página.
       {' '}Una actualización automática no equivale a verificación humana.

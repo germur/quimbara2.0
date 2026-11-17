@@ -23,6 +23,14 @@ Se volvió a ejecutar `data:details`: cuatro carteleras consultadas sin errores 
 
 Validación realizada: pruebas de datos y migración de pronósticos; ocho casos adicionales de selección, caducidad, zona horaria, identidades y estados; compilación completa; auditorías de eventos, imágenes y datos estructurados. Revisión visual a 1366 y 390 píxeles, sin desbordamiento horizontal; seis retratos cargados; navegación al perfil de Kevin Vallejos comprobada.
 
-## Discrepancia encontrada para investigar
+## Discrepancia investigada y corregida
 
-La cabecera de Kevin Vallejos y el perfil visible de UFC Español muestran 17–1, mientras que «Camino del peleador» calcula 18–1 a partir de otra colección histórica. No se cambió ninguno de esos resultados sin contrastarlos pelea por pelea. El bloque nuevo usa el récord profesional de la ficha atribuida a UFC, no la suma de ese historial. Es necesario reconciliar ambas fuentes antes de tratar el historial como un total profesional definitivo.
+La cabecera de Kevin Vallejos y el perfil visible de UFC Español muestran 17–1, mientras que el historial calcula 18–1. La crónica oficial https://www.ufc.com/news/ufc-fight-night-emmett-vs-vallejos-results-main-card-highlights-winners-interviews confirma explícitamente que quedó 18–1 tras vencer a Emmett. Se corrigió la ficha a 18–1 con esa evidencia. La excepción identifica al atleta por ID, solo sustituye el valor antiguo concreto y exige que siga coincidiendo el tramo UFC; no congela récords posteriores. La importación recurrente aplica la misma regla.
+
+También se corrigió el importador de últimos resultados: antes omitía la estelar, publicada en un bloque separado por Sherdog, y asumía que la columna izquierda era siempre la ganadora. Ahora lee los estados de ambos participantes y diferencia victorias, empates y no contest. La portada incluye Gane–Hokit y presenta Medic–Holland como empate.
+
+El refresco diario del historial ahora incluye participantes recientes/próximos y fichas antiguas fuera del ranking. Para activos o fuentes discrepantes, la caché dura 12 horas, lo que los hace elegibles en cada ejecución diaria; el resto conserva siete días y los lotes rotan por antigüedad. Se ejecutó un lote real de 50 objetivos: 27 historiales actualizados y 23 sin página, sin errores de transporte. El lector omite historiales y desgloses cuyos totales no concuerdan con el récord profesional de la ficha. No sustituye automáticamente un récord con Wikipedia.
+
+`audit:results` registra las diferencias de fuentes en `src/data/result-integrity.json`, comprueba que resultados y procedencia sean explícitos y bloquea contradicciones en resultados o desgloses publicables. Se ejecuta también en la actualización automática. Las discrepancias restantes requieren contraste individual; no son todas errores demostrados de UFC ni de Wikipedia.
+
+La programación de GitHub está activa (`0 12 * * *`, diariamente). Las últimas ejecuciones programadas observadas fueron exitosas del 12 al 15 de noviembre; la del 16 falló y una ejecución manual posterior fue exitosa. La hora del cron es nominal: GitHub registró retrasos en las ejecuciones observadas, por lo que no se garantiza publicación exactamente a las 07:00 en Colombia.

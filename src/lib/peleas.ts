@@ -17,6 +17,8 @@
  */
 
 import PELEAS_RAW from '../data/peleadores-peleas.json';
+import FIGHTERS from '../data/fighters.json';
+import {historyMatchesRecord} from './history-sanity.mjs';
 
 export type ResultadoPelea = 'victoria' | 'derrota' | 'empate' | 'nc';
 export type MetodoPelea = 'ko' | 'sub' | 'dec' | 'otro';
@@ -76,6 +78,7 @@ export function getBio(slug: string): BioWikipedia | null {
 export function getHistorial(slug: string): HistorialPeleador | null {
   const h = TABLA[slug];
   if (!h || !Array.isArray(h.peleas) || h.peleas.length === 0) return null;
+  if (!historyMatchesRecord(h,FIGHTERS.find(f=>f.slug===slug))) return null;
   return {
     wikipedia: h.wikipedia,
     actualizado: h.actualizado,

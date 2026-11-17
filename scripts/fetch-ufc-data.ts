@@ -1,5 +1,6 @@
 import {joinFighterSources} from "./lib/fighter-identity.mjs";
 import {preserveRecordScope} from "./lib/record-sanity.mjs";
+import {parseSherdogResults} from './lib/recent-results.mjs';
 import {safeWriteJson} from "./lib/datasets.mjs";
 import {recordHealth} from "./lib/health.mjs";
 import {createFighterMedia,resolveBoutPerson,resolveEventPerson} from "../src/lib/fighter-media.mjs";
@@ -335,7 +336,7 @@ export function buildFighter(profile:any,csv:CsvData,fallback:Map<string,Fighter
   ...(partial?{ufcStatsIncomplete:true}:{}),...(partial&&recScope!=='pro'?{recordUnavailable:true}:{}),
   ...(prev?.rank?{rank:prev.rank,rankCheckedAt:prev.rankCheckedAt}:{}),
   nick:detail?.NICKNAME?.trim()||(!mixedLegacy?prev?.nick:'')||'',div,rec,recScope,ufcRec,
-  ...(!mixedLegacy?Object.fromEntries(['recordAttemptedAt','recordRetryAfter','recordCheckedAt','recordSourceUrl'].filter(k=>prev?.[k]).map(k=>[k,prev[k]])):{}),
+  ...(!mixedLegacy?Object.fromEntries(['recordAttemptedAt','recordRetryAfter','recordCheckedAt','recordSourceUrl','recordVerification'].filter(k=>prev?.[k]).map(k=>[k,prev[k]])):{}),
   ...(recScope==='ufc'&&prev?.recordConflict?{recordConflict:prev.recordConflict}:{}),
   ...(recScope==='pro'?{recordSourceUrl:binding?.record?binding.ufcProfileUrl:prev?.recordSourceUrl,recordCheckedAt:binding?.record?binding.checkedAt:prev?.recordCheckedAt}:{}),
   from:prev?.from??'',img,...(photoSafe&&prev?.photoSource?{photoSource:prev.photoSource}:{}),...(photoSafe&&prev?.photoAliases?{photoAliases:prev.photoAliases}:{}),
@@ -529,17 +530,7 @@ async function fetchFightCards() {
 
 // ─── RESULTS (Sherdog) ──────────────────────────────────────────────────────
 
-type Result = { w: string; l: string; method: string; round: number; time: string; event: string };
-
-function sherdogName($: cheerio.CheerioAPI, cell: cheerio.Cheerio<cheerio.AnyNode>): string {
-  const nameSpan = cell.find('span[itemprop="name"]').first();
-  if (nameSpan.length) {
-    return nameSpan.html()?.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() ?? '';
-  }
-  return clean(cell.find('a').first().text());
-}
-
-async function fetchResults() {
+export async function fetchResults() {
   const UA = { 'User-Agent': 'Mozilla/5.0 (compatible; QuimbaraBot/1.0)' };
 
   const $list = await fetchHtml(
@@ -554,22 +545,13 @@ async function fetchResults() {
 
   const $ev = await fetchHtml(`https://www.sherdog.com${eventPath}`, UA);
 
-  const results: Result[] = [];
-  $ev('table.new_table.result tr').slice(1, 6).each((_, tr) => {
-    const cells = $ev(tr).find('td');
-    if (cells.length < 5) return;
-    const w      = sherdogName($ev, $ev(cells[1]));
-    const l      = sherdogName($ev, $ev(cells[3]));
-    const method = $ev(cells[4]).text().split('\n').map(s => s.trim()).filter(Boolean)[0] ?? '—';
-    const round  = parseInt($ev(cells[5]).text().trim()) || 1;
-    const time   = $ev(cells[6]).text().trim();
-    if (w && l) results.push({ w, l, method, round, time, event: eventName });
-  });
+  const results = parseSherdogResults($ev.html(),{event:eventName,sourceUrl:`https://www.sherdog.com${eventPath}`});
 
   if (!results.length) throw new Error('Results: 0 peleas parseadas de Sherdog');
   writeJson('results.json', results.slice(0, 4));
+  recordHealth('Results',true,{completedAt:new Date().toISOString(),count:Math.min(results.length,4),sourceUrl:`https://www.sherdog.com${eventPath}`});
   console.log(`✓ results.json (${Math.min(results.length, 4)} resultados de "${eventName}")`);
-  results.slice(0, 4).forEach(r => console.log(`   · ${r.w} def. ${r.l} · ${r.method} R${r.round}`));
+  results.slice(0, 4).forEach(r => console.log(`   · ${r.w} / ${r.l} · ${r.outcome} · ${r.method} R${r.round}`));
 }
 
 // ─── EVENT PHOTOS (match fighters to events) ───────────────────────────────
