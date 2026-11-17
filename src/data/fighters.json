@@ -149851,11 +149851,11 @@
     "rankCheckedAt": "2026-11-16T22:32:54.895Z",
     "nick": "El Chino",
     "div": "Featherweight",
-    "rec": "17-1-0",
+    "rec": "18-1-0",
     "recScope": "pro",
     "ufcRec": "4-0-0",
-    "recordCheckedAt": "2026-11-16T15:42:12.548Z",
-    "recordSourceUrl": "https://www.ufc.com/athlete/kevin-vallejos",
+    "recordCheckedAt": "2026-11-17T12:04:08.234Z",
+    "recordSourceUrl": "https://www.ufc.com/news/ufc-fight-night-emmett-vs-vallejos-results-main-card-highlights-winners-interviews",
     "from": "",
     "img": "/fighters/kevin-vallejos.png",
     "height": "5' 7\"",
@@ -149886,7 +149886,14 @@
         "outcome": "W",
         "winType": "TKO"
       }
-    ]
+    ],
+    "recordAttemptedAt": "2026-11-17T12:04:08.019Z",
+    "recordVerification": {
+      "reportedRecord": "17-1-0",
+      "profileSourceUrl": "https://www.ufc.com/athlete/kevin-vallejos",
+      "sourceUrl": "https://www.ufc.com/news/ufc-fight-night-emmett-vs-vallejos-results-main-card-highlights-winners-interviews",
+      "throughDate": "2026-03-14"
+    }
   },
   {
     "slug": "isaac-vallie-flagg",

@@ -1,5 +1,6 @@
 import {recordHealth} from "./lib/health.mjs";
 import {canonicalEvents} from '../src/lib/event-routing.mjs';
+import {activeFighterSlugs,selectHistoryRefreshTargets} from './lib/history-refresh.mjs';
 /**
  * fetch-peleas.mjs — historial completo de peleas desde Wikipedia.
  *
@@ -306,9 +307,11 @@ async function traerWikitext(titulo) {
   const url = 'https://en.wikipedia.org/w/api.php?action=parse&prop=wikitext' +
               `&page=${encodeURIComponent(titulo)}&format=json&formatversion=2&redirects=1`;
   const r = await fetch(url, { signal: AbortSignal.timeout(20000), headers: { 'User-Agent': UA } });
-  if (!r.ok) return null;
+  if (r.status===404) return null;
+  if (!r.ok) throw new Error(`Wikipedia HTTP ${r.status}`);
   const j = await r.json();
-  if (j.error) return null;
+  if (j.error?.code==='missingtitle') return null;
+  if (j.error) throw new Error(`Wikipedia: ${j.error.code}`);
   return j.parse?.wikitext ?? null;
 }
 
@@ -317,7 +320,7 @@ async function buscarPagina(nombre) {
               `&srsearch=${encodeURIComponent(nombre + ' mixed martial artist')}` +
               '&format=json&formatversion=2';
   const r = await fetch(url, { signal: AbortSignal.timeout(20000), headers: { 'User-Agent': UA } });
-  if (!r.ok) return [];
+  if (!r.ok) throw new Error(`Wikipedia search HTTP ${r.status}`);
   const j = await r.json();
   return (j.query?.search ?? []).map(s => s.title);
 }
@@ -356,6 +359,7 @@ const eventos = Array.isArray(eventosRaw) ? eventosRaw : eventosRaw.events ?? []
 const nameCounts=new Map();for(const f of fighters){const key=slugificar(f.name);nameCounts.set(key,(nameCounts.get(key)??0)+1);}
 const slugPorNombre = new Map(fighters.filter(f=>nameCounts.get(slugificar(f.name))===1).map(f => [slugificar(f.name), f.slug]));
 const canonical=canonicalEvents(eventos);
+const activos=activeFighterSlugs(fighters,canonical);
 
 const salida = existsSync(RUTA_SALIDA)
   ? JSON.parse(readFileSync(RUTA_SALIDA, 'utf8'))
@@ -390,14 +394,12 @@ if (SOLO_SLUG) {
 } else {
   // Default: rankeados (campeón + top 15). Son los que tienen página y los
   // que importan para el timeline.
-  objetivos = fighters.filter(f => f.rank);
+  objetivos = fighters.filter(f => f.rank||activos.has(f.slug)||salida.peleadores[f.slug]);
 }
 
 const sinPagina = new Set(salida.sinPagina ?? []);
 if (!FORCE) {
-  const cutoff=Date.now()-7*86400000;
-  objetivos = objetivos.filter(f => !salida.peleadores[f.slug] || Date.parse(salida.peleadores[f.slug].actualizado??'1970-01-01')<cutoff);
-  objetivos.sort((a,b)=>Date.parse(salida.peleadores[a.slug]?.actualizado??'1970-01-01')-Date.parse(salida.peleadores[b.slug]?.actualizado??'1970-01-01'));
+  objetivos = selectHistoryRefreshTargets(objetivos,salida.peleadores,activos,{limit:LIMITE,attempts:salida.historyAttempts??{}});
 }
 objetivos = objetivos.slice(0, LIMITE);
 
@@ -405,6 +407,7 @@ console.log(`\nObjetivos: ${objetivos.length} peleador(es)`);
 if (!objetivos.length) {
   writeFileSync(RUTA_SALIDA,JSON.stringify(salida,null,2)+'\n');
   console.log('Nada que hacer. Usa --force para rehacer los ya guardados.\n');
+  recordHealth('fight-history',true,{updated:0,errors:0});
   process.exit(0);
 }
 
@@ -415,6 +418,7 @@ for (const [i, f] of objetivos.entries()) {
   try {
     const res = await resolver(f);
     if (!res) {
+      salida.historyAttempts??={};salida.historyAttempts[f.slug]={checkedAt:new Date().toISOString(),found:false};
       console.log(`${prefijo} — sin página`);
       sinPagina.add(f.slug);
       vacios++;
@@ -424,6 +428,7 @@ for (const [i, f] of objetivos.entries()) {
 
     const peleas = parsearTabla(res.wikitext, f.name);
     if (!peleas.length) {
+      salida.historyAttempts??={};salida.historyAttempts[f.slug]={checkedAt:new Date().toISOString(),found:false};
       console.log(`${prefijo} — página sin tabla parseable`);
       sinPagina.add(f.slug);
       vacios++;
@@ -476,6 +481,7 @@ for (const [i, f] of objetivos.entries()) {
       peleas,
     };
     sinPagina.delete(f.slug);
+    if(salida.historyAttempts)delete salida.historyAttempts[f.slug];
 
     totalPeleas += peleas.length;
     ok++;

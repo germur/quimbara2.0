@@ -37,7 +37,7 @@ for(const event of canonicalEvents(events).filter(e=>validDate(e.date)&&e.date>=
       // Preserve the site's announced main-fight orientation.
       return preserveFightCorners({f1:isMain?event.f1:names[0],f2:isMain?event.f2:names[1],sourceFightId:String(c.id),
         weightClass:c.type?.abbreviation??'',bout:isMain?'Main Event':hasSegments&&c.date===first?'prelim':'maincard',order:0,
-        sourceStartUTC:c.date,segmentInferred:true}, event.fightCard??[]);
+        sourceStartUTC:c.date,sourceStatus:c.status?.type?.name??'UNKNOWN',segmentInferred:true}, event.fightCard??[]);
     }).sort((a,b)=>Number(b.bout==='Main Event')-Number(a.bout==='Main Event')||String(b.sourceStartUTC).localeCompare(String(a.sourceStartUTC)));
     fights.forEach((f,i)=>f.order=i);
     if(new Set(fights.map(fightKey)).size!==fights.length)throw new Error('Duplicate fight IDs');

@@ -1,12 +1,12 @@
 {
   "event-details": {
-    "lastAttempt": "2026-11-16T22:34:39.077Z",
+    "lastAttempt": "2026-11-17T11:44:56.872Z",
     "ok": true,
     "detail": {
-      "updated": 3,
+      "updated": 4,
       "failed": 0
     },
-    "lastSuccessfulFetch": "2026-11-16T22:34:39.077Z"
+    "lastSuccessfulFetch": "2026-11-17T11:44:56.872Z"
   },
   "Events": {
     "lastAttempt": "2026-11-16T22:32:46.608Z",
@@ -33,12 +33,14 @@
     "lastSuccessfulFetch": "2026-11-16T22:32:47.539Z"
   },
   "Results": {
-    "lastAttempt": "2026-11-16T22:32:54.054Z",
+    "lastAttempt": "2026-11-17T12:14:04.664Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-16T22:32:54.054Z"
+      "completedAt": "2026-11-17T12:14:04.662Z",
+      "count": 4,
+      "sourceUrl": "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293"
     },
-    "lastSuccessfulFetch": "2026-11-16T22:32:54.054Z"
+    "lastSuccessfulFetch": "2026-11-17T12:14:04.664Z"
   },
   "Event Photos": {
     "lastAttempt": "2026-11-16T22:32:54.230Z",
@@ -59,13 +61,13 @@
     "lastSuccessfulFetch": "2026-11-16T22:32:54.962Z"
   },
   "fight-history": {
-    "lastAttempt": "2026-11-16T22:35:03.915Z",
+    "lastAttempt": "2026-11-17T12:06:46.738Z",
     "ok": true,
     "detail": {
-      "updated": 0,
+      "updated": 27,
       "errors": 0
     },
-    "lastSuccessfulFetch": "2026-11-16T22:35:03.915Z"
+    "lastSuccessfulFetch": "2026-11-17T12:06:46.738Z"
   },
   "images": {
     "lastAttempt": "2026-11-16T22:35:05.779Z",
@@ -82,14 +84,14 @@
     "lastSuccessfulFetch": "2026-11-16T22:35:05.779Z"
   },
   "records": {
-    "lastAttempt": "2026-11-16T22:34:38.466Z",
+    "lastAttempt": "2026-11-17T12:04:09.268Z",
     "ok": true,
     "detail": {
-      "attempted": 100,
-      "updated": 98,
-      "unavailable": 2,
+      "attempted": 1,
+      "updated": 1,
+      "unavailable": 0,
       "errors": 0
     },
-    "lastSuccessfulFetch": "2026-11-16T22:34:38.466Z"
+    "lastSuccessfulFetch": "2026-11-17T12:04:09.268Z"
   }
 }

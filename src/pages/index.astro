@@ -6,10 +6,12 @@ import ArticleCard from '../components/ArticleCard.astro';
 import Ticker from '../components/Ticker.astro';
 import OctagonScene from '../components/OctagonScene.astro';
 import TaleOfTheTape from '../components/TaleOfTheTape.astro';
+import UpcomingFighters from '../components/UpcomingFighters.astro';
 import EVENTS from '../data/events.json';
 import VIDEOS from '../data/videos.json';
 import FIGHTERS from '../data/fighters.json';
 import RESULTS from '../data/results.json';
+import {resultPresentation} from '../../scripts/lib/recent-results.mjs';
 // @ts-ignore — identidad de entidad compartida (Organization, autor, refs)
 import { organizacion, refOrganizacion, ID } from '../lib/entidades.mjs';
 
@@ -86,6 +88,8 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
       </p>
     </div>
   </div>
+
+  <UpcomingFighters />
 
   <!-- ── Hero grid 3-up ── -->
   <section style={`max-width:1400px; margin: 40px auto 0; padding: 0 ${PX};`}>
@@ -277,16 +281,17 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
                onmouseenter="this.style.background='rgba(255,255,255,0.08)'"
                onmouseleave="this.style.background='rgba(255,255,255,0.04)'">
             <div class="flex-1 text-right" style="font-family:var(--font-display);font-size:clamp(14px,1.5vw,18px);">
-              <span style="color:#F2D928;">W</span>
+              {resultPresentation(r).winner && <span style="color:#F2D928;" aria-label="Ganador">W</span>}
               <span class="text-white ml-1">{r.w}</span>
             </div>
-            <div class="text-gray-500 text-xs font-bold" style="font-family:var(--font-sans);">DEF.</div>
-            <div class="flex-1 text-white/50" style="font-family:var(--font-display);font-size:clamp(14px,1.5vw,18px);">{r.l}</div>
+            <div class="text-gray-500 text-xs font-bold" style="font-family:var(--font-sans);">{resultPresentation(r).label}</div>
+            <div class:list={['flex-1', resultPresentation(r).winner?'text-white/50':'text-white']} style="font-family:var(--font-display);font-size:clamp(14px,1.5vw,18px);">{r.l}</div>
             <div class="text-gray-500 text-xs hidden md:block" style="font-family:var(--font-sans);">{r.method} · R{r.round} {r.time}</div>
             <div class="text-[#F2D928] text-xs font-bold hidden md:block" style="font-family:var(--font-sans);">{r.event}</div>
           </div>
         ))}
       </div>
+      {RESULTS[0]?.sourceUrl && <p class="text-xs text-gray-400 mt-5">Fuente: <a href={RESULTS[0].sourceUrl} target="_blank" rel="noopener noreferrer" class="underline">Sherdog</a> · Consultado el {new Intl.DateTimeFormat('es-CO',{day:'numeric',month:'long',year:'numeric',timeZone:'America/Bogota'}).format(new Date(RESULTS[0].checkedAt))}.</p>}
     </div>
   </section>
 </BaseLayout>

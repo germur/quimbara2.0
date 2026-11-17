@@ -113,7 +113,7 @@ if (LIMPIAR && existsSync(DIR_SALIDA)) {
 }
 
 let objetivos = getPeleadores({ conRanking: true });
-if (SOLO) objetivos = objetivos.filter(p => p.slug === SOLO);
+if (SOLO) objetivos = objetivos.filter(p => SOLO.split(',').includes(p.slug));
 
 console.log(`\nGenerando ${objetivos.length} OG image(s)…`);
 

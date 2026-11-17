@@ -2532,6 +2532,7 @@
         "bout": "Main Event",
         "order": 0,
         "sourceStartUTC": "2026-11-21T18:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "jiri-prochazka",
         "f2Id": "navajo-stirling"
@@ -2544,6 +2545,7 @@
         "bout": "maincard",
         "order": 1,
         "sourceStartUTC": "2026-11-21T18:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "aljamain-sterling",
         "f2Id": "kevin-vallejos"
@@ -2556,6 +2558,7 @@
         "bout": "maincard",
         "order": 2,
         "sourceStartUTC": "2026-11-21T18:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "dan-hooker",
         "f2Id": "brian-ortega"
@@ -2568,6 +2571,7 @@
         "bout": "maincard",
         "order": 3,
         "sourceStartUTC": "2026-11-21T18:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "kyoji-horiguchi",
         "f2Id": "asu-almabayev"
@@ -2580,6 +2584,7 @@
         "bout": "maincard",
         "order": 4,
         "sourceStartUTC": "2026-11-21T18:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "jared-cannonier",
         "f2Id": "ikram-aliskerov"
@@ -2592,6 +2597,7 @@
         "bout": "maincard",
         "order": 5,
         "sourceStartUTC": "2026-11-21T18:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "aleksandre-topuria",
         "f2Id": "santiago-luna"
@@ -2604,6 +2610,7 @@
         "bout": "prelim",
         "order": 6,
         "sourceStartUTC": "2026-11-21T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "shamil-gaziev",
         "f2Id": "tallison-teixeira"
@@ -2616,6 +2623,7 @@
         "bout": "prelim",
         "order": 7,
         "sourceStartUTC": "2026-11-21T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "amir-albazi",
         "f2Id": "alessandro-costa"
@@ -2628,6 +2636,7 @@
         "bout": "prelim",
         "order": 8,
         "sourceStartUTC": "2026-11-21T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "jake-matthews",
         "f2Id": "tahir-abdullayev"
@@ -2640,6 +2649,7 @@
         "bout": "prelim",
         "order": 9,
         "sourceStartUTC": "2026-11-21T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "nikolas-motta",
         "f2Id": "dom-mar-fan"
@@ -2652,6 +2662,7 @@
         "bout": "prelim",
         "order": 10,
         "sourceStartUTC": "2026-11-21T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "diyar-nurgozhay",
         "f2Id": "alik-lorenz"
@@ -2678,7 +2689,7 @@
       }
     ],
     "espnEventId": "600061665",
-    "cardCheckedAt": "2026-11-16T22:34:38.907Z",
+    "cardCheckedAt": "2026-11-17T11:44:56.370Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -2687,7 +2698,7 @@
     "country": "Qatar",
     "programmingStartUTC": "2026-11-21T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
-    "scheduleCheckedAt": "2026-11-16T22:34:38.907Z",
+    "scheduleCheckedAt": "2026-11-17T11:44:56.370Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061665/league/ufc"
   },
   {
@@ -2737,6 +2748,7 @@
         "bout": "Main Event",
         "order": 0,
         "sourceStartUTC": "2026-12-05T18:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "israel-adesanya",
         "f2Id": "shara-magomedov"
@@ -2749,6 +2761,7 @@
         "bout": "maincard",
         "order": 1,
         "sourceStartUTC": "2026-12-05T18:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "ian-machado-garry",
         "f2Id": "yaroslav-amosov"
@@ -2761,6 +2774,7 @@
         "bout": "maincard",
         "order": 2,
         "sourceStartUTC": "2026-12-05T18:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "serghei-spivac",
         "f2Id": "mario-pinto"
@@ -2773,6 +2787,7 @@
         "bout": "prelim",
         "order": 3,
         "sourceStartUTC": "2026-12-05T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "levan-chokheli",
         "f2Id": "islam-dulatov"
@@ -2785,6 +2800,7 @@
         "bout": "prelim",
         "order": 4,
         "sourceStartUTC": "2026-12-05T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "mairon-santos",
         "f2Id": "akbar-abdullaev"
@@ -2797,6 +2813,7 @@
         "bout": "prelim",
         "order": 5,
         "sourceStartUTC": "2026-12-05T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "magomed-tuchalov",
         "f2Id": "ion-cutelaba"
@@ -2809,6 +2826,7 @@
         "bout": "prelim",
         "order": 6,
         "sourceStartUTC": "2026-12-05T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "bruno-silva",
         "f2Id": "jafel-filho"
@@ -2821,6 +2839,7 @@
         "bout": "prelim",
         "order": 7,
         "sourceStartUTC": "2026-12-05T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "uran-satybaldiev",
         "f2Id": "ivan-gnizditskiy"
@@ -2833,6 +2852,7 @@
         "bout": "prelim",
         "order": 8,
         "sourceStartUTC": "2026-12-05T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "junyong-park",
         "f2Id": "marco-tulio"
@@ -2845,6 +2865,7 @@
         "bout": "prelim",
         "order": 9,
         "sourceStartUTC": "2026-12-05T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "pavel-andrusca",
         "f2Id": "mehemmedeli-osmanli"
@@ -2857,6 +2878,7 @@
         "bout": "prelim",
         "order": 10,
         "sourceStartUTC": "2026-12-05T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "modestino-rodrigues",
         "f2Id": "matthieu-letho-duclos"
@@ -2869,13 +2891,14 @@
         "bout": "prelim",
         "order": 11,
         "sourceStartUTC": "2026-12-05T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "abdul-hussein",
         "f2Id": "hecher-sosa"
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-16T22:34:38.991Z",
+    "cardCheckedAt": "2026-11-17T11:44:56.556Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -2910,7 +2933,7 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-16T22:34:38.991Z",
+    "scheduleCheckedAt": "2026-11-17T11:44:56.556Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc"
   },
   {
@@ -2934,6 +2957,7 @@
         "bout": "Main Event",
         "order": 0,
         "sourceStartUTC": "2026-12-13T02:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "charles-oliveira",
         "f2Id": "diego-lopes"
@@ -2946,6 +2970,7 @@
         "bout": "maincard",
         "order": 1,
         "sourceStartUTC": "2026-12-13T02:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "sergei-pavlovich",
         "f2Id": "alex-pereira"
@@ -2958,6 +2983,7 @@
         "bout": "maincard",
         "order": 2,
         "sourceStartUTC": "2026-12-13T02:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "brandon-moreno",
         "f2Id": "charles-johnson"
@@ -2970,6 +2996,7 @@
         "bout": "maincard",
         "order": 3,
         "sourceStartUTC": "2026-12-13T00:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "maycee-barber",
         "f2Id": "carli-judice"
@@ -2982,6 +3009,7 @@
         "bout": "prelim",
         "order": 4,
         "sourceStartUTC": "2026-12-12T22:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "quentin-pasley",
         "f2Id": "junior-tafa"
@@ -3010,7 +3038,7 @@
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-16T22:34:39.075Z",
+    "cardCheckedAt": "2026-11-17T11:44:56.712Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -3019,7 +3047,7 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-16T22:34:39.075Z",
+    "scheduleCheckedAt": "2026-11-17T11:44:56.712Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc"
   },
   {
@@ -3038,52 +3066,89 @@
   {
     "slug": "ufc-fight-night-2027-01-16",
     "name": "UFC Fight Night",
-    "main": "Rodríguez vs. Garcia",
+    "main": "Yair Rodriguez vs. Steve Garcia",
     "loc": "Dallas, Texas, U.S.",
     "date": "2027-01-16",
     "dateLabel": "16 ene 2027",
-    "f1": "Rodríguez",
+    "f1": "Yair Rodriguez",
     "f1img": "/fighters/yair-rodriguez.png",
-    "f2": "Garcia",
+    "f2": "Steve Garcia",
     "f2img": "/fighters/steve-garcia.png",
     "status": "upcoming",
     "fightCard": [
       {
         "f1": "Yair Rodríguez",
-        "f1Id": "yair-rodriguez",
         "f2": "Steve Garcia",
-        "f2Id": "steve-garcia",
+        "sourceFightId": "401932014",
         "weightClass": "Featherweight",
         "bout": "Main Event",
         "order": 0,
-        "f1StatsId": "cbf5e6f231b55443",
-        "f2StatsId": "97cf1a2c7c5e7889"
+        "sourceStartUTC": "2027-01-17T01:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "yair-rodriguez",
+        "f2Id": "steve-garcia"
       },
       {
         "f1": "Daniel Rodriguez",
-        "f1Id": "daniel-rodriguez",
         "f2": "Roberto Soldić",
-        "f2Id": "roberto-soldic",
+        "sourceFightId": "401934435",
         "weightClass": "Welterweight",
-        "bout": "Co-Main Event",
+        "bout": "maincard",
         "order": 1,
-        "f1StatsId": "8a1f3b5c526cd6e6",
-        "f2StatsId": "5a229cbd9cdd28ca"
+        "sourceStartUTC": "2027-01-17T01:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "daniel-rodriguez",
+        "f2Id": "roberto-soldic"
       },
       {
         "f1": "Chidi Njokuani",
-        "f1Id": "chidi-njokuani",
         "f2": "Ignacio Bahamondes",
-        "f2Id": "ignacio-bahamondes",
+        "sourceFightId": "401934436",
         "weightClass": "Welterweight",
         "bout": "maincard",
         "order": 2,
-        "f1StatsId": "c68c68efaa5ca6ef",
-        "f2StatsId": "e4a47b07044ddd72"
+        "sourceStartUTC": "2027-01-17T01:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "chidi-njokuani",
+        "f2Id": "ignacio-bahamondes"
+      },
+      {
+        "f1": "TBA",
+        "f2": "Opponent TBA",
+        "sourceFightId": "401932035",
+        "weightClass": "",
+        "bout": "prelim",
+        "order": 3,
+        "sourceStartUTC": "2027-01-16T22:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true
       }
     ],
-    "cardCheckedAt": "2026-11-16T21:43:23.245Z",
-    "cardSource": "Wikipedia"
+    "cardCheckedAt": "2026-11-17T11:44:56.868Z",
+    "cardSource": "ESPN",
+    "cardHistory": [
+      {
+        "checkedAt": "2026-11-17T11:41:59.795Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
+        "added": [
+          "TBA vs. Opponent TBA"
+        ],
+        "removed": []
+      }
+    ],
+    "espnEventId": "600062421",
+    "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
+    "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062421/league/ufc",
+    "cardFetchError": null,
+    "venue": "American Airlines Center",
+    "city": "Dallas",
+    "country": "USA",
+    "programmingStartUTC": "2027-01-16T23:00Z",
+    "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
+    "scheduleCheckedAt": "2026-11-17T11:44:56.868Z"
   },
   {
     "slug": "ufc-fight-night-297-2027-01-23",

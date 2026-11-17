@@ -38,7 +38,7 @@ jobs:
         continue-on-error: true
       - run: npm run data:overrides
       - id: history
-        run: npm run data:peleas -- --limite=50
+        run: npm run data:peleas -- --limite=100
         continue-on-error: true
       - id: images
         run: npm run data:images
@@ -62,7 +62,7 @@ jobs:
         run: node scripts/sync-event-urls.mjs && npm run rag:chunk -- --write && npm run rag:embed -- --publicar && npm run audit:search && npm run rag:eval
       - run: npm run gen:og
       # Validate the candidate BEFORE committing data that triggers Netlify.
-      - run: npm run audit:peleadores && npm run audit:identities
+      - run: npm run audit:peleadores && npm run audit:identities && npm run audit:results
       - run: npm run build
       - run: npm run audit:schema && npm run audit:events && npm run audit:images -- --dist
       - uses: stefanzweifel/git-auto-commit-action@v5

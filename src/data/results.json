@@ -1,34 +1,46 @@
 [
   {
+    "w": "Ciryl Gane",
+    "l": "Josh Hokit",
+    "outcome": "win",
+    "method": "Decision (Unanimous)",
+    "round": 5,
+    "time": "5:00",
+    "event": "UFC 334 - Gane vs. Hokit",
+    "sourceUrl": "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293",
+    "checkedAt": "2026-11-17T12:14:04.590Z"
+  },
+  {
     "w": "Kayla Harrison",
     "l": "Amanda Nunes",
+    "outcome": "win",
     "method": "Submission (Rear-Naked Choke)",
     "round": 4,
     "time": "1:29",
-    "event": "UFC 334 - Gane vs. Hokit"
+    "event": "UFC 334 - Gane vs. Hokit",
+    "sourceUrl": "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293",
+    "checkedAt": "2026-11-17T12:14:04.590Z"
   },
   {
     "w": "Caio Borralho",
     "l": "Yousri Belgaroui",
+    "outcome": "win",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC 334 - Gane vs. Hokit"
+    "event": "UFC 334 - Gane vs. Hokit",
+    "sourceUrl": "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293",
+    "checkedAt": "2026-11-17T12:14:04.590Z"
   },
   {
     "w": "Uros Medic",
     "l": "Kevin Holland",
+    "outcome": "draw",
     "method": "Draw (Majority)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC 334 - Gane vs. Hokit"
-  },
-  {
-    "w": "Luis Gurule",
-    "l": "Bilal Hasan",
-    "method": "Decision (Split)",
-    "round": 3,
-    "time": "5:00",
-    "event": "UFC 334 - Gane vs. Hokit"
+    "event": "UFC 334 - Gane vs. Hokit",
+    "sourceUrl": "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293",
+    "checkedAt": "2026-11-17T12:14:04.590Z"
   }
 ]
