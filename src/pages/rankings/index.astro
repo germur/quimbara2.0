@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import DataSources from '../../components/DataSources.astro';
 import FIGHTERS from '../../data/fighters.json';
+import RANKINGS from '../../data/rankings-snapshot.json';
 import { divOrder, divLabels, divSlugs, divWeights, isFemale } from '../../data/divisions';
 
 const PX = 'clamp(16px,4vw,60px)';
@@ -77,6 +78,7 @@ const femaleDivs = divisions.filter(d => d.female);
     <p class="text-gray-400 mt-4 text-sm max-w-2xl" style="font-family:var(--font-sans);">
       Consulta campeones y contendientes por división a partir de los rankings publicados por UFC. Quimbara es un medio independiente; esta clasificación no es una valoración editorial propia.
     </p>
+    <p class="text-sm text-gray-300 mt-3" style="font-family:var(--font-sans)">Consulta la tabla de campeones y entra directamente al top 15 de cada división. Clasificación consultada el <time datetime={RANKINGS.checkedAt}>{new Intl.DateTimeFormat('es-CO',{day:'numeric',month:'long',year:'numeric',timeZone:'America/Bogota'}).format(new Date(RANKINGS.checkedAt))}</time>.</p>
   </div>
 </div>
 
@@ -93,6 +95,12 @@ const femaleDivs = divisions.filter(d => d.female);
       </a>
     ))}
   </div>
+
+  <!-- Male divisions -->
+  <section aria-labelledby="campeones-titulo" class="mb-10">
+    <h2 id="campeones-titulo" class="text-2xl mb-4" style="font-family:var(--font-display)">Campeones UFC por división</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">{divisions.filter(d=>d.champ).map(d=><a href={`#${d.slug}`} class="block border border-gray-200 rounded-md p-4 hover:border-[#111] focus-visible:outline-2"><span class="block text-xs text-gray-600">{d.label}</span><strong class="block text-lg mt-1" style="font-family:var(--font-display)">{d.champ!.name}</strong><span class="text-xs underline">Ver clasificación de la división ↓</span></a>)}</div>
+  </section>
 
   <!-- Male divisions -->
   <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-6 mt-2"

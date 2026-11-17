@@ -1,5 +1,9 @@
 ---
 import EventProvenance from "../../components/EventProvenance.astro";
+import AnswerFirst from '../../components/AnswerFirst.astro';
+import RESULTS from '../../data/results.json';
+import {resultsForEvent} from '../../lib/search-intent.mjs';
+import {resultPresentation} from '../../../scripts/lib/recent-results.mjs';
 import {schemaStatus,eventStatus} from "../../lib/event-data.mjs";
 import { eventPath, eventSlug, canonicalEvents } from "../../lib/event-routing.mjs";
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -138,11 +142,19 @@ const metaTitle = isCompleted
 const metaDescription = isCompleted
   ? `Información de ${event.name}, ${event.main}, del ${event.dateLabel} en ${event.loc}. Consulta la cartelera anunciada y sus fuentes.`
   : `Cartelera anunciada de ${event.name}: ${event.main}. Fecha ${event.dateLabel}, ${event.loc}. Consulta fuentes y horarios disponibles.`;
+const availableResults=resultsForEvent(event,RESULTS);
+const colombia=horarios.find(h=>h.pais==='Colombia');
+const resultLead=availableResults[0];
+const directAnswer=eventState==='cancelled'?`${eventTitle} figura como cancelado. La fecha registrada era ${event.dateLabel}.`
+  :eventState==='postponed'?`${eventTitle} figura como aplazado. Consulta las fuentes de la ficha para conocer los cambios de fecha.`
+  :resultLead?`${resultLead.outcome==='win'?`${resultLead.w} venció a ${resultLead.l} por ${resultLead.method}`:resultLead.outcome==='draw'?`${resultLead.w} y ${resultLead.l} empataron`:`${resultLead.w} vs. ${resultLead.l} terminó sin resultado`}. ${event.name} se celebró el ${event.dateLabel} en ${event.loc}. Aquí están los ${availableResults.length} resultados disponibles de la fuente.`
+  :`${eventTitle} ${isCompleted?'se celebró':'está previsto para'} el ${event.dateLabel} en ${event.loc}.${!isCompleted&&colombia?` El inicio de la programación figura a las ${colombia.hora} en Colombia; no es la hora exacta de la estelar.`:!isCompleted?' El horario de emisión está pendiente de verificación.':' Esta ficha conserva la cartelera anunciada; no dispone de resultados verificados de ese evento.'}`;
+const answerLinks=[...(availableResults.length?[{href:'#resultados',label:'Resultados disponibles'}]:[]),...(!isCompleted?[{href:'#horarios',label:'Horarios por país'}]:[]),...(event.fightCard?.length?[{href:'#cartelera',label:'Cartelera'}]:[]),{href:'#como-ver',label:'Cómo ver'}];
 ---
 
 <BaseLayout
-  title={metaTitle}
-  description={metaDescription}
+  title={availableResults.length?`${event.name}: resultados disponibles y cartelera · ${event.dateLabel}`:metaTitle}
+  description={availableResults.length?directAnswer:metaDescription}
   canonicalUrl={canonicalUrl}
   ogImage={event.f1img || '/default-og.jpg'}
   schema={eventSchemaStr}
@@ -193,6 +205,8 @@ const metaDescription = isCompleted
           </div>
         </div>
       </div>
+
+      <AnswerFirst text={directAnswer} label={isCompleted?'Qué ocurrió y qué datos hay':'Fecha, cartelera y horario'} dark links={answerLinks} />
 
       {/* ── Matchup visual ── */}
       {hasFight ? (
@@ -306,9 +320,15 @@ const metaDescription = isCompleted
     )}
   </div>
 
+  {availableResults.length>0&&<section id="resultados" class="scroll-mt-20" style={`max-width:1400px;margin:0 auto;padding:38px ${PX} 0;`}>
+    <h2 class="text-2xl mb-4" style="font-family:var(--font-display)">Resultados disponibles de {event.name}</h2>
+    <p class="text-sm text-gray-600 mb-5">Se muestran {availableResults.length} resultados consultados en <a class="underline" href={availableResults[0].sourceUrl}>Sherdog</a>. Este bloque no representa necesariamente la cartelera completa.</p>
+    <ul class="divide-y divide-gray-200">{availableResults.map(r=><li class="py-4"><p class="font-bold">{r.w} {resultPresentation(r).winner?'venció a':r.outcome==='draw'?'empató con':'vs.'} {r.l}{r.outcome==='nc'?' · Sin resultado':''}</p><p class="text-sm text-gray-600">{r.method} · R{r.round} · {r.time}</p></li>)}</ul>
+  </section>}
+
   <!-- ── Horarios por país (tabla estática + detección de zona en cliente) ── -->
   {!isCompleted && datosHora && (
-    <div style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
+    <div id="horarios" class="scroll-mt-20" style={`max-width:1400px; margin:0 auto; padding: 38px ${PX} 0;`}>
       <HorariosEvento
         nombreEvento={eventTitle}
         fechaLabel={event.dateLabel}
@@ -322,17 +342,17 @@ const metaDescription = isCompleted
     </div>
   )}
 
-  {!isCompleted && !datosHora && <section style={`max-width:1400px; margin:0 auto; padding:40px ${PX} 0;`}><h2>Horarios pendientes de verificación</h2><p>No publicamos una hora estimada como confirmada. Revisa la fuente del organizador antes de planificar cómo seguir el evento.</p></section>}
+  {!isCompleted && !datosHora && <section id="horarios" class="scroll-mt-20" style={`max-width:1400px; margin:0 auto; padding:40px ${PX} 0;`}><h2>Horarios pendientes de verificación</h2><p>No publicamos una hora estimada como confirmada. Revisa la fuente del organizador antes de planificar cómo seguir el evento.</p></section>}
 
   <!-- ── Cómo ver ── -->
-  <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
+  <section id="como-ver" class="scroll-mt-20" style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
     <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">Cómo ver</h2>
     <p class="text-sm text-gray-600 leading-relaxed">La emisión depende del país y puede cambiar por evento. Consulta <a class="underline" href="https://www.ufc.com/events">la información del organizador</a> y la programación del operador en tu país. No hay un operador verificado para cada país en esta ficha.</p>
   </section>
 
   <!-- ── Cartelera anunciada ── -->
   {event.fightCard && event.fightCard.length > 0 && (
-    <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
+    <section id="cartelera" class="scroll-mt-20" style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
       <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">Cartelera anunciada</h2>
       <div class="space-y-4" style="font-family:var(--font-sans);">
         {event.fightCard.map((fight, i) => {

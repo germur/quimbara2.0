@@ -32,13 +32,14 @@
     "rag:embed": "npx tsx scripts/rag-embed.mjs",
     "rag:tune": "npx tsx scripts/rag-tune.mjs",
     "data:details": "node scripts/fetch-event-details.mjs",
-    "test:data": "node --test scripts/test-event-data.mjs scripts/test-fighter-media.mjs scripts/test-editorial-tools.mjs scripts/test-upcoming-fights.mjs scripts/test-result-integrity.mjs && tsx scripts/test-quiniela-migration.ts && tsx --test scripts/test-fighter-identities.ts",
+    "test:data": "node --test scripts/test-event-data.mjs scripts/test-fighter-media.mjs scripts/test-editorial-tools.mjs scripts/test-upcoming-fights.mjs scripts/test-result-integrity.mjs scripts/test-search-intent.mjs && tsx scripts/test-quiniela-migration.ts && tsx --test scripts/test-fighter-identities.ts",
     "audit:events": "node scripts/audit-event-urls.mjs",
     "audit:images": "node scripts/audit-fighter-images.mjs",
     "data:identities": "node scripts/sync-fighter-identities.mjs",
     "audit:identities": "node scripts/audit-fighter-identities.mjs",
     "audit:search": "node scripts/audit-search-index.mjs",
-    "audit:results": "node scripts/audit-result-integrity.mjs"
+    "audit:results": "node scripts/audit-result-integrity.mjs",
+    "audit:intent": "node scripts/audit-search-intent.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",

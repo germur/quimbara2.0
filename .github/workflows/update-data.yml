@@ -64,7 +64,7 @@ jobs:
       # Validate the candidate BEFORE committing data that triggers Netlify.
       - run: npm run audit:peleadores && npm run audit:identities && npm run audit:results
       - run: npm run build
-      - run: npm run audit:schema && npm run audit:events && npm run audit:images -- --dist
+      - run: npm run audit:schema && npm run audit:intent && npm run audit:events && npm run audit:images -- --dist
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore(data): actualización validada de UFC'

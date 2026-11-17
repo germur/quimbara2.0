@@ -1,0 +1,25 @@
+---
+interface Props {
+  text: string;
+  label?: string;
+  dark?: boolean;
+  links?: {href:string;label:string}[];
+}
+const {text,label='En breve',dark=false,links=[]}=Astro.props;
+---
+<div class:list={['answer-first',{dark}]} data-answer-first>
+  <p class="answer-label">{label}</p>
+  <p class="answer-text">{text}</p>
+  {links.length>0&&<nav aria-label="Secciones de esta página"><ul>{links.map(link=><li><a href={link.href}>{link.label} <span aria-hidden="true">{link.href.startsWith('#')?'↓':'→'}</span></a></li>)}</ul></nav>}
+</div>
+<style>
+  .answer-first {margin-top:22px;max-width:80ch;color:#252522;text-align:left;}
+  .answer-label {font:800 10px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px;color:#65655e;}
+  .answer-text {font:500 clamp(15px,1.5vw,18px)/1.65 var(--font-sans);margin:0;}
+  ul {list-style:none;display:flex;flex-wrap:wrap;gap:8px 18px;padding:0;margin:16px 0 0;}
+  a {font:700 12px var(--font-sans);color:inherit;text-decoration:underline;text-underline-offset:4px;display:inline-block;padding:6px 0;}
+  a:focus-visible {outline:3px solid #a08a00;outline-offset:4px;}
+  .dark {color:#f4f2ec;}
+  .dark .answer-label {color:#d8c752;}
+  .dark a:focus-visible {outline-color:#f2d928;}
+</style>

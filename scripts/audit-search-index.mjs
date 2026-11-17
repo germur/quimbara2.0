@@ -17,5 +17,6 @@ for(const file of fs.readdirSync(new URL('src/content/blog/',root)).filter(f=>/\
  if(post.data.draft)continue;
  const prefix='post:'+file.replace(/\.mdx?$/,'')+':';
  assert.ok(chunks.some(c=>c.id.startsWith(prefix)),'Published article missing from search: '+file);
+ if(post.data.directAnswer)assert.ok(chunks.some(c=>c.id===prefix+'respuesta'&&c.texto===post.data.directAnswer),'Article answer missing or stale in search: '+file);
 }
 console.log('Search index verified:',chunks.length,'current documents');
