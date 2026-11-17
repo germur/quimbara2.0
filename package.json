@@ -32,7 +32,7 @@
     "rag:embed": "npx tsx scripts/rag-embed.mjs",
     "rag:tune": "npx tsx scripts/rag-tune.mjs",
     "data:details": "node scripts/fetch-event-details.mjs",
-    "test:data": "node --test scripts/test-event-data.mjs scripts/test-fighter-media.mjs scripts/test-editorial-tools.mjs && tsx scripts/test-quiniela-migration.ts && tsx --test scripts/test-fighter-identities.ts",
+    "test:data": "node --test scripts/test-event-data.mjs scripts/test-fighter-media.mjs scripts/test-editorial-tools.mjs scripts/test-upcoming-fights.mjs && tsx scripts/test-quiniela-migration.ts && tsx --test scripts/test-fighter-identities.ts",
     "audit:events": "node scripts/audit-event-urls.mjs",
     "audit:images": "node scripts/audit-fighter-images.mjs",
     "data:identities": "node scripts/sync-fighter-identities.mjs",

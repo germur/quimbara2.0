@@ -1,0 +1,92 @@
+---
+import EVENTS from '../data/events-all.json';
+import FIGHTERS from '../data/fighters.json';
+import {upcomingFights} from '../lib/upcoming-fights.mjs';
+const upcoming = upcomingFights(EVENTS, FIGHTERS);
+const date = upcoming && new Intl.DateTimeFormat('es-CO', {day:'numeric', month:'long', timeZone:'America/Bogota'})
+  .format(new Date(upcoming.event.date + 'T12:00:00-05:00'));
+const checked = upcoming && new Intl.DateTimeFormat('es-CO', {day:'numeric', month:'short', timeZone:'America/Bogota'})
+  .format(new Date(upcoming.event.cardCheckedAt));
+---
+{upcoming && (
+  <section class="upcoming-fighters" aria-labelledby="upcoming-fighters-title" data-expires={upcoming.expires}>
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">En el radar · {date}</p>
+        <h2 id="upcoming-fighters-title">Los próximos en entrar al octágono</h2>
+        <p class="intro">Conoce a los protagonistas de {upcoming.event.name} antes de la pelea.</p>
+      </div>
+      <a class="calendar-link" href={upcoming.href}>Ver cartelera completa <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="bout-grid">
+      {upcoming.bouts.map((bout, i) => (
+        <article class="bout-card">
+          <div class="bout-label">{bout.bout === 'Main Event' ? 'Pelea estelar' : i === 1 ? 'También en la cartelera' : 'En esta cartelera'}</div>
+          <div class="fighters-pair">
+            {[bout.left, bout.right].map(fighter => (
+              <div class="fighter">
+                <a class="portrait" href={fighter.href ?? upcoming.href} aria-label={fighter.href ? `Ver perfil de ${fighter.name}` : `Ver cartelera: ${fighter.name}`}>
+                  {fighter.photo ? <img src={fighter.photo} alt="" loading="lazy" width="240" height="260" /> : <span class="initials" aria-hidden="true">{fighter.name.split(' ').map(n => n[0]).slice(0,2).join('')}</span>}
+                </a>
+                <div class="fighter-info">
+                  <p class="nickname">{fighter.nick ? `“${fighter.nick}”` : '\u00a0'}</p>
+                  <h3>{fighter.href ? <a href={fighter.href}>{fighter.name}</a> : fighter.name}</h3>
+                  {fighter.record && <p class="record">{fighter.record} <span>récord profesional</span></p>}
+                  {fighter.href && <a class="profile-link" href={fighter.href} aria-label={`Ver perfil de ${fighter.name}`}>Ver perfil <span aria-hidden="true">→</span></a>}
+                </div>
+              </div>
+            ))}
+            <span class="versus" aria-hidden="true">VS</span>
+          </div>
+          <a class="bout-event" href={upcoming.href}>{date} · {upcoming.event.main} <span aria-hidden="true">↗</span></a>
+        </article>
+      ))}
+    </div>
+    <p class="source-note">Cartelera consultada el {checked} en <a href={upcoming.event.cardSourcePage} target="_blank" rel="noopener noreferrer">ESPN</a>. Los combates pueden cambiar.</p>
+  </section>
+)}
+
+<script>
+  // Hide expired promotions even when a cached deployment survives a missed refresh.
+  const section = document.querySelector<HTMLElement>('.upcoming-fighters');
+  if (section) {
+    const expire = () => { if (Date.now() >= Number(section.dataset.expires)) section.hidden = true; };
+    expire();
+    document.addEventListener('visibilitychange', expire);
+    window.setInterval(expire, 60000);
+  }
+</script>
+
+<style>
+  .upcoming-fighters {max-width:1400px;margin:0 auto;padding:38px clamp(16px,4vw,60px) 8px;}
+  .section-heading {display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px;}
+  .eyebrow {font:700 11px var(--font-mono);text-transform:uppercase;letter-spacing:.12em;margin-bottom:9px;color:#62625b;}
+  h2 {font:700 clamp(26px,3.5vw,42px)/1.05 var(--font-display);margin:0;max-width:650px;}
+  .intro {font:14px/1.5 var(--font-sans);color:#62625b;margin-top:10px;}
+  .calendar-link {font:700 12px var(--font-sans);white-space:nowrap;border-bottom:2px solid #111;padding-bottom:5px;}
+  .bout-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+  .bout-card {min-width:0;border:1px solid #deded6;border-radius:6px;overflow:hidden;background:#fafaf6;}
+  .bout-label {background:#111;color:#f2d928;font:700 10px var(--font-mono);text-transform:uppercase;letter-spacing:.09em;padding:11px 15px;}
+  .fighters-pair {position:relative;display:grid;grid-template-columns:1fr 1fr;}
+  .fighter {min-width:0;}
+  .fighter + .fighter {border-left:1px solid #e5e5dd;}
+  .portrait {display:flex;height:180px;align-items:end;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at bottom,#dcded7,transparent 75%);}
+  .portrait img {height:100%;width:100%;object-fit:contain;object-position:bottom;transition:transform .2s;}
+  .portrait:hover img {transform:scale(1.035);}
+  .initials {font:700 60px var(--font-display);color:#777;padding-bottom:30px;}
+  .fighter-info {padding:13px 12px 16px;}
+  .nickname {font:italic 12px var(--font-serif);color:#62625b;min-height:17px;}
+  h3 {font:700 clamp(18px,1.7vw,24px)/1.08 var(--font-display);margin:3px 0 10px;}
+  .record {font:700 13px var(--font-mono);}
+  .record span {display:block;font:10px var(--font-sans);color:#62625b;margin-top:3px;}
+  .profile-link {display:inline-block;font:700 11px var(--font-sans);padding:12px 0 0;}
+  a:hover {text-decoration:underline;}
+  a:focus-visible {outline:3px solid #807000;outline-offset:3px;}
+  .versus {position:absolute;top:145px;left:50%;transform:translateX(-50%);background:#f2d928;color:#111;border-radius:50%;height:32px;width:32px;display:grid;place-items:center;font:800 12px var(--font-mono);}
+  .bout-event {display:block;padding:12px;border-top:1px solid #deded6;font:600 11px/1.5 var(--font-sans);}
+  .source-note {font:11px/1.5 var(--font-sans);color:#62625b;margin-top:12px;}
+  .source-note a {text-decoration:underline;}
+  @media(max-width:1000px) {.bout-grid {grid-template-columns:1fr;} .fighters-pair {grid-template-columns:1fr 1fr;} .fighter {display:flex;align-items:center;} .portrait {height:160px;width:45%;flex-shrink:0;} .versus {top:64px;} }
+  @media(max-width:600px) {.section-heading {align-items:start;flex-direction:column;gap:14px;} .fighter {display:block;} .portrait {width:100%;height:165px;} .versus {top:140px;} .fighter-info {padding:12px;} }
+  @media(prefers-reduced-motion:reduce) {.portrait img {transition:none;}}
+</style>

@@ -6,6 +6,7 @@ import ArticleCard from '../components/ArticleCard.astro';
 import Ticker from '../components/Ticker.astro';
 import OctagonScene from '../components/OctagonScene.astro';
 import TaleOfTheTape from '../components/TaleOfTheTape.astro';
+import UpcomingFighters from '../components/UpcomingFighters.astro';
 import EVENTS from '../data/events.json';
 import VIDEOS from '../data/videos.json';
 import FIGHTERS from '../data/fighters.json';
@@ -86,6 +87,8 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
       </p>
     </div>
   </div>
+
+  <UpcomingFighters />
 
   <!-- ── Hero grid 3-up ── -->
   <section style={`max-width:1400px; margin: 40px auto 0; padding: 0 ${PX};`}>
