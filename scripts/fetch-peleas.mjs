@@ -1,6 +1,6 @@
 import {recordHealth} from "./lib/health.mjs";
 import {canonicalEvents} from '../src/lib/event-routing.mjs';
-import {activeFighterSlugs,historyRefreshDue} from './lib/history-refresh.mjs';
+import {activeFighterSlugs,selectHistoryRefreshTargets} from './lib/history-refresh.mjs';
 /**
  * fetch-peleas.mjs — historial completo de peleas desde Wikipedia.
  *
@@ -399,8 +399,7 @@ if (SOLO_SLUG) {
 
 const sinPagina = new Set(salida.sinPagina ?? []);
 if (!FORCE) {
-  objetivos = objetivos.filter(f => historyRefreshDue(f,salida.peleadores[f.slug],activos));
-  objetivos.sort((a,b)=>Number(activos.has(b.slug))-Number(activos.has(a.slug))||Date.parse(salida.peleadores[a.slug]?.actualizado??'1970-01-01')-Date.parse(salida.peleadores[b.slug]?.actualizado??'1970-01-01'));
+  objetivos = selectHistoryRefreshTargets(objetivos,salida.peleadores,activos,{limit:LIMITE,attempts:salida.historyAttempts??{}});
 }
 objetivos = objetivos.slice(0, LIMITE);
 
@@ -419,6 +418,7 @@ for (const [i, f] of objetivos.entries()) {
   try {
     const res = await resolver(f);
     if (!res) {
+      salida.historyAttempts??={};salida.historyAttempts[f.slug]={checkedAt:new Date().toISOString(),found:false};
       console.log(`${prefijo} — sin página`);
       sinPagina.add(f.slug);
       vacios++;
@@ -428,6 +428,7 @@ for (const [i, f] of objetivos.entries()) {
 
     const peleas = parsearTabla(res.wikitext, f.name);
     if (!peleas.length) {
+      salida.historyAttempts??={};salida.historyAttempts[f.slug]={checkedAt:new Date().toISOString(),found:false};
       console.log(`${prefijo} — página sin tabla parseable`);
       sinPagina.add(f.slug);
       vacios++;
@@ -480,6 +481,7 @@ for (const [i, f] of objetivos.entries()) {
       peleas,
     };
     sinPagina.delete(f.slug);
+    if(salida.historyAttempts)delete salida.historyAttempts[f.slug];
 
     totalPeleas += peleas.length;
     ok++;

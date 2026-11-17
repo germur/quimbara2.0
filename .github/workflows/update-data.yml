@@ -38,7 +38,7 @@ jobs:
         continue-on-error: true
       - run: npm run data:overrides
       - id: history
-        run: npm run data:peleas -- --limite=50
+        run: npm run data:peleas -- --limite=100
         continue-on-error: true
       - id: images
         run: npm run data:images

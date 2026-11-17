@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {parseSherdogResults,resultPresentation} from './lib/recent-results.mjs';
 import {historyMatchesRecord} from '../src/lib/history-sanity.mjs';
-import {historyRefreshDue,activeFighterSlugs} from './lib/history-refresh.mjs';
+import {historyRefreshDue,activeFighterSlugs,selectHistoryRefreshTargets} from './lib/history-refresh.mjs';
 import {preserveRecordScope} from './lib/record-sanity.mjs';
 
 const fighter=(name,status,cls='')=>`<div class="fighter ${cls}"><span itemprop="name">${name}</span><span class="final_result ${status}">${status}</span></div>`;
@@ -56,4 +56,23 @@ test('evidence-backed record correction survives recurring stale imports without
  assert.equal(staleAfterNewFight.rec,'5-0-0');
  assert.equal(staleAfterNewFight.recScope,'ufc');
  assert.match(staleAfterNewFight.recordConflict.reason,/new UFC results/);
+});
+test('daily batches refresh inactive histories even with more active athletes than available slots',()=>{
+ const fighters=Array.from({length:121},(_,i)=>({slug:`athlete-${String(i).padStart(3,'0')}`}));
+ const active=new Set(fighters.slice(0,81).map(f=>f.slug)),saved={};
+ const base=Date.parse('2026-11-17T12:00:00Z'),refreshed=new Set();
+ for(let day=0;day<4;day++){
+  const now=base+day*86400000;
+  const batch=selectHistoryRefreshTargets(fighters,saved,active,{now,limit:50});
+  assert.ok(batch.filter(f=>!active.has(f.slug)).length>=4);
+  assert.equal(new Set(batch.map(f=>f.slug)).size,batch.length);
+  for(const f of batch){saved[f.slug]={actualizado:new Date(now).toISOString()};if(!active.has(f.slug))refreshed.add(f.slug);}
+ }
+ assert.equal(refreshed.size,40);
+});
+test('missing pages have a bounded retry interval and do not consume every daily batch',()=>{
+ const now=Date.parse('2026-11-17T12:00:00Z'),f={slug:'missing'},active=new Set([f.slug]);
+ const attempts={missing:{found:false,checkedAt:'2026-11-16T12:00:00Z'}};
+ assert.deepEqual(selectHistoryRefreshTargets([f],{},active,{now,limit:50,attempts}),[]);
+ assert.equal(selectHistoryRefreshTargets([f],{},active,{now:now+7*86400000,limit:50,attempts}).length,1);
 });
