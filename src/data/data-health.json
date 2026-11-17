@@ -1,76 +1,74 @@
 {
   "event-details": {
-    "lastAttempt": "2026-11-17T11:44:56.872Z",
+    "lastAttempt": "2026-11-17T20:34:15.011Z",
     "ok": true,
     "detail": {
       "updated": 4,
       "failed": 0
     },
-    "lastSuccessfulFetch": "2026-11-17T11:44:56.872Z"
+    "lastSuccessfulFetch": "2026-11-17T20:34:15.011Z"
   },
   "Events": {
-    "lastAttempt": "2026-11-16T22:32:46.608Z",
+    "lastAttempt": "2026-11-17T20:32:06.601Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-16T22:32:46.608Z"
+      "completedAt": "2026-11-17T20:32:06.601Z"
     },
-    "lastSuccessfulFetch": "2026-11-16T22:32:46.608Z"
+    "lastSuccessfulFetch": "2026-11-17T20:32:06.601Z"
   },
   "Fight Cards": {
-    "lastAttempt": "2026-11-16T22:32:46.611Z",
+    "lastAttempt": "2026-11-17T20:32:14.794Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-16T22:32:46.611Z"
+      "completedAt": "2026-11-17T20:32:14.794Z"
     },
-    "lastSuccessfulFetch": "2026-11-16T22:32:46.611Z"
+    "lastSuccessfulFetch": "2026-11-17T20:32:14.794Z"
   },
   "Fighters": {
-    "lastAttempt": "2026-11-16T22:32:47.539Z",
+    "lastAttempt": "2026-11-17T20:32:15.876Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-16T22:32:47.539Z"
+      "completedAt": "2026-11-17T20:32:15.876Z"
     },
-    "lastSuccessfulFetch": "2026-11-16T22:32:47.539Z"
+    "lastSuccessfulFetch": "2026-11-17T20:32:15.876Z"
   },
   "Results": {
-    "lastAttempt": "2026-11-17T12:14:04.664Z",
+    "lastAttempt": "2026-11-17T20:32:25.026Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-17T12:14:04.662Z",
-      "count": 4,
-      "sourceUrl": "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293"
+      "completedAt": "2026-11-17T20:32:25.026Z"
     },
-    "lastSuccessfulFetch": "2026-11-17T12:14:04.664Z"
+    "lastSuccessfulFetch": "2026-11-17T20:32:25.026Z"
   },
   "Event Photos": {
-    "lastAttempt": "2026-11-16T22:32:54.230Z",
+    "lastAttempt": "2026-11-17T20:32:25.189Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-16T22:32:54.230Z"
+      "completedAt": "2026-11-17T20:32:25.188Z"
     },
-    "lastSuccessfulFetch": "2026-11-16T22:32:54.230Z"
+    "lastSuccessfulFetch": "2026-11-17T20:32:25.189Z"
   },
   "rankings": {
-    "lastAttempt": "2026-11-16T22:32:54.962Z",
+    "lastAttempt": "2026-11-17T20:32:25.897Z",
     "ok": true,
     "detail": {
       "sourceEntries": 176,
       "assigned": 176,
       "divisions": 11
     },
-    "lastSuccessfulFetch": "2026-11-16T22:32:54.962Z"
+    "lastSuccessfulFetch": "2026-11-17T20:32:25.897Z"
   },
   "fight-history": {
-    "lastAttempt": "2026-11-17T12:06:46.738Z",
+    "lastAttempt": "2026-11-17T20:37:00.108Z",
     "ok": true,
     "detail": {
-      "updated": 27,
+      "updated": 64,
       "errors": 0
     },
-    "lastSuccessfulFetch": "2026-11-17T12:06:46.738Z"
+    "lastSuccessfulFetch": "2026-11-17T20:37:00.108Z"
   },
   "images": {
-    "lastAttempt": "2026-11-16T22:35:05.779Z",
+    "lastAttempt": "2026-11-17T20:37:01.968Z",
     "ok": true,
     "detail": {
       "attempted": 0,
@@ -81,17 +79,17 @@
       "directoryProfiles": 3238,
       "remaining": 2088
     },
-    "lastSuccessfulFetch": "2026-11-16T22:35:05.779Z"
+    "lastSuccessfulFetch": "2026-11-17T20:37:01.968Z"
   },
   "records": {
-    "lastAttempt": "2026-11-17T12:04:09.268Z",
+    "lastAttempt": "2026-11-17T20:34:14.021Z",
     "ok": true,
     "detail": {
-      "attempted": 1,
-      "updated": 1,
+      "attempted": 100,
+      "updated": 100,
       "unavailable": 0,
       "errors": 0
     },
-    "lastSuccessfulFetch": "2026-11-17T12:04:09.268Z"
+    "lastSuccessfulFetch": "2026-11-17T20:34:14.021Z"
   }
 }
