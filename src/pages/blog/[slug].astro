@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AnswerFirst from '../../components/AnswerFirst.astro';
 import EditorialImage from '../../components/EditorialImage.astro';
 import Tag from '../../components/Tag.astro';
 import TacticalSlider from '../../components/TacticalSlider.astro';
@@ -26,7 +27,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const { title, description, author, pubDate, updateDate, image, category, tags,
-        fighters = [], relatedEvents = [], takeaways = [] } = post.data;
+        fighters = [], relatedEvents = [], takeaways = [], directAnswer } = post.data;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site || Astro.url.origin).href;
 
@@ -80,7 +81,7 @@ const articleSchema = {
   "@id": `${canonicalUrl}#articulo`,
   "headline": title,
   "description": description,
-  "abstract": takeaways.length > 0 ? takeaways.join(' ') : description,
+  "abstract": directAnswer ?? (takeaways.length > 0 ? takeaways.join(' ') : description),
   "author": refAutor(),
   "publisher": refOrganizacion(),
   "datePublished": pubDate.toISOString(),
@@ -126,47 +127,16 @@ const PX = "clamp(16px,4vw,60px)";
   <!-- Round counter — scroll progress estilo fight card MMA -->
   <RoundProgress slot="progress-bar" rounds={3} />
 
-  <!-- Hero: imagen full-width con gradiente de color de categoría -->
-  <div class="relative w-full overflow-hidden" style="aspect-ratio: 16/9; max-height: 80vh; min-height: 280px;">
-    {image ? (
-      <EditorialImage src={image} alt={`Portada de ${title}`} sizes="100vw" fetchpriority="high"
-           class="w-full h-full object-cover" loading="eager" />
-    ) : (
-      <div class="absolute inset-0 bg-gray-800"></div>
-    )}
-    <div class="absolute inset-0" style={`background: ${heroGradient};`}></div>
-
-    <!-- Breadcrumb flotando en la parte superior -->
-    <div class="absolute top-4 left-0 right-0" style={`padding: 0 ${PX};`}>
-      <Breadcrumb
-        variant="dark"
-        items={[
-          { name: 'Inicio', href: '/' },
-          { name: category, href: `/categoria/${catSlug}/` },
-          { name: title }
-        ]}
-      />
-    </div>
-
-    <!-- Título y meta al pie del hero -->
-    <div class="absolute bottom-0 left-0 right-0" style={`padding: 32px ${PX};`}>
-      <span class="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-widest rounded-sm mb-4 w-fit"
-            style={`background:${catColor}; color:${catColor === '#F2D928' ? '#111' : '#fff'}; font-family:var(--font-sans);`}>
-        {category}
-      </span>
-      <h1 class="text-white leading-[1.05]"
-          style="font-family:var(--font-display); font-size:clamp(1.8rem,5vw,3.5rem); max-width:22ch;">
-        {title}
-      </h1>
-      <div class="flex flex-wrap items-center gap-3 mt-4 text-white/60 text-xs uppercase tracking-widest"
-           style="font-family:var(--font-sans);">
-        <span>Publicado <time datetime={pubDate.toISOString()}>{publishDateStr}</time></span>
-        {updateDate && <span>· Actualizado <time datetime={updateDate.toISOString()}>{dtf.format(updateDate)}</time></span>}
-        <span class="text-white/30">·</span>
-        <a href={autorEntidad.url} rel="author" class="text-white/90 font-bold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-[#F2D928]">{author}</a>
-      </div>
-    </div>
-  </div>
+  <header class="article-opening" style={`max-width:1200px;margin:0 auto;padding:28px ${PX} 30px;`}>
+    <Breadcrumb items={[{name:'Inicio',href:'/'},{name:category,href:`/categoria/${catSlug}/`},{name:title}]} />
+    <p class="text-xs font-bold uppercase tracking-widest mt-6 mb-3" style="font-family:var(--font-mono)">{category}</p>
+    <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.6rem);line-height:1.06;max-width:30ch;">{title}</h1>
+    <p class="text-xs text-gray-600 mt-4" style="font-family:var(--font-sans)">Por <a class="underline" href={autorEntidad.url} rel="author">{author}</a> · Publicado <time datetime={pubDate.toISOString()}>{publishDateStr}</time>{updateDate&&<> · Actualizado <time datetime={updateDate.toISOString()}>{dtf.format(updateDate)}</time></>}</p>
+    <AnswerFirst text={directAnswer ?? takeaways[0] ?? description} label={category==='Guía del Insider'?'La respuesta breve':'La clave de este análisis'} links={[{href:'#desarrollo',label:'Leer el desarrollo'}]} />
+  </header>
+  {image&&<figure class="article-hero" style={`max-width:1200px;margin:0 auto;padding:0 ${PX};`}>
+    <EditorialImage src={image} alt={`Portada de ${title}`} sizes="(max-width:1200px) 100vw, 1100px" fetchpriority="high" class="w-full object-cover rounded-md" style="max-height:400px;aspect-ratio:16/7;" loading="eager" />
+  </figure>}
 
   <!-- Layout con TOC lateral en desktop -->
   <div style={`max-width:1200px; margin:0 auto; padding: 44px ${PX} 80px;`}>
@@ -174,20 +144,13 @@ const PX = "clamp(16px,4vw,60px)";
 
       <!-- Columna principal -->
       <div>
-        <!-- Tags -->
-        {tags.length > 0 && (
-          <div class="flex flex-wrap gap-2 mb-10 pb-10 border-b border-gray-200">
-            {tags.map((tag: string) => <Tag name={tag} />)}
-          </div>
-        )}
-
         <!-- KeyTakeaways (si el frontmatter los define) -->
-        {takeaways.length > 0 && (
-          <KeyTakeaways points={takeaways} />
+        {takeaways.length > (directAnswer ? 0 : 1) && (
+          <KeyTakeaways points={takeaways.slice(directAnswer ? 0 : 1)} />
         )}
 
         <!-- Prose: texto oscuro sobre fondo blanco (sin prose-invert) -->
-        <article class="prose prose-lg max-w-none
+        <article id="desarrollo" class="scroll-mt-20 prose prose-lg max-w-none
           prose-headings:text-[#111] prose-headings:tracking-tight
           prose-a:text-[#F2D928] hover:prose-a:text-[#c62828] prose-a:no-underline
           prose-strong:text-[#111]
@@ -200,6 +163,13 @@ const PX = "clamp(16px,4vw,60px)";
         <!-- Entidades relacionadas (peleadores + eventos del frontmatter) -->
         {(fighters.length > 0 || relatedEvents.length > 0) && (
           <RelatedEntities fighters={fighters} events={relatedEvents} />
+        )}
+
+        <!-- Tags -->
+        {tags.length > 0 && (
+          <div class="article-tags flex flex-wrap gap-2 mb-10 pb-10 border-b border-gray-200">
+            {tags.map((tag: string) => <Tag name={tag} />)}
+          </div>
         )}
 
         <!-- Compartir + comentarios -->

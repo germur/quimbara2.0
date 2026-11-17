@@ -5,6 +5,7 @@
  * Se renderiza en /peleadores/peso-pesado/, /peleadores/ligero/, etc.
  */
 import FIGHTERS from '../data/fighters.json';
+import RANKINGS from '../data/rankings-snapshot.json';
 import { divLabels, divSlugs, divWeights, isFemale } from '../data/divisions';
 // @ts-ignore — criterio único compartido (sitemap, meta robots, listados)
 import { isRanked } from '../lib/indexable.mjs';
@@ -90,9 +91,11 @@ const nextDiv = curIdx < pool.length - 1 ? pool[curIdx + 1] : null;
       {label}
     </h1>
     <p class="text-gray-400 mt-4 text-sm max-w-2xl" style="font-family:var(--font-sans);">
-      Rankings oficiales, campeón actual y roster completo de la división de {label.toLowerCase()} de UFC.
-      {ranked.length} peleador{ranked.length !== 1 ? 'es' : ''} rankeados y {rest.length} en el roster.
+      {champ?`${champ.name} figura como ${female?'campeona':'campeón'} de peso ${label.toLowerCase()} en la clasificación consultada.`:'No hay un campeón identificado en los datos disponibles de esta división.'}
+      {contenders[0]?` El primer contendiente de la lista es ${contenders[0].name}.`:''}
+      {weight?` Rango de la división: ${weight}.`:''}
     </p>
+    <p class="text-xs text-gray-400 mt-3" style="font-family:var(--font-sans)">Fuente: <a class="underline" href="https://www.ufc.com/rankings">UFC</a> · Consultado el {new Intl.DateTimeFormat('es-CO',{day:'numeric',month:'long',year:'numeric',timeZone:'America/Bogota'}).format(new Date(RANKINGS.checkedAt))}.</p>
   </div>
 </div>
 

@@ -32,6 +32,8 @@ const blogCollection = defineCollection({
 
     // GEO/AEO: puntos clave para motores generativos (Perplexity, SGE…)
     takeaways: z.array(z.string()).default([]),
+    searchIntent: z.string().min(10).max(200).optional(),
+    directAnswer: z.string().min(30).max(600).optional(),
   }).refine(data => !data.updateDate || data.updateDate >= data.pubDate, {
     message: 'La actualización no puede ser anterior a la publicación.',
     path: ['updateDate'],

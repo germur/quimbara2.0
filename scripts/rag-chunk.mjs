@@ -167,6 +167,7 @@ if (existsSync(BLOG)) {
     const slug=file.replace(/\.mdx?$/,'');
     const url=SITE+'/blog/'+slug+'/';
     const titulo=data.title??slug;
+    if(data.directAnswer)add('post:'+slug+':respuesta','articulo',url,titulo+' — respuesta breve',String(data.directAnswer),{slug});
     for(const [i,text] of (Array.isArray(data.takeaways)?data.takeaways:[]).entries())add('post:'+slug+':takeaway:'+i,'takeaway',url,titulo+' — clave '+(i+1),String(text),{slug});
 
     // Secciones por H2. Se limpia MDX (JSX, imágenes, enlaces) para dejar prosa.

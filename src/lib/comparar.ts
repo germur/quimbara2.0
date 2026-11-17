@@ -287,7 +287,7 @@ export function seoDelPar(a: Peleador, b: Peleador) {
   const hA = a.fisico.altura_cm, hB = b.fisico.altura_cm;
   return {
     title: `${a.nombre} vs ${b.nombre}: altura, alcance y peso comparados`,
-    h1: `${a.nombre} vs ${b.nombre}: quién tiene la ventaja física`,
+    h1: `${a.nombre} vs ${b.nombre}: estatura y alcance`,
     description:
       `Compara a ${a.nombre}${hA ? ` (${hA} cm)` : ''} con ${b.nombre}${hB ? ` (${hB} cm)` : ''}. ` +
       `Altura, envergadura, peso, ape index y récord lado a lado, a escala real.`,

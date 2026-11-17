@@ -12,6 +12,8 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ComparadorFiguras from '../../components/ComparadorFiguras.astro';
+import AnswerFirst from '../../components/AnswerFirst.astro';
+import {comparisonAnswer} from '../../lib/search-intent.mjs';
 import {
   getParesPublicados,
   getPar,
@@ -100,6 +102,8 @@ const schema = JSON.stringify([
         {seo.h1}
       </h1>
 
+      <AnswerFirst dark label="Diferencias de estatura y alcance" text={comparisonAnswer(a,b)} links={[{href:'#medidas',label:'Ver medidas'},{href:'#analisis',label:'Leer el análisis'}]} />
+
       <p class="text-gray-500 text-xs mt-4" style="font-family:var(--font-mono);">
         Siluetas dibujadas a escala real compartida · guías cada 20 cm
       </p>
@@ -142,8 +146,8 @@ const schema = JSON.stringify([
 
   {/* ── Métricas ── */}
   <div style={`max-width:1000px; margin:0 auto; padding: 48px ${PX} 0;`}>
-    <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-6"
-        style="font-family:var(--font-mono);">Ventaja física</h2>
+    <h2 id="medidas" class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-6 scroll-mt-20"
+        style="font-family:var(--font-mono);">Medidas frente a frente</h2>
 
     <div class="flex flex-col gap-5">
       {metricas.map(m => {
@@ -180,12 +184,12 @@ const schema = JSON.stringify([
 
     {/* ── Récord ── */}
     <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 mt-12"
-        style="font-family:var(--font-mono);">Récord profesional</h2>
+        style="font-family:var(--font-mono);">Récord de cada peleador</h2>
     <div class="grid grid-cols-2 gap-4">
       {[a, b].map(p => (
         <div class="rounded-lg border p-5" style="border-color:#E2DDD0;">
           <div class="text-[10px] uppercase tracking-[0.18em] text-gray-500 mb-2" style="font-family:var(--font-mono);">
-            {p.nombre}
+            {p.nombre} · {p.record.scope==='pro'?'Profesional':p.record.scope==='ufc'?'UFC':'Alcance pendiente de verificación'}
           </div>
           <div class="text-3xl font-black tabular-nums text-[#0A0A0B]" style="font-family:var(--font-display);">
             {p.record.texto ?? '—'}
@@ -210,7 +214,7 @@ const schema = JSON.stringify([
     </div>
 
     {/* ── Análisis ── */}
-    <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 mt-12"
+    <h2 id="analisis" class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 mt-12 scroll-mt-20"
         style="font-family:var(--font-mono);">El análisis</h2>
 
     <div class="flex flex-col gap-4 text-[15px] leading-relaxed text-[#3A3A3D]"

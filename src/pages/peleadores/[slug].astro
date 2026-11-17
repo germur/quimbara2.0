@@ -8,6 +8,9 @@ import ComparadorEmbebido from '../../components/ComparadorEmbebido.astro';
 import CaminoDelPeleador from '../../components/CaminoDelPeleador.astro';
 import { getPeleador } from '../../lib/peleadores';
 import FIGHTERS from '../../data/fighters.json';
+import EVENTS from '../../data/events-all.json';
+import AnswerFirst from '../../components/AnswerFirst.astro';
+import {fighterAnswer,nextFightLookup} from '../../lib/search-intent.mjs';
 import { getCollection } from 'astro:content';
 // @ts-ignore — módulo JS compartido con astro.config.mjs y scripts/
 import { isIndexable } from '../../lib/indexable.mjs';
@@ -133,6 +136,8 @@ const winPct = totalFights > 0 ? Math.round((wins / totalFights) * 100) : 0;
 // cuando fix-records.mjs lo confirmó (recScope === 'pro').
 const recIsPro = f.recScope === 'pro';
 const recLabel = recIsPro ? 'Récord profesional' : 'Récord UFC';
+const directAnswer=fighterAnswer(f,{heightCm,reachCm,division:divEs});
+const nextFight=nextFightLookup(EVENTS,FIGHTERS).get(f.slug);
 
 const physicals = [
   { label: 'Récord UFC', value: recIsPro && f.ufcRec && f.ufcRec !== f.rec ? f.ufcRec : '', icon: '🥋' },
@@ -189,7 +194,7 @@ const personSchema: any = {
     "name": "UFC",
     "url": "https://www.ufc.com"
   },
-  "description": `${f.name}${f.nick ? ` "${f.nick}"` : ''} es ${isChampion ? 'el actual ' : 'un '}${roleLabel.toLowerCase()} con récord de ${f.rec}. ${f.from ? `De ${f.from}.` : ''} ${f.stance ? `Guardia ${f.stance}.` : ''} ${f.team ? `Equipo: ${f.team}.` : ''}`.trim(),
+  "description": directAnswer,
   "knowsAbout": ["MMA", "UFC", divEs || undefined, f.div || undefined, "Artes Marciales Mixtas"].filter(Boolean)
 };
 if (isChampion) personSchema.award = `Campeón UFC ${f.div}`;
@@ -273,14 +278,12 @@ const metaTitle = f.metaTitle
   ?? (isChampion && heightCm
       ? `${f.name}: Campeón UFC ${f.div} · estatura (${heightCm} cm), alcance y récord`
       : heightCm
-      ? `${f.name}: estatura (${heightCm} cm), alcance, récord y próxima pelea`
+      ? `${f.name}: estatura (${heightCm} cm), alcance y récord${nextFight?' · próxima pelea':''}`
       : `${f.name}${f.nick ? ` "${f.nick}"` : ''} · ${roleLabel} · Récord ${f.rec}`);
 
 // Description con la respuesta directa al principio (fórmula featured-snippet)
 const metaDescription = f.metaDescription
-  ?? (heightCm
-      ? `${f.name}${f.nick ? ` "${f.nick}"` : ''} mide ${heightForMeta} de estatura${reachForMeta ? ` y tiene un alcance de ${reachForMeta}` : ''}. ${roleLabel}, ${recLabel.toLowerCase()} ${f.rec}. Estilo, datos físicos y próxima pelea en Quimbara.`
-      : `Perfil de ${f.name}${f.nick ? ` "${f.nick}"` : ''}, ${roleLabel}. ${recLabel} ${f.rec}. Análisis de estilo, datos físicos y próxima pelea en Quimbara.`);
+  ?? `${directAnswer}${nextFight?` Próxima pelea anunciada: contra ${nextFight.opponent}, ${nextFight.dateLabel}.`:''}`;
 ---
 
 <BaseLayout
@@ -295,7 +298,7 @@ const metaDescription = f.metaDescription
   <RoundProgress slot="progress-bar" mainEvent={f.rank === 'C'} />
 
   <!-- ── Hero ── -->
-  <div class="relative overflow-hidden" style="background:#111; min-height: 380px;">
+  <div class="relative overflow-hidden" style="background:#111;">
 
     <!-- Inicial gigante de fondo -->
     <div class="absolute inset-0 flex items-end justify-end pointer-events-none select-none overflow-hidden">
@@ -304,17 +307,17 @@ const metaDescription = f.metaDescription
       </span>
     </div>
 
-    <div style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 50px; position:relative;`}>
+    <div style={`max-width:1400px; margin:0 auto; padding: 30px ${PX} 32px; position:relative;`}>
 
       <!-- Nav -->
       <a href="/"
-         class="text-gray-500 hover:text-[#F2D928] text-[11px] font-bold uppercase tracking-widest transition-colors mb-10 inline-block"
+         class="text-gray-500 hover:text-[#F2D928] text-[11px] font-bold uppercase tracking-widest transition-colors mb-6 inline-block"
          style="font-family:var(--font-sans);">← Inicio</a>
 
       <div class="flex flex-col md:flex-row md:items-end gap-6 md:gap-10">
 
         <!-- Foto -->
-        <div class="relative flex-shrink-0">
+        <div class="relative flex-shrink-0 self-start">
           <div class="rounded-2xl overflow-hidden border-4 border-[#F2D928] flex items-center justify-center bg-gray-800"
                style="width:clamp(90px,15vw,140px);height:clamp(90px,15vw,140px);">
             {f.img ? (
@@ -349,12 +352,19 @@ const metaDescription = f.metaDescription
           )}
         </div>
       </div>
+      <AnswerFirst text={directAnswer} label="Estatura, alcance y récord" dark links={[
+        ...(physicals.length?[{href:'#datos-fisicos',label:'Datos físicos'}]:[]),
+        {href:'#record',label:recLabel},
+        ...(nextFight?[{href:nextFight.href,label:'Próxima pelea'}]:[]),
+      ]} />
+      {nextFight&&<p class="text-sm text-gray-300 mt-4" style="font-family:var(--font-sans)">Próxima pelea anunciada: <a class="underline underline-offset-4" href={nextFight.href}>{f.name} vs. {nextFight.opponent} · {nextFight.dateLabel} · {nextFight.event}</a>.</p>}
     </div>
   </div>
 
   <!-- ── Récord ── -->
-  <div style="background:#F2D928;">
+  <div id="record" class="scroll-mt-20" style="background:#F2D928;">
     <div style={`max-width:1400px; margin:0 auto; padding: 28px ${PX};`}>
+      <p class="text-xs font-bold mb-4 text-center" style="font-family:var(--font-sans)">{recLabel}</p>
       <div class="grid grid-cols-4 gap-4 items-center">
         <!-- Wins -->
         <div class="text-center">
@@ -390,9 +400,9 @@ const metaDescription = f.metaDescription
 
   <!-- ── Datos físicos ── -->
   {physicals.length > 0 && (
-    <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 60px;`}>
+    <section id="datos-fisicos" class="scroll-mt-20" style={`max-width:1400px; margin:0 auto; padding: 38px ${PX} 40px;`}>
       <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-8"
-          style="font-family:var(--font-sans);">Perfil atlético</h2>
+          style="font-family:var(--font-sans);">Estatura, alcance y datos físicos de {f.name}</h2>
 
       <div class="grid grid-cols-2 md:grid-cols-3 gap-px bg-gray-100 rounded-xl overflow-hidden border border-gray-100">
         {physicals.map(({ label, value, icon }) => (
@@ -437,13 +447,6 @@ const metaDescription = f.metaDescription
     </div>
   )}
 
-  <!-- ── Camino del Peleador: el récord completo como timeline ──
-       Va arriba de "Forma reciente" porque la contiene: la forma son las
-       últimas 5, el camino es la carrera entera. -->
-  <div style={`max-width:1400px; margin:0 auto; padding: 0 ${PX};`}>
-    <CaminoDelPeleador slug={f.slug} nombre={f.name} />
-  </div>
-
   <!-- ── Forma reciente ── -->
   {form.length > 0 && (
     <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 60px;`}>
@@ -474,6 +477,13 @@ const metaDescription = f.metaDescription
     </section>
   )}
 
+  <!-- ── Camino del Peleador: el récord completo como timeline ──
+       Va arriba de "Forma reciente" porque la contiene: la forma son las
+       últimas 5, el camino es la carrera entera. -->
+  <div style={`max-width:1400px; margin:0 auto; padding: 0 ${PX};`}>
+    <CaminoDelPeleador slug={f.slug} nombre={f.name} />
+  </div>
+
   <!-- ══════════════════════════════════════════════════════════════ -->
   <!-- ═══ SECCIONES ENRIQUECIDAS (solo se renderizan si hay data) ═ -->
   <!-- ══════════════════════════════════════════════════════════════ -->
@@ -486,34 +496,6 @@ const metaDescription = f.metaDescription
       <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed"
            style="font-family:var(--font-sans);"
            set:html={f.bio} />
-    </section>
-  )}
-
-  <!-- ── Datos físicos en texto (long-tail "estatura/altura") ── -->
-  {(heightCm || reachCm) && (
-    <section style={`max-width:1400px; margin:0 auto; padding: 0 ${PX} 60px;`}>
-      <h2 class="text-2xl md:text-3xl mb-5 text-[#111]"
-          style="font-family:var(--font-display);">Estatura, alcance y datos físicos de {f.name}</h2>
-      <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed"
-           style="font-family:var(--font-sans);">
-        <p>
-          {f.name}{f.nick ? ` "${f.nick}"` : ''} mide
-          {heightCm && (<><strong> {heightCm} cm ({f.height})</strong> de estatura</>)}
-          {reachCm && (<>{heightCm ? ' y tiene un alcance de ' : ' tiene un alcance de '}<strong>{reachCm} cm ({f.reach})</strong></>)}.
-          {f.stance && (<> Pelea en guardia <strong>{f.stance}</strong>.</>)}
-          {f.weight && divEs && (<> Compite en la división <strong>UFC {divEs}</strong> con un peso de combate de <strong>{weightKg ? `${weightKg} kg (${f.weight})` : f.weight}</strong>.</>)}
-          {f.weight && !divEs && (<> Su peso de combate es de <strong>{weightKg ? `${weightKg} kg (${f.weight})` : f.weight}</strong>.</>)}
-        </p>
-        <table class="mt-4">
-          <tbody>
-            {heightCm && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">Estatura</th><td>{heightCm} cm ({f.height})</td></tr>)}
-            {reachCm && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">Alcance</th><td>{reachCm} cm ({f.reach})</td></tr>)}
-            {weightKg && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">Peso de combate</th><td>{weightKg} kg ({f.weight})</td></tr>)}
-            {f.stance && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">Guardia</th><td>{f.stance}</td></tr>)}
-            {divEs && (<tr><th scope="row" style="text-align:left;padding-right:1.5rem;">División</th><td>UFC {divEs}</td></tr>)}
-          </tbody>
-        </table>
-      </div>
     </section>
   )}
 
