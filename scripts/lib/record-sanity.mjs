@@ -1,5 +1,11 @@
 import verifications from '../../src/data/record-verifications.json' with {type:'json'};
 export function preserveRecordScope(fighter){
+ const stale=verifications.find(v=>v.slug===fighter.slug&&v.ufcStatsId===fighter.ufcStatsId&&v.reportedRecord===fighter.rec);
+ if(fighter.recScope==='pro'&&stale&&fighter.ufcRec&&fighter.ufcRec!==stale.ufcRecAtVerification){
+  fighter.recordConflict={reportedRecord:fighter.rec,sourceUrl:fighter.recordSourceUrl,checkedAt:fighter.recordCheckedAt,reason:'Known stale profile record; new UFC results require professional record reconciliation'};
+  fighter.rec=fighter.ufcRec;fighter.recScope='ufc';fighter.recordSourceUrl=fighter.ufcStatsUrl;
+  delete fighter.recordVerification;return fighter;
+ }
  const verified=verifications.find(v=>v.slug===fighter.slug&&v.ufcStatsId===fighter.ufcStatsId&&v.reportedRecord===fighter.rec&&v.ufcRecAtVerification===fighter.ufcRec);
  if(fighter.recScope==='pro'&&verified){
   fighter.recordVerification={reportedRecord:fighter.rec,profileSourceUrl:fighter.recordSourceUrl,sourceUrl:verified.sourceUrl,throughDate:verified.throughDate};

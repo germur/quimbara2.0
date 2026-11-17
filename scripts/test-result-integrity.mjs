@@ -52,5 +52,8 @@ test('evidence-backed record correction survives recurring stale imports without
  assert.equal(preserveRecordScope({...original}).rec,'18-1-0');
  assert.equal(preserveRecordScope({...original,rec:'19-1-0',ufcRec:'5-0-0'}).rec,'19-1-0');
  assert.equal(preserveRecordScope({...original,ufcStatsId:'different-person'}).rec,'17-1-0');
- assert.equal(preserveRecordScope({...original,ufcRec:'5-0-0'}).rec,'17-1-0');
+ const staleAfterNewFight=preserveRecordScope({...original,ufcRec:'5-0-0'});
+ assert.equal(staleAfterNewFight.rec,'5-0-0');
+ assert.equal(staleAfterNewFight.recScope,'ufc');
+ assert.match(staleAfterNewFight.recordConflict.reason,/new UFC results/);
 });
