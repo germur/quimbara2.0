@@ -239,9 +239,9 @@ const timelineAtrasado = conHistorial.filter(p => {
 });
 if (timelineAtrasado.length) {
   avisos.push(
-    `${timelineAtrasado.length} timeline(s) desfasados respecto a UFC.com.\n` +
-    `      El récord de la ficha es correcto (viene de UFC.com); es el timeline\n` +
-    `      el que le falta la pelea más reciente porque Wikipedia no la tiene:\n` +
+    `${timelineAtrasado.length} diferencias entre el historial y el récord de la ficha.\n` +
+    `      La procedencia de UFC no garantiza que su ficha esté actualizada.\n` +
+    `      Contrastar cada caso; los historiales contradictorios se omiten:\n` +
     timelineAtrasado.slice(0, 6).map(p =>
       `      · ${p.slug.padEnd(24)} wiki ${PELEAS.peleadores[p.slug].recordWiki.padEnd(8)} · ufc ${p.record.texto}`
     ).join('\n')
