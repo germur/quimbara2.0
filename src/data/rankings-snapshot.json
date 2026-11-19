@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-18T20:04:22.624Z",
+  "checkedAt": "2026-11-19T20:02:37.830Z",
   "source": "https://www.ufc.com/rankings",
   "entries": [
     {
@@ -99,20 +99,20 @@
       "slug": "tim-elliott"
     },
     {
-      "name": "Steve Erceg",
-      "rank": "12",
-      "div": "Flyweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/steve-erceg",
-      "sourceSlug": "steve-erceg",
-      "slug": "steve-erceg"
-    },
-    {
       "name": "Sumudaerji",
       "rank": "12",
       "div": "Flyweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/su-mudaerji",
       "sourceSlug": "su-mudaerji",
       "slug": "sumudaerji"
+    },
+    {
+      "name": "Steve Erceg",
+      "rank": "12",
+      "div": "Flyweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/steve-erceg",
+      "sourceSlug": "steve-erceg",
+      "slug": "steve-erceg"
     },
     {
       "name": "Charles Johnson",
@@ -1299,20 +1299,20 @@
       "slug": "amanda-nunes"
     },
     {
-      "name": "Julianna Peña",
-      "rank": "2",
-      "div": "Women's Bantamweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/julianna-pena",
-      "sourceSlug": "julianna-pena",
-      "slug": "julianna-pena"
-    },
-    {
       "name": "Joselyne Edwards",
       "rank": "2",
       "div": "Women's Bantamweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/joselyne-edwards",
       "sourceSlug": "joselyne-edwards",
       "slug": "joselyne-edwards"
+    },
+    {
+      "name": "Julianna Peña",
+      "rank": "2",
+      "div": "Women's Bantamweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/julianna-pena",
+      "sourceSlug": "julianna-pena",
+      "slug": "julianna-pena"
     },
     {
       "name": "Ailin Perez",
