@@ -2711,7 +2711,7 @@
       }
     ],
     "espnEventId": "600061665",
-    "cardCheckedAt": "2026-11-19T20:04:26.327Z",
+    "cardCheckedAt": "2026-11-20T19:42:26.387Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -2720,7 +2720,7 @@
     "country": "Qatar",
     "programmingStartUTC": "2026-11-21T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261121",
-    "scheduleCheckedAt": "2026-11-19T20:04:26.327Z",
+    "scheduleCheckedAt": "2026-11-20T19:42:26.387Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061665/league/ufc"
   },
   {
@@ -2916,7 +2916,7 @@
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-19T20:04:26.427Z",
+    "cardCheckedAt": "2026-11-20T19:42:26.486Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -2978,6 +2978,18 @@
           "Bruno Gustavo da Silva vs. Jafel Filho",
           "Marco Tulio vs. Park Jun-yong"
         ]
+      },
+      {
+        "checkedAt": "2026-11-20T19:42:26.486Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
+        "added": [
+          "Bruno Silva vs. Jafel Filho",
+          "JunYong Park vs. Marco Tulio"
+        ],
+        "removed": [
+          "Bruno Gustavo da Silva vs. Jafel Filho",
+          "Marco Tulio vs. Park Jun-yong"
+        ]
       }
     ],
     "espnEventId": "600062700",
@@ -2987,7 +2999,7 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-19T20:04:26.427Z",
+    "scheduleCheckedAt": "2026-11-20T19:42:26.486Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc"
   },
   {
@@ -3105,10 +3117,19 @@
           "Kyler Phillips vs. Ethyn Ewing",
           "Damian Pinas vs. Baisangur Susurkaev"
         ]
+      },
+      {
+        "checkedAt": "2026-11-20T19:42:26.598Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
+        "added": [],
+        "removed": [
+          "Kyler Phillips vs. Ethyn Ewing",
+          "Damian Pinas vs. Baisangur Susurkaev"
+        ]
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-19T20:04:26.529Z",
+    "cardCheckedAt": "2026-11-20T19:42:26.598Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -3117,7 +3138,7 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-19T20:04:26.529Z",
+    "scheduleCheckedAt": "2026-11-20T19:42:26.598Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc"
   },
   {
@@ -3186,18 +3207,135 @@
         "f2Id": "ignacio-bahamondes"
       },
       {
-        "f1": "TBA",
-        "f2": "Opponent TBA",
+        "f1": "Geoff Neal",
+        "f2": "Chris Curtis",
+        "sourceFightId": "401936033",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 3,
+        "sourceStartUTC": "2027-01-17T01:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "geoff-neal",
+        "f2Id": "chris-curtis"
+      },
+      {
+        "f1": "Ryan Spann",
+        "f2": "Louie Sutherland",
+        "sourceFightId": "401936034",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 4,
+        "sourceStartUTC": "2027-01-17T01:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "ryan-spann",
+        "f2Id": "louie-sutherland"
+      },
+      {
+        "f1": "Kennedy Nzechukwu",
+        "f2": "Elisha Ellison",
         "sourceFightId": "401932035",
         "weightClass": "",
         "bout": "prelim",
-        "order": 3,
+        "order": 5,
+        "sourceStartUTC": "2027-01-16T22:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "kennedy-nzechukwu",
+        "f2Id": "elisha-ellison"
+      },
+      {
+        "f1": "Gilbert Urbina",
+        "f2": "Robert Valentin",
+        "sourceFightId": "401936035",
+        "weightClass": "Middleweight",
+        "bout": "prelim",
+        "order": 6,
+        "sourceStartUTC": "2027-01-16T22:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "gilbert-urbina",
+        "f2Id": "robert-valentin"
+      },
+      {
+        "f1": "Alden Coria",
+        "f2": "Michael Aljarouj",
+        "sourceFightId": "401936036",
+        "weightClass": "Flyweight",
+        "bout": "prelim",
+        "order": 7,
+        "sourceStartUTC": "2027-01-16T22:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "alden-coria",
+        "f2Id": "michael-aljarouj"
+      },
+      {
+        "f1": "Diego Ferreira",
+        "f2": "MarQuel Mederos",
+        "sourceFightId": "401936037",
+        "weightClass": "Lightweight",
+        "bout": "prelim",
+        "order": 8,
         "sourceStartUTC": "2027-01-16T22:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true
+      },
+      {
+        "f1": "Magomed Zaynukov",
+        "f2": "Piero Guaylupo",
+        "sourceFightId": "401936038",
+        "weightClass": "Light Heavyweight",
+        "bout": "prelim",
+        "order": 9,
+        "sourceStartUTC": "2027-01-16T22:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "magomed-zaynukov",
+        "f2Id": "piero-guaylupo"
+      },
+      {
+        "f1": "John Garza",
+        "f2": "Toshiomi Kazama",
+        "sourceFightId": "401936039",
+        "weightClass": "Bantamweight",
+        "bout": "prelim",
+        "order": 10,
+        "sourceStartUTC": "2027-01-16T22:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "john-garza",
+        "f2Id": "toshiomi-kazama"
+      },
+      {
+        "f1": "Steven Asplund",
+        "f2": "Gökhan Saricam",
+        "sourceFightId": "401936040",
+        "weightClass": "Heavyweight",
+        "bout": "prelim",
+        "order": 11,
+        "sourceStartUTC": "2027-01-16T22:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "steven-asplund",
+        "f2Id": "gokhan-saricam"
+      },
+      {
+        "f1": "Sam Hughes",
+        "f2": "Karolina Kowalkiewicz",
+        "sourceFightId": "401936041",
+        "weightClass": "W Strawweight",
+        "bout": "prelim",
+        "order": 12,
+        "sourceStartUTC": "2027-01-16T22:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "sam-hughes",
+        "f2Id": "karolina-kowalkiewicz"
       }
     ],
-    "cardCheckedAt": "2026-11-19T20:04:26.625Z",
+    "cardCheckedAt": "2026-11-20T19:42:26.700Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -3231,6 +3369,16 @@
           "TBA vs. Opponent TBA"
         ],
         "removed": []
+      },
+      {
+        "checkedAt": "2026-11-20T19:42:26.700Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
+        "added": [
+          "Diego Ferreira vs. MarQuel Mederos"
+        ],
+        "removed": [
+          "Carlos Diego Ferreira vs. MarQuel Mederos"
+        ]
       }
     ],
     "espnEventId": "600062421",
@@ -3242,7 +3390,7 @@
     "country": "USA",
     "programmingStartUTC": "2027-01-16T23:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
-    "scheduleCheckedAt": "2026-11-19T20:04:26.625Z"
+    "scheduleCheckedAt": "2026-11-20T19:42:26.700Z"
   },
   {
     "slug": "ufc-fight-night-297-2027-01-23",
