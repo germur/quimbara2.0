@@ -11,7 +11,7 @@
       "slug": "mike-davis",
       "ufcProfileUrl": "https://www.ufc.com/athlete/maiku-teihisu",
       "record": "12-4-0",
-      "checkedAt": "2026-11-20T19:40:23.312Z"
+      "checkedAt": "2026-11-21T18:46:11.043Z"
     },
     "daff32bc96d1eabf": {
       "name": "Anthony Figueroa",
@@ -29,7 +29,7 @@
       "slug": "joey-gomez-1986",
       "ufcProfileUrl": "https://www.ufc.com/athlete/joey-gomez",
       "record": "6-2-0",
-      "checkedAt": "2026-11-20T19:40:23.312Z"
+      "checkedAt": "2026-11-21T18:46:11.043Z"
     },
     "3a28e1e641366308": {
       "name": "Joey Gomez",
@@ -42,7 +42,7 @@
       "slug": "tony-johnson",
       "ufcProfileUrl": "https://www.ufc.com/athlete/tony-johnson",
       "record": "7-2-0",
-      "checkedAt": "2026-11-20T19:40:23.312Z"
+      "checkedAt": "2026-11-21T18:46:11.043Z"
     },
     "a45bab49951a45cd": {
       "name": "Tony Johnson",
@@ -60,7 +60,7 @@
       "slug": "michael-mcdonald",
       "ufcProfileUrl": "https://www.ufc.com/athlete/michael-mcdonald",
       "record": "17-4-0",
-      "checkedAt": "2026-11-20T19:40:23.312Z"
+      "checkedAt": "2026-11-21T18:46:11.043Z"
     },
     "6f81399074fcdbba": {
       "name": "Anthony Romero",
@@ -73,7 +73,7 @@
       "slug": "anthony-romero",
       "ufcProfileUrl": "https://www.ufc.com/athlete/anthony-romero-0",
       "record": "7-3-0",
-      "checkedAt": "2026-11-20T19:40:23.312Z"
+      "checkedAt": "2026-11-21T18:46:11.043Z"
     },
     "9211aae062b799d6": {
       "name": "Jean Silva",
@@ -86,7 +86,7 @@
       "slug": "jean-silva",
       "ufcProfileUrl": "https://www.ufc.com/athlete/jean-silva",
       "record": "18-3-0",
-      "checkedAt": "2026-11-20T19:40:23.312Z"
+      "checkedAt": "2026-11-21T18:46:11.043Z"
     },
     "294aa73dbf37d281": {
       "name": "Bruno Silva",
@@ -94,7 +94,7 @@
       "slug": "bruno-silva",
       "ufcProfileUrl": "https://www.ufc.com/athlete/bruno-silva",
       "record": "15-9-2",
-      "checkedAt": "2026-11-20T19:40:23.312Z"
+      "checkedAt": "2026-11-21T18:46:11.043Z"
     },
     "12ebd7d157e91701": {
       "name": "Bruno Silva",
@@ -102,7 +102,7 @@
       "slug": "bruno-silva-blindado",
       "ufcProfileUrl": "https://www.ufc.com/athlete/bruno-silva-blindado",
       "record": "23-13-0",
-      "checkedAt": "2026-11-20T19:40:23.312Z"
+      "checkedAt": "2026-11-21T18:46:11.043Z"
     },
     "de277a4abcfeea46": {
       "name": "Victor Valenzuela",
@@ -115,7 +115,7 @@
       "slug": "victor-valenzuela",
       "ufcProfileUrl": "https://www.ufc.com/athlete/victor-valenzuela-0",
       "record": "14-4-0",
-      "checkedAt": "2026-11-20T19:40:23.312Z"
+      "checkedAt": "2026-11-21T18:46:11.043Z"
     }
   },
   "fights": {
@@ -328,5 +328,5 @@
       "12ebd7d157e91701"
     ]
   },
-  "checkedAt": "2026-11-20T19:40:23.312Z"
+  "checkedAt": "2026-11-21T18:46:11.043Z"
 }
