@@ -9,6 +9,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 import mdx from '@astrojs/mdx';
+import { load } from 'cheerio';
 
 // Criterio único de indexabilidad (compartido con [slug].astro y listados)
 import { isIndexable } from './src/lib/indexable.mjs';
@@ -21,6 +22,9 @@ const eventData=JSON.parse(readFileSync(join(__cfgDir,'src/data/events-all.json'
 const eventPaths=new Set(canonicalEvents(eventData).filter(e=>e.main&&e.main!=='TBD').map(e=>eventPath(e.slug)));
 
 // https://astro.build/config
+/** @type {URL} */
+let buildDirectory;
+
 export default defineConfig({
   site: 'https://quimbara.org',
 
@@ -67,7 +71,25 @@ export default defineConfig({
   },
 
   integrations: [
+    {
+      name: 'quimbara:sitemap-output',
+      hooks: {
+        'astro:build:done': ({ dir }) => { buildDirectory = dir; },
+      },
+    },
     sitemap({
+      // Las rutas candidatas deben coincidir con lo que dice el HTML generado.
+      serialize(entry) {
+        const pathname = new URL(entry.url).pathname;
+        const file = join(fileURLToPath(buildDirectory), decodeURIComponent(pathname), 'index.html');
+        const $ = load(readFileSync(file, 'utf8'));
+        const robots = $("head meta[name='robots']").attr('content') ?? '';
+        const canonical = $("head link[rel='canonical']").attr('href');
+        if (robots.split(/[,\s]+/).some(value => /^(noindex|none)$/i.test(value))) {
+          return undefined;
+        }
+        return canonical === entry.url ? entry : undefined;
+      },
       // Excluir páginas con noIndex y rutas legacy
       filter: (page) => {
         const path=new URL(page).pathname;
