@@ -7,6 +7,14 @@ export const bogotaDate = now => new Intl.DateTimeFormat('en-CA', {
   timeZone: 'America/Bogota', year: 'numeric', month: '2-digit', day: '2-digit',
 }).format(new Date(now));
 
+export function calendarUpcomingEvents(events, now = Date.now()) {
+  const today = bogotaDate(now);
+  return canonicalEvents(events).filter(event =>
+    validDate(event.date) && event.date >= today && event.main && event.main !== 'TBD' &&
+    !['unconfirmed', 'cancelled', 'postponed'].includes(event.status)
+  );
+}
+
 // Public profile links must refer to the identified participant, never just a surname.
 function participant(bout, side, people) {
   const name = bout[side];

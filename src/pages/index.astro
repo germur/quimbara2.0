@@ -7,7 +7,8 @@ import Ticker from '../components/Ticker.astro';
 import OctagonScene from '../components/OctagonScene.astro';
 import TaleOfTheTape from '../components/TaleOfTheTape.astro';
 import UpcomingFighters from '../components/UpcomingFighters.astro';
-import EVENTS from '../data/events.json';
+import EVENT_DATA from '../data/events.json';
+import {calendarUpcomingEvents} from '../lib/upcoming-fights.mjs';
 import VIDEOS from '../data/videos.json';
 import FIGHTERS from '../data/fighters.json';
 import RESULTS from '../data/results.json';
@@ -36,6 +37,7 @@ const lastPostLabel = daysSinceLatest === 0 ? 'Hoy' : daysSinceLatest === 1 ? 'A
 
 const categoriesSet = new Set(allPosts.map(p => p.data.category));
 
+const EVENTS = calendarUpcomingEvents(EVENT_DATA);
 const nextEvent = EVENTS[0];
 const nextEventLabel = nextEvent?.dateLabel ?? '—';
 
@@ -125,7 +127,7 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
   <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX};`}>
     <div class="flex items-baseline justify-between mb-6">
       <h2 class="text-2xl md:text-4xl" style="font-family: var(--font-display);">Próximos Eventos</h2>
-      <a href="/eventos" class="text-sm text-gray-500 font-medium hover:text-[#111] transition-colors" style="font-family: var(--font-sans);">Calendario →</a>
+      <a href="/eventos/" class="text-sm text-gray-500 font-medium hover:text-[#111] transition-colors" style="font-family: var(--font-sans);">Calendario →</a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
       {EVENTS.map(e => (
@@ -223,7 +225,10 @@ const homeSchema = `[${JSON.stringify(websiteSchema)}, ${JSON.stringify(organiza
 
   <!-- ── Fighter Rankings ── -->
   <section style={`max-width:1400px; margin:0 auto; padding: 10px ${PX} 50px;`}>
-    <h2 class="text-2xl md:text-4xl mb-6" style="font-family:var(--font-display);">Fighter Rankings</h2>
+    <div class="flex flex-wrap items-baseline justify-between gap-3 mb-6">
+      <h2 class="text-2xl md:text-4xl" style="font-family:var(--font-display);">Campeones UFC</h2>
+      <a href="/rankings/" class="text-sm font-semibold underline">Ver rankings UFC por división →</a>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
       {FIGHTERS.filter(f => f.rank === 'C').map(f => (
         <a href={`/peleadores/${f.slug}`} class="bg-gray-50 rounded-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg relative block"

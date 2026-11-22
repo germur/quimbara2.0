@@ -1,5 +1,5 @@
 ---
-import { eventPath, eventSlug, canonicalEvents } from "../lib/event-routing.mjs";
+import { eventIdentity, eventPath, canonicalEvents } from "../lib/event-routing.mjs";
 // RelatedEntities — vincula automáticamente artículos con fichas de peleadores y eventos
 // Uso en blog/[slug].astro:
 //   <RelatedEntities fighters={["evloev", "volkanovski"]} events={["ufc-314"]} />
@@ -14,7 +14,8 @@ export interface Props {
 const { fighters = [], events = [] } = Astro.props;
 
 const matchedFighters = FIGHTERS_RAW.filter(f => fighters.includes(f.slug));
-const matchedEvents   = (EVENTS_RAW as any[]).filter(e => events.includes(e.slug));
+const relatedIdentities = new Set(events.map(eventIdentity));
+const matchedEvents = canonicalEvents(EVENTS_RAW).filter(e => relatedIdentities.has(eventIdentity(e.slug)));
 
 if (matchedFighters.length === 0 && matchedEvents.length === 0) {
   // nada que mostrar — renderizar vacío

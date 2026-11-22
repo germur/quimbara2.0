@@ -5,7 +5,8 @@ import RESULTS from '../../data/results.json';
 import {resultsForEvent} from '../../lib/search-intent.mjs';
 import {resultPresentation} from '../../../scripts/lib/recent-results.mjs';
 import {schemaStatus,eventStatus} from "../../lib/event-data.mjs";
-import { eventPath, eventSlug, canonicalEvents } from "../../lib/event-routing.mjs";
+import { eventIdentity, eventPath, eventSlug, canonicalEvents } from "../../lib/event-routing.mjs";
+import {bogotaDate, calendarUpcomingEvents} from '../../lib/upcoming-fights.mjs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import DataSources from '../../components/DataSources.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
@@ -29,7 +30,7 @@ const { event } = Astro.props as { event: EventFull & Record<string, any> };
 const PX = 'clamp(16px,4vw,60px)';
 
 const isPPV = /UFC \d/.test(event.name);
-const eventState=eventStatus(event);
+const eventState=eventStatus(event, bogotaDate(Date.now()));
 const isCompleted = eventState === 'past';
 const eventTitle = `${event.name}${event.main !== 'TBD' ? ': ' + event.main : ''}`;
 const eventNum = event.name.replace('UFC ', '').replace('Fight Night', 'FN');
@@ -75,18 +76,20 @@ function fighterPhoto(name: string,id='',division=''): string {
 }
 
 // Otros eventos próximos (excluir el actual)
-const otherEvents = canonicalEvents(EVENTS).filter(e => e.slug !== event.slug && e.main !== 'TBD' && e.date >= new Date().toISOString().slice(0,10)).slice(0,3);
+const otherEvents = calendarUpcomingEvents(EVENTS).filter(e => e.slug !== event.slug).slice(0,3);
 
-// Artículos relacionados: buscar por nombre de los fighters
+// El análisis del evento se enlaza por identidad, con los alias de las URLs antiguas.
 const allPosts = await getCollection('blog');
 allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const keywords = [f1, f2, event.name].map(s => s.toLowerCase().split(' ').slice(-1)[0]);
-const related = allPosts.filter(p => {
-  const hay = `${p.data.title} ${p.data.description ?? ''}`.toLowerCase();
-  return keywords.some(k => k.length > 3 && hay.includes(k));
-});
-const articles = related.length > 0 ? related.slice(0, 3) : allPosts.slice(0, 3);
-const articlesLabel = related.length > 0 ? `Análisis sobre este evento` : 'También te puede interesar';
+const identity = eventIdentity(event.slug);
+const related = allPosts.filter(post =>
+  post.data.relatedEvents?.some(slug => eventIdentity(slug) === identity)
+);
+const headliners = [fighterUrl(f1), fighterUrl(f2)].map(url => url.split('/')[2]).filter(Boolean);
+const profiles = allPosts.filter(post =>
+  !related.includes(post) && post.data.fighters?.some(slug => headliners.includes(slug))
+);
+const articles = [...related, ...profiles].slice(0, 3);
 
 const siteUrl = 'https://quimbara.org';
 const canonicalUrl = `${siteUrl}${eventPath(event.slug)}`;
@@ -453,15 +456,17 @@ const answerLinks=[...(availableResults.length?[{href:'#resultados',label:'Resul
   </section>
 
   <!-- ── Artículos relacionados ── -->
-  <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
-    <div class="flex items-baseline justify-between mb-6 flex-wrap gap-3">
-      <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2.2rem);color:#111;">{articlesLabel}</h2>
-      <a href="/blog" class="text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-[#111] transition-colors" style="font-family:var(--font-sans);">Ver todos →</a>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {articles.map(a => <ArticleCard article={a} variant="default" />)}
-    </div>
-  </section>
+  {articles.length > 0 && (
+    <section style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
+      <div class="flex items-baseline justify-between mb-6 flex-wrap gap-3">
+        <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2.2rem);color:#111;">Cobertura y análisis relacionados</h2>
+        <a href="/blog" class="text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-[#111] transition-colors" style="font-family:var(--font-sans);">Ver todos →</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {articles.map(a => <ArticleCard article={a} variant="default" />)}
+      </div>
+    </section>
+  )}
 
   <!-- ── Otros eventos próximos ── -->
   {otherEvents.length > 0 && (

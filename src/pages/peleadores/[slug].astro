@@ -11,6 +11,8 @@ import FIGHTERS from '../../data/fighters.json';
 import EVENTS from '../../data/events-all.json';
 import AnswerFirst from '../../components/AnswerFirst.astro';
 import {fighterAnswer,nextFightLookup} from '../../lib/search-intent.mjs';
+import {indexFighterEvents} from '../../lib/fighter-event-links.mjs';
+import {bogotaDate} from '../../lib/upcoming-fights.mjs';
 import { getCollection } from 'astro:content';
 // @ts-ignore — módulo JS compartido con astro.config.mjs y scripts/
 import { isIndexable } from '../../lib/indexable.mjs';
@@ -37,10 +39,16 @@ type FighterEnriched = {
 };
 
 export function getStaticPaths() {
-  return FIGHTERS.map((f) => ({ params: { slug: f.slug }, props: { fighter: f } }));
+  const eventLinks = indexFighterEvents(EVENTS, FIGHTERS);
+  return FIGHTERS.map(f => ({ params: { slug: f.slug }, props: { fighter: f, eventLinks: eventLinks.get(f.slug) ?? [] } }));
 }
 
-const { fighter: f } = Astro.props as { fighter: typeof FIGHTERS[0] & FighterEnriched };
+const { fighter: f, eventLinks } = Astro.props as {
+  fighter: typeof FIGHTERS[0] & FighterEnriched;
+  eventLinks: {date: string; dateLabel: string; name: string; opponent: string; href: string}[];
+};
+const today = bogotaDate(Date.now());
+const pastEventLinks = eventLinks.filter(event => event.date < today).slice(0, 4);
 
 // Versión derivada (métrico, ape index, rareza) para el comparador embebido.
 // null si el peleador no es comparable — entonces el módulo no se renderiza.
@@ -580,6 +588,20 @@ const metaDescription = f.metaDescription
           style="font-family:var(--font-display);">Trayectoria de {f.name} en UFC</h2>
       <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed"
            style="font-family:var(--font-sans);" set:html={f.trayectoria} />
+    </section>
+  )}
+
+  {pastEventLinks.length > 0 && (
+    <section id="carteleras" class="mx-auto max-w-[1400px] px-[clamp(16px,4vw,60px)] pb-[60px]">
+      <h2 class="text-2xl md:text-3xl mb-4">Carteleras con {f.name}</h2>
+      <ul class="divide-y divide-gray-200">
+        {pastEventLinks.map(event => (
+          <li class="py-3">
+            <a class="font-semibold underline" href={event.href}>{event.name} · vs. {event.opponent}</a>
+            <time class="block text-sm text-gray-600" datetime={event.date}>{event.dateLabel}</time>
+          </li>
+        ))}
+      </ul>
     </section>
   )}
 
