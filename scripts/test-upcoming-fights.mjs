@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {upcomingFights, bogotaDate, CARD_MAX_AGE} from '../src/lib/upcoming-fights.mjs';
+import {upcomingFights, bogotaDate, CARD_MAX_AGE, calendarUpcomingEvents} from '../src/lib/upcoming-fights.mjs';
 
 const now = Date.parse('2026-11-17T12:00:00Z');
 const people = [{name:'Kevin Vallejos',slug:'kevin-vallejos',nick:'El Chino',rec:'17-1-0',recScope:'pro'},
@@ -53,4 +53,12 @@ test('ambiguous identities do not link or borrow another athlete photograph', ()
 test('selection advances to next fresh event automatically after event date', () => {
   const result=upcomingFights([{...event,date:'2026-11-16'},{...event,slug:'next',date:'2026-11-28'}],people,{now});
   assert.equal(result.event.slug,'next');
+});
+
+test('calendar ignores stale upcoming status after the Bogotá date changes', () => {
+  const last = {...event, main:'Vallejos vs. Sterling'};
+  const next = {...last, slug:'december-card', date:'2026-12-05'};
+  const held = {...next, slug:'withdrawn-card', status:'postponed'};
+  assert.deepEqual(calendarUpcomingEvents([last, next, held], Date.parse('2026-11-22T04:59:00Z')).map(e => e.slug), [last.slug, next.slug]);
+  assert.deepEqual(calendarUpcomingEvents([last, next, held], Date.parse('2026-11-22T05:00:00Z')).map(e => e.slug), [next.slug]);
 });
