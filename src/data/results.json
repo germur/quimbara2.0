@@ -1,46 +1,46 @@
 [
   {
-    "w": "Ciryl Gane",
-    "l": "Josh Hokit",
+    "w": "Navajo Stirling",
+    "l": "Jiri Prochazka",
     "outcome": "win",
-    "method": "Decision (Unanimous)",
-    "round": 5,
-    "time": "5:00",
-    "event": "UFC 334 - Gane vs. Hokit",
-    "sourceUrl": "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293",
-    "checkedAt": "2026-11-21T18:46:28.752Z"
+    "method": "KO (Punches)",
+    "round": 2,
+    "time": "4:58",
+    "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+    "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+    "checkedAt": "2026-11-22T19:08:10.908Z"
   },
   {
-    "w": "Kayla Harrison",
-    "l": "Amanda Nunes",
-    "outcome": "win",
-    "method": "Submission (Rear-Naked Choke)",
-    "round": 4,
-    "time": "1:29",
-    "event": "UFC 334 - Gane vs. Hokit",
-    "sourceUrl": "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293",
-    "checkedAt": "2026-11-21T18:46:28.752Z"
-  },
-  {
-    "w": "Caio Borralho",
-    "l": "Yousri Belgaroui",
+    "w": "Kevin Vallejos",
+    "l": "Aljamain Sterling",
     "outcome": "win",
     "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC 334 - Gane vs. Hokit",
-    "sourceUrl": "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293",
-    "checkedAt": "2026-11-21T18:46:28.752Z"
+    "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+    "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+    "checkedAt": "2026-11-22T19:08:10.908Z"
   },
   {
-    "w": "Uros Medic",
-    "l": "Kevin Holland",
-    "outcome": "draw",
-    "method": "Draw (Majority)",
+    "w": "Dan Hooker",
+    "l": "Brian Ortega",
+    "outcome": "win",
+    "method": "Decision (Unanimous)",
     "round": 3,
     "time": "5:00",
-    "event": "UFC 334 - Gane vs. Hokit",
-    "sourceUrl": "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293",
-    "checkedAt": "2026-11-21T18:46:28.752Z"
+    "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+    "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+    "checkedAt": "2026-11-22T19:08:10.908Z"
+  },
+  {
+    "w": "Kyoji Horiguchi",
+    "l": "Asu Almabayev",
+    "outcome": "win",
+    "method": "Decision (Unanimous)",
+    "round": 3,
+    "time": "5:00",
+    "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+    "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+    "checkedAt": "2026-11-22T19:08:10.908Z"
   }
 ]

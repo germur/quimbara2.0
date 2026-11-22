@@ -1,254 +1,219 @@
 {
-  "checkedAt": "2026-11-21T18:49:14.518Z",
+  "checkedAt": "2026-11-22T19:11:19.205Z",
   "results": 4,
   "sourceDisagreements": [
-    {
-      "slug": "amir-albazi",
-      "record": "17-3-0",
-      "historyRecord": "18-3",
-      "recordSourceUrl": "https://www.ufc.com/athlete/amir-albazi",
-      "historyCheckedAt": "2026-11-21T18:48:37.752Z"
-    },
-    {
-      "slug": "ikram-aliskerov",
-      "record": "18-2-0",
-      "historyRecord": "19-2",
-      "recordSourceUrl": "https://www.ufc.com/athlete/ikram-aliskerov",
-      "historyCheckedAt": "2026-11-21T18:48:38.429Z"
-    },
     {
       "slug": "magomed-ankalaev",
       "record": "22-2-1",
       "historyRecord": "21-2-1",
       "recordSourceUrl": "https://www.ufc.com/athlete/magomed-ankalaev",
-      "historyCheckedAt": "2026-11-21T18:48:51.088Z"
+      "historyCheckedAt": "2026-11-22T19:10:43.359Z"
     },
     {
       "slug": "tom-aspinall",
       "record": "15-3-1",
       "historyRecord": "15-3",
       "recordSourceUrl": "https://www.ufc.com/athlete/tom-aspinall",
-      "historyCheckedAt": "2026-11-21T18:48:47.265Z"
+      "historyCheckedAt": "2026-11-22T19:10:38.569Z"
     },
     {
       "slug": "maycee-barber",
       "record": "15-3-0",
       "historyRecord": "15-2",
       "recordSourceUrl": "https://www.ufc.com/athlete/maycee-barber",
-      "historyCheckedAt": "2026-11-21T18:48:48.543Z"
-    },
-    {
-      "slug": "jared-cannonier",
-      "record": "18-10-0",
-      "historyRecord": "18-11",
-      "recordSourceUrl": "https://www.ufc.com/athlete/jared-cannonier",
-      "historyCheckedAt": "2026-11-21T18:48:40.873Z"
+      "historyCheckedAt": "2026-11-22T19:10:40.294Z"
     },
     {
       "slug": "edgar-chairez",
       "record": "14-6-0",
       "historyRecord": "14-7",
-      "historyCheckedAt": "2026-11-21T18:48:49.663Z"
+      "historyCheckedAt": "2026-11-22T19:10:41.582Z"
     },
     {
       "slug": "macy-chiasson",
       "record": "11-7-0",
       "historyRecord": "10-7",
       "recordSourceUrl": "https://www.ufc.com/athlete/macy-chiasson",
-      "historyCheckedAt": "2026-11-21T18:48:41.250Z"
+      "historyCheckedAt": "2026-11-22T19:10:30.808Z"
     },
     {
       "slug": "paulo-costa",
       "record": "16-4-0",
       "historyRecord": "15-4",
       "recordSourceUrl": "https://www.ufc.com/athlete/paulo-costa",
-      "historyCheckedAt": "2026-11-21T18:48:52.515Z"
+      "historyCheckedAt": "2026-11-22T19:10:45.058Z"
     },
     {
       "slug": "melquizael-costa",
       "record": "26-7-0",
       "historyRecord": "27-8",
       "recordSourceUrl": "https://www.ufc.com/athlete/melquizael-costa",
-      "historyCheckedAt": "2026-11-21T18:48:53.829Z"
+      "historyCheckedAt": "2026-11-22T19:10:46.772Z"
     },
     {
       "slug": "tim-elliott",
       "record": "23-14-1",
       "historyRecord": "22-14-1",
       "recordSourceUrl": "https://www.ufc.com/athlete/tim-elliott",
-      "historyCheckedAt": "2026-11-21T18:48:54.136Z"
+      "historyCheckedAt": "2026-11-22T19:10:47.191Z"
     },
     {
       "slug": "steve-erceg",
       "record": "14-5-0",
       "historyRecord": "14-4",
       "recordSourceUrl": "https://www.ufc.com/athlete/steve-erceg",
-      "historyCheckedAt": "2026-11-21T18:48:54.453Z"
+      "historyCheckedAt": "2026-11-22T19:10:47.641Z"
     },
     {
       "slug": "rafa-garcia",
       "record": "19-5-0",
       "historyRecord": "18-5",
-      "historyCheckedAt": "2026-11-21T18:48:50.751Z"
-    },
-    {
-      "slug": "shamil-gaziev",
-      "record": "15-3-0",
-      "historyRecord": "15-4",
-      "recordSourceUrl": "https://www.ufc.com/athlete/shamil-gaziev",
-      "historyCheckedAt": "2026-11-21T18:48:21.192Z"
+      "historyCheckedAt": "2026-11-22T19:10:42.915Z"
     },
     {
       "slug": "max-holloway",
       "record": "27-9-0",
       "historyRecord": "28-9",
       "recordSourceUrl": "https://www.ufc.com/athlete/max-holloway",
-      "historyCheckedAt": "2026-11-21T18:48:52.872Z"
-    },
-    {
-      "slug": "santiago-luna",
-      "record": "8-1-0",
-      "historyRecord": "9-1",
-      "recordSourceUrl": "https://www.ufc.com/athlete/santiago-luna",
-      "historyCheckedAt": "2026-11-21T18:48:22.463Z"
-    },
-    {
-      "slug": "jake-matthews",
-      "record": "23-8-0",
-      "historyRecord": "23-9",
-      "recordSourceUrl": "https://www.ufc.com/athlete/jake-matthews",
-      "historyCheckedAt": "2026-11-21T18:48:23.557Z"
+      "historyCheckedAt": "2026-11-22T19:10:45.558Z"
     },
     {
       "slug": "miranda-maverick",
       "record": "17-6-0",
       "historyRecord": "15-6",
       "recordSourceUrl": "https://www.ufc.com/athlete/miranda-maverick",
-      "historyCheckedAt": "2026-11-21T18:48:54.780Z"
+      "historyCheckedAt": "2026-11-22T19:10:48.064Z"
     },
     {
       "slug": "alonzo-menifield",
       "record": "19-6-1",
       "historyRecord": "18-6-1",
       "recordSourceUrl": "https://www.ufc.com/athlete/alonzo-menifield",
-      "historyCheckedAt": "2026-11-21T18:48:55.104Z"
+      "historyCheckedAt": "2026-11-22T19:10:48.480Z"
     },
     {
       "slug": "bryce-mitchell",
       "record": "19-4-0",
       "historyRecord": "19-3",
       "recordSourceUrl": "https://www.ufc.com/athlete/bryce-mitchell",
-      "historyCheckedAt": "2026-11-21T18:48:55.426Z"
+      "historyCheckedAt": "2026-11-22T19:10:48.947Z"
     },
     {
       "slug": "rose-namajunas",
       "record": "15-8-0",
       "historyRecord": "14-8",
       "recordSourceUrl": "https://www.ufc.com/athlete/rose-namajunas",
-      "historyCheckedAt": "2026-11-21T18:48:55.785Z"
+      "historyCheckedAt": "2026-11-22T19:10:49.463Z"
     },
     {
       "slug": "matheus-nicolau",
       "record": "19-6-1",
       "historyRecord": "19-5-1",
-      "historyCheckedAt": "2026-11-21T18:48:48.229Z"
+      "historyCheckedAt": "2026-11-22T19:10:39.879Z"
     },
     {
       "slug": "amanda-nunes",
       "record": "23-5-0",
       "historyRecord": "23-6",
       "recordSourceUrl": "https://www.ufc.com/athlete/amanda-nunes",
-      "historyCheckedAt": "2026-11-21T18:48:25.660Z"
+      "historyCheckedAt": "2026-11-22T19:10:13.720Z"
+    },
+    {
+      "slug": "charles-oliveira",
+      "record": "37-11-0",
+      "historyRecord": "36-11",
+      "recordSourceUrl": "https://www.ufc.com/athlete/charles-oliveira",
+      "historyCheckedAt": "2026-11-22T19:10:26.649Z"
     },
     {
       "slug": "quentin-pasley",
       "record": "1-0-0",
       "historyRecord": "7-6",
       "recordSourceUrl": "https://www.ufc.com/athlete/quentin-pasley",
-      "historyCheckedAt": "2026-11-21T18:48:28.330Z"
+      "historyCheckedAt": "2026-11-22T19:10:16.711Z"
     },
     {
       "slug": "julianna-pena",
       "record": "13-6-0",
       "historyRecord": "12-6",
       "recordSourceUrl": "https://www.ufc.com/athlete/julianna-pena",
-      "historyCheckedAt": "2026-11-21T18:48:56.118Z"
+      "historyCheckedAt": "2026-11-22T19:10:49.915Z"
     },
     {
       "slug": "raquel-pennington",
       "record": "16-10-0",
       "historyRecord": "16-9",
       "recordSourceUrl": "https://www.ufc.com/athlete/raquel-pennington",
-      "historyCheckedAt": "2026-11-21T18:48:56.442Z"
+      "historyCheckedAt": "2026-11-22T19:10:50.369Z"
     },
     {
       "slug": "carlos-prates",
       "record": "24-7-0",
       "historyRecord": "23-7",
       "recordSourceUrl": "https://www.ufc.com/athlete/carlos-prates",
-      "historyCheckedAt": "2026-11-21T18:48:56.839Z"
+      "historyCheckedAt": "2026-11-22T19:10:50.789Z"
     },
     {
       "slug": "yair-rodriguez",
       "record": "21-5-0",
       "historyRecord": "20-5",
       "recordSourceUrl": "https://www.ufc.com/athlete/yair-rodriguez",
-      "historyCheckedAt": "2026-11-21T18:48:53.199Z"
+      "historyCheckedAt": "2026-11-22T19:10:46.015Z"
     },
     {
       "slug": "tatiana-suarez",
       "record": "14-1-0",
       "historyRecord": "13-1",
       "recordSourceUrl": "https://www.ufc.com/athlete/tatiana-suarez",
-      "historyCheckedAt": "2026-11-21T18:48:47.573Z"
+      "historyCheckedAt": "2026-11-22T19:10:39.019Z"
     },
     {
       "slug": "tallison-teixeira",
       "record": "9-2-0",
       "historyRecord": "10-2",
       "recordSourceUrl": "https://www.ufc.com/athlete/tallison-teixeira",
-      "historyCheckedAt": "2026-11-21T18:48:30.520Z"
+      "historyCheckedAt": "2026-11-22T19:10:19.202Z"
     },
     {
-      "slug": "aleksandre-topuria",
-      "record": "7-1-0",
-      "historyRecord": "7-2",
-      "recordSourceUrl": "https://www.ufc.com/athlete/aleksandre-topuria",
-      "historyCheckedAt": "2026-11-21T18:48:32.033Z"
+      "slug": "kevin-vallejos",
+      "record": "18-1-0",
+      "historyRecord": "19-1",
+      "recordSourceUrl": "https://www.ufc.com/athlete/kevin-vallejos",
+      "historyCheckedAt": "2026-11-22T19:10:05.215Z"
     },
     {
       "slug": "marlon-vera",
       "record": "24-12-1",
       "historyRecord": "23-12-1",
       "recordSourceUrl": "https://www.ufc.com/athlete/marlon-vera",
-      "historyCheckedAt": "2026-11-21T18:48:53.524Z"
+      "historyCheckedAt": "2026-11-22T19:10:46.373Z"
     },
     {
       "slug": "marvin-vettori",
       "record": "19-10-1",
       "historyRecord": "19-11-1",
-      "historyCheckedAt": "2026-11-21T18:48:47.916Z"
+      "historyCheckedAt": "2026-11-22T19:10:39.475Z"
     },
     {
       "slug": "robert-whittaker",
       "record": "28-9-0",
       "historyRecord": "26-9",
       "recordSourceUrl": "https://www.ufc.com/athlete/robert-whittaker",
-      "historyCheckedAt": "2026-11-21T18:48:52.209Z"
+      "historyCheckedAt": "2026-11-22T19:10:44.688Z"
     },
     {
       "slug": "yaroslav-amosov",
       "record": "29-1-0",
       "historyRecord": "30-1",
       "recordSourceUrl": "https://www.ufc.com/athlete/yaroslav-amosov",
-      "historyCheckedAt": "2026-11-21T18:48:46.940Z"
+      "historyCheckedAt": "2026-11-22T19:10:38.118Z"
     },
     {
       "slug": "akbar-abdullaev",
       "record": "1-0-0",
       "historyRecord": "14-0",
       "recordSourceUrl": "https://www.ufc.com/athlete/akbar-abdullaev",
-      "historyCheckedAt": "2026-11-21T18:48:32.689Z"
+      "historyCheckedAt": "2026-11-22T19:10:21.839Z"
     }
   ],
   "errors": []

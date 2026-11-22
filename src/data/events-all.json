@@ -2509,7 +2509,7 @@
     "f1img": "",
     "f2": "TBD",
     "f2img": "",
-    "status": "unconfirmed"
+    "status": "completed"
   },
   {
     "slug": "ufc-fight-night-2026-11-21",
@@ -2522,7 +2522,7 @@
     "f1img": "/fighters/jiri-prochazka.png",
     "f2": "Navajo Stirling",
     "f2img": "/fighters/navajo-stirling.png",
-    "status": "upcoming",
+    "status": "completed",
     "fightCard": [
       {
         "f1": "Jiří Procházka",
@@ -2535,7 +2535,9 @@
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "jiri-prochazka",
-        "f2Id": "navajo-stirling"
+        "f2Id": "navajo-stirling",
+        "f1StatsId": "009341ed974bad72",
+        "f2StatsId": "b4b496ec2197ee3e"
       },
       {
         "f1": "Aljamain Sterling",
@@ -2548,7 +2550,9 @@
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "aljamain-sterling",
-        "f2Id": "kevin-vallejos"
+        "f2Id": "kevin-vallejos",
+        "f1StatsId": "cb696ebfb6598724",
+        "f2StatsId": "239d8e5359022f3b"
       },
       {
         "f1": "Dan Hooker",
@@ -2561,7 +2565,9 @@
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "dan-hooker",
-        "f2Id": "brian-ortega"
+        "f2Id": "brian-ortega",
+        "f1StatsId": "193b9d1858bc4df3",
+        "f2StatsId": "def8166ff24bd237"
       },
       {
         "f1": "Kyoji Horiguchi",
@@ -2574,7 +2580,9 @@
         "sourceStatus": "STATUS_FIGHTERS_WALKING",
         "segmentInferred": true,
         "f1Id": "kyoji-horiguchi",
-        "f2Id": "asu-almabayev"
+        "f2Id": "asu-almabayev",
+        "f1StatsId": "98aa60cf58071fd6",
+        "f2StatsId": "8d3273573b85be09"
       },
       {
         "f1": "Jared Cannonier",
@@ -2585,7 +2593,11 @@
         "order": 4,
         "sourceStartUTC": "2026-11-21T18:00Z",
         "sourceStatus": "STATUS_FINAL",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "jared-cannonier",
+        "f1StatsId": "13a0275fa13c4d26",
+        "f2Id": "ikram-aliskerov",
+        "f2StatsId": "b07aed698fba8624"
       },
       {
         "f1": "Aleksandre Topuria",
@@ -2596,7 +2608,11 @@
         "order": 5,
         "sourceStartUTC": "2026-11-21T15:00Z",
         "sourceStatus": "STATUS_FINAL",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "aleksandre-topuria",
+        "f1StatsId": "4a6dff1b260bcf61",
+        "f2Id": "santiago-luna",
+        "f2StatsId": "faf317c665546a36"
       },
       {
         "f1": "Shamil Gaziev",
@@ -2607,7 +2623,11 @@
         "order": 6,
         "sourceStartUTC": "2026-11-21T15:00Z",
         "sourceStatus": "STATUS_FINAL",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "shamil-gaziev",
+        "f1StatsId": "6747ccd6d1acd266",
+        "f2Id": "tallison-teixeira",
+        "f2StatsId": "17923f676f100e16"
       },
       {
         "f1": "Amir Albazi",
@@ -2618,7 +2638,11 @@
         "order": 7,
         "sourceStartUTC": "2026-11-21T15:00Z",
         "sourceStatus": "STATUS_FINAL",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "amir-albazi",
+        "f1StatsId": "6d35bf94f7d30241",
+        "f2Id": "alessandro-costa",
+        "f2StatsId": "3fa97913cfd205d3"
       },
       {
         "f1": "Jake Matthews",
@@ -2629,7 +2653,11 @@
         "order": 8,
         "sourceStartUTC": "2026-11-21T15:00Z",
         "sourceStatus": "STATUS_FINAL",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "jake-matthews",
+        "f1StatsId": "a845f0735bc67405",
+        "f2Id": "tahir-abdullayev",
+        "f2StatsId": "e047d3b541afd4a7"
       },
       {
         "f1": "Nikolas Motta",
@@ -2640,7 +2668,11 @@
         "order": 9,
         "sourceStartUTC": "2026-11-21T15:00Z",
         "sourceStatus": "STATUS_FINAL",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "nikolas-motta",
+        "f1StatsId": "37f560436d745c18",
+        "f2Id": "dom-mar-fan",
+        "f2StatsId": "530af2900b5a1693"
       },
       {
         "f1": "Diyar Nurgozhay",
@@ -2651,7 +2683,11 @@
         "order": 10,
         "sourceStartUTC": "2026-11-21T15:00Z",
         "sourceStatus": "STATUS_FINAL",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "diyar-nurgozhay",
+        "f1StatsId": "709fadb644ee3f51",
+        "f2Id": "alik-lorenz",
+        "f2StatsId": "92b5f4ee9ff40321"
       },
       {
         "f1": "Shoaib Yousaf",
@@ -2662,7 +2698,9 @@
         "order": 11,
         "sourceStartUTC": "2026-11-21T15:00Z",
         "sourceStatus": "STATUS_FINAL",
-        "segmentInferred": true
+        "segmentInferred": true,
+        "f1Id": "shoaib-yousaf",
+        "f1StatsId": "5f183a54b8875e61"
       }
     ],
     "cardHistory": [
@@ -2801,17 +2839,15 @@
         "f2Id": "mario-pinto"
       },
       {
-        "f1": "Levan Chokheli",
-        "f2": "Islam Dulatov",
-        "sourceFightId": "401933598",
-        "weightClass": "Welterweight",
+        "f1": "Gabriel Santos",
+        "f2": "Luke Riley",
+        "sourceFightId": "401936244",
+        "weightClass": "Featherweight",
         "bout": "maincard",
         "order": 3,
         "sourceStartUTC": "2026-12-05T18:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
-        "segmentInferred": true,
-        "f1Id": "levan-chokheli",
-        "f2Id": "islam-dulatov"
+        "segmentInferred": true
       },
       {
         "f1": "Mairon Santos",
@@ -2912,10 +2948,23 @@
         "segmentInferred": true,
         "f1Id": "abdul-hussein",
         "f2Id": "hecher-sosa"
+      },
+      {
+        "f1": "Levan Chokheli",
+        "f2": "Islam Dulatov",
+        "sourceFightId": "401933598",
+        "weightClass": "Welterweight",
+        "bout": "prelim",
+        "order": 12,
+        "sourceStartUTC": "2026-12-05T15:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "levan-chokheli",
+        "f2Id": "islam-dulatov"
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-21T18:48:15.378Z",
+    "cardCheckedAt": "2026-11-22T19:09:58.964Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -3001,6 +3050,19 @@
           "Bruno Gustavo da Silva vs. Jafel Filho",
           "Marco Tulio vs. Park Jun-yong"
         ]
+      },
+      {
+        "checkedAt": "2026-11-22T19:09:58.964Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
+        "added": [
+          "Gabriel Santos vs. Luke Riley",
+          "Bruno Silva vs. Jafel Filho",
+          "JunYong Park vs. Marco Tulio"
+        ],
+        "removed": [
+          "Bruno Gustavo da Silva vs. Jafel Filho",
+          "Marco Tulio vs. Park Jun-yong"
+        ]
       }
     ],
     "espnEventId": "600062700",
@@ -3010,7 +3072,7 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-21T18:48:15.378Z",
+    "scheduleCheckedAt": "2026-11-22T19:09:58.964Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc"
   },
   {
@@ -3182,10 +3244,18 @@
           "TBA vs. Opponent TBA"
         ],
         "removed": []
+      },
+      {
+        "checkedAt": "2026-11-22T19:09:59.070Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
+        "added": [
+          "TBA vs. Opponent TBA"
+        ],
+        "removed": []
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-21T18:48:15.456Z",
+    "cardCheckedAt": "2026-11-22T19:09:59.070Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -3194,7 +3264,7 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-21T18:48:15.456Z",
+    "scheduleCheckedAt": "2026-11-22T19:09:59.070Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc"
   },
   {
@@ -3391,7 +3461,7 @@
         "f2Id": "karolina-kowalkiewicz"
       }
     ],
-    "cardCheckedAt": "2026-11-21T18:48:15.539Z",
+    "cardCheckedAt": "2026-11-22T19:09:59.167Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -3445,6 +3515,16 @@
         "removed": [
           "Carlos Diego Ferreira vs. MarQuel Mederos"
         ]
+      },
+      {
+        "checkedAt": "2026-11-22T19:09:59.167Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
+        "added": [
+          "Diego Ferreira vs. MarQuel Mederos"
+        ],
+        "removed": [
+          "Carlos Diego Ferreira vs. MarQuel Mederos"
+        ]
       }
     ],
     "espnEventId": "600062421",
@@ -3456,7 +3536,7 @@
     "country": "USA",
     "programmingStartUTC": "2027-01-16T23:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
-    "scheduleCheckedAt": "2026-11-21T18:48:15.539Z"
+    "scheduleCheckedAt": "2026-11-22T19:09:59.167Z"
   },
   {
     "slug": "ufc-fight-night-297-2027-01-23",
@@ -3474,13 +3554,13 @@
   {
     "slug": "ufc-fight-night-2027-01-23",
     "name": "UFC Fight Night",
-    "main": "Bonfim vs. Brady",
+    "main": "Gabriel Bonfim vs. Sean Brady",
     "loc": "Las Vegas, Nevada, U.S.",
     "date": "2027-01-23",
     "dateLabel": "23 ene 2027",
-    "f1": "Bonfim",
+    "f1": "Gabriel Bonfim",
     "f1img": "/fighters/gabriel-bonfim.png",
-    "f2": "Brady",
+    "f2": "Sean Brady",
     "f2img": "/fighters/sean-brady.png",
     "status": "upcoming",
     "fightCard": [
@@ -3496,7 +3576,7 @@
         "f2StatsId": "45f7cb591c3ab00b"
       }
     ],
-    "cardCheckedAt": "2026-11-16T21:48:42.908Z",
+    "cardCheckedAt": "2026-11-22T19:08:05.957Z",
     "cardSource": "Wikipedia"
   },
   {
