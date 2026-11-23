@@ -6,12 +6,12 @@
     "importancia": "INFERIDA, no publicada por Wikipedia: titulo si las notas mencionan campeonato, main-event si el apellido aparece en el nombre del evento, main-card por defecto. El campo importanciaInferida lo marca.",
     "orden": "peleas[] va en orden cronologico ascendente (la mas antigua primero)."
   },
-  "actualizado": "2026-11-22T19:10:51.038Z",
+  "actualizado": "2026-11-23T23:31:58.676Z",
   "peleadores": {
     "charles-oliveira": {
       "ufcStatsId": "07225ba28ae309b6",
       "wikipedia": "Charles_Oliveira",
-      "actualizado": "2026-11-22T19:10:26.649Z",
+      "actualizado": "2026-11-23T23:31:29.566Z",
       "recordWiki": "36-11",
       "bio": {
         "nacimiento": "1989-10-17",
@@ -2080,8 +2080,9 @@
       ]
     },
     "sean-strickland": {
+      "ufcStatsId": "0d8011111be000b2",
       "wikipedia": "Sean_Strickland",
-      "actualizado": "2026-11-16T14:45:02.232Z",
+      "actualizado": "2026-11-23T23:31:47.504Z",
       "recordWiki": "31-7",
       "bio": {
         "nacimiento": "1991-02-27",
@@ -2709,8 +2710,9 @@
       ]
     },
     "islam-makhachev": {
+      "ufcStatsId": "275aca31f61ba28c",
       "wikipedia": "Islam_Makhachev",
-      "actualizado": "2026-11-16T14:45:02.702Z",
+      "actualizado": "2026-11-23T23:31:47.837Z",
       "recordWiki": "29-1",
       "bio": {
         "nacimiento": null,
@@ -3210,8 +3212,9 @@
       ]
     },
     "justin-gaethje": {
+      "ufcStatsId": "9e8f6c728eb01124",
       "wikipedia": "Justin_Gaethje",
-      "actualizado": "2026-11-16T14:45:03.188Z",
+      "actualizado": "2026-11-23T23:31:48.166Z",
       "recordWiki": "28-5",
       "bio": {
         "nacimiento": "1988-11-14",
@@ -3759,8 +3762,9 @@
       ]
     },
     "alexander-volkanovski": {
+      "ufcStatsId": "e1248941344b3288",
       "wikipedia": "Alexander_Volkanovski",
-      "actualizado": "2026-11-16T14:45:03.614Z",
+      "actualizado": "2026-11-23T23:31:48.513Z",
       "recordWiki": "29-4",
       "bio": {
         "nacimiento": "1988-09-29",
@@ -4308,8 +4312,9 @@
       ]
     },
     "petr-yan": {
+      "ufcStatsId": "d661ce4da776fc20",
       "wikipedia": "Petr_Yan",
-      "actualizado": "2026-11-16T14:45:04.059Z",
+      "actualizado": "2026-11-23T23:31:48.845Z",
       "recordWiki": "21-5",
       "bio": {
         "nacimiento": "1993-02-11",
@@ -4745,8 +4750,9 @@
       ]
     },
     "joshua-van": {
+      "ufcStatsId": "17e97649403ba428",
       "wikipedia": "Joshua_Van",
-      "actualizado": "2026-11-16T14:45:04.463Z",
+      "actualizado": "2026-11-23T23:31:49.174Z",
       "recordWiki": "18-2",
       "bio": {
         "nacimiento": "2001-10-10",
@@ -5086,8 +5092,9 @@
       ]
     },
     "curtis-blaydes": {
+      "ufcStatsId": "fa6796c55d6c5440",
       "wikipedia": "Curtis_Blaydes",
-      "actualizado": "2026-11-16T14:45:04.869Z",
+      "actualizado": "2026-11-23T23:31:49.522Z",
       "recordWiki": "20-6",
       "bio": {
         "nacimiento": "1991-02-18",
@@ -5531,7 +5538,7 @@
           "round": 3,
           "tiempo": "5:00",
           "evento": "UFC Fight Night: Silva vs. Delgado",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-09-12",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": null
@@ -5541,7 +5548,7 @@
     "sergei-pavlovich": {
       "ufcStatsId": "f14cf73e51b29254",
       "wikipedia": "Sergei_Pavlovich",
-      "actualizado": "2026-11-22T19:10:24.817Z",
+      "actualizado": "2026-11-23T23:31:28.223Z",
       "recordWiki": "21-3",
       "bio": {
         "nacimiento": "1992-05-13",
@@ -5947,7 +5954,7 @@
     "ciryl-gane": {
       "ufcStatsId": "787bb1f087ccff8a",
       "wikipedia": "Ciryl_Gane",
-      "actualizado": "2026-11-22T19:10:25.257Z",
+      "actualizado": "2026-11-23T23:31:28.540Z",
       "recordWiki": "15-2",
       "bio": {
         "nacimiento": "1990-04-12",
@@ -6255,8 +6262,9 @@
       ]
     },
     "alexander-volkov": {
+      "ufcStatsId": "279566840aa55bf2",
       "wikipedia": "Alexander_Volkov_(fighter)",
-      "actualizado": "2026-11-16T14:45:07.297Z",
+      "actualizado": "2026-11-23T23:31:50.737Z",
       "recordWiki": "41-11",
       "bio": {
         "nacimiento": "1988-10-24",
@@ -6726,7 +6734,7 @@
           "resultado": "derrota",
           "registro": "24-5",
           "rivalNombre": "Tony Johnson",
-          "rivalSlug": "tony-johnson",
+          "rivalSlug": null,
           "metodo": "dec",
           "metodoDetalle": "Decision (split)",
           "round": 3,
@@ -7110,7 +7118,7 @@
     "alex-pereira": {
       "ufcStatsId": "e5549c82bfb5582d",
       "wikipedia": "Alex_Pereira",
-      "actualizado": "2026-11-22T19:10:25.749Z",
+      "actualizado": "2026-11-23T23:31:28.884Z",
       "recordWiki": "13-4",
       "bio": {
         "nacimiento": "1987-07-07",
@@ -7404,7 +7412,7 @@
     "jiri-prochazka": {
       "ufcStatsId": "009341ed974bad72",
       "wikipedia": "Jiri_Prochazka",
-      "actualizado": "2026-11-22T19:10:26.192Z",
+      "actualizado": "2026-11-23T23:31:29.202Z",
       "recordWiki": "32-7-1",
       "bio": {
         "nacimiento": "1992-10-14",
@@ -8748,8 +8756,9 @@
       ]
     },
     "dricus-du-plessis": {
+      "ufcStatsId": "0d7b51c9d2649a6e",
       "wikipedia": "Dricus_Du_Plessis",
-      "actualizado": "2026-11-16T14:45:09.075Z",
+      "actualizado": "2026-11-23T23:31:51.051Z",
       "recordWiki": "24-3",
       "bio": {
         "nacimiento": "1994-01-14",
@@ -9193,7 +9202,7 @@
           "round": 5,
           "tiempo": "5:00",
           "evento": "UFC Fight Night: du Plessis vs. Usman",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-07-18",
           "importancia": "main-event",
           "importanciaInferida": true,
           "notas": "Fight of the Night."
@@ -10013,8 +10022,9 @@
       ]
     },
     "belal-muhammad": {
+      "ufcStatsId": "b1b0729d27936f2f",
       "wikipedia": "Belal_Muhammad",
-      "actualizado": "2026-11-16T14:45:11.371Z",
+      "actualizado": "2026-11-23T23:31:51.371Z",
       "recordWiki": "24-6",
       "bio": {
         "nacimiento": "1988-07-09",
@@ -10522,7 +10532,7 @@
           "round": 5,
           "tiempo": "5:00",
           "evento": "UFC Fight Night: Muhammad vs. Bonfim",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-06-06",
           "importancia": "main-event",
           "importanciaInferida": true,
           "notas": null
@@ -10530,8 +10540,9 @@
       ]
     },
     "leon-edwards": {
+      "ufcStatsId": "f1fac969a1d70b08",
       "wikipedia": "Leon_Edwards",
-      "actualizado": "2026-11-16T14:45:11.780Z",
+      "actualizado": "2026-11-23T23:31:51.683Z",
       "recordWiki": "22-6",
       "bio": {
         "nacimiento": "1991-08-25",
@@ -11015,8 +11026,9 @@
       ]
     },
     "arman-tsarukyan": {
+      "ufcStatsId": "eae48ff31db420c2",
       "wikipedia": "Arman_Tsarukyan",
-      "actualizado": "2026-11-16T14:45:12.226Z",
+      "actualizado": "2026-11-23T23:31:52.042Z",
       "recordWiki": "24-3",
       "bio": {
         "nacimiento": "1996-10-11",
@@ -12002,8 +12014,9 @@
       ]
     },
     "mateusz-gamrot": {
+      "ufcStatsId": "72db2a14ffa73ece",
       "wikipedia": "Mateusz_Gamrot",
-      "actualizado": "2026-11-16T14:45:13.078Z",
+      "actualizado": "2026-11-23T23:31:52.395Z",
       "recordWiki": "26-5",
       "bio": {
         "nacimiento": "1990-12-11",
@@ -12527,7 +12540,7 @@
           "round": 1,
           "tiempo": "4:25",
           "evento": "UFC Fight Night: Gamrot vs. Salkilld",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-08-08",
           "importancia": "main-event",
           "importanciaInferida": true,
           "notas": null
@@ -13135,7 +13148,7 @@
     "brian-ortega": {
       "ufcStatsId": "def8166ff24bd237",
       "wikipedia": "Brian_Ortega",
-      "actualizado": "2026-11-22T19:10:27.079Z",
+      "actualizado": "2026-11-23T23:31:29.931Z",
       "recordWiki": "16-6",
       "bio": {
         "nacimiento": "1991-02-21",
@@ -13961,8 +13974,9 @@
       ]
     },
     "arnold-allen": {
+      "ufcStatsId": "040a74bb0a465c54",
       "wikipedia": "Arnold_Allen",
-      "actualizado": "2026-11-16T14:45:14.885Z",
+      "actualizado": "2026-11-23T23:31:52.730Z",
       "recordWiki": "21-4",
       "bio": {
         "nacimiento": "1994-01-22",
@@ -14352,7 +14366,7 @@
           "resultado": "derrota",
           "registro": "20-4",
           "rivalNombre": "Jean Silva",
-          "rivalSlug": "jean-silva",
+          "rivalSlug": null,
           "metodo": "dec",
           "metodoDetalle": "Decision (unanimous)",
           "round": 3,
@@ -14374,7 +14388,7 @@
           "round": 5,
           "tiempo": "5:00",
           "evento": "UFC Fight Night: Allen vs. Costa",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-05-16",
           "importancia": "main-event",
           "importanciaInferida": true,
           "notas": null
@@ -14382,8 +14396,9 @@
       ]
     },
     "sean-omalley": {
+      "ufcStatsId": "b50a426a33da0012",
       "wikipedia": "Sean_O'Malley_(fighter)",
-      "actualizado": "2026-11-16T14:45:16.414Z",
+      "actualizado": "2026-11-23T23:31:53.810Z",
       "recordWiki": "20-3",
       "bio": {
         "nacimiento": "1994-10-24",
@@ -14787,8 +14802,9 @@
       ]
     },
     "merab-dvalishvili": {
+      "ufcStatsId": "c03520b5c88ed6b4",
       "wikipedia": "Merab_Dvalishvili",
-      "actualizado": "2026-11-16T14:45:16.868Z",
+      "actualizado": "2026-11-23T23:31:54.135Z",
       "recordWiki": "21-6",
       "bio": {
         "nacimiento": "1991-01-10",
@@ -15306,7 +15322,7 @@
     "aljamain-sterling": {
       "ufcStatsId": "cb696ebfb6598724",
       "wikipedia": "Aljamain_Sterling",
-      "actualizado": "2026-11-22T19:10:27.515Z",
+      "actualizado": "2026-11-23T23:31:30.243Z",
       "recordWiki": "26-6",
       "bio": {
         "nacimiento": "1989-07-31",
@@ -15840,7 +15856,7 @@
     "brandon-moreno": {
       "ufcStatsId": "792be9a24df82ed6",
       "wikipedia": "Brandon_Moreno",
-      "actualizado": "2026-11-22T19:10:27.948Z",
+      "actualizado": "2026-11-23T23:31:31.861Z",
       "recordWiki": "24-10-2",
       "bio": {
         "nacimiento": "1993-12-07",
@@ -16436,8 +16452,9 @@
       ]
     },
     "alexandre-pantoja": {
+      "ufcStatsId": "a0f0004aadf10b71",
       "wikipedia": "Alexandre_Pantoja",
-      "actualizado": "2026-11-16T14:48:35.767Z",
+      "actualizado": "2026-11-23T23:31:54.452Z",
       "recordWiki": "30-7",
       "bio": {
         "nacimiento": "1990-04-16",
@@ -17049,8 +17066,9 @@
       ]
     },
     "brandon-royval": {
+      "ufcStatsId": "6e15f63b6c2e2c15",
       "wikipedia": "Brandon_Royval",
-      "actualizado": "2026-11-16T14:48:36.202Z",
+      "actualizado": "2026-11-23T23:31:54.792Z",
       "recordWiki": "18-9",
       "bio": {
         "nacimiento": "1992-08-16",
@@ -17504,7 +17522,7 @@
     "amir-albazi": {
       "ufcStatsId": "6d35bf94f7d30241",
       "wikipedia": "Amir_Albazi",
-      "actualizado": "2026-11-22T19:10:28.312Z",
+      "actualizado": "2026-11-23T23:31:32.169Z",
       "recordWiki": "18-3",
       "bio": {
         "nacimiento": "1993-10-27",
@@ -17862,7 +17880,7 @@
     "israel-adesanya": {
       "ufcStatsId": "1338e2c7480bdf9e",
       "wikipedia": "Israel_Adesanya",
-      "actualizado": "2026-11-22T19:10:28.797Z",
+      "actualizado": "2026-11-23T23:31:32.511Z",
       "recordWiki": "24-6",
       "bio": {
         "nacimiento": "1989-07-22",
@@ -18952,7 +18970,7 @@
     "ikram-aliskerov": {
       "ufcStatsId": "b07aed698fba8624",
       "wikipedia": "Ikram_Aliskerov",
-      "actualizado": "2026-11-22T19:10:29.247Z",
+      "actualizado": "2026-11-23T23:31:32.826Z",
       "recordWiki": "19-2",
       "bio": {
         "nacimiento": "1992-12-07",
@@ -19308,8 +19326,9 @@
       ]
     },
     "brendan-allen": {
+      "ufcStatsId": "2f181c0467965b98",
       "wikipedia": "Brendan_Allen",
-      "actualizado": "2026-11-16T14:48:37.930Z",
+      "actualizado": "2026-11-23T23:31:55.115Z",
       "recordWiki": "28-7",
       "bio": {
         "nacimiento": "1995-12-28",
@@ -19747,7 +19766,7 @@
           "resultado": "victoria",
           "registro": "22-5",
           "rivalNombre": "Bruno Silva",
-          "rivalSlug": "bruno-silva",
+          "rivalSlug": null,
           "metodo": "sub",
           "metodoDetalle": "Submission (rear-naked choke)",
           "round": 1,
@@ -19865,7 +19884,7 @@
           "round": 3,
           "tiempo": "5:00",
           "evento": "UFC Fight Night: Muhammad vs. Bonfim",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-06-06",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": "Fight of the Night."
@@ -19881,7 +19900,7 @@
           "round": 5,
           "tiempo": "2:46",
           "evento": "UFC Fight Night: Allen vs. Duncan",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-10-10",
           "importancia": "main-event",
           "importanciaInferida": true,
           "notas": "Duncan was deducted one point in round 2 due to an eye poke. Performance of the Night."
@@ -19891,7 +19910,7 @@
     "asu-almabayev": {
       "ufcStatsId": "8d3273573b85be09",
       "wikipedia": "Asu_Almabayev",
-      "actualizado": "2026-11-22T19:10:29.647Z",
+      "actualizado": "2026-11-23T23:31:33.187Z",
       "recordWiki": "24-4",
       "bio": {
         "nacimiento": "1994-01-25",
@@ -20359,8 +20378,9 @@
       ]
     },
     "jessica-andrade": {
+      "ufcStatsId": "6a1901c62ab3870f",
       "wikipedia": "Jessica_Andrade",
-      "actualizado": "2026-11-16T14:48:38.761Z",
+      "actualizado": "2026-11-23T23:31:55.458Z",
       "recordWiki": "26-15",
       "bio": {
         "nacimiento": "1991-09-25",
@@ -21330,8 +21350,9 @@
       ]
     },
     "raoni-barcelos": {
+      "ufcStatsId": "b9f28e7045fdfce7",
       "wikipedia": "Raoni_Barcelos",
-      "actualizado": "2026-11-16T14:48:39.570Z",
+      "actualizado": "2026-11-23T23:31:55.764Z",
       "recordWiki": "22-6",
       "bio": {
         "nacimiento": "1987-05-01",
@@ -21791,7 +21812,7 @@
           "round": 5,
           "tiempo": "1:38",
           "evento": "UFC Fight Night: Rosas Jr. vs. Barcelos",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-09-26",
           "importancia": "main-event",
           "importanciaInferida": true,
           "notas": "Fight of the Night."
@@ -22077,8 +22098,9 @@
       ]
     },
     "mario-bautista": {
+      "ufcStatsId": "bc711b6dd95c1af6",
       "wikipedia": "Mario_Bautista",
-      "actualizado": "2026-11-16T14:48:39.980Z",
+      "actualizado": "2026-11-23T23:31:56.089Z",
       "recordWiki": "18-3",
       "bio": {
         "nacimiento": "1993-07-01",
@@ -22434,8 +22456,9 @@
       ]
     },
     "erin-blanchfield": {
+      "ufcStatsId": "669970f7feba8ecd",
       "wikipedia": "Erin_Blanchfield",
-      "actualizado": "2026-11-16T14:48:40.405Z",
+      "actualizado": "2026-11-23T23:31:56.405Z",
       "recordWiki": "14-3",
       "bio": {
         "nacimiento": "1999-05-04",
@@ -22719,7 +22742,7 @@
           "round": 3,
           "tiempo": "5:00",
           "evento": "UFC Fight Night: Buckley vs. Malott",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-10-17",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": null
@@ -23087,7 +23110,7 @@
     "caio-borralho": {
       "ufcStatsId": "4126a78111c0855a",
       "wikipedia": "Caio_Borralho",
-      "actualizado": "2026-11-22T19:10:30.047Z",
+      "actualizado": "2026-11-23T23:31:33.498Z",
       "recordWiki": "19-2",
       "bio": {
         "nacimiento": "1993-01-16",
@@ -23817,8 +23840,9 @@
       ]
     },
     "joaquin-buckley": {
+      "ufcStatsId": "b9437600497350f3",
       "wikipedia": "Joaquin_Buckley",
-      "actualizado": "2026-11-16T14:48:43.475Z",
+      "actualizado": "2026-11-23T23:31:56.742Z",
       "recordWiki": "21-9",
       "bio": {
         "nacimiento": "1994-04-27",
@@ -24310,7 +24334,7 @@
           "round": 2,
           "tiempo": "2:32",
           "evento": "UFC Fight Night: Buckley vs. Malott",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-10-17",
           "importancia": "main-event",
           "importanciaInferida": true,
           "notas": null
@@ -24320,7 +24344,7 @@
     "jared-cannonier": {
       "ufcStatsId": "13a0275fa13c4d26",
       "wikipedia": "Jared_Cannonier",
-      "actualizado": "2026-11-22T19:10:30.415Z",
+      "actualizado": "2026-11-23T23:31:33.811Z",
       "recordWiki": "18-11",
       "bio": {
         "nacimiento": "1984-03-16",
@@ -24804,8 +24828,9 @@
       ]
     },
     "jacqueline-cavalcanti": {
+      "ufcStatsId": "e3964ece586e0635",
       "wikipedia": "Jacqueline_Cavalcanti",
-      "actualizado": "2026-11-16T14:48:44.266Z",
+      "actualizado": "2026-11-23T23:31:57.048Z",
       "recordWiki": "10-2",
       "bio": {
         "nacimiento": "1997-08-29",
@@ -25009,7 +25034,7 @@
           "round": 3,
           "tiempo": "5:00",
           "evento": "UFC Fight Night: Allen vs. Costa",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-05-16",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": null
@@ -25393,7 +25418,7 @@
     "macy-chiasson": {
       "ufcStatsId": "9cdd2da1a9104a0b",
       "wikipedia": "Macy_Chiasson",
-      "actualizado": "2026-11-22T19:10:30.808Z",
+      "actualizado": "2026-11-23T23:31:34.140Z",
       "recordWiki": "10-7",
       "bio": {
         "nacimiento": "1991-07-27",
@@ -25685,8 +25710,9 @@
       ]
     },
     "khamzat-chimaev": {
+      "ufcStatsId": "767755fd74662dbf",
       "wikipedia": "Khamzat_Chimaev",
-      "actualizado": "2026-11-16T14:48:45.116Z",
+      "actualizado": "2026-11-23T23:31:57.420Z",
       "recordWiki": "15-1",
       "bio": {
         "nacimiento": "1994-05-01",
@@ -25962,8 +25988,9 @@
       ]
     },
     "nora-cornolle": {
+      "ufcStatsId": "f2b3f4ef3f780168",
       "wikipedia": "Nora_Cornolle",
-      "actualizado": "2026-11-16T14:48:45.588Z",
+      "actualizado": "2026-11-23T23:31:57.746Z",
       "recordWiki": "10-4",
       "bio": {
         "nacimiento": "1989-12-06",
@@ -26199,7 +26226,7 @@
           "round": 3,
           "tiempo": "5:00",
           "evento": "UFC Fight Night: Hooker vs. Parnasse",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-09-05",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": null
@@ -26207,8 +26234,9 @@
       ]
     },
     "waldo-cortes-acosta": {
+      "ufcStatsId": "fc08099550072fe4",
       "wikipedia": "Waldo_Cortes-Acosta",
-      "actualizado": "2026-11-16T14:48:46.095Z",
+      "actualizado": "2026-11-23T23:31:58.081Z",
       "recordWiki": "17-5",
       "bio": {
         "nacimiento": "1991-10-03",
@@ -26556,7 +26584,7 @@
           "round": 3,
           "tiempo": "5:00",
           "evento": "UFC Fight Night: Silva vs. Delgado",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-09-12",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": null
@@ -26572,7 +26600,7 @@
           "round": 3,
           "tiempo": "2:27",
           "evento": "UFC Fight Night: Cortes-Acosta vs. Walker",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-11-07",
           "importancia": "main-event",
           "importanciaInferida": true,
           "notas": "Fight of the Night."
@@ -26580,8 +26608,9 @@
       ]
     },
     "tracy-cortez": {
+      "ufcStatsId": "68d4a891e5cf2029",
       "wikipedia": "Tracy_Cortez",
-      "actualizado": "2026-11-16T14:48:46.505Z",
+      "actualizado": "2026-11-23T23:31:58.427Z",
       "recordWiki": "12-4",
       "bio": {
         "nacimiento": "1993-12-10",
@@ -35369,7 +35398,7 @@
     "kayla-harrison": {
       "ufcStatsId": "1af1170ed937cba7",
       "wikipedia": "Kayla_Harrison",
-      "actualizado": "2026-11-22T19:10:31.234Z",
+      "actualizado": "2026-11-23T23:31:34.481Z",
       "recordWiki": "20-1",
       "bio": {
         "nacimiento": "1990-07-02",
@@ -36665,7 +36694,7 @@
     "josh-hokit": {
       "ufcStatsId": "955da1675ad58a50",
       "wikipedia": "Josh_Hokit",
-      "actualizado": "2026-11-22T19:10:31.584Z",
+      "actualizado": "2026-11-23T23:31:34.820Z",
       "recordWiki": "10-1",
       "bio": {
         "nacimiento": "1997-11-12",
@@ -36863,7 +36892,7 @@
     "dan-hooker": {
       "ufcStatsId": "193b9d1858bc4df3",
       "wikipedia": "Dan_Hooker",
-      "actualizado": "2026-11-22T19:10:32.040Z",
+      "actualizado": "2026-11-23T23:31:35.150Z",
       "recordWiki": "25-15",
       "bio": {
         "nacimiento": "1990-02-13",
@@ -37525,7 +37554,7 @@
     "kyoji-horiguchi": {
       "ufcStatsId": "98aa60cf58071fd6",
       "wikipedia": "Kyoji_Horiguchi",
-      "actualizado": "2026-11-22T19:10:32.483Z",
+      "actualizado": "2026-11-23T23:31:35.488Z",
       "recordWiki": "37-6",
       "bio": {
         "nacimiento": "1990-10-12",
@@ -39952,7 +39981,7 @@
     "charles-johnson": {
       "ufcStatsId": "814e5233e2acf2ee",
       "wikipedia": "Charles_Johnson_(fighter)",
-      "actualizado": "2026-11-22T19:10:33.873Z",
+      "actualizado": "2026-11-23T23:31:36.656Z",
       "recordWiki": "20-9",
       "bio": {
         "nacimiento": "1991-01-10",
@@ -43290,7 +43319,7 @@
     "diego-lopes": {
       "ufcStatsId": "f166e93d04a8c274",
       "wikipedia": "Diego_Lopes_(fighter)",
-      "actualizado": "2026-11-22T19:10:35.246Z",
+      "actualizado": "2026-11-23T23:31:37.786Z",
       "recordWiki": "28-8",
       "bio": {
         "nacimiento": "1994-12-30",
@@ -43888,7 +43917,7 @@
     "ian-machado-garry": {
       "ufcStatsId": "442c9011034ae1fd",
       "wikipedia": "Ian_Machado_Garry",
-      "actualizado": "2026-11-22T19:10:35.673Z",
+      "actualizado": "2026-11-23T23:31:38.119Z",
       "recordWiki": "17-2",
       "bio": {
         "nacimiento": "1997-11-17",
@@ -46032,7 +46061,7 @@
     "uros-medic": {
       "ufcStatsId": "681399317dbf4701",
       "wikipedia": "Uros_Medic",
-      "actualizado": "2026-11-22T19:10:36.136Z",
+      "actualizado": "2026-11-23T23:31:38.434Z",
       "recordWiki": "14-3-1",
       "bio": {
         "nacimiento": "1993-04-25",
@@ -46764,7 +46793,7 @@
     "bia-mesquita": {
       "ufcStatsId": "eff9074bc066f0f2",
       "wikipedia": "Bia_Mesquita",
-      "actualizado": "2026-11-22T19:10:36.535Z",
+      "actualizado": "2026-11-23T23:31:38.766Z",
       "recordWiki": "9-0",
       "bio": {
         "nacimiento": "1991-04-07",
@@ -53857,7 +53886,7 @@
     "mario-pinto": {
       "ufcStatsId": "39d309957c5c210d",
       "wikipedia": "Mario_Pinto",
-      "actualizado": "2026-11-22T19:10:36.891Z",
+      "actualizado": "2026-11-23T23:31:39.090Z",
       "recordWiki": "13-0",
       "bio": {
         "nacimiento": "1998-03-14",
@@ -64455,7 +64484,7 @@
     "serghei-spivac": {
       "ufcStatsId": "e2f6b2769aaedd6c",
       "wikipedia": "Serghei_Spivac",
-      "actualizado": "2026-11-22T19:10:37.279Z",
+      "actualizado": "2026-11-23T23:31:39.401Z",
       "recordWiki": "18-7",
       "bio": {
         "nacimiento": "1995-01-24",
@@ -64877,7 +64906,7 @@
     "navajo-stirling": {
       "ufcStatsId": "b4b496ec2197ee3e",
       "wikipedia": "Navajo_Stirling",
-      "actualizado": "2026-11-22T19:10:37.646Z",
+      "actualizado": "2026-11-23T23:31:39.708Z",
       "recordWiki": "12-0",
       "bio": {
         "nacimiento": "1997-11-07",
@@ -68628,7 +68657,7 @@
     "kevin-vallejos": {
       "ufcStatsId": "239d8e5359022f3b",
       "wikipedia": "Kevin_Vallejos",
-      "actualizado": "2026-11-22T19:10:05.215Z",
+      "actualizado": "2026-11-23T23:31:09.637Z",
       "recordWiki": "19-1",
       "bio": {
         "nacimiento": "2001-12-08",
@@ -71144,7 +71173,7 @@
     "yaroslav-amosov": {
       "ufcStatsId": "f139d6836efd43dd",
       "wikipedia": "Yaroslav_Amosov",
-      "actualizado": "2026-11-22T19:10:38.118Z",
+      "actualizado": "2026-11-23T23:31:40.078Z",
       "recordWiki": "30-1",
       "bio": {
         "nacimiento": "1993-09-09",
@@ -71660,8 +71689,9 @@
       ]
     },
     "modestas-bukauskas": {
+      "ufcStatsId": "476fe566d2df676e",
       "wikipedia": "Modestas_Bukauskas",
-      "actualizado": "2026-11-16T14:44:45.109Z",
+      "actualizado": "2026-11-23T23:31:40.399Z",
       "recordWiki": "21-7",
       "bio": {
         "nacimiento": "1994-02-10",
@@ -72050,7 +72080,7 @@
           "fecha": "2025-05-10",
           "resultado": "victoria",
           "registro": "18-6",
-          "rivalNombre": "Ion Cuțelaba",
+          "rivalNombre": "Ion Cutelaba",
           "rivalSlug": "ion-cutelaba",
           "metodo": "dec",
           "metodoDetalle": "Decision (split)",
@@ -72105,7 +72135,7 @@
           "round": 3,
           "tiempo": "5:00",
           "evento": "UFC Fight Night: Allen vs. Costa",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-05-16",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": "Catchweight (215 lb) bout."
@@ -72121,7 +72151,7 @@
           "round": 2,
           "tiempo": "3:57",
           "evento": "UFC Fight Night: Hooker vs. Parnasse",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-09-05",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": null
@@ -72129,8 +72159,9 @@
       ]
     },
     "jamall-emmers": {
+      "ufcStatsId": "e00a3dee329a51f7",
       "wikipedia": "Jamall_Emmers",
-      "actualizado": "2026-11-16T14:44:45.922Z",
+      "actualizado": "2026-11-23T23:31:40.745Z",
       "recordWiki": "23-8",
       "bio": {
         "nacimiento": "1989-07-24",
@@ -72638,7 +72669,7 @@
           "round": 1,
           "tiempo": "3:38",
           "evento": "UFC Fight Night: Hernandez vs. Rodrigues",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-08-22",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": null
@@ -72648,7 +72679,7 @@
     "kevin-holland": {
       "ufcStatsId": "3a46b268013afede",
       "wikipedia": "Kevin_Holland",
-      "actualizado": "2026-11-22T19:10:24.000Z",
+      "actualizado": "2026-11-23T23:31:27.504Z",
       "recordWiki": "29-15-1",
       "bio": {
         "nacimiento": "1992-11-05",
@@ -73404,8 +73435,9 @@
       ]
     },
     "sam-hughes": {
+      "ufcStatsId": "e94085e821bd81de",
       "wikipedia": "Sam_Hughes_(fighter)",
-      "actualizado": "2026-11-16T14:44:47.881Z",
+      "actualizado": "2026-11-23T23:31:41.908Z",
       "recordWiki": "11-7",
       "bio": {
         "nacimiento": "1992-06-28",
@@ -73713,8 +73745,9 @@
       ]
     },
     "roman-kopylov": {
+      "ufcStatsId": "9d83f6da776ff7d6",
       "wikipedia": "Roman_Kopylov",
-      "actualizado": "2026-11-16T14:44:49.707Z",
+      "actualizado": "2026-11-23T23:31:42.219Z",
       "recordWiki": "16-5",
       "bio": {
         "nacimiento": "1991-05-04",
@@ -74062,7 +74095,7 @@
           "round": 1,
           "tiempo": "3:12",
           "evento": "UFC 332",
-          "eventoSlug": "ufc-332-2026-10-10",
+          "eventoSlug": "ufc-332-2026-10-03",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": "Performance of the Night."
@@ -74070,8 +74103,9 @@
       ]
     },
     "nikita-krylov": {
+      "ufcStatsId": "1091d4d957141094",
       "wikipedia": "Nikita_Krylov",
-      "actualizado": "2026-11-16T14:44:50.135Z",
+      "actualizado": "2026-11-23T23:31:42.535Z",
       "recordWiki": "31-13",
       "bio": {
         "nacimiento": "1992-03-07",
@@ -74795,8 +74829,9 @@
       ]
     },
     "iasmin-lucindo": {
+      "ufcStatsId": "abcf2cc6efc42031",
       "wikipedia": "Iasmin_Lucindo",
-      "actualizado": "2026-11-16T14:44:50.564Z",
+      "actualizado": "2026-11-23T23:31:42.844Z",
       "recordWiki": "19-6",
       "bio": {
         "nacimiento": "2002-01-08",
@@ -75218,7 +75253,7 @@
     "shara-magomedov": {
       "ufcStatsId": "06734ca9d88dec3a",
       "wikipedia": "Shara_Magomedov",
-      "actualizado": "2026-11-22T19:10:24.406Z",
+      "actualizado": "2026-11-23T23:31:27.884Z",
       "recordWiki": "17-1",
       "bio": {
         "nacimiento": "1994-05-16",
@@ -75526,8 +75561,9 @@
       ]
     },
     "tofiq-musayev": {
+      "ufcStatsId": "ae81a3ac7b260411",
       "wikipedia": "Tofiq_Musayev",
-      "actualizado": "2026-11-16T14:44:51.419Z",
+      "actualizado": "2026-11-23T23:31:43.193Z",
       "recordWiki": "24-6",
       "bio": {
         "nacimiento": "1989-12-15",
@@ -76019,7 +76055,7 @@
           "round": 2,
           "tiempo": "4:07",
           "evento": "UFC Fight Night: Medić vs. Rodriguez",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-08-01",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": null
@@ -76027,8 +76063,9 @@
       ]
     },
     "esteban-ribovics": {
+      "ufcStatsId": "323d4ca260dfa0ba",
       "wikipedia": "Esteban_Ribovics",
-      "actualizado": "2026-11-16T14:44:53.263Z",
+      "actualizado": "2026-11-23T23:31:43.547Z",
       "recordWiki": "17-3",
       "bio": {
         "nacimiento": "1996-04-27",
@@ -76360,7 +76397,7 @@
           "round": 1,
           "tiempo": "4:08",
           "evento": "UFC 332",
-          "eventoSlug": "ufc-332-2026-10-10",
+          "eventoSlug": "ufc-332-2026-10-03",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": "Catchweight (156.5 lb) bout; Ribovics missed weight."
@@ -76368,8 +76405,9 @@
       ]
     },
     "imanol-rodriguez": {
+      "ufcStatsId": "6e8349a0a0476d60",
       "wikipedia": "Imanol_Rodríguez",
-      "actualizado": "2026-11-16T14:44:54.621Z",
+      "actualizado": "2026-11-23T23:31:44.725Z",
       "recordWiki": "8-0",
       "bio": {
         "nacimiento": "1999-11-15",
@@ -76509,7 +76547,7 @@
           "round": 1,
           "tiempo": "3:11",
           "evento": "UFC 332",
-          "eventoSlug": "ufc-332-2026-10-10",
+          "eventoSlug": "ufc-332-2026-10-03",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": "Performance of the Night."
@@ -76517,8 +76555,9 @@
       ]
     },
     "edmen-shahbazyan": {
+      "ufcStatsId": "4144798612ef96e5",
       "wikipedia": "Edmen_Shahbazyan",
-      "actualizado": "2026-11-16T14:44:55.022Z",
+      "actualizado": "2026-11-23T23:31:45.062Z",
       "recordWiki": "17-6",
       "bio": {
         "nacimiento": "1997-11-20",
@@ -76882,7 +76921,7 @@
           "round": 3,
           "tiempo": "5:00",
           "evento": "UFC Fight Night: Muhammad vs. Bonfim",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-06-06",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": "Fight of the Night."
@@ -76906,8 +76945,9 @@
       ]
     },
     "ramazan-temirov": {
+      "ufcStatsId": "7d0a1968b38ca439",
       "wikipedia": "Ramazan_Temirov",
-      "actualizado": "2026-11-16T14:44:57.372Z",
+      "actualizado": "2026-11-23T23:31:45.380Z",
       "recordWiki": "20-4",
       "bio": {
         "nacimiento": "1997-01-31",
@@ -77287,7 +77327,7 @@
           "round": 1,
           "tiempo": "4:21",
           "evento": "UFC Fight Night: Ankalaev vs. Guskov",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-07-25",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": "Performance of the Night."
@@ -77311,8 +77351,9 @@
       ]
     },
     "abdul-rakhman-yakhyaev": {
+      "ufcStatsId": "95aff2fd8d09a5f0",
       "wikipedia": "Abdul-Rakhman_Yakhyaev",
-      "actualizado": "2026-11-16T14:45:00.136Z",
+      "actualizado": "2026-11-23T23:31:46.528Z",
       "recordWiki": "11-0",
       "bio": {
         "nacimiento": "2001-01-03",
@@ -77484,7 +77525,7 @@
           "round": 1,
           "tiempo": "0:08",
           "evento": "UFC Fight Night: Fiziev vs. Torres",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-06-27",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": "Performance of the Night."
@@ -77508,8 +77549,9 @@
       ]
     },
     "anthony-wint": {
+      "ufcStatsId": "b34976c022b24568",
       "wikipedia": "Anthony_Wint",
-      "actualizado": "2026-11-16T14:45:00.548Z",
+      "actualizado": "2026-11-23T23:31:46.833Z",
       "recordWiki": "9-0",
       "bio": {
         "nacimiento": "1995-09-14",
@@ -77649,7 +77691,7 @@
           "round": 1,
           "tiempo": "4:29",
           "evento": "UFC Fight Night: Hernandez vs. Rodrigues",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-08-22",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": null
@@ -77665,7 +77707,7 @@
           "round": 1,
           "tiempo": "0:23",
           "evento": "UFC 332",
-          "eventoSlug": "ufc-332-2026-10-10",
+          "eventoSlug": "ufc-332-2026-10-03",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": null
@@ -77673,8 +77715,9 @@
       ]
     },
     "salahdine-parnasse": {
+      "ufcStatsId": "b3cb9dfccff3be76",
       "wikipedia": "Salahdine_Parnasse",
-      "actualizado": "2026-11-16T14:45:00.940Z",
+      "actualizado": "2026-11-23T23:31:47.140Z",
       "recordWiki": "24-2",
       "bio": {
         "nacimiento": "1997-12-04",
@@ -78086,7 +78129,7 @@
           "round": 1,
           "tiempo": "4:18",
           "evento": "MVP MMA: Rousey vs. Carano",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-05-16",
           "importancia": "main-card",
           "importanciaInferida": true,
           "notas": null
@@ -78102,7 +78145,7 @@
           "round": 1,
           "tiempo": "2:35",
           "evento": "UFC Fight Night: Hooker vs. Parnasse",
-          "eventoSlug": null,
+          "eventoSlug": "ufc-fight-night-2026-09-05",
           "importancia": "main-event",
           "importanciaInferida": true,
           "notas": "Performance of the Night."
@@ -83545,7 +83588,7 @@
     "yousri-belgaroui": {
       "ufcStatsId": "7674b836ce0698a0",
       "wikipedia": "Yousri_Belgaroui",
-      "actualizado": "2026-11-22T19:10:05.574Z",
+      "actualizado": "2026-11-23T23:31:09.984Z",
       "recordWiki": "11-4",
       "bio": {
         "nacimiento": "1992-06-02",
@@ -83807,7 +83850,7 @@
     "ion-cutelaba": {
       "ufcStatsId": "cd13728ae1151f46",
       "wikipedia": "Ion_Cutelaba",
-      "actualizado": "2026-11-22T19:10:05.940Z",
+      "actualizado": "2026-11-23T23:31:10.304Z",
       "recordWiki": "20-12-1",
       "bio": {
         "nacimiento": "1993-12-14",
@@ -84373,7 +84416,7 @@
     "drew-dober": {
       "ufcStatsId": "519e4fe37ce9ff75",
       "wikipedia": "Drew_Dober",
-      "actualizado": "2026-11-22T19:10:06.381Z",
+      "actualizado": "2026-11-23T23:31:10.617Z",
       "recordWiki": "29-16",
       "bio": {
         "nacimiento": "1988-10-19",
@@ -85131,7 +85174,7 @@
     "islam-dulatov": {
       "ufcStatsId": "e803242fb2e41112",
       "wikipedia": "Islam_Dulatov",
-      "actualizado": "2026-11-22T19:10:06.807Z",
+      "actualizado": "2026-11-23T23:31:10.960Z",
       "recordWiki": "12-1",
       "bio": {
         "nacimiento": "1998-08-02",
@@ -85361,7 +85404,7 @@
     "chris-duncan": {
       "ufcStatsId": "fd406a32a6fb3a29",
       "wikipedia": "Chris_Duncan_(fighter)",
-      "actualizado": "2026-11-22T19:10:08.163Z",
+      "actualizado": "2026-11-23T23:31:12.246Z",
       "recordWiki": "16-3",
       "bio": {
         "nacimiento": "1993-05-10",
@@ -85687,7 +85730,7 @@
     "shamil-gaziev": {
       "ufcStatsId": "6747ccd6d1acd266",
       "wikipedia": "Shamil_Gaziev",
-      "actualizado": "2026-11-22T19:10:08.572Z",
+      "actualizado": "2026-11-23T23:31:12.592Z",
       "recordWiki": "15-4",
       "bio": {
         "nacimiento": "1990-02-10",
@@ -86013,7 +86056,7 @@
     "santiago-luna": {
       "ufcStatsId": "faf317c665546a36",
       "wikipedia": "Santiago_Luna_(fighter)",
-      "actualizado": "2026-11-22T19:10:09.865Z",
+      "actualizado": "2026-11-23T23:31:13.969Z",
       "recordWiki": "9-1",
       "bio": {
         "nacimiento": "2004-08-06",
@@ -86195,7 +86238,7 @@
     "jake-matthews": {
       "ufcStatsId": "a845f0735bc67405",
       "wikipedia": "Jake_Matthews_(fighter)",
-      "actualizado": "2026-11-22T19:10:11.200Z",
+      "actualizado": "2026-11-23T23:31:15.267Z",
       "recordWiki": "23-9",
       "bio": {
         "nacimiento": "1994-08-19",
@@ -86729,7 +86772,7 @@
     "terrance-mckinney": {
       "ufcStatsId": "809bd1a871491508",
       "wikipedia": "Terrance_McKinney",
-      "actualizado": "2026-11-22T19:10:11.558Z",
+      "actualizado": "2026-11-23T23:31:15.605Z",
       "recordWiki": "19-9",
       "bio": {
         "nacimiento": "1994-09-15",
@@ -87199,7 +87242,7 @@
     "jim-miller": {
       "ufcStatsId": "d1941565abf50b16",
       "wikipedia": "Jim_Miller_(fighter)",
-      "actualizado": "2026-11-22T19:10:12.878Z",
+      "actualizado": "2026-11-23T23:31:16.820Z",
       "recordWiki": "39-20",
       "bio": {
         "nacimiento": "1983-08-30",
@@ -88181,7 +88224,7 @@
     "nikolas-motta": {
       "ufcStatsId": "37f560436d745c18",
       "wikipedia": "Nikolas_Motta",
-      "actualizado": "2026-11-22T19:10:13.269Z",
+      "actualizado": "2026-11-23T23:31:17.152Z",
       "recordWiki": "style=\"text-align:center;\" | 15-7",
       "bio": {
         "nacimiento": "1993-02-08",
@@ -88587,7 +88630,7 @@
     "amanda-nunes": {
       "ufcStatsId": "80fa8218c99f9c58",
       "wikipedia": "Amanda_Nunes",
-      "actualizado": "2026-11-22T19:10:13.720Z",
+      "actualizado": "2026-11-23T23:31:17.487Z",
       "recordWiki": "23-6",
       "bio": {
         "nacimiento": "1988-05-30",
@@ -89073,7 +89116,7 @@
     "junyong-park": {
       "ufcStatsId": "285ae0b4a68221f4",
       "wikipedia": "Jun_Yong_Park",
-      "actualizado": "2026-11-22T19:10:15.045Z",
+      "actualizado": "2026-11-23T23:31:18.648Z",
       "recordWiki": "19-7",
       "bio": {
         "nacimiento": "1991-02-27",
@@ -89511,7 +89554,7 @@
     "quentin-pasley": {
       "ufcStatsId": "15b1f83a90302adf",
       "wikipedia": "Junior_Tafa",
-      "actualizado": "2026-11-22T19:10:16.711Z",
+      "actualizado": "2026-11-23T23:31:21.150Z",
       "recordWiki": "7-6",
       "bio": {
         "nacimiento": "1996-09-21",
@@ -89741,7 +89784,7 @@
     "nazim-sadykhov": {
       "ufcStatsId": "ff62013d2fce6d13",
       "wikipedia": "Nazim_Sadykhov",
-      "actualizado": "2026-11-22T19:10:17.127Z",
+      "actualizado": "2026-11-23T23:31:21.458Z",
       "recordWiki": "11-3-1",
       "bio": {
         "nacimiento": "1994-05-16",
@@ -90003,7 +90046,7 @@
     "bruno-silva": {
       "ufcStatsId": "294aa73dbf37d281",
       "wikipedia": "Bruno_Gustavo_da_Silva",
-      "actualizado": "2026-11-22T19:10:18.427Z",
+      "actualizado": "2026-11-23T23:31:22.784Z",
       "recordWiki": "15-9-2",
       "bio": {
         "nacimiento": "1990-03-16",
@@ -90457,7 +90500,7 @@
     "junior-tafa": {
       "ufcStatsId": "c15fa95b9a12fde4",
       "wikipedia": "Junior_Tafa",
-      "actualizado": "2026-11-22T19:10:18.838Z",
+      "actualizado": "2026-11-23T23:31:23.096Z",
       "recordWiki": "7-6",
       "bio": {
         "nacimiento": "1996-09-21",
@@ -90687,7 +90730,7 @@
     "tallison-teixeira": {
       "ufcStatsId": "17923f676f100e16",
       "wikipedia": "Tallison_Teixeira",
-      "actualizado": "2026-11-22T19:10:19.202Z",
+      "actualizado": "2026-11-23T23:31:23.400Z",
       "recordWiki": "10-2",
       "bio": {
         "nacimiento": "1999-12-07",
@@ -90901,7 +90944,7 @@
     "stephen-thompson": {
       "ufcStatsId": "4a28cb716c19157a",
       "wikipedia": "Stephen_Thompson_(fighter)",
-      "actualizado": "2026-11-22T19:10:20.628Z",
+      "actualizado": "2026-11-23T23:31:24.599Z",
       "recordWiki": "18-9-1",
       "bio": {
         "nacimiento": "1983-02-11",
@@ -91371,7 +91414,7 @@
     "aleksandre-topuria": {
       "ufcStatsId": "4a6dff1b260bcf61",
       "wikipedia": "Aleksandre_Topuria",
-      "actualizado": "2026-11-22T19:10:21.033Z",
+      "actualizado": "2026-11-23T23:31:24.937Z",
       "recordWiki": "7-2",
       "bio": {
         "nacimiento": "1996-01-28",
@@ -91537,7 +91580,7 @@
     "adrian-yanez": {
       "ufcStatsId": "0232cabbc30a2372",
       "wikipedia": "Adrian_Yanez",
-      "actualizado": "2026-11-22T19:10:21.433Z",
+      "actualizado": "2026-11-23T23:31:25.311Z",
       "recordWiki": "18-6-1",
       "bio": {
         "nacimiento": "1993-11-29",
@@ -91959,7 +92002,7 @@
     "akbar-abdullaev": {
       "ufcStatsId": "24cb8f04de1310cb",
       "wikipedia": "Akbar_Abdullaev",
-      "actualizado": "2026-11-22T19:10:21.839Z",
+      "actualizado": "2026-11-23T23:31:25.638Z",
       "recordWiki": "14-0",
       "bio": {
         "nacimiento": "1997-09-20",
@@ -92205,7 +92248,7 @@
     "bilal-hasan": {
       "ufcStatsId": "5182316da3c1d891",
       "wikipedia": "Bilal_Hasan",
-      "actualizado": "2026-11-22T19:10:22.224Z",
+      "actualizado": "2026-11-23T23:31:25.957Z",
       "recordWiki": "10-1",
       "bio": {
         "nacimiento": "2001-07-16",
@@ -92419,7 +92462,7 @@
     "abdul-hussein": {
       "ufcStatsId": "0e6bc8d1d6c0ad90",
       "wikipedia": "Abdul_Hussein_(fighter)",
-      "actualizado": "2026-11-22T19:10:23.541Z",
+      "actualizado": "2026-11-23T23:31:27.142Z",
       "recordWiki": "16-2",
       "bio": {
         "nacimiento": "1997-08-02",
@@ -92729,7 +92772,7 @@
     "damian-pinas": {
       "ufcStatsId": "fdd22e895a70e4a8",
       "wikipedia": "Damian_Pinas",
-      "actualizado": "2026-11-22T19:10:04.428Z",
+      "actualizado": "2026-11-23T23:31:09.020Z",
       "recordWiki": "11-1",
       "bio": {
         "nacimiento": "2002-03-12",
@@ -92943,7 +92986,7 @@
     "kyler-phillips": {
       "ufcStatsId": "60425d07ef4b91a7",
       "wikipedia": "Kyler_Phillips",
-      "actualizado": "2026-11-22T19:10:04.840Z",
+      "actualizado": "2026-11-23T23:31:09.328Z",
       "recordWiki": "12-5",
       "bio": {
         "nacimiento": "1995-06-12",

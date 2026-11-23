@@ -2850,12 +2850,25 @@
         "segmentInferred": true
       },
       {
+        "f1": "Levan Chokheli",
+        "f2": "Islam Dulatov",
+        "sourceFightId": "401933598",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 4,
+        "sourceStartUTC": "2026-12-05T18:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "levan-chokheli",
+        "f2Id": "islam-dulatov"
+      },
+      {
         "f1": "Mairon Santos",
         "f2": "Akbar Abdullaev",
         "sourceFightId": "401933599",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 4,
+        "order": 5,
         "sourceStartUTC": "2026-12-05T18:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
@@ -2868,7 +2881,7 @@
         "sourceFightId": "401933600",
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
-        "order": 5,
+        "order": 6,
         "sourceStartUTC": "2026-12-05T18:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
@@ -2881,7 +2894,7 @@
         "sourceFightId": "401933601",
         "weightClass": "Flyweight",
         "bout": "prelim",
-        "order": 6,
+        "order": 7,
         "sourceStartUTC": "2026-12-05T15:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true
@@ -2892,7 +2905,7 @@
         "sourceFightId": "401933602",
         "weightClass": "Light Heavyweight",
         "bout": "prelim",
-        "order": 7,
+        "order": 8,
         "sourceStartUTC": "2026-12-05T15:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
@@ -2905,7 +2918,7 @@
         "sourceFightId": "401933603",
         "weightClass": "Middleweight",
         "bout": "prelim",
-        "order": 8,
+        "order": 9,
         "sourceStartUTC": "2026-12-05T15:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true
@@ -2916,7 +2929,7 @@
         "sourceFightId": "401933604",
         "weightClass": "Bantamweight",
         "bout": "prelim",
-        "order": 9,
+        "order": 10,
         "sourceStartUTC": "2026-12-05T15:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
@@ -2929,7 +2942,7 @@
         "sourceFightId": "401933605",
         "weightClass": "Middleweight",
         "bout": "prelim",
-        "order": 10,
+        "order": 11,
         "sourceStartUTC": "2026-12-05T15:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
@@ -2942,29 +2955,16 @@
         "sourceFightId": "401933606",
         "weightClass": "Bantamweight",
         "bout": "prelim",
-        "order": 11,
+        "order": 12,
         "sourceStartUTC": "2026-12-05T15:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "abdul-hussein",
         "f2Id": "hecher-sosa"
-      },
-      {
-        "f1": "Levan Chokheli",
-        "f2": "Islam Dulatov",
-        "sourceFightId": "401933598",
-        "weightClass": "Welterweight",
-        "bout": "prelim",
-        "order": 12,
-        "sourceStartUTC": "2026-12-05T15:00Z",
-        "sourceStatus": "STATUS_SCHEDULED",
-        "segmentInferred": true,
-        "f1Id": "levan-chokheli",
-        "f2Id": "islam-dulatov"
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-22T19:09:58.964Z",
+    "cardCheckedAt": "2026-11-23T23:31:08.215Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -3063,6 +3063,19 @@
           "Bruno Gustavo da Silva vs. Jafel Filho",
           "Marco Tulio vs. Park Jun-yong"
         ]
+      },
+      {
+        "checkedAt": "2026-11-23T23:31:08.215Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
+        "added": [
+          "Gabriel Santos vs. Luke Riley",
+          "Bruno Silva vs. Jafel Filho",
+          "JunYong Park vs. Marco Tulio"
+        ],
+        "removed": [
+          "Bruno Gustavo da Silva vs. Jafel Filho",
+          "Marco Tulio vs. Park Jun-yong"
+        ]
       }
     ],
     "espnEventId": "600062700",
@@ -3072,7 +3085,7 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-22T19:09:58.964Z",
+    "scheduleCheckedAt": "2026-11-23T23:31:08.215Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc"
   },
   {
@@ -3252,10 +3265,18 @@
           "TBA vs. Opponent TBA"
         ],
         "removed": []
+      },
+      {
+        "checkedAt": "2026-11-23T23:31:08.290Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
+        "added": [
+          "TBA vs. Opponent TBA"
+        ],
+        "removed": []
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-22T19:09:59.070Z",
+    "cardCheckedAt": "2026-11-23T23:31:08.290Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -3264,7 +3285,7 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-22T19:09:59.070Z",
+    "scheduleCheckedAt": "2026-11-23T23:31:08.290Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc"
   },
   {
@@ -3461,7 +3482,7 @@
         "f2Id": "karolina-kowalkiewicz"
       }
     ],
-    "cardCheckedAt": "2026-11-22T19:09:59.167Z",
+    "cardCheckedAt": "2026-11-23T23:31:08.394Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -3525,6 +3546,16 @@
         "removed": [
           "Carlos Diego Ferreira vs. MarQuel Mederos"
         ]
+      },
+      {
+        "checkedAt": "2026-11-23T23:31:08.394Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
+        "added": [
+          "Diego Ferreira vs. MarQuel Mederos"
+        ],
+        "removed": [
+          "Carlos Diego Ferreira vs. MarQuel Mederos"
+        ]
       }
     ],
     "espnEventId": "600062421",
@@ -3536,7 +3567,7 @@
     "country": "USA",
     "programmingStartUTC": "2027-01-16T23:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
-    "scheduleCheckedAt": "2026-11-22T19:09:59.167Z"
+    "scheduleCheckedAt": "2026-11-23T23:31:08.394Z"
   },
   {
     "slug": "ufc-fight-night-297-2027-01-23",
@@ -3576,7 +3607,7 @@
         "f2StatsId": "45f7cb591c3ab00b"
       }
     ],
-    "cardCheckedAt": "2026-11-22T19:08:05.957Z",
+    "cardCheckedAt": "2026-11-23T23:29:13.407Z",
     "cardSource": "Wikipedia"
   },
   {
