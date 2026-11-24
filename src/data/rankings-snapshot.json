@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-23T23:29:22.429Z",
+  "checkedAt": "2026-11-24T21:59:20.197Z",
   "source": "https://www.ufc.com/rankings",
   "entries": [
     {
@@ -20,7 +20,7 @@
     },
     {
       "name": "Manel Kape",
-      "rank": "2",
+      "rank": "1",
       "div": "Flyweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/manel-kape",
       "sourceSlug": "manel-kape",
@@ -99,20 +99,20 @@
       "slug": "tim-elliott"
     },
     {
-      "name": "Steve Erceg",
-      "rank": "12",
-      "div": "Flyweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/steve-erceg",
-      "sourceSlug": "steve-erceg",
-      "slug": "steve-erceg"
-    },
-    {
       "name": "Sumudaerji",
       "rank": "12",
       "div": "Flyweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/su-mudaerji",
       "sourceSlug": "su-mudaerji",
       "slug": "sumudaerji"
+    },
+    {
+      "name": "Steve Erceg",
+      "rank": "12",
+      "div": "Flyweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/steve-erceg",
+      "sourceSlug": "steve-erceg",
+      "slug": "steve-erceg"
     },
     {
       "name": "Charles Johnson",
@@ -236,7 +236,7 @@
     },
     {
       "name": "Marcus McGhee",
-      "rank": "13",
+      "rank": "12",
       "div": "Bantamweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/marcus-mcghee",
       "sourceSlug": "marcus-mcghee",
@@ -267,20 +267,20 @@
       "slug": "alexander-volkanovski"
     },
     {
+      "name": "Diego Lopes",
+      "rank": "1",
+      "div": "Featherweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/diego-lopes",
+      "sourceSlug": "diego-lopes",
+      "slug": "diego-lopes"
+    },
+    {
       "name": "Movsar Evloev",
       "rank": "1",
       "div": "Featherweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/movsar-evloev",
       "sourceSlug": "movsar-evloev",
       "slug": "movsar-evloev"
-    },
-    {
-      "name": "Diego Lopes",
-      "rank": "2",
-      "div": "Featherweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/diego-lopes",
-      "sourceSlug": "diego-lopes",
-      "slug": "diego-lopes"
     },
     {
       "name": "Lerone Murphy",
@@ -291,24 +291,32 @@
       "slug": "lerone-murphy"
     },
     {
-      "name": "Aljamain Sterling",
-      "rank": "4",
-      "div": "Featherweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/aljamain-sterling",
-      "sourceSlug": "aljamain-sterling",
-      "slug": "aljamain-sterling"
-    },
-    {
       "name": "Jean Silva",
-      "rank": "5",
+      "rank": "4",
       "div": "Featherweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/jean-silva",
       "sourceSlug": "jean-silva",
       "slug": "jean-silva"
     },
     {
-      "name": "Arnold Allen",
+      "name": "Kevin Vallejos",
+      "rank": "5",
+      "div": "Featherweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/kevin-vallejos",
+      "sourceSlug": "kevin-vallejos",
+      "slug": "kevin-vallejos"
+    },
+    {
+      "name": "Aljamain Sterling",
       "rank": "6",
+      "div": "Featherweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/aljamain-sterling",
+      "sourceSlug": "aljamain-sterling",
+      "slug": "aljamain-sterling"
+    },
+    {
+      "name": "Arnold Allen",
+      "rank": "7",
       "div": "Featherweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/arnold-allen",
       "sourceSlug": "arnold-allen",
@@ -316,7 +324,7 @@
     },
     {
       "name": "Yair Rodriguez",
-      "rank": "7",
+      "rank": "8",
       "div": "Featherweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/yair-rodriguez",
       "sourceSlug": "yair-rodriguez",
@@ -324,19 +332,11 @@
     },
     {
       "name": "Youssef Zalal",
-      "rank": "8",
+      "rank": "9",
       "div": "Featherweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/youssef-zalal",
       "sourceSlug": "youssef-zalal",
       "slug": "youssef-zalal"
-    },
-    {
-      "name": "Kevin Vallejos",
-      "rank": "9",
-      "div": "Featherweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/kevin-vallejos",
-      "sourceSlug": "kevin-vallejos",
-      "slug": "kevin-vallejos"
     },
     {
       "name": "Steve Garcia",
@@ -363,12 +363,12 @@
       "slug": "patricio-freire"
     },
     {
-      "name": "Brian Ortega",
+      "name": "Pat Sabatini",
       "rank": "13",
       "div": "Featherweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/brian-ortega",
-      "sourceSlug": "brian-ortega",
-      "slug": "brian-ortega"
+      "ufcProfileUrl": "https://www.ufc.com/athlete/pat-sabatini",
+      "sourceSlug": "pat-sabatini",
+      "slug": "pat-sabatini"
     },
     {
       "name": "David Onama",
@@ -379,12 +379,12 @@
       "slug": "david-onama"
     },
     {
-      "name": "Pat Sabatini",
+      "name": "Josh Emmett",
       "rank": "15",
       "div": "Featherweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/pat-sabatini",
-      "sourceSlug": "pat-sabatini",
-      "slug": "pat-sabatini"
+      "ufcProfileUrl": "https://www.ufc.com/athlete/josh-emmett",
+      "sourceSlug": "josh-emmett",
+      "slug": "josh-emmett"
     },
     {
       "name": "Justin Gaethje",
@@ -603,20 +603,20 @@
       "slug": "kamaru-usman"
     },
     {
-      "name": "Yaroslav Amosov",
-      "rank": "11",
-      "div": "Welterweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/yaroslav-amosov",
-      "sourceSlug": "yaroslav-amosov",
-      "slug": "yaroslav-amosov"
-    },
-    {
       "name": "Uroš Medić",
-      "rank": "12",
+      "rank": "11",
       "div": "Welterweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/uros-medic",
       "sourceSlug": "uros-medic",
       "slug": "uros-medic"
+    },
+    {
+      "name": "Yaroslav Amosov",
+      "rank": "12",
+      "div": "Welterweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/yaroslav-amosov",
+      "sourceSlug": "yaroslav-amosov",
+      "slug": "yaroslav-amosov"
     },
     {
       "name": "Joaquin Buckley",
@@ -731,32 +731,24 @@
       "slug": "christian-leroy-duncan"
     },
     {
-      "name": "Abus Magomedov",
-      "rank": "11",
-      "div": "Middleweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/abus-magomedov",
-      "sourceSlug": "abus-magomedov",
-      "slug": "abus-magomedov"
-    },
-    {
-      "name": "Jared Cannonier",
-      "rank": "12",
-      "div": "Middleweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/jared-cannonier",
-      "sourceSlug": "jared-cannonier",
-      "slug": "jared-cannonier"
-    },
-    {
       "name": "Ikram Aliskerov",
-      "rank": "13",
+      "rank": "11",
       "div": "Middleweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/ikram-aliskerov",
       "sourceSlug": "ikram-aliskerov",
       "slug": "ikram-aliskerov"
     },
     {
+      "name": "Abus Magomedov",
+      "rank": "12",
+      "div": "Middleweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/abus-magomedov",
+      "sourceSlug": "abus-magomedov",
+      "slug": "abus-magomedov"
+    },
+    {
       "name": "Bo Nickal",
-      "rank": "14",
+      "rank": "13",
       "div": "Middleweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/bo-nickal",
       "sourceSlug": "bo-nickal",
@@ -764,11 +756,19 @@
     },
     {
       "name": "Shara Magomedov",
-      "rank": "15",
+      "rank": "14",
       "div": "Middleweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/shara-magomedov",
       "sourceSlug": "shara-magomedov",
       "slug": "shara-magomedov"
+    },
+    {
+      "name": "Jared Cannonier",
+      "rank": "15",
+      "div": "Middleweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/jared-cannonier",
+      "sourceSlug": "jared-cannonier",
+      "slug": "jared-cannonier"
     },
     {
       "name": "Carlos Ulberg",
@@ -787,8 +787,16 @@
       "slug": "magomed-ankalaev"
     },
     {
-      "name": "Jiří Procházka",
+      "name": "Navajo Stirling",
       "rank": "2",
+      "div": "Light Heavyweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/navajo-stirling",
+      "sourceSlug": "navajo-stirling",
+      "slug": "navajo-stirling"
+    },
+    {
+      "name": "Jiří Procházka",
+      "rank": "3",
       "div": "Light Heavyweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/jiri-prochazka",
       "sourceSlug": "jiri-prochazka",
@@ -796,7 +804,7 @@
     },
     {
       "name": "Alex Pereira",
-      "rank": "3",
+      "rank": "4",
       "div": "Light Heavyweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/alex-pereira",
       "sourceSlug": "alex-pereira",
@@ -804,35 +812,27 @@
     },
     {
       "name": "Khalil Rountree Jr.",
-      "rank": "4",
+      "rank": "5",
       "div": "Light Heavyweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/khalil-rountree-jr",
       "sourceSlug": "khalil-rountree-jr",
       "slug": "khalil-rountree-jr"
     },
     {
-      "name": "Navajo Stirling",
-      "rank": "5",
-      "div": "Light Heavyweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/navajo-stirling",
-      "sourceSlug": "navajo-stirling",
-      "slug": "navajo-stirling"
-    },
-    {
-      "name": "Paulo Costa",
-      "rank": "6",
-      "div": "Light Heavyweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/paulo-costa",
-      "sourceSlug": "paulo-costa",
-      "slug": "paulo-costa"
-    },
-    {
       "name": "Dominick Reyes",
-      "rank": "7",
+      "rank": "6",
       "div": "Light Heavyweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/dominick-reyes",
       "sourceSlug": "dominick-reyes",
       "slug": "dominick-reyes"
+    },
+    {
+      "name": "Paulo Costa",
+      "rank": "7",
+      "div": "Light Heavyweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/paulo-costa",
+      "sourceSlug": "paulo-costa",
+      "slug": "paulo-costa"
     },
     {
       "name": "Bogdan Guskov",
@@ -1051,16 +1051,8 @@
       "slug": "tatiana-suarez"
     },
     {
-      "name": "Virna Jandiroba",
-      "rank": "3",
-      "div": "Women's Strawweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/virna-jandiroba",
-      "sourceSlug": "virna-jandiroba",
-      "slug": "virna-jandiroba"
-    },
-    {
       "name": "Denise Gomes",
-      "rank": "4",
+      "rank": "3",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/denise-gomes",
       "sourceSlug": "denise-gomes",
@@ -1068,7 +1060,7 @@
     },
     {
       "name": "Gillian Robertson",
-      "rank": "5",
+      "rank": "4",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/gillian-robertson",
       "sourceSlug": "gillian-robertson",
@@ -1076,7 +1068,7 @@
     },
     {
       "name": "Fatima Kline",
-      "rank": "6",
+      "rank": "5",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/fatima-kline",
       "sourceSlug": "fatima-kline",
@@ -1084,7 +1076,7 @@
     },
     {
       "name": "Yan Xiaonan",
-      "rank": "7",
+      "rank": "6",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/yan-xiaonan",
       "sourceSlug": "yan-xiaonan",
@@ -1092,7 +1084,7 @@
     },
     {
       "name": "Loopy Godinez",
-      "rank": "8",
+      "rank": "7",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/loopy-godinez",
       "sourceSlug": "loopy-godinez",
@@ -1100,7 +1092,7 @@
     },
     {
       "name": "Alexia Thainara",
-      "rank": "9",
+      "rank": "8",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/alexia-thainara",
       "sourceSlug": "alexia-thainara",
@@ -1108,7 +1100,7 @@
     },
     {
       "name": "Tabatha Ricci",
-      "rank": "10",
+      "rank": "9",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/tabatha-ricci",
       "sourceSlug": "tabatha-ricci",
@@ -1116,7 +1108,7 @@
     },
     {
       "name": "Amanda Lemos",
-      "rank": "11",
+      "rank": "10",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/amanda-lemos",
       "sourceSlug": "amanda-lemos",
@@ -1124,7 +1116,7 @@
     },
     {
       "name": "Jéssica Andrade",
-      "rank": "12",
+      "rank": "11",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/jessica-andrade",
       "sourceSlug": "jessica-andrade",
@@ -1132,7 +1124,7 @@
     },
     {
       "name": "Amanda Ribas",
-      "rank": "13",
+      "rank": "12",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/amanda-ribas",
       "sourceSlug": "amanda-ribas",
@@ -1140,7 +1132,7 @@
     },
     {
       "name": "Piera Rodriguez",
-      "rank": "14",
+      "rank": "13",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/piera-rodriguez",
       "sourceSlug": "piera-rodriguez",
@@ -1148,11 +1140,19 @@
     },
     {
       "name": "Angela Hill",
-      "rank": "15",
+      "rank": "14",
       "div": "Women's Strawweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/angela-hill",
       "sourceSlug": "angela-hill",
       "slug": "angela-hill"
+    },
+    {
+      "name": "Mizuki",
+      "rank": "15",
+      "div": "Women's Strawweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/mizuki-inoue",
+      "sourceSlug": "mizuki-inoue",
+      "slug": "mizuki"
     },
     {
       "name": "Natalia Silva",
@@ -1299,20 +1299,20 @@
       "slug": "amanda-nunes"
     },
     {
-      "name": "Julianna Peña",
-      "rank": "2",
-      "div": "Women's Bantamweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/julianna-pena",
-      "sourceSlug": "julianna-pena",
-      "slug": "julianna-pena"
-    },
-    {
       "name": "Joselyne Edwards",
       "rank": "2",
       "div": "Women's Bantamweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/joselyne-edwards",
       "sourceSlug": "joselyne-edwards",
       "slug": "joselyne-edwards"
+    },
+    {
+      "name": "Julianna Peña",
+      "rank": "2",
+      "div": "Women's Bantamweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/julianna-pena",
+      "sourceSlug": "julianna-pena",
+      "slug": "julianna-pena"
     },
     {
       "name": "Ailin Perez",
@@ -1339,20 +1339,20 @@
       "slug": "yana-santos"
     },
     {
-      "name": "Raquel Pennington",
-      "rank": "7",
-      "div": "Women's Bantamweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/raquel-pennington",
-      "sourceSlug": "raquel-pennington",
-      "slug": "raquel-pennington"
-    },
-    {
       "name": "Bia Mesquita",
-      "rank": "8",
+      "rank": "7",
       "div": "Women's Bantamweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/bia-mesquita",
       "sourceSlug": "bia-mesquita",
       "slug": "bia-mesquita"
+    },
+    {
+      "name": "Raquel Pennington",
+      "rank": "8",
+      "div": "Women's Bantamweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/raquel-pennington",
+      "sourceSlug": "raquel-pennington",
+      "slug": "raquel-pennington"
     },
     {
       "name": "Jacqueline Cavalcanti",

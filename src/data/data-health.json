@@ -1,74 +1,74 @@
 {
   "event-details": {
-    "lastAttempt": "2026-11-23T23:31:08.396Z",
+    "lastAttempt": "2026-11-24T22:01:11.634Z",
     "ok": true,
     "detail": {
-      "updated": 3,
+      "updated": 4,
       "failed": 0
     },
-    "lastSuccessfulFetch": "2026-11-23T23:31:08.396Z"
+    "lastSuccessfulFetch": "2026-11-24T22:01:11.634Z"
   },
   "Events": {
-    "lastAttempt": "2026-11-23T23:29:10.038Z",
+    "lastAttempt": "2026-11-24T21:59:08.758Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-23T23:29:10.037Z"
+      "completedAt": "2026-11-24T21:59:08.758Z"
     },
-    "lastSuccessfulFetch": "2026-11-23T23:29:10.038Z"
+    "lastSuccessfulFetch": "2026-11-24T21:59:08.758Z"
   },
   "Fight Cards": {
-    "lastAttempt": "2026-11-23T23:29:16.719Z",
+    "lastAttempt": "2026-11-24T21:59:15.259Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-23T23:29:16.719Z"
+      "completedAt": "2026-11-24T21:59:15.258Z"
     },
-    "lastSuccessfulFetch": "2026-11-23T23:29:16.719Z"
+    "lastSuccessfulFetch": "2026-11-24T21:59:15.259Z"
   },
   "Fighters": {
-    "lastAttempt": "2026-11-23T23:29:17.459Z",
+    "lastAttempt": "2026-11-24T21:59:16.260Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-23T23:29:17.459Z"
+      "completedAt": "2026-11-24T21:59:16.259Z"
     },
-    "lastSuccessfulFetch": "2026-11-23T23:29:17.459Z"
+    "lastSuccessfulFetch": "2026-11-24T21:59:16.260Z"
   },
   "Results": {
-    "lastAttempt": "2026-11-23T23:29:21.695Z",
+    "lastAttempt": "2026-11-24T21:59:19.323Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-23T23:29:21.695Z"
+      "completedAt": "2026-11-24T21:59:19.323Z"
     },
-    "lastSuccessfulFetch": "2026-11-23T23:29:21.695Z"
+    "lastSuccessfulFetch": "2026-11-24T21:59:19.323Z"
   },
   "Event Photos": {
-    "lastAttempt": "2026-11-23T23:29:21.855Z",
+    "lastAttempt": "2026-11-24T21:59:19.522Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-23T23:29:21.855Z"
+      "completedAt": "2026-11-24T21:59:19.522Z"
     },
-    "lastSuccessfulFetch": "2026-11-23T23:29:21.855Z"
+    "lastSuccessfulFetch": "2026-11-24T21:59:19.522Z"
   },
   "rankings": {
-    "lastAttempt": "2026-11-23T23:29:22.439Z",
+    "lastAttempt": "2026-11-24T21:59:20.205Z",
     "ok": true,
     "detail": {
       "sourceEntries": 176,
       "assigned": 176,
       "divisions": 11
     },
-    "lastSuccessfulFetch": "2026-11-23T23:29:22.439Z"
+    "lastSuccessfulFetch": "2026-11-24T21:59:20.205Z"
   },
   "fight-history": {
-    "lastAttempt": "2026-11-23T23:31:58.713Z",
+    "lastAttempt": "2026-11-24T22:02:44.340Z",
     "ok": true,
     "detail": {
-      "updated": 100,
+      "updated": 63,
       "errors": 0
     },
-    "lastSuccessfulFetch": "2026-11-23T23:31:58.713Z"
+    "lastSuccessfulFetch": "2026-11-24T22:02:44.340Z"
   },
   "images": {
-    "lastAttempt": "2026-11-23T23:32:00.323Z",
+    "lastAttempt": "2026-11-24T22:02:46.215Z",
     "ok": true,
     "detail": {
       "attempted": 0,
@@ -79,17 +79,17 @@
       "directoryProfiles": 3238,
       "remaining": 2088
     },
-    "lastSuccessfulFetch": "2026-11-23T23:32:00.323Z"
+    "lastSuccessfulFetch": "2026-11-24T22:02:46.215Z"
   },
   "records": {
-    "lastAttempt": "2026-11-23T23:31:07.677Z",
+    "lastAttempt": "2026-11-24T22:01:10.465Z",
     "ok": true,
     "detail": {
       "attempted": 100,
-      "updated": 99,
-      "unavailable": 1,
+      "updated": 100,
+      "unavailable": 0,
       "errors": 0
     },
-    "lastSuccessfulFetch": "2026-11-23T23:31:07.677Z"
+    "lastSuccessfulFetch": "2026-11-24T22:01:10.465Z"
   }
 }
