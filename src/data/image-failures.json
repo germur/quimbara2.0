@@ -1,1 +1,7 @@
-{}
+{
+  "cameron-nelson": {
+    "error": "Profile identity not verified",
+    "lastAttempt": "2026-11-25T21:13:58.545Z",
+    "retryAfter": "2026-12-02T21:13:58.545Z"
+  }
+}

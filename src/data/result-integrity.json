@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-24T22:03:12.626Z",
+  "checkedAt": "2026-11-25T21:14:24.678Z",
   "results": 4,
   "sourceDisagreements": [
     {
@@ -8,6 +8,13 @@
       "historyRecord": "21-2-1",
       "recordSourceUrl": "https://www.ufc.com/athlete/magomed-ankalaev",
       "historyCheckedAt": "2026-11-22T19:10:43.359Z"
+    },
+    {
+      "slug": "tom-aspinall",
+      "record": "15-3-1",
+      "historyRecord": "15-3",
+      "recordSourceUrl": "https://www.ufc.com/athlete/tom-aspinall",
+      "historyCheckedAt": "2026-11-22T19:10:38.569Z"
     },
     {
       "slug": "maycee-barber",
@@ -27,7 +34,7 @@
       "record": "11-7-0",
       "historyRecord": "10-7",
       "recordSourceUrl": "https://www.ufc.com/athlete/macy-chiasson",
-      "historyCheckedAt": "2026-11-24T22:02:14.024Z"
+      "historyCheckedAt": "2026-11-25T21:13:27.761Z"
     },
     {
       "slug": "paulo-costa",
@@ -109,21 +116,21 @@
       "record": "23-5-0",
       "historyRecord": "23-6",
       "recordSourceUrl": "https://www.ufc.com/athlete/amanda-nunes",
-      "historyCheckedAt": "2026-11-24T22:02:00.659Z"
+      "historyCheckedAt": "2026-11-25T21:13:10.718Z"
     },
     {
       "slug": "charles-oliveira",
       "record": "37-11-0",
       "historyRecord": "36-11",
       "recordSourceUrl": "https://www.ufc.com/athlete/charles-oliveira",
-      "historyCheckedAt": "2026-11-24T22:02:10.903Z"
+      "historyCheckedAt": "2026-11-25T21:13:23.528Z"
     },
     {
       "slug": "quentin-pasley",
       "record": "1-0-0",
       "historyRecord": "7-6",
       "recordSourceUrl": "https://www.ufc.com/athlete/quentin-pasley",
-      "historyCheckedAt": "2026-11-24T22:02:03.155Z"
+      "historyCheckedAt": "2026-11-25T21:13:13.658Z"
     },
     {
       "slug": "julianna-pena",
@@ -165,7 +172,7 @@
       "record": "9-2-0",
       "historyRecord": "10-2",
       "recordSourceUrl": "https://www.ufc.com/athlete/tallison-teixeira",
-      "historyCheckedAt": "2026-11-24T22:02:05.171Z"
+      "historyCheckedAt": "2026-11-25T21:13:16.065Z"
     },
     {
       "slug": "marlon-vera",
@@ -192,14 +199,14 @@
       "record": "29-1-0",
       "historyRecord": "30-1",
       "recordSourceUrl": "https://www.ufc.com/athlete/yaroslav-amosov",
-      "historyCheckedAt": "2026-11-23T23:31:40.078Z"
+      "historyCheckedAt": "2026-11-25T21:13:00.938Z"
     },
     {
       "slug": "akbar-abdullaev",
       "record": "1-0-0",
       "historyRecord": "14-0",
       "recordSourceUrl": "https://www.ufc.com/athlete/akbar-abdullaev",
-      "historyCheckedAt": "2026-11-24T22:02:07.275Z"
+      "historyCheckedAt": "2026-11-25T21:13:18.669Z"
     }
   ],
   "errors": []

@@ -2839,25 +2839,12 @@
         "f2Id": "mario-pinto"
       },
       {
-        "f1": "Luke Riley",
-        "f2": "Gabriel Santos",
-        "sourceFightId": "401936244",
-        "weightClass": "Featherweight",
-        "bout": "maincard",
-        "order": 3,
-        "sourceStartUTC": "2026-12-05T18:00Z",
-        "sourceStatus": "STATUS_SCHEDULED",
-        "segmentInferred": true,
-        "f1Id": "luke-riley",
-        "f2Id": "gabriel-santos"
-      },
-      {
         "f1": "Levan Chokheli",
         "f2": "Islam Dulatov",
         "sourceFightId": "401933598",
         "weightClass": "Welterweight",
         "bout": "maincard",
-        "order": 4,
+        "order": 3,
         "sourceStartUTC": "2026-12-05T18:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
@@ -2870,7 +2857,7 @@
         "sourceFightId": "401933599",
         "weightClass": "Lightweight",
         "bout": "maincard",
-        "order": 5,
+        "order": 4,
         "sourceStartUTC": "2026-12-05T18:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
@@ -2883,12 +2870,25 @@
         "sourceFightId": "401933600",
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
-        "order": 6,
+        "order": 5,
         "sourceStartUTC": "2026-12-05T18:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "magomed-tuchalov",
         "f2Id": "ion-cutelaba"
+      },
+      {
+        "f1": "Luke Riley",
+        "f2": "Gabriel Santos",
+        "sourceFightId": "401936244",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 6,
+        "sourceStartUTC": "2026-12-05T18:00Z",
+        "sourceStatus": "STATUS_SCHEDULED",
+        "segmentInferred": true,
+        "f1Id": "luke-riley",
+        "f2Id": "gabriel-santos"
       },
       {
         "f1": "Bruno Silva",
@@ -2979,7 +2979,7 @@
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-24T22:01:11.001Z",
+    "cardCheckedAt": "2026-11-25T21:12:57.874Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -3103,6 +3103,18 @@
           "Bruno Gustavo da Silva vs. Jafel Filho",
           "Marco Tulio vs. Park Jun-yong"
         ]
+      },
+      {
+        "checkedAt": "2026-11-25T21:12:57.874Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
+        "added": [
+          "Bruno Silva vs. Jafel Filho",
+          "JunYong Park vs. Marco Tulio"
+        ],
+        "removed": [
+          "Bruno Gustavo da Silva vs. Jafel Filho",
+          "Marco Tulio vs. Park Jun-yong"
+        ]
       }
     ],
     "espnEventId": "600062700",
@@ -3112,7 +3124,7 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-24T22:01:11.001Z",
+    "scheduleCheckedAt": "2026-11-25T21:12:57.874Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc"
   },
   {
@@ -3200,7 +3212,7 @@
         "weightClass": "Light Heavyweight",
         "bout": "maincard",
         "order": 5,
-        "sourceStartUTC": "2026-12-13T00:00Z",
+        "sourceStartUTC": "2026-12-12T23:00Z",
         "sourceStatus": "STATUS_SCHEDULED",
         "segmentInferred": true,
         "f1Id": "quentin-pasley",
@@ -3311,10 +3323,21 @@
           "Jacqueline Cavalcanti vs. Michelle Montague",
           "Roque Conceição Jr. vs. Nilson Rojas"
         ]
+      },
+      {
+        "checkedAt": "2026-11-25T21:12:58.125Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
+        "added": [
+          "TBA vs. Opponent TBA"
+        ],
+        "removed": [
+          "Jacqueline Cavalcanti vs. Michelle Montague",
+          "Roque Conceição Jr. vs. Nilson Rojas"
+        ]
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-24T22:01:11.293Z",
+    "cardCheckedAt": "2026-11-25T21:12:58.125Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -3323,7 +3346,7 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-24T22:01:11.293Z",
+    "scheduleCheckedAt": "2026-11-25T21:12:58.125Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc"
   },
   {
@@ -3421,7 +3444,7 @@
         "f1": "Kennedy Nzechukwu",
         "f2": "Elisha Ellison",
         "sourceFightId": "401932035",
-        "weightClass": "",
+        "weightClass": "Heavyweight",
         "bout": "prelim",
         "order": 5,
         "sourceStartUTC": "2027-01-16T22:00Z",
@@ -3471,7 +3494,7 @@
         "f1": "Magomed Zaynukov",
         "f2": "Piero Guaylupo",
         "sourceFightId": "401936038",
-        "weightClass": "Light Heavyweight",
+        "weightClass": "Lightweight",
         "bout": "prelim",
         "order": 9,
         "sourceStartUTC": "2027-01-16T22:00Z",
@@ -3520,7 +3543,7 @@
         "f2Id": "karolina-kowalkiewicz"
       }
     ],
-    "cardCheckedAt": "2026-11-24T22:01:11.536Z",
+    "cardCheckedAt": "2026-11-25T21:12:58.209Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -3604,6 +3627,16 @@
         "removed": [
           "Carlos Diego Ferreira vs. MarQuel Mederos"
         ]
+      },
+      {
+        "checkedAt": "2026-11-25T21:12:58.209Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
+        "added": [
+          "Diego Ferreira vs. MarQuel Mederos"
+        ],
+        "removed": [
+          "Carlos Diego Ferreira vs. MarQuel Mederos"
+        ]
       }
     ],
     "espnEventId": "600062421",
@@ -3615,7 +3648,7 @@
     "country": "USA",
     "programmingStartUTC": "2027-01-16T23:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
-    "scheduleCheckedAt": "2026-11-24T22:01:11.536Z"
+    "scheduleCheckedAt": "2026-11-25T21:12:58.209Z"
   },
   {
     "slug": "ufc-fight-night-297-2027-01-23",
@@ -3668,11 +3701,19 @@
         "segmentInferred": true
       }
     ],
-    "cardCheckedAt": "2026-11-24T22:01:11.633Z",
+    "cardCheckedAt": "2026-11-25T21:12:58.273Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
         "checkedAt": "2026-11-24T22:01:11.633Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270123",
+        "added": [
+          "TBA vs. Opponent TBA"
+        ],
+        "removed": []
+      },
+      {
+        "checkedAt": "2026-11-25T21:12:58.273Z",
         "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270123",
         "added": [
           "TBA vs. Opponent TBA"
@@ -3689,18 +3730,18 @@
     "country": "USA",
     "programmingStartUTC": "2027-01-23T23:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270123",
-    "scheduleCheckedAt": "2026-11-24T22:01:11.633Z"
+    "scheduleCheckedAt": "2026-11-25T21:12:58.273Z"
   },
   {
     "slug": "ufc-336-2027-01-30",
     "name": "UFC 336",
-    "main": "Van vs. Kape",
+    "main": "Joshua Van vs. Manel Kape",
     "loc": "Toronto, Ontario, Canada",
     "date": "2027-01-30",
     "dateLabel": "30 ene 2027",
-    "f1": "Van",
+    "f1": "Joshua Van",
     "f1img": "/fighters/joshua-van.png",
-    "f2": "Kape",
+    "f2": "Manel Kape",
     "f2img": "/fighters/manel-kape.png",
     "status": "upcoming",
     "fightCard": [
@@ -3725,9 +3766,86 @@
         "order": 1,
         "f1StatsId": "7ee0fd831c0fe7c3",
         "f2StatsId": "c32aeb1a59e6272d"
+      },
+      {
+        "f1": "Lance Gibson Jr.",
+        "f1Id": "lance-gibson-jr",
+        "f2": "Michael Johnson",
+        "f2Id": "michael-johnson",
+        "weightClass": "Lightweight",
+        "bout": "maincard",
+        "order": 2,
+        "f1StatsId": "07bc580bdf3eb9c8",
+        "f2StatsId": "511e82663651438d"
+      },
+      {
+        "f1": "Tanner Boser",
+        "f1Id": "tanner-boser",
+        "f2": "José Montanha",
+        "f2Id": "jose-montanha",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 3,
+        "f1StatsId": "04c8b08b16a5b99e",
+        "f2StatsId": "4e30f2761b6bd3b5"
+      },
+      {
+        "f1": "Marc-André Barriault",
+        "f1Id": "marc-andre-barriault",
+        "f2": "Tresean Gore",
+        "f2Id": "tresean-gore",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 4,
+        "f1StatsId": "8e9eb3fc86db0f7d",
+        "f2StatsId": "147e70aa6cc48cfc"
+      },
+      {
+        "f1": "Gable Steveson",
+        "f1Id": "gable-steveson",
+        "f2": "Terrance Chatman",
+        "f2Id": "terrance-chatman",
+        "weightClass": "Heavyweight",
+        "bout": "maincard",
+        "order": 5,
+        "f1StatsId": "f7e856a73c96048e",
+        "f2StatsId": "23a81656507b56a3"
+      },
+      {
+        "f1": "Serhiy Sidey",
+        "f1Id": "serhiy-sidey",
+        "f2": "Louis Lee Scott",
+        "f2Id": "louis-lee-scott",
+        "weightClass": "Bantamweight",
+        "bout": "maincard",
+        "order": 6,
+        "f1StatsId": "1a2bf44edb8055b6",
+        "f2StatsId": "4327506eb9ee342f"
+      },
+      {
+        "f1": "Cameron Nelson",
+        "f1Id": "cameron-nelson",
+        "f2": "Sean Clancy Jr.",
+        "f2Id": "sean-clancy-jr",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 7,
+        "f1StatsId": "34d4cae19105eb68",
+        "f2StatsId": "c02862a5f6d3fbd0"
+      },
+      {
+        "f1": "Julien Leblanc",
+        "f1Id": "julien-leblanc",
+        "f2": "Vlasto Čepo",
+        "f2Id": "vlasto-cepo",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 8,
+        "f1StatsId": "cd0dfd9846bd03b9",
+        "f2StatsId": "025c1ee70b2cedf4"
       }
     ],
-    "cardCheckedAt": "2026-11-16T21:48:43.977Z",
+    "cardCheckedAt": "2026-11-25T21:11:05.017Z",
     "cardSource": "Wikipedia"
   },
   {
@@ -3785,13 +3903,13 @@
   {
     "slug": "ufc-fight-night-2027-02-07",
     "name": "UFC Fight Night",
-    "main": "Salkilld vs. Saint Denis",
+    "main": "Quillan Salkilld vs. Benoît Saint Denis",
     "loc": "Sydney, Australia",
     "date": "2027-02-07",
     "dateLabel": "7 feb 2027",
-    "f1": "Salkilld",
+    "f1": "Quillan Salkilld",
     "f1img": "/fighters/quillan-salkilld.png",
-    "f2": "Saint Denis",
+    "f2": "Benoît Saint Denis",
     "f2img": "/fighters/benoit-saint-denis.png",
     "status": "upcoming",
     "fightCard": [
@@ -3818,13 +3936,24 @@
         "f2StatsId": "e1147d3d2dabe1ce"
       },
       {
+        "f1": "Jonathan Micallef",
+        "f1Id": "jonathan-micallef",
+        "f2": "Sam Patterson",
+        "f2Id": "sam-patterson",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 2,
+        "f1StatsId": "f782f953bfe7b5f2",
+        "f2StatsId": "8b6e5dc2ba1edbe7"
+      },
+      {
         "f1": "Marwan Rahiki",
         "f1Id": "marwan-rahiki",
         "f2": "Yoo Joo-sang",
         "f2Id": "joosang-yoo",
         "weightClass": "Featherweight",
         "bout": "maincard",
-        "order": 2,
+        "order": 3,
         "f1StatsId": "6eedb757f13b9978",
         "f2StatsId": "a44020ea2e8cd026"
       },
@@ -3835,12 +3964,12 @@
         "f2Id": "joanderson-brito",
         "weightClass": "Featherweight",
         "bout": "maincard",
-        "order": 3,
+        "order": 4,
         "f1StatsId": "7facc9c45d792985",
         "f2StatsId": "791c8437b341fba5"
       }
     ],
-    "cardCheckedAt": "2026-11-16T21:48:45.084Z",
+    "cardCheckedAt": "2026-11-25T21:11:06.210Z",
     "cardSource": "Wikipedia"
   },
   {

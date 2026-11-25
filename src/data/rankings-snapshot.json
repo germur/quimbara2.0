@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-24T21:59:20.197Z",
+  "checkedAt": "2026-11-25T21:11:12.150Z",
   "source": "https://www.ufc.com/rankings",
   "entries": [
     {
@@ -11,20 +11,20 @@
       "slug": "joshua-van"
     },
     {
-      "name": "Alexandre Pantoja",
-      "rank": "1",
-      "div": "Flyweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/alexandre-pantoja",
-      "sourceSlug": "alexandre-pantoja",
-      "slug": "alexandre-pantoja"
-    },
-    {
       "name": "Manel Kape",
       "rank": "1",
       "div": "Flyweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/manel-kape",
       "sourceSlug": "manel-kape",
       "slug": "manel-kape"
+    },
+    {
+      "name": "Alexandre Pantoja",
+      "rank": "1",
+      "div": "Flyweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/alexandre-pantoja",
+      "sourceSlug": "alexandre-pantoja",
+      "slug": "alexandre-pantoja"
     },
     {
       "name": "Brandon Royval",
@@ -227,20 +227,20 @@
       "slug": "marlon-vera"
     },
     {
-      "name": "Deiveson Figueiredo",
-      "rank": "12",
-      "div": "Bantamweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/deiveson-figueiredo",
-      "sourceSlug": "deiveson-figueiredo",
-      "slug": "deiveson-figueiredo"
-    },
-    {
       "name": "Marcus McGhee",
       "rank": "12",
       "div": "Bantamweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/marcus-mcghee",
       "sourceSlug": "marcus-mcghee",
       "slug": "marcus-mcghee"
+    },
+    {
+      "name": "Deiveson Figueiredo",
+      "rank": "12",
+      "div": "Bantamweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/deiveson-figueiredo",
+      "sourceSlug": "deiveson-figueiredo",
+      "slug": "deiveson-figueiredo"
     },
     {
       "name": "Raoni Barcelos",
@@ -267,20 +267,20 @@
       "slug": "alexander-volkanovski"
     },
     {
-      "name": "Diego Lopes",
-      "rank": "1",
-      "div": "Featherweight",
-      "ufcProfileUrl": "https://www.ufc.com/athlete/diego-lopes",
-      "sourceSlug": "diego-lopes",
-      "slug": "diego-lopes"
-    },
-    {
       "name": "Movsar Evloev",
       "rank": "1",
       "div": "Featherweight",
       "ufcProfileUrl": "https://www.ufc.com/athlete/movsar-evloev",
       "sourceSlug": "movsar-evloev",
       "slug": "movsar-evloev"
+    },
+    {
+      "name": "Diego Lopes",
+      "rank": "1",
+      "div": "Featherweight",
+      "ufcProfileUrl": "https://www.ufc.com/athlete/diego-lopes",
+      "sourceSlug": "diego-lopes",
+      "slug": "diego-lopes"
     },
     {
       "name": "Lerone Murphy",
