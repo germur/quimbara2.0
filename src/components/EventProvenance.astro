@@ -10,6 +10,7 @@ const dateLabel=(date:string)=>new Intl.DateTimeFormat('es-CO',{timeZone:'Americ
   {checked ? <p>Cartelera consultada el <time datetime={checked}>{dateLabel(checked)}</time> (Bogotá). {event.cardSourceUrl && <a href={event.cardSourcePage || event.cardSourceUrl}>Consultar fuente: {event.cardSource || 'datos del evento'}</a>}</p>
     : <p>La fecha de comprobación de esta cartelera no está registrada.</p>}
   {event.cardFetchError && <p><strong>La última actualización no pudo completarse.</strong> Se conserva la cartelera anterior; comprueba los anuncios del organizador.</p>}
+  {event.cardSource === 'Wikipedia' && event.cardSupplement?.status === 'partial' && <p>ESPN muestra una cartelera parcial. Esta ficha conserva los combates anunciados que recoge Wikipedia.</p>}
   <p>Las peleas, el orden y la distribución por cartelera pueden cambiar. El inicio de la programación no fija la hora de cada combate.</p>
   {history.map(change=><details>
     <summary>Cambios registrados el {String(change.checkedAt).slice(0,10)}</summary>
