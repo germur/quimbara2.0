@@ -6,6 +6,7 @@ import {horariosDeEvento,instanteDesdeET} from '../src/lib/horarios.mjs';
 import {matchesProviderFight,rankingCoverageValid} from '../src/lib/event-data.mjs';
 import {preserveFightCorners,fightKey,expandAnnouncedNames} from '../src/lib/event-data.mjs';
 import {safeWriteJson} from './lib/datasets.mjs';
+import {cardCoverage,namedBouts} from './lib/card-coverage.mjs';
 import {mkdtempSync,readFileSync,unlinkSync,rmdirSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
@@ -88,4 +89,23 @@ test('changes distinguish withdrawals from fighter order and image queue skips o
   const now=Date.parse('2026-11-16T12:00:00Z');
   assert.equal(imageQueue(fighters,[{date:'2026-11-21',f1:'Navajo Stirling'}],{},now)[0].slug,'stirling');
   assert.equal(imageQueue(fighters,[],{stirling:{retryAfter:'2026-11-20'}},now).length,0);
+});
+
+test('ESPN partial coverage keeps the fresh, corroborated Wikipedia card', () => {
+  const now = Date.parse('2026-11-26T21:02:09Z');
+  const main = {f1:'Gabriel Bonfim',f2:'Sean Brady'};
+  const wikiBouts = [main, ...Array.from({length:10}, (_, i) =>
+    ({f1:`Fighter Alpha ${i}`,f2:`Fighter Beta ${i}`}))];
+  const event = {...main, fightCard:wikiBouts, cardSource:'Wikipedia',
+    cardSourcePage:'https://en.wikipedia.org/wiki/UFC_Fight_Night:_Bonfim_vs._Brady',
+    cardCheckedAt:'2026-11-26T21:00:19Z'};
+  const incoming = [{f1:main.f2,f2:main.f1},{f1:'TBA',f2:'Opponent TBA'}];
+
+  assert.deepEqual(namedBouts(incoming), incoming.slice(0, 1));
+  assert.equal(cardCoverage(event, incoming, now), 'keep-wikipedia');
+  assert.equal(cardCoverage(event, wikiBouts, now), 'replace');
+  assert.equal(cardCoverage(event, incoming.slice(1), now), 'reject');
+  assert.equal(cardCoverage({...event,cardSource:'ESPN'}, incoming, now), 'reject');
+  assert.equal(cardCoverage({...event,cardCheckedAt:'2026-11-25T21:00:00Z'}, incoming, now), 'reject');
+  assert.equal(cardCoverage(event, [...incoming,{f1:'Unknown Fighter',f2:'Another Fighter'}], now), 'reject');
 });

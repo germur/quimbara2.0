@@ -4,7 +4,8 @@ import {parseSherdogResults} from './lib/recent-results.mjs';
 import {safeWriteJson} from "./lib/datasets.mjs";
 import {recordHealth} from "./lib/health.mjs";
 import {createFighterMedia,resolveBoutPerson,resolveEventPerson} from "../src/lib/fighter-media.mjs";
-import {expandAnnouncedNames} from "../src/lib/event-data.mjs";
+import {expandAnnouncedNames,fightKey,preserveFightCorners} from "../src/lib/event-data.mjs";
+import {namedBouts,sameBout} from './lib/card-coverage.mjs';
 /**
  * Pipeline de datos UFC para Quimbara — SIN APIs de pago.
  *
@@ -444,13 +445,13 @@ async function fetchEvents() {
 
 // ─── FIGHT CARDS (Wikipedia individual event pages) ─────────────────────────
 
-async function scrapeFightCard(event: EventRowFull): Promise<FightCardEntry[]> {
-  if (event.main === 'TBD') return [];
+async function scrapeFightCard(event: EventRowFull): Promise<{fights: FightCardEntry[]; sourcePage: string} | null> {
+  if (event.main === 'TBD') return null;
   try {
     const title = await wikiResolveEventTitle(event);
     if (!title) {
       console.warn(`   ⚠ Wiki ${event.name}: sin artículo todavía (query + search sin resultados)`);
-      return [];
+      return null;
     }
     const $ = await fetchWikiHtml(title);
     const fights: FightCardEntry[] = [];
@@ -483,10 +484,11 @@ async function scrapeFightCard(event: EventRowFull): Promise<FightCardEntry[]> {
       });
     });
 
-    return fights;
+    const sourcePage = 'https://en.wikipedia.org/wiki/' + encodeURIComponent(title.replaceAll(' ', '_'));
+    return {fights: namedBouts(fights), sourcePage};
   } catch (err) {
-    console.warn(`   ⚠ Wiki ${event.name}: ${(err as Error).message}`);
-    return [];
+    console.warn(`   ⚠ Wiki ${event.name}: ${(err as Error).message}; se conserva la cartelera previa`);
+    return null;
   }
 }
 
@@ -504,22 +506,27 @@ async function fetchFightCards() {
       continue;
     }
 
-    const card = await scrapeFightCard(event);
-    if (card.length) {
-      event.fightCard = card;
-      (event as any).cardCheckedAt=new Date().toISOString();
-      (event as any).cardSource="Wikipedia";
-      const mainFight = card.find(f => f.order === 0) ?? card[0];
-      if (mainFight) {
-        event.f1 = mainFight.f1;
-        event.f2 = mainFight.f2;
-        event.main = `${mainFight.f1} vs. ${mainFight.f2}`;
+    const scraped = await scrapeFightCard(event);
+    if (scraped?.fights.length) {
+      const {fights, sourcePage} = scraped;
+      const mainFight = fights.find(f => f.bout === 'Main Event');
+      const announced = expandAnnouncedNames({...event, fightCard: fights});
+      const unique = new Set(fights.map(fightKey)).size === fights.length;
+      if (!mainFight || !sameBout(mainFight, announced) || !unique ||
+          fights.length < namedBouts(event.fightCard).length / 2) {
+        console.warn(`   ⚠ Wiki ${event.slug}: cartelera incompatible; se conserva la última válida`);
+      } else {
+        event.fightCard = fights.map(bout => preserveFightCorners(bout, event.fightCard ?? []));
+        Object.assign(event, {
+          cardCheckedAt: new Date().toISOString(),
+          cardSource: 'Wikipedia',
+          cardSourceUrl: sourcePage,
+          cardSourcePage: sourcePage,
+          cardFetchError: null,
+        });
+        enriched++;
+        console.log(`   ✓ ${event.slug}: ${fights.length} peleas en Wikipedia`);
       }
-      enriched++;
-      console.log(`   ✓ ${event.name}: ${card.length} peleas`);
-      card.slice(0, 3).forEach(f => console.log(`      · ${f.f1} vs. ${f.f2} (${f.weightClass})`));
-    } else {
-      console.log(`   · ${event.name}: sin cartelera en Wikipedia todavía`);
     }
     await sleep(800);
   }
