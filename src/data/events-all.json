@@ -2979,7 +2979,7 @@
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-25T21:12:57.874Z",
+    "cardCheckedAt": "2026-11-27T00:44:41.972Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -3115,6 +3115,18 @@
           "Bruno Gustavo da Silva vs. Jafel Filho",
           "Marco Tulio vs. Park Jun-yong"
         ]
+      },
+      {
+        "checkedAt": "2026-11-27T00:44:41.972Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
+        "added": [
+          "Bruno Silva vs. Jafel Filho",
+          "JunYong Park vs. Marco Tulio"
+        ],
+        "removed": [
+          "Bruno Gustavo da Silva vs. Jafel Filho",
+          "Marco Tulio vs. Park Jun-yong"
+        ]
       }
     ],
     "espnEventId": "600062700",
@@ -3124,8 +3136,9 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-25T21:12:57.874Z",
-    "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc"
+    "scheduleCheckedAt": "2026-11-27T00:44:41.972Z",
+    "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc",
+    "cardSupplement": null
   },
   {
     "slug": "ufc-335-2026-12-12",
@@ -3217,17 +3230,6 @@
         "segmentInferred": true,
         "f1Id": "quentin-pasley",
         "f2Id": "junior-tafa"
-      },
-      {
-        "f1": "TBA",
-        "f2": "Opponent TBA",
-        "sourceFightId": "401936140",
-        "weightClass": "",
-        "bout": "prelim",
-        "order": 6,
-        "sourceStartUTC": "2026-12-12T22:00Z",
-        "sourceStatus": "STATUS_SCHEDULED",
-        "segmentInferred": true
       }
     ],
     "cardHistory": [
@@ -3334,10 +3336,19 @@
           "Jacqueline Cavalcanti vs. Michelle Montague",
           "Roque Conceição Jr. vs. Nilson Rojas"
         ]
+      },
+      {
+        "checkedAt": "2026-11-27T00:44:42.044Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
+        "added": [],
+        "removed": [
+          "Jacqueline Cavalcanti vs. Michelle Montague",
+          "Roque Conceição Jr. vs. Nilson Rojas"
+        ]
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-25T21:12:58.125Z",
+    "cardCheckedAt": "2026-11-27T00:44:42.044Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -3346,8 +3357,9 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-25T21:12:58.125Z",
-    "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc"
+    "scheduleCheckedAt": "2026-11-27T00:44:42.044Z",
+    "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc",
+    "cardSupplement": null
   },
   {
     "slug": "ufc-fight-night-296-2027-01-16",
@@ -3543,7 +3555,7 @@
         "f2Id": "karolina-kowalkiewicz"
       }
     ],
-    "cardCheckedAt": "2026-11-25T21:12:58.209Z",
+    "cardCheckedAt": "2026-11-27T00:44:42.139Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -3637,6 +3649,16 @@
         "removed": [
           "Carlos Diego Ferreira vs. MarQuel Mederos"
         ]
+      },
+      {
+        "checkedAt": "2026-11-27T00:44:42.139Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
+        "added": [
+          "Diego Ferreira vs. MarQuel Mederos"
+        ],
+        "removed": [
+          "Carlos Diego Ferreira vs. MarQuel Mederos"
+        ]
       }
     ],
     "espnEventId": "600062421",
@@ -3648,7 +3670,8 @@
     "country": "USA",
     "programmingStartUTC": "2027-01-16T23:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
-    "scheduleCheckedAt": "2026-11-25T21:12:58.209Z"
+    "scheduleCheckedAt": "2026-11-27T00:44:42.139Z",
+    "cardSupplement": null
   },
   {
     "slug": "ufc-fight-night-297-2027-01-23",
@@ -3678,31 +3701,128 @@
     "fightCard": [
       {
         "f1": "Gabriel Bonfim",
+        "f1Id": "gabriel-bonfim",
         "f2": "Sean Brady",
-        "sourceFightId": "401934437",
+        "f2Id": "sean-brady",
         "weightClass": "Welterweight",
         "bout": "Main Event",
         "order": 0,
-        "sourceStartUTC": "2027-01-24T01:00Z",
-        "sourceStatus": "STATUS_SCHEDULED",
-        "segmentInferred": true,
-        "f1Id": "gabriel-bonfim",
-        "f2Id": "sean-brady"
+        "f1StatsId": "01641ba5df0c69b0",
+        "f2StatsId": "45f7cb591c3ab00b"
       },
       {
-        "f1": "TBA",
-        "f2": "Opponent TBA",
-        "sourceFightId": "401934438",
-        "weightClass": "",
-        "bout": "prelim",
+        "f1": "Pat Sabatini",
+        "f1Id": "pat-sabatini",
+        "f2": "Vinicius Oliveira",
+        "f2Id": "vinicius-oliveira",
+        "weightClass": "Featherweight",
+        "bout": "Co-Main Event",
         "order": 1,
-        "sourceStartUTC": "2027-01-23T23:00Z",
-        "sourceStatus": "STATUS_SCHEDULED",
-        "segmentInferred": true
+        "f1StatsId": "b8bbdeff718dbb7d",
+        "f2StatsId": "18d01f7f8338ae72"
+      },
+      {
+        "f1": "Neil Magny",
+        "f1Id": "neil-magny",
+        "f2": "Daniil Donchenko",
+        "f2Id": "daniil-donchenko",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 2,
+        "f1StatsId": "84b3e7d38f2d2ec5",
+        "f2StatsId": "70dd69b6a703257e"
+      },
+      {
+        "f1": "Azamat Bekoev",
+        "f1Id": "azamat-bekoev",
+        "f2": "Eric McConico",
+        "f2Id": "eric-mcconico",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 3,
+        "f1StatsId": "3bc3f60b21cddc6a",
+        "f2StatsId": "9508cc6184cb2450"
+      },
+      {
+        "f1": "Yadier del Valle",
+        "f1Id": "yadier-del-valle",
+        "f2": "Ezra Elliott",
+        "f2Id": "ezra-elliott",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 4,
+        "f1StatsId": "70380ccdc81915b8",
+        "f2StatsId": "b852ad2b35354fcb"
+      },
+      {
+        "f1": "Trent Miller",
+        "f1Id": "trent-miller",
+        "f2": "Nick Klein",
+        "f2Id": "nick-klein",
+        "weightClass": "Middleweight",
+        "bout": "maincard",
+        "order": 5,
+        "f1StatsId": "2b6a37a97541a4fd",
+        "f2StatsId": "7eaa5e31c2dd86aa"
+      },
+      {
+        "f1": "Ramon Taveras",
+        "f1Id": "ramon-taveras",
+        "f2": "Roman Puga",
+        "f2Id": "roman-puga",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 6,
+        "f1StatsId": "c5ccd878231c5407",
+        "f2StatsId": "44f95ae20a6238e5"
+      },
+      {
+        "f1": "Jamall Emmers",
+        "f1Id": "jamall-emmers",
+        "f2": "Ramiro Jiménez",
+        "f2Id": "ramiro-jimenez",
+        "weightClass": "Featherweight",
+        "bout": "maincard",
+        "order": 7,
+        "f1StatsId": "e00a3dee329a51f7",
+        "f2StatsId": "1c02b964466c10e4"
+      },
+      {
+        "f1": "Anna Melisano",
+        "f1Id": "anna-melisano",
+        "f2": "Marina Spasić",
+        "f2Id": "marina-spasic",
+        "weightClass": "Women's Strawweight",
+        "bout": "maincard",
+        "order": 8,
+        "f1StatsId": "40a7ec5d1ad6ffa8",
+        "f2StatsId": "5847c1a960bb23af"
+      },
+      {
+        "f1": "Ty Miller",
+        "f1Id": "ty-miller",
+        "f2": "Christopher Alvidrez",
+        "f2Id": "christopher-alvidrez",
+        "weightClass": "Welterweight",
+        "bout": "maincard",
+        "order": 9,
+        "f1StatsId": "0859524157a19045",
+        "f2StatsId": "f4abf9aeda861283"
+      },
+      {
+        "f1": "Smilla Sundell",
+        "f1Id": "smilla-sundell",
+        "f2": "Melissa Mullins",
+        "f2Id": "melissa-mullins",
+        "weightClass": "Women's Bantamweight",
+        "bout": "maincard",
+        "order": 10,
+        "f1StatsId": "b6a871a01c66438a",
+        "f2StatsId": "bd532e9a2b93870c"
       }
     ],
-    "cardCheckedAt": "2026-11-25T21:12:58.273Z",
-    "cardSource": "ESPN",
+    "cardCheckedAt": "2026-11-27T00:42:49.878Z",
+    "cardSource": "Wikipedia",
     "cardHistory": [
       {
         "checkedAt": "2026-11-24T22:01:11.633Z",
@@ -3722,26 +3842,34 @@
       }
     ],
     "espnEventId": "600062900",
-    "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270123",
-    "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062900/league/ufc",
+    "cardSourceUrl": "https://en.wikipedia.org/wiki/UFC_Fight_Night%3A_Bonfim_vs._Brady",
+    "cardSourcePage": "https://en.wikipedia.org/wiki/UFC_Fight_Night%3A_Bonfim_vs._Brady",
     "cardFetchError": null,
     "venue": "Meta APEX",
     "city": "Las Vegas",
     "country": "USA",
     "programmingStartUTC": "2027-01-23T23:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270123",
-    "scheduleCheckedAt": "2026-11-25T21:12:58.273Z"
+    "scheduleCheckedAt": "2026-11-25T21:12:58.273Z",
+    "cardSupplement": {
+      "checkedAt": "2026-11-27T00:44:42.214Z",
+      "provider": "ESPN",
+      "status": "partial",
+      "slug": "ufc-fight-night-2027-01-23",
+      "espnBouts": 1,
+      "wikiBouts": 11
+    }
   },
   {
     "slug": "ufc-336-2027-01-30",
     "name": "UFC 336",
-    "main": "Joshua Van vs. Manel Kape",
+    "main": "Van vs. Kape",
     "loc": "Toronto, Ontario, Canada",
     "date": "2027-01-30",
     "dateLabel": "30 ene 2027",
-    "f1": "Joshua Van",
+    "f1": "Van",
     "f1img": "/fighters/joshua-van.png",
-    "f2": "Manel Kape",
+    "f2": "Kape",
     "f2img": "/fighters/manel-kape.png",
     "status": "upcoming",
     "fightCard": [
@@ -3903,13 +4031,13 @@
   {
     "slug": "ufc-fight-night-2027-02-07",
     "name": "UFC Fight Night",
-    "main": "Quillan Salkilld vs. Benoît Saint Denis",
+    "main": "Salkilld vs. Saint Denis",
     "loc": "Sydney, Australia",
     "date": "2027-02-07",
     "dateLabel": "7 feb 2027",
-    "f1": "Quillan Salkilld",
+    "f1": "Salkilld",
     "f1img": "/fighters/quillan-salkilld.png",
-    "f2": "Benoît Saint Denis",
+    "f2": "Saint Denis",
     "f2img": "/fighters/benoit-saint-denis.png",
     "status": "upcoming",
     "fightCard": [

@@ -192,7 +192,7 @@
       }
     ],
     "cardFetchError": null,
-    "cardCheckedAt": "2026-11-25T21:12:57.874Z",
+    "cardCheckedAt": "2026-11-27T00:44:41.972Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -328,6 +328,18 @@
           "Bruno Gustavo da Silva vs. Jafel Filho",
           "Marco Tulio vs. Park Jun-yong"
         ]
+      },
+      {
+        "checkedAt": "2026-11-27T00:44:41.972Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
+        "added": [
+          "Bruno Silva vs. Jafel Filho",
+          "JunYong Park vs. Marco Tulio"
+        ],
+        "removed": [
+          "Bruno Gustavo da Silva vs. Jafel Filho",
+          "Marco Tulio vs. Park Jun-yong"
+        ]
       }
     ],
     "espnEventId": "600062700",
@@ -337,8 +349,9 @@
     "country": "Saudi Arabia",
     "programmingStartUTC": "2026-12-05T15:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261205",
-    "scheduleCheckedAt": "2026-11-25T21:12:57.874Z",
+    "scheduleCheckedAt": "2026-11-27T00:44:41.972Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600062700/league/ufc",
+    "cardSupplement": null,
     "bg": "#FFD600",
     "color": "#111"
   },
@@ -432,17 +445,6 @@
         "segmentInferred": true,
         "f1Id": "quentin-pasley",
         "f2Id": "junior-tafa"
-      },
-      {
-        "f1": "TBA",
-        "f2": "Opponent TBA",
-        "sourceFightId": "401936140",
-        "weightClass": "",
-        "bout": "prelim",
-        "order": 6,
-        "sourceStartUTC": "2026-12-12T22:00Z",
-        "sourceStatus": "STATUS_SCHEDULED",
-        "segmentInferred": true
       }
     ],
     "cardHistory": [
@@ -549,10 +551,19 @@
           "Jacqueline Cavalcanti vs. Michelle Montague",
           "Roque Conceição Jr. vs. Nilson Rojas"
         ]
+      },
+      {
+        "checkedAt": "2026-11-27T00:44:42.044Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
+        "added": [],
+        "removed": [
+          "Jacqueline Cavalcanti vs. Michelle Montague",
+          "Roque Conceição Jr. vs. Nilson Rojas"
+        ]
       }
     ],
     "espnEventId": "600061401",
-    "cardCheckedAt": "2026-11-25T21:12:58.125Z",
+    "cardCheckedAt": "2026-11-27T00:44:42.044Z",
     "cardSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
     "cardSource": "ESPN",
     "cardFetchError": null,
@@ -561,8 +572,9 @@
     "country": "USA",
     "programmingStartUTC": "2026-12-12T22:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261212",
-    "scheduleCheckedAt": "2026-11-25T21:12:58.125Z",
+    "scheduleCheckedAt": "2026-11-27T00:44:42.044Z",
     "cardSourcePage": "https://www.espn.com/mma/fightcenter/_/id/600061401/league/ufc",
+    "cardSupplement": null,
     "bg": "#E53935",
     "color": "#fff"
   },
@@ -747,7 +759,7 @@
         "f2Id": "karolina-kowalkiewicz"
       }
     ],
-    "cardCheckedAt": "2026-11-25T21:12:58.209Z",
+    "cardCheckedAt": "2026-11-27T00:44:42.139Z",
     "cardSource": "ESPN",
     "cardHistory": [
       {
@@ -841,6 +853,16 @@
         "removed": [
           "Carlos Diego Ferreira vs. MarQuel Mederos"
         ]
+      },
+      {
+        "checkedAt": "2026-11-27T00:44:42.139Z",
+        "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
+        "added": [
+          "Diego Ferreira vs. MarQuel Mederos"
+        ],
+        "removed": [
+          "Carlos Diego Ferreira vs. MarQuel Mederos"
+        ]
       }
     ],
     "espnEventId": "600062421",
@@ -852,7 +874,8 @@
     "country": "USA",
     "programmingStartUTC": "2027-01-16T23:00Z",
     "scheduleSourceUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20270116",
-    "scheduleCheckedAt": "2026-11-25T21:12:58.209Z",
+    "scheduleCheckedAt": "2026-11-27T00:44:42.139Z",
+    "cardSupplement": null,
     "bg": "#7B1FA2",
     "color": "#fff"
   }

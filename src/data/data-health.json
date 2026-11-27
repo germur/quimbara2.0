@@ -1,95 +1,102 @@
 {
   "event-details": {
-    "lastAttempt": "2026-11-25T21:12:58.274Z",
+    "lastAttempt": "2026-11-27T00:44:42.216Z",
     "ok": true,
     "detail": {
-      "updated": 4,
-      "failed": 0
+      "updated": 3,
+      "failed": 0,
+      "partial": [
+        {
+          "slug": "ufc-fight-night-2027-01-23",
+          "espnBouts": 1,
+          "wikiBouts": 11
+        }
+      ]
     },
-    "lastSuccessfulFetch": "2026-11-25T21:12:58.274Z"
+    "lastSuccessfulFetch": "2026-11-27T00:44:42.216Z"
   },
   "Events": {
-    "lastAttempt": "2026-11-25T21:10:59.621Z",
+    "lastAttempt": "2026-11-27T00:42:46.760Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-25T21:10:59.621Z"
+      "completedAt": "2026-11-27T00:42:46.760Z"
     },
-    "lastSuccessfulFetch": "2026-11-25T21:10:59.621Z"
+    "lastSuccessfulFetch": "2026-11-27T00:42:46.760Z"
   },
   "Fight Cards": {
-    "lastAttempt": "2026-11-25T21:11:07.884Z",
+    "lastAttempt": "2026-11-27T00:42:53.163Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-25T21:11:07.884Z"
+      "completedAt": "2026-11-27T00:42:53.163Z"
     },
-    "lastSuccessfulFetch": "2026-11-25T21:11:07.884Z"
+    "lastSuccessfulFetch": "2026-11-27T00:42:53.163Z"
   },
   "Fighters": {
-    "lastAttempt": "2026-11-25T21:11:08.584Z",
+    "lastAttempt": "2026-11-27T00:42:54.023Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-25T21:11:08.584Z"
+      "completedAt": "2026-11-27T00:42:54.023Z"
     },
-    "lastSuccessfulFetch": "2026-11-25T21:11:08.584Z"
+    "lastSuccessfulFetch": "2026-11-27T00:42:54.023Z"
   },
   "Results": {
-    "lastAttempt": "2026-11-25T21:11:11.530Z",
+    "lastAttempt": "2026-11-27T00:42:56.454Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-25T21:11:11.530Z"
+      "completedAt": "2026-11-27T00:42:56.454Z"
     },
-    "lastSuccessfulFetch": "2026-11-25T21:11:11.530Z"
+    "lastSuccessfulFetch": "2026-11-27T00:42:56.454Z"
   },
   "Event Photos": {
-    "lastAttempt": "2026-11-25T21:11:11.656Z",
+    "lastAttempt": "2026-11-27T00:42:56.635Z",
     "ok": true,
     "detail": {
-      "completedAt": "2026-11-25T21:11:11.656Z"
+      "completedAt": "2026-11-27T00:42:56.635Z"
     },
-    "lastSuccessfulFetch": "2026-11-25T21:11:11.656Z"
+    "lastSuccessfulFetch": "2026-11-27T00:42:56.635Z"
   },
   "rankings": {
-    "lastAttempt": "2026-11-25T21:11:12.156Z",
+    "lastAttempt": "2026-11-27T00:42:57.324Z",
     "ok": true,
     "detail": {
       "sourceEntries": 176,
       "assigned": 176,
       "divisions": 11
     },
-    "lastSuccessfulFetch": "2026-11-25T21:11:12.156Z"
+    "lastSuccessfulFetch": "2026-11-27T00:42:57.324Z"
   },
   "fight-history": {
-    "lastAttempt": "2026-11-25T21:13:57.548Z",
+    "lastAttempt": "2026-11-27T00:46:50.834Z",
     "ok": true,
     "detail": {
-      "updated": 100,
+      "updated": 99,
       "errors": 0
     },
-    "lastSuccessfulFetch": "2026-11-25T21:13:57.548Z"
+    "lastSuccessfulFetch": "2026-11-27T00:46:50.834Z"
   },
   "images": {
-    "lastAttempt": "2026-11-25T21:13:59.340Z",
+    "lastAttempt": "2026-11-27T00:46:53.102Z",
     "ok": true,
     "detail": {
       "attempted": 1,
       "downloaded": 0,
       "failed": 0,
       "unavailable": 1,
-      "pendingRetries": 1,
+      "pendingRetries": 2,
       "directoryProfiles": 3238,
       "remaining": 2088
     },
-    "lastSuccessfulFetch": "2026-11-25T21:13:59.340Z"
+    "lastSuccessfulFetch": "2026-11-27T00:46:53.102Z"
   },
   "records": {
-    "lastAttempt": "2026-11-25T21:12:57.504Z",
+    "lastAttempt": "2026-11-27T00:44:41.552Z",
     "ok": true,
     "detail": {
       "attempted": 100,
-      "updated": 100,
-      "unavailable": 0,
+      "updated": 99,
+      "unavailable": 1,
       "errors": 0
     },
-    "lastSuccessfulFetch": "2026-11-25T21:12:57.504Z"
+    "lastSuccessfulFetch": "2026-11-27T00:44:41.552Z"
   }
 }
