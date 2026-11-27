@@ -49,6 +49,7 @@ for(const event of canonicalEvents(events).filter(e=>validDate(e.date)&&e.date>=
     if(coverage==='keep-wikipedia'){
       const summary={slug:event.slug,espnBouts:namedFights.length,wikiBouts:namedBouts(event.fightCard).length};
       primary.cardSupplement={checkedAt:checked,provider:'ESPN',status:'partial',...summary};
+      primary.cardFetchError=null;
       partial.push(summary);
       console.warn(`::warning::${event.slug}: ESPN has ${summary.espnBouts} named bouts; retained ${summary.wikiBouts} freshly checked Wikipedia bouts.`);
       continue;
