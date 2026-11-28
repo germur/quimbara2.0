@@ -1,0 +1,154 @@
+[
+  {
+    "eventId": "ufc-334-2026-11-14",
+    "date": "2026-11-14",
+    "f1": "Ciryl Gane",
+    "f2": "Josh Hokit",
+    "checkedAt": "2026-11-28T12:37:38.945Z",
+    "sourceUrl": "https://www.ufc.com/event/ufc-334",
+    "segments": [
+      {
+        "kind": "early",
+        "startUTC": "2026-11-14T22:00:00.000Z"
+      },
+      {
+        "kind": "prelims",
+        "startUTC": "2026-11-15T00:00:00.000Z"
+      },
+      {
+        "kind": "main",
+        "startUTC": "2026-11-15T02:00:00.000Z"
+      }
+    ],
+    "broadcast": [
+      {
+        "markets": "Latinoamérica, incluido México",
+        "provider": "Paramount+ en español",
+        "blocks": "Preliminares y cartelera estelar",
+        "sourceUrl": "https://www.ufc.com/news/how-watch-and-stream-ufc"
+      },
+      {
+        "markets": "España",
+        "provider": "HBO Max",
+        "blocks": "Preliminares y cartelera estelar",
+        "sourceUrl": "https://www.ufc.com/news/how-watch-and-stream-ufc"
+      }
+    ]
+  },
+  {
+    "eventId": "ufc-fight-night-2026-12-05",
+    "date": "2026-12-05",
+    "f1": "Israel Adesanya",
+    "f2": "Sharabutdin Magomedov",
+    "sourceUrl": "https://www.ufc.com/event/ufc-fight-night-december-05-2026",
+    "checkedAt": "2026-11-28T12:37:38.945Z",
+    "segments": [
+      {
+        "kind": "prelims",
+        "startUTC": "2026-12-05T15:00:00.000Z"
+      },
+      {
+        "kind": "main",
+        "startUTC": "2026-12-05T18:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "eventId": "ufc-335-2026-12-12",
+    "date": "2026-12-12",
+    "f1": "Charles Oliveira",
+    "f2": "Diego Lopes",
+    "sourceUrl": "https://www.ufc.com/event/ufc-335",
+    "checkedAt": "2026-11-28T12:37:38.945Z",
+    "segments": [
+      {
+        "kind": "early",
+        "startUTC": "2026-12-12T22:00:00.000Z"
+      },
+      {
+        "kind": "prelims",
+        "startUTC": "2026-12-13T00:00:00.000Z"
+      },
+      {
+        "kind": "main",
+        "startUTC": "2026-12-13T02:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "eventId": "ufc-fight-night-2027-01-16",
+    "date": "2027-01-16",
+    "f1": "Yair Rodríguez",
+    "f2": "Steve Garcia",
+    "sourceUrl": "https://www.ufc.com/event/ufc-fight-night-january-16-2027",
+    "checkedAt": "2026-11-28T12:37:38.945Z",
+    "segments": [
+      {
+        "kind": "prelims",
+        "startUTC": "2027-01-16T22:00:00.000Z"
+      },
+      {
+        "kind": "main",
+        "startUTC": "2027-01-17T01:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "eventId": "ufc-fight-night-2027-01-23",
+    "date": "2027-01-23",
+    "f1": "Gabriel Bonfim",
+    "f2": "Sean Brady",
+    "sourceUrl": "https://www.ufc.com/event/ufc-fight-night-january-23-2027",
+    "checkedAt": "2026-11-28T12:37:38.945Z",
+    "segments": [
+      {
+        "kind": "prelims",
+        "startUTC": "2027-01-23T22:00:00.000Z"
+      },
+      {
+        "kind": "main",
+        "startUTC": "2027-01-24T01:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "eventId": "ufc-336-2027-01-30",
+    "date": "2027-01-30",
+    "f1": "Van",
+    "f2": "Kape",
+    "sourceUrl": "https://www.ufc.com/event/ufc-336",
+    "checkedAt": "2026-11-28T12:37:38.945Z",
+    "segments": [
+      {
+        "kind": "early",
+        "startUTC": "2027-01-30T22:00:00.000Z"
+      },
+      {
+        "kind": "prelims",
+        "startUTC": "2027-01-31T00:00:00.000Z"
+      },
+      {
+        "kind": "main",
+        "startUTC": "2027-01-31T02:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "eventId": "ufc-fight-night-2027-02-13",
+    "date": "2027-02-13",
+    "f1": "Joe Pyfer",
+    "f2": "Bo Nickal",
+    "sourceUrl": "https://www.ufc.com/event/ufc-fight-night-february-13-2027",
+    "checkedAt": "2026-11-28T12:37:38.945Z",
+    "segments": [
+      {
+        "kind": "prelims",
+        "startUTC": "2027-02-13T20:00:00.000Z"
+      },
+      {
+        "kind": "main",
+        "startUTC": "2027-02-13T22:00:00.000Z"
+      }
+    ]
+  }
+]

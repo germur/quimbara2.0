@@ -95,9 +95,10 @@ export function instanteDesdeET(fechaISO, horaET) {
  * @returns {{pais:string, bandera:string, hora:string, dia:string, diaSiguiente:boolean}[]}
  */
 export function horariosPorPais(fechaISO, horaET) {
-  const instante = instanteDesdeET(fechaISO, horaET);
-  const [a, m, d] = fechaISO.split('-').map(Number);
+  return horariosPorInstante(instanteDesdeET(fechaISO, horaET), fechaISO);
+}
 
+export function horariosPorInstante(instante, fechaISO) {
   return PAISES.map(({ pais, zona, bandera }) => {
     const hora = new Intl.DateTimeFormat('es-ES', {
       timeZone: zona, hour: '2-digit', minute: '2-digit', hour12: false,
@@ -111,9 +112,7 @@ export function horariosPorPais(fechaISO, horaET) {
     // Un PPV a las 22:00 ET del sábado se ve de madrugada del domingo en España:
     // avisarlo evita que alguien se lo pierda por un día entero.
     const diaLocal = new Intl.DateTimeFormat('en-CA', { timeZone: zona }).format(instante);
-    const diaEvento = `${a}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-
-    return { pais, bandera, hora, dia, diaSiguiente: diaLocal > diaEvento };
+    return { pais, bandera, hora, dia, diaSiguiente: diaLocal > fechaISO };
   });
 }
 

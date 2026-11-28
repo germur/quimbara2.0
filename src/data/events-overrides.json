@@ -57,6 +57,145 @@
           "order": 5
         }
       ]
+    },
+    {
+      "slug": "ufc-334-2026-11-14",
+      "name": "UFC 334",
+      "main": "Ciryl Gane vs. Josh Hokit",
+      "date": "2026-11-14",
+      "dateLabel": "14 nov 2026",
+      "f1": "Ciryl Gane",
+      "f2": "Josh Hokit",
+      "f1img": "/fighters/ciryl-gane.png",
+      "f2img": "/fighters/josh-hokit.png",
+      "loc": "Madison Square Garden · Nueva York, Estados Unidos",
+      "venue": "Madison Square Garden",
+      "city": "Nueva York",
+      "country": "US",
+      "fightCard": [
+        {
+          "f1": "Ciryl Gane",
+          "f2": "Josh Hokit",
+          "weightClass": "Heavyweight",
+          "bout": "Main Event",
+          "order": 0,
+          "f1Id": "ciryl-gane",
+          "f2Id": "josh-hokit"
+        },
+        {
+          "f1": "Kayla Harrison",
+          "f2": "Amanda Nunes",
+          "weightClass": "Bantamweight",
+          "bout": "Co-Main Event",
+          "order": 1,
+          "f1Id": "kayla-harrison",
+          "f2Id": "amanda-nunes"
+        },
+        {
+          "f1": "Caio Borralho",
+          "f2": "Yousri Belgaroui",
+          "weightClass": "Middleweight",
+          "bout": "maincard",
+          "order": 2,
+          "f1Id": "caio-borralho",
+          "f2Id": "yousri-belgaroui"
+        },
+        {
+          "f1": "Uroš Medić",
+          "f2": "Kevin Holland",
+          "weightClass": "Welterweight",
+          "bout": "maincard",
+          "order": 3,
+          "f1Id": "uros-medic",
+          "f2Id": "kevin-holland"
+        },
+        {
+          "f1": "Bilal Hasan",
+          "f2": "Luis Gurule",
+          "weightClass": "Flyweight",
+          "bout": "maincard",
+          "order": 4,
+          "f1Id": "bilal-hasan",
+          "f2Id": "luis-gurule"
+        },
+        {
+          "f1": "Stephen Thompson",
+          "f2": "Charles Radtke",
+          "weightClass": "Welterweight",
+          "bout": "prelims",
+          "order": 5,
+          "f1Id": "stephen-thompson",
+          "f2Id": "charles-radtke"
+        },
+        {
+          "f1": "Drew Dober",
+          "f2": "Chris Duncan",
+          "weightClass": "Lightweight",
+          "bout": "prelims",
+          "order": 6,
+          "f1Id": "drew-dober",
+          "f2Id": "chris-duncan"
+        },
+        {
+          "f1": "Jim Miller",
+          "f2": "Terrance McKinney",
+          "weightClass": "Lightweight",
+          "bout": "prelims",
+          "order": 7,
+          "f1Id": "jim-miller",
+          "f2Id": "terrance-mckinney"
+        },
+        {
+          "f1": "Donte Johnson",
+          "f2": "Cesar Almeida",
+          "weightClass": "Catchweight",
+          "bout": "prelims",
+          "order": 8,
+          "f1Id": "donte-johnson",
+          "f2Id": "cesar-almeida"
+        },
+        {
+          "f1": "Jared Gordon",
+          "f2": "Melquizael Costa",
+          "weightClass": "Lightweight",
+          "bout": "early-prelims",
+          "order": 9,
+          "f1Id": "jared-gordon",
+          "f2Id": "melquizael-costa"
+        },
+        {
+          "f1": "Macy Chiasson",
+          "f2": "Bia Mesquita",
+          "weightClass": "Bantamweight",
+          "bout": "early-prelims",
+          "order": 10,
+          "f1Id": "macy-chiasson",
+          "f2Id": "bia-mesquita"
+        },
+        {
+          "f1": "Alatengheili",
+          "f2": "Juan Diaz",
+          "weightClass": "Bantamweight",
+          "bout": "early-prelims",
+          "order": 11,
+          "f1Id": "alatengheili",
+          "f2Id": "juan-diaz"
+        },
+        {
+          "f1": "Evan Elder",
+          "f2": "Samuel Sanches",
+          "weightClass": "Lightweight",
+          "bout": "early-prelims",
+          "order": 12,
+          "f1Id": "evan-elder",
+          "f2Id": "samuel-sanches"
+        }
+      ],
+      "cardSource": "UFC",
+      "cardSourceUrl": "https://www.ufc.com/event/ufc-334",
+      "cardSourcePage": "https://www.ufc.com/event/ufc-334",
+      "cardCheckedAt": "2026-11-28T12:37:38.945Z",
+      "cardFetchError": null
     }
   ]
 }

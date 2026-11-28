@@ -2355,7 +2355,7 @@
     "slug": "ufc-334-2026-11-14",
     "name": "UFC 334",
     "main": "Ciryl Gane vs. Josh Hokit",
-    "loc": "New York City, New York, U.S.",
+    "loc": "Madison Square Garden · Nueva York, Estados Unidos",
     "date": "2026-11-14",
     "dateLabel": "14 nov 2026",
     "f1": "Ciryl Gane",
@@ -2366,137 +2366,130 @@
     "fightCard": [
       {
         "f1": "Ciryl Gane",
-        "f1Id": "ciryl-gane",
         "f2": "Josh Hokit",
-        "f2Id": "josh-hokit",
         "weightClass": "Heavyweight",
         "bout": "Main Event",
         "order": 0,
-        "f1StatsId": "787bb1f087ccff8a",
-        "f2StatsId": "955da1675ad58a50"
+        "f1Id": "ciryl-gane",
+        "f2Id": "josh-hokit"
       },
       {
         "f1": "Kayla Harrison",
-        "f1Id": "kayla-harrison",
         "f2": "Amanda Nunes",
-        "f2Id": "amanda-nunes",
-        "weightClass": "Women's Bantamweight",
+        "weightClass": "Bantamweight",
         "bout": "Co-Main Event",
         "order": 1,
-        "f1StatsId": "1af1170ed937cba7",
-        "f2StatsId": "80fa8218c99f9c58"
+        "f1Id": "kayla-harrison",
+        "f2Id": "amanda-nunes"
       },
       {
         "f1": "Caio Borralho",
-        "f1Id": "caio-borralho",
         "f2": "Yousri Belgaroui",
-        "f2Id": "yousri-belgaroui",
         "weightClass": "Middleweight",
         "bout": "maincard",
         "order": 2,
-        "f1StatsId": "4126a78111c0855a",
-        "f2StatsId": "7674b836ce0698a0"
+        "f1Id": "caio-borralho",
+        "f2Id": "yousri-belgaroui"
       },
       {
         "f1": "Uroš Medić",
-        "f1Id": "uros-medic",
         "f2": "Kevin Holland",
-        "f2Id": "kevin-holland",
         "weightClass": "Welterweight",
         "bout": "maincard",
         "order": 3,
-        "f1StatsId": "681399317dbf4701",
-        "f2StatsId": "3a46b268013afede"
+        "f1Id": "uros-medic",
+        "f2Id": "kevin-holland"
       },
       {
         "f1": "Bilal Hasan",
-        "f1Id": "bilal-hasan",
         "f2": "Luis Gurule",
-        "f2Id": "luis-gurule",
         "weightClass": "Flyweight",
         "bout": "maincard",
         "order": 4,
-        "f1StatsId": "5182316da3c1d891",
-        "f2StatsId": "29162be25ebef5f0"
-      },
-      {
-        "f1": "Drew Dober",
-        "f1Id": "drew-dober",
-        "f2": "Chris Duncan",
-        "f2Id": "chris-duncan",
-        "weightClass": "Lightweight",
-        "bout": "maincard",
-        "order": 5,
-        "f1StatsId": "519e4fe37ce9ff75",
-        "f2StatsId": "fd406a32a6fb3a29"
+        "f1Id": "bilal-hasan",
+        "f2Id": "luis-gurule"
       },
       {
         "f1": "Stephen Thompson",
-        "f1Id": "stephen-thompson",
         "f2": "Charles Radtke",
-        "f2Id": "charles-radtke",
         "weightClass": "Welterweight",
-        "bout": "maincard",
-        "order": 6,
-        "f1StatsId": "4a28cb716c19157a",
-        "f2StatsId": "feedf3053472fe56"
+        "bout": "prelims",
+        "order": 5,
+        "f1Id": "stephen-thompson",
+        "f2Id": "charles-radtke"
       },
       {
-        "f1": "Donte Johnson",
-        "f1Id": "donte-johnson",
-        "f2": "Baisangur Susurkaev",
-        "f2Id": "baisangur-susurkaev",
-        "weightClass": "Middleweight",
-        "bout": "maincard",
-        "order": 7,
-        "f1StatsId": "ad5cb64af10fc946",
-        "f2StatsId": "d1feea7a4bdcd503"
+        "f1": "Drew Dober",
+        "f2": "Chris Duncan",
+        "weightClass": "Lightweight",
+        "bout": "prelims",
+        "order": 6,
+        "f1Id": "drew-dober",
+        "f2Id": "chris-duncan"
       },
       {
         "f1": "Jim Miller",
-        "f1Id": "jim-miller",
         "f2": "Terrance McKinney",
-        "f2Id": "terrance-mckinney",
         "weightClass": "Lightweight",
-        "bout": "maincard",
+        "bout": "prelims",
+        "order": 7,
+        "f1Id": "jim-miller",
+        "f2Id": "terrance-mckinney"
+      },
+      {
+        "f1": "Donte Johnson",
+        "f2": "Cesar Almeida",
+        "weightClass": "Catchweight",
+        "bout": "prelims",
         "order": 8,
-        "f1StatsId": "d1941565abf50b16",
-        "f2StatsId": "809bd1a871491508"
+        "f1Id": "donte-johnson",
+        "f2Id": "cesar-almeida"
+      },
+      {
+        "f1": "Jared Gordon",
+        "f2": "Melquizael Costa",
+        "weightClass": "Lightweight",
+        "bout": "early-prelims",
+        "order": 9,
+        "f1Id": "jared-gordon",
+        "f2Id": "melquizael-costa"
       },
       {
         "f1": "Macy Chiasson",
-        "f1Id": "macy-chiasson",
-        "f2": "Beatriz Mesquita",
-        "f2Id": "bia-mesquita",
-        "weightClass": "Women's Bantamweight",
-        "bout": "maincard",
-        "order": 9,
-        "f1StatsId": "9cdd2da1a9104a0b",
-        "f2StatsId": "eff9074bc066f0f2"
-      },
-      {
-        "f1": "Adrian Yañez",
-        "f1Id": "adrian-yanez",
-        "f2": "Juan Díaz",
-        "f2Id": "juan-diaz",
+        "f2": "Bia Mesquita",
         "weightClass": "Bantamweight",
-        "bout": "maincard",
+        "bout": "early-prelims",
         "order": 10,
-        "f1StatsId": "0232cabbc30a2372",
-        "f2StatsId": "74939a16c7b56f33"
+        "f1Id": "macy-chiasson",
+        "f2Id": "bia-mesquita"
       },
       {
-        "f1": "Nazim Sadykhov",
-        "f1Id": "nazim-sadykhov",
-        "f2": "Jefferson Nascimento",
-        "f2Id": "jefferson-nascimento",
-        "weightClass": "Lightweight",
-        "bout": "maincard",
+        "f1": "Alatengheili",
+        "f2": "Juan Diaz",
+        "weightClass": "Bantamweight",
+        "bout": "early-prelims",
         "order": 11,
-        "f1StatsId": "ff62013d2fce6d13",
-        "f2StatsId": "4b85abc5abbe657c"
+        "f1Id": "alatengheili",
+        "f2Id": "juan-diaz"
+      },
+      {
+        "f1": "Evan Elder",
+        "f2": "Samuel Sanches",
+        "weightClass": "Lightweight",
+        "bout": "early-prelims",
+        "order": 12,
+        "f1Id": "evan-elder",
+        "f2Id": "samuel-sanches"
       }
-    ]
+    ],
+    "venue": "Madison Square Garden",
+    "city": "Nueva York",
+    "country": "US",
+    "cardSource": "UFC",
+    "cardSourceUrl": "https://www.ufc.com/event/ufc-334",
+    "cardSourcePage": "https://www.ufc.com/event/ufc-334",
+    "cardCheckedAt": "2026-11-28T12:37:38.945Z",
+    "cardFetchError": null
   },
   {
     "slug": "ufc-fight-night-294-2026-11-21",

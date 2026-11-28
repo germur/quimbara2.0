@@ -1,5 +1,31 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
+import { parseOfficialPrograms, refreshOfficialPrograms } from './lib/ufc-schedule.mjs';
+import { programForEvent } from '../src/lib/event-programs.mjs';
+import { horariosPorInstante } from '../src/lib/horarios.mjs';
+
+test('official blocks are matched to the event and use the local day across midnight', () => {
+ const start = Date.parse('2026-12-13T02:00:00Z') / 1000;
+ const columns = [['Early Prelims',start-14400],['Prelims',start-7200],['Cartelera Estelar',start]];
+ const html = '<div id="events-list-upcoming"><div class="l-listing__item views-row">' +
+   '<h3 class="c-card-event--result__headline"><a href="/event/ufc-335">Oliveira vs Lopes</a></h3>' +
+   columns.map(([label,time]) => `<div class="c-listing-viewing-option__column--left"><span class="c-listing-viewing-option__fight-card">${label}</span><span data-timestamp="${time}"></span></div>`).join('') +
+   '</div></div>';
+ const event = {slug:'ufc-335-2026-12-12',name:'UFC 335',date:'2026-12-12',
+   f1:'Charles Oliveira',f2:'Diego Lopes',main:'Charles Oliveira vs. Diego Lopes'};
+ const official = parseOfficialPrograms(html);
+ const {programs, matched} = refreshOfficialPrograms([event, {...event,slug:'wrong-date',date:'2026-12-19'}], [], official, '2026-11-28T15:00:00Z');
+ assert.equal(matched, 1);
+ const program = programForEvent(event, programs);
+ assert.deepEqual(program.segments.map(segment => segment.kind), ['early','prelims','main']);
+ const hours = horariosPorInstante(new Date(program.segments[2].startUTC), event.date);
+ assert.equal(hours.find(hour => hour.pais === 'Colombia').hora, '21:00');
+ const spain = hours.find(hour => hour.pais === 'España');
+ assert.equal(spain.hora, '03:00');
+ assert.equal(spain.diaSiguiente, true);
+ assert.equal(programForEvent({...event,f2:'Other Opponent'}, programs), undefined);
+ assert.equal(programForEvent({...event,status:'postponed'}, programs), undefined);
+});
 import {buildRegistry} from './sync-event-urls.mjs';
 import {eventStatus,schemaStatus,validDate,validTime,cardChanges,imageQueue} from '../src/lib/event-data.mjs';
 import {horariosDeEvento,instanteDesdeET} from '../src/lib/horarios.mjs';

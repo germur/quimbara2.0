@@ -1,0 +1,49 @@
+---
+import { horariosPorInstante, PAISES } from '../lib/horarios.mjs';
+import { programLabels } from '../lib/event-programs.mjs';
+
+interface Props {
+  program: {
+    date: string;
+    sourceUrl: string;
+    checkedAt: string;
+    segments: { kind: keyof typeof programLabels; startUTC: string }[];
+  };
+}
+const { program } = Astro.props;
+const segments = program.segments.map(segment => ({
+  ...segment,
+  local: horariosPorInstante(new Date(segment.startUTC), program.date),
+}));
+const checked = new Intl.DateTimeFormat('es-CO', {
+  dateStyle: 'medium', timeZone: 'America/Bogota',
+}).format(new Date(program.checkedAt));
+---
+
+<h2 class="text-2xl md:text-3xl font-bold mb-4" style="font-family:var(--font-display)">Horarios oficiales por país</h2>
+<div class="overflow-x-auto">
+  <table class="w-full text-left text-sm" aria-label="Horarios por país y bloque">
+    <thead class="bg-gray-100 text-gray-700">
+      <tr>
+        <th scope="col" class="p-3">País</th>
+        {segments.map(segment => <th scope="col" class="p-3">{programLabels[segment.kind]}</th>)}
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      {PAISES.map((country, index) => <tr>
+        <th scope="row" class="p-3 whitespace-nowrap"><span aria-hidden="true">{country.bandera}</span> {country.pais}</th>
+        {segments.map(segment => {
+          const local = segment.local[index];
+          return <td class="p-3">
+            <time datetime={segment.startUTC} class="font-semibold">{local.hora}</time>
+            <span class="block text-xs text-gray-600">{local.dia}</span>
+          </td>;
+        })}
+      </tr>)}
+    </tbody>
+  </table>
+</div>
+<p class="text-sm text-gray-600 mt-4">
+  Las horas corresponden al inicio de cada bloque. Consulta la
+  <a class="underline" href={program.sourceUrl}>programación oficial de UFC</a>, verificada el {checked}.
+</p>

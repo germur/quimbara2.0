@@ -1,0 +1,289 @@
+[
+  {
+    "eventId": "ufc-334-2026-11-14",
+    "date": "2026-11-14",
+    "results": [
+      {
+        "w": "Ciryl Gane",
+        "l": "Josh Hokit",
+        "outcome": "win",
+        "method": "Decisión Unánime",
+        "round": 5,
+        "time": "5:00",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Kayla Harrison",
+        "l": "Amanda Nunes",
+        "outcome": "win",
+        "method": "Sumisión",
+        "round": 4,
+        "time": "1:29",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Caio Borralho",
+        "l": "Yousri Belgaroui",
+        "outcome": "win",
+        "method": "Decisión Unánime",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Uroš Medić",
+        "l": "Kevin Holland",
+        "outcome": "draw",
+        "method": "Empate por mayoría",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Luis Gurule",
+        "l": "Bilal Hasan",
+        "outcome": "win",
+        "method": "Decisión Dividida",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Stephen Thompson",
+        "l": "Charles Radtke",
+        "outcome": "win",
+        "method": "KO/TKO",
+        "round": 3,
+        "time": "2:54",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Chris Duncan",
+        "l": "Drew Dober",
+        "outcome": "win",
+        "method": "Decisión Unánime",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Terrance McKinney",
+        "l": "Jim Miller",
+        "outcome": "win",
+        "method": "KO/TKO",
+        "round": 1,
+        "time": "1:53",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Cesar Almeida",
+        "l": "Donte Johnson",
+        "outcome": "win",
+        "method": "KO/TKO",
+        "round": 1,
+        "time": "3:20",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Melquizael Costa",
+        "l": "Jared Gordon",
+        "outcome": "win",
+        "method": "Decisión Unánime",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Bia Mesquita",
+        "l": "Macy Chiasson",
+        "outcome": "win",
+        "method": "Sumisión",
+        "round": 1,
+        "time": "3:23",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Juan Diaz",
+        "l": "Alatengheili",
+        "outcome": "win",
+        "method": "Decisión Unánime",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Evan Elder",
+        "l": "Samuel Sanches",
+        "outcome": "win",
+        "method": "Decisión Unánime",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC 334 - Gane vs. Hokit",
+        "sourceUrl": "https://www.ufc.com/event/ufc-334",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      }
+    ]
+  },
+  {
+    "eventId": "ufc-fight-night-2026-11-21",
+    "date": "2026-11-21",
+    "results": [
+      {
+        "w": "Navajo Stirling",
+        "l": "Jiri Prochazka",
+        "outcome": "win",
+        "method": "KO (Punches)",
+        "round": 2,
+        "time": "4:58",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Kevin Vallejos",
+        "l": "Aljamain Sterling",
+        "outcome": "win",
+        "method": "Decision (Unanimous)",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Dan Hooker",
+        "l": "Brian Ortega",
+        "outcome": "win",
+        "method": "Decision (Unanimous)",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Kyoji Horiguchi",
+        "l": "Asu Almabayev",
+        "outcome": "win",
+        "method": "Decision (Unanimous)",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Ikram Aliskerov",
+        "l": "Jared Cannonier",
+        "outcome": "win",
+        "method": "Decision (Unanimous)",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Santiago Luna",
+        "l": "Aleksandre Topuria",
+        "outcome": "win",
+        "method": "Decision (Split)",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Tallison Teixeira",
+        "l": "Shamil Gaziev",
+        "outcome": "win",
+        "method": "Decision (Unanimous)",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Amir Albazi",
+        "l": "Alessandro Costa",
+        "outcome": "win",
+        "method": "Submission (Rear-Naked Choke)",
+        "round": 3,
+        "time": "4:34",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Tahir Abdullayev",
+        "l": "Jake Matthews",
+        "outcome": "win",
+        "method": "Decision (Unanimous)",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Dom Mar Fan",
+        "l": "Nikolas Motta",
+        "outcome": "win",
+        "method": "Decision (Unanimous)",
+        "round": 3,
+        "time": "5:00",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "Diyar Nurgozhay",
+        "l": "Alik Lorenz",
+        "outcome": "win",
+        "method": "TKO (Head Kick and Punches)",
+        "round": 2,
+        "time": "0:24",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      },
+      {
+        "w": "John Mitchell",
+        "l": "Shoaib Yousaf",
+        "outcome": "win",
+        "method": "KO (Knee and Punches)",
+        "round": 1,
+        "time": "3:50",
+        "event": "UFC Fight Night 294 - Prochazka vs. Stirling",
+        "sourceUrl": "https://www.sherdog.com/events/UFC-Fight-Night-294-Prochazka-vs-Stirling-114295",
+        "checkedAt": "2026-11-28T12:37:38.945Z"
+      }
+    ]
+  }
+]

@@ -2,8 +2,15 @@ import fs from 'node:fs';
 import {historyMatchesRecord,recordParts} from '../src/lib/history-sanity.mjs';
 const read=name=>JSON.parse(fs.readFileSync(`src/data/${name}.json`,'utf8'));
 const fighters=read('fighters'),histories=read('peleadores-peleas').peleadores,results=read('results');
+const archive=read('event-results');
 const errors=[];
-for(const result of results){
+const keys=new Set();
+for(const entry of archive){
+ const key=entry.eventId+'@'+entry.date;
+ if(keys.has(key)||!entry.eventId||!Number.isFinite(Date.parse(entry.date))||!entry.results?.length)errors.push(`Invalid event results archive: ${key}`);
+ keys.add(key);
+}
+for(const result of [...results,...archive.flatMap(entry=>entry.results??[])]){
  if(!['win','draw','nc'].includes(result.outcome)||!result.w||!result.l||!result.sourceUrl||!Number.isFinite(Date.parse(result.checkedAt)))errors.push(`Invalid result provenance: ${result.w}`);
  if(/draw/i.test(result.method)&&result.outcome!=='draw'||/no contest/i.test(result.method)&&result.outcome!=='nc')errors.push(`Contradictory winner: ${result.w}`);
 }
