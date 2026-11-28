@@ -2,6 +2,9 @@
 import EventProvenance from "../../components/EventProvenance.astro";
 import AnswerFirst from '../../components/AnswerFirst.astro';
 import RESULTS from '../../data/results.json';
+import RESULT_HISTORY from '../../data/event-results.json';
+import EVENT_PROGRAMS from '../../data/event-programs.json';
+import { programForEvent, programLabels } from '../../lib/event-programs.mjs';
 import {resultsForEvent} from '../../lib/search-intent.mjs';
 import {resultPresentation} from '../../../scripts/lib/recent-results.mjs';
 import {schemaStatus,eventStatus} from "../../lib/event-data.mjs";
@@ -14,8 +17,9 @@ import EVENTS_RAW from '../../data/events-all.json';
 import { getCollection } from 'astro:content';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 // @ts-ignore — conversión de horarios por país (ver src/lib/horarios.mjs)
-import { horariosDeEvento } from '../../lib/horarios.mjs';
+import { horariosDeEvento, horariosPorInstante } from '../../lib/horarios.mjs';
 import HorariosEvento from '../../components/HorariosEvento.astro';
+import EventProgram from '../../components/EventProgram.astro';
 
 type FightCardEntry = { f1: string; f1Id: string; f2: string; f2Id: string; weightClass: string; bout: string; order: number };
 type EventFull = typeof EVENTS_RAW[0] & { f1: string; f2: string; f1img: string; f2img: string; fightCard?: FightCardEntry[]; status?: 'upcoming' | 'completed' };
@@ -28,9 +32,10 @@ export function getStaticPaths() {
 
 const { event } = Astro.props as { event: EventFull & Record<string, any> };
 const PX = 'clamp(16px,4vw,60px)';
+const today = bogotaDate(Date.now());
 
 const isPPV = /UFC \d/.test(event.name);
-const eventState=eventStatus(event, bogotaDate(Date.now()));
+const eventState=eventStatus(event, today);
 const isCompleted = eventState === 'past';
 const eventTitle = `${event.name}${event.main !== 'TBD' ? ': ' + event.main : ''}`;
 const eventNum = event.name.replace('UFC ', '').replace('Fight Night', 'FN');
@@ -42,11 +47,12 @@ const tieneQuiniela = Array.isArray(event.fightCard) && event.fightCard.length >
 // Horarios por país: la sección que el title llevaba prometiendo sin existir.
 // Devuelve null si el evento no trae fecha usable — un dato sucio del scraper
 // no puede tumbar el build de todo el sitio.
-const datosHora = horariosDeEvento(event as any);
+const program = programForEvent(event, EVENT_PROGRAMS);
+const datosHora = program ? null : horariosDeEvento(event as any);
 const horaConfirmada = datosHora?.confirmada ?? false;
 const horaET = datosHora?.horaET ?? null;
 const horarios = datosHora?.horarios ?? [];
-const startDateISO = datosHora?.startDateISO ?? null;
+const startDateISO = program?.segments[0]?.startUTC ?? datosHora?.startDateISO ?? null;
 
 const f1 = event.f1 ?? (event.main !== 'TBD' ? event.main.split(' vs. ')[0]?.trim() : 'TBD');
 const f2 = event.f2 ?? (event.main !== 'TBD' ? event.main.split(' vs. ')[1]?.trim() : 'TBD');
@@ -145,14 +151,28 @@ const metaTitle = isCompleted
 const metaDescription = isCompleted
   ? `Información de ${event.name}, ${event.main}, del ${event.dateLabel} en ${event.loc}. Consulta la cartelera anunciada y sus fuentes.`
   : `Cartelera anunciada de ${event.name}: ${event.main}. Fecha ${event.dateLabel}, ${event.loc}. Consulta fuentes y horarios disponibles.`;
-const availableResults=resultsForEvent(event,RESULTS);
+const archived = event.date <= today && ['past', 'upcoming'].includes(eventState)
+  ? RESULT_HISTORY.find(entry => entry.eventId === identity && entry.date === event.date)
+  : undefined;
+const availableResults = archived?.results ?? resultsForEvent(event, RESULTS);
+const resultSources = [...new Set(availableResults.map(result => result.sourceUrl))];
+const sourceLabel = (url: string) => url.startsWith('https://www.ufc.com/') ? 'UFC' : 'Sherdog';
 const colombia=horarios.find(h=>h.pais==='Colombia');
+const colombiaProgram = program?.segments.map(segment => {
+  const local = horariosPorInstante(new Date(segment.startUTC), event.date).find(hour => hour.pais === 'Colombia');
+  return `${programLabels[segment.kind as keyof typeof programLabels]} a las ${local.hora}${local.diaSiguiente ? ` (${local.dia})` : ''}`;
+}).join(', ');
+const broadcast = program?.broadcast ?? [];
+const upcomingLatinAmerica = eventState === 'upcoming' && Boolean(program) &&
+  event.date >= '2026-01-01' && event.date < '2033-01-01' &&
+  /^(UFC \d+|UFC Fight Night(?: \d+)?)$/i.test(event.name);
+const guideUrl = program?.sourceUrl ?? 'https://www.ufc.com/events';
 const resultLead=availableResults[0];
 const directAnswer=eventState==='cancelled'?`${eventTitle} figura como cancelado. La fecha registrada era ${event.dateLabel}.`
   :eventState==='postponed'?`${eventTitle} figura como aplazado. Consulta las fuentes de la ficha para conocer los cambios de fecha.`
   :resultLead?`${resultLead.outcome==='win'?`${resultLead.w} venció a ${resultLead.l} por ${resultLead.method}`:resultLead.outcome==='draw'?`${resultLead.w} y ${resultLead.l} empataron`:`${resultLead.w} vs. ${resultLead.l} terminó sin resultado`}. ${event.name} se celebró el ${event.dateLabel} en ${event.loc}. Aquí están los ${availableResults.length} resultados disponibles de la fuente.`
-  :`${eventTitle} ${isCompleted?'se celebró':'está previsto para'} el ${event.dateLabel} en ${event.loc}.${!isCompleted&&colombia?` El inicio de la programación figura a las ${colombia.hora} en Colombia; no es la hora exacta de la estelar.`:!isCompleted?' El horario de emisión está pendiente de verificación.':' Esta ficha conserva la cartelera anunciada; no dispone de resultados verificados de ese evento.'}`;
-const answerLinks=[...(availableResults.length?[{href:'#resultados',label:'Resultados disponibles'}]:[]),...(!isCompleted?[{href:'#horarios',label:'Horarios por país'}]:[]),...(event.fightCard?.length?[{href:'#cartelera',label:'Cartelera'}]:[]),{href:'#como-ver',label:'Cómo ver'}];
+  :`${eventTitle} ${isCompleted?'se celebró':'está previsto para'} el ${event.dateLabel} en ${event.loc}.${!isCompleted&&colombiaProgram?` En Colombia: ${colombiaProgram}.`:!isCompleted&&colombia?` La programación comienza a las ${colombia.hora} en Colombia, según la fuente de la ficha.`:!isCompleted?' El horario de emisión está pendiente de verificación.':' Esta ficha conserva la cartelera anunciada.'}`;
+const answerLinks=[...(availableResults.length?[{href:'#resultados',label:'Resultados disponibles'}]:[]),...(program||eventState==='upcoming'?[{href:'#horarios',label:'Horarios por país'}]:[]),...(event.fightCard?.length?[{href:'#cartelera',label:'Cartelera'}]:[]),{href:'#como-ver',label:isCompleted?'Emisión':'Cómo ver'}];
 ---
 
 <BaseLayout
@@ -325,12 +345,18 @@ const answerLinks=[...(availableResults.length?[{href:'#resultados',label:'Resul
 
   {availableResults.length>0&&<section id="resultados" class="scroll-mt-20" style={`max-width:1400px;margin:0 auto;padding:38px ${PX} 0;`}>
     <h2 class="text-2xl mb-4" style="font-family:var(--font-display)">Resultados disponibles de {event.name}</h2>
-    <p class="text-sm text-gray-600 mb-5">Se muestran {availableResults.length} resultados consultados en <a class="underline" href={availableResults[0].sourceUrl}>Sherdog</a>. Este bloque no representa necesariamente la cartelera completa.</p>
+    <p class="text-sm text-gray-600 mb-5">
+      {availableResults.length} resultados verificados.
+      {resultSources.map(url => <a class="underline ml-2" href={url}>Resultados en {sourceLabel(url)}</a>)}
+    </p>
     <ul class="divide-y divide-gray-200">{availableResults.map(r=><li class="py-4"><p class="font-bold">{r.w} {resultPresentation(r).winner?'venció a':r.outcome==='draw'?'empató con':'vs.'} {r.l}{r.outcome==='nc'?' · Sin resultado':''}</p><p class="text-sm text-gray-600">{r.method} · R{r.round} · {r.time}</p></li>)}</ul>
   </section>}
 
   <!-- ── Horarios por país (tabla estática + detección de zona en cliente) ── -->
-  {!isCompleted && datosHora && (
+  {program && <section id="horarios" class="scroll-mt-20" style={`max-width:1400px; margin:0 auto; padding:38px ${PX} 0;`}>
+    <EventProgram program={program} />
+  </section>}
+  {!program && eventState === 'upcoming' && datosHora && (
     <div id="horarios" class="scroll-mt-20" style={`max-width:1400px; margin:0 auto; padding: 38px ${PX} 0;`}>
       <HorariosEvento
         nombreEvento={eventTitle}
@@ -345,18 +371,28 @@ const answerLinks=[...(availableResults.length?[{href:'#resultados',label:'Resul
     </div>
   )}
 
-  {!isCompleted && !datosHora && <section id="horarios" class="scroll-mt-20" style={`max-width:1400px; margin:0 auto; padding:40px ${PX} 0;`}><h2>Horarios pendientes de verificación</h2><p>No publicamos una hora estimada como confirmada. Revisa la fuente del organizador antes de planificar cómo seguir el evento.</p></section>}
+  {!program && eventState === 'upcoming' && !datosHora && <section id="horarios" class="scroll-mt-20" style={`max-width:1400px; margin:0 auto; padding:40px ${PX} 0;`}><h2>Horarios pendientes de verificación</h2><p>Consulta la ficha oficial al preparar cómo seguir el evento.</p></section>}
 
   <!-- ── Cómo ver ── -->
   <section id="como-ver" class="scroll-mt-20" style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
-    <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">Cómo ver</h2>
-    <p class="text-sm text-gray-600 leading-relaxed">La emisión depende del país y puede cambiar por evento. Consulta <a class="underline" href="https://www.ufc.com/events">la información del organizador</a> y la programación del operador en tu país. No hay un operador verificado para cada país en esta ficha.</p>
+    <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">{isCompleted ? 'Emisión del evento' : 'Cómo ver'}</h2>
+    {broadcast.map(region => <p class="text-sm text-gray-600 leading-relaxed mb-2">
+      <strong>{region.markets}</strong>. {region.blocks} en {region.provider}.
+      <a class="underline" href={region.sourceUrl}>Guía de emisión de UFC</a>.
+    </p>)}
+    {upcomingLatinAmerica && (
+      <p class="text-sm text-gray-600 leading-relaxed mb-2">
+        <strong>Latinoamérica</strong>. Paramount+ tiene los derechos de los eventos numerados y UFC Fight Night,
+        según el <a class="underline" href="https://www.ufc.com/news/paramount-and-ufc-expand-partnership-to-latin-america-and-australia-starting-in-2026">acuerdo anunciado por UFC</a>.
+      </p>
+    )}
+    <p class="text-sm text-gray-600 leading-relaxed">Consulta <a class="underline" href={guideUrl}>{program ? 'la ficha oficial de este evento' : 'el calendario oficial de UFC'}</a> para ver la disponibilidad de la emisión en tu país.</p>
   </section>
 
   <!-- ── Cartelera anunciada ── -->
   {event.fightCard && event.fightCard.length > 0 && (
     <section id="cartelera" class="scroll-mt-20" style={`max-width:1400px; margin:0 auto; padding: 50px ${PX} 0;`}>
-      <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">Cartelera anunciada</h2>
+      <h2 class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-5" style="font-family:var(--font-sans);">{isCompleted && event.cardSource === 'UFC' ? 'Cartelera disputada' : 'Cartelera anunciada'}</h2>
       <div class="space-y-4" style="font-family:var(--font-sans);">
         {event.fightCard.map((fight, i) => {
           const isMain = fight.bout === 'Main Event' || i === 0;

@@ -1,6 +1,7 @@
 import {joinFighterSources} from "./lib/fighter-identity.mjs";
 import {preserveRecordScope} from "./lib/record-sanity.mjs";
 import {parseSherdogResults} from './lib/recent-results.mjs';
+import {archiveEventResults} from './lib/event-results.mjs';
 import {safeWriteJson} from "./lib/datasets.mjs";
 import {recordHealth} from "./lib/health.mjs";
 import {createFighterMedia,resolveBoutPerson,resolveEventPerson} from "../src/lib/fighter-media.mjs";
@@ -31,7 +32,8 @@ import {namedBouts,sameBout} from './lib/card-coverage.mjs';
  *   - src/data/fighters.json
  *   - src/data/events.json      (próximos 3, con paleta para el home)
  *   - src/data/events-all.json  (todos, con fightCard)
- *   - src/data/results.json     (últimos 4 resultados)
+ *   - src/data/results.json     (últimos 4 resultados para la portada)
+ *   - src/data/event-results.json (historial de resultados por evento)
  *
  * Run: npx tsx scripts/fetch-ufc-data.ts
  */
@@ -555,6 +557,10 @@ export async function fetchResults() {
   const results = parseSherdogResults($ev.html(),{event:eventName,sourceUrl:`https://www.sherdog.com${eventPath}`});
 
   if (!results.length) throw new Error('Results: 0 peleas parseadas de Sherdog');
+  const date = $ev('[itemprop="startDate"]').first().attr('content')?.slice(0, 10);
+  const archive = archiveEventResults(readJson('event-results.json'), readJson('events-all.json'), date, results);
+  if (archive) writeJson('event-results.json', archive);
+  else console.warn(`::warning::No se pudo asociar el resultado de "${eventName}" a un evento por fecha y pelea principal.`);
   writeJson('results.json', results.slice(0, 4));
   recordHealth('Results',true,{completedAt:new Date().toISOString(),count:Math.min(results.length,4),sourceUrl:`https://www.sherdog.com${eventPath}`});
   console.log(`✓ results.json (${Math.min(results.length, 4)} resultados de "${eventName}")`);

@@ -1,6 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {parseSherdogResults,resultPresentation} from './lib/recent-results.mjs';
+import {archiveEventResults} from './lib/event-results.mjs';
 import {historyMatchesRecord} from '../src/lib/history-sanity.mjs';
 import {historyRefreshDue,activeFighterSlugs,selectHistoryRefreshTargets} from './lib/history-refresh.mjs';
 import {preserveRecordScope} from './lib/record-sanity.mjs';
@@ -26,6 +27,22 @@ test('no contest has no winner and invalid or unfinished results reject replacem
  assert.equal(resultPresentation(parse(fixture('nc','nc','No Contest'))[0]).winner,false);
  for(const args of [['win','win'],['',''],['win','loss','Draw (Majority)'],['draw','draw','KO (Punch)']])assert.throws(()=>parse(fixture(...args)));
  assert.throws(()=>parse('<table></table>'),/main event missing/);
+});
+test('new editions and partial results cannot erase an event archive', () => {
+ const events = [
+   {slug:'december-card',date:'2026-12-05',main:'Right Athlete vs. Left Athlete',f1:'Right Athlete',f2:'Left Athlete'},
+   {slug:'january-card',date:'2027-01-16',main:'Right Athlete vs. Left Athlete',f1:'Right Athlete',f2:'Left Athlete'},
+ ];
+ const results = parse(fixture());
+ const first = archiveEventResults([], events, events[0].date, results);
+ const both = archiveEventResults(first, events, events[1].date, results.slice(0, 1));
+ assert.deepEqual(both.map(entry => [entry.eventId, entry.results.length]), [
+   ['december-card', 2], ['january-card', 1],
+ ]);
+ const partial = archiveEventResults(both, events, events[0].date, results.slice(0, 1));
+ assert.deepEqual(partial, both);
+ assert.equal(archiveEventResults(both, events, '2027-01-17', results), null);
+ assert.equal(archiveEventResults(both, events, events[0].date, results.slice(1)), null);
 });
 test('historical aggregates must agree with both canonical record and completed bout totals',()=>{
  const hist={recordWiki:'2-1',peleas:[{resultado:'victoria'},{resultado:'derrota'},{resultado:'victoria'}]};

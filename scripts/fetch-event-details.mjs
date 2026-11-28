@@ -6,6 +6,7 @@ import {canonicalEvents} from '../src/lib/event-routing.mjs';
 import {fetchBounded} from './lib/fetch.mjs';
 import {recordHealth} from './lib/health.mjs';
 import {cardCoverage,namedBouts} from './lib/card-coverage.mjs';
+import {parseOfficialPrograms,refreshOfficialPrograms} from './lib/ufc-schedule.mjs';
 
 const events=JSON.parse(readFileSync('src/data/events-all.json','utf8'));
 const fighters=JSON.parse(readFileSync('src/data/fighters.json','utf8'));
@@ -72,4 +73,20 @@ for(const event of canonicalEvents(events).filter(e=>validDate(e.date)&&e.date>=
 }
 writeFileSync('src/data/events-all.json',JSON.stringify(events,null,2)+'\n');
 recordHealth('event-details',failed===0,{updated,failed,partial});
+try {
+  const source = 'https://www.ufc.com/events';
+  const programs = parseOfficialPrograms(await (await fetchBounded(source, {
+    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; QuimbaraBot/1.0)' },
+  })).text());
+  const path = 'src/data/event-programs.json';
+  const previous = JSON.parse(readFileSync(path, 'utf8'));
+  const checkedAt = new Date().toISOString();
+  const result = refreshOfficialPrograms(events, previous, programs, checkedAt);
+  if (!result.matched) throw new Error('No matching official programs; prior schedules retained');
+  writeFileSync(path, JSON.stringify(result.programs, null, 2)+'\n');
+  recordHealth('event-programs',true,{checkedAt,matched:result.matched,sourceUrl:source});
+} catch (error) {
+  recordHealth('event-programs',false,{error:String(error.message)});
+  console.warn(`::warning::UFC official schedule: ${error.message}`);
+}
 if(failed)process.exitCode=1;
